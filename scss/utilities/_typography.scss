@@ -1,0 +1,71 @@
+
+//==========================================================================
+// Typography Utilities
+//==========================================================================
+
+
+//  Font Family
+//=========================================================================
+
+@each $key, $val in $h-font-families {
+  .h-font-family-#{$key} {
+    font-family: $val !important;
+  }
+};
+
+
+//  Font Size
+//==========================================================================
+
+@each $key, $val in $h-font-sizes {
+  .h-font-size-#{$key} {
+    font-size: $val !important;
+  }
+};
+
+
+//  Font Weight
+//==========================================================================
+
+@each $key, $val in $h-font-weights {
+  .h-font-weight-#{$key} {
+    font-weight: $val !important;
+  }
+};
+
+
+//  Line Height
+//==========================================================================
+
+@each $key, $val in $h-line-heights {
+  .h-line-height-#{$key} {
+    line-height: $val !important;
+  }
+};
+
+
+//  Code
+//==========================================================================
+
+.h-code {
+  display: inline;
+  padding: .125rem;
+  border-radius: $h-border-radius;
+  font-family: $h-font-family-mono;
+  font-size: $h-font-size-sm;
+  font-weight: $h-font-weight-bold;
+  color: $h-blue-400;
+  background-color: $h-blue-50;
+}
+
+
+//  Word Break
+//==========================================================================
+
+.h-word-break-all {
+  word-break: break-all !important;
+}
+
+.h-word-break-word {
+  word-break: break-word !important;
+}

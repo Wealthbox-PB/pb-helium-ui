@@ -1,0 +1,75 @@
+
+//==========================================================================
+//  Component Variables
+//==========================================================================
+
+
+//  Form Elements
+//==========================================================================
+
+//  Color
+$h-color-form-element-label:                $h-gray-600;
+$h-color-form-element-text:                 $h-gray-900;
+$h-color-form-element-text--success:        $h-color-text-success;
+$h-color-form-element-text--error:          $h-color-text-error;
+$h-color-form-element-text--disabled:       $h-gray-400;
+$h-color-form-element-placeholder-text:     $h-color-text-lighter;
+$h-color-checkbox-radio-icon:               str-slice("#{$h-white}", 2);
+$h-color-checkbox-radio-icon--disabled:     str-slice("#{$h-gray-250}", 2);
+$h-color-form-element-background:           $h-white;
+$h-color-form-element-background--alt:      $h-gray-25;
+$h-color-form-element-background--select:   $h-color-form-element-background--alt;
+$h-color-form-element-background--addon:    $h-color-form-element-background--alt;
+$h-color-form-element-background--file:     $h-color-form-element-background--alt;
+$h-color-form-element-background--disabled: $h-gray-100;
+$h-color-form-element-border:               $h-gray-200;
+$h-color-form-element-border--focused:      $h-blue-300;
+$h-color-form-element-border--error:        $h-red-600;
+$h-color-form-element-box-shadow--focused:  $h-blue-100;
+$h-color-form-element-box-shadow--error:    $h-red-100;
+
+//  Box Model
+$h-form-element-label-spacing:              .375rem;
+$h-form-element-check-spacing:              .5rem;
+$h-form-group-spacing:                      1.5rem;
+$h-form-group-spacing--nested:              ($h-form-group-spacing * (2/3));
+
+// Using our base line-height value (1.5) gives us a computed line-height of 21px,
+// because our form elements have a computed font-size of 14px. We add 1px to the
+// line-height to give us a computed value of 22px to make this value an even number.
+// To make things consistent with other line-height values, we divide the 22px by the
+// computed font-size to give us our new line-height.
+$h-form-element-line-height:                ((($h-font-size-document * ($h-font-size-md / 1rem)) * $h-line-height-base) + 1) / ($h-font-size-document * ($h-font-size-md / 1rem));
+
+// Use two "-" to fix cross-browser whitespace removal (https://github.com/yui/yuicompressor/issues/59)
+$h-form-element-height:                     calc(2rem - -4px);
+
+$h-form-element-padding-x:                  0.5rem;
+$h-form-element-padding-y:                  0.375rem;
+$h-form-element-border-radius:              $h-border-radius;
+$h-form-element-box-shadow-size:            0 0 0 0.1875rem;
+$h-form-element-box-shadow--focused:        $h-form-element-box-shadow-size $h-color-form-element-box-shadow--focused;
+$h-form-element-box-shadow--error:          $h-form-element-box-shadow-size $h-color-form-element-box-shadow--error;
+$h-checkbox-radio-spacing:                  0.5rem;
+$h-checkbox-radio-size:                     1.25rem;
+$h-checkbox-radio-size--sm:                 1rem;
+$h-checkbox-radio-size--lg:                 1.5rem;
+$h-checkbox-radio-scale-active:             1.125;
+$h-checkbox-scale-invisible:                0.35;
+$h-checkbox-scale-visible:                  0.7;
+$h-radio-scale-invisible:                   0.2;
+$h-radio-scale-visible:                     0.4444444444;
+$h-radio-scale-visible--sm:                 0.4285714286;
+$h-radio-scale-visible--lg:                 0.4545454545;
+
+// Animation
+$h-form-element-animation-duration:         $h-animation-duration-sm;
+$h-checkbox-radio-animation-duration:       $h-animation-duration-xl;
+
+
+//  Button
+//==========================================================================
+
+//  Box Model
+$h-btn-border-radius: $h-border-radius;
+$h-btn-spacing-x:     0.5rem;

@@ -1,0 +1,112 @@
+
+//==========================================================================
+//  Color Variables
+//==========================================================================
+
+
+//  Wealthbox Palette
+//==========================================================================
+
+$h-gray-900:   #313947;
+$h-gray-800:   #464D5A;
+$h-gray-700:   #5B626E;
+$h-gray-600:   #717883;
+$h-gray-500:   #888E98;
+$h-gray-400:   #9FA5AE;
+$h-gray-300:   #B7BDC4;
+$h-gray-250:   #C3C9CF;
+$h-gray-200:   #D0D5DB;
+$h-gray-150:   #DCE1E6;
+$h-gray-100:   #E9EEF2;
+$h-gray-50:    #F4F6F8;
+$h-gray-25:    #F9FAFB;
+
+$h-blue-900:   #062C54;
+$h-blue-800:   #083C74;
+$h-blue-700:   #0B4C93;
+$h-blue-600:   #0D5DB4;
+$h-blue-500:   #106ED4;
+$h-blue-400:   #3F8BDC;
+$h-blue-300:   #6FA8E5;
+$h-blue-200:   #9FC5ED;
+$h-blue-100:   #CFE2F6;
+$h-blue-50:    #E6F0FA;
+$h-blue-25:    #F2F7FC;
+
+$h-purple-900: #3D2746;
+$h-purple-800: #533360;
+$h-purple-700: #6A3F7C;
+$h-purple-600: #824C98;
+$h-purple-500: #9B59B6;
+$h-purple-400: #B07AC5;
+$h-purple-300: #C59AD3;
+$h-purple-200: #D8BBE2;
+$h-purple-100: #ECDDF1;
+$h-purple-50:  #F6EEF8;
+
+$h-green-900:  #1A4526;
+$h-green-800:  #1D5F32;
+$h-green-700:  #1E7A3D;
+$h-green-600:  #1C964A;
+$h-green-500:  #15B356;
+$h-green-400:  #5DC377;
+$h-green-300:  #8AD398;
+$h-green-200:  #B2E2BA;
+$h-green-100:  #D9F1DC;
+$h-green-50:   #ECF8ED;
+
+$h-yellow-900: #595518;
+$h-yellow-800: #7B761B;
+$h-yellow-700: #9F991B;
+$h-yellow-600: #C4BD19;
+$h-yellow-500: #EBE312;
+$h-yellow-400: #F3E859;
+$h-yellow-300: #F9EE86;
+$h-yellow-200: #FEF3AF;
+$h-yellow-100: #FFF9D7;
+$h-yellow-50:  #FFFCEB;
+
+$h-orange-900: #613511;
+$h-orange-800: #864812;
+$h-orange-700: #AD5B10;
+$h-orange-600: #D56F0B;
+$h-orange-500: #FF8400;
+$h-orange-400: #FF9D47;
+$h-orange-300: #FFB576;
+$h-orange-200: #FFCEA3;
+$h-orange-100: #FFE6D0;
+$h-orange-50:  #FFF2E7;
+
+$h-red-900:    #5C0606;
+$h-red-800:    #800808;
+$h-red-700:    #A20B0B;
+$h-red-600:    #C50D0D;
+$h-red-500:    #E81010;
+$h-red-400:    #EC3F3F;
+$h-red-300:    #F16F6F;
+$h-red-200:    #F59F9F;
+$h-red-100:    #FACFCF;
+$h-red-50:     #FCE6E6;
+
+$h-black:      #000;
+$h-white:      #FFF;
+
+
+// Brand Palette
+//==========================================================================
+
+$h-color-brand: $h-blue-500;
+
+
+//  Text Colors
+//==========================================================================
+
+$h-color-text-lighter: $h-gray-300;
+$h-color-text-light:   $h-gray-500;
+$h-color-text:         $h-gray-700;
+$h-color-text-dark:    $h-gray-800;
+$h-color-text-success: $h-green-500;
+$h-color-text-error:   $h-red-600;
+$h-color-link:         $h-blue-600;
+$h-color-link-hover:   $h-blue-500;
+$h-color-headings:     inherit;

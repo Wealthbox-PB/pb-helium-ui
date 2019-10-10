@@ -1,0 +1,46 @@
+
+//==========================================================================
+//  Animation Utilities
+//==========================================================================
+
+
+//  Animation Names
+//==========================================================================
+
+@each $key, $val in $h-animation-names {
+  .h-animation-#{$key} { animation-name: $val !important; }
+};
+
+
+//  Duration and Delay
+//==========================================================================
+
+@each $key, $val in $h-animation-durations {
+  .h-animation-duration-#{$key} { animation-duration: $val !important; }
+
+  .h-animation-delay-#{$key} { animation-delay: $val !important; }
+};
+
+
+//  Timing Functions
+//==========================================================================
+
+@each $key, $val in $h-animation-timings {
+  .h-animation-timing-#{$key} { animation-timing-function: $val !important; }
+};
+
+
+//  Fill Modes
+//==========================================================================
+
+@each $key, $val in $h-animation-fill-modes {
+  .h-animation-fill-mode-#{$key} { animation-fill-mode: $val !important; }
+};
+
+
+//  Direction
+//==========================================================================
+
+@each $key, $val in $h-animation-directions {
+  .h-animation-direction-#{$key} { animation-direction: $val !important; }
+};

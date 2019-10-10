@@ -1,0 +1,300 @@
+
+//==========================================================================
+//  Button
+//==========================================================================
+
+
+//  Base
+//==========================================================================
+
+@mixin h-btn-base {
+  display: inline-flex;
+  border: 1px solid transparent;
+  border-radius: $h-btn-border-radius;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: $h-font-weight-medium;
+  @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-form-element-line-height);
+  @include h-form-element-transition();
+
+  &:hover,
+  &.h-btn--hover {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.h-btn--focus {
+    outline: 0;
+  }
+
+  &:disabled,
+  &[disabled],
+  &.disabled,
+  &.h-btn--disabled {
+    opacity: 0.5;
+    cursor: auto;
+    box-shadow: none;
+  }
+}
+
+
+//  Size
+//==========================================================================
+
+@mixin h-btn-size($h-padding-btn, $h-font-size-btn, $h-line-height-btn: $h-line-height-base) {
+  line-height: $h-line-height-btn;
+  padding: $h-padding-btn;
+  font-size: $h-font-size-btn;
+}
+
+@mixin h-btn-xs {
+  @include h-btn-size($h-padding-btn: 0.1875rem 0.375rem, $h-font-size-btn: $h-font-size-xs);
+}
+
+@mixin h-btn-sm {
+  @include h-btn-size($h-padding-btn: 0.25rem 0.5rem, $h-font-size-btn: $h-font-size-sm);
+}
+
+@mixin h-btn-md {
+  @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-form-element-line-height);
+}
+
+@mixin h-btn-lg {
+  @include h-btn-size($h-padding-btn: 0.5rem 1rem, $h-font-size-btn: $h-font-size-lg);
+}
+
+@mixin h-btn-xl {
+  @include h-btn-size($h-padding-btn: 0.625rem 1.25rem, $h-font-size-btn: $h-font-size-xl);
+}
+
+
+//  Style (Fill and Outline)
+//==========================================================================
+
+@mixin h-btn-style(
+  $h-background-color-btn,
+  $h-color-text-btn,
+  $h-background-color-btn-hover,
+  $h-color-text-btn-hover,
+  $h-box-shadow-btn-color,
+  $h-border-color-btn-hover: false,
+  $h-border-color-btn: false,
+  $h-background-color-btn-outline-active: false
+){
+  &,
+  &:active,
+  &.h-btn--active,
+  &:focus,
+  &.h-btn--focus {
+    color: $h-color-text-btn;
+  }
+
+  &,
+  &:focus,
+  &.h-btn--focus {
+    @if ($h-border-color-btn) {
+      border-color: $h-border-color-btn;
+    }
+    background-color: $h-background-color-btn;
+  }
+
+  &:hover,
+  &.h-btn--hover {
+    @if ($h-border-color-btn-hover) {
+      border-color: $h-border-color-btn-hover;
+    }
+    background-color: $h-background-color-btn-hover;
+    color: $h-color-text-btn-hover;
+  }
+
+  &:active,
+  &.h-btn--active {
+    @if ($h-border-color-btn-hover) {
+      border-color: darken($h-border-color-btn-hover, 5%);
+    }
+    @if ($h-background-color-btn-outline-active) {
+      background-color: $h-background-color-btn-outline-active;
+    } @else {
+      background-color: darken($h-background-color-btn-hover, 5%);
+    }
+  }
+
+  &:focus,
+  &.h-btn--focus {
+    box-shadow: 0 0 0 0.1875rem rgba($h-box-shadow-btn-color, .4);
+  }
+
+  &:disabled,
+  &[disabled],
+  &.disabled,
+  &.h-btn--disabled {
+    &:hover,
+    &.h-btn--hover,
+    &:active,
+    &.h-btn--active,
+    &:focus,
+    &.h-btn--focus {
+      border-color: $h-border-color-btn;
+      background-color: $h-background-color-btn;
+      color: $h-color-text-btn;
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin h-btn-primary {
+  @include h-btn-style(
+    $h-background-color-btn: $h-blue-500,
+    $h-color-text-btn: $h-white,
+    $h-background-color-btn-hover: $h-blue-600,
+    $h-color-text-btn-hover: $h-white,
+    $h-box-shadow-btn-color: $h-blue-500
+  )
+}
+
+@mixin h-btn-secondary {
+  @include h-btn-style(
+    $h-border-color-btn: $h-gray-200,
+    $h-background-color-btn: $h-gray-25,
+    $h-color-text-btn: $h-gray-700,
+    $h-border-color-btn-hover: $h-gray-250,
+    $h-background-color-btn-hover: $h-gray-50,
+    $h-color-text-btn-hover: $h-gray-800,
+    $h-box-shadow-btn-color: $h-blue-500
+  )
+}
+
+@mixin h-btn-positive {
+  @include h-btn-style(
+    $h-background-color-btn: $h-green-500,
+    $h-color-text-btn: $h-white,
+    $h-background-color-btn-hover: $h-green-600,
+    $h-color-text-btn-hover: $h-white,
+    $h-box-shadow-btn-color: $h-green-500
+  )
+}
+
+@mixin h-btn-negative {
+  @include h-btn-style(
+    $h-background-color-btn: $h-red-600,
+    $h-color-text-btn: $h-white,
+    $h-background-color-btn-hover: $h-red-700,
+    $h-color-text-btn-hover: $h-white,
+    $h-box-shadow-btn-color: $h-red-600
+  )
+}
+
+@mixin h-btn-info {
+  @include h-btn-style(
+    $h-background-color-btn: $h-blue-100,
+    $h-color-text-btn: $h-blue-600,
+    $h-background-color-btn-hover: $h-blue-200,
+    $h-color-text-btn-hover: $h-blue-800,
+    $h-box-shadow-btn-color: $h-blue-100
+  )
+}
+
+@mixin h-btn-primary-outline {
+  @include h-btn-style(
+    $h-border-color-btn: $h-blue-500,
+    $h-background-color-btn: $h-white,
+    $h-color-text-btn: $h-blue-500,
+    $h-border-color-btn-hover: $h-blue-600,
+    $h-background-color-btn-hover: $h-white,
+    $h-color-text-btn-hover: $h-blue-600,
+    $h-background-color-btn-outline-active: $h-blue-50,
+    $h-box-shadow-btn-color: $h-blue-500
+  )
+}
+
+@mixin h-btn-secondary-outline {
+  @include h-btn-style(
+    $h-border-color-btn: $h-gray-700,
+    $h-background-color-btn: $h-white,
+    $h-color-text-btn: $h-gray-700,
+    $h-border-color-btn-hover: $h-gray-800,
+    $h-background-color-btn-hover: $h-white,
+    $h-color-text-btn-hover: $h-gray-800,
+    $h-background-color-btn-outline-active: $h-gray-50,
+    $h-box-shadow-btn-color: $h-blue-500
+  )
+}
+
+@mixin h-btn-positive-outline {
+  @include h-btn-style(
+    $h-border-color-btn: $h-green-500,
+    $h-background-color-btn: $h-white,
+    $h-color-text-btn: $h-green-500,
+    $h-border-color-btn-hover: $h-green-600,
+    $h-background-color-btn-hover: $h-white,
+    $h-color-text-btn-hover: $h-green-600,
+    $h-background-color-btn-outline-active: $h-green-50,
+    $h-box-shadow-btn-color: $h-green-500
+  )
+}
+
+@mixin h-btn-negative-outline {
+  @include h-btn-style(
+    $h-border-color-btn: $h-red-600,
+    $h-background-color-btn: $h-white,
+    $h-color-text-btn: $h-red-600,
+    $h-border-color-btn-hover: $h-red-700,
+    $h-background-color-btn-hover: $h-white,
+    $h-color-text-btn-hover: $h-red-700,
+    $h-background-color-btn-outline-active: $h-red-50,
+    $h-box-shadow-btn-color: $h-red-700
+  )
+}
+
+@mixin h-btn-info-outline {
+  @include h-btn-style(
+    $h-border-color-btn: $h-blue-100,
+    $h-background-color-btn: $h-white,
+    $h-color-text-btn: $h-blue-600,
+    $h-border-color-btn-hover: $h-blue-200,
+    $h-background-color-btn-hover: $h-white,
+    $h-color-text-btn-hover: $h-blue-800,
+    $h-background-color-btn-outline-active: $h-blue-50,
+    $h-box-shadow-btn-color: $h-blue-100
+  )
+}
+
+
+//  Style (Link)
+//==========================================================================
+
+@mixin h-btn-link-style(
+  $h-color-text-btn,
+  $h-color-text-btn-hover
+){
+  color: $h-color-text-btn;
+
+  &:hover,
+  &.h-btn--hover,
+  &:active,
+  &.h-btn--active {
+    color: $h-color-text-btn-hover;
+  }
+
+  &:focus,
+  &.h-btn--focus {
+    box-shadow: $h-form-element-box-shadow--focused;
+  }
+}
+
+@mixin h-btn-link {
+  @include h-btn-link-style(
+    $h-color-text-btn: $h-color-link,
+    $h-color-text-btn-hover: $h-color-link-hover
+  )
+}
+
+@mixin h-btn-link-secondary {
+  @include h-btn-link-style(
+    $h-color-text-btn: $h-color-text,
+    $h-color-text-btn-hover: $h-color-text-dark
+  )
+}

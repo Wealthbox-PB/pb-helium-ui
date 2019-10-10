@@ -1,0 +1,106 @@
+
+//==========================================================================
+//  Typography Variables
+//==========================================================================
+
+
+//  Font Family
+//==========================================================================
+
+$h-font-families-raw: (
+  sans-serif: unquote('"aktiv-grotesk", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif'),
+  mono: #{Monaco, Verdana, Geneva, Arial, Helvetica, sans-serif}
+);
+
+$h-font-family-sans-serif: map-get($h-font-families-raw, sans-serif);
+$h-font-family-mono:       map-get($h-font-families-raw, mono);
+
+$h-font-families-semantic: (
+  default: $h-font-family-sans-serif
+);
+
+$h-font-family-default: map-get($h-font-families-semantic, default);
+
+$h-font-families: map-merge($h-font-families-raw, $h-font-families-semantic);
+
+
+//  Font Size
+//==========================================================================
+
+$h-font-sizes-base: (
+  document:     16px,
+  document-rem: 1rem,
+  small-elm:    80%
+);
+
+$h-font-size-document:     map-get($h-font-sizes-base, document);
+$h-font-size-document-rem: map-get($h-font-sizes-base, document-rem);
+$h-font-size-small-elm:    map-get($h-font-sizes-base, small-elm);
+
+$h-font-sizes-semantic: (
+  xs:   $h-font-size-document-rem * .6875,
+  sm:   $h-font-size-document-rem * .75,
+  md:   $h-font-size-document-rem * .875,
+  base: $h-font-size-document-rem * .875, // Base should always be the same as md
+  lg:   $h-font-size-document-rem * 1,
+  xl:   $h-font-size-document-rem * 1.25,
+  h1:   $h-font-size-document-rem * 2,
+  h2:   $h-font-size-document-rem * 1.75,
+  h3:   $h-font-size-document-rem * 1.5,
+  h4:   $h-font-size-document-rem * 1.25,
+  h5:   $h-font-size-document-rem * 1,
+  h6:   $h-font-size-document-rem * 0.875
+);
+
+$h-font-size-xs:   map-get($h-font-sizes-semantic, xs);
+$h-font-size-sm:   map-get($h-font-sizes-semantic, sm);
+$h-font-size-md:   map-get($h-font-sizes-semantic, md);
+$h-font-size-base: map-get($h-font-sizes-semantic, base); // Base should always be the same as md
+$h-font-size-lg:   map-get($h-font-sizes-semantic, lg);
+$h-font-size-xl:   map-get($h-font-sizes-semantic, xl);
+$h-font-size-h1:   map-get($h-font-sizes-semantic, h1);
+$h-font-size-h2:   map-get($h-font-sizes-semantic, h2);
+$h-font-size-h3:   map-get($h-font-sizes-semantic, h3);
+$h-font-size-h4:   map-get($h-font-sizes-semantic, h4);
+$h-font-size-h5:   map-get($h-font-sizes-semantic, h5);
+$h-font-size-h6:   map-get($h-font-sizes-semantic, h6);
+
+$h-font-sizes: map-merge($h-font-sizes-base, $h-font-sizes-semantic);
+
+
+//  Font Weight
+//==========================================================================
+
+$h-font-weights-raw: (
+  light:  300,
+  normal: 400,
+  medium: 500,
+  bold:   700
+);
+
+$h-font-weight-light:  map-get($h-font-weights-raw, light);
+$h-font-weight-normal: map-get($h-font-weights-raw, normal);
+$h-font-weight-medium: map-get($h-font-weights-raw, medium);
+$h-font-weight-bold:   map-get($h-font-weights-raw, bold);
+
+$h-font-weights-semantic: (
+  base: $h-font-weight-normal,
+  heading: $h-font-weight-medium
+);
+
+$h-font-weight-base:    map-get($h-font-weights-semantic, base);
+$h-font-weight-heading: map-get($h-font-weights-semantic, heading);
+
+$h-font-weights: map-merge($h-font-weights-raw, $h-font-weights-semantic);
+
+
+//  Line Height
+//==========================================================================
+
+$h-line-heights: (
+  base:    1.5,
+  heading: 1.2
+);
+
+$h-line-height-base:     map-get($h-line-heights, base);
+$h-line-height-heading:  map-get($h-line-heights, heading);

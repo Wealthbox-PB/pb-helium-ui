@@ -1,0 +1,99 @@
+
+//==========================================================================
+//  Animation Variables
+//==========================================================================
+
+
+//  Keyframes
+//==========================================================================
+
+$h-animation-names: (
+  fade-in:    h-fade-in,
+  fade-in-up: h-fade-in-up
+);
+
+$h-animation-fade-in:    map-get($h-animation-names, fade-in);
+$h-animation-fade-in-up: map-get($h-animation-names, fade-in-up);
+
+
+//  Duration and Delay
+//==========================================================================
+
+$h-animation-durations: (
+  xxs:  50ms,
+  xs:   100ms,
+  sm:   150ms,
+  md:   200ms,
+  lg:   250ms,
+  xl:   300ms,
+  xxl:  500ms,
+  xxxl: 1000ms
+);
+
+$h-animation-duration-xxs:  map-get($h-animation-durations, xxs);
+$h-animation-duration-xs:   map-get($h-animation-durations, xs);
+$h-animation-duration-sm:   map-get($h-animation-durations, sm);
+$h-animation-duration-md:   map-get($h-animation-durations, md);
+$h-animation-duration-lg:   map-get($h-animation-durations, lg);
+$h-animation-duration-xl:   map-get($h-animation-durations, xl);
+$h-animation-duration-xxl:  map-get($h-animation-durations, xxl);
+$h-animation-duration-xxxl: map-get($h-animation-durations, xxxl);
+
+$h-animation-delay-xxs:     map-get($h-animation-durations, xxs);
+$h-animation-delay-xs:      map-get($h-animation-durations, xs);
+$h-animation-delay-sm:      map-get($h-animation-durations, sm);
+$h-animation-delay-md:      map-get($h-animation-durations, md);
+$h-animation-delay-lg:      map-get($h-animation-durations, lg);
+$h-animation-delay-xl:      map-get($h-animation-durations, xl);
+$h-animation-delay-xxl:     map-get($h-animation-durations, xxl);
+$h-animation-delay-xxxl:    map-get($h-animation-durations, xxxl);
+
+
+//  Timing Functions
+//==========================================================================
+
+$h-animation-timings: (
+  ease: ease,
+  ease-in: ease-in,
+  ease-out: ease-out,
+  ease-in-out: ease-in-out,
+  linear: linear
+);
+
+$h-animation-timing-ease:        map-get($h-animation-timings, ease);
+$h-animation-timing-ease-in:     map-get($h-animation-timings, ease-in);
+$h-animation-timing-ease-out:    map-get($h-animation-timings, ease-out);
+$h-animation-timing-ease-in-out: map-get($h-animation-timings, ease-in-out);
+$h-animation-timing-linear:      map-get($h-animation-timings, linear);
+
+
+//  Fill Modes
+//==========================================================================
+
+$h-animation-fill-modes: (
+  none: none,
+  forwards: forwards,
+  backwards: backwards,
+  both: both
+);
+
+$h-animation-fill-mode-none:      map-get($h-animation-fill-modes, none);
+$h-animation-fill-mode-forwards:  map-get($h-animation-fill-modes, forwards);
+$h-animation-fill-mode-backwards: map-get($h-animation-fill-modes, backwards);
+$h-animation-fill-mode-both:      map-get($h-animation-fill-modes, both);
+
+
+//  Direction
+//==========================================================================
+
+$h-animation-directions: (
+  normal: normal,
+  reverse: reverse,
+  alternate: alternate,
+  alternate-reverse: alternate-reverse
+);
+
+$h-animation-direction-normal:            map-get($h-animation-directions, normal);
+$h-animation-direction-reverse:           map-get($h-animation-directions, reverse);
+$h-animation-direction-alternate:         map-get($h-animation-directions, alternate);
+$h-animation-direction-alternate-reverse: map-get($h-animation-directions, alternate-reverse);
