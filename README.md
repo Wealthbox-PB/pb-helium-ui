@@ -9,9 +9,7 @@ For the documentation repository
 - [helium-docs](https://github.com/starburstlabs/helium-docs)
 
 Copyright (c) Starburst Labs, Inc.
-594 Broadway
-Suite 1004
-New York City, NY 10012
+594 Broadway Suite 1004, New York City, NY 10012
 
 ## Legal
 
