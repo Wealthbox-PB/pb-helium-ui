@@ -34,15 +34,8 @@ $h-form-element-check-spacing:              .5rem;
 $h-form-group-spacing:                      1.5rem;
 $h-form-group-spacing--nested:              ($h-form-group-spacing * (2/3));
 
-// Using our base line-height value (1.5) gives us a computed line-height of 21px,
-// because our form elements have a computed font-size of 14px. We add 1px to the
-// line-height to give us a computed value of 22px to make this value an even number.
-// To make things consistent with other line-height values, we divide the 22px by the
-// computed font-size to give us our new line-height.
-$h-form-element-line-height:                ((($h-font-size-document * ($h-font-size-md / 1rem)) * $h-line-height-base) + 1) / ($h-font-size-document * ($h-font-size-md / 1rem));
-
-// Use two "-" to fix cross-browser whitespace removal (https://github.com/yui/yuicompressor/issues/59)
-$h-form-element-height:                     calc(2rem - -4px);
+$h-form-element-line-height:                1.2857142857;
+$h-form-element-height:                     2rem;
 
 $h-form-element-padding-x:                  0.5rem;
 $h-form-element-padding-y:                  0.375rem;

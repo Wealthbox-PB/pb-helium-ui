@@ -56,7 +56,8 @@
 .h-input,
 .h-file-input,
 .h-textarea,
-.h-select {
+.h-select,
+.h-input-group .h-input-group__content {
   display: block;
   width: 100%;
   border: 1px solid $h-color-form-element-border;
@@ -555,7 +556,6 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   .h-input-group__content {
     display: flex;
     align-items: center;
-    line-height: $h-form-element-line-height;
     color: $h-color-form-element-label;
     text-align: center;
     white-space: nowrap;
