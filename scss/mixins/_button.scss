@@ -123,7 +123,7 @@
 
   &:focus,
   &.h-btn--focus {
-    box-shadow: 0 0 0 0.1875rem rgba($h-box-shadow-btn-color, .4);
+    box-shadow: 0 0 0 $h-btn-box-shadow-size rgba($h-box-shadow-btn-color, $h-btn-box-shadow-alpha);
   }
 
   &:disabled,

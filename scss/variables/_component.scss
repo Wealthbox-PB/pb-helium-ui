@@ -64,5 +64,8 @@ $h-checkbox-radio-animation-duration:       $h-animation-duration-xl;
 //==========================================================================
 
 //  Box Model
-$h-btn-border-radius: $h-border-radius;
-$h-btn-spacing-x:     0.5rem;
+$h-btn-border-radius:    $h-border-radius;
+$h-btn-spacing-x:        0.5rem;
+
+$h-btn-box-shadow-size:  0.1875rem;
+$h-btn-box-shadow-alpha: 0.4;
