@@ -274,7 +274,9 @@
   &:hover,
   &.h-btn--hover,
   &:active,
-  &.h-btn--active {
+  &.h-btn--active,
+  &:focus,
+  &.h-btn--focus {
     color: $h-color-text-btn-hover;
     text-decoration: underline;
   }
