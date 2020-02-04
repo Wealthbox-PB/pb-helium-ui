@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "2e1381f63634d60847f72d6b331002c16bba73bed7df609d1b3a27b4b58e9685",
-    "current": "2e1381f63634d60847f72d6b331002c16bba73bed7df609d1b3a27b4b58e9685"
+    "previous": "235f09f4cab468d22765a1247d26101ccb84d349f614a2f3531a641ae7228156",
+    "current": "235f09f4cab468d22765a1247d26101ccb84d349f614a2f3531a641ae7228156"
   },
   "fonts": [
-    "fonts/helium-icons_2e1381f63634d60847f72d6b331002c1.ttf",
-    "fonts/helium-icons_2e1381f63634d60847f72d6b331002c1.svg",
-    "fonts/helium-icons_2e1381f63634d60847f72d6b331002c1.woff",
-    "fonts/helium-icons_2e1381f63634d60847f72d6b331002c1.eot",
-    "fonts/helium-icons_2e1381f63634d60847f72d6b331002c1.woff2"
+    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.ttf",
+    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.svg",
+    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.woff",
+    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.eot",
+    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.woff2"
   ],
   "glyphs": {
     "add": {
@@ -1296,9 +1296,9 @@
     "font_design_size": 16,
     "font_em": 512,
     "font_name": "helium-icons",
-    "force": true,
+    "force": false,
     "input": {
-      "templates": "assets/icons",
+      "templates": "fonts/templates",
       "vectors": "assets/icons"
     },
     "no_hash": false,
@@ -1310,13 +1310,11 @@
     "preprocessor_path": "#{$icons_preprocessor_path}",
     "quiet": false,
     "templates": [
-      "scss-rails",
       "_iconography.scss"
     ],
     "verbose": true
   },
   "templates": [
-    "scss/utilities/_helium-icons-rails.scss",
     "scss/utilities/_iconography.scss"
   ]
 }
