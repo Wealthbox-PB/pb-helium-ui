@@ -6,6 +6,7 @@ css_selector: .h-icon-{{glyph}}
 templates: [ _iconography.scss ]
 input:
   vectors: assets/icons
+  templates: fonts/templates
 output:
   fonts: fonts
   css: scss/utilities
