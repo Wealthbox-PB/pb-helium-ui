@@ -1,0 +1,57 @@
+
+//==========================================================================
+//  Modal
+//==========================================================================
+
+
+.h-modal__dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: $h-modal-width--mobile;
+  min-height: $h-modal-min-height;
+  border-radius: $h-modal-border-radius;
+  background: $h-white;
+  box-shadow: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
+
+  @include media-breakpoint-up(md) {
+    width: $h-modal-width--desktop;
+  }
+}
+
+.h-modal__header {
+  padding: $h-modal-padding;
+}
+
+.h-modal__heading {
+  margin: 0;
+  color: $h-black;
+  font-size: 1.125rem;
+  font-weight: $h-font-weight-medium;
+  line-height: 20px;
+}
+
+.h-modal__close {
+  padding: 1rem;
+  margin: -1rem;
+  border-radius: $h-border-radius;
+  color: $h-color-text;
+  font-size: $h-font-size-sm;
+  box-shadow: none;
+  @include h-form-element-transition();
+
+  &:focus {
+    box-shadow: $h-form-element-box-shadow--focused;
+  }
+}
+
+.h-modal__body {
+  padding: 0 $h-modal-padding;
+}
+
+.h-modal__footer {
+  padding: 1rem $h-modal-padding;
+  border-bottom-right-radius: $h-modal-border-radius;
+  border-bottom-left-radius: $h-modal-border-radius;
+  background: $h-gray-50;
+}
