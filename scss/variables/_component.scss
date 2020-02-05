@@ -69,3 +69,14 @@ $h-btn-spacing-x:        0.5rem;
 
 $h-btn-box-shadow-size:  0.1875rem;
 $h-btn-box-shadow-alpha: 0.4;
+
+
+//  Modal
+//==========================================================================
+
+// Box Model
+$h-modal-width--mobile: calc(100vw - 2rem);
+$h-modal-width--desktop: 500px;
+$h-modal-min-height: $h-modal-width--desktop / 2;
+$h-modal-padding: 1.5rem;
+$h-modal-border-radius: 0.5rem;
