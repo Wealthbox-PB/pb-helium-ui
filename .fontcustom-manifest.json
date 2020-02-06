@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "235f09f4cab468d22765a1247d26101ccb84d349f614a2f3531a641ae7228156",
-    "current": "235f09f4cab468d22765a1247d26101ccb84d349f614a2f3531a641ae7228156"
+    "previous": "dc338502ad587b4dad44d631ea23f3fb6f4e5e1337d39d7768701dd29cbab23d",
+    "current": "dc338502ad587b4dad44d631ea23f3fb6f4e5e1337d39d7768701dd29cbab23d"
   },
   "fonts": [
-    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.ttf",
-    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.svg",
-    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.woff",
-    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.eot",
-    "fonts/helium-icons_235f09f4cab468d22765a1247d26101c.woff2"
+    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.ttf",
+    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.svg",
+    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.woff",
+    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.eot",
+    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.woff2"
   ],
   "glyphs": {
     "add": {
@@ -299,6 +299,10 @@
       "codepoint": 61767,
       "source": "assets/icons/download-circle.svg"
     },
+    "download-circle--lg": {
+      "codepoint": 62014,
+      "source": "assets/icons/download-circle--lg.svg"
+    },
     "dropboxemail": {
       "codepoint": 61768,
       "source": "assets/icons/dropboxemail.svg"
@@ -563,10 +567,6 @@
       "codepoint": 61833,
       "source": "assets/icons/list--lg.svg"
     },
-    "loader--lg": {
-      "codepoint": 61834,
-      "source": "assets/icons/loader--lg.svg"
-    },
     "lock": {
       "codepoint": 61835,
       "source": "assets/icons/lock.svg"
@@ -607,13 +607,17 @@
       "codepoint": 61844,
       "source": "assets/icons/mail-merge--lg.svg"
     },
-    "map--filled": {
-      "codepoint": 61845,
-      "source": "assets/icons/map--filled.svg"
-    },
     "map-pin": {
       "codepoint": 61846,
       "source": "assets/icons/map-pin.svg"
+    },
+    "map-pin--filled": {
+      "codepoint": 62015,
+      "source": "assets/icons/map-pin--filled.svg"
+    },
+    "map-pin--filled--lg": {
+      "codepoint": 62016,
+      "source": "assets/icons/map-pin--filled--lg.svg"
     },
     "map-pin--lg": {
       "codepoint": 61847,
@@ -1139,10 +1143,6 @@
       "codepoint": 61977,
       "source": "assets/icons/star--lg.svg"
     },
-    "star-circled--lg": {
-      "codepoint": 61978,
-      "source": "assets/icons/star-circled--lg.svg"
-    },
     "star-outlined": {
       "codepoint": 61979,
       "source": "assets/icons/star-outlined.svg"
@@ -1238,6 +1238,10 @@
     "users": {
       "codepoint": 62002,
       "source": "assets/icons/users.svg"
+    },
+    "users--filled": {
+      "codepoint": 62017,
+      "source": "assets/icons/users--filled.svg"
     },
     "users--filled--lg": {
       "codepoint": 62003,

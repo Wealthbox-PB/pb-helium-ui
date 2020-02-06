@@ -1,18 +1,18 @@
 //
 // Icon Font: helium-icons
-// Current Version: 235f09f4cab468d22765a1247d26101ccb84d349f614a2f3531a641ae7228156
+// Current Version: dc338502ad587b4dad44d631ea23f3fb6f4e5e1337d39d7768701dd29cbab23d
 //
 
 $icons_preprocessor_path: 'helium-ui/fonts';
 
 @font-face {
   font-family: "helium-icons";
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_235f09f4cab468d22765a1247d26101c.eot");
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_235f09f4cab468d22765a1247d26101c.eot?#iefix") format("embedded-opentype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_235f09f4cab468d22765a1247d26101c.woff2") format("woff2"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_235f09f4cab468d22765a1247d26101c.woff") format("woff"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_235f09f4cab468d22765a1247d26101c.ttf") format("truetype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_235f09f4cab468d22765a1247d26101c.svg#helium-icons") format("svg");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_dc338502ad587b4dad44d631ea23f3fb.eot");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_dc338502ad587b4dad44d631ea23f3fb.eot?#iefix") format("embedded-opentype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_dc338502ad587b4dad44d631ea23f3fb.woff2") format("woff2"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_dc338502ad587b4dad44d631ea23f3fb.woff") format("woff"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_dc338502ad587b4dad44d631ea23f3fb.ttf") format("truetype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_dc338502ad587b4dad44d631ea23f3fb.svg#helium-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,13 +20,13 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "helium-icons";
-    src: font-url("#{$icons_preprocessor_path}/helium-icons_235f09f4cab468d22765a1247d26101c.svg#helium-icons") format("svg");
+    src: font-url("#{$icons_preprocessor_path}/helium-icons_dc338502ad587b4dad44d631ea23f3fb.svg#helium-icons") format("svg");
   }
 }
 
-[data-icon]:before { content: attr(data-icon); }
+[data-h-icon]:before { content: attr(data-icon); }
 
-[data-icon]:before,
+[data-h-icon]:before,
 .h-icon-add:before,
 .h-icon-add--lg:before,
 .h-icon-add-circle:before,
@@ -99,6 +99,7 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-download:before,
 .h-icon-download--lg:before,
 .h-icon-download-circle:before,
+.h-icon-download-circle--lg:before,
 .h-icon-dropboxemail:before,
 .h-icon-dropboxemail--lg:before,
 .h-icon-edit:before,
@@ -165,7 +166,6 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-institution--lg:before,
 .h-icon-list:before,
 .h-icon-list--lg:before,
-.h-icon-loader--lg:before,
 .h-icon-lock:before,
 .h-icon-lock--filled:before,
 .h-icon-lock--filled--lg:before,
@@ -176,8 +176,9 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-lock-open--lg:before,
 .h-icon-mail-merge:before,
 .h-icon-mail-merge--lg:before,
-.h-icon-map--filled:before,
 .h-icon-map-pin:before,
+.h-icon-map-pin--filled:before,
+.h-icon-map-pin--filled--lg:before,
 .h-icon-map-pin--lg:before,
 .h-icon-menu:before,
 .h-icon-menu--lg:before,
@@ -309,7 +310,6 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-special-date--lg:before,
 .h-icon-star:before,
 .h-icon-star--lg:before,
-.h-icon-star-circled--lg:before,
 .h-icon-star-outlined:before,
 .h-icon-star-outlined--lg:before,
 .h-icon-tag:before,
@@ -334,6 +334,7 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-user-info:before,
 .h-icon-user-info--lg:before,
 .h-icon-users:before,
+.h-icon-users--filled:before,
 .h-icon-users--filled--lg:before,
 .h-icon-users--lg:before,
 .h-icon-visibility:before,
@@ -431,6 +432,7 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-download:before { content: "\f145"; }
 .h-icon-download--lg:before { content: "\f146"; }
 .h-icon-download-circle:before { content: "\f147"; }
+.h-icon-download-circle--lg:before { content: "\f23e"; }
 .h-icon-dropboxemail:before { content: "\f148"; }
 .h-icon-dropboxemail--lg:before { content: "\f149"; }
 .h-icon-edit:before { content: "\f14a"; }
@@ -497,7 +499,6 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-institution--lg:before { content: "\f187"; }
 .h-icon-list:before { content: "\f188"; }
 .h-icon-list--lg:before { content: "\f189"; }
-.h-icon-loader--lg:before { content: "\f18a"; }
 .h-icon-lock:before { content: "\f18b"; }
 .h-icon-lock--filled:before { content: "\f18c"; }
 .h-icon-lock--filled--lg:before { content: "\f18d"; }
@@ -508,8 +509,9 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-lock-open--lg:before { content: "\f192"; }
 .h-icon-mail-merge:before { content: "\f193"; }
 .h-icon-mail-merge--lg:before { content: "\f194"; }
-.h-icon-map--filled:before { content: "\f195"; }
 .h-icon-map-pin:before { content: "\f196"; }
+.h-icon-map-pin--filled:before { content: "\f23f"; }
+.h-icon-map-pin--filled--lg:before { content: "\f240"; }
 .h-icon-map-pin--lg:before { content: "\f197"; }
 .h-icon-menu:before { content: "\f198"; }
 .h-icon-menu--lg:before { content: "\f199"; }
@@ -641,7 +643,6 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-special-date--lg:before { content: "\f217"; }
 .h-icon-star:before { content: "\f218"; }
 .h-icon-star--lg:before { content: "\f219"; }
-.h-icon-star-circled--lg:before { content: "\f21a"; }
 .h-icon-star-outlined:before { content: "\f21b"; }
 .h-icon-star-outlined--lg:before { content: "\f21c"; }
 .h-icon-tag:before { content: "\f21d"; }
@@ -666,6 +667,7 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-user-info:before { content: "\f230"; }
 .h-icon-user-info--lg:before { content: "\f231"; }
 .h-icon-users:before { content: "\f232"; }
+.h-icon-users--filled:before { content: "\f241"; }
 .h-icon-users--filled--lg:before { content: "\f233"; }
 .h-icon-users--lg:before { content: "\f234"; }
 .h-icon-visibility:before { content: "\f235"; }
