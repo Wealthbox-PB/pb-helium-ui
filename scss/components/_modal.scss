@@ -12,7 +12,7 @@
   min-height: $h-modal-min-height;
   border-radius: $h-modal-border-radius;
   background: $h-white;
-  box-shadow: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
+  box-shadow: $h-modal-box-shadow;
 
   @include media-breakpoint-up(md) {
     width: $h-modal-width--desktop;
