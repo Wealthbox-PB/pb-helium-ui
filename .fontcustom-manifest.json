@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "dc338502ad587b4dad44d631ea23f3fb6f4e5e1337d39d7768701dd29cbab23d",
-    "current": "dc338502ad587b4dad44d631ea23f3fb6f4e5e1337d39d7768701dd29cbab23d"
+    "previous": "521e5791a2c48e760a4292efd2a777265c120657fdee1c95bbfcc7beab541045",
+    "current": "521e5791a2c48e760a4292efd2a777265c120657fdee1c95bbfcc7beab541045"
   },
   "fonts": [
-    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.ttf",
-    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.svg",
-    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.woff",
-    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.eot",
-    "fonts/helium-icons_dc338502ad587b4dad44d631ea23f3fb.woff2"
+    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.ttf",
+    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.svg",
+    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.woff",
+    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.eot",
+    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.woff2"
   ],
   "glyphs": {
     "add": {
@@ -662,6 +662,22 @@
     "minus--lg": {
       "codepoint": 61857,
       "source": "assets/icons/minus--lg.svg"
+    },
+    "mobile": {
+      "codepoint": 62018,
+      "source": "assets/icons/mobile.svg"
+    },
+    "mobile--lg": {
+      "codepoint": 62019,
+      "source": "assets/icons/mobile--lg.svg"
+    },
+    "newsfeed": {
+      "codepoint": 62020,
+      "source": "assets/icons/newsfeed.svg"
+    },
+    "newsfeed--lg": {
+      "codepoint": 62021,
+      "source": "assets/icons/newsfeed--lg.svg"
     },
     "note": {
       "codepoint": 61858,
