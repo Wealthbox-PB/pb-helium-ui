@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "521e5791a2c48e760a4292efd2a777265c120657fdee1c95bbfcc7beab541045",
-    "current": "521e5791a2c48e760a4292efd2a777265c120657fdee1c95bbfcc7beab541045"
+    "previous": "594bd1af7d2f5cbc626e6bc78151799a11ef2b2143e7ca50b1fccb051042f77b",
+    "current": "594bd1af7d2f5cbc626e6bc78151799a11ef2b2143e7ca50b1fccb051042f77b"
   },
   "fonts": [
-    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.ttf",
-    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.svg",
-    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.woff",
-    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.eot",
-    "fonts/helium-icons_521e5791a2c48e760a4292efd2a77726.woff2"
+    "fonts/helium-icons_594bd1af7d2f5cbc626e6bc78151799a.ttf",
+    "fonts/helium-icons_594bd1af7d2f5cbc626e6bc78151799a.svg",
+    "fonts/helium-icons_594bd1af7d2f5cbc626e6bc78151799a.woff",
+    "fonts/helium-icons_594bd1af7d2f5cbc626e6bc78151799a.eot",
+    "fonts/helium-icons_594bd1af7d2f5cbc626e6bc78151799a.woff2"
   ],
   "glyphs": {
     "add": {
@@ -83,6 +83,18 @@
       "codepoint": 61713,
       "source": "assets/icons/arrow-up--lg.svg"
     },
+    "b-blueleaf": {
+      "codepoint": 62022,
+      "source": "assets/icons/b-blueleaf.svg"
+    },
+    "b-td": {
+      "codepoint": 62023,
+      "source": "assets/icons/b-td.svg"
+    },
+    "b-wealthbox": {
+      "codepoint": 62024,
+      "source": "assets/icons/b-wealthbox.svg"
+    },
     "bell": {
       "codepoint": 61714,
       "source": "assets/icons/bell.svg"
@@ -98,10 +110,6 @@
     "birthdate--lg": {
       "codepoint": 61717,
       "source": "assets/icons/birthdate--lg.svg"
-    },
-    "blueleaf": {
-      "codepoint": 61718,
-      "source": "assets/icons/blueleaf.svg"
     },
     "broadcast": {
       "codepoint": 61719,
@@ -1191,10 +1199,6 @@
       "codepoint": 61986,
       "source": "assets/icons/task-solid--lg.svg"
     },
-    "td": {
-      "codepoint": 61987,
-      "source": "assets/icons/td.svg"
-    },
     "ticket": {
       "codepoint": 61988,
       "source": "assets/icons/ticket.svg"
@@ -1282,10 +1286,6 @@
     "visibility-off--lg": {
       "codepoint": 62008,
       "source": "assets/icons/visibility-off--lg.svg"
-    },
-    "wealthbox": {
-      "codepoint": 62009,
-      "source": "assets/icons/wealthbox.svg"
     },
     "workflow": {
       "codepoint": 62010,
