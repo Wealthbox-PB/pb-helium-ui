@@ -16,6 +16,7 @@
   user-select: none;
   vertical-align: middle;
   text-align: center;
+  font-style: normal;
   font-weight: $h-font-weight-medium;
   @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-form-element-line-height);
   @include h-form-element-transition();
