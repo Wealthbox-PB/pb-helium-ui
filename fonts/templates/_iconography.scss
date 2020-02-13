@@ -1,0 +1,17 @@
+//
+// Icon Font: <%= font_name %>
+// Current Version: <%= @manifest.get(:checksum)[:current] %>
+//
+
+$icons_preprocessor_path: 'helium-ui/fonts';
+
+<%= font_face(url: "font-url", path: @font_path_alt) %>
+
+[data-h-icon]<%= pseudo_element %> { content: attr(data-icon); }
+
+[data-h-icon]<%= pseudo_element %>,
+<%= glyph_selectors %> {
+<%= glyph_properties %>
+}
+
+<%= glyphs %>
