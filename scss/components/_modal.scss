@@ -34,6 +34,7 @@
 .h-modal__close {
   padding: 1rem;
   margin: -1rem;
+  border: 0;
   border-radius: $h-border-radius;
   color: $h-color-text;
   font-size: $h-font-size-sm;
@@ -41,6 +42,7 @@
   @include h-form-element-transition();
 
   &:focus {
+    outline: none;
     box-shadow: $h-form-element-box-shadow--focused;
   }
 }
