@@ -38,6 +38,11 @@
     cursor: auto;
     box-shadow: none;
   }
+
+  &[class*="h-icon-"]::before {
+    line-height: inherit;
+    margin-right: 0.5rem;
+  }
 }
 
 
