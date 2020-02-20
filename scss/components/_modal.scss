@@ -20,7 +20,8 @@
 }
 
 .h-modal__header {
-  padding: $h-modal-padding;
+  position: relative;
+  padding: $h-modal-padding 3.125rem $h-modal-padding $h-modal-padding;
 }
 
 .h-modal__heading {
@@ -32,12 +33,17 @@
 }
 
 .h-modal__close {
-  padding: 1rem;
-  margin: -1rem;
+  position: absolute;
+  top: 1.125rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
   border: 0;
+  margin: 0;
   border-radius: $h-border-radius;
   color: $h-color-text;
-  font-size: $h-font-size-sm;
+  font-size: 1.5rem;
   box-shadow: none;
   @include h-form-element-transition();
 
