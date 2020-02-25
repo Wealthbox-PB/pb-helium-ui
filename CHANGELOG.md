@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.8] - 2020-02-24
 ### Added
 - Added styling to make helium modal .h-modal__body content stretch to fill available space between header and footer
+- Added h-fade-out animation for fading out content
 
 ## [1.0.7] - 2020-02-20
 ### Changed

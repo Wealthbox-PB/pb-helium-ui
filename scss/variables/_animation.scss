@@ -10,12 +10,14 @@
 $h-animation-names: (
   fade-in:    h-fade-in,
   fade-in-up: h-fade-in-up,
-  fade-in-down: h-fade-in-down
+  fade-in-down: h-fade-in-down,
+  fade-out:   h-fade-out
 );
 
 $h-animation-fade-in:    map-get($h-animation-names, fade-in);
 $h-animation-fade-in-up: map-get($h-animation-names, fade-in-up);
 $h-animation-fade-in-down: map-get($h-animation-names, fade-in-down);
+$h-animation-fade-out: map-get($h-animation-names, fade-out);
 
 
 //  Duration and Delay
