@@ -10,7 +10,7 @@ via a map-get  This will ensure the animation names will be available as
 variables and utility classes.  */
 
 @keyframes h-fade-in {
-  from { opacity: 0 }
+  from { opacity: 0; }
   to { opacity: 1; }
 }
 
@@ -34,4 +34,9 @@ variables and utility classes.  */
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes h-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
