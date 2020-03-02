@@ -17,6 +17,14 @@
   @include media-breakpoint-up(md) {
     width: $h-modal-width--desktop;
   }
+
+  &.h-modal__dialog--lg {
+    min-height: $h-modal-min-height--lg;
+
+    @include media-breakpoint-up(md) {
+      width: $h-modal-width--desktop-lg;
+    }
+  }
 }
 
 .h-modal__header {
@@ -56,6 +64,10 @@
 .h-modal__body {
   flex-grow: 1;
   padding: 0 $h-modal-padding;
+}
+
+.h-modal__body--spacing-bottom {
+  padding-bottom: $h-modal-padding;
 }
 
 .h-modal__footer {
