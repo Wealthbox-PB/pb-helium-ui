@@ -4,10 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.9] - 2020-03-02
+### Added
+- Added `$h-modal-min-height--lg` and `$h-modal-width--desktop-lg` variables for large modals
+- Added `.h-modal__dialog--lg` modifier for large modals
+- Added `.h-modal__body--spacing-bottom` helper class for modals without a footer
+
 ## [1.0.8] - 2020-02-24
 ### Added
-- Added styling to make helium modal .h-modal__body content stretch to fill available space between header and footer
-- Added h-fade-out animation for fading out content
+- Added styling to make helium modal `.h-modal__body` content stretch to fill available space between header and footer
+- Added `h-fade-out` animation for fading out content
 
 ## [1.0.7] - 2020-02-20
 ### Changed
@@ -16,12 +22,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.6] - 2020-02-18
 ### Added
-- Added styling for inline icons inside buttons via ::before pseudo element styling
+- Added styling for inline icons inside buttons via `::before` pseudo element styling
 
 ## [1.0.5] - 2020-02-14
 ### Added
-- Added border: 0 and outline: none to modal close button
-- Added font-style: normal to helium buttons
+- Added `border: 0` and `outline: none` to modal close button
+- Added `font-style: normal` to helium buttons
 
 ## [1.0.4] - 2020-02-13
 ### Added
