@@ -1,18 +1,18 @@
 //
 // Icon Font: helium-icons
-// Current Version: 653f827944e5fe6413190c9c862a8d8b60fc27999a414128ae97980f66d85ab8
+// Current Version: 3527e865b29de393f8262ed003526eab441c5fd9b2c968276eaffbe731bef1ee
 //
 
 $icons_preprocessor_path: 'helium-ui/fonts';
 
 @font-face {
   font-family: "helium-icons";
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_653f827944e5fe6413190c9c862a8d8b.eot");
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_653f827944e5fe6413190c9c862a8d8b.eot?#iefix") format("embedded-opentype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_653f827944e5fe6413190c9c862a8d8b.woff2") format("woff2"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_653f827944e5fe6413190c9c862a8d8b.woff") format("woff"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_653f827944e5fe6413190c9c862a8d8b.ttf") format("truetype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_653f827944e5fe6413190c9c862a8d8b.svg#helium-icons") format("svg");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.eot");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.eot?#iefix") format("embedded-opentype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.woff2") format("woff2"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.woff") format("woff"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.ttf") format("truetype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.svg#helium-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,7 +20,7 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "helium-icons";
-    src: font-url("#{$icons_preprocessor_path}/helium-icons_653f827944e5fe6413190c9c862a8d8b.svg#helium-icons") format("svg");
+    src: font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.svg#helium-icons") format("svg");
   }
 }
 
@@ -160,7 +160,11 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-graph--lg:before,
 .h-icon-grid:before,
 .h-icon-grid--lg:before,
+.h-icon-history:before,
+.h-icon-history--lg:before,
 .h-icon-household:before,
+.h-icon-household--filled:before,
+.h-icon-household--filled--lg:before,
 .h-icon-household--lg:before,
 .h-icon-inbox:before,
 .h-icon-inbox--lg:before,
@@ -201,6 +205,8 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-opportunity:before,
 .h-icon-opportunity--lg:before,
 .h-icon-organization:before,
+.h-icon-organization--filled:before,
+.h-icon-organization--filled--lg:before,
 .h-icon-organization--lg:before,
 .h-icon-outcomes:before,
 .h-icon-outcomes--lg:before,
@@ -329,6 +335,8 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-trash:before,
 .h-icon-trash--lg:before,
 .h-icon-trust:before,
+.h-icon-trust--filled:before,
+.h-icon-trust--filled--lg:before,
 .h-icon-trust--lg:before,
 .h-icon-user:before,
 .h-icon-user--lg:before,
@@ -497,7 +505,11 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-graph--lg:before { content: "\f17f"; }
 .h-icon-grid:before { content: "\f180"; }
 .h-icon-grid--lg:before { content: "\f181"; }
+.h-icon-history:before { content: "\f249"; }
+.h-icon-history--lg:before { content: "\f24a"; }
 .h-icon-household:before { content: "\f182"; }
+.h-icon-household--filled:before { content: "\f24b"; }
+.h-icon-household--filled--lg:before { content: "\f24c"; }
 .h-icon-household--lg:before { content: "\f183"; }
 .h-icon-inbox:before { content: "\f184"; }
 .h-icon-inbox--lg:before { content: "\f185"; }
@@ -538,6 +550,8 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-opportunity:before { content: "\f1a4"; }
 .h-icon-opportunity--lg:before { content: "\f1a5"; }
 .h-icon-organization:before { content: "\f1a6"; }
+.h-icon-organization--filled:before { content: "\f24d"; }
+.h-icon-organization--filled--lg:before { content: "\f24e"; }
 .h-icon-organization--lg:before { content: "\f1a7"; }
 .h-icon-outcomes:before { content: "\f1a8"; }
 .h-icon-outcomes--lg:before { content: "\f1a9"; }
@@ -666,6 +680,8 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 .h-icon-trash:before { content: "\f226"; }
 .h-icon-trash--lg:before { content: "\f227"; }
 .h-icon-trust:before { content: "\f228"; }
+.h-icon-trust--filled:before { content: "\f24f"; }
+.h-icon-trust--filled--lg:before { content: "\f250"; }
 .h-icon-trust--lg:before { content: "\f229"; }
 .h-icon-user:before { content: "\f22a"; }
 .h-icon-user--lg:before { content: "\f22b"; }
