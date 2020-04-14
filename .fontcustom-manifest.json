@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "653f827944e5fe6413190c9c862a8d8b60fc27999a414128ae97980f66d85ab8",
-    "current": "653f827944e5fe6413190c9c862a8d8b60fc27999a414128ae97980f66d85ab8"
+    "previous": "723c413390bb98fe236ae3ac1a02ed69a5dba4cd56618f5af4cf1e6771dfdee3",
+    "current": "723c413390bb98fe236ae3ac1a02ed69a5dba4cd56618f5af4cf1e6771dfdee3"
   },
   "fonts": [
-    "fonts/helium-icons_653f827944e5fe6413190c9c862a8d8b.ttf",
-    "fonts/helium-icons_653f827944e5fe6413190c9c862a8d8b.svg",
-    "fonts/helium-icons_653f827944e5fe6413190c9c862a8d8b.woff",
-    "fonts/helium-icons_653f827944e5fe6413190c9c862a8d8b.eot",
-    "fonts/helium-icons_653f827944e5fe6413190c9c862a8d8b.woff2"
+    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.ttf",
+    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.svg",
+    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.woff",
+    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.eot",
+    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.woff2"
   ],
   "glyphs": {
     "add": {
@@ -543,9 +543,25 @@
       "codepoint": 61825,
       "source": "assets/icons/grid--lg.svg"
     },
+    "history": {
+      "codepoint": 62025,
+      "source": "assets/icons/history.svg"
+    },
+    "history--lg": {
+      "codepoint": 62026,
+      "source": "assets/icons/history--lg.svg"
+    },
     "household": {
       "codepoint": 61826,
       "source": "assets/icons/household.svg"
+    },
+    "household--filled": {
+      "codepoint": 62027,
+      "source": "assets/icons/household--filled.svg"
+    },
+    "household--filled--lg": {
+      "codepoint": 62028,
+      "source": "assets/icons/household--filled--lg.svg"
     },
     "household--lg": {
       "codepoint": 61827,
@@ -706,6 +722,14 @@
     "organization": {
       "codepoint": 61862,
       "source": "assets/icons/organization.svg"
+    },
+    "organization--filled": {
+      "codepoint": 62029,
+      "source": "assets/icons/organization--filled.svg"
+    },
+    "organization--filled--lg": {
+      "codepoint": 62030,
+      "source": "assets/icons/organization--filled--lg.svg"
     },
     "organization--lg": {
       "codepoint": 61863,
@@ -1218,6 +1242,14 @@
     "trust": {
       "codepoint": 61992,
       "source": "assets/icons/trust.svg"
+    },
+    "trust--filled": {
+      "codepoint": 62031,
+      "source": "assets/icons/trust--filled.svg"
+    },
+    "trust--filled--lg": {
+      "codepoint": 62032,
+      "source": "assets/icons/trust--filled--lg.svg"
     },
     "trust--lg": {
       "codepoint": 61993,
