@@ -1,18 +1,18 @@
 //
 // Icon Font: helium-icons
-// Current Version: 3527e865b29de393f8262ed003526eab441c5fd9b2c968276eaffbe731bef1ee
+// Current Version: 723c413390bb98fe236ae3ac1a02ed69a5dba4cd56618f5af4cf1e6771dfdee3
 //
 
 $icons_preprocessor_path: 'helium-ui/fonts';
 
 @font-face {
   font-family: "helium-icons";
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.eot");
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.eot?#iefix") format("embedded-opentype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.woff2") format("woff2"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.woff") format("woff"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.ttf") format("truetype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.svg#helium-icons") format("svg");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_723c413390bb98fe236ae3ac1a02ed69.eot");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_723c413390bb98fe236ae3ac1a02ed69.eot?#iefix") format("embedded-opentype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_723c413390bb98fe236ae3ac1a02ed69.woff2") format("woff2"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_723c413390bb98fe236ae3ac1a02ed69.woff") format("woff"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_723c413390bb98fe236ae3ac1a02ed69.ttf") format("truetype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_723c413390bb98fe236ae3ac1a02ed69.svg#helium-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,7 +20,7 @@ $icons_preprocessor_path: 'helium-ui/fonts';
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "helium-icons";
-    src: font-url("#{$icons_preprocessor_path}/helium-icons_3527e865b29de393f8262ed003526eab.svg#helium-icons") format("svg");
+    src: font-url("#{$icons_preprocessor_path}/helium-icons_723c413390bb98fe236ae3ac1a02ed69.svg#helium-icons") format("svg");
   }
 }
 
