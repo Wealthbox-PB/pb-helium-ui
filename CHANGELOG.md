@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.11] - 2020-04-22
+### Added
+- Added `google` and `google-sign` svg icon asset
+- Added `filter--filled` svg icon asset
+- Added `filter--filled--lg` svg icon asset
+
+### Changed
+- Updated `clock` svg icon asset
+- Updated `clock--lg` svg icon asset
+- Updated `event` svg icon asset
+- Updated `event--lg` svg icon asset
+- Updated `event-add` svg icon asset
+- Updated `event-add--lg` svg icon asset
+- Updated `history` svg icon asset
+- Updated `history--lg` svg icon asset
+- Recompiled icon font
+
 ## [1.0.10] - 2020-04-10
 ### Added
 - Added `history--lg` svg icon asset
