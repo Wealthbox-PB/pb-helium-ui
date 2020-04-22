@@ -32,6 +32,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `trust--filled--lg` svg icon asset
 - Added `trust--filled` svg icon asset
 
+### Changed
+- Recompiled icon font
+
 ## [1.0.9] - 2020-03-02
 ### Added
 - Added `$h-modal-min-height--lg` and `$h-modal-width--desktop-lg` variables for large modals
