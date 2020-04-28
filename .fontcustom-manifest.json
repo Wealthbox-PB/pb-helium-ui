@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "723c413390bb98fe236ae3ac1a02ed69a5dba4cd56618f5af4cf1e6771dfdee3",
-    "current": "723c413390bb98fe236ae3ac1a02ed69a5dba4cd56618f5af4cf1e6771dfdee3"
+    "previous": "f87a623d4241a6e12cd96fd7b4a6a608283a14fa46676a33ee70c7c13d88c084",
+    "current": "f87a623d4241a6e12cd96fd7b4a6a608283a14fa46676a33ee70c7c13d88c084"
   },
   "fonts": [
-    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.ttf",
-    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.svg",
-    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.woff",
-    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.eot",
-    "fonts/helium-icons_723c413390bb98fe236ae3ac1a02ed69.woff2"
+    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.ttf",
+    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.svg",
+    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff",
+    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.eot",
+    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff2"
   ],
   "glyphs": {
     "add": {
@@ -507,6 +507,14 @@
       "codepoint": 61816,
       "source": "assets/icons/filter.svg"
     },
+    "filter--filled": {
+      "codepoint": 62033,
+      "source": "assets/icons/filter--filled.svg"
+    },
+    "filter--filled--lg": {
+      "codepoint": 62034,
+      "source": "assets/icons/filter--filled--lg.svg"
+    },
     "filter--lg": {
       "codepoint": 61817,
       "source": "assets/icons/filter--lg.svg"
@@ -959,6 +967,10 @@
       "codepoint": 61919,
       "source": "assets/icons/s-goodreads-sign.svg"
     },
+    "s-google": {
+      "codepoint": 62035,
+      "source": "assets/icons/s-google.svg"
+    },
     "s-google-drive": {
       "codepoint": 61920,
       "source": "assets/icons/s-google-drive.svg"
@@ -966,6 +978,10 @@
     "s-google-drive-sign": {
       "codepoint": 61921,
       "source": "assets/icons/s-google-drive-sign.svg"
+    },
+    "s-google-sign": {
+      "codepoint": 62036,
+      "source": "assets/icons/s-google-sign.svg"
     },
     "s-googleplus": {
       "codepoint": 61922,
