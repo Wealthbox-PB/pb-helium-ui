@@ -3,10 +3,17 @@
 // Current Version: f87a623d4241a6e12cd96fd7b4a6a608283a14fa46676a33ee70c7c13d88c084
 //
 
-$icons_preprocessor_path: "helium-ui/fonts";
+$icons_preprocessor_path: 'helium-ui/fonts' !default;
 
 @font-face {
   font-family: "helium-icons";
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.eot");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.eot?#iefix") format("embedded-opentype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff2") format("woff2"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff") format("woff"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.ttf") format("truetype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.svg#helium-icons") format("svg");
+  font-weight: normal;
   font-style: normal;
   font-weight: normal;
   src: font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.eot");
@@ -371,12 +378,15 @@ $icons_preprocessor_path: "helium-ui/fonts";
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-style: normal;
-  font-variant: normal;
   font-weight: normal;
+  font-variant: normal;
   line-height: 1;
   text-decoration: inherit;
   text-rendering: optimizeLegibility;
   text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
 .h-icon-add::before {
