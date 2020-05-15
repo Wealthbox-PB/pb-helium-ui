@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.16] - 2020-05-27
+### Added
+- Added `b-cloud` svg icon asset
+- Added `b-outlook-csv` svg icon asset
+- Added `b-paw` svg icon asset
+- Added `check-mark` svg icon asset
+- Added `information` svg icon asset
+- Added `information--filled` svg icon asset
+- Added `information--filled--lg` svg icon asset
+- Added `information--lg` svg icon asset
+- Added `play` svg icon asset
+- Added `settings--filled` svg icon asset
+- Added `settings--filled--lg` svg icon asset
+
+### Changed
+- Updated `.gitignore` to include `*.DS_Store`
+- Updated `$icons_preprocessor_path` variable to include `!default` flag
+- Updated `settings--lg` svg icon asset
+- Updated `settings` svg icon asset
+- Recompiled icon font
+
 ## [1.0.15] - 2020-05-27
 ### Added
 - Added shadow variables
