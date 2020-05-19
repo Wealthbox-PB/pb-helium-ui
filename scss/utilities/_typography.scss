@@ -3,7 +3,6 @@
 // Typography Utilities
 //==========================================================================
 
-
 //  Font Family
 //=========================================================================
 
@@ -11,8 +10,7 @@
   .h-font-family-#{$key} {
     font-family: $val !important;
   }
-};
-
+}
 
 //  Font Size
 //==========================================================================
@@ -21,8 +19,7 @@
   .h-font-size-#{$key} {
     font-size: $val !important;
   }
-};
-
+}
 
 //  Font Weight
 //==========================================================================
@@ -31,8 +28,7 @@
   .h-font-weight-#{$key} {
     font-weight: $val !important;
   }
-};
-
+}
 
 //  Line Height
 //==========================================================================
@@ -41,23 +37,21 @@
   .h-line-height-#{$key} {
     line-height: $val !important;
   }
-};
-
+}
 
 //  Code
 //==========================================================================
 
 .h-code {
   display: inline;
-  padding: .125rem;
+  padding: 0.125rem;
+  background-color: $h-blue-50;
   border-radius: $h-border-radius;
+  color: $h-blue-400;
   font-family: $h-font-family-mono;
   font-size: $h-font-size-sm;
   font-weight: $h-font-weight-bold;
-  color: $h-blue-400;
-  background-color: $h-blue-50;
 }
-
 
 //  Word Break
 //==========================================================================

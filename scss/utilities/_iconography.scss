@@ -3,711 +3,1718 @@
 // Current Version: f87a623d4241a6e12cd96fd7b4a6a608283a14fa46676a33ee70c7c13d88c084
 //
 
-$icons_preprocessor_path: 'helium-ui/fonts';
+$icons_preprocessor_path: "helium-ui/fonts";
 
 @font-face {
   font-family: "helium-icons";
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.eot");
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.eot?#iefix") format("embedded-opentype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff2") format("woff2"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff") format("woff"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.ttf") format("truetype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.svg#helium-icons") format("svg");
-  font-weight: normal;
   font-style: normal;
+  font-weight: normal;
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.eot");
+  src:
+    font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.eot?#iefix") format("embedded-opentype"),
+    font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff2") format("woff2"),
+    font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff") format("woff"),
+    font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.ttf") format("truetype"),
+    font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.svg#helium-icons") format("svg");
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
   @font-face {
     font-family: "helium-icons";
     src: font-url("#{$icons_preprocessor_path}/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.svg#helium-icons") format("svg");
   }
 }
 
-[data-h-icon]:before { content: attr(data-icon); }
+[data-h-icon]::before {
+  content: attr(data-icon);
+}
 
-[data-h-icon]:before,
-.h-icon-add:before,
-.h-icon-add--lg:before,
-.h-icon-add-circle:before,
-.h-icon-add-circle--lg:before,
-.h-icon-alarm:before,
-.h-icon-alarm--lg:before,
-.h-icon-anniversary:before,
-.h-icon-anniversary--lg:before,
-.h-icon-arrow-down:before,
-.h-icon-arrow-down--lg:before,
-.h-icon-arrow-down-circle:before,
-.h-icon-arrow-down-circle--lg:before,
-.h-icon-arrow-left:before,
-.h-icon-arrow-left--lg:before,
-.h-icon-arrow-right:before,
-.h-icon-arrow-right--lg:before,
-.h-icon-arrow-up:before,
-.h-icon-arrow-up--lg:before,
-.h-icon-b-blueleaf:before,
-.h-icon-b-td:before,
-.h-icon-b-wealthbox:before,
-.h-icon-bell:before,
-.h-icon-bell--lg:before,
-.h-icon-birthdate:before,
-.h-icon-birthdate--lg:before,
-.h-icon-broadcast:before,
-.h-icon-broadcast--lg:before,
-.h-icon-carrot-down:before,
-.h-icon-carrot-down--lg:before,
-.h-icon-carrot-left:before,
-.h-icon-carrot-left--lg:before,
-.h-icon-carrot-right:before,
-.h-icon-carrot-right--lg:before,
-.h-icon-carrot-up:before,
-.h-icon-carrot-up--lg:before,
-.h-icon-chevron-down:before,
-.h-icon-chevron-down--lg:before,
-.h-icon-chevron-left:before,
-.h-icon-chevron-left--lg:before,
-.h-icon-chevron-right:before,
-.h-icon-chevron-right--lg:before,
-.h-icon-chevron-up:before,
-.h-icon-chevron-up--lg:before,
-.h-icon-clipboard:before,
-.h-icon-clipboard--lg:before,
-.h-icon-clipboard-success:before,
-.h-icon-clipboard-success--lg:before,
-.h-icon-clock:before,
-.h-icon-clock--lg:before,
-.h-icon-comment:before,
-.h-icon-comment--lg:before,
-.h-icon-company:before,
-.h-icon-company--lg:before,
-.h-icon-contact:before,
-.h-icon-contact--filled:before,
-.h-icon-contact--filled--lg:before,
-.h-icon-contact--lg:before,
-.h-icon-dashboard:before,
-.h-icon-dashboard--lg:before,
-.h-icon-datafile:before,
-.h-icon-datafile--lg:before,
-.h-icon-deal:before,
-.h-icon-deal--lg:before,
-.h-icon-delete:before,
-.h-icon-delete--lg:before,
-.h-icon-delete-circle:before,
-.h-icon-delete-circle--lg:before,
-.h-icon-dots:before,
-.h-icon-dots--lg:before,
-.h-icon-dots-vertical:before,
-.h-icon-dots-vertical--lg:before,
-.h-icon-download:before,
-.h-icon-download--lg:before,
-.h-icon-download-circle:before,
-.h-icon-download-circle--lg:before,
-.h-icon-dropboxemail:before,
-.h-icon-dropboxemail--lg:before,
-.h-icon-edit:before,
-.h-icon-edit--lg:before,
-.h-icon-edit-outlined:before,
-.h-icon-edit-outlined--lg:before,
-.h-icon-edit_alt:before,
-.h-icon-edit_alt--lg:before,
-.h-icon-email:before,
-.h-icon-email--filled:before,
-.h-icon-email--filled--lg:before,
-.h-icon-email--lg:before,
-.h-icon-email-archive:before,
-.h-icon-email-archive--lg:before,
-.h-icon-email-attachment:before,
-.h-icon-email-attachment--lg:before,
-.h-icon-email-drafts:before,
-.h-icon-email-drafts--lg:before,
-.h-icon-email-inbox:before,
-.h-icon-email-inbox--lg:before,
-.h-icon-email-link-tracking:before,
-.h-icon-email-link-tracking--lg:before,
-.h-icon-email-outlined:before,
-.h-icon-email-outlined--lg:before,
-.h-icon-email-sent:before,
-.h-icon-email-sent--lg:before,
-.h-icon-email-signature:before,
-.h-icon-email-signature--lg:before,
-.h-icon-email-templates:before,
-.h-icon-email-templates--lg:before,
-.h-icon-email-trash:before,
-.h-icon-email-trash--lg:before,
-.h-icon-event:before,
-.h-icon-event--lg:before,
-.h-icon-event-add:before,
-.h-icon-event-add--lg:before,
-.h-icon-exclamation:before,
-.h-icon-exclamation--lg:before,
-.h-icon-external-link:before,
-.h-icon-external-link--lg:before,
-.h-icon-file:before,
-.h-icon-file--lg:before,
-.h-icon-file-outlined:before,
-.h-icon-file-outlined--lg:before,
-.h-icon-file-outlined-add:before,
-.h-icon-file-outlined-add--lg:before,
-.h-icon-files:before,
-.h-icon-files--lg:before,
-.h-icon-filter:before,
-.h-icon-filter--filled:before,
-.h-icon-filter--filled--lg:before,
-.h-icon-filter--lg:before,
-.h-icon-folder:before,
-.h-icon-folder--lg:before,
-.h-icon-forward:before,
-.h-icon-forward--lg:before,
-.h-icon-graph:before,
-.h-icon-graph--lg:before,
-.h-icon-grid:before,
-.h-icon-grid--lg:before,
-.h-icon-history:before,
-.h-icon-history--lg:before,
-.h-icon-household:before,
-.h-icon-household--filled:before,
-.h-icon-household--filled--lg:before,
-.h-icon-household--lg:before,
-.h-icon-inbox:before,
-.h-icon-inbox--lg:before,
-.h-icon-institution:before,
-.h-icon-institution--lg:before,
-.h-icon-list:before,
-.h-icon-list--lg:before,
-.h-icon-lock:before,
-.h-icon-lock--filled:before,
-.h-icon-lock--filled--lg:before,
-.h-icon-lock--lg:before,
-.h-icon-lock-open:before,
-.h-icon-lock-open--filled:before,
-.h-icon-lock-open--filled--lg:before,
-.h-icon-lock-open--lg:before,
-.h-icon-mail-merge:before,
-.h-icon-mail-merge--lg:before,
-.h-icon-map-pin:before,
-.h-icon-map-pin--filled:before,
-.h-icon-map-pin--filled--lg:before,
-.h-icon-map-pin--lg:before,
-.h-icon-menu:before,
-.h-icon-menu--lg:before,
-.h-icon-menu-close:before,
-.h-icon-menu-close--lg:before,
-.h-icon-menu-open:before,
-.h-icon-menu-open--lg:before,
-.h-icon-mic:before,
-.h-icon-mic--lg:before,
-.h-icon-minus:before,
-.h-icon-minus--lg:before,
-.h-icon-mobile:before,
-.h-icon-mobile--lg:before,
-.h-icon-newsfeed:before,
-.h-icon-newsfeed--lg:before,
-.h-icon-note:before,
-.h-icon-note--lg:before,
-.h-icon-opportunity:before,
-.h-icon-opportunity--lg:before,
-.h-icon-organization:before,
-.h-icon-organization--filled:before,
-.h-icon-organization--filled--lg:before,
-.h-icon-organization--lg:before,
-.h-icon-outcomes:before,
-.h-icon-outcomes--lg:before,
-.h-icon-person:before,
-.h-icon-person--filled:before,
-.h-icon-person--filled--lg:before,
-.h-icon-person--lg:before,
-.h-icon-phonecall:before,
-.h-icon-phonecall--filled:before,
-.h-icon-phonecall--filled--lg:before,
-.h-icon-phonecall--lg:before,
-.h-icon-pie:before,
-.h-icon-pie--lg:before,
-.h-icon-pipeline:before,
-.h-icon-pipeline--lg:before,
-.h-icon-play-circle:before,
-.h-icon-play-circle--lg:before,
-.h-icon-print:before,
-.h-icon-print--lg:before,
-.h-icon-project:before,
-.h-icon-project--lg:before,
-.h-icon-pulse:before,
-.h-icon-pulse--lg:before,
-.h-icon-question-mark:before,
-.h-icon-question-mark--lg:before,
-.h-icon-refresh:before,
-.h-icon-refresh--lg:before,
-.h-icon-reply:before,
-.h-icon-reply--lg:before,
-.h-icon-reply-all:before,
-.h-icon-reply-all--lg:before,
-.h-icon-s-aboutme:before,
-.h-icon-s-aboutme-sign:before,
-.h-icon-s-bebo:before,
-.h-icon-s-bebo-sign:before,
-.h-icon-s-behance:before,
-.h-icon-s-behance-sign:before,
-.h-icon-s-box-net:before,
-.h-icon-s-box-net-sign:before,
-.h-icon-s-bread:before,
-.h-icon-s-bread-sign:before,
-.h-icon-s-disqus:before,
-.h-icon-s-disqus-sign:before,
-.h-icon-s-dribbble:before,
-.h-icon-s-dribbble-sign:before,
-.h-icon-s-dropbox:before,
-.h-icon-s-dropbox-sign:before,
-.h-icon-s-facebook:before,
-.h-icon-s-facebook-sign:before,
-.h-icon-s-flickr:before,
-.h-icon-s-flickr-sign:before,
-.h-icon-s-foursquare:before,
-.h-icon-s-foursquare-sign:before,
-.h-icon-s-github:before,
-.h-icon-s-github-sign:before,
-.h-icon-s-goodreads:before,
-.h-icon-s-goodreads-sign:before,
-.h-icon-s-google:before,
-.h-icon-s-google-drive:before,
-.h-icon-s-google-drive-sign:before,
-.h-icon-s-google-sign:before,
-.h-icon-s-googleplus:before,
-.h-icon-s-googleplus-sign:before,
-.h-icon-s-googleprofile:before,
-.h-icon-s-googleprofile-sign:before,
-.h-icon-s-gravatar:before,
-.h-icon-s-gravatar-sign:before,
-.h-icon-s-instagram:before,
-.h-icon-s-instagram-sign:before,
-.h-icon-s-klout:before,
-.h-icon-s-klout-sign:before,
-.h-icon-s-lastfm:before,
-.h-icon-s-lastfm-sign:before,
-.h-icon-s-linkedin:before,
-.h-icon-s-linkedin-sign:before,
-.h-icon-s-pinterest:before,
-.h-icon-s-pinterest-sign:before,
-.h-icon-s-quora:before,
-.h-icon-s-quora-sign:before,
-.h-icon-s-reddit:before,
-.h-icon-s-reddit-sign:before,
-.h-icon-s-share:before,
-.h-icon-s-share-sign:before,
-.h-icon-s-soundcloud:before,
-.h-icon-s-soundcloud-sign:before,
-.h-icon-s-spotify:before,
-.h-icon-s-spotify-sign:before,
-.h-icon-s-techendo:before,
-.h-icon-s-techendo-sign:before,
-.h-icon-s-tumblr:before,
-.h-icon-s-tumblr-sign:before,
-.h-icon-s-twitter:before,
-.h-icon-s-twitter-sign:before,
-.h-icon-s-vevo:before,
-.h-icon-s-vevo-sign:before,
-.h-icon-s-vimeo:before,
-.h-icon-s-vimeo-sign:before,
-.h-icon-s-wordpress:before,
-.h-icon-s-wordpress-sign:before,
-.h-icon-s-yahoo:before,
-.h-icon-s-yahoo-sign:before,
-.h-icon-s-yelp:before,
-.h-icon-s-yelp-sign:before,
-.h-icon-s-youtube:before,
-.h-icon-s-youtube-sign:before,
-.h-icon-search:before,
-.h-icon-search--lg:before,
-.h-icon-settings:before,
-.h-icon-settings--lg:before,
-.h-icon-settings-group:before,
-.h-icon-settings-group--lg:before,
-.h-icon-smile:before,
-.h-icon-smile--lg:before,
-.h-icon-special-date:before,
-.h-icon-special-date--lg:before,
-.h-icon-star:before,
-.h-icon-star--lg:before,
-.h-icon-star-outlined:before,
-.h-icon-star-outlined--lg:before,
-.h-icon-tag:before,
-.h-icon-tag--lg:before,
-.h-icon-task:before,
-.h-icon-task--lg:before,
-.h-icon-task-solid:before,
-.h-icon-task-solid--lg:before,
-.h-icon-ticket:before,
-.h-icon-ticket--lg:before,
-.h-icon-trash:before,
-.h-icon-trash--lg:before,
-.h-icon-trust:before,
-.h-icon-trust--filled:before,
-.h-icon-trust--filled--lg:before,
-.h-icon-trust--lg:before,
-.h-icon-user:before,
-.h-icon-user--lg:before,
-.h-icon-user-add:before,
-.h-icon-user-add--lg:before,
-.h-icon-user-group:before,
-.h-icon-user-group--lg:before,
-.h-icon-user-info:before,
-.h-icon-user-info--lg:before,
-.h-icon-users:before,
-.h-icon-users--filled:before,
-.h-icon-users--filled--lg:before,
-.h-icon-users--lg:before,
-.h-icon-visibility:before,
-.h-icon-visibility--lg:before,
-.h-icon-visibility-off:before,
-.h-icon-visibility-off--lg:before,
-.h-icon-workflow:before,
-.h-icon-workflow--lg:before,
-.h-icon-workflow-step:before,
-.h-icon-workflow-step--lg:before {
+[data-h-icon]::before,
+.h-icon-add::before,
+.h-icon-add--lg::before,
+.h-icon-add-circle::before,
+.h-icon-add-circle--lg::before,
+.h-icon-alarm::before,
+.h-icon-alarm--lg::before,
+.h-icon-anniversary::before,
+.h-icon-anniversary--lg::before,
+.h-icon-arrow-down::before,
+.h-icon-arrow-down--lg::before,
+.h-icon-arrow-down-circle::before,
+.h-icon-arrow-down-circle--lg::before,
+.h-icon-arrow-left::before,
+.h-icon-arrow-left--lg::before,
+.h-icon-arrow-right::before,
+.h-icon-arrow-right--lg::before,
+.h-icon-arrow-up::before,
+.h-icon-arrow-up--lg::before,
+.h-icon-b-blueleaf::before,
+.h-icon-b-td::before,
+.h-icon-b-wealthbox::before,
+.h-icon-bell::before,
+.h-icon-bell--lg::before,
+.h-icon-birthdate::before,
+.h-icon-birthdate--lg::before,
+.h-icon-broadcast::before,
+.h-icon-broadcast--lg::before,
+.h-icon-carrot-down::before,
+.h-icon-carrot-down--lg::before,
+.h-icon-carrot-left::before,
+.h-icon-carrot-left--lg::before,
+.h-icon-carrot-right::before,
+.h-icon-carrot-right--lg::before,
+.h-icon-carrot-up::before,
+.h-icon-carrot-up--lg::before,
+.h-icon-chevron-down::before,
+.h-icon-chevron-down--lg::before,
+.h-icon-chevron-left::before,
+.h-icon-chevron-left--lg::before,
+.h-icon-chevron-right::before,
+.h-icon-chevron-right--lg::before,
+.h-icon-chevron-up::before,
+.h-icon-chevron-up--lg::before,
+.h-icon-clipboard::before,
+.h-icon-clipboard--lg::before,
+.h-icon-clipboard-success::before,
+.h-icon-clipboard-success--lg::before,
+.h-icon-clock::before,
+.h-icon-clock--lg::before,
+.h-icon-comment::before,
+.h-icon-comment--lg::before,
+.h-icon-company::before,
+.h-icon-company--lg::before,
+.h-icon-contact::before,
+.h-icon-contact--filled::before,
+.h-icon-contact--filled--lg::before,
+.h-icon-contact--lg::before,
+.h-icon-dashboard::before,
+.h-icon-dashboard--lg::before,
+.h-icon-datafile::before,
+.h-icon-datafile--lg::before,
+.h-icon-deal::before,
+.h-icon-deal--lg::before,
+.h-icon-delete::before,
+.h-icon-delete--lg::before,
+.h-icon-delete-circle::before,
+.h-icon-delete-circle--lg::before,
+.h-icon-dots::before,
+.h-icon-dots--lg::before,
+.h-icon-dots-vertical::before,
+.h-icon-dots-vertical--lg::before,
+.h-icon-download::before,
+.h-icon-download--lg::before,
+.h-icon-download-circle::before,
+.h-icon-download-circle--lg::before,
+.h-icon-dropboxemail::before,
+.h-icon-dropboxemail--lg::before,
+.h-icon-edit::before,
+.h-icon-edit--lg::before,
+.h-icon-edit-outlined::before,
+.h-icon-edit-outlined--lg::before,
+.h-icon-edit_alt::before,
+.h-icon-edit_alt--lg::before,
+.h-icon-email::before,
+.h-icon-email--filled::before,
+.h-icon-email--filled--lg::before,
+.h-icon-email--lg::before,
+.h-icon-email-archive::before,
+.h-icon-email-archive--lg::before,
+.h-icon-email-attachment::before,
+.h-icon-email-attachment--lg::before,
+.h-icon-email-drafts::before,
+.h-icon-email-drafts--lg::before,
+.h-icon-email-inbox::before,
+.h-icon-email-inbox--lg::before,
+.h-icon-email-link-tracking::before,
+.h-icon-email-link-tracking--lg::before,
+.h-icon-email-outlined::before,
+.h-icon-email-outlined--lg::before,
+.h-icon-email-sent::before,
+.h-icon-email-sent--lg::before,
+.h-icon-email-signature::before,
+.h-icon-email-signature--lg::before,
+.h-icon-email-templates::before,
+.h-icon-email-templates--lg::before,
+.h-icon-email-trash::before,
+.h-icon-email-trash--lg::before,
+.h-icon-event::before,
+.h-icon-event--lg::before,
+.h-icon-event-add::before,
+.h-icon-event-add--lg::before,
+.h-icon-exclamation::before,
+.h-icon-exclamation--lg::before,
+.h-icon-external-link::before,
+.h-icon-external-link--lg::before,
+.h-icon-file::before,
+.h-icon-file--lg::before,
+.h-icon-file-outlined::before,
+.h-icon-file-outlined--lg::before,
+.h-icon-file-outlined-add::before,
+.h-icon-file-outlined-add--lg::before,
+.h-icon-files::before,
+.h-icon-files--lg::before,
+.h-icon-filter::before,
+.h-icon-filter--filled::before,
+.h-icon-filter--filled--lg::before,
+.h-icon-filter--lg::before,
+.h-icon-folder::before,
+.h-icon-folder--lg::before,
+.h-icon-forward::before,
+.h-icon-forward--lg::before,
+.h-icon-graph::before,
+.h-icon-graph--lg::before,
+.h-icon-grid::before,
+.h-icon-grid--lg::before,
+.h-icon-history::before,
+.h-icon-history--lg::before,
+.h-icon-household::before,
+.h-icon-household--filled::before,
+.h-icon-household--filled--lg::before,
+.h-icon-household--lg::before,
+.h-icon-inbox::before,
+.h-icon-inbox--lg::before,
+.h-icon-institution::before,
+.h-icon-institution--lg::before,
+.h-icon-list::before,
+.h-icon-list--lg::before,
+.h-icon-lock::before,
+.h-icon-lock--filled::before,
+.h-icon-lock--filled--lg::before,
+.h-icon-lock--lg::before,
+.h-icon-lock-open::before,
+.h-icon-lock-open--filled::before,
+.h-icon-lock-open--filled--lg::before,
+.h-icon-lock-open--lg::before,
+.h-icon-mail-merge::before,
+.h-icon-mail-merge--lg::before,
+.h-icon-map-pin::before,
+.h-icon-map-pin--filled::before,
+.h-icon-map-pin--filled--lg::before,
+.h-icon-map-pin--lg::before,
+.h-icon-menu::before,
+.h-icon-menu--lg::before,
+.h-icon-menu-close::before,
+.h-icon-menu-close--lg::before,
+.h-icon-menu-open::before,
+.h-icon-menu-open--lg::before,
+.h-icon-mic::before,
+.h-icon-mic--lg::before,
+.h-icon-minus::before,
+.h-icon-minus--lg::before,
+.h-icon-mobile::before,
+.h-icon-mobile--lg::before,
+.h-icon-newsfeed::before,
+.h-icon-newsfeed--lg::before,
+.h-icon-note::before,
+.h-icon-note--lg::before,
+.h-icon-opportunity::before,
+.h-icon-opportunity--lg::before,
+.h-icon-organization::before,
+.h-icon-organization--filled::before,
+.h-icon-organization--filled--lg::before,
+.h-icon-organization--lg::before,
+.h-icon-outcomes::before,
+.h-icon-outcomes--lg::before,
+.h-icon-person::before,
+.h-icon-person--filled::before,
+.h-icon-person--filled--lg::before,
+.h-icon-person--lg::before,
+.h-icon-phonecall::before,
+.h-icon-phonecall--filled::before,
+.h-icon-phonecall--filled--lg::before,
+.h-icon-phonecall--lg::before,
+.h-icon-pie::before,
+.h-icon-pie--lg::before,
+.h-icon-pipeline::before,
+.h-icon-pipeline--lg::before,
+.h-icon-play-circle::before,
+.h-icon-play-circle--lg::before,
+.h-icon-print::before,
+.h-icon-print--lg::before,
+.h-icon-project::before,
+.h-icon-project--lg::before,
+.h-icon-pulse::before,
+.h-icon-pulse--lg::before,
+.h-icon-question-mark::before,
+.h-icon-question-mark--lg::before,
+.h-icon-refresh::before,
+.h-icon-refresh--lg::before,
+.h-icon-reply::before,
+.h-icon-reply--lg::before,
+.h-icon-reply-all::before,
+.h-icon-reply-all--lg::before,
+.h-icon-s-aboutme::before,
+.h-icon-s-aboutme-sign::before,
+.h-icon-s-bebo::before,
+.h-icon-s-bebo-sign::before,
+.h-icon-s-behance::before,
+.h-icon-s-behance-sign::before,
+.h-icon-s-box-net::before,
+.h-icon-s-box-net-sign::before,
+.h-icon-s-bread::before,
+.h-icon-s-bread-sign::before,
+.h-icon-s-disqus::before,
+.h-icon-s-disqus-sign::before,
+.h-icon-s-dribbble::before,
+.h-icon-s-dribbble-sign::before,
+.h-icon-s-dropbox::before,
+.h-icon-s-dropbox-sign::before,
+.h-icon-s-facebook::before,
+.h-icon-s-facebook-sign::before,
+.h-icon-s-flickr::before,
+.h-icon-s-flickr-sign::before,
+.h-icon-s-foursquare::before,
+.h-icon-s-foursquare-sign::before,
+.h-icon-s-github::before,
+.h-icon-s-github-sign::before,
+.h-icon-s-goodreads::before,
+.h-icon-s-goodreads-sign::before,
+.h-icon-s-google::before,
+.h-icon-s-google-drive::before,
+.h-icon-s-google-drive-sign::before,
+.h-icon-s-google-sign::before,
+.h-icon-s-googleplus::before,
+.h-icon-s-googleplus-sign::before,
+.h-icon-s-googleprofile::before,
+.h-icon-s-googleprofile-sign::before,
+.h-icon-s-gravatar::before,
+.h-icon-s-gravatar-sign::before,
+.h-icon-s-instagram::before,
+.h-icon-s-instagram-sign::before,
+.h-icon-s-klout::before,
+.h-icon-s-klout-sign::before,
+.h-icon-s-lastfm::before,
+.h-icon-s-lastfm-sign::before,
+.h-icon-s-linkedin::before,
+.h-icon-s-linkedin-sign::before,
+.h-icon-s-pinterest::before,
+.h-icon-s-pinterest-sign::before,
+.h-icon-s-quora::before,
+.h-icon-s-quora-sign::before,
+.h-icon-s-reddit::before,
+.h-icon-s-reddit-sign::before,
+.h-icon-s-share::before,
+.h-icon-s-share-sign::before,
+.h-icon-s-soundcloud::before,
+.h-icon-s-soundcloud-sign::before,
+.h-icon-s-spotify::before,
+.h-icon-s-spotify-sign::before,
+.h-icon-s-techendo::before,
+.h-icon-s-techendo-sign::before,
+.h-icon-s-tumblr::before,
+.h-icon-s-tumblr-sign::before,
+.h-icon-s-twitter::before,
+.h-icon-s-twitter-sign::before,
+.h-icon-s-vevo::before,
+.h-icon-s-vevo-sign::before,
+.h-icon-s-vimeo::before,
+.h-icon-s-vimeo-sign::before,
+.h-icon-s-wordpress::before,
+.h-icon-s-wordpress-sign::before,
+.h-icon-s-yahoo::before,
+.h-icon-s-yahoo-sign::before,
+.h-icon-s-yelp::before,
+.h-icon-s-yelp-sign::before,
+.h-icon-s-youtube::before,
+.h-icon-s-youtube-sign::before,
+.h-icon-search::before,
+.h-icon-search--lg::before,
+.h-icon-settings::before,
+.h-icon-settings--lg::before,
+.h-icon-settings-group::before,
+.h-icon-settings-group--lg::before,
+.h-icon-smile::before,
+.h-icon-smile--lg::before,
+.h-icon-special-date::before,
+.h-icon-special-date--lg::before,
+.h-icon-star::before,
+.h-icon-star--lg::before,
+.h-icon-star-outlined::before,
+.h-icon-star-outlined--lg::before,
+.h-icon-tag::before,
+.h-icon-tag--lg::before,
+.h-icon-task::before,
+.h-icon-task--lg::before,
+.h-icon-task-solid::before,
+.h-icon-task-solid--lg::before,
+.h-icon-ticket::before,
+.h-icon-ticket--lg::before,
+.h-icon-trash::before,
+.h-icon-trash--lg::before,
+.h-icon-trust::before,
+.h-icon-trust--filled::before,
+.h-icon-trust--filled--lg::before,
+.h-icon-trust--lg::before,
+.h-icon-user::before,
+.h-icon-user--lg::before,
+.h-icon-user-add::before,
+.h-icon-user-add--lg::before,
+.h-icon-user-group::before,
+.h-icon-user-group--lg::before,
+.h-icon-user-info::before,
+.h-icon-user-info--lg::before,
+.h-icon-users::before,
+.h-icon-users--filled::before,
+.h-icon-users--filled--lg::before,
+.h-icon-users--lg::before,
+.h-icon-visibility::before,
+.h-icon-visibility--lg::before,
+.h-icon-visibility-off::before,
+.h-icon-visibility-off--lg::before,
+.h-icon-workflow::before,
+.h-icon-workflow--lg::before,
+.h-icon-workflow-step::before,
+.h-icon-workflow-step--lg::before {
   display: inline-block;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
   font-family: "helium-icons";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   font-style: normal;
-  font-weight: normal;
   font-variant: normal;
+  font-weight: normal;
   line-height: 1;
   text-decoration: inherit;
   text-rendering: optimizeLegibility;
   text-transform: none;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
 }
 
-.h-icon-add:before { content: "\f100"; }
-.h-icon-add--lg:before { content: "\f101"; }
-.h-icon-add-circle:before { content: "\f102"; }
-.h-icon-add-circle--lg:before { content: "\f103"; }
-.h-icon-alarm:before { content: "\f104"; }
-.h-icon-alarm--lg:before { content: "\f105"; }
-.h-icon-anniversary:before { content: "\f106"; }
-.h-icon-anniversary--lg:before { content: "\f107"; }
-.h-icon-arrow-down:before { content: "\f108"; }
-.h-icon-arrow-down--lg:before { content: "\f109"; }
-.h-icon-arrow-down-circle:before { content: "\f10a"; }
-.h-icon-arrow-down-circle--lg:before { content: "\f10b"; }
-.h-icon-arrow-left:before { content: "\f10c"; }
-.h-icon-arrow-left--lg:before { content: "\f10d"; }
-.h-icon-arrow-right:before { content: "\f10e"; }
-.h-icon-arrow-right--lg:before { content: "\f10f"; }
-.h-icon-arrow-up:before { content: "\f110"; }
-.h-icon-arrow-up--lg:before { content: "\f111"; }
-.h-icon-b-blueleaf:before { content: "\f246"; }
-.h-icon-b-td:before { content: "\f247"; }
-.h-icon-b-wealthbox:before { content: "\f248"; }
-.h-icon-bell:before { content: "\f112"; }
-.h-icon-bell--lg:before { content: "\f113"; }
-.h-icon-birthdate:before { content: "\f114"; }
-.h-icon-birthdate--lg:before { content: "\f115"; }
-.h-icon-broadcast:before { content: "\f117"; }
-.h-icon-broadcast--lg:before { content: "\f118"; }
-.h-icon-carrot-down:before { content: "\f119"; }
-.h-icon-carrot-down--lg:before { content: "\f11a"; }
-.h-icon-carrot-left:before { content: "\f11b"; }
-.h-icon-carrot-left--lg:before { content: "\f11c"; }
-.h-icon-carrot-right:before { content: "\f11d"; }
-.h-icon-carrot-right--lg:before { content: "\f11e"; }
-.h-icon-carrot-up:before { content: "\f11f"; }
-.h-icon-carrot-up--lg:before { content: "\f120"; }
-.h-icon-chevron-down:before { content: "\f121"; }
-.h-icon-chevron-down--lg:before { content: "\f122"; }
-.h-icon-chevron-left:before { content: "\f123"; }
-.h-icon-chevron-left--lg:before { content: "\f124"; }
-.h-icon-chevron-right:before { content: "\f125"; }
-.h-icon-chevron-right--lg:before { content: "\f126"; }
-.h-icon-chevron-up:before { content: "\f127"; }
-.h-icon-chevron-up--lg:before { content: "\f128"; }
-.h-icon-clipboard:before { content: "\f129"; }
-.h-icon-clipboard--lg:before { content: "\f12a"; }
-.h-icon-clipboard-success:before { content: "\f12b"; }
-.h-icon-clipboard-success--lg:before { content: "\f12c"; }
-.h-icon-clock:before { content: "\f12d"; }
-.h-icon-clock--lg:before { content: "\f12e"; }
-.h-icon-comment:before { content: "\f12f"; }
-.h-icon-comment--lg:before { content: "\f130"; }
-.h-icon-company:before { content: "\f131"; }
-.h-icon-company--lg:before { content: "\f132"; }
-.h-icon-contact:before { content: "\f133"; }
-.h-icon-contact--filled:before { content: "\f134"; }
-.h-icon-contact--filled--lg:before { content: "\f135"; }
-.h-icon-contact--lg:before { content: "\f136"; }
-.h-icon-dashboard:before { content: "\f137"; }
-.h-icon-dashboard--lg:before { content: "\f138"; }
-.h-icon-datafile:before { content: "\f139"; }
-.h-icon-datafile--lg:before { content: "\f13a"; }
-.h-icon-deal:before { content: "\f13b"; }
-.h-icon-deal--lg:before { content: "\f13c"; }
-.h-icon-delete:before { content: "\f13d"; }
-.h-icon-delete--lg:before { content: "\f13e"; }
-.h-icon-delete-circle:before { content: "\f13f"; }
-.h-icon-delete-circle--lg:before { content: "\f140"; }
-.h-icon-dots:before { content: "\f141"; }
-.h-icon-dots--lg:before { content: "\f142"; }
-.h-icon-dots-vertical:before { content: "\f143"; }
-.h-icon-dots-vertical--lg:before { content: "\f144"; }
-.h-icon-download:before { content: "\f145"; }
-.h-icon-download--lg:before { content: "\f146"; }
-.h-icon-download-circle:before { content: "\f147"; }
-.h-icon-download-circle--lg:before { content: "\f23e"; }
-.h-icon-dropboxemail:before { content: "\f148"; }
-.h-icon-dropboxemail--lg:before { content: "\f149"; }
-.h-icon-edit:before { content: "\f14a"; }
-.h-icon-edit--lg:before { content: "\f14b"; }
-.h-icon-edit-outlined:before { content: "\f14c"; }
-.h-icon-edit-outlined--lg:before { content: "\f14d"; }
-.h-icon-edit_alt:before { content: "\f14e"; }
-.h-icon-edit_alt--lg:before { content: "\f14f"; }
-.h-icon-email:before { content: "\f150"; }
-.h-icon-email--filled:before { content: "\f151"; }
-.h-icon-email--filled--lg:before { content: "\f152"; }
-.h-icon-email--lg:before { content: "\f153"; }
-.h-icon-email-archive:before { content: "\f154"; }
-.h-icon-email-archive--lg:before { content: "\f155"; }
-.h-icon-email-attachment:before { content: "\f156"; }
-.h-icon-email-attachment--lg:before { content: "\f157"; }
-.h-icon-email-drafts:before { content: "\f158"; }
-.h-icon-email-drafts--lg:before { content: "\f159"; }
-.h-icon-email-inbox:before { content: "\f15a"; }
-.h-icon-email-inbox--lg:before { content: "\f15b"; }
-.h-icon-email-link-tracking:before { content: "\f15c"; }
-.h-icon-email-link-tracking--lg:before { content: "\f15d"; }
-.h-icon-email-outlined:before { content: "\f15e"; }
-.h-icon-email-outlined--lg:before { content: "\f15f"; }
-.h-icon-email-sent:before { content: "\f160"; }
-.h-icon-email-sent--lg:before { content: "\f161"; }
-.h-icon-email-signature:before { content: "\f162"; }
-.h-icon-email-signature--lg:before { content: "\f163"; }
-.h-icon-email-templates:before { content: "\f164"; }
-.h-icon-email-templates--lg:before { content: "\f165"; }
-.h-icon-email-trash:before { content: "\f166"; }
-.h-icon-email-trash--lg:before { content: "\f167"; }
-.h-icon-event:before { content: "\f168"; }
-.h-icon-event--lg:before { content: "\f169"; }
-.h-icon-event-add:before { content: "\f16a"; }
-.h-icon-event-add--lg:before { content: "\f16b"; }
-.h-icon-exclamation:before { content: "\f16c"; }
-.h-icon-exclamation--lg:before { content: "\f16d"; }
-.h-icon-external-link:before { content: "\f16e"; }
-.h-icon-external-link--lg:before { content: "\f16f"; }
-.h-icon-file:before { content: "\f170"; }
-.h-icon-file--lg:before { content: "\f171"; }
-.h-icon-file-outlined:before { content: "\f172"; }
-.h-icon-file-outlined--lg:before { content: "\f173"; }
-.h-icon-file-outlined-add:before { content: "\f174"; }
-.h-icon-file-outlined-add--lg:before { content: "\f175"; }
-.h-icon-files:before { content: "\f176"; }
-.h-icon-files--lg:before { content: "\f177"; }
-.h-icon-filter:before { content: "\f178"; }
-.h-icon-filter--filled:before { content: "\f251"; }
-.h-icon-filter--filled--lg:before { content: "\f252"; }
-.h-icon-filter--lg:before { content: "\f179"; }
-.h-icon-folder:before { content: "\f17a"; }
-.h-icon-folder--lg:before { content: "\f17b"; }
-.h-icon-forward:before { content: "\f17c"; }
-.h-icon-forward--lg:before { content: "\f17d"; }
-.h-icon-graph:before { content: "\f17e"; }
-.h-icon-graph--lg:before { content: "\f17f"; }
-.h-icon-grid:before { content: "\f180"; }
-.h-icon-grid--lg:before { content: "\f181"; }
-.h-icon-history:before { content: "\f249"; }
-.h-icon-history--lg:before { content: "\f24a"; }
-.h-icon-household:before { content: "\f182"; }
-.h-icon-household--filled:before { content: "\f24b"; }
-.h-icon-household--filled--lg:before { content: "\f24c"; }
-.h-icon-household--lg:before { content: "\f183"; }
-.h-icon-inbox:before { content: "\f184"; }
-.h-icon-inbox--lg:before { content: "\f185"; }
-.h-icon-institution:before { content: "\f186"; }
-.h-icon-institution--lg:before { content: "\f187"; }
-.h-icon-list:before { content: "\f188"; }
-.h-icon-list--lg:before { content: "\f189"; }
-.h-icon-lock:before { content: "\f18b"; }
-.h-icon-lock--filled:before { content: "\f18c"; }
-.h-icon-lock--filled--lg:before { content: "\f18d"; }
-.h-icon-lock--lg:before { content: "\f18e"; }
-.h-icon-lock-open:before { content: "\f18f"; }
-.h-icon-lock-open--filled:before { content: "\f190"; }
-.h-icon-lock-open--filled--lg:before { content: "\f191"; }
-.h-icon-lock-open--lg:before { content: "\f192"; }
-.h-icon-mail-merge:before { content: "\f193"; }
-.h-icon-mail-merge--lg:before { content: "\f194"; }
-.h-icon-map-pin:before { content: "\f196"; }
-.h-icon-map-pin--filled:before { content: "\f23f"; }
-.h-icon-map-pin--filled--lg:before { content: "\f240"; }
-.h-icon-map-pin--lg:before { content: "\f197"; }
-.h-icon-menu:before { content: "\f198"; }
-.h-icon-menu--lg:before { content: "\f199"; }
-.h-icon-menu-close:before { content: "\f19a"; }
-.h-icon-menu-close--lg:before { content: "\f19b"; }
-.h-icon-menu-open:before { content: "\f19c"; }
-.h-icon-menu-open--lg:before { content: "\f19d"; }
-.h-icon-mic:before { content: "\f19e"; }
-.h-icon-mic--lg:before { content: "\f19f"; }
-.h-icon-minus:before { content: "\f1a0"; }
-.h-icon-minus--lg:before { content: "\f1a1"; }
-.h-icon-mobile:before { content: "\f242"; }
-.h-icon-mobile--lg:before { content: "\f243"; }
-.h-icon-newsfeed:before { content: "\f244"; }
-.h-icon-newsfeed--lg:before { content: "\f245"; }
-.h-icon-note:before { content: "\f1a2"; }
-.h-icon-note--lg:before { content: "\f1a3"; }
-.h-icon-opportunity:before { content: "\f1a4"; }
-.h-icon-opportunity--lg:before { content: "\f1a5"; }
-.h-icon-organization:before { content: "\f1a6"; }
-.h-icon-organization--filled:before { content: "\f24d"; }
-.h-icon-organization--filled--lg:before { content: "\f24e"; }
-.h-icon-organization--lg:before { content: "\f1a7"; }
-.h-icon-outcomes:before { content: "\f1a8"; }
-.h-icon-outcomes--lg:before { content: "\f1a9"; }
-.h-icon-person:before { content: "\f1aa"; }
-.h-icon-person--filled:before { content: "\f1ab"; }
-.h-icon-person--filled--lg:before { content: "\f1ac"; }
-.h-icon-person--lg:before { content: "\f1ad"; }
-.h-icon-phonecall:before { content: "\f1ae"; }
-.h-icon-phonecall--filled:before { content: "\f1af"; }
-.h-icon-phonecall--filled--lg:before { content: "\f1b0"; }
-.h-icon-phonecall--lg:before { content: "\f1b1"; }
-.h-icon-pie:before { content: "\f1b2"; }
-.h-icon-pie--lg:before { content: "\f1b3"; }
-.h-icon-pipeline:before { content: "\f1b4"; }
-.h-icon-pipeline--lg:before { content: "\f1b5"; }
-.h-icon-play-circle:before { content: "\f1b6"; }
-.h-icon-play-circle--lg:before { content: "\f1b7"; }
-.h-icon-print:before { content: "\f1b8"; }
-.h-icon-print--lg:before { content: "\f1b9"; }
-.h-icon-project:before { content: "\f1ba"; }
-.h-icon-project--lg:before { content: "\f1bb"; }
-.h-icon-pulse:before { content: "\f1bc"; }
-.h-icon-pulse--lg:before { content: "\f1bd"; }
-.h-icon-question-mark:before { content: "\f1be"; }
-.h-icon-question-mark--lg:before { content: "\f1bf"; }
-.h-icon-refresh:before { content: "\f1c0"; }
-.h-icon-refresh--lg:before { content: "\f1c1"; }
-.h-icon-reply:before { content: "\f1c2"; }
-.h-icon-reply--lg:before { content: "\f1c3"; }
-.h-icon-reply-all:before { content: "\f1c4"; }
-.h-icon-reply-all--lg:before { content: "\f1c5"; }
-.h-icon-s-aboutme:before { content: "\f1c6"; }
-.h-icon-s-aboutme-sign:before { content: "\f1c7"; }
-.h-icon-s-bebo:before { content: "\f1c8"; }
-.h-icon-s-bebo-sign:before { content: "\f1c9"; }
-.h-icon-s-behance:before { content: "\f1ca"; }
-.h-icon-s-behance-sign:before { content: "\f1cb"; }
-.h-icon-s-box-net:before { content: "\f1cc"; }
-.h-icon-s-box-net-sign:before { content: "\f1cd"; }
-.h-icon-s-bread:before { content: "\f1ce"; }
-.h-icon-s-bread-sign:before { content: "\f1cf"; }
-.h-icon-s-disqus:before { content: "\f1d0"; }
-.h-icon-s-disqus-sign:before { content: "\f1d1"; }
-.h-icon-s-dribbble:before { content: "\f1d2"; }
-.h-icon-s-dribbble-sign:before { content: "\f1d3"; }
-.h-icon-s-dropbox:before { content: "\f1d4"; }
-.h-icon-s-dropbox-sign:before { content: "\f1d5"; }
-.h-icon-s-facebook:before { content: "\f1d6"; }
-.h-icon-s-facebook-sign:before { content: "\f1d7"; }
-.h-icon-s-flickr:before { content: "\f1d8"; }
-.h-icon-s-flickr-sign:before { content: "\f1d9"; }
-.h-icon-s-foursquare:before { content: "\f1da"; }
-.h-icon-s-foursquare-sign:before { content: "\f1db"; }
-.h-icon-s-github:before { content: "\f1dc"; }
-.h-icon-s-github-sign:before { content: "\f1dd"; }
-.h-icon-s-goodreads:before { content: "\f1de"; }
-.h-icon-s-goodreads-sign:before { content: "\f1df"; }
-.h-icon-s-google:before { content: "\f253"; }
-.h-icon-s-google-drive:before { content: "\f1e0"; }
-.h-icon-s-google-drive-sign:before { content: "\f1e1"; }
-.h-icon-s-google-sign:before { content: "\f254"; }
-.h-icon-s-googleplus:before { content: "\f1e2"; }
-.h-icon-s-googleplus-sign:before { content: "\f1e3"; }
-.h-icon-s-googleprofile:before { content: "\f1e4"; }
-.h-icon-s-googleprofile-sign:before { content: "\f1e5"; }
-.h-icon-s-gravatar:before { content: "\f1e6"; }
-.h-icon-s-gravatar-sign:before { content: "\f1e7"; }
-.h-icon-s-instagram:before { content: "\f1e8"; }
-.h-icon-s-instagram-sign:before { content: "\f1e9"; }
-.h-icon-s-klout:before { content: "\f1ea"; }
-.h-icon-s-klout-sign:before { content: "\f1eb"; }
-.h-icon-s-lastfm:before { content: "\f1ec"; }
-.h-icon-s-lastfm-sign:before { content: "\f1ed"; }
-.h-icon-s-linkedin:before { content: "\f1ee"; }
-.h-icon-s-linkedin-sign:before { content: "\f1ef"; }
-.h-icon-s-pinterest:before { content: "\f1f0"; }
-.h-icon-s-pinterest-sign:before { content: "\f1f1"; }
-.h-icon-s-quora:before { content: "\f1f2"; }
-.h-icon-s-quora-sign:before { content: "\f1f3"; }
-.h-icon-s-reddit:before { content: "\f1f4"; }
-.h-icon-s-reddit-sign:before { content: "\f1f5"; }
-.h-icon-s-share:before { content: "\f1f6"; }
-.h-icon-s-share-sign:before { content: "\f1f7"; }
-.h-icon-s-soundcloud:before { content: "\f1f8"; }
-.h-icon-s-soundcloud-sign:before { content: "\f1f9"; }
-.h-icon-s-spotify:before { content: "\f1fa"; }
-.h-icon-s-spotify-sign:before { content: "\f1fb"; }
-.h-icon-s-techendo:before { content: "\f1fc"; }
-.h-icon-s-techendo-sign:before { content: "\f1fd"; }
-.h-icon-s-tumblr:before { content: "\f1fe"; }
-.h-icon-s-tumblr-sign:before { content: "\f1ff"; }
-.h-icon-s-twitter:before { content: "\f200"; }
-.h-icon-s-twitter-sign:before { content: "\f201"; }
-.h-icon-s-vevo:before { content: "\f202"; }
-.h-icon-s-vevo-sign:before { content: "\f203"; }
-.h-icon-s-vimeo:before { content: "\f204"; }
-.h-icon-s-vimeo-sign:before { content: "\f205"; }
-.h-icon-s-wordpress:before { content: "\f206"; }
-.h-icon-s-wordpress-sign:before { content: "\f207"; }
-.h-icon-s-yahoo:before { content: "\f208"; }
-.h-icon-s-yahoo-sign:before { content: "\f209"; }
-.h-icon-s-yelp:before { content: "\f20a"; }
-.h-icon-s-yelp-sign:before { content: "\f20b"; }
-.h-icon-s-youtube:before { content: "\f20c"; }
-.h-icon-s-youtube-sign:before { content: "\f20d"; }
-.h-icon-search:before { content: "\f20e"; }
-.h-icon-search--lg:before { content: "\f20f"; }
-.h-icon-settings:before { content: "\f210"; }
-.h-icon-settings--lg:before { content: "\f211"; }
-.h-icon-settings-group:before { content: "\f212"; }
-.h-icon-settings-group--lg:before { content: "\f213"; }
-.h-icon-smile:before { content: "\f214"; }
-.h-icon-smile--lg:before { content: "\f215"; }
-.h-icon-special-date:before { content: "\f216"; }
-.h-icon-special-date--lg:before { content: "\f217"; }
-.h-icon-star:before { content: "\f218"; }
-.h-icon-star--lg:before { content: "\f219"; }
-.h-icon-star-outlined:before { content: "\f21b"; }
-.h-icon-star-outlined--lg:before { content: "\f21c"; }
-.h-icon-tag:before { content: "\f21d"; }
-.h-icon-tag--lg:before { content: "\f21e"; }
-.h-icon-task:before { content: "\f21f"; }
-.h-icon-task--lg:before { content: "\f220"; }
-.h-icon-task-solid:before { content: "\f221"; }
-.h-icon-task-solid--lg:before { content: "\f222"; }
-.h-icon-ticket:before { content: "\f224"; }
-.h-icon-ticket--lg:before { content: "\f225"; }
-.h-icon-trash:before { content: "\f226"; }
-.h-icon-trash--lg:before { content: "\f227"; }
-.h-icon-trust:before { content: "\f228"; }
-.h-icon-trust--filled:before { content: "\f24f"; }
-.h-icon-trust--filled--lg:before { content: "\f250"; }
-.h-icon-trust--lg:before { content: "\f229"; }
-.h-icon-user:before { content: "\f22a"; }
-.h-icon-user--lg:before { content: "\f22b"; }
-.h-icon-user-add:before { content: "\f22c"; }
-.h-icon-user-add--lg:before { content: "\f22d"; }
-.h-icon-user-group:before { content: "\f22e"; }
-.h-icon-user-group--lg:before { content: "\f22f"; }
-.h-icon-user-info:before { content: "\f230"; }
-.h-icon-user-info--lg:before { content: "\f231"; }
-.h-icon-users:before { content: "\f232"; }
-.h-icon-users--filled:before { content: "\f241"; }
-.h-icon-users--filled--lg:before { content: "\f233"; }
-.h-icon-users--lg:before { content: "\f234"; }
-.h-icon-visibility:before { content: "\f235"; }
-.h-icon-visibility--lg:before { content: "\f236"; }
-.h-icon-visibility-off:before { content: "\f237"; }
-.h-icon-visibility-off--lg:before { content: "\f238"; }
-.h-icon-workflow:before { content: "\f23a"; }
-.h-icon-workflow--lg:before { content: "\f23b"; }
-.h-icon-workflow-step:before { content: "\f23c"; }
-.h-icon-workflow-step--lg:before { content: "\f23d"; }
+.h-icon-add::before {
+  content: "\f100";
+}
+
+.h-icon-add--lg::before {
+  content: "\f101";
+}
+
+.h-icon-add-circle::before {
+  content: "\f102";
+}
+
+.h-icon-add-circle--lg::before {
+  content: "\f103";
+}
+
+.h-icon-alarm::before {
+  content: "\f104";
+}
+
+.h-icon-alarm--lg::before {
+  content: "\f105";
+}
+
+.h-icon-anniversary::before {
+  content: "\f106";
+}
+
+.h-icon-anniversary--lg::before {
+  content: "\f107";
+}
+
+.h-icon-arrow-down::before {
+  content: "\f108";
+}
+
+.h-icon-arrow-down--lg::before {
+  content: "\f109";
+}
+
+.h-icon-arrow-down-circle::before {
+  content: "\f10a";
+}
+
+.h-icon-arrow-down-circle--lg::before {
+  content: "\f10b";
+}
+
+.h-icon-arrow-left::before {
+  content: "\f10c";
+}
+
+.h-icon-arrow-left--lg::before {
+  content: "\f10d";
+}
+
+.h-icon-arrow-right::before {
+  content: "\f10e";
+}
+
+.h-icon-arrow-right--lg::before {
+  content: "\f10f";
+}
+
+.h-icon-arrow-up::before {
+  content: "\f110";
+}
+
+.h-icon-arrow-up--lg::before {
+  content: "\f111";
+}
+
+.h-icon-b-blueleaf::before {
+  content: "\f246";
+}
+
+.h-icon-b-td::before {
+  content: "\f247";
+}
+
+.h-icon-b-wealthbox::before {
+  content: "\f248";
+}
+
+.h-icon-bell::before {
+  content: "\f112";
+}
+
+.h-icon-bell--lg::before {
+  content: "\f113";
+}
+
+.h-icon-birthdate::before {
+  content: "\f114";
+}
+
+.h-icon-birthdate--lg::before {
+  content: "\f115";
+}
+
+.h-icon-broadcast::before {
+  content: "\f117";
+}
+
+.h-icon-broadcast--lg::before {
+  content: "\f118";
+}
+
+.h-icon-carrot-down::before {
+  content: "\f119";
+}
+
+.h-icon-carrot-down--lg::before {
+  content: "\f11a";
+}
+
+.h-icon-carrot-left::before {
+  content: "\f11b";
+}
+
+.h-icon-carrot-left--lg::before {
+  content: "\f11c";
+}
+
+.h-icon-carrot-right::before {
+  content: "\f11d";
+}
+
+.h-icon-carrot-right--lg::before {
+  content: "\f11e";
+}
+
+.h-icon-carrot-up::before {
+  content: "\f11f";
+}
+
+.h-icon-carrot-up--lg::before {
+  content: "\f120";
+}
+
+.h-icon-chevron-down::before {
+  content: "\f121";
+}
+
+.h-icon-chevron-down--lg::before {
+  content: "\f122";
+}
+
+.h-icon-chevron-left::before {
+  content: "\f123";
+}
+
+.h-icon-chevron-left--lg::before {
+  content: "\f124";
+}
+
+.h-icon-chevron-right::before {
+  content: "\f125";
+}
+
+.h-icon-chevron-right--lg::before {
+  content: "\f126";
+}
+
+.h-icon-chevron-up::before {
+  content: "\f127";
+}
+
+.h-icon-chevron-up--lg::before {
+  content: "\f128";
+}
+
+.h-icon-clipboard::before {
+  content: "\f129";
+}
+
+.h-icon-clipboard--lg::before {
+  content: "\f12a";
+}
+
+.h-icon-clipboard-success::before {
+  content: "\f12b";
+}
+
+.h-icon-clipboard-success--lg::before {
+  content: "\f12c";
+}
+
+.h-icon-clock::before {
+  content: "\f12d";
+}
+
+.h-icon-clock--lg::before {
+  content: "\f12e";
+}
+
+.h-icon-comment::before {
+  content: "\f12f";
+}
+
+.h-icon-comment--lg::before {
+  content: "\f130";
+}
+
+.h-icon-company::before {
+  content: "\f131";
+}
+
+.h-icon-company--lg::before {
+  content: "\f132";
+}
+
+.h-icon-contact::before {
+  content: "\f133";
+}
+
+.h-icon-contact--filled::before {
+  content: "\f134";
+}
+
+.h-icon-contact--filled--lg::before {
+  content: "\f135";
+}
+
+.h-icon-contact--lg::before {
+  content: "\f136";
+}
+
+.h-icon-dashboard::before {
+  content: "\f137";
+}
+
+.h-icon-dashboard--lg::before {
+  content: "\f138";
+}
+
+.h-icon-datafile::before {
+  content: "\f139";
+}
+
+.h-icon-datafile--lg::before {
+  content: "\f13a";
+}
+
+.h-icon-deal::before {
+  content: "\f13b";
+}
+
+.h-icon-deal--lg::before {
+  content: "\f13c";
+}
+
+.h-icon-delete::before {
+  content: "\f13d";
+}
+
+.h-icon-delete--lg::before {
+  content: "\f13e";
+}
+
+.h-icon-delete-circle::before {
+  content: "\f13f";
+}
+
+.h-icon-delete-circle--lg::before {
+  content: "\f140";
+}
+
+.h-icon-dots::before {
+  content: "\f141";
+}
+
+.h-icon-dots--lg::before {
+  content: "\f142";
+}
+
+.h-icon-dots-vertical::before {
+  content: "\f143";
+}
+
+.h-icon-dots-vertical--lg::before {
+  content: "\f144";
+}
+
+.h-icon-download::before {
+  content: "\f145";
+}
+
+.h-icon-download--lg::before {
+  content: "\f146";
+}
+
+.h-icon-download-circle::before {
+  content: "\f147";
+}
+
+.h-icon-download-circle--lg::before {
+  content: "\f23e";
+}
+
+.h-icon-dropboxemail::before {
+  content: "\f148";
+}
+
+.h-icon-dropboxemail--lg::before {
+  content: "\f149";
+}
+
+.h-icon-edit::before {
+  content: "\f14a";
+}
+
+.h-icon-edit--lg::before {
+  content: "\f14b";
+}
+
+.h-icon-edit-outlined::before {
+  content: "\f14c";
+}
+
+.h-icon-edit-outlined--lg::before {
+  content: "\f14d";
+}
+
+.h-icon-edit_alt::before {
+  content: "\f14e";
+}
+
+.h-icon-edit_alt--lg::before {
+  content: "\f14f";
+}
+
+.h-icon-email::before {
+  content: "\f150";
+}
+
+.h-icon-email--filled::before {
+  content: "\f151";
+}
+
+.h-icon-email--filled--lg::before {
+  content: "\f152";
+}
+
+.h-icon-email--lg::before {
+  content: "\f153";
+}
+
+.h-icon-email-archive::before {
+  content: "\f154";
+}
+
+.h-icon-email-archive--lg::before {
+  content: "\f155";
+}
+
+.h-icon-email-attachment::before {
+  content: "\f156";
+}
+
+.h-icon-email-attachment--lg::before {
+  content: "\f157";
+}
+
+.h-icon-email-drafts::before {
+  content: "\f158";
+}
+
+.h-icon-email-drafts--lg::before {
+  content: "\f159";
+}
+
+.h-icon-email-inbox::before {
+  content: "\f15a";
+}
+
+.h-icon-email-inbox--lg::before {
+  content: "\f15b";
+}
+
+.h-icon-email-link-tracking::before {
+  content: "\f15c";
+}
+
+.h-icon-email-link-tracking--lg::before {
+  content: "\f15d";
+}
+
+.h-icon-email-outlined::before {
+  content: "\f15e";
+}
+
+.h-icon-email-outlined--lg::before {
+  content: "\f15f";
+}
+
+.h-icon-email-sent::before {
+  content: "\f160";
+}
+
+.h-icon-email-sent--lg::before {
+  content: "\f161";
+}
+
+.h-icon-email-signature::before {
+  content: "\f162";
+}
+
+.h-icon-email-signature--lg::before {
+  content: "\f163";
+}
+
+.h-icon-email-templates::before {
+  content: "\f164";
+}
+
+.h-icon-email-templates--lg::before {
+  content: "\f165";
+}
+
+.h-icon-email-trash::before {
+  content: "\f166";
+}
+
+.h-icon-email-trash--lg::before {
+  content: "\f167";
+}
+
+.h-icon-event::before {
+  content: "\f168";
+}
+
+.h-icon-event--lg::before {
+  content: "\f169";
+}
+
+.h-icon-event-add::before {
+  content: "\f16a";
+}
+
+.h-icon-event-add--lg::before {
+  content: "\f16b";
+}
+
+.h-icon-exclamation::before {
+  content: "\f16c";
+}
+
+.h-icon-exclamation--lg::before {
+  content: "\f16d";
+}
+
+.h-icon-external-link::before {
+  content: "\f16e";
+}
+
+.h-icon-external-link--lg::before {
+  content: "\f16f";
+}
+
+.h-icon-file::before {
+  content: "\f170";
+}
+
+.h-icon-file--lg::before {
+  content: "\f171";
+}
+
+.h-icon-file-outlined::before {
+  content: "\f172";
+}
+
+.h-icon-file-outlined--lg::before {
+  content: "\f173";
+}
+
+.h-icon-file-outlined-add::before {
+  content: "\f174";
+}
+
+.h-icon-file-outlined-add--lg::before {
+  content: "\f175";
+}
+
+.h-icon-files::before {
+  content: "\f176";
+}
+
+.h-icon-files--lg::before {
+  content: "\f177";
+}
+
+.h-icon-filter::before {
+  content: "\f178";
+}
+
+.h-icon-filter--filled::before {
+  content: "\f251";
+}
+
+.h-icon-filter--filled--lg::before {
+  content: "\f252";
+}
+
+.h-icon-filter--lg::before {
+  content: "\f179";
+}
+
+.h-icon-folder::before {
+  content: "\f17a";
+}
+
+.h-icon-folder--lg::before {
+  content: "\f17b";
+}
+
+.h-icon-forward::before {
+  content: "\f17c";
+}
+
+.h-icon-forward--lg::before {
+  content: "\f17d";
+}
+
+.h-icon-graph::before {
+  content: "\f17e";
+}
+
+.h-icon-graph--lg::before {
+  content: "\f17f";
+}
+
+.h-icon-grid::before {
+  content: "\f180";
+}
+
+.h-icon-grid--lg::before {
+  content: "\f181";
+}
+
+.h-icon-history::before {
+  content: "\f249";
+}
+
+.h-icon-history--lg::before {
+  content: "\f24a";
+}
+
+.h-icon-household::before {
+  content: "\f182";
+}
+
+.h-icon-household--filled::before {
+  content: "\f24b";
+}
+
+.h-icon-household--filled--lg::before {
+  content: "\f24c";
+}
+
+.h-icon-household--lg::before {
+  content: "\f183";
+}
+
+.h-icon-inbox::before {
+  content: "\f184";
+}
+
+.h-icon-inbox--lg::before {
+  content: "\f185";
+}
+
+.h-icon-institution::before {
+  content: "\f186";
+}
+
+.h-icon-institution--lg::before {
+  content: "\f187";
+}
+
+.h-icon-list::before {
+  content: "\f188";
+}
+
+.h-icon-list--lg::before {
+  content: "\f189";
+}
+
+.h-icon-lock::before {
+  content: "\f18b";
+}
+
+.h-icon-lock--filled::before {
+  content: "\f18c";
+}
+
+.h-icon-lock--filled--lg::before {
+  content: "\f18d";
+}
+
+.h-icon-lock--lg::before {
+  content: "\f18e";
+}
+
+.h-icon-lock-open::before {
+  content: "\f18f";
+}
+
+.h-icon-lock-open--filled::before {
+  content: "\f190";
+}
+
+.h-icon-lock-open--filled--lg::before {
+  content: "\f191";
+}
+
+.h-icon-lock-open--lg::before {
+  content: "\f192";
+}
+
+.h-icon-mail-merge::before {
+  content: "\f193";
+}
+
+.h-icon-mail-merge--lg::before {
+  content: "\f194";
+}
+
+.h-icon-map-pin::before {
+  content: "\f196";
+}
+
+.h-icon-map-pin--filled::before {
+  content: "\f23f";
+}
+
+.h-icon-map-pin--filled--lg::before {
+  content: "\f240";
+}
+
+.h-icon-map-pin--lg::before {
+  content: "\f197";
+}
+
+.h-icon-menu::before {
+  content: "\f198";
+}
+
+.h-icon-menu--lg::before {
+  content: "\f199";
+}
+
+.h-icon-menu-close::before {
+  content: "\f19a";
+}
+
+.h-icon-menu-close--lg::before {
+  content: "\f19b";
+}
+
+.h-icon-menu-open::before {
+  content: "\f19c";
+}
+
+.h-icon-menu-open--lg::before {
+  content: "\f19d";
+}
+
+.h-icon-mic::before {
+  content: "\f19e";
+}
+
+.h-icon-mic--lg::before {
+  content: "\f19f";
+}
+
+.h-icon-minus::before {
+  content: "\f1a0";
+}
+
+.h-icon-minus--lg::before {
+  content: "\f1a1";
+}
+
+.h-icon-mobile::before {
+  content: "\f242";
+}
+
+.h-icon-mobile--lg::before {
+  content: "\f243";
+}
+
+.h-icon-newsfeed::before {
+  content: "\f244";
+}
+
+.h-icon-newsfeed--lg::before {
+  content: "\f245";
+}
+
+.h-icon-note::before {
+  content: "\f1a2";
+}
+
+.h-icon-note--lg::before {
+  content: "\f1a3";
+}
+
+.h-icon-opportunity::before {
+  content: "\f1a4";
+}
+
+.h-icon-opportunity--lg::before {
+  content: "\f1a5";
+}
+
+.h-icon-organization::before {
+  content: "\f1a6";
+}
+
+.h-icon-organization--filled::before {
+  content: "\f24d";
+}
+
+.h-icon-organization--filled--lg::before {
+  content: "\f24e";
+}
+
+.h-icon-organization--lg::before {
+  content: "\f1a7";
+}
+
+.h-icon-outcomes::before {
+  content: "\f1a8";
+}
+
+.h-icon-outcomes--lg::before {
+  content: "\f1a9";
+}
+
+.h-icon-person::before {
+  content: "\f1aa";
+}
+
+.h-icon-person--filled::before {
+  content: "\f1ab";
+}
+
+.h-icon-person--filled--lg::before {
+  content: "\f1ac";
+}
+
+.h-icon-person--lg::before {
+  content: "\f1ad";
+}
+
+.h-icon-phonecall::before {
+  content: "\f1ae";
+}
+
+.h-icon-phonecall--filled::before {
+  content: "\f1af";
+}
+
+.h-icon-phonecall--filled--lg::before {
+  content: "\f1b0";
+}
+
+.h-icon-phonecall--lg::before {
+  content: "\f1b1";
+}
+
+.h-icon-pie::before {
+  content: "\f1b2";
+}
+
+.h-icon-pie--lg::before {
+  content: "\f1b3";
+}
+
+.h-icon-pipeline::before {
+  content: "\f1b4";
+}
+
+.h-icon-pipeline--lg::before {
+  content: "\f1b5";
+}
+
+.h-icon-play-circle::before {
+  content: "\f1b6";
+}
+
+.h-icon-play-circle--lg::before {
+  content: "\f1b7";
+}
+
+.h-icon-print::before {
+  content: "\f1b8";
+}
+
+.h-icon-print--lg::before {
+  content: "\f1b9";
+}
+
+.h-icon-project::before {
+  content: "\f1ba";
+}
+
+.h-icon-project--lg::before {
+  content: "\f1bb";
+}
+
+.h-icon-pulse::before {
+  content: "\f1bc";
+}
+
+.h-icon-pulse--lg::before {
+  content: "\f1bd";
+}
+
+.h-icon-question-mark::before {
+  content: "\f1be";
+}
+
+.h-icon-question-mark--lg::before {
+  content: "\f1bf";
+}
+
+.h-icon-refresh::before {
+  content: "\f1c0";
+}
+
+.h-icon-refresh--lg::before {
+  content: "\f1c1";
+}
+
+.h-icon-reply::before {
+  content: "\f1c2";
+}
+
+.h-icon-reply--lg::before {
+  content: "\f1c3";
+}
+
+.h-icon-reply-all::before {
+  content: "\f1c4";
+}
+
+.h-icon-reply-all--lg::before {
+  content: "\f1c5";
+}
+
+.h-icon-s-aboutme::before {
+  content: "\f1c6";
+}
+
+.h-icon-s-aboutme-sign::before {
+  content: "\f1c7";
+}
+
+.h-icon-s-bebo::before {
+  content: "\f1c8";
+}
+
+.h-icon-s-bebo-sign::before {
+  content: "\f1c9";
+}
+
+.h-icon-s-behance::before {
+  content: "\f1ca";
+}
+
+.h-icon-s-behance-sign::before {
+  content: "\f1cb";
+}
+
+.h-icon-s-box-net::before {
+  content: "\f1cc";
+}
+
+.h-icon-s-box-net-sign::before {
+  content: "\f1cd";
+}
+
+.h-icon-s-bread::before {
+  content: "\f1ce";
+}
+
+.h-icon-s-bread-sign::before {
+  content: "\f1cf";
+}
+
+.h-icon-s-disqus::before {
+  content: "\f1d0";
+}
+
+.h-icon-s-disqus-sign::before {
+  content: "\f1d1";
+}
+
+.h-icon-s-dribbble::before {
+  content: "\f1d2";
+}
+
+.h-icon-s-dribbble-sign::before {
+  content: "\f1d3";
+}
+
+.h-icon-s-dropbox::before {
+  content: "\f1d4";
+}
+
+.h-icon-s-dropbox-sign::before {
+  content: "\f1d5";
+}
+
+.h-icon-s-facebook::before {
+  content: "\f1d6";
+}
+
+.h-icon-s-facebook-sign::before {
+  content: "\f1d7";
+}
+
+.h-icon-s-flickr::before {
+  content: "\f1d8";
+}
+
+.h-icon-s-flickr-sign::before {
+  content: "\f1d9";
+}
+
+.h-icon-s-foursquare::before {
+  content: "\f1da";
+}
+
+.h-icon-s-foursquare-sign::before {
+  content: "\f1db";
+}
+
+.h-icon-s-github::before {
+  content: "\f1dc";
+}
+
+.h-icon-s-github-sign::before {
+  content: "\f1dd";
+}
+
+.h-icon-s-goodreads::before {
+  content: "\f1de";
+}
+
+.h-icon-s-goodreads-sign::before {
+  content: "\f1df";
+}
+
+.h-icon-s-google::before {
+  content: "\f253";
+}
+
+.h-icon-s-google-drive::before {
+  content: "\f1e0";
+}
+
+.h-icon-s-google-drive-sign::before {
+  content: "\f1e1";
+}
+
+.h-icon-s-google-sign::before {
+  content: "\f254";
+}
+
+.h-icon-s-googleplus::before {
+  content: "\f1e2";
+}
+
+.h-icon-s-googleplus-sign::before {
+  content: "\f1e3";
+}
+
+.h-icon-s-googleprofile::before {
+  content: "\f1e4";
+}
+
+.h-icon-s-googleprofile-sign::before {
+  content: "\f1e5";
+}
+
+.h-icon-s-gravatar::before {
+  content: "\f1e6";
+}
+
+.h-icon-s-gravatar-sign::before {
+  content: "\f1e7";
+}
+
+.h-icon-s-instagram::before {
+  content: "\f1e8";
+}
+
+.h-icon-s-instagram-sign::before {
+  content: "\f1e9";
+}
+
+.h-icon-s-klout::before {
+  content: "\f1ea";
+}
+
+.h-icon-s-klout-sign::before {
+  content: "\f1eb";
+}
+
+.h-icon-s-lastfm::before {
+  content: "\f1ec";
+}
+
+.h-icon-s-lastfm-sign::before {
+  content: "\f1ed";
+}
+
+.h-icon-s-linkedin::before {
+  content: "\f1ee";
+}
+
+.h-icon-s-linkedin-sign::before {
+  content: "\f1ef";
+}
+
+.h-icon-s-pinterest::before {
+  content: "\f1f0";
+}
+
+.h-icon-s-pinterest-sign::before {
+  content: "\f1f1";
+}
+
+.h-icon-s-quora::before {
+  content: "\f1f2";
+}
+
+.h-icon-s-quora-sign::before {
+  content: "\f1f3";
+}
+
+.h-icon-s-reddit::before {
+  content: "\f1f4";
+}
+
+.h-icon-s-reddit-sign::before {
+  content: "\f1f5";
+}
+
+.h-icon-s-share::before {
+  content: "\f1f6";
+}
+
+.h-icon-s-share-sign::before {
+  content: "\f1f7";
+}
+
+.h-icon-s-soundcloud::before {
+  content: "\f1f8";
+}
+
+.h-icon-s-soundcloud-sign::before {
+  content: "\f1f9";
+}
+
+.h-icon-s-spotify::before {
+  content: "\f1fa";
+}
+
+.h-icon-s-spotify-sign::before {
+  content: "\f1fb";
+}
+
+.h-icon-s-techendo::before {
+  content: "\f1fc";
+}
+
+.h-icon-s-techendo-sign::before {
+  content: "\f1fd";
+}
+
+.h-icon-s-tumblr::before {
+  content: "\f1fe";
+}
+
+.h-icon-s-tumblr-sign::before {
+  content: "\f1ff";
+}
+
+.h-icon-s-twitter::before {
+  content: "\f200";
+}
+
+.h-icon-s-twitter-sign::before {
+  content: "\f201";
+}
+
+.h-icon-s-vevo::before {
+  content: "\f202";
+}
+
+.h-icon-s-vevo-sign::before {
+  content: "\f203";
+}
+
+.h-icon-s-vimeo::before {
+  content: "\f204";
+}
+
+.h-icon-s-vimeo-sign::before {
+  content: "\f205";
+}
+
+.h-icon-s-wordpress::before {
+  content: "\f206";
+}
+
+.h-icon-s-wordpress-sign::before {
+  content: "\f207";
+}
+
+.h-icon-s-yahoo::before {
+  content: "\f208";
+}
+
+.h-icon-s-yahoo-sign::before {
+  content: "\f209";
+}
+
+.h-icon-s-yelp::before {
+  content: "\f20a";
+}
+
+.h-icon-s-yelp-sign::before {
+  content: "\f20b";
+}
+
+.h-icon-s-youtube::before {
+  content: "\f20c";
+}
+
+.h-icon-s-youtube-sign::before {
+  content: "\f20d";
+}
+
+.h-icon-search::before {
+  content: "\f20e";
+}
+
+.h-icon-search--lg::before {
+  content: "\f20f";
+}
+
+.h-icon-settings::before {
+  content: "\f210";
+}
+
+.h-icon-settings--lg::before {
+  content: "\f211";
+}
+
+.h-icon-settings-group::before {
+  content: "\f212";
+}
+
+.h-icon-settings-group--lg::before {
+  content: "\f213";
+}
+
+.h-icon-smile::before {
+  content: "\f214";
+}
+
+.h-icon-smile--lg::before {
+  content: "\f215";
+}
+
+.h-icon-special-date::before {
+  content: "\f216";
+}
+
+.h-icon-special-date--lg::before {
+  content: "\f217";
+}
+
+.h-icon-star::before {
+  content: "\f218";
+}
+
+.h-icon-star--lg::before {
+  content: "\f219";
+}
+
+.h-icon-star-outlined::before {
+  content: "\f21b";
+}
+
+.h-icon-star-outlined--lg::before {
+  content: "\f21c";
+}
+
+.h-icon-tag::before {
+  content: "\f21d";
+}
+
+.h-icon-tag--lg::before {
+  content: "\f21e";
+}
+
+.h-icon-task::before {
+  content: "\f21f";
+}
+
+.h-icon-task--lg::before {
+  content: "\f220";
+}
+
+.h-icon-task-solid::before {
+  content: "\f221";
+}
+
+.h-icon-task-solid--lg::before {
+  content: "\f222";
+}
+
+.h-icon-ticket::before {
+  content: "\f224";
+}
+
+.h-icon-ticket--lg::before {
+  content: "\f225";
+}
+
+.h-icon-trash::before {
+  content: "\f226";
+}
+
+.h-icon-trash--lg::before {
+  content: "\f227";
+}
+
+.h-icon-trust::before {
+  content: "\f228";
+}
+
+.h-icon-trust--filled::before {
+  content: "\f24f";
+}
+
+.h-icon-trust--filled--lg::before {
+  content: "\f250";
+}
+
+.h-icon-trust--lg::before {
+  content: "\f229";
+}
+
+.h-icon-user::before {
+  content: "\f22a";
+}
+
+.h-icon-user--lg::before {
+  content: "\f22b";
+}
+
+.h-icon-user-add::before {
+  content: "\f22c";
+}
+
+.h-icon-user-add--lg::before {
+  content: "\f22d";
+}
+
+.h-icon-user-group::before {
+  content: "\f22e";
+}
+
+.h-icon-user-group--lg::before {
+  content: "\f22f";
+}
+
+.h-icon-user-info::before {
+  content: "\f230";
+}
+
+.h-icon-user-info--lg::before {
+  content: "\f231";
+}
+
+.h-icon-users::before {
+  content: "\f232";
+}
+
+.h-icon-users--filled::before {
+  content: "\f241";
+}
+
+.h-icon-users--filled--lg::before {
+  content: "\f233";
+}
+
+.h-icon-users--lg::before {
+  content: "\f234";
+}
+
+.h-icon-visibility::before {
+  content: "\f235";
+}
+
+.h-icon-visibility--lg::before {
+  content: "\f236";
+}
+
+.h-icon-visibility-off::before {
+  content: "\f237";
+}
+
+.h-icon-visibility-off--lg::before {
+  content: "\f238";
+}
+
+.h-icon-workflow::before {
+  content: "\f23a";
+}
+
+.h-icon-workflow--lg::before {
+  content: "\f23b";
+}
+
+.h-icon-workflow-step::before {
+  content: "\f23c";
+}
+
+.h-icon-workflow-step--lg::before {
+  content: "\f23d";
+}

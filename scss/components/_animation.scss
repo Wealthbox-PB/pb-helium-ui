@@ -3,15 +3,19 @@
 //  Animation
 //==========================================================================
 
-
 /*  When creating new keyframe animations be sure to add them to the
 appropriate sass map for animation names.  A variable should also be created
 via a map-get  This will ensure the animation names will be available as
 variables and utility classes.  */
 
 @keyframes h-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes h-fade-in-up {
@@ -19,6 +23,7 @@ variables and utility classes.  */
     opacity: 0;
     transform: translateY(1rem);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -30,6 +35,7 @@ variables and utility classes.  */
     opacity: 0;
     transform: translateY(-1rem);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -37,6 +43,11 @@ variables and utility classes.  */
 }
 
 @keyframes h-fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }

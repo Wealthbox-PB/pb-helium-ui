@@ -3,23 +3,23 @@
 //  Form
 //==========================================================================
 
-
 @mixin h-form-element-transition {
-  transition: border-color $h-form-element-animation-duration ease-out,
-              background-color $h-form-element-animation-duration ease-out,
-              box-shadow $h-form-element-animation-duration ease-out;
+  transition:
+    border-color $h-form-element-animation-duration ease-out,
+    background-color $h-form-element-animation-duration ease-out,
+    box-shadow $h-form-element-animation-duration ease-out;
 }
 
 @mixin h-form-element-focus {
   border-color: $h-color-form-element-border--focused;
-  outline: 0;
   box-shadow: $h-form-element-box-shadow--focused;
+  outline: 0;
 }
 
 @mixin h-form-element-disabled-readonly {
-  color: $h-color-form-element-text--disabled;
-  background-color: $h-color-form-element-background--disabled;
   border-color: $h-color-form-element-border;
+  background-color: $h-color-form-element-background--disabled;
+  color: $h-color-form-element-text--disabled;
   // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
   opacity: 1;
 }

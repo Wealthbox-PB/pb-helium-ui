@@ -3,15 +3,14 @@
 //  Modal
 //==========================================================================
 
-
 .h-modal__dialog {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: $h-modal-width--mobile;
   min-height: $h-modal-min-height;
-  border-radius: $h-modal-border-radius;
+  flex-direction: column;
+  justify-content: space-between;
   background: $h-white;
+  border-radius: $h-modal-border-radius;
   box-shadow: $h-modal-box-shadow;
 
   @include media-breakpoint-up(md) {
@@ -50,14 +49,15 @@
   border: 0;
   margin: 0;
   border-radius: $h-border-radius;
+  box-shadow: none;
   color: $h-color-text;
   font-size: 1.5rem;
-  box-shadow: none;
+
   @include h-form-element-transition();
 
   &:focus {
-    outline: none;
     box-shadow: $h-form-element-box-shadow--focused;
+    outline: none;
   }
 }
 
@@ -72,7 +72,7 @@
 
 .h-modal__footer {
   padding: 1rem $h-modal-padding;
-  border-bottom-right-radius: $h-modal-border-radius;
-  border-bottom-left-radius: $h-modal-border-radius;
   background: $h-gray-50;
+  border-bottom-left-radius: $h-modal-border-radius;
+  border-bottom-right-radius: $h-modal-border-radius;
 }

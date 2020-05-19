@@ -3,7 +3,6 @@
 //  Animation Variables
 //==========================================================================
 
-
 //  Keyframes
 //==========================================================================
 
@@ -18,7 +17,6 @@ $h-animation-fade-in:    map-get($h-animation-names, fade-in);
 $h-animation-fade-in-up: map-get($h-animation-names, fade-in-up);
 $h-animation-fade-in-down: map-get($h-animation-names, fade-in-down);
 $h-animation-fade-out: map-get($h-animation-names, fade-out);
-
 
 //  Duration and Delay
 //==========================================================================
@@ -52,7 +50,6 @@ $h-animation-delay-xl:      map-get($h-animation-durations, xl);
 $h-animation-delay-xxl:     map-get($h-animation-durations, xxl);
 $h-animation-delay-xxxl:    map-get($h-animation-durations, xxxl);
 
-
 //  Timing Functions
 //==========================================================================
 
@@ -70,7 +67,6 @@ $h-animation-timing-ease-out:    map-get($h-animation-timings, ease-out);
 $h-animation-timing-ease-in-out: map-get($h-animation-timings, ease-in-out);
 $h-animation-timing-linear:      map-get($h-animation-timings, linear);
 
-
 //  Fill Modes
 //==========================================================================
 
@@ -85,7 +81,6 @@ $h-animation-fill-mode-none:      map-get($h-animation-fill-modes, none);
 $h-animation-fill-mode-forwards:  map-get($h-animation-fill-modes, forwards);
 $h-animation-fill-mode-backwards: map-get($h-animation-fill-modes, backwards);
 $h-animation-fill-mode-both:      map-get($h-animation-fill-modes, both);
-
 
 //  Direction
 //==========================================================================

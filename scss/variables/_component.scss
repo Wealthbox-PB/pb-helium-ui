@@ -3,7 +3,6 @@
 //  Component Variables
 //==========================================================================
 
-
 //  Form Elements
 //==========================================================================
 
@@ -29,8 +28,8 @@ $h-color-form-element-box-shadow--focused:  $h-blue-100;
 $h-color-form-element-box-shadow--error:    $h-red-100;
 
 //  Box Model
-$h-form-element-label-spacing:              .375rem;
-$h-form-element-check-spacing:              .5rem;
+$h-form-element-label-spacing:              0.375rem;
+$h-form-element-check-spacing:              0.5rem;
 $h-form-group-spacing:                      1.5rem;
 $h-form-group-spacing--nested:              ($h-form-group-spacing * (2/3));
 
@@ -59,7 +58,6 @@ $h-radio-scale-visible--lg:                 0.4545454545;
 $h-form-element-animation-duration:         $h-animation-duration-sm;
 $h-checkbox-radio-animation-duration:       $h-animation-duration-xl;
 
-
 //  Button
 //==========================================================================
 
@@ -69,7 +67,6 @@ $h-btn-spacing-x:        0.5rem;
 
 $h-btn-box-shadow-size:  0.1875rem;
 $h-btn-box-shadow-alpha: 0.4;
-
 
 //  Modal
 //==========================================================================
