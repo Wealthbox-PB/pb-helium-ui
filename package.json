@@ -11,6 +11,10 @@
   ],
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
+    "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix"
+  },
   "dependencies": {
     "bootstrap": "4.3.1"
   },
