@@ -95,8 +95,10 @@ $h-font-weights: map-merge($h-font-weights-raw, $h-font-weights-semantic);
 
 $h-line-heights: (
   base:    1.5,
-  heading: 1.2
+  heading: 1.2,
+  1: 1
 );
 
 $h-line-height-base:     map-get($h-line-heights, base);
 $h-line-height-heading:  map-get($h-line-heights, heading);
+$h-line-height-1:   map-get($h-line-heights, 1);
