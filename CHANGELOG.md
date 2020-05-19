@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.12] - 2020-05-19
+- Added [stylelint](https://github.com/stylelint/stylelint) package to `devDependencies`
+- Added [stylelint-order](https://github.com/hudochenkov/stylelint-order) package to `devDependencies`
+- Added [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) package to `devDependencies`
+- Added [stylelint-config-idiomatic-order](https://github.com/ream88/stylelint-config-idiomatic-order) package to `devDependencies`
+- Added `stylelint:check` and `stylelint:fix` npm scripts to package.json to allow for linting of `scss`/`css` files
+- Added [pre-commit](https://github.com/pre-commit/pre-commit) package to `devDependencies`
+- Added [lint-staged](https://github.com/okonet/lint-staged) package to `devDependencies`
+- Added a pre-commit hook to disallow commits with `scss`/`css` files that have linting errors
+- Added `stylelint:staged:check` and `lint:staged` npm scripts to support pre-commit hook
+
+### Changed
+- Updated all `scss` files to follow stylelint config rules
+
 ## [1.0.11] - 2020-04-22
 ### Added
 - Added `google` and `google-sign` svg icon asset
