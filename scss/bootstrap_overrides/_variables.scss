@@ -10,9 +10,9 @@ $yellow:           $h-yellow-500;
 $link-color:       $h-color-link;
 $link-hover-color: $h-color-link-hover;
 
-// Components
-$custom-select-indicator-color: str-slice("#{$h-gray-500}", 2);
-$custom-select-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='%23#{$custom-select-indicator-color}'%20d='M2%200L0%202h4zm0%205L0%203h4z'/%3E%3C/svg%3E"), !default;
+
+$custom-select-indicator-color: $h-gray-500;
+$custom-select-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>") !default;
 
 // Layout
 $grid-gutter-width: 16px;
