@@ -18,7 +18,7 @@
     "lint:staged": "lint-staged"
   },
   "lint-staged": {
-    "scss/**/*.{scss,css}": "npm run stylelint:staged:check"
+    "scss/**/*.{scss,css}": "yarn stylelint:staged:check"
   },
   "pre-commit": "lint:staged",
   "dependencies": {
