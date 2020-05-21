@@ -3,21 +3,21 @@
 //  Button
 //==========================================================================
 
-
 //  Base
 //==========================================================================
 
 @mixin h-btn-base {
   display: inline-flex;
   border: 1px solid transparent;
-  border-radius: $h-btn-border-radius;
   background: transparent;
+  border-radius: $h-btn-border-radius;
   cursor: pointer;
-  user-select: none;
-  vertical-align: middle;
-  text-align: center;
   font-style: normal;
   font-weight: $h-font-weight-medium;
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+
   @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-form-element-line-height);
   @include h-form-element-transition();
 
@@ -34,25 +34,24 @@
   &:disabled,
   &[disabled],
   &.h-btn--disabled {
-    opacity: 0.5;
-    cursor: auto;
     box-shadow: none;
+    cursor: auto;
+    opacity: 0.5;
   }
 
   &[class*="h-icon-"]::before {
-    line-height: inherit;
     margin-right: 0.5rem;
+    line-height: inherit;
   }
 }
-
 
 //  Size
 //==========================================================================
 
 @mixin h-btn-size($h-padding-btn, $h-font-size-btn, $h-line-height-btn: $h-line-height-base) {
-  line-height: $h-line-height-btn;
   padding: $h-padding-btn;
   font-size: $h-font-size-btn;
+  line-height: $h-line-height-btn;
 }
 
 @mixin h-btn-xs {
@@ -75,7 +74,6 @@
   @include h-btn-size($h-padding-btn: 0.625rem 1.25rem, $h-font-size-btn: $h-font-size-xl);
 }
 
-
 //  Style (Fill and Outline)
 //==========================================================================
 
@@ -88,7 +86,7 @@
   $h-border-color-btn-hover: false,
   $h-border-color-btn: false,
   $h-background-color-btn-outline-active: false
-){
+) {
   &,
   &:active,
   &.h-btn--active,
@@ -103,6 +101,7 @@
     @if ($h-border-color-btn) {
       border-color: $h-border-color-btn;
     }
+
     background-color: $h-background-color-btn;
   }
 
@@ -111,6 +110,7 @@
     @if ($h-border-color-btn-hover) {
       border-color: $h-border-color-btn-hover;
     }
+
     background-color: $h-background-color-btn-hover;
     color: $h-color-text-btn-hover;
   }
@@ -120,9 +120,12 @@
     @if ($h-border-color-btn-hover) {
       border-color: darken($h-border-color-btn-hover, 5%);
     }
+
     @if ($h-background-color-btn-outline-active) {
       background-color: $h-background-color-btn-outline-active;
-    } @else {
+    }
+
+    @else {
       background-color: darken($h-background-color-btn-hover, 5%);
     }
   }
@@ -144,8 +147,8 @@
     &.h-btn--focus {
       border-color: $h-border-color-btn;
       background-color: $h-background-color-btn;
-      color: $h-color-text-btn;
       box-shadow: none;
+      color: $h-color-text-btn;
     }
   }
 }
@@ -157,7 +160,7 @@
     $h-background-color-btn-hover: $h-blue-600,
     $h-color-text-btn-hover: $h-white,
     $h-box-shadow-btn-color: $h-blue-500
-  )
+  );
 }
 
 @mixin h-btn-secondary {
@@ -169,7 +172,7 @@
     $h-background-color-btn-hover: $h-gray-50,
     $h-color-text-btn-hover: $h-gray-800,
     $h-box-shadow-btn-color: $h-blue-500
-  )
+  );
 }
 
 @mixin h-btn-positive {
@@ -179,7 +182,7 @@
     $h-background-color-btn-hover: $h-green-600,
     $h-color-text-btn-hover: $h-white,
     $h-box-shadow-btn-color: $h-green-500
-  )
+  );
 }
 
 @mixin h-btn-negative {
@@ -189,7 +192,7 @@
     $h-background-color-btn-hover: $h-red-700,
     $h-color-text-btn-hover: $h-white,
     $h-box-shadow-btn-color: $h-red-600
-  )
+  );
 }
 
 @mixin h-btn-info {
@@ -199,7 +202,7 @@
     $h-background-color-btn-hover: $h-blue-200,
     $h-color-text-btn-hover: $h-blue-800,
     $h-box-shadow-btn-color: $h-blue-100
-  )
+  );
 }
 
 @mixin h-btn-primary-outline {
@@ -212,7 +215,7 @@
     $h-color-text-btn-hover: $h-blue-600,
     $h-background-color-btn-outline-active: $h-blue-50,
     $h-box-shadow-btn-color: $h-blue-500
-  )
+  );
 }
 
 @mixin h-btn-secondary-outline {
@@ -225,7 +228,7 @@
     $h-color-text-btn-hover: $h-gray-800,
     $h-background-color-btn-outline-active: $h-gray-50,
     $h-box-shadow-btn-color: $h-blue-500
-  )
+  );
 }
 
 @mixin h-btn-positive-outline {
@@ -238,7 +241,7 @@
     $h-color-text-btn-hover: $h-green-600,
     $h-background-color-btn-outline-active: $h-green-50,
     $h-box-shadow-btn-color: $h-green-500
-  )
+  );
 }
 
 @mixin h-btn-negative-outline {
@@ -251,7 +254,7 @@
     $h-color-text-btn-hover: $h-red-700,
     $h-background-color-btn-outline-active: $h-red-50,
     $h-box-shadow-btn-color: $h-red-700
-  )
+  );
 }
 
 @mixin h-btn-info-outline {
@@ -264,9 +267,8 @@
     $h-color-text-btn-hover: $h-blue-800,
     $h-background-color-btn-outline-active: $h-blue-50,
     $h-box-shadow-btn-color: $h-blue-100
-  )
+  );
 }
-
 
 //  Style (Link)
 //==========================================================================
@@ -274,7 +276,7 @@
 @mixin h-btn-link-style(
   $h-color-text-btn,
   $h-color-text-btn-hover
-){
+) {
   color: $h-color-text-btn;
 
   &:hover,
@@ -297,12 +299,12 @@
   @include h-btn-link-style(
     $h-color-text-btn: $h-color-link,
     $h-color-text-btn-hover: $h-color-link-hover
-  )
+  );
 }
 
 @mixin h-btn-link-secondary {
   @include h-btn-link-style(
     $h-color-text-btn: $h-color-text,
     $h-color-text-btn-hover: $h-color-text-dark
-  )
+  );
 }

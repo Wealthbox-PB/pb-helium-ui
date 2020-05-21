@@ -3,7 +3,6 @@
 //  Typography Variables
 //==========================================================================
 
-
 //  Font Family
 //==========================================================================
 
@@ -23,7 +22,6 @@ $h-font-family-default: map-get($h-font-families-semantic, default);
 
 $h-font-families: map-merge($h-font-families-raw, $h-font-families-semantic);
 
-
 //  Font Size
 //==========================================================================
 
@@ -38,10 +36,10 @@ $h-font-size-document-rem: map-get($h-font-sizes-base, document-rem);
 $h-font-size-small-elm:    map-get($h-font-sizes-base, small-elm);
 
 $h-font-sizes-semantic: (
-  xs:   $h-font-size-document-rem * .6875,
-  sm:   $h-font-size-document-rem * .75,
-  md:   $h-font-size-document-rem * .875,
-  base: $h-font-size-document-rem * .875, // Base should always be the same as md
+  xs:   $h-font-size-document-rem * 0.6875,
+  sm:   $h-font-size-document-rem * 0.75,
+  md:   $h-font-size-document-rem * 0.875,
+  base: $h-font-size-document-rem * 0.875,
   lg:   $h-font-size-document-rem * 1,
   xl:   $h-font-size-document-rem * 1.25,
   h1:   $h-font-size-document-rem * 2,
@@ -67,7 +65,6 @@ $h-font-size-h6:   map-get($h-font-sizes-semantic, h6);
 
 $h-font-sizes: map-merge($h-font-sizes-base, $h-font-sizes-semantic);
 
-
 //  Font Weight
 //==========================================================================
 
@@ -92,7 +89,6 @@ $h-font-weight-base:    map-get($h-font-weights-semantic, base);
 $h-font-weight-heading: map-get($h-font-weights-semantic, heading);
 
 $h-font-weights: map-merge($h-font-weights-raw, $h-font-weights-semantic);
-
 
 //  Line Height
 //==========================================================================
