@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.14] - 2020-05-22
+### Added
+- Added `.stylelintignore` file
+- Added `scss/bootstrap_overrides/_reboot.scss` to be ignored by stylelint
+
+### Changed
+- Added missing "Added" heading to CHANGELOG entry for 1.0.12
+
 ## [1.0.13] - 2020-05-20
 ### Changed
 - Updated `bootstrap` to latest (v4.5.0)
@@ -11,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated our `reboot.scss` to use bootstrap's from v4.5.0
 
 ## [1.0.12] - 2020-05-19
+### Added
 - Added [stylelint](https://github.com/stylelint/stylelint) package to `devDependencies`
 - Added [stylelint-order](https://github.com/hudochenkov/stylelint-order) package to `devDependencies`
 - Added [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) package to `devDependencies`
