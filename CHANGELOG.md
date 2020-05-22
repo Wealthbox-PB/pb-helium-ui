@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated our `reboot.scss` to use bootstrap's from v4.5.0
 
 ## [1.0.12] - 2020-05-19
+### Added
 - Added [stylelint](https://github.com/stylelint/stylelint) package to `devDependencies`
 - Added [stylelint-order](https://github.com/hudochenkov/stylelint-order) package to `devDependencies`
 - Added [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) package to `devDependencies`
