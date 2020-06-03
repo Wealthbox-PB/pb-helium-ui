@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added small modal dialog modifier class `.h-modal__dialog--sm`
 - Added small modal dialog size variable `$h-modal-width--desktop-sm`
 
-## [1.0.16] - 2020-05-27
+## [1.0.16] - 2020-06-03
 ### Added
 - Added `b-cloud` svg icon asset
 - Added `b-outlook-csv` svg icon asset
@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `settings--lg` svg icon asset
 - Updated `settings` svg icon asset
 - Recompiled icon font
+- Updated `stylelint:staged:check` yarn task to allow empty input for ignored files
 
 ## [1.0.15] - 2020-05-27
 ### Added
