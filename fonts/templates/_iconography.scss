@@ -3,7 +3,7 @@
 // Current Version: <%= @manifest.get(:checksum)[:current] %>
 //
 
-$icons_preprocessor_path: 'helium-ui/fonts';
+$icons_preprocessor_path: 'helium-ui/fonts' !default;
 
 <%= font_face(url: "font-url", path: @font_path_alt) %>
 

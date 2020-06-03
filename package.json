@@ -1,6 +1,6 @@
 {
   "name": "helium-ui",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Design system and component library for Starburst Labs, Inc.",
   "main": "index.js",
   "repository": "git@github.com:starburstlabs/helium-ui.git",
@@ -14,7 +14,7 @@
   "scripts": {
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
-    "stylelint:staged:check": "stylelint --config stylelint.config.js",
+    "stylelint:staged:check": "stylelint --config stylelint.config.js --allow-empty-input",
     "lint:staged": "lint-staged"
   },
   "lint-staged": {

@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "f87a623d4241a6e12cd96fd7b4a6a608283a14fa46676a33ee70c7c13d88c084",
-    "current": "f87a623d4241a6e12cd96fd7b4a6a608283a14fa46676a33ee70c7c13d88c084"
+    "previous": "2d38571a3a2ec347a014000c33d3e3ab7c58b2c0a6e73ece0e9a1a0cbbdb2263",
+    "current": "2d38571a3a2ec347a014000c33d3e3ab7c58b2c0a6e73ece0e9a1a0cbbdb2263"
   },
   "fonts": [
-    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.ttf",
-    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.svg",
-    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff",
-    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.eot",
-    "fonts/helium-icons_f87a623d4241a6e12cd96fd7b4a6a608.woff2"
+    "fonts/helium-icons_2d38571a3a2ec347a014000c33d3e3ab.ttf",
+    "fonts/helium-icons_2d38571a3a2ec347a014000c33d3e3ab.svg",
+    "fonts/helium-icons_2d38571a3a2ec347a014000c33d3e3ab.woff",
+    "fonts/helium-icons_2d38571a3a2ec347a014000c33d3e3ab.eot",
+    "fonts/helium-icons_2d38571a3a2ec347a014000c33d3e3ab.woff2"
   ],
   "glyphs": {
     "add": {
@@ -87,6 +87,18 @@
       "codepoint": 62022,
       "source": "assets/icons/b-blueleaf.svg"
     },
+    "b-cloud": {
+      "codepoint": 62037,
+      "source": "assets/icons/b-cloud.svg"
+    },
+    "b-outlook-csv": {
+      "codepoint": 62038,
+      "source": "assets/icons/b-outlook-csv.svg"
+    },
+    "b-paw": {
+      "codepoint": 62039,
+      "source": "assets/icons/b-paw.svg"
+    },
     "b-td": {
       "codepoint": 62023,
       "source": "assets/icons/b-td.svg"
@@ -150,6 +162,10 @@
     "carrot-up--lg": {
       "codepoint": 61728,
       "source": "assets/icons/carrot-up--lg.svg"
+    },
+    "check-mark": {
+      "codepoint": 62046,
+      "source": "assets/icons/check-mark.svg"
     },
     "chevron-down": {
       "codepoint": 61729,
@@ -583,6 +599,22 @@
       "codepoint": 61829,
       "source": "assets/icons/inbox--lg.svg"
     },
+    "information": {
+      "codepoint": 62040,
+      "source": "assets/icons/information.svg"
+    },
+    "information--filled": {
+      "codepoint": 62041,
+      "source": "assets/icons/information--filled.svg"
+    },
+    "information--filled--lg": {
+      "codepoint": 62044,
+      "source": "assets/icons/information--filled--lg.svg"
+    },
+    "information--lg": {
+      "codepoint": 62045,
+      "source": "assets/icons/information--lg.svg"
+    },
     "institution": {
       "codepoint": 61830,
       "source": "assets/icons/institution.svg"
@@ -798,6 +830,10 @@
     "pipeline--lg": {
       "codepoint": 61877,
       "source": "assets/icons/pipeline--lg.svg"
+    },
+    "play": {
+      "codepoint": 62042,
+      "source": "assets/icons/play.svg"
     },
     "play-circle": {
       "codepoint": 61878,
@@ -1170,6 +1206,14 @@
     "settings": {
       "codepoint": 61968,
       "source": "assets/icons/settings.svg"
+    },
+    "settings--filled": {
+      "codepoint": 62047,
+      "source": "assets/icons/settings--filled.svg"
+    },
+    "settings--filled--lg": {
+      "codepoint": 62048,
+      "source": "assets/icons/settings--filled--lg.svg"
     },
     "settings--lg": {
       "codepoint": 61969,
