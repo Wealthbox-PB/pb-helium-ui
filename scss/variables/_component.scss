@@ -74,6 +74,7 @@ $h-btn-box-shadow-alpha: 0.4;
 // Box Model
 $h-modal-width--mobile: calc(100vw - 2rem);
 $h-modal-width--desktop: 500px;
+$h-modal-width--desktop-sm: 360px;
 $h-modal-width--desktop-lg: 650px;
 $h-modal-min-height: $h-modal-width--desktop / 2;
 $h-modal-min-height--lg: $h-modal-width--desktop-lg / 2;

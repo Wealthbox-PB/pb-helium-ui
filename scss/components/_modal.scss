@@ -17,6 +17,14 @@
     width: $h-modal-width--desktop;
   }
 
+  &.h-modal__dialog--sm {
+    min-height: auto;
+
+    @include media-breakpoint-up(md) {
+      width: $h-modal-width--desktop-sm;
+    }
+  }
+
   &.h-modal__dialog--lg {
     min-height: $h-modal-min-height--lg;
 
