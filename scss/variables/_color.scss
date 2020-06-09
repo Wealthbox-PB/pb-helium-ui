@@ -3,107 +3,240 @@
 //  Color Variables
 //==========================================================================
 
-//  Wealthbox Palette
+//  Wealthbox Global Raw Color Palette
 //==========================================================================
 
-$h-gray-900:   #313947;
-$h-gray-800:   #464d5a;
-$h-gray-700:   #5b626e;
-$h-gray-600:   #717883;
-$h-gray-500:   #888e98;
-$h-gray-400:   #9fa5ae;
-$h-gray-300:   #b7bdc4;
-$h-gray-250:   #c3c9cf;
-$h-gray-200:   #d0d5db;
-$h-gray-150:   #dce1e6;
-$h-gray-100:   #e9eef2;
-$h-gray-50:    #f4f6f8;
-$h-gray-25:    #f9fafb;
+$h-colors-raw: (
+  gray-900:   #313947,
+  gray-800:   #464d5a,
+  gray-700:   #5b626e,
+  gray-600:   #717883,
+  gray-500:   #888e98,
+  gray-400:   #9fa5ae,
+  gray-300:   #b7bdc4,
+  gray-250:   #c3c9cf,
+  gray-200:   #d0d5db,
+  gray-150:   #dce1e6,
+  gray-100:   #e9eef2,
+  gray-50:    #f4f6f8,
+  gray-25:    #f9fafb,
+  blue-900:   #062c54,
+  blue-800:   #083c74,
+  blue-700:   #0b4c93,
+  blue-600:   #0d5db4,
+  blue-500:   #106ed4,
+  blue-400:   #3f8bdc,
+  blue-300:   #6fa8e5,
+  blue-200:   #9fc5ed,
+  blue-100:   #cfe2f6,
+  blue-50:    #e6f0fa,
+  blue-25:    #f2f7fc,
+  purple-900: #3d2746,
+  purple-800: #533360,
+  purple-700: #6a3f7c,
+  purple-600: #824c98,
+  purple-500: #9b59b6,
+  purple-400: #b07ac5,
+  purple-300: #c59ad3,
+  purple-200: #d8bbe2,
+  purple-100: #ecddf1,
+  purple-50:  #f6eef8,
+  green-900:  #1a4526,
+  green-800:  #1d5f32,
+  green-700:  #1e7a3d,
+  green-600:  #1c964a,
+  green-500:  #15b356,
+  green-400:  #5dc377,
+  green-300:  #8ad398,
+  green-200:  #b2e2ba,
+  green-100:  #d9f1dc,
+  green-50:   #ecf8ed,
+  yellow-900: #595518,
+  yellow-800: #7b761b,
+  yellow-700: #9f991b,
+  yellow-600: #c4bd19,
+  yellow-500: #ebe312,
+  yellow-400: #f3e859,
+  yellow-300: #f9ee86,
+  yellow-200: #fef3af,
+  yellow-100: #fff9d7,
+  yellow-50:  #fffceb,
+  orange-900: #613511,
+  orange-800: #864812,
+  orange-700: #ad5b10,
+  orange-600: #d56f0b,
+  orange-500: #ff8400,
+  orange-400: #ff9d47,
+  orange-300: #ffb576,
+  orange-200: #ffcea3,
+  orange-100: #ffe6d0,
+  orange-50:  #fff2e7,
+  red-900:    #5c0606,
+  red-800:    #800808,
+  red-700:    #a20b0b,
+  red-600:    #c50d0d,
+  red-500:    #e81010,
+  red-400:    #ec3f3f,
+  red-300:    #f16f6f,
+  red-200:    #f59f9f,
+  red-100:    #facfcf,
+  red-50:     #fce6e6,
+  black:      #000,
+  white:      #fff
+);
 
-$h-blue-900:   #062c54;
-$h-blue-800:   #083c74;
-$h-blue-700:   #0b4c93;
-$h-blue-600:   #0d5db4;
-$h-blue-500:   #106ed4;
-$h-blue-400:   #3f8bdc;
-$h-blue-300:   #6fa8e5;
-$h-blue-200:   #9fc5ed;
-$h-blue-100:   #cfe2f6;
-$h-blue-50:    #e6f0fa;
-$h-blue-25:    #f2f7fc;
+//  Gray Palette
+//==========================================================================
 
-$h-purple-900: #3d2746;
-$h-purple-800: #533360;
-$h-purple-700: #6a3f7c;
-$h-purple-600: #824c98;
-$h-purple-500: #9b59b6;
-$h-purple-400: #b07ac5;
-$h-purple-300: #c59ad3;
-$h-purple-200: #d8bbe2;
-$h-purple-100: #ecddf1;
-$h-purple-50:  #f6eef8;
+$h-gray-900: map-get($h-colors-raw, gray-900);
+$h-gray-800: map-get($h-colors-raw, gray-800);
+$h-gray-700: map-get($h-colors-raw, gray-700);
+$h-gray-600: map-get($h-colors-raw, gray-600);
+$h-gray-500: map-get($h-colors-raw, gray-500);
+$h-gray-400: map-get($h-colors-raw, gray-400);
+$h-gray-300: map-get($h-colors-raw, gray-300);
+$h-gray-250: map-get($h-colors-raw, gray-250);
+$h-gray-200: map-get($h-colors-raw, gray-200);
+$h-gray-150: map-get($h-colors-raw, gray-150);
+$h-gray-100: map-get($h-colors-raw, gray-100);
+$h-gray-50:  map-get($h-colors-raw, gray-50);
+$h-gray-25:  map-get($h-colors-raw, gray-25);
 
-$h-green-900:  #1a4526;
-$h-green-800:  #1d5f32;
-$h-green-700:  #1e7a3d;
-$h-green-600:  #1c964a;
-$h-green-500:  #15b356;
-$h-green-400:  #5dc377;
-$h-green-300:  #8ad398;
-$h-green-200:  #b2e2ba;
-$h-green-100:  #d9f1dc;
-$h-green-50:   #ecf8ed;
+//  Blue Palette
+//==========================================================================
 
-$h-yellow-900: #595518;
-$h-yellow-800: #7b761b;
-$h-yellow-700: #9f991b;
-$h-yellow-600: #c4bd19;
-$h-yellow-500: #ebe312;
-$h-yellow-400: #f3e859;
-$h-yellow-300: #f9ee86;
-$h-yellow-200: #fef3af;
-$h-yellow-100: #fff9d7;
-$h-yellow-50:  #fffceb;
+$h-blue-800: map-get($h-colors-raw, blue-800);
+$h-blue-700: map-get($h-colors-raw, blue-700);
+$h-blue-600: map-get($h-colors-raw, blue-600);
+$h-blue-500: map-get($h-colors-raw, blue-500);
+$h-blue-900: map-get($h-colors-raw, blue-900);
+$h-blue-400: map-get($h-colors-raw, blue-400);
+$h-blue-300: map-get($h-colors-raw, blue-300);
+$h-blue-200: map-get($h-colors-raw, blue-200);
+$h-blue-100: map-get($h-colors-raw, blue-100);
+$h-blue-50:  map-get($h-colors-raw, blue-50);
+$h-blue-25:  map-get($h-colors-raw, blue-25);
 
-$h-orange-900: #613511;
-$h-orange-800: #864812;
-$h-orange-700: #ad5b10;
-$h-orange-600: #d56f0b;
-$h-orange-500: #ff8400;
-$h-orange-400: #ff9d47;
-$h-orange-300: #ffb576;
-$h-orange-200: #ffcea3;
-$h-orange-100: #ffe6d0;
-$h-orange-50:  #fff2e7;
+//  Purple Palette
+//==========================================================================
 
-$h-red-900:    #5c0606;
-$h-red-800:    #800808;
-$h-red-700:    #a20b0b;
-$h-red-600:    #c50d0d;
-$h-red-500:    #e81010;
-$h-red-400:    #ec3f3f;
-$h-red-300:    #f16f6f;
-$h-red-200:    #f59f9f;
-$h-red-100:    #facfcf;
-$h-red-50:     #fce6e6;
+$h-purple-900: map-get($h-colors-raw, purple-900);
+$h-purple-800: map-get($h-colors-raw, purple-800);
+$h-purple-700: map-get($h-colors-raw, purple-700);
+$h-purple-600: map-get($h-colors-raw, purple-600);
+$h-purple-500: map-get($h-colors-raw, purple-500);
+$h-purple-400: map-get($h-colors-raw, purple-400);
+$h-purple-300: map-get($h-colors-raw, purple-300);
+$h-purple-200: map-get($h-colors-raw, purple-200);
+$h-purple-100: map-get($h-colors-raw, purple-100);
+$h-purple-50:  map-get($h-colors-raw, purple-50);
 
-$h-black:      #000;
-$h-white:      #fff;
+//  Green Palette
+//==========================================================================
 
-// Brand Palette
+$h-green-800: map-get($h-colors-raw, green-800);
+$h-green-900: map-get($h-colors-raw, green-900);
+$h-green-700: map-get($h-colors-raw, green-700);
+$h-green-600: map-get($h-colors-raw, green-600);
+$h-green-500: map-get($h-colors-raw, green-500);
+$h-green-400: map-get($h-colors-raw, green-400);
+$h-green-300: map-get($h-colors-raw, green-300);
+$h-green-200: map-get($h-colors-raw, green-200);
+$h-green-100: map-get($h-colors-raw, green-100);
+$h-green-50:  map-get($h-colors-raw, green-50);
+
+//  Yellow Palette
+//==========================================================================
+
+$h-yellow-900: map-get($h-colors-raw, yellow-900);
+$h-yellow-800: map-get($h-colors-raw, yellow-800);
+$h-yellow-700: map-get($h-colors-raw, yellow-700);
+$h-yellow-600: map-get($h-colors-raw, yellow-600);
+$h-yellow-500: map-get($h-colors-raw, yellow-500);
+$h-yellow-400: map-get($h-colors-raw, yellow-400);
+$h-yellow-300: map-get($h-colors-raw, yellow-300);
+$h-yellow-200: map-get($h-colors-raw, yellow-200);
+$h-yellow-100: map-get($h-colors-raw, yellow-100);
+$h-yellow-50:  map-get($h-colors-raw, yellow-50);
+
+//  Orange Palette
+//==========================================================================
+
+$h-orange-900: map-get($h-colors-raw, orange-900);
+$h-orange-800: map-get($h-colors-raw, orange-800);
+$h-orange-700: map-get($h-colors-raw, orange-700);
+$h-orange-600: map-get($h-colors-raw, orange-600);
+$h-orange-500: map-get($h-colors-raw, orange-500);
+$h-orange-400: map-get($h-colors-raw, orange-400);
+$h-orange-300: map-get($h-colors-raw, orange-300);
+$h-orange-200: map-get($h-colors-raw, orange-200);
+$h-orange-100: map-get($h-colors-raw, orange-100);
+$h-orange-50:  map-get($h-colors-raw, orange-50);
+
+//  Red Palette
+//==========================================================================
+
+$h-red-900: map-get($h-colors-raw, red-900);
+$h-red-800: map-get($h-colors-raw, red-800);
+$h-red-700: map-get($h-colors-raw, red-700);
+$h-red-600: map-get($h-colors-raw, red-600);
+$h-red-500: map-get($h-colors-raw, red-500);
+$h-red-400: map-get($h-colors-raw, red-400);
+$h-red-300: map-get($h-colors-raw, red-300);
+$h-red-200: map-get($h-colors-raw, red-200);
+$h-red-100: map-get($h-colors-raw, red-100);
+$h-red-50:  map-get($h-colors-raw, red-50);
+
+//  Black / White
+//==========================================================================
+
+$h-black: map-get($h-colors-raw, black);
+$h-white: map-get($h-colors-raw, white);
+
+// Semantic Palette
 //==========================================================================
 
 $h-color-brand: $h-blue-500;
+$h-color-success: $h-green-500;
+$h-color-error: $h-red-600;
 
-//  Text Colors
+//  Text Semantic Color Palette
 //==========================================================================
 
-$h-color-text-lighter: $h-gray-300;
-$h-color-text-light:   $h-gray-500;
-$h-color-text:         $h-gray-700;
-$h-color-text-dark:    $h-gray-800;
-$h-color-text-success: $h-green-500;
-$h-color-text-error:   $h-red-600;
-$h-color-link:         $h-blue-600;
-$h-color-link-hover:   $h-blue-500;
-$h-color-headings:     inherit;
+$h-colors-text-semantic: (
+  lighter:    $h-gray-300,
+  light:      $h-gray-500,
+  normal:     $h-gray-700,
+  dark:       $h-gray-800,
+  success:    $h-color-success,
+  error:      $h-color-error,
+  brand:      $h-color-brand,
+  link:       $h-blue-600,
+  link-hover: $h-blue-500,
+  heading:    inherit
+);
+
+$h-color-text-lighter: map-get($h-colors-text-semantic, lighter);
+$h-color-text-light:   map-get($h-colors-text-semantic, light);
+$h-color-text:         map-get($h-colors-text-semantic, normal); // Legacy
+$h-color-text-normal:  map-get($h-colors-text-semantic, normal);
+$h-color-text-dark:    map-get($h-colors-text-semantic, dark);
+$h-color-text-success: map-get($h-colors-text-semantic, success);
+$h-color-text-error:   map-get($h-colors-text-semantic, error);
+$h-color-text-brand:   map-get($h-colors-text-semantic, brand);
+$h-color-link:         map-get($h-colors-text-semantic, link);
+$h-color-link-hover:   map-get($h-colors-text-semantic, link-hover);
+$h-color-heading:      map-get($h-colors-text-semantic, heading);
+
+//  Background Semantic Color Palette
+//==========================================================================
+
+$h-colors-background-semantic: (
+  success: $h-color-success,
+  error:   $h-color-error,
+  brand:   $h-color-brand
+);
+
+$h-color-background-success: map-get($h-colors-background-semantic, success);
+$h-color-background-error:   map-get($h-colors-background-semantic, error);
+$h-color-background-brand:   map-get($h-colors-background-semantic, brand);
