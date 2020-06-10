@@ -1,0 +1,40 @@
+
+//==========================================================================
+// Color Utilities
+//==========================================================================
+
+//  Text Colors from Raw Palette
+//=========================================================================
+
+@each $key, $val in $h-colors-raw {
+  .h-color-text-#{"" + $key} {
+    color: $val !important;
+  }
+}
+
+//  Text Colors from Semantic Palette
+//=========================================================================
+
+@each $key, $val in $h-colors-text-semantic {
+  .h-color-text-#{"" + $key} {
+    color: $val !important;
+  }
+}
+
+//  Background Colors from Raw Palette
+//==========================================================================
+
+@each $key, $val in $h-colors-raw {
+  .h-color-background-#{"" + $key} {
+    background-color: $val !important;
+  }
+}
+
+//  Background Colors from Semantic Palette
+//==========================================================================
+
+@each $key, $val in $h-colors-background-semantic {
+  .h-color-background-#{"" + $key} {
+    background-color: $val !important;
+  }
+}
