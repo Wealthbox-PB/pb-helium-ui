@@ -28,7 +28,7 @@
 }
 
 .h-card__header {
-  padding: $h-card-padding;
+  padding: $h-card-header-footer-y-padding $h-card-padding;
   border-radius: $h-card-border-radius $h-card-border-radius 0 0;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .h-card__footer {
-  padding: $h-card-padding*0.75 $h-card-padding;
+  padding: $h-card-header-footer-y-padding $h-card-padding;
   border-radius: 0 0 $h-card-border-radius $h-card-border-radius;
 }
 

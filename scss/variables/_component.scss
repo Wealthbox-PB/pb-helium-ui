@@ -86,9 +86,10 @@ $h-modal-box-shadow: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
 // Card
 //==========================================================================
 
+$h-card-padding: 1rem;
+$h-card-header-footer-y-padding: 0.75rem;
 $h-card-border-radius: $h-border-radius--lg;
 $h-card-background-color: $h-white;
 $h-card-header-footer-background-color: $h-gray-50;
-$h-card-padding: 1rem;
 
 $h-card-box-shadow: $h-shadow-1;
