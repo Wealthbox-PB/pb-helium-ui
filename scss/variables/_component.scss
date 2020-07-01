@@ -83,13 +83,13 @@ $h-modal-border-radius: $h-border-radius--lg;
 
 $h-modal-box-shadow: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
 
-// Card
+// Table
 //==========================================================================
 
-$h-card-padding: 1rem;
-$h-card-header-footer-y-padding: 0.75rem;
-$h-card-border-radius: $h-border-radius--lg;
-$h-card-background-color: $h-white;
-$h-card-header-footer-background-color: $h-gray-50;
-
-$h-card-box-shadow: $h-shadow-1;
+$h-table-cell-spacing-x: 1rem;
+$h-table-cell-spacing-y: 0.5rem;
+$h-table-border-color: $h-gray-100;
+$h-table-border-radius: $h-border-radius--lg;
+$h-table-background-color: $h-white;
+$h-table-background-color--hover: $h-blue-25;
+$h-table-header-background-color: $h-gray-25;
