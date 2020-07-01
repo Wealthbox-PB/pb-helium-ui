@@ -40,7 +40,7 @@
     & > .h-table__header {
       th,
       .h-table__heading {
-        box-shadow: 0 1px 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain there border on scroll
+        box-shadow: 0 1px 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
       }
     }
 
