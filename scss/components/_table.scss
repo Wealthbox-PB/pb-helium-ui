@@ -1,0 +1,95 @@
+
+//==========================================================================
+//  Table
+//==========================================================================
+
+.h-table {
+  position: relative;
+  overflow: auto;
+  border: 1px solid $h-table-border-color;
+  border-radius: $h-table-border-radius;
+
+  &.h-table--hover {
+    & > tbody,
+    & > .h-table__body {
+      tr,
+      .h-table__row {
+        &:hover {
+          background-color: $h-table-background-color--hover;
+        }
+      }
+    }
+  }
+
+  .h-table__row--hover,
+  .h-table__cell--hover {
+    &:hover {
+      background-color: $h-table-background-color--hover;
+    }
+  }
+
+  .h-table__table {
+    display: table;
+    width: 100%;
+    margin: 0; // TODO Remove after implementation
+    background: $h-table-background-color;
+    border-collapse: collapse;
+    font-size: $h-font-size-sm;
+
+    & > thead,
+    & > .h-table__header {
+      th,
+      .h-table__heading {
+        box-shadow: 0 1px 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
+      }
+    }
+
+    & > tbody,
+    & > .h-table__body {
+      tr,
+      .h-table__row {
+        &:first-child {
+          th,
+          .h-table__heading,
+          td,
+          .h-table__data {
+            border-top: 0;
+          }
+        }
+      }
+
+      th,
+      .h-table__heading,
+      td,
+      .h-table__data {
+        border-top: 1px solid $h-table-border-color;
+      }
+
+      th,
+      .h-table__heading {
+        left: 0;
+        box-shadow: 1px 0 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
+      }
+    }
+  }
+
+  th,
+  .h-table__heading,
+  td,
+  .h-table__data {
+    padding: $h-table-cell-spacing-y $h-table-cell-spacing-x;
+    line-height: $h-line-height-base;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th,
+  .h-table__heading {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background: $h-table-header-background-color;
+    color: $h-black;
+    font-weight: $h-font-weight-bold;
+  }
+}
