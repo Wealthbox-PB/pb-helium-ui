@@ -11,6 +11,10 @@
   ],
   "license": "MIT",
   "private": true,
+  "browserslist" : [
+    "defaults",
+    "not IE 11"
+  ],
   "scripts": {
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
