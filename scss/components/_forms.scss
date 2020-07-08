@@ -58,6 +58,8 @@
   display: block;
   width: 100%;
   border: 1px solid $h-color-form-element-border;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   border-radius: $h-form-element-border-radius;
   line-height: $h-form-element-line-height;
@@ -103,6 +105,22 @@
     box-shadow: $h-form-element-box-shadow--error;
   }
 
+  &::-webkit-input-placeholder {
+    color: $h-color-form-element-placeholder-text;
+  }
+
+  &::-moz-placeholder {
+    color: $h-color-form-element-placeholder-text;
+  }
+
+  &:-ms-input-placeholder {
+    color: $h-color-form-element-placeholder-text;
+  }
+
+  &::-ms-input-placeholder {
+    color: $h-color-form-element-placeholder-text;
+  }
+
   &::placeholder {
     color: $h-color-form-element-placeholder-text;
   }
@@ -137,6 +155,8 @@
 
 .h-select {
   padding: $h-form-element-padding-y 1rem $h-form-element-padding-y $h-form-element-padding-x;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   cursor: pointer;
   vertical-align: middle;
@@ -192,6 +212,9 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
       ~ #{$h-checkbox-radio-selector}__label-content {
         color: $h-color-form-element-label;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
       }
 

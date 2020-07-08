@@ -1,6 +1,6 @@
 {
   "name": "helium-ui",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "Design system and component library for Starburst Labs, Inc.",
   "main": "index.js",
   "repository": "git@github.com:starburstlabs/helium-ui.git",
@@ -11,6 +11,10 @@
   ],
   "license": "MIT",
   "private": true,
+  "browserslist" : [
+    "defaults",
+    "not IE 11"
+  ],
   "scripts": {
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
