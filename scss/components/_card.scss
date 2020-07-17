@@ -4,6 +4,7 @@
 //==========================================================================
 
 .h-card {
+  border: 1px solid transparent;
   background-color: $h-card-background-color;
   border-radius: $h-card-border-radius;
   box-shadow: $h-shadow-1;
