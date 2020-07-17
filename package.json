@@ -1,6 +1,6 @@
 {
   "name": "helium-ui",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Design system and component library for Starburst Labs, Inc.",
   "main": "index.js",
   "repository": "git@github.com:starburstlabs/helium-ui.git",
