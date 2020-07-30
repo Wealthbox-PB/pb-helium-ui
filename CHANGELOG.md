@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.23] - 2020-07-30
+### Updated
+- Removed transparent border on `h-card` component as it caused some unintended side effects
+
 ## [1.0.22] - 2020-07-17
 ### Added
 - Added transparent border to `h-card` component to fix some bugs with using border-box
