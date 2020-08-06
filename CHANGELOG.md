@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 child selectors (`>`) to avoid unforeseen impact in nested cards
 
 ## [1.0.23] - 2020-07-30
-### Updated
+### Changed
 - Removed transparent border on `h-card` component as it caused some unintended side effects
 
 ## [1.0.22] - 2020-07-17
