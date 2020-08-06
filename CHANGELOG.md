@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.24] - 2020-08-06
+### Updated
+- Updated `.h-card--border-radius-none` and `.h-card--border-radius-mobile-none` rulesets to use
+child selectors (`>`) to avoid unforeseen impact in nested cards
+
 ## [1.0.23] - 2020-07-30
 ### Updated
 - Removed transparent border on `h-card` component as it caused some unintended side effects
@@ -33,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `$h-card-header-footer-y-padding` variable
 
 ### Changed
-- Update modal and card to use `$h-border-radius--lg` variable
+- Updated modal and card to use `$h-border-radius--lg` variable
 - Updated card header and footer to use `$h-card-header-footer-y-padding` variable
 
 ## [1.0.18] - 2020-06-10
