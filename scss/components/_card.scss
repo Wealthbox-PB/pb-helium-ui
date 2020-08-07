@@ -11,16 +11,16 @@
 
 .h-card--border-radius-none {
   &,
-  .h-card__header,
-  .h-card__footer {
+  & > .h-card__header,
+  & > .h-card__footer {
     border-radius: 0;
   }
 }
 
 .h-card--border-radius-mobile-none {
   &,
-  .h-card__header,
-  .h-card__footer {
+  & > .h-card__header,
+  & > .h-card__footer {
     @include media-breakpoint-down(sm) {
       border-radius: 0;
     }
