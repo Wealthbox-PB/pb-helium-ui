@@ -105,6 +105,10 @@
     line-height: $h-line-height-base;
     text-align: left;
     vertical-align: top;
+
+    .h-table__cell-content {
+      display: block;
+    }
   }
 
   th,
