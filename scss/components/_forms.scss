@@ -44,7 +44,7 @@
 
 .h-form-label {
   margin-bottom: $h-spacing-form-element-label;
-  color: $h-color-form-element-label;
+  color: $h-color-text-form-element-label;
 }
 
 //  Shared (Input, Textarea, Select)
@@ -57,7 +57,7 @@
 .h-input-group .h-input-group__content {
   display: block;
   width: 100%;
-  border: 1px solid $h-color-form-element-border;
+  border: 1px solid $h-color-border-form-element;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -79,8 +79,8 @@
 
   &,
   &:focus {
-    background-color: $h-color-form-element-background;
-    color: $h-color-form-element-text;
+    background-color: $h-color-background-form-element;
+    color: $h-color-text-form-element;
   }
 
   &:focus,
@@ -95,39 +95,39 @@
     cursor: not-allowed;
 
     &:focus {
-      border-color: $h-color-form-element-border;
+      border-color: $h-color-border-form-element;
       box-shadow: none;
     }
   }
 
   &--error {
-    border-color: $h-color-form-element-border--error;
+    border-color: $h-color-border-form-element-error;
 
     &:focus {
       @include h-form-element-focus();
 
-      box-shadow: $h-form-element-box-shadow-error;
+      box-shadow: $h-box-shadow-form-element-error;
     }
   }
 
   &::-webkit-input-placeholder {
-    color: $h-color-form-element-placeholder-text;
+    color: $h-color-text-form-element-placeholder;
   }
 
   &::-moz-placeholder {
-    color: $h-color-form-element-placeholder-text;
+    color: $h-color-text-form-element-placeholder;
   }
 
   &:-ms-input-placeholder {
-    color: $h-color-form-element-placeholder-text;
+    color: $h-color-text-form-element-placeholder;
   }
 
   &::-ms-input-placeholder {
-    color: $h-color-form-element-placeholder-text;
+    color: $h-color-text-form-element-placeholder;
   }
 
   &::placeholder {
-    color: $h-color-form-element-placeholder-text;
+    color: $h-color-text-form-element-placeholder;
   }
 }
 
@@ -168,7 +168,7 @@
 
   &,
   &:focus {
-    background: $h-color-form-element-background--select escape-svg($custom-select-indicator) no-repeat right 5px center;
+    background: $h-color-background-form-element-select escape-svg($custom-select-indicator) no-repeat right 5px center;
     background-size: 8px 10px;
   }
 
@@ -216,7 +216,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       ~ #{$h-checkbox-radio-selector}__label-content {
-        color: $h-color-form-element-label;
+        color: $h-color-text-form-element-label;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
@@ -241,13 +241,13 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
         &,
         &:focus {
           ~ #{$h-checkbox-radio-selector}__label-content {
-            color: $h-color-form-element-text--disabled;
+            color: $h-color-text-form-element-disabled;
             cursor: default;
           }
 
           ~ #{$h-checkbox-radio-selector}__container {
-            border-color: $h-color-form-element-border;
-            background-color: $h-color-form-element-background--disabled;
+            border-color: $h-color-border-form-element;
+            background-color: $h-color-background-form-element-disabled;
             box-shadow: none;
           }
         }
@@ -258,7 +258,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       position: relative;
       display: inline-block;
       flex-shrink: 0;
-      border: 1px solid $h-color-form-element-border;
+      border: 1px solid $h-color-border-form-element;
       background-color: $h-white;
 
       &::after {
@@ -342,13 +342,13 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   #{$h-checkbox-selector}__elm {
     &:checked {
       ~ #{$h-checkbox-selector}__container:after {
-        background-image: url(getCheckboxSvgIcon($h-color-checkbox-radio-icon));
+        background-image: url(getCheckboxSvgIcon($h-color-icon-checkbox-radio));
       }
 
       &:disabled,
       &[disabled] {
         ~ #{$h-checkbox-selector}__container:after {
-          background-image: url(getCheckboxSvgIcon($h-color-checkbox-radio-icon--disabled));
+          background-image: url(getCheckboxSvgIcon($h-color-icon-checkbox-radio-disabled));
         }
       }
     }
@@ -360,18 +360,18 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       ~ #{$h-checkbox-selector}__container:after {
-        background-image: url(getCheckboxSvgIcon($h-color-checkbox-radio-icon, "indeterminate"));
+        background-image: url(getCheckboxSvgIcon($h-color-icon-checkbox-radio, "indeterminate"));
       }
 
       &:disabled,
       &[disabled] {
         ~ #{$h-checkbox-selector}__container {
-          border-color: $h-color-form-element-border;
-          background-color: $h-color-form-element-background--disabled;
+          border-color: $h-color-border-form-element;
+          background-color: $h-color-background-form-element-disabled;
           box-shadow: none;
 
           &::after {
-            background-image: url(getCheckboxSvgIcon($h-color-checkbox-radio-icon--disabled, "indeterminate"));
+            background-image: url(getCheckboxSvgIcon($h-color-icon-checkbox-radio-disabled, "indeterminate"));
           }
         }
       }
@@ -463,13 +463,13 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
     &:checked {
       ~ #{$h-radio-selector}__container:after {
-        background-image: url(getRadioSvgIcon($h-color-checkbox-radio-icon));
+        background-image: url(getRadioSvgIcon($h-color-icon-checkbox-radio));
       }
 
       &:disabled,
       &[disabled] {
         ~ #{$h-radio-selector}__container:after {
-          background-image: url(getRadioSvgIcon($h-color-checkbox-radio-icon--disabled));
+          background-image: url(getRadioSvgIcon($h-color-icon-checkbox-radio-disabled));
         }
       }
     }
@@ -507,7 +507,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   display: flex;
   align-items: center;
   margin: 0;
-  color: $h-color-form-element-text;
+  color: $h-color-text-form-element;
 }
 
 .h-check__input {
@@ -527,7 +527,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   &:disabled,
   &.disabled {
     ~ .h-check__label-text {
-      color: $h-color-form-element-text--disabled;
+      color: $h-color-text-form-element-disabled;
     }
   }
 }
@@ -574,10 +574,10 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   .h-input-group__content {
     display: flex;
     align-items: center;
-    border: 1px solid $h-color-form-element-border;
-    background-color: $h-color-form-element-background--addon;
+    border: 1px solid $h-color-border-form-element;
+    background-color: $h-color-background-form-element-addon;
     border-radius: $h-border-radius-form-element;
-    color: $h-color-form-element-label;
+    color: $h-color-text-form-element-label;
     text-align: center;
     white-space: nowrap;
   }
@@ -622,18 +622,18 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 //==========================================================================
 
 .h-file-input {
-  background-color: $h-color-form-element-background;
+  background-color: $h-color-background-form-element;
 
   &,
   &::-webkit-file-upload-button {
-    color: $h-color-form-element-text;
+    color: $h-color-text-form-element;
     font-size: $h-font-size-sm;
   }
 
   &::-webkit-file-upload-button {
     padding: $h-padding-y-form-element $h-padding-x-form-element;
-    border: 1px solid $h-color-form-element-border;
-    background-color: $h-color-form-element-background--alt;
+    border: 1px solid $h-color-border-form-element;
+    background-color: $h-color-background-form-element-alt;
     border-radius: $h-border-radius-form-element;
     cursor: pointer;
     font-family: $h-font-family-default;
@@ -657,10 +657,10 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   // for proper compilation.
   &::-ms-browse {
     padding: $h-padding-y-form-element $h-padding-x-form-element;
-    border: 1px solid $h-color-form-element-border;
-    background-color: $h-color-form-element-background--alt;
+    border: 1px solid $h-color-border-form-element;
+    background-color: $h-color-background-form-element-alt;
     border-radius: $h-border-radius-form-element;
-    color: $h-color-form-element-text;
+    color: $h-color-text-form-element;
     cursor: pointer;
     font-family: $h-font-family-default;
     font-size: $h-font-size-sm;

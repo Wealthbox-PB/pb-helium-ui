@@ -11,15 +11,15 @@
 }
 
 @mixin h-form-element-focus {
-  border-color: $h-color-form-element-border--focused;
+  border-color: $h-color-border-form-element-focused;
   box-shadow: $h-box-shadow-form-element-focused;
   outline: 0;
 }
 
 @mixin h-form-element-disabled-readonly {
-  border-color: $h-color-form-element-border;
-  background-color: $h-color-form-element-background--disabled;
-  color: $h-color-form-element-text--disabled;
+  border-color: $h-color-border-form-element;
+  background-color: $h-color-background-form-element-disabled;
+  color: $h-color-text-form-element-disabled;
   // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
   opacity: 1;
 }
