@@ -97,10 +97,10 @@ $h-modal-box-shadow: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
 // Table
 //==========================================================================
 
-$h-table-cell-spacing-x: 1rem;
-$h-table-cell-spacing-y: 0.5rem;
-$h-table-border-color: $h-gray-100;
-$h-table-border-radius: $h-border-radius--lg;
-$h-table-background-color: $h-white;
-$h-table-background-color--hover: $h-blue-25;
-$h-table-header-background-color: $h-gray-25;
+$h-spacing-x-table-cell: 1rem;
+$h-spacing-y-table-cell: 0.5rem;
+$h-color-border-table: $h-gray-100;
+$h-color-background-table: $h-white;
+$h-color-background-table-hover: $h-blue-25;
+$h-color-background-table-header: $h-gray-25;
+$h-border-radius-table: $h-border-radius-lg;
