@@ -4,8 +4,8 @@
 //==========================================================================
 
 .h-card {
-  background-color: $h-card-background-color;
-  border-radius: $h-card-border-radius;
+  background-color: $h-color-background-card;
+  border-radius: $h-border-radius-card;
   box-shadow: $h-shadow-1;
 }
 
@@ -33,8 +33,8 @@
 }
 
 .h-card__header {
-  padding: $h-card-header-footer-y-padding $h-card-padding;
-  border-radius: $h-card-border-radius $h-card-border-radius 0 0;
+  padding: $h-padding-y-card-header-footer $h-padding-card;
+  border-radius: $h-border-radius-card $h-border-radius-card 0 0;
 }
 
 .h-card__title {
@@ -42,15 +42,15 @@
 }
 
 .h-card__body {
-  padding: 0 $h-card-padding;
+  padding: 0 $h-padding-card;
 }
 
 .h-card__footer {
-  padding: $h-card-header-footer-y-padding $h-card-padding;
-  border-radius: 0 0 $h-card-border-radius $h-card-border-radius;
+  padding: $h-padding-y-card-header-footer $h-padding-card;
+  border-radius: 0 0 $h-border-radius-card $h-border-radius-card;
 }
 
 .h-card__header--colored,
 .h-card__footer--colored {
-  background: $h-card-header-footer-background-color;
+  background: $h-color-background-card-header-footer;
 }

@@ -5,38 +5,38 @@
 
 .h-modal__dialog {
   display: flex;
-  width: $h-modal-width--mobile;
-  min-height: $h-modal-min-height;
+  width: $h-width-modal-mobile;
+  min-height: $h-min-height-modal;
   flex-direction: column;
   justify-content: space-between;
   background: $h-white;
-  border-radius: $h-modal-border-radius;
-  box-shadow: $h-modal-box-shadow;
+  border-radius: $h-border-radius-modal;
+  box-shadow: $h-box-shadow-modal;
 
   @include media-breakpoint-up(md) {
-    width: $h-modal-width--desktop;
+    width: $h-width-modal-desktop;
   }
 
   &.h-modal__dialog--sm {
     min-height: auto;
 
     @include media-breakpoint-up(md) {
-      width: $h-modal-width--desktop-sm;
+      width: $h-width-modal-desktop-sm;
     }
   }
 
   &.h-modal__dialog--lg {
-    min-height: $h-modal-min-height--lg;
+    min-height: $h-min-height-modal-lg;
 
     @include media-breakpoint-up(md) {
-      width: $h-modal-width--desktop-lg;
+      width: $h-width-modal-desktop-lg;
     }
   }
 }
 
 .h-modal__header {
   position: relative;
-  padding: $h-modal-padding 3.125rem $h-modal-padding $h-modal-padding;
+  padding: $h-padding-modal 3.125rem $h-padding-modal $h-padding-modal;
 }
 
 .h-modal__heading {
@@ -64,23 +64,23 @@
   @include h-form-element-transition();
 
   &:focus {
-    box-shadow: $h-form-element-box-shadow--focused;
+    box-shadow: $h-box-shadow-form-element-focused;
     outline: none;
   }
 }
 
 .h-modal__body {
   flex-grow: 1;
-  padding: 0 $h-modal-padding;
+  padding: 0 $h-padding-modal;
 }
 
 .h-modal__body--spacing-bottom {
-  padding-bottom: $h-modal-padding;
+  padding-bottom: $h-padding-modal;
 }
 
 .h-modal__footer {
-  padding: 1rem $h-modal-padding;
+  padding: 1rem $h-padding-modal;
   background: $h-gray-50;
-  border-bottom-left-radius: $h-modal-border-radius;
-  border-bottom-right-radius: $h-modal-border-radius;
+  border-bottom-left-radius: $h-border-radius-modal;
+  border-bottom-right-radius: $h-border-radius-modal;
 }

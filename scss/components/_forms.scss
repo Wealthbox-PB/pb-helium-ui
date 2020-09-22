@@ -11,30 +11,30 @@
   margin-bottom: 1.5rem;
 
   &.h-form-group--nested {
-    margin-bottom: $h-form-group-spacing--nested;
+    margin-bottom: $h-spacing-form-group-nested;
   }
 
   &.h-form-group--nested-xs {
     @include media-breakpoint-down(xs) {
-      margin-bottom: $h-form-group-spacing--nested;
+      margin-bottom: $h-spacing-form-group-nested;
     }
   }
 
   &.h-form-group--nested-sm {
     @include media-breakpoint-down(sm) {
-      margin-bottom: $h-form-group-spacing--nested;
+      margin-bottom: $h-spacing-form-group-nested;
     }
   }
 
   &.h-form-group--nested-md {
     @include media-breakpoint-down(md) {
-      margin-bottom: $h-form-group-spacing--nested;
+      margin-bottom: $h-spacing-form-group-nested;
     }
   }
 
   &.h-form-group--nested-lg {
     @include media-breakpoint-down(lg) {
-      margin-bottom: $h-form-group-spacing--nested;
+      margin-bottom: $h-spacing-form-group-nested;
     }
   }
 }
@@ -43,7 +43,7 @@
 //==========================================================================
 
 .h-form-label {
-  margin-bottom: $h-form-element-label-spacing;
+  margin-bottom: $h-spacing-form-element-label;
   color: $h-color-form-element-label;
 }
 
@@ -61,8 +61,8 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: $h-form-element-border-radius;
-  line-height: $h-form-element-line-height;
+  border-radius: $h-border-radius-form-element;
+  line-height: $h-line-height-form-element;
 
   @include h-form-element-transition();
 }
@@ -106,7 +106,7 @@
     &:focus {
       @include h-form-element-focus();
 
-      box-shadow: $h-form-element-box-shadow--error;
+      box-shadow: $h-form-element-box-shadow-error;
     }
   }
 
@@ -146,20 +146,20 @@
 .h-file-input,
 .h-input-group__content,
 .h-textarea {
-  padding: $h-form-element-padding-y $h-form-element-padding-x;
+  padding: $h-padding-y-form-element $h-padding-x-form-element;
 }
 
 .h-input,
 .h-input-group__content,
 .h-select {
-  height: $h-form-element-height;
+  height: $h-height-form-element;
 }
 
 //  Select
 //==========================================================================
 
 .h-select {
-  padding: $h-form-element-padding-y 1rem $h-form-element-padding-y $h-form-element-padding-x;
+  padding: $h-padding-y-form-element 1rem $h-padding-y-form-element $h-padding-x-form-element;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -197,8 +197,8 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
     #{$h-checkbox-radio-selector}__elm,
     #{$h-checkbox-radio-selector}__container {
-      width: $h-checkbox-radio-size;
-      height: $h-checkbox-radio-size;
+      width: $h-size-checkbox-radio;
+      height: $h-size-checkbox-radio;
     }
 
     #{$h-checkbox-radio-selector}__elm {
@@ -274,23 +274,23 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       + #{$h-checkbox-radio-selector}__label-content {
-        padding-left: $h-checkbox-radio-spacing;
+        padding-left: $h-spacing-checkbox-radio;
       }
     }
 
     &#{$h-checkbox-radio-selector}--sm {
       #{$h-checkbox-radio-selector}__elm,
       #{$h-checkbox-radio-selector}__container {
-        width: $h-checkbox-radio-size--sm;
-        height: $h-checkbox-radio-size--sm;
+        width: $h-size-checkbox-radio-sm;
+        height: $h-size-checkbox-radio-sm;
       }
     }
 
     &#{$h-checkbox-radio-selector}--lg {
       #{$h-checkbox-radio-selector}__elm,
       #{$h-checkbox-radio-selector}__container {
-        width: $h-checkbox-radio-size--lg;
-        height: $h-checkbox-radio-size--lg;
+        width: $h-size-checkbox-radio-lg;
+        height: $h-size-checkbox-radio-lg;
       }
     }
   }
@@ -310,14 +310,14 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   &#{$h-checkbox-selector}--animate {
     #{$h-checkbox-selector}__elm {
       ~ #{$h-checkbox-selector}__container {
-        transition: transform $h-form-element-animation-duration ease-out;
+        transition: transform $h-animation-duration-form-element ease-out;
 
         &::after {
           opacity: 0;
-          transform: scale($h-checkbox-scale-invisible);
+          transform: scale($h-scale-checkbox-invisible);
           transition:
-            opacity $h-checkbox-radio-animation-duration ease-out,
-            transform $h-checkbox-radio-animation-duration ease-out;
+            opacity $h-animation-duration-checkbox-radio ease-out,
+            transform $h-animation-duration-checkbox-radio ease-out;
         }
       }
 
@@ -326,14 +326,14 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
         ~ #{$h-checkbox-selector}__container {
           &::after {
             opacity: 1;
-            transform: scale($h-checkbox-scale-visible);
+            transform: scale($h-scale-checkbox-visible);
           }
         }
       }
 
       &:active {
         ~ #{$h-checkbox-selector}__container {
-          transform: scale($h-checkbox-radio-scale-active);
+          transform: scale($h-scale-checkbox-radio-active);
         }
       }
     }
@@ -379,10 +379,10 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   }
 
   #{$h-checkbox-selector}__container {
-    border-radius: $h-form-element-border-radius;
+    border-radius: $h-border-radius-form-element;
 
     &::after {
-      transform: scale($h-checkbox-scale-visible);
+      transform: scale($h-scale-checkbox-visible);
     }
   }
 }
@@ -398,14 +398,14 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
     &#{$h-radio-selector}--lg {
       #{$h-radio-selector}__elm {
         ~ #{$h-radio-selector}__container {
-          transition: transform $h-form-element-animation-duration ease-out;
+          transition: transform $h-animation-duration-form-element ease-out;
 
           &::after {
             opacity: 0;
-            transform: scale($h-radio-scale-invisible);
+            transform: scale($h-scale-radio-invisible);
             transition:
-              opacity $h-checkbox-radio-animation-duration ease-out,
-              transform $h-checkbox-radio-animation-duration ease-out;
+              opacity $h-animation-duration-checkbox-radio ease-out,
+              transform $h-animation-duration-checkbox-radio ease-out;
           }
         }
 
@@ -419,7 +419,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
         &:active {
           ~ #{$h-radio-selector}__container {
-            transform: scale($h-checkbox-radio-scale-active);
+            transform: scale($h-scale-checkbox-radio-active);
           }
         }
       }
@@ -429,7 +429,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       #{$h-radio-selector}__elm {
         &:checked {
           ~ #{$h-radio-selector}__container:after {
-            transform: scale($h-radio-scale-visible--sm);
+            transform: scale($h-scale-radio-visible-sm);
           }
         }
       }
@@ -439,7 +439,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       #{$h-radio-selector}__elm {
         &:checked {
           ~ #{$h-radio-selector}__container:after {
-            transform: scale($h-radio-scale-visible--lg);
+            transform: scale($h-scale-radio-visible-lg);
           }
         }
       }
@@ -449,7 +449,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       &:checked {
         ~ #{$h-radio-selector}__container {
           &::after {
-            transform: scale($h-radio-scale-visible);
+            transform: scale($h-scale-radio-visible);
           }
         }
       }
@@ -458,7 +458,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
   #{$h-radio-selector}__elm {
     ~ #{$h-radio-selector}__container:after {
-      transform: scale($h-radio-scale-visible);
+      transform: scale($h-scale-radio-visible);
     }
 
     &:checked {
@@ -478,7 +478,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   &#{$h-radio-selector}--sm {
     #{$h-radio-selector}__elm {
       ~ #{$h-radio-selector}__container:after {
-        transform: scale($h-radio-scale-visible--sm);
+        transform: scale($h-scale-radio-visible-sm);
       }
     }
   }
@@ -486,7 +486,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   &#{$h-radio-selector}--lg {
     #{$h-radio-selector}__elm {
       ~ #{$h-radio-selector}__container:after {
-        transform: scale($h-radio-scale-visible--lg);
+        transform: scale($h-scale-radio-visible-lg);
       }
     }
   }
@@ -515,13 +515,13 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   border: 1px solid transparent;
 
   + .h-check__label-text {
-    margin-left: $h-form-element-check-spacing;
+    margin-left: $h-spacing-form-element-check;
   }
 
   &:focus {
     @include h-form-element-focus();
 
-    border-radius: $h-form-element-border-radius;
+    border-radius: $h-border-radius-form-element;
   }
 
   &:disabled,
@@ -534,7 +534,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
 .h-check__label-text {
   + .h-check__input {
-    margin-left: $h-form-element-check-spacing;
+    margin-left: $h-spacing-form-element-check;
   }
 }
 
@@ -576,7 +576,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
     align-items: center;
     border: 1px solid $h-color-form-element-border;
     background-color: $h-color-form-element-background--addon;
-    border-radius: $h-form-element-border-radius;
+    border-radius: $h-border-radius-form-element;
     color: $h-color-form-element-label;
     text-align: center;
     white-space: nowrap;
@@ -631,10 +631,10 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   }
 
   &::-webkit-file-upload-button {
-    padding: $h-form-element-padding-y $h-form-element-padding-x;
+    padding: $h-padding-y-form-element $h-padding-x-form-element;
     border: 1px solid $h-color-form-element-border;
     background-color: $h-color-form-element-background--alt;
-    border-radius: $h-form-element-border-radius;
+    border-radius: $h-border-radius-form-element;
     cursor: pointer;
     font-family: $h-font-family-default;
 
@@ -656,10 +656,10 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   // -webkit-file-upload-button, this needs to be in a separate ruleset
   // for proper compilation.
   &::-ms-browse {
-    padding: $h-form-element-padding-y $h-form-element-padding-x;
+    padding: $h-padding-y-form-element $h-padding-x-form-element;
     border: 1px solid $h-color-form-element-border;
     background-color: $h-color-form-element-background--alt;
-    border-radius: $h-form-element-border-radius;
+    border-radius: $h-border-radius-form-element;
     color: $h-color-form-element-text;
     cursor: pointer;
     font-family: $h-font-family-default;

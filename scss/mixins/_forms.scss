@@ -5,14 +5,14 @@
 
 @mixin h-form-element-transition {
   transition:
-    border-color $h-form-element-animation-duration ease-out,
-    background-color $h-form-element-animation-duration ease-out,
-    box-shadow $h-form-element-animation-duration ease-out;
+    border-color $h-animation-duration-form-element ease-out,
+    background-color $h-animation-duration-form-element ease-out,
+    box-shadow $h-animation-duration-form-element ease-out;
 }
 
 @mixin h-form-element-focus {
   border-color: $h-color-form-element-border--focused;
-  box-shadow: $h-form-element-box-shadow--focused;
+  box-shadow: $h-box-shadow-form-element-focused;
   outline: 0;
 }
 

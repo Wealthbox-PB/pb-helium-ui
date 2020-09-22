@@ -10,7 +10,7 @@
   display: inline-flex;
   border: 1px solid transparent;
   background: transparent;
-  border-radius: $h-btn-border-radius;
+  border-radius: $h-border-radius-btn;
   cursor: pointer;
   font-style: normal;
   font-weight: $h-font-weight-medium;
@@ -21,7 +21,7 @@
   user-select: none;
   vertical-align: middle;
 
-  @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-form-element-line-height);
+  @include h-btn-size($h-padding-btn: $h-padding-y-form-element 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-line-height-form-element);
   @include h-form-element-transition();
 
   &:hover,
@@ -191,7 +191,7 @@
 
   &:focus,
   &.h-btn--focus {
-    box-shadow: 0 0 0 $h-btn-box-shadow-size rgba($h-box-shadow-btn-color, $h-btn-box-shadow-alpha);
+    box-shadow: 0 0 0 $h-box-shadow-size-btn rgba($h-box-shadow-btn-color, $h-box-shadow-alpha-btn);
   }
 
   &:disabled,
@@ -350,7 +350,7 @@
 
   &:focus,
   &.h-btn--focus {
-    box-shadow: $h-form-element-box-shadow--focused;
+    box-shadow: $h-box-shadow-form-element-focused;
   }
 }
 
