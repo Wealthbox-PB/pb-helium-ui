@@ -6,7 +6,7 @@
 .h-table {
   position: relative;
   overflow: auto;
-  border-radius: $h-border-radius-table;
+  border-radius: $h-table-border-radius;
 
   @media screen {
     box-shadow: $h-shadow-1;
@@ -37,7 +37,7 @@
       tr,
       .h-table__row {
         &:hover {
-          background-color: $h-color-background-table-hover;
+          background-color: $h-table-background-color--hover;
         }
       }
     }
@@ -46,7 +46,7 @@
   .h-table__row--hover,
   .h-table__cell--hover {
     &:hover {
-      background-color: $h-color-background-table-hover;
+      background-color: $h-table-background-color--hover;
     }
   }
 
@@ -54,7 +54,7 @@
     display: table;
     width: 100%;
     margin: 0; // TODO Remove after implementation
-    background: $h-color-background-table;
+    background: $h-table-background-color;
     border-collapse: collapse;
     font-size: $h-font-size-sm;
 
@@ -63,7 +63,7 @@
       & > .h-table__header {
         th,
         .h-table__heading {
-          box-shadow: 0 1px 0 0 $h-color-border-table; // Heading border workaround because sticky headers do not maintain their border on scroll
+          box-shadow: 0 1px 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
         }
       }
     }
@@ -86,13 +86,13 @@
       .h-table__heading,
       td,
       .h-table__data {
-        border-top: 1px solid $h-color-border-table;
+        border-top: 1px solid $h-table-border-color;
       }
 
       th,
       .h-table__heading {
         left: 0;
-        box-shadow: 1px 0 0 0 $h-color-border-table; // Heading border workaround because sticky headers do not maintain their border on scroll
+        box-shadow: 1px 0 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
       }
     }
   }
@@ -101,7 +101,7 @@
   .h-table__heading,
   td,
   .h-table__data {
-    padding: $h-spacing-y-table-cell $h-spacing-x-table-cell;
+    padding: $h-table-cell-spacing-y $h-table-cell-spacing-x;
     line-height: $h-line-height-base;
     text-align: left;
     vertical-align: top;
@@ -117,7 +117,7 @@
     position: sticky;
     z-index: 1;
     top: 0;
-    background: $h-color-background-table-header;
+    background: $h-table-header-background-color;
     color: $h-black;
     font-weight: $h-font-weight-bold;
   }
@@ -134,7 +134,7 @@
     .h-table__heading,
     td,
     .h-table__data {
-      padding: $h-spacing-y-table-cell;
+      padding: $h-table-cell-spacing-y;
     }
   }
 
