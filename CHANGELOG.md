@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.25] - 2020-10-05
 ### Added
+- Added print stylesheet with necessary imports for crm-web
 - Added print variables stylesheet
 - Added screen and print media queries for `.h-table` component
 - Added modifier classes for customization of `.h-table` component
