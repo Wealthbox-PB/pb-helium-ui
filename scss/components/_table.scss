@@ -11,6 +11,20 @@
   @media screen {
     box-shadow: $h-shadow-1;
 
+    &.h-table--layout-fixed {
+      .h-table__table {
+        table-layout: fixed;
+      }
+    }
+
+    &.h-table--layout-fixed-desktop {
+      @include media-breakpoint-up(md) {
+        .h-table__table {
+          table-layout: fixed;
+        }
+      }
+    }
+
     &.h-table--border-radius-none {
       border-radius: 0;
     }
