@@ -11,6 +11,33 @@
   @media screen {
     box-shadow: $h-shadow-1;
 
+    &.h-table--hover {
+      & > .h-table__table {
+        & > tbody,
+        & > .h-table__body {
+          tr,
+          .h-table__row {
+            &:hover {
+              background-color: $h-table-background-color--hover;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .h-table__row--hover,
+    .h-table__cell--hover {
+      &:hover {
+        background-color: $h-table-background-color--hover;
+      }
+    }
+
+    .h-table__row--active,
+    .h-table__cell--active {
+      background-color: $h-table-background-color--hover;
+    }
+
     &.h-table--layout-fixed {
       .h-table__table {
         table-layout: fixed;
@@ -42,25 +69,6 @@
       .h-table__data {
         vertical-align: middle;
       }
-    }
-  }
-
-  &.h-table--hover {
-    & > tbody,
-    & > .h-table__body {
-      tr,
-      .h-table__row {
-        &:hover {
-          background-color: $h-table-background-color--hover;
-        }
-      }
-    }
-  }
-
-  .h-table__row--hover,
-  .h-table__cell--hover {
-    &:hover {
-      background-color: $h-table-background-color--hover;
     }
   }
 
