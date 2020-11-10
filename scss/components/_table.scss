@@ -8,67 +8,26 @@
   overflow: auto;
   border-radius: $h-table-border-radius;
 
-  @media screen {
-    box-shadow: $h-shadow-1;
-
-    &.h-table--hover {
-      & > .h-table__table {
-        & > tbody,
-        & > .h-table__body {
-          tr,
-          .h-table__row {
-            &:hover {
-              background-color: $h-table-background-color--hover;
-              cursor: pointer;
-            }
-          }
-        }
-      }
+  &.h-table--layout-fixed {
+    .h-table__table {
+      table-layout: fixed;
     }
+  }
 
-    .h-table__row--hover,
-    .h-table__cell--hover {
-      &:hover {
-        background-color: $h-table-background-color--hover;
-      }
-    }
-
-    .h-table__row--active,
-    .h-table__cell--active {
-      background-color: $h-table-background-color--hover;
-    }
-
-    &.h-table--layout-fixed {
+  &.h-table--layout-fixed-desktop {
+    @include media-breakpoint-up(md) {
       .h-table__table {
         table-layout: fixed;
       }
     }
+  }
 
-    &.h-table--layout-fixed-desktop {
-      @include media-breakpoint-up(md) {
-        .h-table__table {
-          table-layout: fixed;
-        }
-      }
-    }
-
-    &.h-table--border-radius-none {
-      border-radius: 0;
-    }
-
-    &.h-table--border-radius-mobile-none {
-      @include media-breakpoint-down(sm) {
-        border-radius: 0;
-      }
-    }
-
-    &.h-table--align-middle {
-      th,
-      .h-table__heading,
-      td,
-      .h-table__data {
-        vertical-align: middle;
-      }
+  &.h-table--align-middle {
+    th,
+    .h-table__heading,
+    td,
+    .h-table__data {
+      vertical-align: middle;
     }
   }
 
@@ -79,16 +38,6 @@
     background: $h-table-background-color;
     border-collapse: collapse;
     font-size: $h-font-size-sm;
-
-    @media screen {
-      & > thead,
-      & > .h-table__header {
-        th,
-        .h-table__heading {
-          box-shadow: 0 1px 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
-        }
-      }
-    }
 
     & > tbody,
     & > .h-table__body {
@@ -123,7 +72,6 @@
   .h-table__heading,
   td,
   .h-table__data {
-    padding: $h-table-cell-spacing-y $h-table-cell-spacing-x;
     line-height: $h-line-height-base;
     text-align: left;
     vertical-align: top;
@@ -135,13 +83,80 @@
 
   th,
   .h-table__heading {
-    position: -webkit-sticky;
-    position: sticky;
-    z-index: 1;
-    top: 0;
     background: $h-table-header-background-color;
     color: $h-black;
     font-weight: $h-font-weight-bold;
+  }
+}
+
+//  Screen
+//==========================================================================
+
+@media screen {
+  .h-table {
+    box-shadow: $h-shadow-1;
+
+    &.h-table--border-radius-none {
+      border-radius: 0;
+    }
+
+    &.h-table--border-radius-mobile-none {
+      @include media-breakpoint-down(sm) {
+        border-radius: 0;
+      }
+    }
+
+    &.h-table--hover {
+      & > .h-table__table {
+        & > tbody,
+        & > .h-table__body {
+          tr,
+          .h-table__row {
+            &:hover {
+              background-color: $h-table-background-color--hover;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .h-table__row--hover,
+    .h-table__cell--hover {
+      &:hover {
+        background-color: $h-table-background-color--hover;
+      }
+    }
+
+    .h-table__row--active,
+    .h-table__cell--active {
+      background-color: $h-table-background-color--hover;
+    }
+
+    .h-table__table {
+      & > thead,
+      & > .h-table__header {
+        th,
+        .h-table__heading {
+          box-shadow: 0 1px 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
+        }
+      }
+    }
+
+    th,
+    .h-table__heading,
+    td,
+    .h-table__data {
+      padding: $h-table-cell-spacing-y $h-table-cell-spacing-x;
+    }
+
+    th,
+    .h-table__heading {
+      position: -webkit-sticky;
+      position: sticky;
+      z-index: 1;
+      top: 0;
+    }
   }
 }
 
@@ -158,14 +173,14 @@
     .h-table__data {
       padding: $h-table-cell-spacing-y;
     }
-  }
 
-  .h-table__table {
-    & > thead,
-    & > .h-table__header {
-      th,
-      .h-table__heading {
-        border-bottom: 1px solid $h-color-border-print;
+    .h-table__table {
+      & > thead,
+      & > .h-table__header {
+        th,
+        .h-table__heading {
+          border-bottom: 1px solid $h-color-border-print;
+        }
       }
     }
   }
