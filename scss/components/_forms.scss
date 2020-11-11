@@ -102,7 +102,12 @@
 
   &--error {
     border-color: $h-color-form-element-border--error;
-    box-shadow: $h-form-element-box-shadow--error;
+
+    &:focus {
+      @include h-form-element-focus();
+
+      box-shadow: $h-form-element-box-shadow--error;
+    }
   }
 
   &::-webkit-input-placeholder {
