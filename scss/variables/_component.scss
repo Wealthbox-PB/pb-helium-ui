@@ -13,6 +13,11 @@ $h-btn-spacing-x:        0.5rem;
 $h-btn-box-shadow-size:  0.1875rem;
 $h-btn-box-shadow-alpha: 0.4;
 
+//  Shared
+//==========================================================================
+
+$h-header-footer-background-color: $h-gray-50;
+
 // Card
 //==========================================================================
 
@@ -20,7 +25,7 @@ $h-card-padding: 1rem;
 $h-card-header-footer-y-padding: 0.75rem;
 $h-card-border-radius: $h-border-radius--lg;
 $h-card-background-color: $h-white;
-$h-card-header-footer-background-color: $h-gray-50;
+$h-card-header-footer-background-color: $h-header-footer-background-color;
 
 $h-card-box-shadow: $h-shadow-1;
 
@@ -103,4 +108,4 @@ $h-table-border-color: $h-gray-100;
 $h-table-border-radius: $h-border-radius--lg;
 $h-table-background-color: $h-white;
 $h-table-background-color--hover: $h-blue-25;
-$h-table-header-background-color: $h-gray-25;
+$h-table-header-background-color: $h-header-footer-background-color;
