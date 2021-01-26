@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.27] - 2021-01-22
+### Added
+- Added `comment--filled` svg icon asset
+- Added `comment--filled--lg` svg icon asset
+
+### Changed
+- Updated `comment` svg icon asset
+- Updated `comment--lg` svg icon asset
+- Recompiled icon font
+
 ## [1.0.26] - 2020-11-16
 ### Added
 - Added `$h-header-footer-background-color` variable for consistent background-color on table and card component headers
