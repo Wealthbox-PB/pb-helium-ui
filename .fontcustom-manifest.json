@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "d462263fe193f1ef2a644f22c5b5716b515949a0d434e9de445496e01b35913d",
-    "current": "d462263fe193f1ef2a644f22c5b5716b515949a0d434e9de445496e01b35913d"
+    "previous": "653696fb9da3a31edd14879353060d894738f1f78590c5f8b5c854715ff4f016",
+    "current": "653696fb9da3a31edd14879353060d894738f1f78590c5f8b5c854715ff4f016"
   },
   "fonts": [
-    "fonts/helium-icons_d462263fe193f1ef2a644f22c5b5716b.ttf",
-    "fonts/helium-icons_d462263fe193f1ef2a644f22c5b5716b.svg",
-    "fonts/helium-icons_d462263fe193f1ef2a644f22c5b5716b.woff",
-    "fonts/helium-icons_d462263fe193f1ef2a644f22c5b5716b.eot",
-    "fonts/helium-icons_d462263fe193f1ef2a644f22c5b5716b.woff2"
+    "fonts/helium-icons_653696fb9da3a31edd14879353060d89.ttf",
+    "fonts/helium-icons_653696fb9da3a31edd14879353060d89.svg",
+    "fonts/helium-icons_653696fb9da3a31edd14879353060d89.woff",
+    "fonts/helium-icons_653696fb9da3a31edd14879353060d89.eot",
+    "fonts/helium-icons_653696fb9da3a31edd14879353060d89.woff2"
   ],
   "glyphs": {
     "add": {
@@ -175,6 +175,10 @@
       "codepoint": 61730,
       "source": "assets/icons/chevron-down--lg.svg"
     },
+    "chevron-down--sm": {
+      "codepoint": 62051,
+      "source": "assets/icons/chevron-down--sm.svg"
+    },
     "chevron-left": {
       "codepoint": 61731,
       "source": "assets/icons/chevron-left.svg"
@@ -182,6 +186,10 @@
     "chevron-left--lg": {
       "codepoint": 61732,
       "source": "assets/icons/chevron-left--lg.svg"
+    },
+    "chevron-left--sm": {
+      "codepoint": 62052,
+      "source": "assets/icons/chevron-left--sm.svg"
     },
     "chevron-right": {
       "codepoint": 61733,
@@ -191,6 +199,10 @@
       "codepoint": 61734,
       "source": "assets/icons/chevron-right--lg.svg"
     },
+    "chevron-right--sm": {
+      "codepoint": 62053,
+      "source": "assets/icons/chevron-right--sm.svg"
+    },
     "chevron-up": {
       "codepoint": 61735,
       "source": "assets/icons/chevron-up.svg"
@@ -198,6 +210,10 @@
     "chevron-up--lg": {
       "codepoint": 61736,
       "source": "assets/icons/chevron-up--lg.svg"
+    },
+    "chevron-up--sm": {
+      "codepoint": 62054,
+      "source": "assets/icons/chevron-up--sm.svg"
     },
     "clipboard": {
       "codepoint": 61737,
