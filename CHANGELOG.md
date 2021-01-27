@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.29] - 2021-01-27
+### Added
+- Added `chevron-down--sm` svg icon asset
+- Added `chevron-right--sm` svg icon asset
+- Added `chevron-left--sm` svg icon asset
+- Added `chevron-up--sm` svg icon asset
+
+### Changed
+- Updated `chevron-down` svg icon asset
+- Updated `chevron-right` svg icon asset
+- Updated `chevron-left` svg icon asset
+- Updated `chevron-up` svg icon asset
+- Recompiled icon font
+
 ## [1.0.28] - 2021-01-25
 - Added table component dense spacing styles as default for printing
 - Added modifier to be used in the future for dense spacing styles
