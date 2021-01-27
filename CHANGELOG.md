@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.28] - 2021-01-25
 - Added table component dense spacing styles as default for printing
 - Added modifier to be used in the future for dense spacing styles
+
 ### Changed
 - Updated table component font-size from `$h-font-size-sm` to `$h-font-size-md` for screens
 
