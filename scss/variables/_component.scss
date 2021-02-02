@@ -16,16 +16,23 @@ $h-btn-box-shadow-alpha: 0.4;
 //  Shared
 //==========================================================================
 
-$h-header-footer-background-color: $h-gray-50;
+$h-shared-component-background-color: $h-white;
+$h-shared-component-background-color-secondary: $h-gray-50;
+$h-shared-component-border-color: $h-gray-100;
+$h-shared-component-border-radius: $h-border-radius--lg;
+
+// Deprecated, to be removed in v2.0
+$h-header-footer-background-color: $h-shared-component-background-color-secondary;
 
 // Card
 //==========================================================================
 
 $h-card-padding: 1rem;
 $h-card-header-footer-y-padding: 0.75rem;
-$h-card-border-radius: $h-border-radius--lg;
-$h-card-background-color: $h-white;
-$h-card-header-footer-background-color: $h-header-footer-background-color;
+$h-card-border-radius: $h-shared-component-border-radius;
+$h-card-border-color: $h-shared-component-border-color;
+$h-card-background-color: $h-shared-component-background-color;
+$h-card-header-footer-background-color: $h-shared-component-background-color-secondary;
 
 $h-card-box-shadow: $h-shadow-1;
 
@@ -41,7 +48,7 @@ $h-color-form-element-text--disabled:       $h-gray-400;
 $h-color-form-element-placeholder-text:     $h-color-text-lighter;
 $h-color-checkbox-radio-icon:               str-slice("#{$h-white}", 2);
 $h-color-checkbox-radio-icon--disabled:     str-slice("#{$h-gray-250}", 2);
-$h-color-form-element-background:           $h-white;
+$h-color-form-element-background:           $h-shared-component-background-color;
 $h-color-form-element-background--alt:      $h-gray-25;
 $h-color-form-element-background--select:   $h-color-form-element-background--alt;
 $h-color-form-element-background--addon:    $h-color-form-element-background--alt;
@@ -95,7 +102,7 @@ $h-modal-width--desktop-lg: 650px;
 $h-modal-min-height: $h-modal-width--desktop / 2;
 $h-modal-min-height--lg: $h-modal-width--desktop-lg / 2;
 $h-modal-padding: 1.5rem;
-$h-modal-border-radius: $h-border-radius--lg;
+$h-modal-border-radius: $h-shared-component-border-radius;
 
 $h-modal-box-shadow: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
 
@@ -106,8 +113,8 @@ $h-table-cell-spacing-x: 1rem;
 $h-table-cell-spacing-y: 0.5rem;
 $h-table-cell-spacing-dense-x: 0.5rem;
 $h-table-cell-spacing-dense-y: 0.25rem;
-$h-table-border-color: $h-gray-100;
-$h-table-border-radius: $h-border-radius--lg;
-$h-table-background-color: $h-white;
+$h-table-border-color: $h-shared-component-border-color;
+$h-table-border-radius: $h-shared-component-border-radius;
+$h-table-background-color: $h-shared-component-background-color;
 $h-table-background-color--hover: $h-blue-25;
-$h-table-header-background-color: $h-header-footer-background-color;
+$h-table-header-background-color: $h-shared-component-background-color-secondary;

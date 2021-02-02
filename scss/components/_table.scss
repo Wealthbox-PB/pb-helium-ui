@@ -31,6 +31,17 @@
     }
   }
 
+  &.h-table--align-middle-desktop {
+    @include media-breakpoint-up(md) {
+      th,
+      .h-table__heading,
+      td,
+      .h-table__data {
+        vertical-align: middle;
+      }
+    }
+  }
+
   &.h-table--dense {
     th,
     .h-table__heading,
@@ -113,6 +124,11 @@
       @include media-breakpoint-down(sm) {
         border-radius: 0;
       }
+    }
+
+    &.h-table--outlined {
+      border: 1px solid $h-table-border-color;
+      box-shadow: none;
     }
 
     &.h-table--hover {
