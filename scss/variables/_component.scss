@@ -21,6 +21,9 @@ $h-shared-component-background-color--alt: $h-gray-50;
 $h-shared-component-border-color: $h-gray-100;
 $h-shared-component-border-radius: $h-border-radius--lg;
 
+// Deprecated, to be removed in v2.0
+$h-header-footer-background-color: $h-shared-component-background-color--alt;
+
 // Card
 //==========================================================================
 
