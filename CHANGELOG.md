@@ -6,17 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.30] - 2021-02-02
 ### Added
-- Added `.h-table--box-shadow-none` modifier class
+- Added `.h-table--outlined` modifier class
 - Added `.h-table--align-middle-desktop` modifier class
-- Added `.h-card--box-shadow-none` modifier class
+- Added `.h-card--outlined` modifier class
 - Added `$h-shared-component-background-color` variable
-- Added `$h-shared-component-background-color--alt` variable
+- Added `$h-shared-component-background-color-secondary` variable
 - Added `$h-shared-component-border-color` variable
 - Added `$h-shared-component-border-radius` variable
 
 ### Changed
-- Deprecated `$h-header-footer-background-color` and updated to use `$h-shared-component-background-color--alt` until removal
-- Updated `$h-card-header-footer-background-color`, `$h-table-header-background-color` to use `$h-shared-component-background-color--alt`
+- Deprecated `$h-header-footer-background-color` and updated to use `$h-shared-component-background-color-secondary` until removal
+- Updated `$h-card-header-footer-background-color`, `$h-table-header-background-color` to use `$h-shared-component-background-color-secondary`
 - Updated `$h-card-background-color`, `$h-color-form-element-background`, and `$h-table-background-color` to use `$h-shared-component-background-color`
 - Updated `$h-card-border-color`, `$h-table-border-color` to use `$h-shared-component-border-color`
 - Updated `$h-card-border-radius`, `$h-modal-border-radius`, `$h-table-border-radius` to use `$h-shared-component-border-radius`
