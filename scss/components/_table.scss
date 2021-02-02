@@ -31,6 +31,17 @@
     }
   }
 
+  &.h-table--align-middle-desktop {
+    @include media-breakpoint-up(md) {
+      th,
+      .h-table__heading,
+      td,
+      .h-table__data {
+        vertical-align: middle;
+      }
+    }
+  }
+
   &.h-table--dense {
     th,
     .h-table__heading,
