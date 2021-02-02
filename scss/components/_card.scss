@@ -27,6 +27,11 @@
   }
 }
 
+.h-card--box-shadow-none {
+  border: 1px solid $h-card-border-color;
+  box-shadow: none;
+}
+
 .h-card__header {
   padding: $h-card-header-footer-y-padding $h-card-padding;
   border-radius: $h-card-border-radius $h-card-border-radius 0 0;

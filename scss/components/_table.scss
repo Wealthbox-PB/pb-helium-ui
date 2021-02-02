@@ -115,6 +115,11 @@
       }
     }
 
+    &.h-table--box-shadow-none {
+      border: 1px solid $h-table-border-color;
+      box-shadow: none;
+    }
+
     &.h-table--hover {
       & > .h-table__table {
         & > tbody,
