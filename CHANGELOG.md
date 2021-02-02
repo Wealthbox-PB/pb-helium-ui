@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.30] - 2021-02-02
+### Added
+- Added `.h-table--box-shadow-none` modifier class
+- Added `.h-table--align-middle-desktop` modifier class
+- Added `.h-card--box-shadow-none` modifier class
+- Added `$h-shared-component-background-color` variable
+- Added `$h-shared-component-background-color--alt` variable
+- Added `$h-shared-component-border-color` variable
+- Added `$h-shared-component-border-radius` variable
+
+### Changed
+- Deprecated `$h-header-footer-background-color` and updated to use `$h-shared-component-background-color--alt` until removal
+- Updated `$h-card-header-footer-background-color`, `$h-table-header-background-color` to use `$h-shared-component-background-color--alt`
+- Updated `$h-card-background-color`, `$h-color-form-element-background`, and `$h-table-background-color` to use `$h-shared-component-background-color`
+- Updated `$h-card-border-color`, `$h-table-border-color` to use `$h-shared-component-border-color`
+- Updated `$h-card-border-radius`, `$h-modal-border-radius`, `$h-table-border-radius` to use `$h-shared-component-border-radius`
+
 ## [1.0.29] - 2021-01-27
 ### Added
 - Added `chevron-down--sm` svg icon asset
@@ -19,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Recompiled icon font
 
 ## [1.0.28] - 2021-01-25
+### Added
 - Added table component dense spacing styles as default for printing
 - Added modifier to be used in the future for dense spacing styles
 
