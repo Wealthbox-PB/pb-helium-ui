@@ -179,7 +179,7 @@
 
   th,
   .h-table__heading {
-    background: $h-table-header-background-color;
+    background: $h-color-background-secondary-shared-component;
     color: $h-black;
     font-weight: $h-font-weight-bold;
   }
@@ -190,7 +190,7 @@
 
 @media screen {
   .h-table {
-    box-shadow: $h-shadow-1;
+    box-shadow: $h-box-shadow-shared-component;
 
     &.h-table--untable {
       @include media-breakpoint-down(sm) {
@@ -446,7 +446,7 @@
     }
 
     &.h-table--outlined {
-      border: 1px solid $h-table-border-color;
+      border: 1px solid $h-color-border-shared-component;
       box-shadow: none;
     }
 
@@ -512,7 +512,7 @@
     .h-table__heading,
     td,
     .h-table__data {
-      padding: $h-table-cell-spacing-y $h-table-cell-spacing-x;
+      padding: $h-spacing-y-table-cell $h-spacing-x-table-cell;
     }
   }
 }
@@ -542,7 +542,7 @@
     .h-table__heading,
     td,
     .h-table__data {
-      padding: $h-table-cell-spacing-dense-y $h-table-cell-spacing-dense-x;
+      padding: $h-spacing-y-dense-table-cell $h-spacing-x-dense-table-cell;
     }
 
     .h-table__table {

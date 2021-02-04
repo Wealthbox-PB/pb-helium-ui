@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: space-between;
   background: $h-white;
-  border-radius: $h-border-radius-modal;
+  border-radius: $h-border-radius-shared-component;
   box-shadow: $h-box-shadow-modal;
 
   @include media-breakpoint-up(md) {
@@ -81,6 +81,6 @@
 .h-modal__footer {
   padding: 1rem $h-padding-modal;
   background: $h-gray-50;
-  border-bottom-left-radius: $h-border-radius-modal;
-  border-bottom-right-radius: $h-border-radius-modal;
+  border-bottom-left-radius: $h-border-radius-shared-component;
+  border-bottom-right-radius: $h-border-radius-shared-component;
 }

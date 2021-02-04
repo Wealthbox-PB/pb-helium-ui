@@ -33,17 +33,9 @@ $h-box-shadow-shared-component: $h-shadow-1;
 // Card
 //==========================================================================
 
-// Color
-$h-color-border-card: $h-color-border-shared-component;
-$h-color-background-card: $h-color-background-shared-component;
-$h-color-background-card-header-footer: $h-gray-50;
-
 // Box Model
 $h-padding-card: 1rem;
 $h-padding-y-card-header-footer: 0.75rem;
-$h-border-radius-card: $h-border-radius-shared-component;
-
-$h-box-shadow-card: $h-shadow-1;
 
 //  Form Elements
 //==========================================================================
@@ -113,23 +105,13 @@ $h-width-modal-desktop-lg: 650px;
 $h-min-height-modal: $h-width-modal-desktop / 2;
 $h-min-height-modal-lg: $h-width-modal-desktop-lg / 2;
 
-$h-border-radius-modal: $h-border-radius-shared-component;
-
 $h-box-shadow-modal: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
 
 // Table
 //==========================================================================
-
-// Colors
-$h-color-background-table: $h-color-background-shared-component;
-$h-color-background-table-hover: $h-blue-25;
-$h-color-background-table-header: $h-color-background-secondary-shared-component;
-$h-color-border-table: $h-color-border-shared-component;
 
 // Box Model
 $h-spacing-x-table-cell: 1rem;
 $h-spacing-y-table-cell: 0.5rem;
 $h-spacing-x-dense-table-cell: 0.5rem;
 $h-spacing-y-dense-table-cell: 0.25rem;
-
-$h-border-radius-table: $h-border-radius-shared-component;

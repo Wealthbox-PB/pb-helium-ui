@@ -4,9 +4,9 @@
 //==========================================================================
 
 .h-card {
-  background-color: $h-color-background-card;
-  border-radius: $h-border-radius-card;
-  box-shadow: $h-shadow-1;
+  background-color: $h-color-background-shared-component;
+  border-radius: $h-border-radius-shared-component;
+  box-shadow: $h-box-shadow-shared-component;
 }
 
 .h-card--border-radius-none {
@@ -28,13 +28,13 @@
 }
 
 .h-card--outlined {
-  border: 1px solid $h-card-border-color;
+  border: 1px solid $h-color-border-shared-component;
   box-shadow: none;
 }
 
 .h-card__header {
   padding: $h-padding-y-card-header-footer $h-padding-card;
-  border-radius: $h-border-radius-card $h-border-radius-card 0 0;
+  border-radius: $h-border-radius-shared-component $h-border-radius-shared-component 0 0;
 }
 
 .h-card__title {
@@ -47,10 +47,10 @@
 
 .h-card__footer {
   padding: $h-padding-y-card-header-footer $h-padding-card;
-  border-radius: 0 0 $h-border-radius-card $h-border-radius-card;
+  border-radius: 0 0 $h-border-radius-shared-component $h-border-radius-shared-component;
 }
 
 .h-card__header--colored,
 .h-card__footer--colored {
-  background: $h-color-background-card-header-footer;
+  background: $h-color-background-secondary-shared-component;
 }
