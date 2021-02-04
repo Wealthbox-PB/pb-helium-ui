@@ -11,7 +11,7 @@
   ],
   "license": "MIT",
   "private": true,
-  "browserslist" : [
+  "browserslist": [
     "defaults",
     "not IE 11"
   ],
@@ -26,9 +26,15 @@
   },
   "pre-commit": "lint:staged",
   "dependencies": {
-    "bootstrap": "4.5.0"
+    "bootstrap": "4.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "lint-staged": "^10.2.4",
     "pre-commit": "^1.2.2",
     "stylelint": "^13.5.0",
