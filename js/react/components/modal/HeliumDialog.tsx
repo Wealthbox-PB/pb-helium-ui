@@ -39,22 +39,15 @@ const createSelector = (
   return `${prefix}-${type}-${suffix}`;
 };
 
-const setDialogSize = (size?: string) => {
-  if (size) {
-    switch(size.toLowerCase()) {
-      case `small`:
-        return `${dialogSelectorPrefix}--sm`;
-      case `large`:
-        return `${dialogSelectorPrefix}--lg`;
-      case `full`:
-        return `${dialogSelectorPrefix}--full-screen`;
-      default:
-        return ``;
-    }
-  } else {
-    return ``;
+const getDialogSize = (size = `medium`): string => {
+  const sizeClasses: {[key: string]: string} = {
+    'small': `sm`,
+    'medium': `md`,
+    'large': `lg`,
+    'full' : `full-screen`
   }
-}
+  return sizeClasses.hasOwnProperty(size) ? `${dialogSelectorPrefix}--${sizeClasses[size]}`: ``;
+};
 
 const setDialogPosition = (position?: string) => {
   if (position) {
@@ -155,7 +148,7 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
       { open &&
         <HeliumDialogPortal>
           <div ref={modalWrapperRef}
-               className={`h-react-dialog ${dialogSelectorId} ${setDialogSize(size)} ${setDialogPosition(position)}`}
+               className={`h-react-dialog ${dialogSelectorId} ${getDialogSize(size)} ${setDialogPosition(position)}`}
                aria-modal="true"
                role="dialog"
           >

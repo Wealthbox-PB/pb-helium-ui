@@ -6,7 +6,7 @@
 $h-dialog-padding: 1.5rem;
 $h-dialog-box-shadow: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
 $h-dialog-width--mobile: calc(100vw - #{$h-dialog-padding});
-$h-dialog-width--desktop: 500px;
+$h-dialog-width--desktop-md: 500px;
 $h-dialog-width--desktop-sm: 360px;
 $h-dialog-width--desktop-lg: 650px;
 $h-dialog-max-height: calc(100vh - #{$h-dialog-padding});
@@ -30,6 +30,14 @@ $h-dialog-max-height: calc(100vh - #{$h-dialog-padding});
   padding: $h-dialog-padding;
   opacity: 0;
   transition: 150ms ease-in-out all;
+}
+
+.h-react-dialog--md {
+  .h-react-dialog__el {
+    @include media-breakpoint-up(md) {
+      width: $h-dialog-width--desktop-md;
+    }
+  }
 }
 
 .h-react-dialog--sm {
@@ -61,6 +69,11 @@ $h-dialog-max-height: calc(100vh - #{$h-dialog-padding});
 
 .h-react-dialog--right {
   justify-content: flex-end;
+}
+
+.h-react-dialog--center {
+  align-items: center;
+  justify-content: center;
 }
 
 .h-react-dialog--center-y {
@@ -105,10 +118,6 @@ $h-dialog-max-height: calc(100vh - #{$h-dialog-padding});
   background: $h-color-background-shared-component;
   border-radius: $h-border-radius-shared-component;
   box-shadow: $h-dialog-box-shadow;
-
-  @include media-breakpoint-up(md) {
-    width: $h-dialog-width--desktop;
-  }
 
   &:focus {
     @include h-form-element-focus();
