@@ -49,41 +49,17 @@ const getDialogSize = (size = `medium`): string => {
   return sizeClasses.hasOwnProperty(size) ? `${dialogSelectorPrefix}--${sizeClasses[size]}`: ``;
 };
 
-const setDialogPosition = (position?: string) => {
-  if (position) {
-    switch(position.toLocaleLowerCase()) {
-      case `top`:
-        return `${dialogSelectorPrefix}--top`;
-      case `right`:
-        return `${dialogSelectorPrefix}--right`;
-      case `bottom`:
-        return `${dialogSelectorPrefix}--bottom`;
-      case `left`:
-        return `${dialogSelectorPrefix}--bottom`;
-      case `top right`:
-        return `${dialogSelectorPrefix}--top ${dialogSelectorPrefix}--right`;
-      case `top left`:
-        return `${dialogSelectorPrefix}--top ${dialogSelectorPrefix}--left`;
-      case `top center`:
-        return `${dialogSelectorPrefix}--top ${dialogSelectorPrefix}--center`;
-      case `center center`:
-        return `${dialogSelectorPrefix}--center-y ${dialogSelectorPrefix}--center-x`;
-      case `center right`:
-        return `${dialogSelectorPrefix}--center-y ${dialogSelectorPrefix}--right`;
-      case `center left`:
-        return `${dialogSelectorPrefix}--center-y ${dialogSelectorPrefix}--left`;
-      case `bottom right`:
-        return `${dialogSelectorPrefix}--bottom ${dialogSelectorPrefix}--right`;
-      case `bottom left`:
-        return `${dialogSelectorPrefix}--bottom ${dialogSelectorPrefix}--left`;
-      case `bottom center`:
-        return `${dialogSelectorPrefix}--bottom ${dialogSelectorPrefix}--center`;
-      default:
-        return ``;
-    }
+const getDialogPosition = (position: string = 'center'): string => {
+  const getPositionClass = (axis: string, position: string) => {
+    return position === `center` ? `center-${axis}` : position;
   }
-  else {
-    return ``;
+
+  const [y, x] = position.toLowerCase().split(` `);
+
+  if (!x) {
+    return `${dialogSelectorPrefix}--${y}`;
+  } else {
+    return `${dialogSelectorPrefix}--${getPositionClass(`y`, y)} ${dialogSelectorPrefix}--${getPositionClass(`x`, x)}`;
   }
 }
 
@@ -148,7 +124,7 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
       { open &&
         <HeliumDialogPortal>
           <div ref={modalWrapperRef}
-               className={`h-react-dialog ${dialogSelectorId} ${getDialogSize(size)} ${setDialogPosition(position)}`}
+               className={`h-react-dialog ${dialogSelectorId} ${getDialogSize(size)} ${getDialogPosition(position)}`}
                aria-modal="true"
                role="dialog"
           >
