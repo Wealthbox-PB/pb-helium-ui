@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.31] - 2021-03-01
+### Added
+- Added `delete-circle--sm` svg icon asset
+- Added `exclamation--sm` svg icon asset
+- Added `question-mark--sm` svg icon asset
+
+### Changed
+- Updated `delete-circle--lg` svg icon asset
+- Updated `delete-circle` svg icon asset
+- Updated `exclamation--lg` svg icon asset
+- Updated `exclamation` svg icon asset
+- Updated `question-mark--lg` svg icon asset
+- Updated `question-mark` svg icon asset
+- Recompiled icon font
+
 ## [1.0.30] - 2021-02-02
 ### Added
 - Added `.h-table--outlined` modifier class
