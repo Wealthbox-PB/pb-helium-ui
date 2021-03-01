@@ -1,18 +1,18 @@
 //
 // Icon Font: helium-icons
-// Current Version: 653696fb9da3a31edd14879353060d894738f1f78590c5f8b5c854715ff4f016
+// Current Version: 1db21988ecc89410a9e861f2e425868ec1d9b581305214ec4429547c82cbd312
 //
 
 $icons_preprocessor_path: 'helium-ui/fonts' !default;
 
 @font-face {
   font-family: "helium-icons";
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_653696fb9da3a31edd14879353060d89.eot");
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_653696fb9da3a31edd14879353060d89.eot?#iefix") format("embedded-opentype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_653696fb9da3a31edd14879353060d89.woff2") format("woff2"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_653696fb9da3a31edd14879353060d89.woff") format("woff"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_653696fb9da3a31edd14879353060d89.ttf") format("truetype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_653696fb9da3a31edd14879353060d89.svg#helium-icons") format("svg");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_1db21988ecc89410a9e861f2e425868e.eot");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_1db21988ecc89410a9e861f2e425868e.eot?#iefix") format("embedded-opentype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_1db21988ecc89410a9e861f2e425868e.woff2") format("woff2"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_1db21988ecc89410a9e861f2e425868e.woff") format("woff"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_1db21988ecc89410a9e861f2e425868e.ttf") format("truetype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_1db21988ecc89410a9e861f2e425868e.svg#helium-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,7 +20,7 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "helium-icons";
-    src: font-url("#{$icons_preprocessor_path}/helium-icons_653696fb9da3a31edd14879353060d89.svg#helium-icons") format("svg");
+    src: font-url("#{$icons_preprocessor_path}/helium-icons_1db21988ecc89410a9e861f2e425868e.svg#helium-icons") format("svg");
   }
 }
 
@@ -104,6 +104,7 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-delete--lg:before,
 .h-icon-delete-circle:before,
 .h-icon-delete-circle--lg:before,
+.h-icon-delete-circle--sm:before,
 .h-icon-dots:before,
 .h-icon-dots--lg:before,
 .h-icon-dots-vertical:before,
@@ -150,6 +151,7 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-event-add--lg:before,
 .h-icon-exclamation:before,
 .h-icon-exclamation--lg:before,
+.h-icon-exclamation--sm:before,
 .h-icon-external-link:before,
 .h-icon-external-link--lg:before,
 .h-icon-file:before,
@@ -249,6 +251,7 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-pulse--lg:before,
 .h-icon-question-mark:before,
 .h-icon-question-mark--lg:before,
+.h-icon-question-mark--sm:before,
 .h-icon-refresh:before,
 .h-icon-refresh--lg:before,
 .h-icon-reply:before,
@@ -470,6 +473,7 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-delete--lg:before { content: "\f13e"; }
 .h-icon-delete-circle:before { content: "\f13f"; }
 .h-icon-delete-circle--lg:before { content: "\f140"; }
+.h-icon-delete-circle--sm:before { content: "\f268"; }
 .h-icon-dots:before { content: "\f141"; }
 .h-icon-dots--lg:before { content: "\f142"; }
 .h-icon-dots-vertical:before { content: "\f143"; }
@@ -516,6 +520,7 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-event-add--lg:before { content: "\f16b"; }
 .h-icon-exclamation:before { content: "\f16c"; }
 .h-icon-exclamation--lg:before { content: "\f16d"; }
+.h-icon-exclamation--sm:before { content: "\f26b"; }
 .h-icon-external-link:before { content: "\f16e"; }
 .h-icon-external-link--lg:before { content: "\f16f"; }
 .h-icon-file:before { content: "\f170"; }
@@ -615,6 +620,7 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-pulse--lg:before { content: "\f1bd"; }
 .h-icon-question-mark:before { content: "\f1be"; }
 .h-icon-question-mark--lg:before { content: "\f1bf"; }
+.h-icon-question-mark--sm:before { content: "\f26c"; }
 .h-icon-refresh:before { content: "\f1c0"; }
 .h-icon-refresh--lg:before { content: "\f1c1"; }
 .h-icon-reply:before { content: "\f1c2"; }
