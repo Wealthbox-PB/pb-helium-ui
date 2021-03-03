@@ -30,7 +30,7 @@ const HeliumDialogHeader: React.FC<HeliumDialogHeaderProps> = ({
                 aria-label="Close Dialog"
                 onClick={closeDialog}
         >
-          <span aria-hidden="true">x</span>
+          <span aria-hidden="true" className="h-icon-delete--lg"></span>
         </button>
       }
     </div>
