@@ -91,7 +91,7 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
   const ariaLabelSelector = createSelector(ariaSelectorPrefix, `label`, dialogSelectorSuffix);
   const ariaDescriptionSelector = createSelector(ariaSelectorPrefix, `description`, dialogSelectorSuffix);
   const dialogSelectorEl = `.${dialogSelectorWithUniqueId} .${dialogEl}`;
-  const setDialogAriaRole = (isModalDialog: boolean): string => isModalDialog ? `dialog` : `alertdialog`;
+  const getDialogAriaRole = (isModalDialog: boolean): string => isModalDialog ? `dialog` : `alertdialog`;
 
   useScrollLock(`html`, open);
   useCloseWithEscapeKey(wrapperRef, closeDialog, open);
@@ -132,7 +132,7 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
             <div ref={dialogRef}
                  tabIndex={-1}
                  className={dialogEl}
-                 role={setDialogAriaRole(isModalDialog)}
+                 role={getDialogAriaRole(isModalDialog)}
                  aria-labelledby={ariaLabelSelector}
                  aria-describedby={ariaDescriptionSelector}
             >
