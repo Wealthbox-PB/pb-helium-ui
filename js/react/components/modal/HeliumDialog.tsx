@@ -29,7 +29,7 @@ interface HeliumDialogProps {
 
 const dialogSelectorPrefix = `h-react-dialog`;
 const ariaSelectorPrefix = `h-react-dialog-aria`;
-const modalDialogEl = `h-react-dialog__el`;
+const dialogEl = `h-react-dialog__el`;
 
 const createSelector = (
     prefix: string,
@@ -82,28 +82,28 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
   footer,
   footerBackground = true
 }) => {
-  const modalWrapperRef = useRef<HTMLDivElement>(null);
-  const modalDialogRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   // Should this stuff be in useEffect?
   const dialogSelectorSuffix = Math.floor(Math.random() * 10000);
-  const dialogSelectorId = `${dialogSelectorPrefix}-${dialogSelectorSuffix}`;
+  const dialogSelectorWithUniqueId = `${dialogSelectorPrefix}-${dialogSelectorSuffix}`;
   const ariaLabelSelector = createSelector(ariaSelectorPrefix, `label`, dialogSelectorSuffix);
   const ariaDescriptionSelector = createSelector(ariaSelectorPrefix, `description`, dialogSelectorSuffix);
-  const modalDialogElSelector = `.${dialogSelectorId} .${modalDialogEl}`;
+  const dialogSelectorEl = `.${dialogSelectorWithUniqueId} .${dialogEl}`;
   const setDialogAriaRole = (isModalDialog: boolean): string => isModalDialog ? `dialog` : `alertdialog`;
 
   useScrollLock(`html`, open);
-  useCloseWithEscapeKey(modalWrapperRef, closeDialog, open);
+  useCloseWithEscapeKey(wrapperRef, closeDialog, open);
 
   useEffect(() => {
     // If the modal dialog element does not exist yet, return
-    if (document.querySelector(modalDialogElSelector) === null) {
+    if (document.querySelector(dialogSelectorEl) === null) {
       return
     }
     else {
-      const trapOptions = { allowOutsideClick: true, fallbackFocus: modalDialogElSelector, initialFocus: initialFocusEl };
-      const trap = focusTrap.createFocusTrap(modalDialogElSelector, trapOptions);
+      const trapOptions = { allowOutsideClick: true, fallbackFocus: dialogSelectorEl, initialFocus: initialFocusEl };
+      const trap = focusTrap.createFocusTrap(dialogSelectorEl, trapOptions);
       trap.activate();
       return () => {
         trap.deactivate()
@@ -112,7 +112,7 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
   })
 
   useEffect(() => {
-    const ref = modalWrapperRef.current;
+    const ref = wrapperRef.current;
     ref?.classList.add(`h-react-dialog--open`);
     return () => {
       ref?.classList.remove(`h-react-dialog--open`);
@@ -123,15 +123,15 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
     <>
       { open &&
         <HeliumDialogPortal>
-          <div ref={modalWrapperRef}
-               className={`h-react-dialog ${dialogSelectorId} ${getDialogSize(size)} ${getDialogPosition(position)}`}
+          <div ref={wrapperRef}
+               className={`h-react-dialog ${dialogSelectorWithUniqueId} ${getDialogSize(size)} ${getDialogPosition(position)}`}
                aria-modal="true"
                role="dialog"
           >
             <div className="h-react-dialog__backdrop" onClick={() => closeDialog()}></div>
-            <div ref={modalDialogRef}
+            <div ref={dialogRef}
                  tabIndex={-1}
-                 className={modalDialogEl}
+                 className={dialogEl}
                  role={setDialogAriaRole(isModalDialog)}
                  aria-labelledby={ariaLabelSelector}
                  aria-describedby={ariaDescriptionSelector}
