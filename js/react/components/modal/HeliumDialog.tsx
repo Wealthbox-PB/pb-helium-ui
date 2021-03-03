@@ -128,7 +128,7 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
                aria-modal="true"
                role="dialog"
           >
-            <div className="h-react-dialog__backdrop" onClick={() => closeDialog()}></div>
+            <div className="h-react-dialog__backdrop" onClick={closeDialog}></div>
             <div ref={dialogRef}
                  tabIndex={-1}
                  className={dialogEl}

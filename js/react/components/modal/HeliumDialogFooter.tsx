@@ -20,10 +20,10 @@ const HeliumDialogFooter: React.FC<HeliumDialogFooterProps> = ({
       {children
         ? children
         : <div className="h-react-dialog__footer-cta-container">
-            <button onClick={() => closeDialog()} className="h-btn h-btn--secondary">Cancel</button>
+            <button onClick={closeDialog} className="h-btn h-btn--secondary">Cancel</button>
             {
               submitHandler &&
-              <button onClick={() => submitHandler()} className="h-btn h-btn--positive h-btn-margin-left">Submit</button>
+              <button onClick={submitHandler} className="h-btn h-btn--positive h-btn-margin-left">Submit</button>
             }
           </div>
       }
