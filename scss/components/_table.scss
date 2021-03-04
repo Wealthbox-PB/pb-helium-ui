@@ -5,7 +5,6 @@
 
 .h-table {
   position: relative;
-  overflow: auto;
   border-radius: $h-table-border-radius;
 
   &.h-table--layout-fixed {
@@ -55,20 +54,53 @@
     display: table;
     width: 100%;
     margin: 0; // TODO Remove after implementation
-    background: $h-table-background-color;
     border-collapse: collapse;
     font-size: $h-font-size-md;
+
+    & > thead,
+    & > .h-table__header {
+      tr,
+      .h-table__row {
+        &:first-child {
+          th,
+          .h-table__heading {
+            &:first-child {
+              border-top-left-radius: $h-table-border-radius;
+            }
+
+            &:last-child {
+              border-top-right-radius: $h-table-border-radius;
+            }
+          }
+        }
+      }
+    }
 
     & > tbody,
     & > .h-table__body {
       tr,
       .h-table__row {
+        background: $h-table-background-color;
+
         &:first-child {
           th,
           .h-table__heading,
           td,
           .h-table__data {
             border-top: 0;
+          }
+        }
+
+        &:last-child {
+          td,
+          .h-table__data {
+            &:first-child {
+              border-bottom-left-radius: $h-table-border-radius;
+            }
+
+            &:last-child {
+              border-bottom-right-radius: $h-table-border-radius;
+            }
           }
         }
       }
@@ -78,12 +110,6 @@
       td,
       .h-table__data {
         border-top: 1px solid $h-table-border-color;
-      }
-
-      th,
-      .h-table__heading {
-        left: 0;
-        box-shadow: 1px 0 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
       }
     }
   }
@@ -118,17 +144,116 @@
 
     &.h-table--border-radius-none {
       border-radius: 0;
+
+      .h-table__table {
+        & > thead,
+        & > .h-table__header {
+          tr,
+          .h-table__row {
+            &:first-child {
+              th,
+              .h-table__heading {
+                &:first-child,
+                &:last-child {
+                  border-radius: 0;
+                }
+              }
+            }
+          }
+        }
+
+        & > tbody,
+        & > .h-table__body {
+          tr,
+          .h-table__row {
+            &:last-child {
+              td,
+              .h-table__data {
+                &:first-child,
+                &:last-child {
+                  border-radius: 0;
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
     &.h-table--border-radius-mobile-none {
       @include media-breakpoint-down(sm) {
         border-radius: 0;
+
+        .h-table__table {
+          & > thead,
+          & > .h-table__header {
+            tr,
+            .h-table__row {
+              &:first-child {
+                th,
+                .h-table__heading {
+                  &:first-child,
+                  &:last-child {
+                    border-radius: 0;
+                  }
+                }
+              }
+            }
+          }
+
+          & > tbody,
+          & > .h-table__body {
+            tr,
+            .h-table__row {
+              &:last-child {
+                td,
+                .h-table__data {
+                  &:first-child,
+                  &:last-child {
+                    border-radius: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
 
     &.h-table--outlined {
       border: 1px solid $h-table-border-color;
       box-shadow: none;
+    }
+
+    &.h-table--fixed-header {
+      overflow: auto;
+
+      .h-table__table {
+        th,
+        .h-table__heading {
+          position: -webkit-sticky;
+          position: sticky;
+          z-index: 1;
+          top: 0;
+        }
+
+        & > thead,
+        & > .h-table__header {
+          th,
+          .h-table__heading {
+            box-shadow: 0 1px 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
+          }
+        }
+
+        & > tbody,
+        & > .h-table__body {
+          th,
+          .h-table__heading {
+            left: 0;
+            box-shadow: 1px 0 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
+          }
+        }
+      }
     }
 
     &.h-table--hover {
@@ -138,7 +263,7 @@
           tr,
           .h-table__row {
             &:hover {
-              background-color: $h-table-background-color--hover;
+              background: $h-table-background-color--hover;
               cursor: pointer;
             }
           }
@@ -149,23 +274,13 @@
     .h-table__row--hover,
     .h-table__cell--hover {
       &:hover {
-        background-color: $h-table-background-color--hover;
+        background: $h-table-background-color--hover;
       }
     }
 
     .h-table__row--active,
     .h-table__cell--active {
-      background-color: $h-table-background-color--hover;
-    }
-
-    .h-table__table {
-      & > thead,
-      & > .h-table__header {
-        th,
-        .h-table__heading {
-          box-shadow: 0 1px 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
-        }
-      }
+      background: $h-table-background-color--hover;
     }
 
     th,
@@ -173,14 +288,6 @@
     td,
     .h-table__data {
       padding: $h-table-cell-spacing-y $h-table-cell-spacing-x;
-    }
-
-    th,
-    .h-table__heading {
-      position: -webkit-sticky;
-      position: sticky;
-      z-index: 1;
-      top: 0;
     }
   }
 }
