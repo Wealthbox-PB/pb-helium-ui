@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated `.h-table` component to have visible overflow by default
-- Updated how `.h-table--border-radius` and `.h-table--border-radius-mobile-none`handle border-radius
+- Updated how `.h-table--border-radius` and `.h-table--border-radius-mobile-none` handle border-radius
 - Move overflow and sticky header styles to `.h-table--fixed-header` modifier class
 
 ## [1.0.31] - 2021-03-01
