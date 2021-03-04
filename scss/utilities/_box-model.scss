@@ -24,6 +24,12 @@
   overflow: auto !important;
 }
 
+.h-overflow-auto-sm-down {
+  @include media-breakpoint-down(sm) {
+    overflow: auto !important;
+  }
+}
+
 .h-overflow-x-auto {
   overflow-x: auto !important;
 }
