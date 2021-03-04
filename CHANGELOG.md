@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.32] - 2021-03-04
+### Added
+- Added `.h-table--fixed-header` modifier class
+- Added `.h-overflow-auto-sm-down` utility class
+
+### Changed
+- Updated `.h-table` component to have visible overflow by default
+- Updated how `.h-table--border-radius` and `.h-table--border-radius-mobile-none`handle border-radius
+- Move overflow and sticky header styles to `.h-table--fixed-header` modifier class
+
 ## [1.0.31] - 2021-03-01
 ### Added
 - Added `delete-circle--sm` svg icon asset
