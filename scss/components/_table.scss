@@ -13,6 +13,14 @@
     }
   }
 
+  &.h-table--layout-fixed-mobile {
+    @include media-breakpoint-down(sm) {
+      .h-table__table {
+        table-layout: fixed;
+      }
+    }
+  }
+
   &.h-table--layout-fixed-desktop {
     @include media-breakpoint-up(md) {
       .h-table__table {
