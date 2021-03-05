@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.32] - 2021-03-04
 ### Added
 - Added `.h-table--fixed-header` modifier class
+- Added `.h-table--layout-fixed-mobile` modifier class
 - Added `.h-overflow-auto-sm-down` utility class
 
 ### Changed
