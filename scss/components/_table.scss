@@ -8,14 +8,14 @@
   border-radius: $h-table-border-radius;
 
   &.h-table--layout-fixed {
-    .h-table__table {
+    & > .h-table__table {
       table-layout: fixed;
     }
   }
 
   &.h-table--layout-fixed-mobile {
     @include media-breakpoint-down(sm) {
-      .h-table__table {
+      & > .h-table__table {
         table-layout: fixed;
       }
     }
@@ -23,23 +23,14 @@
 
   &.h-table--layout-fixed-desktop {
     @include media-breakpoint-up(md) {
-      .h-table__table {
+      & > .h-table__table {
         table-layout: fixed;
       }
     }
   }
 
   &.h-table--align-middle {
-    th,
-    .h-table__heading,
-    td,
-    .h-table__data {
-      vertical-align: middle;
-    }
-  }
-
-  &.h-table--align-middle-desktop {
-    @include media-breakpoint-up(md) {
+    & > .h-table__table {
       th,
       .h-table__heading,
       td,
@@ -49,12 +40,27 @@
     }
   }
 
+  &.h-table--align-middle-desktop {
+    @include media-breakpoint-up(md) {
+      & > .h-table__table {
+        th,
+        .h-table__heading,
+        td,
+        .h-table__data {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
   &.h-table--dense {
-    th,
-    .h-table__heading,
-    td,
-    .h-table__data {
-      padding: $h-table-cell-spacing-dense-y $h-table-cell-spacing-dense-x;
+    & > .h-table__table {
+      th,
+      .h-table__heading,
+      td,
+      .h-table__data {
+        padding: $h-table-cell-spacing-dense-y $h-table-cell-spacing-dense-x;
+      }
     }
   }
 
@@ -72,6 +78,8 @@
         &:first-child {
           th,
           .h-table__heading {
+            border-top: 0;
+
             &:first-child {
               border-top-left-radius: $h-table-border-radius;
             }
@@ -82,26 +90,66 @@
           }
         }
       }
+
+      + tbody,
+      + .h-table__body {
+        & > tr,
+        & > .h-table__row {
+          &:first-child {
+            & > th,
+            & > .h-table__heading,
+            & > td,
+            & > .h-table__data {
+              border-top: 0;
+
+              &:first-child {
+                border-top-left-radius: 0;
+              }
+
+              &:last-child {
+                border-top-right-radius: 0;
+              }
+            }
+          }
+        }
+      }
     }
 
     & > tbody,
     & > .h-table__body {
-      tr,
-      .h-table__row {
+      & > tr,
+      & > .h-table__row {
         background: $h-table-background-color;
 
+        & > th,
+        & > .h-table__heading,
+        & > td,
+        & > .h-table__data {
+          border-top: 1px solid $h-table-border-color;
+        }
+
         &:first-child {
-          th,
-          .h-table__heading,
-          td,
-          .h-table__data {
+          & > th,
+          & > .h-table__heading,
+          & > td,
+          & > .h-table__data {
             border-top: 0;
+
+            &:first-child {
+              border-top-left-radius: $h-table-border-radius;
+            }
+
+            &:last-child {
+              border-top-right-radius: $h-table-border-radius;
+            }
           }
         }
 
         &:last-child {
-          td,
-          .h-table__data {
+          & > th,
+          & > .h-table__heading,
+          & > td,
+          & > .h-table__data {
             &:first-child {
               border-bottom-left-radius: $h-table-border-radius;
             }
@@ -111,13 +159,6 @@
             }
           }
         }
-      }
-
-      th,
-      .h-table__heading,
-      td,
-      .h-table__data {
-        border-top: 1px solid $h-table-border-color;
       }
     }
   }
@@ -153,7 +194,7 @@
     &.h-table--border-radius-none {
       border-radius: 0;
 
-      .h-table__table {
+      & > .h-table__table {
         & > thead,
         & > .h-table__header {
           tr,
@@ -172,11 +213,13 @@
 
         & > tbody,
         & > .h-table__body {
-          tr,
-          .h-table__row {
+          & > tr,
+          & > .h-table__row {
             &:last-child {
-              td,
-              .h-table__data {
+              & > th,
+              & > .h-table__heading,
+              & > td,
+              & > .h-table__data {
                 &:first-child,
                 &:last-child {
                   border-radius: 0;
@@ -192,7 +235,7 @@
       @include media-breakpoint-down(sm) {
         border-radius: 0;
 
-        .h-table__table {
+        & > .h-table__table {
           & > thead,
           & > .h-table__header {
             tr,
@@ -211,11 +254,13 @@
 
           & > tbody,
           & > .h-table__body {
-            tr,
-            .h-table__row {
+            & > tr,
+            & > .h-table__row {
               &:last-child {
-                td,
-                .h-table__data {
+                & > th,
+                & > .h-table__heading,
+                & > td,
+                & > .h-table__data {
                   &:first-child,
                   &:last-child {
                     border-radius: 0;
@@ -236,7 +281,7 @@
     &.h-table--fixed-header {
       overflow: auto;
 
-      .h-table__table {
+      & > .h-table__table {
         th,
         .h-table__heading {
           position: -webkit-sticky;
@@ -255,8 +300,8 @@
 
         & > tbody,
         & > .h-table__body {
-          th,
-          .h-table__heading {
+          & > th,
+          & > .h-table__heading {
             left: 0;
             box-shadow: 1px 0 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
           }
@@ -268,8 +313,8 @@
       & > .h-table__table {
         & > tbody,
         & > .h-table__body {
-          tr,
-          .h-table__row {
+          & > tr,
+          & > .h-table__row {
             &:hover {
               background: $h-table-background-color--hover;
               cursor: pointer;
