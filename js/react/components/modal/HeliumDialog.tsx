@@ -12,7 +12,7 @@ interface HeliumDialogProps {
   isModalDialog?: boolean;
   size?: string;
   position?: string;
-  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+  initialFocusSelector?: string | HTMLElement | (() => HTMLElement) | undefined;
   closeDialog: () => void;
   submitHandler?: () => void;
   hasHeader?: boolean;
@@ -68,7 +68,7 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
   isModalDialog = true,
   size,
   position,
-  initialFocusEl,
+  initialFocusSelector,
   closeDialog,
   submitHandler,
   hasHeader = true,
@@ -102,7 +102,7 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
       return
     }
     else {
-      const trapOptions = { allowOutsideClick: true, fallbackFocus: dialogSelectorEl, initialFocus: initialFocusEl };
+      const trapOptions = { allowOutsideClick: true, fallbackFocus: dialogSelectorEl, initialFocus: initialFocusSelector };
       const trap = focusTrap.createFocusTrap(dialogSelectorEl, trapOptions);
       trap.activate();
       return () => {

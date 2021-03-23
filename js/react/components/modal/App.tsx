@@ -14,7 +14,7 @@ function App() {
 
       <HeliumDialog
         header={"Test Modal"}
-        initialFocusEl={".h-btn--init-focus"}
+        initialFocusSelector={".h-btn--init-focus"}
         open={isDialogOpen}
         closeDialog={closeDialog}
         submitHandler={() => console.log("I submit!")}
