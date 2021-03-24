@@ -3,12 +3,16 @@ import { useEffect } from "react";
 export const useScrollLock = (elementSelector: string, open: boolean) => {
   useEffect(() => {
     const element = document.querySelector(elementSelector);
-    const scrollLockSelector: string = `h-overflow-hidden`;
+    const removeScrollLockSelector = () => element?.classList.remove(scrollLockSelector);
+    const scrollLockSelector: string = `h-scroll-lock`;
     if (open) {
       element?.classList.add(scrollLockSelector);
-      return () => {
-        element?.classList.remove(scrollLockSelector);
-      }
+    }
+    else {
+      removeScrollLockSelector();
+    }
+    return () => {
+      removeScrollLockSelector();
     }
   })
 };
