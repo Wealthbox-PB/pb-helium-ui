@@ -108,14 +108,12 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
         trap.deactivate()
       };
     };
-  })
+  }, [uniqueDialogEl, initialFocusEl])
 
   useEffect(() => {
     const ref = wrapperRef.current;
     ref?.classList.add(`h-react-dialog--open`);
-    return () => {
-      ref?.classList.remove(`h-react-dialog--open`);
-    }
+    return () => ref?.classList.remove(`h-react-dialog--open`);
   });
 
   return (
