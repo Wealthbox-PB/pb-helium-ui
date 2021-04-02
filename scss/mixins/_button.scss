@@ -46,6 +46,10 @@
     margin-right: 0.5rem;
     line-height: inherit;
   }
+
+  &.h-btn--square[class*="h-icon-"]::before {
+    margin-right: 0;
+  }
 }
 
 //  Size
@@ -75,6 +79,57 @@
 
 @mixin h-btn-xl {
   @include h-btn-size($h-padding-btn: $h-btn-xl-padding-y 1.25rem, $h-font-size-btn: $h-font-size-xl);
+}
+
+//  Shape
+//==========================================================================
+
+@function setSquareButtonWidth(
+  $h-padding-y-btn,
+  $h-font-size-btn,
+  $h-line-height-btn: $h-line-height-base,
+  $h-total-border-width-btn: 0.125rem,
+  $has-remainder: false,
+  $h-remainder-btn: 0.03125rem
+) {
+  // Required for instances where we calculate height based on a font-size value that is an odd number, resulting in a decimal remainder
+  // Since sass doesn't have a native floor method, we just subtract the remainder value to keep our dimensions integers
+  @if ($has-remainder) {
+    @return (($h-padding-y-btn * 2) + ($h-font-size-btn * $h-line-height-btn) + ($h-total-border-width-btn - $h-remainder-btn));
+  }
+
+  @else {
+    @return (($h-padding-y-btn * 2) + ($h-font-size-btn * $h-line-height-btn) + $h-total-border-width-btn);
+  }
+}
+
+@mixin h-btn-square($h-width-btn) {
+  width: $h-width-btn;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0;
+}
+
+@mixin h-btn-square-xs {
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-xs-padding-y, $h-font-size-xs, $has-remainder: true));
+}
+
+@mixin h-btn-square-sm {
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-sm-padding-y, $h-font-size-sm));
+}
+
+@mixin h-btn-square-md {
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-form-element-padding-y, $h-font-size-md, $h-form-element-line-height));
+}
+
+@mixin h-btn-square-lg {
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-lg-padding-y, $h-font-size-lg));
+}
+
+@mixin h-btn-square-xl {
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-xl-padding-y, $h-font-size-xl));
 }
 
 //  Style (Fill and Outline)
