@@ -62,23 +62,23 @@
 }
 
 @mixin h-btn-xs {
-  @include h-btn-size($h-padding-btn: $h-btn-xs-padding-y 0.375rem, $h-font-size-btn: $h-font-size-xs);
+  @include h-btn-size($h-padding-btn: $h-btn-xs-padding-y 0.375rem, $h-font-size-btn: $h-btn-xs-font-size);
 }
 
 @mixin h-btn-sm {
-  @include h-btn-size($h-padding-btn: $h-btn-sm-padding-y 0.5rem, $h-font-size-btn: $h-font-size-sm);
+  @include h-btn-size($h-padding-btn: $h-btn-sm-padding-y 0.5rem, $h-font-size-btn: $h-btn-sm-font-size);
 }
 
 @mixin h-btn-md {
-  @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-form-element-line-height);
+  @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-btn-md-font-size, $h-line-height-btn: $h-form-element-line-height);
 }
 
 @mixin h-btn-lg {
-  @include h-btn-size($h-padding-btn: $h-btn-lg-padding-y 1rem, $h-font-size-btn: $h-font-size-lg);
+  @include h-btn-size($h-padding-btn: $h-btn-lg-padding-y 1rem, $h-font-size-btn: $h-btn-lg-font-size);
 }
 
 @mixin h-btn-xl {
-  @include h-btn-size($h-padding-btn: $h-btn-xl-padding-y 1.25rem, $h-font-size-btn: $h-font-size-xl);
+  @include h-btn-size($h-padding-btn: $h-btn-xl-padding-y 1.25rem, $h-font-size-btn: $h-btn-xl-font-size);
 }
 
 //  Shape
@@ -113,23 +113,23 @@
 }
 
 @mixin h-btn-square-xs {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-xs-padding-y, $h-font-size-xs, $has-remainder: true));
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-xs-padding-y, $h-btn-xs-font-size, $has-remainder: true));
 }
 
 @mixin h-btn-square-sm {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-sm-padding-y, $h-font-size-sm));
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-sm-padding-y, $h-btn-sm-font-size));
 }
 
 @mixin h-btn-square-md {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-form-element-padding-y, $h-font-size-md, $h-form-element-line-height));
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-form-element-padding-y, $h-btn-md-font-size, $h-form-element-line-height));
 }
 
 @mixin h-btn-square-lg {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-lg-padding-y, $h-font-size-lg));
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-lg-padding-y, $h-btn-lg-font-size));
 }
 
 @mixin h-btn-square-xl {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-xl-padding-y, $h-font-size-xl));
+  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-xl-padding-y, $h-btn-xl-font-size));
 }
 
 //  Style (Fill and Outline)
