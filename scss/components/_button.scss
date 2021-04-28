@@ -33,6 +33,33 @@
   @include h-btn-xl();
 }
 
+// Shape
+//==========================================================================
+
+.h-btn--square {
+  @include h-btn-square-md();
+
+  &.h-btn--xs {
+    @include h-btn-square-xs();
+  }
+
+  &.h-btn--sm {
+    @include h-btn-square-sm();
+  }
+
+  &.h-btn--md {
+    @include h-btn-square-md();
+  }
+
+  &.h-btn--lg {
+    @include h-btn-square-lg();
+  }
+
+  &.h-btn--xl {
+    @include h-btn-square-xl();
+  }
+}
+
 //  Style
 //==========================================================================
 

@@ -6,9 +6,19 @@
 //  Button
 //==========================================================================
 
+$h-btn-xs-font-size: $h-font-size-xs;
+$h-btn-sm-font-size: $h-font-size-sm;
+$h-btn-md-font-size: $h-font-size-md;
+$h-btn-lg-font-size: $h-font-size-lg;
+$h-btn-xl-font-size: $h-font-size-xl;
+
 //  Box Model
-$h-btn-border-radius:    $h-border-radius;
+$h-btn-xs-padding-y:     0.1875rem;
+$h-btn-sm-padding-y:     0.25rem;
+$h-btn-lg-padding-y:     0.5rem;
+$h-btn-xl-padding-y:     0.625rem;
 $h-btn-spacing-x:        0.5rem;
+$h-btn-border-radius:    $h-border-radius;
 
 $h-btn-box-shadow-size:  0.1875rem;
 $h-btn-box-shadow-alpha: 0.4;
