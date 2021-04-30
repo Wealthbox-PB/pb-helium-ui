@@ -103,33 +103,35 @@
   }
 }
 
-@mixin h-btn-square($h-width-btn) {
-  width: $h-width-btn;
+@mixin h-btn-square($h-size-square-btn, $h-font-size-square-btn) {
+  width: $h-size-square-btn;
+  height: $h-size-square-btn;
   align-items: center;
   justify-content: center;
   padding-right: 0;
   padding-left: 0;
   margin: 0;
+  font-size: $h-font-size-square-btn;
 }
 
 @mixin h-btn-square-xs {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-xs-padding-y, $h-btn-xs-font-size, $has-remainder: true));
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-btn-xs-padding-y, $h-btn-xs-font-size, $has-remainder: true), $h-font-size-square-btn: $h-font-size-lg);
 }
 
 @mixin h-btn-square-sm {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-sm-padding-y, $h-btn-sm-font-size));
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-btn-sm-padding-y, $h-btn-sm-font-size), $h-font-size-square-btn: $h-font-size-lg);
 }
 
 @mixin h-btn-square-md {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-form-element-padding-y, $h-btn-md-font-size, $h-form-element-line-height));
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-form-element-padding-y, $h-btn-md-font-size, $h-form-element-line-height), $h-font-size-square-btn: $h-font-size-lg);
 }
 
 @mixin h-btn-square-lg {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-lg-padding-y, $h-btn-lg-font-size));
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-btn-lg-padding-y, $h-btn-lg-font-size), $h-font-size-square-btn: $h-font-size-xl);
 }
 
 @mixin h-btn-square-xl {
-  @include h-btn-square($h-width-btn: setSquareButtonWidth($h-btn-xl-padding-y, $h-btn-xl-font-size));
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-btn-xl-padding-y, $h-btn-xl-font-size), $h-font-size-square-btn: $h-font-size-xl);
 }
 
 //  Style (Fill and Outline)
