@@ -218,17 +218,33 @@
           & > .h-table__body {
             & > tr,
             & > .h-table__row {
+              border-top: 1px solid $h-table-border-color;
+
+              & > th,
+              & > .h-table__heading,
+              & > td,
+              & > .h-table__data {
+                border-top: 0;
+              }
+
+              & > th,
+              & > .h-table__heading {
+                border-bottom: 1px solid $h-table-border-color;
+
+                &:last-child {
+                  border-bottom: 0;
+                }
+              }
+
               &:first-child {
+                border-top: 0;
                 border-radius: $h-table-border-radius $h-table-border-radius 0 0;
 
                 & > th,
                 & > .h-table__heading,
                 & > td,
                 & > .h-table__data {
-                  border-top: 1px solid $h-table-border-color;
-
                   &:first-child {
-                    border-top: 0;
                     border-radius: $h-table-border-radius $h-table-border-radius 0 0;
                   }
                 }
