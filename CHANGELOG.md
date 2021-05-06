@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.39] - 2021-05-05
+### Added
+- Added `.h-table--untable` modifier class to stack table data on mobile devices
+- Added extra selector support for `.h-table--border-radius-none` and `.h-table--border-radius-mobile-none`
+
+## [1.0.38] - 2021-04-28
+### Added
+- Added `.h-btn--square` modifier class, mixins, and variables
+
 ## [1.0.37] - 2021-03-16
 ### Changed
 - Updated `.h-table` component selector specificity to account for overflow visible changes

@@ -191,6 +191,87 @@
   .h-table {
     box-shadow: $h-shadow-1;
 
+    &.h-table--untable {
+      @include media-breakpoint-down(sm) {
+        .h-table__table {
+          display: block;
+          width: 100%;
+
+          thead,
+          .h-table__header {
+            display: none;
+          }
+
+          tbody,
+          .h-table__body,
+          tr,
+          .h-table__row,
+          th,
+          .h-table__heading,
+          td,
+          .h-table__data {
+            display: block;
+            width: 100%;
+          }
+
+          & > tbody,
+          & > .h-table__body {
+            & > tr,
+            & > .h-table__row {
+              border-top: 1px solid $h-table-border-color;
+
+              & > th,
+              & > .h-table__heading,
+              & > td,
+              & > .h-table__data {
+                border-top: 0;
+              }
+
+              & > th,
+              & > .h-table__heading {
+                border-bottom: 1px solid $h-table-border-color;
+
+                &:last-child {
+                  border-bottom: 0;
+                }
+              }
+
+              &:first-child {
+                border-top: 0;
+                border-radius: $h-table-border-radius $h-table-border-radius 0 0;
+
+                & > th,
+                & > .h-table__heading,
+                & > td,
+                & > .h-table__data {
+                  &:first-child {
+                    border-radius: $h-table-border-radius $h-table-border-radius 0 0;
+                  }
+                }
+              }
+
+              &:last-child {
+                border-radius: 0 0 $h-table-border-radius $h-table-border-radius;
+
+                & > th,
+                & > .h-table__heading,
+                & > td,
+                & > .h-table__data {
+                  &:first-child {
+                    border-radius: 0;
+                  }
+
+                  &:last-child {
+                    border-radius: 0 0 $h-table-border-radius $h-table-border-radius;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
     &.h-table--border-radius-none {
       border-radius: 0;
 
@@ -215,6 +296,7 @@
         & > .h-table__body {
           & > tr,
           & > .h-table__row {
+            &:first-child,
             &:last-child {
               & > th,
               & > .h-table__heading,
@@ -256,7 +338,10 @@
           & > .h-table__body {
             & > tr,
             & > .h-table__row {
+              &:first-child,
               &:last-child {
+                border-radius: 0;
+
                 & > th,
                 & > .h-table__heading,
                 & > td,
