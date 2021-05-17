@@ -311,17 +311,10 @@
 
 @mixin h-btn-info-outline {
   @include h-btn-style(
-<<<<<<< HEAD
     $h-color-border-btn: $h-blue-200,
     $h-color-background-btn: $h-white,
     $h-color-text-btn: $h-blue-600,
     $h-color-border-hover-btn: $h-blue-300,
-=======
-    $h-color-border-btn: $h-blue-100,
-    $h-color-background-btn: $h-white,
-    $h-color-text-btn: $h-blue-600,
-    $h-color-border-hover-btn: $h-blue-200,
->>>>>>> Update button mixins to use new variable/argument naming convention
     $h-color-background-hover-btn: $h-white,
     $h-color-text-hover-btn: $h-blue-800,
     $h-color-background-outline-active-btn: $h-blue-50,
