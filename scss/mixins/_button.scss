@@ -62,23 +62,23 @@
 }
 
 @mixin h-btn-xs {
-  @include h-btn-size($h-padding-btn: $h-btn-xs-padding-y 0.375rem, $h-font-size-btn: $h-btn-xs-font-size);
+  @include h-btn-size($h-padding-btn: $h-btn-xs-padding-y 0.375rem, $h-font-size-btn: $h-font-size-btn-xs);
 }
 
 @mixin h-btn-sm {
-  @include h-btn-size($h-padding-btn: $h-btn-sm-padding-y 0.5rem, $h-font-size-btn: $h-btn-sm-font-size);
+  @include h-btn-size($h-padding-btn: $h-btn-sm-padding-y 0.5rem, $h-font-size-btn: $h-font-size-btn-sm);
 }
 
 @mixin h-btn-md {
-  @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-btn-md-font-size, $h-line-height-btn: $h-form-element-line-height);
+  @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-font-size-btn-md, $h-line-height-btn: $h-form-element-line-height);
 }
 
 @mixin h-btn-lg {
-  @include h-btn-size($h-padding-btn: $h-btn-lg-padding-y 1rem, $h-font-size-btn: $h-btn-lg-font-size);
+  @include h-btn-size($h-padding-btn: $h-btn-lg-padding-y 1rem, $h-font-size-btn: $h-font-size-btn-lg);
 }
 
 @mixin h-btn-xl {
-  @include h-btn-size($h-padding-btn: $h-btn-xl-padding-y 1.25rem, $h-font-size-btn: $h-btn-xl-font-size);
+  @include h-btn-size($h-padding-btn: $h-btn-xl-padding-y 1.25rem, $h-font-size-btn: $h-font-size-btn-xl);
 }
 
 //  Shape
