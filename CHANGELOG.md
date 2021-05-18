@@ -4,7 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.39] - 2021-05-05
+## [1.0.40] - 2021-03-18
+### Changed
+- Updated `.h-btn--square` mixins to accept font-size values
+- Updated `.h-btn--square` font-sizes to be larger on smaller buttons
+
+## [1.0.39] - 2021-04-29
 ### Added
 - Added `.h-table--untable` modifier class to stack table data on mobile devices
 - Added extra selector support for `.h-table--border-radius-none` and `.h-table--border-radius-mobile-none`
