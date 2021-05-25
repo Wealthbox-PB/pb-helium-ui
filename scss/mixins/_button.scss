@@ -257,11 +257,11 @@
 
 @mixin h-btn-info {
   @include h-btn-style(
-    $h-background-color-btn: $h-blue-100,
-    $h-color-text-btn: $h-blue-600,
-    $h-background-color-btn-hover: $h-blue-200,
-    $h-color-text-btn-hover: $h-blue-800,
-    $h-box-shadow-btn-color: $h-blue-100
+    $h-background-color-btn: $h-blue-50,
+    $h-color-text-btn: $h-blue-500,
+    $h-background-color-btn-hover: $h-blue-100,
+    $h-color-text-btn-hover: $h-blue-600,
+    $h-box-shadow-btn-color: $h-blue-50
   );
 }
 
