@@ -110,3 +110,22 @@
 .h-btn--link-secondary {
   @include h-btn-link-secondary();
 }
+
+//  Misc
+//==========================================================================
+
+.h-btn--border-hover {
+  @include h-btn-border-hover();
+}
+
+.h-btn--enabled {
+  @include h-btn-enabled();
+}
+
+.h-btn--full-width-mobile {
+  @include h-btn-full-width-mobile();
+}
+
+.h-btn--no-focus {
+  @include h-btn-no-focus();
+}
