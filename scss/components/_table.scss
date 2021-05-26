@@ -70,6 +70,7 @@
     margin: 0; // TODO Remove after implementation
     border-collapse: collapse;
     font-size: $h-font-size-md;
+    word-break: break-word;
 
     & > thead,
     & > .h-table__header {
