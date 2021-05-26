@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.41] - 2021-05-24
 ### Changed
 - Updated `.h-btn--info` background and text colors
+- Updated `.h-btn--info-outline` border color
 
 ## [1.0.40] - 2021-03-18
 ### Changed
