@@ -424,6 +424,24 @@
           }
         }
       }
+
+      @include media-breakpoint-up(md) {
+        tbody,
+        .h-table__body {
+          tr,
+          .h-table__row {
+            &:last-child {
+              .h-table__data--desktop-first-visible-column {
+                border-bottom-left-radius: $h-table-border-radius;
+              }
+
+              .h-table__data--desktop-last-visible-column {
+                border-bottom-right-radius: $h-table-border-radius;
+              }
+            }
+          }
+        }
+      }
     }
 
     &.h-table--outlined {
