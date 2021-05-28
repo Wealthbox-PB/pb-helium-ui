@@ -368,3 +368,48 @@
     $h-color-text-btn-hover: $h-color-text-dark
   );
 }
+
+//  Misc
+//==========================================================================
+
+@mixin h-btn-border-hover {
+  border: 1px solid transparent;
+  color: $h-color-text-light;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: 1px solid $h-gray-300;
+    color: $h-color-text;
+  }
+
+  &:focus {
+    box-shadow: $h-form-element-box-shadow--focused;
+  }
+}
+
+@mixin h-btn-enabled {
+  &:disabled,
+  &.disabled,
+  &[disabled],
+  &.h-btn--disabled {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+@mixin h-btn-full-width-mobile {
+  @include media-breakpoint-down(xs) {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@mixin h-btn-no-focus {
+  &:focus,
+  &.h-btn--focus {
+    border-color: transparent;
+    box-shadow: none;
+  }
+}

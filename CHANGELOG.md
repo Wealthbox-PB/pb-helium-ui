@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.42] - 2021-05-28
+### Added
+- Added `.h-btn--border-hover`, `.h-btn--enabled`, `.h-btn--full-width-mobile`, and `.h-btn--focus` button modifiers and mixins
+- Added `word-break: break-word;` for improved wrapping to `.h-table` component
+- Added `.h-table__heading--mobile-first-visible-column`, `.h-table__heading--mobile-last-visible-column`,
+`.h-table__data--mobile-first-visible-column`, `.h-table__data--mobile-last-visible-column`, `.h-table__data--desktop-first-visible-column`,
+`.h-table__data--desktop-last-visible-column`,  `.h-table__row--mobile-first-visible-row`, `.h-table__row--mobile-last-visible-row`,
+`.h-table__heading--print-first-visible-column`, `.h-table__heading--print-last-visible-column`,
+`.h-table__data--print-first-visible-column`, `.h-table__data--print-last-visible-column`, `.h-table__row--print-first-visible-row`,
+ and `.h-table__row--print-last-visible-row` mobile and print modifiers to `.h-table` component
+
 ## [1.0.41] - 2021-05-26
 ### Changed
 - Updated `.h-btn--info` background and text colors
