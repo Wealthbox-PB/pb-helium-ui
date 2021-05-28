@@ -9,8 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `.h-btn--border-hover`, `.h-btn--enabled`, `.h-btn--full-width-mobile`, and `.h-btn--focus` button modifiers and mixins
 - Added `word-break: break-word;` for improved wrapping to `.h-table` component
 - Added `.h-table__heading--mobile-first-visible-column`, `.h-table__heading--mobile-last-visible-column`,
-`.h-table__data--mobile-first-visible-column`, `.h-table__data--mobile-last-visible-column`, `.h-table__row--mobile-first-visible-row`,
-`.h-table__row--mobile-last-visible-row`, `.h-table__heading--print-first-visible-column`, `.h-table__heading--print-last-visible-column`,
+`.h-table__data--mobile-first-visible-column`, `.h-table__data--mobile-last-visible-column`, `.h-table__data--desktop-first-visible-column`,
+`.h-table__data--desktop-last-visible-column`,  `.h-table__row--mobile-first-visible-row`, `.h-table__row--mobile-last-visible-row`,
+`.h-table__heading--print-first-visible-column`, `.h-table__heading--print-last-visible-column`,
 `.h-table__data--print-first-visible-column`, `.h-table__data--print-last-visible-column`, `.h-table__row--print-first-visible-row`,
  and `.h-table__row--print-last-visible-row` mobile and print modifiers to `.h-table` component
 
@@ -18,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated `.h-btn--info` background and text colors
 - Updated `.h-btn--info-outline` border color
+
 ## [1.0.40] - 2021-03-18
 ### Changed
 - Updated `.h-btn--square` mixins to accept font-size values
