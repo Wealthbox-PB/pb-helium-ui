@@ -15,7 +15,7 @@
   }
 
   &.h-form-group--nested-xs {
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
       margin-bottom: $h-spacing-form-group-nested;
     }
   }
@@ -33,7 +33,7 @@
   }
 
   &.h-form-group--nested-lg {
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
       margin-bottom: $h-spacing-form-group-nested;
     }
   }
