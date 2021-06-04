@@ -14,7 +14,7 @@
   }
 
   &.h-table--layout-fixed-mobile {
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
       & > .h-table__table {
         table-layout: fixed;
       }
@@ -193,7 +193,7 @@
     box-shadow: $h-box-shadow-shared-component;
 
     &.h-table--untable {
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         .h-table__table {
           display: block;
           width: 100%;
@@ -316,7 +316,7 @@
     }
 
     &.h-table--border-radius-mobile-none {
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         border-radius: 0;
 
         & > .h-table__table {
@@ -362,7 +362,7 @@
 
     &:not(.h-table--border-radius-none),
     &:not(.h-table--border-radius-mobile-none) {
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         thead,
         .h-table__header {
           tr,

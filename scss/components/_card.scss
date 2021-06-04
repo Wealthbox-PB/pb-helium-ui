@@ -13,7 +13,7 @@
   &,
   & > .h-card__header,
   & > .h-card__footer {
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
       border-radius: 0;
     }
   }

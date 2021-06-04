@@ -21,7 +21,7 @@
   }
 
   &.h-form-group--nested-sm {
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
       margin-bottom: $h-spacing-form-group-nested;
     }
   }
