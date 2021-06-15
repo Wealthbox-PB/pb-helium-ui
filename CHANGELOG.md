@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.43] - 2021-06-11
 - Added padding to table rows using `.h-table--untable` modifier
 
+### Changed
+- Updated `.h-btn--square` padding to 0 for proper vertical centering in Safari browser
+
 ## [1.0.42] - 2021-05-28
 ### Added
 - Added `.h-btn--border-hover`, `.h-btn--enabled`, `.h-btn--full-width-mobile`, and `.h-btn--focus` button modifiers and mixins
