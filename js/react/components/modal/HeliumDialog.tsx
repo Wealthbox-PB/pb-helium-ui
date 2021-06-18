@@ -31,38 +31,6 @@ const dialogSelectorPrefix = `h-react-dialog`;
 const ariaSelectorPrefix = `${dialogSelectorPrefix}-aria`;
 const dialogEl = `${dialogSelectorPrefix}__el`;
 
-const createSelector = (
-    prefix: string,
-    type: string | null,
-    suffix: string | number | null
-  ): string => {
-  return `${prefix}-${type}-${suffix}`;
-};
-
-const getDialogSize = (size = `medium`): string => {
-  const sizeClasses: {[key: string]: string} = {
-    'small': `sm`,
-    'medium': `md`,
-    'large': `lg`,
-    'full' : `full-screen`
-  }
-  return sizeClasses.hasOwnProperty(size) ? `${dialogSelectorPrefix}--${sizeClasses[size]}`: ``;
-};
-
-const getDialogPosition = (position: string = 'center'): string => {
-  const getPositionClass = (axis: string, position: string) => {
-    return position === `center` ? `center-${axis}` : position;
-  }
-
-  const [y, x] = position.toLowerCase().split(` `);
-
-  if (!x) {
-    return `${dialogSelectorPrefix}--${y}`;
-  } else {
-    return `${dialogSelectorPrefix}--${getPositionClass(`y`, y)} ${dialogSelectorPrefix}--${getPositionClass(`x`, x)}`;
-  }
-}
-
 const HeliumDialog: React.FC<HeliumDialogProps> = ({
   open,
   isModalDialog = true,
@@ -164,6 +132,38 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
       }
     </>
   )
+}
+
+function createSelector(
+  prefix: string,
+  type: string | null,
+  suffix: string | number | null
+): string {
+  return `${prefix}-${type}-${suffix}`;
+};
+
+function getDialogSize(size = `medium`): string {
+  const sizeClasses: {[key: string]: string} = {
+    'small': `sm`,
+    'medium': `md`,
+    'large': `lg`,
+    'full' : `full-screen`
+  }
+  return sizeClasses.hasOwnProperty(size) ? `${dialogSelectorPrefix}--${sizeClasses[size]}`: ``;
+};
+
+function getDialogPosition(position: string = 'center'): string {
+  const getPositionClass = (axis: string, position: string) => {
+    return position === `center` ? `center-${axis}` : position;
+  }
+
+  const [y, x] = position.toLowerCase().split(` `);
+
+  if (!x) {
+    return `${dialogSelectorPrefix}--${y}`;
+  } else {
+    return `${dialogSelectorPrefix}--${getPositionClass(`y`, y)} ${dialogSelectorPrefix}--${getPositionClass(`x`, x)}`;
+  }
 }
 
 export { HeliumDialog };

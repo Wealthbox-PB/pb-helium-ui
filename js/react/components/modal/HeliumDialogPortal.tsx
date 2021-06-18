@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 
-const portalRoot = (): HTMLElement => document.body;
-
 interface HeliumDialogPortalProps {
   children: string | JSX.Element[] | JSX.Element;
 }
+
+const portalRoot = (): HTMLElement => document.body;
 
 const HeliumDialogPortal: React.FC<HeliumDialogPortalProps> = ({ children }) => {
   const el = useMemo(() => document.createElement(`div`), []);
