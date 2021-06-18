@@ -9,14 +9,14 @@ interface HeliumDialogHeaderProps {
   closeInHeader?: boolean;
 }
 
-const HeliumDialogHeader: React.FC<HeliumDialogHeaderProps> = ({
+const HeliumDialogHeader = ({
   headerClass = "",
   ariaLabelSelector,
   isModalDialog,
   children,
   closeDialog,
   closeInHeader
-}) => {
+}: HeliumDialogHeaderProps) => {
   return (
     <div className={`h-react-dialog__header ${headerClass}`}>
       <h3 className="h-react-dialog__heading" id={ariaLabelSelector}>{children}</h3>

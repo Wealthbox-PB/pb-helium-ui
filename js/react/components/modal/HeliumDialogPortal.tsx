@@ -7,7 +7,7 @@ interface HeliumDialogPortalProps {
 
 const portalRoot = (): HTMLElement => document.body;
 
-const HeliumDialogPortal: React.FC<HeliumDialogPortalProps> = ({ children }) => {
+const HeliumDialogPortal  = ({ children }: HeliumDialogPortalProps) => {
   const el = useMemo(() => document.createElement(`div`), []);
   el.className = `h-react-dialog-portal`;
 

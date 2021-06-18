@@ -8,13 +8,13 @@ interface HeliumDialogFooterProps {
   submitHandler?: () => void;
 }
 
-const HeliumDialogFooter: React.FC<HeliumDialogFooterProps> = ({
+const HeliumDialogFooter = ({
   children,
   footerBackground = true,
   footerClass = "",
   closeDialog,
   submitHandler
-}) => {
+}: HeliumDialogFooterProps) => {
   return (
     <div className={`h-react-dialog__footer ${footerBackground && `h-react-dialog__footer--with-background`} ${footerClass}`}>
       {children

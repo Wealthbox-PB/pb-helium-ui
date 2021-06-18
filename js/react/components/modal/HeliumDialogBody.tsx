@@ -6,7 +6,7 @@ interface HeliumDialogBodyProps {
   children: string | JSX.Element[] | JSX.Element;
 }
 
-const HeliumDialogBody: React.FC<HeliumDialogBodyProps> = ({ bodyClass = "", ariaDescriptionSelector, children }) => {
+const HeliumDialogBody = ({ bodyClass = "", ariaDescriptionSelector, children }: HeliumDialogBodyProps) => {
   return (
     <div className={`h-react-dialog__body ${bodyClass}`} id={ariaDescriptionSelector}>{children}</div>
   );

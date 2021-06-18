@@ -31,7 +31,7 @@ const dialogSelectorPrefix = `h-react-dialog`;
 const ariaSelectorPrefix = `${dialogSelectorPrefix}-aria`;
 const dialogEl = `${dialogSelectorPrefix}__el`;
 
-const HeliumDialog: React.FC<HeliumDialogProps> = ({
+const HeliumDialog = ({
   open,
   isModalDialog = true,
   size,
@@ -49,7 +49,7 @@ const HeliumDialog: React.FC<HeliumDialogProps> = ({
   hasFooter = true,
   footer,
   footerBackground = true
-}) => {
+}: HeliumDialogProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
