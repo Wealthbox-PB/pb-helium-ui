@@ -219,6 +219,7 @@
           & > .h-table__body {
             & > tr,
             & > .h-table__row {
+              padding: $h-table-cell-spacing-y 0;
               border-top: 1px solid $h-table-border-color;
 
               & > th,
