@@ -229,7 +229,6 @@ $h-colors-text-semantic: (
 
 $h-color-text-lighter: map-get($h-colors-text-semantic, lighter);
 $h-color-text-light:   map-get($h-colors-text-semantic, light);
-$h-color-text:         map-get($h-colors-text-semantic, normal); // Legacy
 $h-color-text-normal:  map-get($h-colors-text-semantic, normal);
 $h-color-text-dark:    map-get($h-colors-text-semantic, dark);
 $h-color-text-darker:  map-get($h-colors-text-semantic, darker);
