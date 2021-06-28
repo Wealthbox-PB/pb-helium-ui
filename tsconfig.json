@@ -16,13 +16,17 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/*", "javascript/*"]
+      "*": ["node_modules/*", "js/*"]
     },
     "sourceMap": true,
     "target": "es5",
     "types": [
+      "enzyme",
+      "enzyme-adapter-react-16",
+      "jest",
       "react",
-      "react-dom"
+      "react-dom",
+      "react-test-renderer",
     ]
   },
   "exclude": [

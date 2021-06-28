@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeliumSpinner /> modifies its size when an acceptable value is passed to the size prop 1`] = `
+<div
+  className="h-spinner h-spinner--sm h-line-height-1"
+  role="status"
+>
+  <img
+    alt="Spinner"
+    className="img-fluid"
+    loading="eager"
+    src="../assets/img/spinner.png"
+  />
+  <span
+    className="visually-hidden"
+  >
+    Loading
+  </span>
+</div>
+`;
+
+exports[`<HeliumSpinner /> renders with a modifier class when the modifierClass prop is passed 1`] = `
+<div
+  className="h-spinner h-spinner--pizza h-line-height-1"
+  role="status"
+>
+  <img
+    alt="Spinner"
+    className="img-fluid"
+    loading="eager"
+    src="../assets/img/spinner.png"
+  />
+  <span
+    className="visually-hidden"
+  >
+    Loading
+  </span>
+</div>
+`;
+
+exports[`<HeliumSpinner /> renders with custom screen reader text when the screenReaderText prop is passed 1`] = `
+<div
+  className="h-spinner h-line-height-1"
+  role="status"
+>
+  <img
+    alt="Spinner"
+    className="img-fluid"
+    loading="eager"
+    src="../assets/img/spinner.png"
+  />
+  <span
+    className="visually-hidden"
+  >
+    Loading...I love pizza
+  </span>
+</div>
+`;
+
+exports[`<HeliumSpinner /> renders with default screen reader text and size when no props are passed 1`] = `
+<div
+  className="h-spinner h-line-height-1"
+  role="status"
+>
+  <img
+    alt="Spinner"
+    className="img-fluid"
+    loading="eager"
+    src="../assets/img/spinner.png"
+  />
+  <span
+    className="visually-hidden"
+  >
+    Loading
+  </span>
+</div>
+`;
