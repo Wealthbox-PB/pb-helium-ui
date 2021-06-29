@@ -13,6 +13,10 @@ $h-font-size-btn-lg: $h-font-size-lg;
 $h-font-size-btn-xl: $h-font-size-xl;
 
 //  Box Model
+$h-padding-y-btn-xs:     0.1875rem;
+$h-padding-y-btn-sm:     0.25rem;
+$h-padding-y-btn-lg:     0.5rem;
+$h-padding-y-btn-xl:     0.625rem;
 $h-spacing-x-btn:        0.5rem;
 $h-border-radius-btn:    $h-border-radius;
 
@@ -26,7 +30,7 @@ $h-color-background-shared-component: $h-white;
 $h-color-background-secondary-shared-component: $h-gray-50;
 $h-color-background-active-shared-component: $h-blue-25;
 $h-color-border-shared-component: $h-gray-100;
-$h-border-radius-shared-component: $h-border-radius--lg;
+$h-border-radius-shared-component: $h-border-radius-lg;
 
 $h-box-shadow-shared-component: $h-shadow-1;
 

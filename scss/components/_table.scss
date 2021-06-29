@@ -5,7 +5,7 @@
 
 .h-table {
   position: relative;
-  border-radius: $h-table-border-radius;
+  border-radius: $h-border-radius-shared-component;
 
   &.h-table--layout-fixed {
     & > .h-table__table {
@@ -59,7 +59,7 @@
       .h-table__heading,
       td,
       .h-table__data {
-        padding: $h-table-cell-spacing-dense-y $h-table-cell-spacing-dense-x;
+        padding: $h-spacing-y-dense-table-cell $h-spacing-x-dense-table-cell;
       }
     }
   }
@@ -82,11 +82,11 @@
             border-top: 0;
 
             &:first-child {
-              border-top-left-radius: $h-table-border-radius;
+              border-top-left-radius: $h-border-radius-shared-component;
             }
 
             &:last-child {
-              border-top-right-radius: $h-table-border-radius;
+              border-top-right-radius: $h-border-radius-shared-component;
             }
           }
         }
@@ -120,13 +120,13 @@
     & > .h-table__body {
       & > tr,
       & > .h-table__row {
-        background: $h-table-background-color;
+        background: $h-color-background-shared-component;
 
         & > th,
         & > .h-table__heading,
         & > td,
         & > .h-table__data {
-          border-top: 1px solid $h-table-border-color;
+          border-top: 1px solid $h-color-border-shared-component;
         }
 
         &:first-child {
@@ -137,11 +137,11 @@
             border-top: 0;
 
             &:first-child {
-              border-top-left-radius: $h-table-border-radius;
+              border-top-left-radius: $h-border-radius-shared-component;
             }
 
             &:last-child {
-              border-top-right-radius: $h-table-border-radius;
+              border-top-right-radius: $h-border-radius-shared-component;
             }
           }
         }
@@ -152,11 +152,11 @@
           & > td,
           & > .h-table__data {
             &:first-child {
-              border-bottom-left-radius: $h-table-border-radius;
+              border-bottom-left-radius: $h-border-radius-shared-component;
             }
 
             &:last-child {
-              border-bottom-right-radius: $h-table-border-radius;
+              border-bottom-right-radius: $h-border-radius-shared-component;
             }
           }
         }
@@ -219,8 +219,8 @@
           & > .h-table__body {
             & > tr,
             & > .h-table__row {
-              padding: $h-table-cell-spacing-y 0;
-              border-top: 1px solid $h-table-border-color;
+              padding: $h-spacing-y-table-cell 0;
+              border-top: 1px solid $h-color-border-shared-component;
 
               & > th,
               & > .h-table__heading,
@@ -231,7 +231,7 @@
 
               & > th,
               & > .h-table__heading {
-                border-bottom: 1px solid $h-table-border-color;
+                border-bottom: 1px solid $h-color-border-shared-component;
 
                 &:last-child {
                   border-bottom: 0;
@@ -240,20 +240,20 @@
 
               &:first-child {
                 border-top: 0;
-                border-radius: $h-table-border-radius $h-table-border-radius 0 0;
+                border-radius: $h-border-radius-shared-component $h-border-radius-shared-component 0 0;
 
                 & > th,
                 & > .h-table__heading,
                 & > td,
                 & > .h-table__data {
                   &:first-child {
-                    border-radius: $h-table-border-radius $h-table-border-radius 0 0;
+                    border-radius: $h-border-radius-shared-component $h-border-radius-shared-component 0 0;
                   }
                 }
               }
 
               &:last-child {
-                border-radius: 0 0 $h-table-border-radius $h-table-border-radius;
+                border-radius: 0 0 $h-border-radius-shared-component $h-border-radius-shared-component;
 
                 & > th,
                 & > .h-table__heading,
@@ -264,7 +264,7 @@
                   }
 
                   &:last-child {
-                    border-radius: 0 0 $h-table-border-radius $h-table-border-radius;
+                    border-radius: 0 0 $h-border-radius-shared-component $h-border-radius-shared-component;
                   }
                 }
               }
@@ -368,11 +368,11 @@
           tr,
           .h-table__row {
             .h-table__heading--mobile-first-visible-column {
-              border-top-left-radius: $h-table-border-radius;
+              border-top-left-radius: $h-border-radius-shared-component;
             }
 
             .h-table__heading--mobile-last-visible-column {
-              border-top-right-radius: $h-table-border-radius;
+              border-top-right-radius: $h-border-radius-shared-component;
             }
           }
         }
@@ -383,11 +383,11 @@
           .h-table__row {
             &:last-child {
               .h-table__data--mobile-first-visible-column {
-                border-bottom-left-radius: $h-table-border-radius;
+                border-bottom-left-radius: $h-border-radius-shared-component;
               }
 
               .h-table__data--mobile-last-visible-column {
-                border-bottom-right-radius: $h-table-border-radius;
+                border-bottom-right-radius: $h-border-radius-shared-component;
               }
             }
 
@@ -399,11 +399,11 @@
                 border-top: 0;
 
                 &:first-child {
-                  border-top-left-radius: $h-table-border-radius;
+                  border-top-left-radius: $h-border-radius-shared-component;
                 }
 
                 &:last-child {
-                  border-top-right-radius: $h-table-border-radius;
+                  border-top-right-radius: $h-border-radius-shared-component;
                 }
               }
             }
@@ -414,11 +414,11 @@
               td,
               .h-table__data {
                 &:first-child {
-                  border-bottom-left-radius: $h-table-border-radius;
+                  border-bottom-left-radius: $h-border-radius-shared-component;
                 }
 
                 &:last-child {
-                  border-bottom-right-radius: $h-table-border-radius;
+                  border-bottom-right-radius: $h-border-radius-shared-component;
                 }
               }
             }
@@ -433,11 +433,11 @@
           .h-table__row {
             &:last-child {
               .h-table__data--desktop-first-visible-column {
-                border-bottom-left-radius: $h-table-border-radius;
+                border-bottom-left-radius: $h-border-radius-shared-component;
               }
 
               .h-table__data--desktop-last-visible-column {
-                border-bottom-right-radius: $h-table-border-radius;
+                border-bottom-right-radius: $h-border-radius-shared-component;
               }
             }
           }
@@ -466,7 +466,7 @@
         & > .h-table__header {
           th,
           .h-table__heading {
-            box-shadow: 0 1px 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
+            box-shadow: 0 1px 0 0 $h-color-border-shared-component; // Heading border workaround because sticky headers do not maintain their border on scroll
           }
         }
 
@@ -475,7 +475,7 @@
           & > th,
           & > .h-table__heading {
             left: 0;
-            box-shadow: 1px 0 0 0 $h-table-border-color; // Heading border workaround because sticky headers do not maintain their border on scroll
+            box-shadow: 1px 0 0 0 $h-color-border-shared-component; // Heading border workaround because sticky headers do not maintain their border on scroll
           }
         }
       }
@@ -488,7 +488,7 @@
           & > tr,
           & > .h-table__row {
             &:hover {
-              background: $h-table-background-color--hover;
+              background: $h-color-background-active-shared-component;
               cursor: pointer;
             }
           }
@@ -499,13 +499,13 @@
     .h-table__row--hover,
     .h-table__cell--hover {
       &:hover {
-        background: $h-table-background-color--hover;
+        background: $h-color-background-active-shared-component;
       }
     }
 
     .h-table__row--active,
     .h-table__cell--active {
-      background: $h-table-background-color--hover;
+      background: $h-color-background-active-shared-component;
     }
 
     th,
@@ -529,11 +529,11 @@
       tr,
       .h-table__row {
         .h-table__heading--print-first-visible-column {
-          border-top-left-radius: $h-table-border-radius;
+          border-top-left-radius: $h-border-radius-shared-component;
         }
 
         .h-table__heading--print-last-visible-column {
-          border-top-right-radius: $h-table-border-radius;
+          border-top-right-radius: $h-border-radius-shared-component;
         }
       }
     }
@@ -562,11 +562,11 @@
         .h-table__row {
           &:last-child {
             .h-table__data--print-first-visible-column {
-              border-bottom-left-radius: $h-table-border-radius;
+              border-bottom-left-radius: $h-border-radius-shared-component;
             }
 
             .h-table__data--print-last-visible-column {
-              border-bottom-right-radius: $h-table-border-radius;
+              border-bottom-right-radius: $h-border-radius-shared-component;
             }
           }
 
@@ -578,11 +578,11 @@
               border-top: 0;
 
               &:first-child {
-                border-top-left-radius: $h-table-border-radius;
+                border-top-left-radius: $h-border-radius-shared-component;
               }
 
               &:last-child {
-                border-top-right-radius: $h-table-border-radius;
+                border-top-right-radius: $h-border-radius-shared-component;
               }
             }
           }
@@ -593,11 +593,11 @@
             td,
             .h-table__data {
               &:first-child {
-                border-bottom-left-radius: $h-table-border-radius;
+                border-bottom-left-radius: $h-border-radius-shared-component;
               }
 
               &:last-child {
-                border-bottom-right-radius: $h-table-border-radius;
+                border-bottom-right-radius: $h-border-radius-shared-component;
               }
             }
           }
