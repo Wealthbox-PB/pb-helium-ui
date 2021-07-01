@@ -6,17 +6,19 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
-    "declaration": false,
+    "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "jsx": "react",
     "lib": ["dom", "esnext"],
     "module": "esnext",
+    "outDir": "./dist/js",
+    "rootDir": "./ts",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/*", "js/*"]
+      "*": ["node_modules/*", "ts/*"]
     },
     "sourceMap": true,
     "target": "es5",
@@ -30,7 +32,8 @@
     ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "ts/spec"
   ],
   "compileOnSave": false
 }
