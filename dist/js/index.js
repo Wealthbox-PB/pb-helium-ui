@@ -1,2 +1,2 @@
-export { HeliumSpinner } from './components/Spinner';
+export { HeliumSpinner } from './components/Spinner/Spinner';
 //# sourceMappingURL=index.js.map

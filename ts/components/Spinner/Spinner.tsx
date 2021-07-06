@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { base64SpinnerImg } from './base_64_spinner_img';
 
 interface HeliumSpinnerProps {
   modifierClass?: string;
@@ -24,7 +25,7 @@ const HeliumSpinner = ({
     )}
     role="status"
   >
-    <img src="../assets/img/spinner.png" className="img-fluid" alt="Spinner" loading="eager" />
+    <img src={base64SpinnerImg} className="h-img-fluid" alt="Spinner" loading="eager" />
     <span className="visually-hidden">{screenReaderText}</span>
   </div>
 );
