@@ -1,11 +1,22 @@
+
+//==========================================================================
+//  Base
+//==========================================================================
+
 // Helium
+//==========================================================================
+
 @import "variables";
 @import "mixins";
 
 // Helium Bootstrap Variable Overrides
+//==========================================================================
+
 @import "bootstrap_overrides/variables";
 
-// Bootstrap Utilities
+// Bootstrap
+//==========================================================================
+
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
