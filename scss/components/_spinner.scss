@@ -7,7 +7,7 @@
   width: 2rem;
   height: 2rem;
   animation:
-    h-spin
+    $h-animation-spin
     $h-animation-duration-xxl
     $h-animation-timing-linear
     infinite;
