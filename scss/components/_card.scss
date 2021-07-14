@@ -9,6 +9,16 @@
   box-shadow: $h-box-shadow-shared-component;
 }
 
+.h-card--border-radius-none {
+  &,
+  & > .h-card__header,
+  & > .h-card__footer {
+    @include media-breakpoint-down(md) {
+      border-radius: 0;
+    }
+  }
+}
+
 .h-card--border-radius-mobile-none {
   &,
   & > .h-card__header,
