@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from "react";
 import * as focusTrap from 'focus-trap';
 import { useCloseWithEscapeKey } from "../../hooks/useCloseWithEscapeKey";
 import { useScrollLock } from "../../hooks/useScrollLock";
-import { HeliumDialogPortal } from "./HeliumDialogPortal";
-import { HeliumDialogHeader } from "./HeliumDialogHeader";
-import { HeliumDialogBody } from "./HeliumDialogBody";
-import { HeliumDialogFooter } from "./HeliumDialogFooter";
+import { HeliumDialogPortal } from "./DialogPortal";
+import { HeliumDialogHeader } from "./DialogHeader";
+import { HeliumDialogBody } from "./DialogBody";
+import { HeliumDialogFooter } from "./DialogFooter";
 
 interface HeliumDialogProps {
   open: boolean;

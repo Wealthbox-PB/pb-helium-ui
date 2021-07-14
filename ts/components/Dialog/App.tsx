@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HeliumDialog } from "./HeliumDialog";
+import { HeliumDialog } from "./Dialog";
 
 function App() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
