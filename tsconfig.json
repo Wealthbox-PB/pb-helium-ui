@@ -33,7 +33,7 @@
   },
   "exclude": [
     "node_modules",
-    "ts/*.test.tsx"
+    "spec"
   ],
   "compileOnSave": false
 }

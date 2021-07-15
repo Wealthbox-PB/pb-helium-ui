@@ -5,8 +5,8 @@
 module.exports = {
   moduleFileExtensions: [`js`, `json`, `jsx`, `ts`, `tsx`],
   moduleDirectories: [`node_modules`],
-  roots: [`<rootDir>/ts/components`],
-  setupFiles: [`<rootDir>/ts/jest_config_setup.js`],
+  roots: [`<rootDir>/spec`],
+  setupFiles: [`<rootDir>/spec/jest_config_setup.js`],
   snapshotSerializers: [`enzyme-to-json/serializer`],
   testMatch: [`**/?(*.)+(spec|test).+(ts|tsx)`],
   transform: {

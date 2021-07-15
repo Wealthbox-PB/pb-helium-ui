@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { HeliumSpinner } from './Spinner';
+import { HeliumSpinner } from '../ts/components/Spinner/Spinner';
 
 let wrap: ShallowWrapper;
 
