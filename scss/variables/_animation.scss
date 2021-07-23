@@ -7,16 +7,18 @@
 //==========================================================================
 
 $h-animation-names: (
-  fade-in:    h-fade-in,
-  fade-in-up: h-fade-in-up,
+  fade-in:      h-fade-in,
+  fade-in-up:   h-fade-in-up,
   fade-in-down: h-fade-in-down,
-  fade-out:   h-fade-out
+  fade-out:     h-fade-out,
+  spin:         h-spin
 );
 
 $h-animation-fade-in:    map-get($h-animation-names, fade-in);
 $h-animation-fade-in-up: map-get($h-animation-names, fade-in-up);
 $h-animation-fade-in-down: map-get($h-animation-names, fade-in-down);
 $h-animation-fade-out: map-get($h-animation-names, fade-out);
+$h-animation-spin: map-get($h-animation-names, spin);
 
 //  Duration and Delay
 //==========================================================================

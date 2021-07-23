@@ -10,7 +10,7 @@
   display: inline-flex;
   border: 1px solid transparent;
   background: transparent;
-  border-radius: $h-btn-border-radius;
+  border-radius: $h-border-radius-btn;
   cursor: pointer;
   font-style: normal;
   font-weight: $h-font-weight-medium;
@@ -21,7 +21,7 @@
   user-select: none;
   vertical-align: middle;
 
-  @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-form-element-line-height);
+  @include h-btn-size($h-padding-btn: $h-padding-y-form-element 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-line-height-form-element);
   @include h-form-element-transition();
 
   &:hover,
@@ -62,23 +62,23 @@
 }
 
 @mixin h-btn-xs {
-  @include h-btn-size($h-padding-btn: $h-btn-xs-padding-y 0.375rem, $h-font-size-btn: $h-btn-xs-font-size);
+  @include h-btn-size($h-padding-btn: $h-padding-y-btn-xs 0.375rem, $h-font-size-btn: $h-font-size-btn-xs);
 }
 
 @mixin h-btn-sm {
-  @include h-btn-size($h-padding-btn: $h-btn-sm-padding-y 0.5rem, $h-font-size-btn: $h-btn-sm-font-size);
+  @include h-btn-size($h-padding-btn: $h-padding-y-btn-sm 0.5rem, $h-font-size-btn: $h-font-size-btn-sm);
 }
 
 @mixin h-btn-md {
-  @include h-btn-size($h-padding-btn: $h-form-element-padding-y 0.75rem, $h-font-size-btn: $h-btn-md-font-size, $h-line-height-btn: $h-form-element-line-height);
+  @include h-btn-size($h-padding-btn: $h-padding-y-form-element 0.75rem, $h-font-size-btn: $h-font-size-btn-md, $h-line-height-btn: $h-line-height-form-element);
 }
 
 @mixin h-btn-lg {
-  @include h-btn-size($h-padding-btn: $h-btn-lg-padding-y 1rem, $h-font-size-btn: $h-btn-lg-font-size);
+  @include h-btn-size($h-padding-btn: $h-padding-y-btn-lg 1rem, $h-font-size-btn: $h-font-size-btn-lg);
 }
 
 @mixin h-btn-xl {
-  @include h-btn-size($h-padding-btn: $h-btn-xl-padding-y 1.25rem, $h-font-size-btn: $h-btn-xl-font-size);
+  @include h-btn-size($h-padding-btn: $h-padding-y-btn-xl 1.25rem, $h-font-size-btn: $h-font-size-btn-xl);
 }
 
 //  Shape
@@ -114,37 +114,37 @@
 }
 
 @mixin h-btn-square-xs {
-  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-btn-xs-padding-y, $h-btn-xs-font-size, $has-remainder: true), $h-font-size-square-btn: $h-font-size-lg);
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-padding-y-btn-xs, $h-font-size-btn-xs, $has-remainder: true), $h-font-size-square-btn: $h-font-size-lg);
 }
 
 @mixin h-btn-square-sm {
-  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-btn-sm-padding-y, $h-btn-sm-font-size), $h-font-size-square-btn: $h-font-size-lg);
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-padding-y-btn-sm, $h-font-size-btn-sm), $h-font-size-square-btn: $h-font-size-lg);
 }
 
 @mixin h-btn-square-md {
-  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-form-element-padding-y, $h-btn-md-font-size, $h-form-element-line-height), $h-font-size-square-btn: $h-font-size-lg);
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-padding-y-form-element, $h-font-size-btn-md, $h-line-height-form-element), $h-font-size-square-btn: $h-font-size-lg);
 }
 
 @mixin h-btn-square-lg {
-  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-btn-lg-padding-y, $h-btn-lg-font-size), $h-font-size-square-btn: $h-font-size-xl);
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-padding-y-btn-lg, $h-font-size-btn-lg), $h-font-size-square-btn: $h-font-size-xl);
 }
 
 @mixin h-btn-square-xl {
-  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-btn-xl-padding-y, $h-btn-xl-font-size), $h-font-size-square-btn: $h-font-size-xl);
+  @include h-btn-square($h-size-square-btn: setSquareButtonWidth($h-padding-y-btn-xl, $h-font-size-btn-xl), $h-font-size-square-btn: $h-font-size-xl);
 }
 
 //  Style (Fill and Outline)
 //==========================================================================
 
 @mixin h-btn-style(
-  $h-background-color-btn,
+  $h-color-background-btn,
   $h-color-text-btn,
-  $h-background-color-btn-hover,
-  $h-color-text-btn-hover,
-  $h-box-shadow-btn-color,
-  $h-border-color-btn-hover: false,
-  $h-border-color-btn: false,
-  $h-background-color-btn-outline-active: false
+  $h-color-background-hover-btn,
+  $h-color-text-hover-btn,
+  $h-color-box-shadow-btn,
+  $h-color-border-hover-btn: false,
+  $h-color-border-btn: false,
+  $h-color-background-outline-active-btn: false
 ) {
   &,
   &:active,
@@ -157,41 +157,41 @@
   &,
   &:focus,
   &.h-btn--focus {
-    @if ($h-border-color-btn) {
-      border-color: $h-border-color-btn;
+    @if ($h-color-border-btn) {
+      border-color: $h-color-border-btn;
     }
 
-    background-color: $h-background-color-btn;
+    background-color: $h-color-background-btn;
   }
 
   &:hover,
   &.h-btn--hover {
-    @if ($h-border-color-btn-hover) {
-      border-color: $h-border-color-btn-hover;
+    @if ($h-color-border-hover-btn) {
+      border-color: $h-color-border-hover-btn;
     }
 
-    background-color: $h-background-color-btn-hover;
-    color: $h-color-text-btn-hover;
+    background-color: $h-color-background-hover-btn;
+    color: $h-color-text-hover-btn;
   }
 
   &:active,
   &.h-btn--active {
-    @if ($h-border-color-btn-hover) {
-      border-color: darken($h-border-color-btn-hover, 5%);
+    @if ($h-color-border-hover-btn) {
+      border-color: darken($h-color-border-hover-btn, 5%);
     }
 
-    @if ($h-background-color-btn-outline-active) {
-      background-color: $h-background-color-btn-outline-active;
+    @if ($h-color-background-outline-active-btn) {
+      background-color: $h-color-background-outline-active-btn;
     }
 
     @else {
-      background-color: darken($h-background-color-btn-hover, 5%);
+      background-color: darken($h-color-background-hover-btn, 5%);
     }
   }
 
   &:focus,
   &.h-btn--focus {
-    box-shadow: 0 0 0 $h-btn-box-shadow-size rgba($h-box-shadow-btn-color, $h-btn-box-shadow-alpha);
+    box-shadow: 0 0 0 $h-box-shadow-size-btn rgba($h-color-box-shadow-btn, $h-box-shadow-alpha-btn);
   }
 
   &:disabled,
@@ -204,8 +204,8 @@
     &.h-btn--active,
     &:focus,
     &.h-btn--focus {
-      border-color: $h-border-color-btn;
-      background-color: $h-background-color-btn;
+      border-color: $h-color-border-btn;
+      background-color: $h-color-background-btn;
       box-shadow: none;
       color: $h-color-text-btn;
     }
@@ -214,118 +214,118 @@
 
 @mixin h-btn-primary {
   @include h-btn-style(
-    $h-background-color-btn: $h-blue-500,
+    $h-color-background-btn: $h-blue-500,
     $h-color-text-btn: $h-white,
-    $h-background-color-btn-hover: $h-blue-600,
-    $h-color-text-btn-hover: $h-white,
-    $h-box-shadow-btn-color: $h-blue-500
+    $h-color-background-hover-btn: $h-blue-600,
+    $h-color-text-hover-btn: $h-white,
+    $h-color-box-shadow-btn: $h-blue-500
   );
 }
 
 @mixin h-btn-secondary {
   @include h-btn-style(
-    $h-border-color-btn: $h-gray-200,
-    $h-background-color-btn: $h-gray-25,
+    $h-color-border-btn: $h-gray-200,
+    $h-color-background-btn: $h-gray-25,
     $h-color-text-btn: $h-gray-700,
-    $h-border-color-btn-hover: $h-gray-250,
-    $h-background-color-btn-hover: $h-gray-50,
-    $h-color-text-btn-hover: $h-gray-800,
-    $h-box-shadow-btn-color: $h-blue-500
+    $h-color-border-hover-btn: $h-gray-250,
+    $h-color-background-hover-btn: $h-gray-50,
+    $h-color-text-hover-btn: $h-gray-800,
+    $h-color-box-shadow-btn: $h-blue-500
   );
 }
 
 @mixin h-btn-positive {
   @include h-btn-style(
-    $h-background-color-btn: $h-green-500,
+    $h-color-background-btn: $h-green-500,
     $h-color-text-btn: $h-white,
-    $h-background-color-btn-hover: $h-green-600,
-    $h-color-text-btn-hover: $h-white,
-    $h-box-shadow-btn-color: $h-green-500
+    $h-color-background-hover-btn: $h-green-600,
+    $h-color-text-hover-btn: $h-white,
+    $h-color-box-shadow-btn: $h-green-500
   );
 }
 
 @mixin h-btn-negative {
   @include h-btn-style(
-    $h-background-color-btn: $h-red-600,
+    $h-color-background-btn: $h-red-600,
     $h-color-text-btn: $h-white,
-    $h-background-color-btn-hover: $h-red-700,
-    $h-color-text-btn-hover: $h-white,
-    $h-box-shadow-btn-color: $h-red-600
+    $h-color-background-hover-btn: $h-red-700,
+    $h-color-text-hover-btn: $h-white,
+    $h-color-box-shadow-btn: $h-red-600
   );
 }
 
 @mixin h-btn-info {
   @include h-btn-style(
-    $h-background-color-btn: $h-blue-50,
+    $h-color-background-btn: $h-blue-50,
     $h-color-text-btn: $h-blue-500,
-    $h-background-color-btn-hover: $h-blue-100,
-    $h-color-text-btn-hover: $h-blue-600,
-    $h-box-shadow-btn-color: $h-blue-50
+    $h-color-background-hover-btn: $h-blue-100,
+    $h-color-text-hover-btn: $h-blue-600,
+    $h-color-box-shadow-btn: $h-blue-50
   );
 }
 
 @mixin h-btn-primary-outline {
   @include h-btn-style(
-    $h-border-color-btn: $h-blue-500,
-    $h-background-color-btn: $h-white,
+    $h-color-border-btn: $h-blue-500,
+    $h-color-background-btn: $h-white,
     $h-color-text-btn: $h-blue-500,
-    $h-border-color-btn-hover: $h-blue-600,
-    $h-background-color-btn-hover: $h-white,
-    $h-color-text-btn-hover: $h-blue-600,
-    $h-background-color-btn-outline-active: $h-blue-50,
-    $h-box-shadow-btn-color: $h-blue-500
+    $h-color-border-hover-btn: $h-blue-600,
+    $h-color-background-hover-btn: $h-white,
+    $h-color-text-hover-btn: $h-blue-600,
+    $h-color-background-outline-active-btn: $h-blue-50,
+    $h-color-box-shadow-btn: $h-blue-500
   );
 }
 
 @mixin h-btn-secondary-outline {
   @include h-btn-style(
-    $h-border-color-btn: $h-gray-700,
-    $h-background-color-btn: $h-white,
+    $h-color-border-btn: $h-gray-700,
+    $h-color-background-btn: $h-white,
     $h-color-text-btn: $h-gray-700,
-    $h-border-color-btn-hover: $h-gray-800,
-    $h-background-color-btn-hover: $h-white,
-    $h-color-text-btn-hover: $h-gray-800,
-    $h-background-color-btn-outline-active: $h-gray-50,
-    $h-box-shadow-btn-color: $h-blue-500
+    $h-color-border-hover-btn: $h-gray-800,
+    $h-color-background-hover-btn: $h-white,
+    $h-color-text-hover-btn: $h-gray-800,
+    $h-color-background-outline-active-btn: $h-gray-50,
+    $h-color-box-shadow-btn: $h-blue-500
   );
 }
 
 @mixin h-btn-positive-outline {
   @include h-btn-style(
-    $h-border-color-btn: $h-green-500,
-    $h-background-color-btn: $h-white,
+    $h-color-border-btn: $h-green-500,
+    $h-color-background-btn: $h-white,
     $h-color-text-btn: $h-green-500,
-    $h-border-color-btn-hover: $h-green-600,
-    $h-background-color-btn-hover: $h-white,
-    $h-color-text-btn-hover: $h-green-600,
-    $h-background-color-btn-outline-active: $h-green-50,
-    $h-box-shadow-btn-color: $h-green-500
+    $h-color-border-hover-btn: $h-green-600,
+    $h-color-background-hover-btn: $h-white,
+    $h-color-text-hover-btn: $h-green-600,
+    $h-color-background-outline-active-btn: $h-green-50,
+    $h-color-box-shadow-btn: $h-green-500
   );
 }
 
 @mixin h-btn-negative-outline {
   @include h-btn-style(
-    $h-border-color-btn: $h-red-600,
-    $h-background-color-btn: $h-white,
+    $h-color-border-btn: $h-red-600,
+    $h-color-background-btn: $h-white,
     $h-color-text-btn: $h-red-600,
-    $h-border-color-btn-hover: $h-red-700,
-    $h-background-color-btn-hover: $h-white,
-    $h-color-text-btn-hover: $h-red-700,
-    $h-background-color-btn-outline-active: $h-red-50,
-    $h-box-shadow-btn-color: $h-red-700
+    $h-color-border-hover-btn: $h-red-700,
+    $h-color-background-hover-btn: $h-white,
+    $h-color-text-hover-btn: $h-red-700,
+    $h-color-background-outline-active-btn: $h-red-50,
+    $h-color-box-shadow-btn: $h-red-700
   );
 }
 
 @mixin h-btn-info-outline {
   @include h-btn-style(
-    $h-border-color-btn: $h-blue-200,
-    $h-background-color-btn: $h-white,
+    $h-color-border-btn: $h-blue-200,
+    $h-color-background-btn: $h-white,
     $h-color-text-btn: $h-blue-600,
-    $h-border-color-btn-hover: $h-blue-300,
-    $h-background-color-btn-hover: $h-white,
-    $h-color-text-btn-hover: $h-blue-800,
-    $h-background-color-btn-outline-active: $h-blue-50,
-    $h-box-shadow-btn-color: $h-blue-100
+    $h-color-border-hover-btn: $h-blue-300,
+    $h-color-background-hover-btn: $h-white,
+    $h-color-text-hover-btn: $h-blue-800,
+    $h-color-background-outline-active-btn: $h-blue-50,
+    $h-color-box-shadow-btn: $h-blue-100
   );
 }
 
@@ -334,7 +334,7 @@
 
 @mixin h-btn-link-style(
   $h-color-text-btn,
-  $h-color-text-btn-hover
+  $h-color-text-hover-btn
 ) {
   color: $h-color-text-btn;
 
@@ -344,27 +344,27 @@
   &.h-btn--active,
   &:focus,
   &.h-btn--focus {
-    color: $h-color-text-btn-hover;
+    color: $h-color-text-hover-btn;
     text-decoration: underline;
   }
 
   &:focus,
   &.h-btn--focus {
-    box-shadow: $h-form-element-box-shadow--focused;
+    box-shadow: $h-box-shadow-form-element-focused;
   }
 }
 
 @mixin h-btn-link {
   @include h-btn-link-style(
     $h-color-text-btn: $h-color-link,
-    $h-color-text-btn-hover: $h-color-link-hover
+    $h-color-text-hover-btn: $h-color-link-hover
   );
 }
 
 @mixin h-btn-link-secondary {
   @include h-btn-link-style(
-    $h-color-text-btn: $h-color-text,
-    $h-color-text-btn-hover: $h-color-text-dark
+    $h-color-text-btn: $h-color-text-normal,
+    $h-color-text-hover-btn: $h-color-text-dark
   );
 }
 
@@ -379,11 +379,11 @@
   &:active,
   &:focus {
     border: 1px solid $h-gray-300;
-    color: $h-color-text;
+    color: $h-color-text-normal;
   }
 
   &:focus {
-    box-shadow: $h-form-element-box-shadow--focused;
+    box-shadow: $h-box-shadow-form-element-focused;
   }
 }
 
@@ -398,7 +398,7 @@
 }
 
 @mixin h-btn-full-width-mobile {
-  @include media-breakpoint-down(xs) {
+  @include media-breakpoint-down(sm) {
     display: flex;
     width: 100%;
     justify-content: center;

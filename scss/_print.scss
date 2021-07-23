@@ -3,18 +3,19 @@
 //  Print
 //==========================================================================
 
-//  Bootstrap
+// Bootstrap
 //==========================================================================
 
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins/breakpoints";
-@import "bootstrap/scss/utilities/spacing";
-@import "bootstrap/scss/utilities/align";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/helpers/visually-hidden";
+@import "bootstrap/scss/utilities/api";
 
 //  Helium
 //==========================================================================
 
-@import "helium-ui/scss/variables";
-@import "helium-ui/scss/utilities";
-@import "helium-ui/scss/components/table";
+@import "variables";
+@import "utilities";
+@import "components/table";

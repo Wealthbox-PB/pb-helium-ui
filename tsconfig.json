@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "module": "esnext",
+    "outDir": "./dist/js",
+    "rootDir": "./ts",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*", "ts/*"]
+    },
+    "sourceMap": true,
+    "target": "es5",
+    "types": [
+      "enzyme",
+      "enzyme-adapter-react-16",
+      "jest",
+      "react",
+      "react-dom",
+      "react-test-renderer",
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "spec"
+  ],
+  "compileOnSave": false
+}

@@ -6,125 +6,116 @@
 //  Button
 //==========================================================================
 
-$h-btn-xs-font-size: $h-font-size-xs;
-$h-btn-sm-font-size: $h-font-size-sm;
-$h-btn-md-font-size: $h-font-size-md;
-$h-btn-lg-font-size: $h-font-size-lg;
-$h-btn-xl-font-size: $h-font-size-xl;
+$h-font-size-btn-xs: $h-font-size-xs;
+$h-font-size-btn-sm: $h-font-size-sm;
+$h-font-size-btn-md: $h-font-size-md;
+$h-font-size-btn-lg: $h-font-size-lg;
+$h-font-size-btn-xl: $h-font-size-xl;
 
 //  Box Model
-$h-btn-xs-padding-y:     0.1875rem;
-$h-btn-sm-padding-y:     0.25rem;
-$h-btn-lg-padding-y:     0.5rem;
-$h-btn-xl-padding-y:     0.625rem;
-$h-btn-spacing-x:        0.5rem;
-$h-btn-border-radius:    $h-border-radius;
+$h-padding-y-btn-xs:     0.1875rem;
+$h-padding-y-btn-sm:     0.25rem;
+$h-padding-y-btn-lg:     0.5rem;
+$h-padding-y-btn-xl:     0.625rem;
+$h-spacing-x-btn:        0.5rem;
+$h-border-radius-btn:    $h-border-radius;
 
-$h-btn-box-shadow-size:  0.1875rem;
-$h-btn-box-shadow-alpha: 0.4;
+$h-box-shadow-size-btn:  0.1875rem;
+$h-box-shadow-alpha-btn: 0.4;
 
 //  Shared
 //==========================================================================
 
-$h-shared-component-background-color: $h-white;
-$h-shared-component-background-color-secondary: $h-gray-50;
-$h-shared-component-border-color: $h-gray-100;
-$h-shared-component-border-radius: $h-border-radius--lg;
+$h-color-background-shared-component: $h-white;
+$h-color-background-secondary-shared-component: $h-gray-50;
+$h-color-background-active-shared-component: $h-blue-25;
+$h-color-border-shared-component: $h-gray-100;
+$h-border-radius-shared-component: $h-border-radius-lg;
 
-// Deprecated, to be removed in v2.0
-$h-header-footer-background-color: $h-shared-component-background-color-secondary;
+$h-box-shadow-shared-component: $h-shadow-1;
 
 // Card
 //==========================================================================
 
-$h-card-padding: 1rem;
-$h-card-header-footer-y-padding: 0.75rem;
-$h-card-border-radius: $h-shared-component-border-radius;
-$h-card-border-color: $h-shared-component-border-color;
-$h-card-background-color: $h-shared-component-background-color;
-$h-card-header-footer-background-color: $h-shared-component-background-color-secondary;
-
-$h-card-box-shadow: $h-shadow-1;
+// Box Model
+$h-padding-card: 1rem;
+$h-padding-y-card-header-footer: 0.75rem;
 
 //  Form Elements
 //==========================================================================
 
 //  Color
-$h-color-form-element-label:                $h-gray-600;
-$h-color-form-element-text:                 $h-gray-900;
-$h-color-form-element-text--success:        $h-color-text-success;
-$h-color-form-element-text--error:          $h-color-text-error;
-$h-color-form-element-text--disabled:       $h-gray-400;
-$h-color-form-element-placeholder-text:     $h-color-text-lighter;
-$h-color-checkbox-radio-icon:               str-slice("#{$h-white}", 2);
-$h-color-checkbox-radio-icon--disabled:     str-slice("#{$h-gray-250}", 2);
-$h-color-form-element-background:           $h-shared-component-background-color;
-$h-color-form-element-background--alt:      $h-gray-25;
-$h-color-form-element-background--select:   $h-color-form-element-background--alt;
-$h-color-form-element-background--addon:    $h-color-form-element-background--alt;
-$h-color-form-element-background--file:     $h-color-form-element-background--alt;
-$h-color-form-element-background--disabled: $h-gray-100;
-$h-color-form-element-border:               $h-gray-200;
-$h-color-form-element-border--focused:      $h-blue-300;
-$h-color-form-element-border--error:        $h-red-600;
-$h-color-form-element-box-shadow--focused:  $h-blue-100;
-$h-color-form-element-box-shadow--error:    $h-red-100;
+$h-color-text-form-element-label:           $h-gray-600;
+$h-color-text-form-element:                 $h-gray-900;
+$h-color-text-form-element-success:         $h-color-text-success;
+$h-color-text-form-element-error:           $h-color-text-error;
+$h-color-text-form-element-disabled:        $h-gray-400;
+$h-color-text-form-element-placeholder:     $h-color-text-lighter;
+$h-color-icon-checkbox-radio:               str-slice("#{$h-white}", 2);
+$h-color-icon-checkbox-radio-disabled:      str-slice("#{$h-gray-250}", 2);
+$h-color-background-form-element:           $h-color-background-shared-component;
+$h-color-background-form-element-alt:       $h-gray-25;
+$h-color-background-form-element-select:    $h-color-background-form-element-alt;
+$h-color-background-form-element-addon:     $h-color-background-form-element-alt;
+$h-color-background-form-element-file:      $h-color-background-form-element-alt;
+$h-color-background-form-element-disabled:  $h-gray-100;
+$h-color-border-form-element:               $h-gray-200;
+$h-color-border-form-element-focused:       $h-blue-300;
+$h-color-border-form-element-error:         $h-red-600;
+$h-color-box-shadow-form-element-focused:   $h-blue-100;
+$h-color-box-shadow-form-element-error:     $h-red-100;
 
 //  Box Model
-$h-form-element-label-spacing:              0.375rem;
-$h-form-element-check-spacing:              0.5rem;
-$h-form-group-spacing:                      1.5rem;
-$h-form-group-spacing--nested:              ($h-form-group-spacing * (2/3));
+$h-spacing-form-element-label:              0.375rem;
+$h-spacing-form-element-check:              0.5rem;
+$h-spacing-form-group:                      1.5rem;
+$h-spacing-form-group-nested:               ($h-spacing-form-group * (2/3));
 
-$h-form-element-line-height:                1.2857142857;
-$h-form-element-height:                     2rem;
+$h-line-height-form-element:                1.2857142857;
+$h-height-form-element:                     2rem;
 
-$h-form-element-padding-x:                  0.5rem;
-$h-form-element-padding-y:                  0.375rem;
-$h-form-element-border-radius:              $h-border-radius;
-$h-form-element-box-shadow-size:            0 0 0 0.1875rem;
-$h-form-element-box-shadow--focused:        $h-form-element-box-shadow-size $h-color-form-element-box-shadow--focused;
-$h-form-element-box-shadow--error:          $h-form-element-box-shadow-size $h-color-form-element-box-shadow--error;
-$h-checkbox-radio-spacing:                  0.5rem;
-$h-checkbox-radio-size:                     1.25rem;
-$h-checkbox-radio-size--sm:                 1rem;
-$h-checkbox-radio-size--lg:                 1.5rem;
-$h-checkbox-radio-scale-active:             1.125;
-$h-checkbox-scale-invisible:                0.35;
-$h-checkbox-scale-visible:                  0.7;
-$h-radio-scale-invisible:                   0.2;
-$h-radio-scale-visible:                     0.4444444444;
-$h-radio-scale-visible--sm:                 0.4285714286;
-$h-radio-scale-visible--lg:                 0.4545454545;
+$h-padding-x-form-element:                  0.5rem;
+$h-padding-y-form-element:                  0.375rem;
+$h-border-radius-form-element:              $h-border-radius;
+$h-box-shadow-size-form-element:            0 0 0 0.1875rem;
+$h-box-shadow-form-element-focused:         $h-box-shadow-size-form-element $h-color-box-shadow-form-element-focused;
+$h-box-shadow-form-element-error:           $h-box-shadow-size-form-element $h-color-box-shadow-form-element-error;
+
+$h-spacing-checkbox-radio:                  0.5rem;
+$h-size-checkbox-radio:                     1.25rem;
+$h-size-checkbox-radio-sm:                  1rem;
+$h-size-checkbox-radio-lg:                  1.5rem;
+$h-scale-checkbox-radio-active:             1.125;
+$h-scale-checkbox-invisible:                0.35;
+$h-scale-checkbox-visible:                  0.7;
+$h-scale-radio-invisible:                   0.2;
+$h-scale-radio-visible:                     0.4444444444;
+$h-scale-radio-visible-sm:                  0.4285714286;
+$h-scale-radio-visible-lg:                  0.4545454545;
 
 // Animation
-$h-form-element-animation-duration:         $h-animation-duration-sm;
-$h-checkbox-radio-animation-duration:       $h-animation-duration-xl;
+$h-animation-duration-form-element:         $h-animation-duration-sm;
+$h-animation-duration-checkbox-radio:       $h-animation-duration-xl;
 
 //  Modal
 //==========================================================================
 
 // Box Model
-$h-modal-width--mobile: calc(100vw - 2rem);
-$h-modal-width--desktop: 500px;
-$h-modal-width--desktop-sm: 360px;
-$h-modal-width--desktop-lg: 650px;
-$h-modal-min-height: $h-modal-width--desktop / 2;
-$h-modal-min-height--lg: $h-modal-width--desktop-lg / 2;
-$h-modal-padding: 1.5rem;
-$h-modal-border-radius: $h-shared-component-border-radius;
+$h-padding-modal: 1.5rem;
+$h-width-modal-mobile: calc(100vw - 2rem);
+$h-width-modal-desktop: 500px;
+$h-width-modal-desktop-sm: 360px;
+$h-width-modal-desktop-lg: 650px;
+$h-min-height-modal: $h-width-modal-desktop / 2;
+$h-min-height-modal-lg: $h-width-modal-desktop-lg / 2;
 
-$h-modal-box-shadow: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
+$h-box-shadow-modal: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
 
 // Table
 //==========================================================================
 
-$h-table-cell-spacing-x: 1rem;
-$h-table-cell-spacing-y: 0.5rem;
-$h-table-cell-spacing-dense-x: 0.5rem;
-$h-table-cell-spacing-dense-y: 0.25rem;
-$h-table-border-color: $h-shared-component-border-color;
-$h-table-border-radius: $h-shared-component-border-radius;
-$h-table-background-color: $h-shared-component-background-color;
-$h-table-background-color--hover: $h-blue-25;
-$h-table-header-background-color: $h-shared-component-background-color-secondary;
+// Box Model
+$h-spacing-x-table-cell: 1rem;
+$h-spacing-y-table-cell: 0.5rem;
+$h-spacing-x-dense-table-cell: 0.5rem;
+$h-spacing-y-dense-table-cell: 0.25rem;

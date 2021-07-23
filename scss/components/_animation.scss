@@ -5,7 +5,7 @@
 
 /*  When creating new keyframe animations be sure to add them to the
 appropriate sass map for animation names.  A variable should also be created
-via a map-get  This will ensure the animation names will be available as
+via a map-get. This will ensure the animation names will be available as
 variables and utility classes.  */
 
 @-webkit-keyframes h-fade-in {
@@ -93,5 +93,11 @@ variables and utility classes.  */
 
   to {
     opacity: 0;
+  }
+}
+
+@keyframes h-spin {
+  to {
+    transform: rotate(360deg);
   }
 }

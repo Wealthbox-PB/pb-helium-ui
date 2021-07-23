@@ -10,11 +10,12 @@
   border-radius: $h-border-radius !important;
 }
 
-//  Width
+//  Image
 //==========================================================================
 
-.h-min-width-0 {
-  min-width: 0 !important;
+.h-img-fluid {
+  max-width: 100%;
+  height: auto;
 }
 
 //  Overflow
@@ -25,7 +26,7 @@
 }
 
 .h-overflow-auto-sm-down {
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     overflow: auto !important;
   }
 }
@@ -60,4 +61,11 @@
 
 .h-overflow-y-scroll {
   overflow-y: scroll !important;
+}
+
+//  Width
+//==========================================================================
+
+.h-min-width-0 {
+  min-width: 0 !important;
 }

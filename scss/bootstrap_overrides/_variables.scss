@@ -1,6 +1,6 @@
 // Color Overrides
 $body-bg:          $h-gray-100;
-$body-color:       $h-color-text;
+$body-color:       $h-color-text-normal;
 $blue:             $h-blue-500;
 $green:            $h-green-500;
 $red:              $h-red-500;
@@ -15,6 +15,10 @@ $custom-select-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/
 
 // Layout
 $grid-gutter-width: 16px;
+
+// Link
+$link-decoration: none;
+$link-hover-decoration: underline;
 
 // Typography
 $font-size-base: $h-font-size-md;
