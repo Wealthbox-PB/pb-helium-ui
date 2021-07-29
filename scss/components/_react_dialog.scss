@@ -149,13 +149,13 @@ $h-dialog-max-height: calc(100vh - #{$h-dialog-padding});
   margin: 0;
   border-radius: $h-border-radius;
   box-shadow: none;
-  color: $h-color-text;
+  color: $h-color-text-normal;
   font-size: 1.5rem;
 
   @include h-form-element-transition();
 
   &:focus {
-    box-shadow: $h-form-element-box-shadow--focused;
+    box-shadow: $h-box-shadow-form-element-focused;
     outline: none;
   }
 }

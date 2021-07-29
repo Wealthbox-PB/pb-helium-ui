@@ -14,5 +14,5 @@ export const useScrollLock = (elementSelector: string, open: boolean) => {
     return () => {
       removeScrollLockSelector();
     }
-  },  [elementSelector, open])
+  }, [elementSelector, open])
 };
