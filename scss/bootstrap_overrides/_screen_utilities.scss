@@ -1,0 +1,68 @@
+@import "bootstrap/scss/utilities";
+
+// This file allows us to customize which bootstrap utilities we want to generate classes for
+$utilities: map-merge(
+  $utilities,
+  (
+    "overflow": null,
+    "shadow": null,
+    "top": null,
+    "bottom": null,
+    "start": null,
+    "end": null,
+    "translate-middle": null,
+    "border": null,
+    "border-top": null,
+    "border-end": null,
+    "border-bottom": null,
+    "border-start": null,
+    "border-color": null,
+    "border-width": null,
+    "viewport-width": null,
+    "min-viewport-width": null,
+    "height": null,
+    "max-height": null,
+    "viewport-height": null,
+    "min-viewport-height": null,
+    "gap": null,
+    "negative-margin": null,
+    "negative-margin-x": null,
+    "negative-margin-y": null,
+    "negative-margin-top": null,
+    "negative-margin-end": null,
+    "negative-margin-bottom": null,
+    "negative-margin-start": null,
+    "font-family": null,
+    "font-size": null,
+    "font-style": null,
+    "font-weight": null,
+    "line-height": null,
+    "text-decoration": null,
+    "text-transform": null,
+    "white-space": null,
+    "word-wrap": null,
+    "color": null,
+    "text-opacity": null,
+    "background-color": null,
+    "bg-opacity": null,
+    "gradient": null,
+    "user-select": null,
+    "pointer-events": null,
+    "rounded": (
+      property: border-radius,
+      class: rounded,
+      values: (
+        null: $border-radius,
+        0: 0,
+        circle: 50%,
+      )
+    ),
+    "rounded-top": null,
+    "rounded-end": null,
+    "rounded-bottom": null,
+    "rounded-start": null
+  ),
+);
+
+@import "bootstrap/scss/helpers/visually-hidden";
+@import "bootstrap/scss/utilities/api";
