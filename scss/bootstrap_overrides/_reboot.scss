@@ -1,3 +1,5 @@
+@import "bootstrap/scss/reboot";
+
 // We need to override this ruleset from bootstrap's reboot
 // because we have multiple instances of a tags that are not being used correctly and do not have
 
