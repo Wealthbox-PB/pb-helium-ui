@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2021-08-27
+### Changed
+- Selectively imported bootstrap 5 utilities for use instead of bringing in every utility
+  - Imported utilities for screen and print in separate bootstrap override utility files, and imported
+  bootstrap utility files inside these files
+- Imported bootstrap's reboot in a separate bootstrap override file which includes helium-ui specific
+overrides for anchor tags without `href` or `class` attributes.
+
 ## [2.0.0] - 2021-07-23
 - This is a major release version, which introduces breaking changes from v1.x.  Please view the changelog,
 the full [PR](https://github.com/starburstlabs/helium-ui/pull/33/commits), and the
