@@ -4,7 +4,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2021-07-23
+- This is a major release version, which introduces breaking changes from v1.x.  Please view the changelog,
+the full [PR](https://github.com/starburstlabs/helium-ui/pull/33/commits), and the
+[Bootstrap 5 Migration Guide](https://getbootstrap.com/docs/5.0/migration/) for more information.
+
+### Changed
+- Updated to bootstrap version 5 from bootstrap version 4
+- Updated helium-ui variable names to follow $h-property-modifier style for consistent naming
+- Updated helium shared components to use shared component variables
+- Removed any instance of -- in variable names as we do not use BEM in variable names
+- Removed bootstrap root.scss file that was not in use
+
+### Added
+- Added initial js dependencies/configs to prep for react/ts components and testing/linting
+- Added custom React `HeliumSpinner` Component from crm-web
+- Added simple build for distributing components
+- Added `.h-img-fluid` and `.h-background-none` helper classes
+
 ## [1.0.43] - 2021-06-11
+### Added
 - Added padding to table rows using `.h-table--untable` modifier
 
 ### Changed
