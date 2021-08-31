@@ -232,6 +232,18 @@
               & > th,
               & > .h-table__heading {
                 border-bottom: 1px solid $h-color-border-shared-component;
+                // We have some special cases, like our financial account tables, where we use headings inside
+                // the tbody. These headings are typically describing one horizontal row, and as a result
+                // we need to keep the headings on mobile to give the user context as to what the row
+                // represents. Since these headings have their own padding, we want to avoid the extra
+                // padding we get on tr elements by default inside the "untable" modifier.
+                margin-top: $h-spacing-y-table-cell * -1;
+
+                & + td,
+                & + .h-table__data {
+                  margin-bottom: $h-spacing-y-table-cell;
+                }
+                // End comment
 
                 &:last-child {
                   border-bottom: 0;
