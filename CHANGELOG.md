@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   bootstrap utility files inside these files
 - Imported bootstrap's reboot in a separate bootstrap override file which includes helium-ui specific
 overrides for anchor tags without `href` or `class` attributes.
+- Updated `.h-table--untable` modifier class to account for padding on headings inside the tbody element
+- Updated `.h-table--untable` modifier class to account for only-child use case
+
+### Added
+- Added `.h-table--overflow-x` modifier to allow horizontal overflow on certain tables
 
 ## [2.0.0] - 2021-07-23
 - This is a major release version, which introduces breaking changes from v1.x.  Please view the changelog,
