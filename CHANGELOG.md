@@ -17,7 +17,8 @@ overrides for anchor tags without `href` or `class` attributes.
 ### Added
 - Added `.h-table--overflow-x` modifier to allow horizontal overflow on certain tables
 - Added `$h-color-active` and `$h-color-background-active` semantic color variables for active state
-- Create `.h-color-background-active-hover` utility class for active state background when hovering
+- Added `.h-color-background-active-hover` utility class for active state background when hovering
+- Added `.h-text-decoration-none` utility
 
 ### Removed
 - Removed `$h-color-background-active-shared-component` and updated instances to use `$h-color-background-active`
