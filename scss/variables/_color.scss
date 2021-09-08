@@ -209,6 +209,7 @@ $h-white: map-get($h-colors-raw, white);
 $h-color-brand: $h-blue-500;
 $h-color-success: $h-green-500;
 $h-color-error: $h-red-600;
+$h-color-active: $h-blue-25;
 
 //  Text Semantic Color Palette
 //==========================================================================
@@ -245,9 +246,11 @@ $h-color-heading:      map-get($h-colors-text-semantic, heading);
 $h-colors-background-semantic: (
   success: $h-color-success,
   error:   $h-color-error,
-  brand:   $h-color-brand
+  brand:   $h-color-brand,
+  active:  $h-color-active
 );
 
 $h-color-background-success: map-get($h-colors-background-semantic, success);
 $h-color-background-error:   map-get($h-colors-background-semantic, error);
 $h-color-background-brand:   map-get($h-colors-background-semantic, brand);
+$h-color-background-active:  map-get($h-colors-background-semantic, active);
