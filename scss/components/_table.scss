@@ -534,7 +534,7 @@
           & > tr,
           & > .h-table__row {
             &:hover {
-              background: $h-color-background-active-shared-component;
+              background: $h-color-background-active;
               cursor: pointer;
             }
           }
@@ -545,13 +545,13 @@
     .h-table__row--hover,
     .h-table__cell--hover {
       &:hover {
-        background: $h-color-background-active-shared-component;
+        background: $h-color-background-active;
       }
     }
 
     .h-table__row--active,
     .h-table__cell--active {
-      background: $h-color-background-active-shared-component;
+      background: $h-color-background-active;
     }
 
     th,
