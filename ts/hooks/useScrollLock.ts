@@ -4,7 +4,7 @@ export const useScrollLock = (elementSelector: string, open: boolean) => {
   useEffect(() => {
     const element = document.querySelector(elementSelector);
     const removeScrollLockSelector = () => element?.classList.remove(scrollLockSelector);
-    const scrollLockSelector: string = `h-scroll-lock`;
+    const scrollLockSelector: string = `h-overflow-hidden`;
     if (open) {
       element?.classList.add(scrollLockSelector);
     }
