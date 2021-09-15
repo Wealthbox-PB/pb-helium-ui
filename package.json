@@ -2,7 +2,7 @@
   "name": "helium-ui",
   "version": "2.0.1",
   "description": "Design system and component library for Starburst Labs, Inc.",
-  "main": "dist/js/index.js",
+  "main": "dist/js/index",
   "repository": "git@github.com:starburstlabs/helium-ui.git",
   "author": [
     "Trevor Reiff <trevorreiff@gmail.com>",
