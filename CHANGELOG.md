@@ -19,6 +19,7 @@ overrides for anchor tags without `href` or `class` attributes.
 - Added `$h-color-active` and `$h-color-background-active` semantic color variables for active state
 - Added `.h-color-background-active-hover` utility class for active state background when hovering
 - Added `.h-text-decoration-none` utility
+- Added `.h-text-decoration-underline` utility
 
 ### Removed
 - Removed `$h-color-background-active-shared-component` and updated instances to use `$h-color-background-active`
