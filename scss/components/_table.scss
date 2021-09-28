@@ -232,6 +232,18 @@
               & > th,
               & > .h-table__heading {
                 border-bottom: 1px solid $h-color-border-shared-component;
+                // We have some special cases, like our financial account tables, where we use headings inside
+                // the tbody. These headings are typically describing one horizontal row, and as a result
+                // we need to keep the headings on mobile to give the user context as to what the row
+                // represents. Since these headings have their own padding, we want to avoid the extra
+                // padding we get on tr elements by default inside the "untable" modifier.
+                margin-top: $h-spacing-y-table-cell * -1;
+
+                & + td,
+                & + .h-table__data {
+                  margin-bottom: $h-spacing-y-table-cell;
+                }
+                // End comment
 
                 &:last-child {
                   border-bottom: 0;
@@ -261,6 +273,24 @@
                 & > .h-table__data {
                   &:first-child {
                     border-radius: 0;
+                  }
+
+                  &:last-child {
+                    border-radius: 0 0 $h-border-radius-shared-component $h-border-radius-shared-component;
+                  }
+                }
+              }
+
+              &:only-child {
+                border-top: 0;
+                border-radius: $h-border-radius-shared-component;
+
+                & > th,
+                & > .h-table__heading,
+                & > td,
+                & > .h-table__data {
+                  &:first-child {
+                    border-radius: $h-border-radius-shared-component $h-border-radius-shared-component 0 0;
                   }
 
                   &:last-child {
@@ -481,6 +511,22 @@
       }
     }
 
+    &.h-table--overflow-x {
+      overflow-x: auto;
+
+      & > .h-table__table {
+        table-layout: auto;
+        word-break: normal;
+
+        th,
+        .h-table__heading,
+        td,
+        .h-table__data {
+          white-space: nowrap;
+        }
+      }
+    }
+
     &.h-table--hover {
       & > .h-table__table {
         & > tbody,
@@ -488,7 +534,7 @@
           & > tr,
           & > .h-table__row {
             &:hover {
-              background: $h-color-background-active-shared-component;
+              background: $h-color-background-active;
               cursor: pointer;
             }
           }
@@ -499,13 +545,13 @@
     .h-table__row--hover,
     .h-table__cell--hover {
       &:hover {
-        background: $h-color-background-active-shared-component;
+        background: $h-color-background-active;
       }
     }
 
     .h-table__row--active,
     .h-table__cell--active {
-      background: $h-color-background-active-shared-component;
+      background: $h-color-background-active;
     }
 
     th,

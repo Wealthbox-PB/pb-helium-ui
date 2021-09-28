@@ -1,0 +1,222 @@
+@import "bootstrap/scss/utilities";
+
+// This file allows us to customize which bootstrap utilities we want to generate classes for
+$utilities: map-merge(
+  $utilities,
+  (
+    "float": (
+      responsive: false,
+      property: float,
+      values: (
+        start: left,
+        end: right,
+        none: none,
+      )
+    ),
+    "opacity": null,
+    "overflow": null,
+    "display": (
+      responsive: false,
+      print: true,
+      property: display,
+      class: d,
+      values: inline inline-block block grid table table-row table-cell flex inline-flex none
+    ),
+    "shadow": null,
+    "top": null,
+    "bottom": null,
+    "start": null,
+    "end": null,
+    "translate-middle": null,
+    "border": null,
+    "border-top": null,
+    "border-end": null,
+    "border-bottom": null,
+    "border-start": null,
+    "border-color": null,
+    "border-width": null,
+    "viewport-width": null,
+    "min-viewport-width": null,
+    "viewport-height": null,
+    "min-viewport-height": null,
+    "flex": (
+      responsive: false,
+      property: flex,
+      values: (fill: 1 1 auto)
+    ),
+    "flex-direction": (
+      responsive: false,
+      property: flex-direction,
+      class: flex,
+      values: row column row-reverse column-reverse
+    ),
+    "flex-grow": (
+      responsive: false,
+      property: flex-grow,
+      class: flex,
+      values: (
+        grow-0: 0,
+        grow-1: 1,
+      )
+    ),
+    "flex-shrink": (
+      responsive: false,
+      property: flex-shrink,
+      class: flex,
+      values: (
+        shrink-0: 0,
+        shrink-1: 1,
+      )
+    ),
+    "flex-wrap": (
+      responsive: false,
+      property: flex-wrap,
+      class: flex,
+      values: wrap nowrap wrap-reverse
+    ),
+    "gap": null,
+    "justify-content": null,
+    "align-items": null,
+    "align-content": null,
+    "align-self": null,
+    "order": (
+      responsive: false,
+      property: order,
+      values: (
+        first: -1,
+        0: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        last: 6,
+      ),
+    ),
+    "margin": (
+      responsive: false,
+      property: margin,
+      class: m,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-x": (
+      responsive: false,
+      property: margin-right margin-left,
+      class: mx,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-y": (
+      responsive: false,
+      property: margin-top margin-bottom,
+      class: my,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-top": (
+      responsive: false,
+      property: margin-top,
+      class: mt,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-end": (
+      responsive: false,
+      property: margin-right,
+      class: me,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-bottom": (
+      responsive: false,
+      property: margin-bottom,
+      class: mb,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-start": (
+      responsive: false,
+      property: margin-left,
+      class: ms,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "negative-margin": null,
+    "negative-margin-x": null,
+    "negative-margin-y": null,
+    "negative-margin-top": null,
+    "negative-margin-end": null,
+    "negative-margin-bottom": null,
+    "negative-margin-start": null,
+    "padding": (
+      responsive: false,
+      property: padding,
+      class: p,
+      values: $spacers
+    ),
+    "padding-x": (
+      responsive: false,
+      property: padding-right padding-left,
+      class: px,
+      values: $spacers
+    ),
+    "padding-y": (
+      responsive: false,
+      property: padding-top padding-bottom,
+      class: py,
+      values: $spacers
+    ),
+    "padding-top": (
+      responsive: false,
+      property: padding-top,
+      class: pt,
+      values: $spacers
+    ),
+    "padding-end": (
+      responsive: false,
+      property: padding-right,
+      class: pe,
+      values: $spacers
+    ),
+    "padding-bottom": (
+      responsive: false,
+      property: padding-bottom,
+      class: pb,
+      values: $spacers
+    ),
+    "padding-start": (
+      responsive: false,
+      property: padding-left,
+      class: ps,
+      values: $spacers
+    ),
+    "font-family": null,
+    "font-size": null,
+    "font-style": null,
+    "font-weight": null,
+    "line-height": null,
+    "text-align": (
+      responsive: false,
+      property: text-align,
+      class: text,
+      values: (
+        start: left,
+        end: right,
+        center: center,
+      )
+    ),
+    "text-decoration": null,
+    "text-transform": null,
+    "white-space": null,
+    "word-wrap": null,
+    "color": null,
+    "text-opacity": null,
+    "background-color": null,
+    "bg-opacity": null,
+    "gradient": null,
+    "user-select": null,
+    "pointer-events": null,
+    "rounded": null,
+    "rounded-top": null,
+    "rounded-end": null,
+    "rounded-bottom": null,
+    "rounded-start": null,
+  )
+);
+
+@import "bootstrap/scss/helpers/visually-hidden";
+@import "bootstrap/scss/utilities/api";

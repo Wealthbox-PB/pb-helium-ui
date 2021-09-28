@@ -9,20 +9,14 @@
 @import "variables";
 @import "mixins";
 
-// Helium Bootstrap Variable Overrides
+// Helium and Bootstrap Imports
 //==========================================================================
 
 @import "bootstrap_overrides/variables";
-
-// Bootstrap
-//==========================================================================
-
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
-@import "bootstrap/scss/helpers/visually-hidden";
-@import "bootstrap/scss/reboot";
+@import "bootstrap_overrides/screen_utilities";
+@import "bootstrap_overrides/reboot";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
-@import "bootstrap/scss/utilities/api";

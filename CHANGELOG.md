@@ -4,7 +4,46 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2021-08-27
+### Changed
+- Selectively imported bootstrap 5 utilities for use instead of bringing in every utility
+  - Imported utilities for screen and print in separate bootstrap override utility files, and imported
+  bootstrap utility files inside these files
+- Imported bootstrap's reboot in a separate bootstrap override file which includes helium-ui specific
+overrides for anchor tags without `href` or `class` attributes.
+- Updated `.h-table--untable` modifier class to account for padding on headings inside the tbody element
+- Updated `.h-table--untable` modifier class to account for only-child use case
+
+### Added
+- Added `.h-table--overflow-x` modifier to allow horizontal overflow on certain tables
+- Added `$h-color-active` and `$h-color-background-active` semantic color variables for active state
+- Added `.h-color-background-active-hover` utility class for active state background when hovering
+- Added `.h-text-decoration-none` utility
+- Added `.h-text-decoration-underline` utility
+
+### Removed
+- Removed `$h-color-background-active-shared-component` and updated instances to use `$h-color-background-active`
+
+## [2.0.0] - 2021-07-23
+- This is a major release version, which introduces breaking changes from v1.x.  Please view the changelog,
+the full [PR](https://github.com/starburstlabs/helium-ui/pull/33/commits), and the
+[Bootstrap 5 Migration Guide](https://getbootstrap.com/docs/5.0/migration/) for more information.
+
+### Changed
+- Updated to bootstrap version 5 from bootstrap version 4
+- Updated helium-ui variable names to follow $h-property-modifier style for consistent naming
+- Updated helium shared components to use shared component variables
+- Removed any instance of -- in variable names as we do not use BEM in variable names
+- Removed bootstrap root.scss file that was not in use
+
+### Added
+- Added initial js dependencies/configs to prep for react/ts components and testing/linting
+- Added custom React `HeliumSpinner` Component from crm-web
+- Added simple build for distributing components
+- Added `.h-img-fluid` and `.h-background-none` helper classes
+
 ## [1.0.43] - 2021-06-11
+### Added
 - Added padding to table rows using `.h-table--untable` modifier
 
 ### Changed

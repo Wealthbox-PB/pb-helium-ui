@@ -39,6 +39,14 @@
   }
 }
 
+.h-color-background-active-hover {
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $h-color-background-active !important;
+  }
+}
+
 //  Background None
 //==========================================================================
 
