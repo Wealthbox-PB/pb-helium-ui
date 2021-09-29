@@ -570,6 +570,12 @@
   .h-table {
     border: 1px solid $h-color-border-print;
 
+    &.h-table--print-layout-fixed {
+      & > .h-table__table {
+        table-layout: fixed;
+      }
+    }
+
     thead,
     .h-table__header {
       tr,
