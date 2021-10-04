@@ -35,6 +35,7 @@ the full [PR](https://github.com/starburstlabs/helium-ui/pull/33/commits), and t
 - Updated helium shared components to use shared component variables
 - Removed any instance of -- in variable names as we do not use BEM in variable names
 - Removed bootstrap root.scss file that was not in use
+- Renamed `$h-color-text` to `$h-color-text-normal`
 
 ### Added
 - Added initial js dependencies/configs to prep for react/ts components and testing/linting
