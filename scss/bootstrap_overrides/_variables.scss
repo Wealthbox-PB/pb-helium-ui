@@ -22,6 +22,7 @@ $link-hover-decoration: underline;
 
 // Typography
 $font-size-base: $h-font-size-md;
+$enable-rfs: false;
 
 :root {
   --bs-font-sans-serif: #{$h-font-family-default};
