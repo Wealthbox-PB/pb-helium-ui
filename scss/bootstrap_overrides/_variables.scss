@@ -22,3 +22,8 @@ $link-hover-decoration: underline;
 
 // Typography
 $font-size-base: $h-font-size-md;
+
+:root {
+  --bs-font-sans-serif: #{$h-font-family-default};
+  --bs-font-monospace: #{$h-font-family-mono};
+}
