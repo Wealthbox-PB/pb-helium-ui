@@ -411,6 +411,16 @@
         .h-table__body {
           tr,
           .h-table__row {
+            &.h-table__row--mobile-first-visible-row {
+              border-top-left-radius: $h-border-radius-shared-component;
+              border-top-right-radius: $h-border-radius-shared-component;
+            }
+
+            &.h-table__row--mobile-last-visible-row {
+              border-bottom-left-radius: $h-border-radius-shared-component;
+              border-bottom-right-radius: $h-border-radius-shared-component;
+            }
+
             &:last-child {
               .h-table__data--mobile-first-visible-column {
                 border-bottom-left-radius: $h-border-radius-shared-component;

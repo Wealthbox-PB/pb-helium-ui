@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated `--bs-font-sans-serif` and `--bs-font-monospace` bootstrap variables to use helium-ui variables by default.
+- Updated `.h-table__row--mobile-first-visible-row` and `.h-table__row--mobile-last-visible-row` rulesets to work with and without parent `.h-table--untable` modifier class.
 
 ## [2.0.1] - 2021-08-27
 ### Changed
