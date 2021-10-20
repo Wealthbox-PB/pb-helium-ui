@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.2] - 2021-09-28
 ### Added
 - Added `.h-table--print-layout-fixed` modifier for more consistent printing of data dense tables.
+- Added custom text-align print only utilities via bootstrap utilities api.
 
 ### Changed
 - Updated `--bs-font-sans-serif` and `--bs-font-monospace` bootstrap variables to use helium-ui variables by default.
 - Updated `.h-table__row--mobile-first-visible-row` and `.h-table__row--mobile-last-visible-row` rulesets to work with and without parent `.h-table--untable` modifier class.
+- Updated existing text-align print utilities to now be responsive.
 
 ## [2.0.1] - 2021-08-27
 ### Changed

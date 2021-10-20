@@ -190,9 +190,19 @@ $utilities: map-merge(
     "font-weight": null,
     "line-height": null,
     "text-align": (
-      responsive: false,
+      responsive: true,
       property: text-align,
       class: text,
+      values: (
+        start: left,
+        end: right,
+        center: center,
+      )
+    ),
+    "text-align-print": (
+      responsive: false,
+      property: text-align,
+      class: text-print,
       values: (
         start: left,
         end: right,
