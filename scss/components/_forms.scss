@@ -604,6 +604,16 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       z-index: 3;
     }
 
+    &.h-input--error {
+      & ~ .h-input-group__append .h-input-group__content {
+        border-color: $h-color-border-form-element-error;
+
+        &:focus {
+          @include h-form-element-focus-error();
+        }
+      }
+    }
+
     &:not(:first-child) {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
