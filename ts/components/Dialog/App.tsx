@@ -25,8 +25,6 @@ function App() {
       </HeliumDialog>
 
       <HeliumDialog
-        hasHeader={false}
-        hasFooter={false}
         size={"small"}
         position={"bottom center"}
         open={is2ndDialogOpen}

@@ -10,7 +10,7 @@ function App() {
         React.createElement(HeliumDialog, { header: "Test Modal", initialFocusEl: ".h-btn--init-focus", open: isDialogOpen, closeDialog: closeDialog, submitHandler: function () { return console.log("I submit!"); } },
             React.createElement("p", null,
                 React.createElement("button", { className: "h-btn h-btn--primary h-btn--init-focus", onClick: function () { return setIs2ndDialogOpen(!is2ndDialogOpen); } }, "Launch 2nd Modal"))),
-        React.createElement(HeliumDialog, { hasHeader: false, hasFooter: false, size: "small", position: "bottom center", open: is2ndDialogOpen, closeDialog: close2ndDialog, footerBackground: false, submitHandler: function () { return console.log("I submit!"); } },
+        React.createElement(HeliumDialog, { size: "small", position: "bottom center", open: is2ndDialogOpen, closeDialog: close2ndDialog, footerBackground: false, submitHandler: function () { return console.log("I submit!"); } },
             React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."),
             React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."))));
 }

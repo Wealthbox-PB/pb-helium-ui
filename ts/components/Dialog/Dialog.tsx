@@ -15,14 +15,11 @@ interface HeliumDialogProps {
   initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
   closeDialog: () => void;
   submitHandler?: () => void;
-  hasHeader?: boolean;
   header?: string | JSX.Element[] | JSX.Element;
   headerClass?: string;
   closeInHeader?: boolean;
-  hasBody?: boolean;
   bodyClass?: string;
   children: string | JSX.Element[] | JSX.Element;
-  hasFooter?: boolean;
   footer?: string | JSX.Element[] | JSX.Element;
   footerBackground?: boolean;
 }
@@ -39,14 +36,11 @@ const HeliumDialog = ({
   initialFocusEl,
   closeDialog,
   submitHandler,
-  hasHeader = true,
   header,
   headerClass,
   closeInHeader = true,
-  hasBody = true,
   bodyClass,
   children,
-  hasFooter = true,
   footer,
   footerBackground = true
 }: HeliumDialogProps) => {
@@ -101,7 +95,7 @@ const HeliumDialog = ({
                  aria-labelledby={ariaLabelSelector}
                  aria-describedby={ariaDescriptionSelector}
             >
-              { hasHeader &&
+              { header &&
                 <HeliumDialogHeader
                   headerClass={headerClass}
                   isModalDialog={isModalDialog}
@@ -112,12 +106,10 @@ const HeliumDialog = ({
                   {header}
                 </HeliumDialogHeader>
               }
-              { hasBody &&
-                <HeliumDialogBody bodyClass={bodyClass} ariaDescriptionSelector={ariaDescriptionSelector}>
-                  {children}
-                </HeliumDialogBody>
-              }
-              { hasFooter &&
+              <HeliumDialogBody bodyClass={bodyClass} ariaDescriptionSelector={ariaDescriptionSelector}>
+                {children}
+              </HeliumDialogBody>
+              { footer &&
                 <HeliumDialogFooter
                   closeDialog={closeDialog}
                   submitHandler={submitHandler}
