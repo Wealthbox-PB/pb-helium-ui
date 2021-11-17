@@ -7,5 +7,5 @@ interface HeliumDialogHeaderProps {
     closeDialog?: () => void;
     closeInHeader?: boolean;
 }
-declare const HeliumDialogHeader: ({ headerClass, ariaLabelSelector, isModalDialog, children, closeDialog, closeInHeader }: HeliumDialogHeaderProps) => JSX.Element;
+declare const HeliumDialogHeader: ({ headerClass, ariaLabelSelector, isModalDialog, children, closeDialog, closeInHeader, }: HeliumDialogHeaderProps) => JSX.Element;
 export { HeliumDialogHeader };

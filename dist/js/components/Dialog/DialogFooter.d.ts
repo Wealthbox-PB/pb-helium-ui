@@ -6,5 +6,5 @@ interface HeliumDialogFooterProps {
     closeDialog: () => void;
     submitHandler?: () => void;
 }
-declare const HeliumDialogFooter: ({ children, footerBackground, footerClass, closeDialog, submitHandler }: HeliumDialogFooterProps) => JSX.Element;
+declare const HeliumDialogFooter: ({ children, footerBackground, footerClass, closeDialog, submitHandler, }: HeliumDialogFooterProps) => JSX.Element;
 export { HeliumDialogFooter };

@@ -25,7 +25,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['@typescript-eslint', 'prettier', 'react-hooks', 'jsx-a11y'],
+  plugins: ['@typescript-eslint', 'react-hooks', 'jsx-a11y', 'prettier'],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
@@ -53,7 +53,7 @@ module.exports = {
         ignoreRegExpLiterals: true
       }
     ],
-    'max-lines': ['error', 375],
+    'max-lines': ['error', 400],
     'max-nested-callbacks': ['error', 7],
     'max-params': ['error', 8],
     'max-statements': ['error', 45],
@@ -79,7 +79,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*-spec.js', '*.tsx'],
+      files: ['*-spec.js', '*.tsx', '**/types.ts'],
       rules: {
         'max-lines': 'off',
         'max-lines-per-function': 'off'

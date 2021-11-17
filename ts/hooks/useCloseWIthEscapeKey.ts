@@ -1,11 +1,15 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-export const useCloseWithEscapeKey = (keyDownTargetRef: React.MutableRefObject<HTMLElement | null>, closeCallback: () => void, open: boolean) => {
+export const useCloseWithEscapeKey = (
+  keyDownTargetRef: React.MutableRefObject<HTMLElement | null>,
+  closeCallback: () => void,
+  open: boolean
+) => {
   const handleEscapeKeyPress = (event: KeyboardEvent) => {
     if (event.key === `Escape`) {
       return closeCallback();
     }
-  }
+  };
   useEffect(() => {
     const ref = keyDownTargetRef.current;
     if (open) {
@@ -13,6 +17,6 @@ export const useCloseWithEscapeKey = (keyDownTargetRef: React.MutableRefObject<H
     }
     return () => {
       ref?.removeEventListener(`keydown`, handleEscapeKeyPress);
-    }
+    };
   });
-}
+};

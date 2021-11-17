@@ -1,5 +1,5 @@
-import { useEffect, useMemo } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 
 interface HeliumDialogPortalProps {
   children: string | JSX.Element[] | JSX.Element;
@@ -7,7 +7,7 @@ interface HeliumDialogPortalProps {
 
 const portalRoot = (): HTMLElement => document.body;
 
-const HeliumDialogPortal  = ({ children }: HeliumDialogPortalProps) => {
+const HeliumDialogPortal = ({ children }: HeliumDialogPortalProps) => {
   const el = useMemo(() => document.createElement(`div`), []);
   el.className = `h-react-dialog-portal`;
 
@@ -19,6 +19,6 @@ const HeliumDialogPortal  = ({ children }: HeliumDialogPortalProps) => {
   }, [el]);
 
   return createPortal(children, el);
-}
+};
 
-export { HeliumDialogPortal } ;
+export { HeliumDialogPortal };

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { HeliumDialog } from "./Dialog";
+import React, { useState } from 'react';
+import { HeliumDialog } from './Dialog';
 
 function App() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -10,39 +10,48 @@ function App() {
 
   return (
     <div className="App">
-      <button className="h-btn h-btn--primary" onClick={() => setIsDialogOpen(!isDialogOpen)}>Toggle Modal</button>
+      <button className="h-btn h-btn--primary" onClick={() => setIsDialogOpen(!isDialogOpen)}>
+        Toggle Modal
+      </button>
 
       <HeliumDialog
-        header={"Test Modal"}
-        initialFocusEl={".h-btn--init-focus"}
+        header={`Test Modal`}
+        initialFocusEl={`.h-btn--init-focus`}
         open={isDialogOpen}
         closeDialog={closeDialog}
-        submitHandler={() => console.log("I submit!")}
+        submitHandler={() => console.log(`I submit!`)} // eslint-disable-line no-console
       >
         <p>
-          <button className="h-btn h-btn--primary h-btn--init-focus" onClick={() => setIs2ndDialogOpen(!is2ndDialogOpen)}>Launch 2nd Modal</button>
+          <button
+            className="h-btn h-btn--primary h-btn--init-focus"
+            onClick={() => setIs2ndDialogOpen(!is2ndDialogOpen)}
+          >
+            Launch 2nd Modal
+          </button>
         </p>
       </HeliumDialog>
 
       <HeliumDialog
-        size={"small"}
-        position={"bottom center"}
+        size={`small`}
+        position={`bottom center`}
         open={is2ndDialogOpen}
         closeDialog={close2ndDialog}
         footerBackground={false}
-        submitHandler={() => console.log("I submit!")}
+        submitHandler={() => console.log(`I submit!`)} // eslint-disable-line no-console
       >
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </HeliumDialog>
     </div>
   );
 }
 
-export default App;
+export { App };

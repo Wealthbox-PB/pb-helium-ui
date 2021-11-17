@@ -8,11 +8,7 @@ interface HeliumSpinnerProps {
   size?: string;
 }
 
-const HeliumSpinner = ({
-  modifierClass,
-  screenReaderText = "Loading",
-  size,
-}: HeliumSpinnerProps) => (
+const HeliumSpinner = ({ modifierClass, screenReaderText = `Loading`, size }: HeliumSpinnerProps) => (
   <div
     className={classNames(
       `h-spinner`,

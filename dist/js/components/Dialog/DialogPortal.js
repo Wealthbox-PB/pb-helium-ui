@@ -1,5 +1,5 @@
-import { useEffect, useMemo } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 var portalRoot = function () { return document.body; };
 var HeliumDialogPortal = function (_a) {
     var children = _a.children;

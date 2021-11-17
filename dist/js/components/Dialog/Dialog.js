@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 import * as focusTrap from 'focus-trap';
-import { useCloseWithEscapeKey } from "../../hooks/useCloseWithEscapeKey";
-import { useScrollLock } from "../../hooks/useScrollLock";
-import { HeliumDialogPortal } from "./DialogPortal";
-import { HeliumDialogHeader } from "./DialogHeader";
-import { HeliumDialogBody } from "./DialogBody";
-import { HeliumDialogFooter } from "./DialogFooter";
+import { useCloseWithEscapeKey } from '../../hooks/useCloseWithEscapeKey';
+import { useScrollLock } from '../../hooks/useScrollLock';
+import { HeliumDialogPortal } from './DialogPortal';
+import { HeliumDialogHeader } from './DialogHeader';
+import { HeliumDialogBody } from './DialogBody';
+import { HeliumDialogFooter } from './DialogFooter';
 var dialogSelectorPrefix = "h-react-dialog";
 var ariaSelectorPrefix = dialogSelectorPrefix + "-aria";
 var dialogEl = dialogSelectorPrefix + "__el";
@@ -17,9 +17,9 @@ var HeliumDialog = function (_a) {
     var dialogSelectorSuffix = Math.floor(Math.random() * 10000);
     var ariaLabelSelector = createSelector(ariaSelectorPrefix, "label", dialogSelectorSuffix);
     var ariaDescriptionSelector = createSelector(ariaSelectorPrefix, "description", dialogSelectorSuffix);
-    var uniqueDialogWrapperEl = dialogSelectorPrefix + "-" + dialogSelectorSuffix;
+    var uniqueDialogWrapperEl = "s" + dialogSelectorPrefix + "-" + dialogSelectorSuffix;
     var uniqueDialogEl = "." + uniqueDialogWrapperEl + " ." + dialogEl;
-    var getDialogAriaRole = function (isModalDialog) { return isModalDialog ? "dialog" : "alertdialog"; };
+    var getDialogAriaRole = function (isModalDialog) { return (isModalDialog ? "dialog" : "alertdialog"); };
     useScrollLock("html", open);
     useCloseWithEscapeKey(wrapperRef, closeDialog, open);
     useEffect(function () {
@@ -27,48 +27,48 @@ var HeliumDialog = function (_a) {
             return;
         }
         else {
-            var trapOptions = { allowOutsideClick: true, fallbackFocus: uniqueDialogEl, initialFocus: initialFocusEl };
+            var trapOptions = {
+                allowOutsideClick: true,
+                fallbackFocus: uniqueDialogEl,
+                initialFocus: initialFocusEl,
+            };
             var trap_1 = focusTrap.createFocusTrap(uniqueDialogEl, trapOptions);
             trap_1.activate();
             return function () {
                 trap_1.deactivate();
             };
         }
-        ;
     }, [uniqueDialogEl, initialFocusEl]);
     useEffect(function () {
         var ref = wrapperRef.current;
         ref === null || ref === void 0 ? void 0 : ref.classList.add("h-react-dialog--open");
         return function () { return ref === null || ref === void 0 ? void 0 : ref.classList.remove("h-react-dialog--open"); };
     });
-    return (React.createElement(React.Fragment, null, open &&
-        React.createElement(HeliumDialogPortal, null,
-            React.createElement("div", { ref: wrapperRef, className: "h-react-dialog " + uniqueDialogWrapperEl + " " + getDialogSize(size) + " " + getDialogPosition(position), "aria-modal": "true", role: "dialog" },
-                React.createElement("div", { className: "h-react-dialog__backdrop", onClick: closeDialog }),
-                React.createElement("div", { ref: dialogRef, tabIndex: -1, className: dialogEl, role: getDialogAriaRole(isModalDialog), "aria-labelledby": ariaLabelSelector, "aria-describedby": ariaDescriptionSelector },
-                    header &&
-                        React.createElement(HeliumDialogHeader, { headerClass: headerClass, isModalDialog: isModalDialog, closeDialog: closeDialog, closeInHeader: closeInHeader, ariaLabelSelector: ariaLabelSelector }, header),
-                    React.createElement(HeliumDialogBody, { bodyClass: bodyClass, ariaDescriptionSelector: ariaDescriptionSelector }, children),
-                    footer &&
-                        React.createElement(HeliumDialogFooter, { closeDialog: closeDialog, submitHandler: submitHandler, footerBackground: footerBackground }, footer))))));
+    return (React.createElement(React.Fragment, null, open && (React.createElement(HeliumDialogPortal, null,
+        React.createElement("div", { ref: wrapperRef, className: "h-react-dialog " + uniqueDialogWrapperEl + " " + getDialogSize(size) + " " + getDialogPosition(position), "aria-modal": "true", role: "dialog" },
+            React.createElement("button", { className: "h-react-dialog__backdrop", onClick: closeDialog }),
+            React.createElement("div", { ref: dialogRef, tabIndex: -1, className: dialogEl, role: getDialogAriaRole(isModalDialog), "aria-labelledby": ariaLabelSelector, "aria-describedby": ariaDescriptionSelector },
+                header && (React.createElement(HeliumDialogHeader, { headerClass: headerClass, isModalDialog: isModalDialog, closeDialog: closeDialog, closeInHeader: closeInHeader, ariaLabelSelector: ariaLabelSelector }, header)),
+                React.createElement(HeliumDialogBody, { bodyClass: bodyClass, ariaDescriptionSelector: ariaDescriptionSelector }, children),
+                footer && (React.createElement(HeliumDialogFooter, { closeDialog: closeDialog, submitHandler: submitHandler, footerBackground: footerBackground }, footer))))))));
 };
 function createSelector(prefix, type, suffix) {
     return prefix + "-" + type + "-" + suffix;
 }
-;
 function getDialogSize(size) {
     if (size === void 0) { size = "medium"; }
     var sizeClasses = {
-        'small': "sm",
-        'medium': "md",
-        'large': "lg",
-        'full': "full-screen"
+        small: "sm",
+        medium: "md",
+        large: "lg",
+        full: "full-screen",
     };
-    return sizeClasses.hasOwnProperty(size) ? dialogSelectorPrefix + "--" + sizeClasses[size] : "";
+    return Object.prototype.hasOwnProperty.call(sizeClasses, size)
+        ? dialogSelectorPrefix + "--" + sizeClasses[size]
+        : "";
 }
-;
 function getDialogPosition(position) {
-    if (position === void 0) { position = 'center'; }
+    if (position === void 0) { position = "center"; }
     var getPositionClass = function (axis, position) {
         return position === "center" ? "center-" + axis : position;
     };

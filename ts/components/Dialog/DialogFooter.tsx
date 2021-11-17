@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface HeliumDialogFooterProps {
   footerClass?: string;
@@ -11,24 +11,32 @@ interface HeliumDialogFooterProps {
 const HeliumDialogFooter = ({
   children,
   footerBackground = true,
-  footerClass = "",
+  footerClass = ``,
   closeDialog,
-  submitHandler
+  submitHandler,
 }: HeliumDialogFooterProps) => {
   return (
-    <div className={`h-react-dialog__footer ${footerBackground && `h-react-dialog__footer--with-background`} ${footerClass}`}>
-      {children
-        ? children
-        : <div className="h-react-dialog__footer-cta-container">
-            <button onClick={closeDialog} className="h-btn h-btn--secondary">Cancel</button>
-            {
-              submitHandler &&
-              <button onClick={submitHandler} className="h-btn h-btn--positive h-btn-margin-left">Submit</button>
-            }
-          </div>
-      }
+    <div
+      className={`h-react-dialog__footer ${
+        footerBackground && `h-react-dialog__footer--with-background`
+      } ${footerClass}`}
+    >
+      {children ? (
+        children
+      ) : (
+        <div className="h-react-dialog__footer-cta-container">
+          <button onClick={closeDialog} className="h-btn h-btn--secondary">
+            Cancel
+          </button>
+          {submitHandler && (
+            <button onClick={submitHandler} className="h-btn h-btn--positive h-btn-margin-left">
+              Submit
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export { HeliumDialogFooter };

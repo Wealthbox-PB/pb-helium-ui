@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { HeliumDialog } from "./Dialog";
+import React, { useState } from 'react';
+import { HeliumDialog } from './Dialog';
 function App() {
     var _a = useState(false), isDialogOpen = _a[0], setIsDialogOpen = _a[1];
     var closeDialog = function () { return setIsDialogOpen(false); };
@@ -14,5 +14,5 @@ function App() {
             React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."),
             React.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."))));
 }
-export default App;
+export { App };
 //# sourceMappingURL=App.js.map

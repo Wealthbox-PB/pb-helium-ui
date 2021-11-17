@@ -15,5 +15,5 @@ interface HeliumDialogProps {
     footer?: string | JSX.Element[] | JSX.Element;
     footerBackground?: boolean;
 }
-declare const HeliumDialog: ({ open, isModalDialog, size, position, initialFocusEl, closeDialog, submitHandler, header, headerClass, closeInHeader, bodyClass, children, footer, footerBackground }: HeliumDialogProps) => JSX.Element;
+declare const HeliumDialog: ({ open, isModalDialog, size, position, initialFocusEl, closeDialog, submitHandler, header, headerClass, closeInHeader, bodyClass, children, footer, footerBackground, }: HeliumDialogProps) => JSX.Element;
 export { HeliumDialog };

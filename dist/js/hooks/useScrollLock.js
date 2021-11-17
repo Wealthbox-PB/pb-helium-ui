@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 export var useScrollLock = function (elementSelector, open) {
     useEffect(function () {
         var element = document.querySelector(elementSelector);

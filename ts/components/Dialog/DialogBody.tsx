@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface HeliumDialogBodyProps {
   bodyClass?: string;
@@ -6,10 +6,12 @@ interface HeliumDialogBodyProps {
   children: string | JSX.Element[] | JSX.Element;
 }
 
-const HeliumDialogBody = ({ bodyClass = "", ariaDescriptionSelector, children }: HeliumDialogBodyProps) => {
+const HeliumDialogBody = ({ bodyClass = ``, ariaDescriptionSelector, children }: HeliumDialogBodyProps) => {
   return (
-    <div className={`h-react-dialog__body ${bodyClass}`} id={ariaDescriptionSelector}>{children}</div>
+    <div className={`h-react-dialog__body ${bodyClass}`} id={ariaDescriptionSelector}>
+      {children}
+    </div>
   );
-}
+};
 
 export { HeliumDialogBody };
