@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import * as focusTrap from 'focus-trap';
+import { createFocusTrap } from 'focus-trap';
 import { useCloseWithEscapeKey } from '../../hooks/useCloseWithEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
 import { HeliumDialogPortal } from './DialogPortal';
@@ -67,7 +67,7 @@ const HeliumDialog = ({
         fallbackFocus: uniqueDialogEl,
         initialFocus: initialFocusEl,
       };
-      const trap = focusTrap.createFocusTrap(uniqueDialogEl, trapOptions);
+      const trap = createFocusTrap(uniqueDialogEl, trapOptions);
       trap.activate();
       return () => {
         trap.deactivate();
