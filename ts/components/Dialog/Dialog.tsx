@@ -20,6 +20,7 @@ interface HeliumDialogProps {
   closeInHeader?: boolean;
   bodyClass?: string;
   children: string | JSX.Element[] | JSX.Element;
+  hasFooter?: boolean;
   footer?: string | JSX.Element[] | JSX.Element;
   footerBackground?: boolean;
 }
@@ -41,6 +42,7 @@ const HeliumDialog = ({
   closeInHeader = true,
   bodyClass,
   children,
+  hasFooter = true,
   footer,
   footerBackground = true,
 }: HeliumDialogProps) => {
@@ -116,7 +118,7 @@ const HeliumDialog = ({
               <HeliumDialogBody bodyClass={bodyClass} ariaDescriptionSelector={ariaDescriptionSelector}>
                 {children}
               </HeliumDialogBody>
-              {footer && (
+              {hasFooter && (
                 <HeliumDialogFooter
                   closeDialog={closeDialog}
                   submitHandler={submitHandler}

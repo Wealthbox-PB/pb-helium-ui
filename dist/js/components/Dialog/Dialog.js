@@ -10,7 +10,7 @@ var dialogSelectorPrefix = "h-react-dialog";
 var ariaSelectorPrefix = dialogSelectorPrefix + "-aria";
 var dialogEl = dialogSelectorPrefix + "__el";
 var HeliumDialog = function (_a) {
-    var open = _a.open, _b = _a.isModalDialog, isModalDialog = _b === void 0 ? true : _b, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClass = _a.headerClass, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, bodyClass = _a.bodyClass, children = _a.children, footer = _a.footer, _d = _a.footerBackground, footerBackground = _d === void 0 ? true : _d;
+    var open = _a.open, _b = _a.isModalDialog, isModalDialog = _b === void 0 ? true : _b, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClass = _a.headerClass, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, bodyClass = _a.bodyClass, children = _a.children, _d = _a.hasFooter, hasFooter = _d === void 0 ? true : _d, footer = _a.footer, _e = _a.footerBackground, footerBackground = _e === void 0 ? true : _e;
     var wrapperRef = useRef(null);
     var dialogRef = useRef(null);
     // Should this stuff be in useEffect?
@@ -50,7 +50,7 @@ var HeliumDialog = function (_a) {
             React.createElement("div", { ref: dialogRef, tabIndex: -1, className: dialogEl, role: getDialogAriaRole(isModalDialog), "aria-labelledby": ariaLabelSelector, "aria-describedby": ariaDescriptionSelector },
                 header && (React.createElement(HeliumDialogHeader, { headerClass: headerClass, isModalDialog: isModalDialog, closeDialog: closeDialog, closeInHeader: closeInHeader, ariaLabelSelector: ariaLabelSelector }, header)),
                 React.createElement(HeliumDialogBody, { bodyClass: bodyClass, ariaDescriptionSelector: ariaDescriptionSelector }, children),
-                footer && (React.createElement(HeliumDialogFooter, { closeDialog: closeDialog, submitHandler: submitHandler, footerBackground: footerBackground }, footer))))))));
+                hasFooter && (React.createElement(HeliumDialogFooter, { closeDialog: closeDialog, submitHandler: submitHandler, footerBackground: footerBackground }, footer))))))));
 };
 function createSelector(prefix, type, suffix) {
     return prefix + "-" + type + "-" + suffix;
