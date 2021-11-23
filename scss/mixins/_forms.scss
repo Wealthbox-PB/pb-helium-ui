@@ -16,6 +16,12 @@
   outline: 0;
 }
 
+@mixin h-form-element-focus-error {
+  border-color: $h-color-border-form-element-error;
+  box-shadow: $h-box-shadow-form-element-error;
+  outline: 0;
+}
+
 @mixin h-form-element-disabled-readonly {
   border-color: $h-color-border-form-element;
   background-color: $h-color-background-form-element-disabled;

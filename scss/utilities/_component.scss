@@ -13,3 +13,14 @@
 .h-btn-margin-left {
   margin-left: $h-spacing-x-btn !important;
 }
+
+//  Pointer Events
+//=========================================================================
+
+.h-pointer-events-none {
+  pointer-events: none !important;
+}
+
+.h-cursor-auto {
+  cursor: auto !important;
+}

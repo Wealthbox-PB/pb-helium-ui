@@ -22,6 +22,7 @@
   vertical-align: middle;
 
   @include h-btn-size($h-padding-btn: $h-padding-y-form-element 0.75rem, $h-font-size-btn: $h-font-size-md, $h-line-height-btn: $h-line-height-form-element);
+  @include h-btn-disabled();
   @include h-form-element-transition();
 
   &:hover,
@@ -32,14 +33,6 @@
   &:focus,
   &.h-btn--focus {
     outline: 0;
-  }
-
-  &:disabled,
-  &[disabled],
-  &.h-btn--disabled {
-    box-shadow: none;
-    cursor: auto;
-    opacity: 0.5;
   }
 
   &[class*="h-icon-"]::before {
@@ -195,8 +188,8 @@
   }
 
   &:disabled,
-  &[disabled],
   &.disabled,
+  &[disabled],
   &.h-btn--disabled {
     &:hover,
     &.h-btn--hover,
@@ -384,6 +377,17 @@
 
   &:focus {
     box-shadow: $h-box-shadow-form-element-focused;
+  }
+}
+
+@mixin h-btn-disabled {
+  &:disabled,
+  &.disabled,
+  &[disabled],
+  &.h-btn--disabled {
+    box-shadow: none;
+    cursor: auto;
+    opacity: 0.5;
   }
 }
 

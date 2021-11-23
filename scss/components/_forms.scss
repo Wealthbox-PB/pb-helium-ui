@@ -89,7 +89,8 @@
   }
 
   &:disabled,
-  &.disabled {
+  &.disabled,
+  &[disabled] {
     @include h-form-element-disabled-readonly();
 
     cursor: not-allowed;
@@ -104,9 +105,7 @@
     border-color: $h-color-border-form-element-error;
 
     &:focus {
-      @include h-form-element-focus();
-
-      box-shadow: $h-box-shadow-form-element-error;
+      @include h-form-element-focus-error();
     }
   }
 
@@ -237,6 +236,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       &:disabled,
+      &.disabled,
       &[disabled] {
         &,
         &:focus {
@@ -346,6 +346,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       &:disabled,
+      &.disabled,
       &[disabled] {
         ~ #{$h-checkbox-selector}__container:after {
           background-image: url(getCheckboxSvgIcon($h-color-icon-checkbox-radio-disabled));
@@ -364,6 +365,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       &:disabled,
+      &.disabled,
       &[disabled] {
         ~ #{$h-checkbox-selector}__container {
           border-color: $h-color-border-form-element;
@@ -467,6 +469,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       &:disabled,
+      &.disabled,
       &[disabled] {
         ~ #{$h-radio-selector}__container:after {
           background-image: url(getRadioSvgIcon($h-color-icon-checkbox-radio-disabled));
@@ -525,7 +528,8 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   }
 
   &:disabled,
-  &.disabled {
+  &.disabled,
+  &[disabled] {
     ~ .h-check__label-text {
       color: $h-color-text-form-element-disabled;
     }
@@ -555,6 +559,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
     button.h-input-group__content {
       z-index: 2;
 
+      @include h-btn-disabled();
       @include h-form-element-transition();
 
       &:focus {
@@ -604,6 +609,16 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
     &:focus {
       z-index: 3;
+    }
+
+    &.h-input--error {
+      & ~ .h-input-group__append .h-input-group__content {
+        border-color: $h-color-border-form-element-error;
+
+        &:focus {
+          @include h-form-element-focus-error();
+        }
+      }
     }
 
     &:not(:first-child) {
