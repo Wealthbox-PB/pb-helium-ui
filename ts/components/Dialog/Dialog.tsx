@@ -92,18 +92,17 @@ const HeliumDialog = ({
             className={`h-react-dialog ${uniqueDialogWrapperEl} ${getDialogSize(size)} ${getDialogPosition(
               position
             )}`}
+            role={getDialogAriaRole(isModalDialog)}
             aria-modal="true"
-            role="dialog"
+            aria-labelledby={ariaLabelSelector}
+            aria-describedby={ariaDescriptionSelector}
           >
-            <button className="h-react-dialog__backdrop" onClick={closeDialog}></button>
-            <div
-              ref={dialogRef}
-              tabIndex={-1}
-              className={dialogEl}
-              role={getDialogAriaRole(isModalDialog)}
-              aria-labelledby={ariaLabelSelector}
-              aria-describedby={ariaDescriptionSelector}
-            >
+            <button
+              className="h-react-dialog__backdrop"
+              onClick={closeDialog}
+              aria-label="Close Dialog"
+            ></button>
+            <div ref={dialogRef} tabIndex={-1} className={dialogEl}>
               {header && (
                 <HeliumDialogHeader
                   headerClass={headerClass}
