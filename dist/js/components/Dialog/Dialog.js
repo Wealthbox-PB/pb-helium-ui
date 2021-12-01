@@ -17,7 +17,7 @@ var HeliumDialog = function (_a) {
     var dialogSelectorSuffix = Math.floor(Math.random() * 10000);
     var ariaLabelSelector = createSelector(ariaSelectorPrefix, "label", dialogSelectorSuffix);
     var ariaDescriptionSelector = createSelector(ariaSelectorPrefix, "description", dialogSelectorSuffix);
-    var uniqueDialogWrapperEl = "s" + dialogSelectorPrefix + "-" + dialogSelectorSuffix;
+    var uniqueDialogWrapperEl = dialogSelectorPrefix + "-" + dialogSelectorSuffix;
     var uniqueDialogEl = "." + uniqueDialogWrapperEl + " ." + dialogEl;
     var getDialogAriaRole = function (isModalDialog) { return (isModalDialog ? "dialog" : "alertdialog"); };
     useScrollLock("html", open);

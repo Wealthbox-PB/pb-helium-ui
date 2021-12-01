@@ -53,7 +53,7 @@ const HeliumDialog = ({
   const dialogSelectorSuffix = Math.floor(Math.random() * 10000);
   const ariaLabelSelector = createSelector(ariaSelectorPrefix, `label`, dialogSelectorSuffix);
   const ariaDescriptionSelector = createSelector(ariaSelectorPrefix, `description`, dialogSelectorSuffix);
-  const uniqueDialogWrapperEl = `s${dialogSelectorPrefix}-${dialogSelectorSuffix}`;
+  const uniqueDialogWrapperEl = `${dialogSelectorPrefix}-${dialogSelectorSuffix}`;
   const uniqueDialogEl = `.${uniqueDialogWrapperEl} .${dialogEl}`;
   const getDialogAriaRole = (isModalDialog: boolean): string => (isModalDialog ? `dialog` : `alertdialog`);
 
