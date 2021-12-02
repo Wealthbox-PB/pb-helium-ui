@@ -48,12 +48,17 @@ const HeliumDialog = ({
 }: HeliumDialogProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
+  const dialogSelectorSuffixRef = useRef<string>(
+    Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+  );
 
-  // Should this stuff be in useEffect?
-  const dialogSelectorSuffix = Math.floor(Math.random() * 10000);
-  const ariaLabelSelector = createSelector(ariaSelectorPrefix, `label`, dialogSelectorSuffix);
-  const ariaDescriptionSelector = createSelector(ariaSelectorPrefix, `description`, dialogSelectorSuffix);
-  const uniqueDialogWrapperEl = `${dialogSelectorPrefix}-${dialogSelectorSuffix}`;
+  const ariaLabelSelector = createSelector(ariaSelectorPrefix, `label`, dialogSelectorSuffixRef.current);
+  const ariaDescriptionSelector = createSelector(
+    ariaSelectorPrefix,
+    `description`,
+    dialogSelectorSuffixRef.current
+  );
+  const uniqueDialogWrapperEl = `${dialogSelectorPrefix}-${dialogSelectorSuffixRef.current}`;
   const uniqueDialogEl = `.${uniqueDialogWrapperEl} .${dialogEl}`;
   const getDialogAriaRole = (isModalDialog: boolean): string => (isModalDialog ? `dialog` : `alertdialog`);
 
