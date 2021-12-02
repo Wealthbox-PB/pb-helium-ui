@@ -18,6 +18,7 @@ var HeliumDialog = function (_a) {
     var ariaDescriptionSelector = createSelector(ariaSelectorPrefix, "description", dialogSelectorSuffixRef.current);
     var uniqueDialogWrapperEl = dialogSelectorPrefix + "-" + dialogSelectorSuffixRef.current;
     var uniqueDialogEl = "." + uniqueDialogWrapperEl + " ." + dialogEl;
+    var trap = useRef(undefined);
     var getDialogAriaRole = function (isModalDialog) { return (isModalDialog ? "dialog" : "alertdialog"); };
     useScrollLock("html", open);
     useCloseWithEscapeKey(wrapperRef, closeDialog, open);
@@ -26,18 +27,20 @@ var HeliumDialog = function (_a) {
             return;
         }
         else {
-            var trapOptions = {
-                allowOutsideClick: true,
-                fallbackFocus: uniqueDialogEl,
-                initialFocus: initialFocusEl,
-            };
-            var trap_1 = createFocusTrap(uniqueDialogEl, trapOptions);
-            trap_1.activate();
+            trap.current =
+                trap.current ||
+                    createFocusTrap(uniqueDialogEl, {
+                        allowOutsideClick: true,
+                        fallbackFocus: uniqueDialogEl,
+                        initialFocus: initialFocusEl,
+                    });
+            var focusTrap_1 = trap.current;
+            focusTrap_1 === null || focusTrap_1 === void 0 ? void 0 : focusTrap_1.activate();
             return function () {
-                trap_1.deactivate();
+                focusTrap_1 === null || focusTrap_1 === void 0 ? void 0 : focusTrap_1.deactivate();
             };
         }
-    }, [uniqueDialogEl, initialFocusEl]);
+    }, [uniqueDialogEl, initialFocusEl, open]);
     useEffect(function () {
         var ref = wrapperRef.current;
         ref === null || ref === void 0 ? void 0 : ref.classList.add("h-react-dialog--open");
