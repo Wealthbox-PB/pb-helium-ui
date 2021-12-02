@@ -80,7 +80,7 @@ const HeliumDialog = ({
         trap.deactivate();
       };
     }
-  }, [uniqueDialogEl, initialFocusEl]);
+  }, [uniqueDialogEl, initialFocusEl, open]);
 
   useEffect(() => {
     const ref = wrapperRef.current;
