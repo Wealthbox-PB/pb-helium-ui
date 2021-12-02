@@ -5,11 +5,9 @@
 // Box Model
 $h-dialog-padding: 1.5rem;
 $h-dialog-box-shadow: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
-$h-dialog-width--mobile: calc(100vw - #{$h-dialog-padding});
 $h-dialog-width--desktop-md: 500px;
 $h-dialog-width--desktop-sm: 360px;
 $h-dialog-width--desktop-lg: 650px;
-$h-dialog-max-height: calc(100vh - #{$h-dialog-padding});
 
 .h-react-dialog-portal {
   position: fixed;
@@ -58,8 +56,8 @@ $h-dialog-max-height: calc(100vh - #{$h-dialog-padding});
 
 .h-react-dialog--full-screen {
   .h-react-dialog__el {
-    width: calc(100% - #{$h-dialog-padding});
-    height: calc(100% - #{$h-dialog-padding});
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -114,9 +112,8 @@ $h-dialog-max-height: calc(100vh - #{$h-dialog-padding});
   position: relative;
   z-index: 2;
   display: flex;
-  overflow: auto;
-  width: $h-dialog-width--mobile;
-  max-height: $h-dialog-max-height;
+  width: 100%;
+  max-height: 100%;
   flex-direction: column;
   justify-content: space-between;
   background: $h-color-background-shared-component;
@@ -165,6 +162,7 @@ $h-dialog-max-height: calc(100vh - #{$h-dialog-padding});
 }
 
 .h-react-dialog__body {
+  overflow: auto;
   flex-grow: 1;
   padding: $h-dialog-padding;
 
