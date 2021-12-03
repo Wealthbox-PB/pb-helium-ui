@@ -18,7 +18,6 @@ var HeliumDialog = function (_a) {
     var ariaDescriptionSelector = createSelector(ariaSelectorPrefix, "description", dialogSelectorSuffixRef.current);
     var uniqueDialogWrapperEl = dialogSelectorPrefix + "-" + dialogSelectorSuffixRef.current;
     var uniqueDialogEl = "." + uniqueDialogWrapperEl + " ." + dialogEl;
-    var trap = useRef(undefined);
     var getDialogAriaRole = function (isModalDialog) { return (isModalDialog ? "dialog" : "alertdialog"); };
     useScrollLock("html", open);
     useCloseWithEscapeKey(wrapperRef, closeDialog, open);
@@ -27,18 +26,16 @@ var HeliumDialog = function (_a) {
             return;
         }
         else {
-            trap.current =
-                trap.current ||
-                    createFocusTrap(uniqueDialogEl, {
-                        allowOutsideClick: true,
-                        fallbackFocus: uniqueDialogEl,
-                        initialFocus: initialFocusEl,
-                        setReturnFocus: returnFocusEl,
-                    });
-            var focusTrap_1 = trap.current;
-            focusTrap_1 === null || focusTrap_1 === void 0 ? void 0 : focusTrap_1.activate();
+            var trapOptions = {
+                allowOutsideClick: true,
+                fallbackFocus: uniqueDialogEl,
+                initialFocus: initialFocusEl,
+                setReturnFocus: returnFocusEl,
+            };
+            var trap_1 = createFocusTrap(uniqueDialogEl, trapOptions);
+            trap_1.activate();
             return function () {
-                focusTrap_1 === null || focusTrap_1 === void 0 ? void 0 : focusTrap_1.deactivate();
+                trap_1.deactivate();
             };
         }
     }, [uniqueDialogEl, initialFocusEl, returnFocusEl, open]);

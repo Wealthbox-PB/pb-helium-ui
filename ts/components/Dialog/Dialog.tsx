@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { createFocusTrap } from 'focus-trap';
-import type { FocusTrap } from 'focus-trap';
 import { useCloseWithEscapeKey } from '../../hooks/useCloseWithEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
 import { HeliumDialogPortal } from './DialogPortal';
@@ -63,7 +62,6 @@ const HeliumDialog = ({
   );
   const uniqueDialogWrapperEl = `${dialogSelectorPrefix}-${dialogSelectorSuffixRef.current}`;
   const uniqueDialogEl = `.${uniqueDialogWrapperEl} .${dialogEl}`;
-  const trap = useRef<FocusTrap | undefined>(undefined);
   const getDialogAriaRole = (isModalDialog: boolean): string => (isModalDialog ? `dialog` : `alertdialog`);
 
   useScrollLock(`html`, open);
@@ -73,18 +71,16 @@ const HeliumDialog = ({
     if (document.querySelector(uniqueDialogEl) === null) {
       return;
     } else {
-      trap.current =
-        trap.current ||
-        createFocusTrap(uniqueDialogEl, {
-          allowOutsideClick: true,
-          fallbackFocus: uniqueDialogEl,
-          initialFocus: initialFocusEl,
-          setReturnFocus: returnFocusEl,
-        });
-      const focusTrap = trap.current;
-      focusTrap?.activate();
+      const trapOptions = {
+        allowOutsideClick: true,
+        fallbackFocus: uniqueDialogEl,
+        initialFocus: initialFocusEl,
+        setReturnFocus: returnFocusEl,
+      };
+      const trap = createFocusTrap(uniqueDialogEl, trapOptions);
+      trap.activate();
       return () => {
-        focusTrap?.deactivate();
+        trap.deactivate();
       };
     }
   }, [uniqueDialogEl, initialFocusEl, returnFocusEl, open]);
