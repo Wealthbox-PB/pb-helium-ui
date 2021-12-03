@@ -10,7 +10,7 @@ var dialogSelectorPrefix = "h-react-dialog";
 var ariaSelectorPrefix = dialogSelectorPrefix + "-aria";
 var dialogEl = dialogSelectorPrefix + "__el";
 var HeliumDialog = function (_a) {
-    var open = _a.open, _b = _a.isModalDialog, isModalDialog = _b === void 0 ? true : _b, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClass = _a.headerClass, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, bodyClass = _a.bodyClass, children = _a.children, _d = _a.hasFooter, hasFooter = _d === void 0 ? true : _d, footer = _a.footer, _e = _a.footerBackground, footerBackground = _e === void 0 ? true : _e;
+    var open = _a.open, _b = _a.isModalDialog, isModalDialog = _b === void 0 ? true : _b, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClass = _a.headerClass, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, bodyClass = _a.bodyClass, children = _a.children, _d = _a.hasFooter, hasFooter = _d === void 0 ? true : _d, footer = _a.footer, _e = _a.footerBackground, footerBackground = _e === void 0 ? true : _e;
     var wrapperRef = useRef(null);
     var dialogRef = useRef(null);
     var dialogSelectorSuffixRef = useRef(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
@@ -33,6 +33,7 @@ var HeliumDialog = function (_a) {
                         allowOutsideClick: true,
                         fallbackFocus: uniqueDialogEl,
                         initialFocus: initialFocusEl,
+                        setReturnFocus: returnFocusEl,
                     });
             var focusTrap_1 = trap.current;
             focusTrap_1 === null || focusTrap_1 === void 0 ? void 0 : focusTrap_1.activate();
@@ -40,7 +41,7 @@ var HeliumDialog = function (_a) {
                 focusTrap_1 === null || focusTrap_1 === void 0 ? void 0 : focusTrap_1.deactivate();
             };
         }
-    }, [uniqueDialogEl, initialFocusEl, open]);
+    }, [uniqueDialogEl, initialFocusEl, returnFocusEl, open]);
     useEffect(function () {
         var ref = wrapperRef.current;
         ref === null || ref === void 0 ? void 0 : ref.classList.add("h-react-dialog--open");

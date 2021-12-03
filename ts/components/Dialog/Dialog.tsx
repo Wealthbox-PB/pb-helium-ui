@@ -14,6 +14,7 @@ interface HeliumDialogProps {
   size?: string;
   position?: string;
   initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+  returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
   closeDialog: () => void;
   submitHandler?: () => void;
   header?: string | JSX.Element[] | JSX.Element;
@@ -36,6 +37,7 @@ const HeliumDialog = ({
   size,
   position,
   initialFocusEl,
+  returnFocusEl,
   closeDialog,
   submitHandler,
   header,
@@ -77,6 +79,7 @@ const HeliumDialog = ({
           allowOutsideClick: true,
           fallbackFocus: uniqueDialogEl,
           initialFocus: initialFocusEl,
+          setReturnFocus: returnFocusEl,
         });
       const focusTrap = trap.current;
       focusTrap?.activate();
@@ -84,7 +87,7 @@ const HeliumDialog = ({
         focusTrap?.deactivate();
       };
     }
-  }, [uniqueDialogEl, initialFocusEl, open]);
+  }, [uniqueDialogEl, initialFocusEl, returnFocusEl, open]);
 
   useEffect(() => {
     const ref = wrapperRef.current;
