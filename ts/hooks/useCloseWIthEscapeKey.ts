@@ -6,7 +6,7 @@ export const useCloseWithEscapeKey = (
   open: boolean
 ) => {
   const handleEscapeKeyPress = (event: KeyboardEvent) => {
-    if (event.key === `Escape`) {
+    if (event.key === `Escape` || event.key === `Esc` || event.keyCode === 27) {
       return closeCallback();
     }
   };

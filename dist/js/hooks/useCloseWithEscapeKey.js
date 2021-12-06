@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 export var useCloseWithEscapeKey = function (keyDownTargetRef, closeCallback, open) {
     var handleEscapeKeyPress = function (event) {
-        if (event.key === "Escape") {
+        if (event.key === "Escape" || event.key === "Esc" || event.keyCode === 27) {
             return closeCallback();
         }
     };
