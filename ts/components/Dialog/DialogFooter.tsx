@@ -25,7 +25,7 @@ const HeliumDialogFooter = ({
         children
       ) : (
         <div className="h-react-dialog__footer-cta-container">
-          <button onClick={closeDialog} className="h-btn h-btn--secondary">
+          <button type="button" onClick={closeDialog} className="h-btn h-btn--secondary">
             Cancel
           </button>
           {submitHandler && (

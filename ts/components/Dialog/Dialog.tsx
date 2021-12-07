@@ -106,6 +106,7 @@ const HeliumDialog = ({
             aria-describedby={ariaDescriptionSelector}
           >
             <button
+              type="button"
               className="h-react-dialog__backdrop"
               onClick={closeDialog}
               aria-label="Close Dialog"
