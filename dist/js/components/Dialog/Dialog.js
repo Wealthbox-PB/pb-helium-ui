@@ -46,7 +46,7 @@ var HeliumDialog = function (_a) {
     });
     return (React.createElement(React.Fragment, null, open && (React.createElement(HeliumDialogPortal, null,
         React.createElement("div", { ref: wrapperRef, className: "h-react-dialog " + uniqueDialogWrapperEl + " " + getDialogSize(size) + " " + getDialogPosition(position), role: getDialogAriaRole(isModalDialog), "aria-modal": "true", "aria-labelledby": ariaLabelSelector, "aria-describedby": ariaDescriptionSelector },
-            React.createElement("button", { className: "h-react-dialog__backdrop", onClick: closeDialog, "aria-label": "Close Dialog" }),
+            React.createElement("button", { type: "button", className: "h-react-dialog__backdrop", onClick: closeDialog, "aria-label": "Close Dialog" }),
             React.createElement("div", { ref: dialogRef, tabIndex: -1, className: dialogEl },
                 header && (React.createElement(HeliumDialogHeader, { headerClass: headerClass, isModalDialog: isModalDialog, closeDialog: closeDialog, closeInHeader: closeInHeader, ariaLabelSelector: ariaLabelSelector }, header)),
                 React.createElement(HeliumDialogBody, { bodyClass: bodyClass, ariaDescriptionSelector: ariaDescriptionSelector }, children),
