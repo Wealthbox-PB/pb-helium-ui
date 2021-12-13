@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createFocusTrap } from 'focus-trap';
 import { useCloseWithEscapeKey } from '../../hooks/useCloseWithEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
@@ -10,7 +10,8 @@ var dialogSelectorPrefix = "h-react-dialog";
 var ariaSelectorPrefix = dialogSelectorPrefix + "-aria";
 var dialogEl = dialogSelectorPrefix + "__el";
 var HeliumDialog = function (_a) {
-    var open = _a.open, _b = _a.isModalDialog, isModalDialog = _b === void 0 ? true : _b, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClass = _a.headerClass, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, bodyClass = _a.bodyClass, children = _a.children, _d = _a.hasFooter, hasFooter = _d === void 0 ? true : _d, footer = _a.footer, _e = _a.footerBackground, footerBackground = _e === void 0 ? true : _e;
+    var open = _a.open, _b = _a.isModalDialog, isModalDialog = _b === void 0 ? true : _b, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClass = _a.headerClass, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, bodyClass = _a.bodyClass, children = _a.children, _d = _a.hasFooter, hasFooter = _d === void 0 ? true : _d, footer = _a.footer, _e = _a.footerBackground, footerBackground = _e === void 0 ? true : _e, _f = _a.trapPaused, trapPaused = _f === void 0 ? false : _f;
+    var _g = useState(trapPaused), isTrapPaused = _g[0], setIsTrapPaused = _g[1];
     var wrapperRef = useRef(null);
     var dialogRef = useRef(null);
     var dialogSelectorSuffixRef = useRef(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
@@ -21,6 +22,9 @@ var HeliumDialog = function (_a) {
     var getDialogAriaRole = function (isModalDialog) { return (isModalDialog ? "dialog" : "alertdialog"); };
     useScrollLock("html", open);
     useCloseWithEscapeKey(wrapperRef, closeDialog, open);
+    useEffect(function () {
+        setIsTrapPaused(trapPaused);
+    }, [trapPaused]);
     useEffect(function () {
         if (document.querySelector(uniqueDialogEl) === null) {
             return;
@@ -34,11 +38,17 @@ var HeliumDialog = function (_a) {
             };
             var trap_1 = createFocusTrap(uniqueDialogEl, trapOptions);
             trap_1.activate();
+            if (isTrapPaused) {
+                trap_1.pause();
+            }
+            else {
+                trap_1.unpause();
+            }
             return function () {
                 trap_1.deactivate();
             };
         }
-    }, [uniqueDialogEl, initialFocusEl, returnFocusEl, open]);
+    }, [uniqueDialogEl, initialFocusEl, returnFocusEl, open, isTrapPaused]);
     useEffect(function () {
         var ref = wrapperRef.current;
         ref === null || ref === void 0 ? void 0 : ref.classList.add("h-react-dialog--open");

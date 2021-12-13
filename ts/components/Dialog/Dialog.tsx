@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createFocusTrap } from 'focus-trap';
 import { useCloseWithEscapeKey } from '../../hooks/useCloseWithEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
@@ -24,6 +24,7 @@ interface HeliumDialogProps {
   hasFooter?: boolean;
   footer?: string | JSX.Element[] | JSX.Element;
   footerBackground?: boolean;
+  trapPaused?: boolean;
 }
 
 const dialogSelectorPrefix = `h-react-dialog`;
@@ -47,7 +48,10 @@ const HeliumDialog = ({
   hasFooter = true,
   footer,
   footerBackground = true,
+  trapPaused = false,
 }: HeliumDialogProps) => {
+  const [isTrapPaused, setIsTrapPaused] = useState<boolean>(trapPaused);
+
   const wrapperRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const dialogSelectorSuffixRef = useRef<string>(
@@ -68,6 +72,10 @@ const HeliumDialog = ({
   useCloseWithEscapeKey(wrapperRef, closeDialog, open);
 
   useEffect(() => {
+    setIsTrapPaused(trapPaused);
+  }, [trapPaused]);
+
+  useEffect(() => {
     if (document.querySelector(uniqueDialogEl) === null) {
       return;
     } else {
@@ -79,11 +87,16 @@ const HeliumDialog = ({
       };
       const trap = createFocusTrap(uniqueDialogEl, trapOptions);
       trap.activate();
+      if (isTrapPaused) {
+        trap.pause();
+      } else {
+        trap.unpause();
+      }
       return () => {
         trap.deactivate();
       };
     }
-  }, [uniqueDialogEl, initialFocusEl, returnFocusEl, open]);
+  }, [uniqueDialogEl, initialFocusEl, returnFocusEl, open, isTrapPaused]);
 
   useEffect(() => {
     const ref = wrapperRef.current;
