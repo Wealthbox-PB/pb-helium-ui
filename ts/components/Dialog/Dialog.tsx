@@ -6,6 +6,7 @@ import { HeliumDialogPortal } from './DialogPortal';
 import { HeliumDialogHeader } from './DialogHeader';
 import { HeliumDialogBody } from './DialogBody';
 import { HeliumDialogFooter } from './DialogFooter';
+import classNames from 'classnames';
 
 interface HeliumDialogProps {
   open: boolean;
@@ -25,6 +26,7 @@ interface HeliumDialogProps {
   footer?: string | JSX.Element[] | JSX.Element;
   footerBackground?: boolean;
   trapPaused?: boolean;
+  dialogElClass?: string;
 }
 
 const dialogSelectorPrefix = `h-react-dialog`;
@@ -49,6 +51,7 @@ const HeliumDialog = ({
   footer,
   footerBackground = true,
   trapPaused = false,
+  dialogElClass,
 }: HeliumDialogProps) => {
   const [isTrapPaused, setIsTrapPaused] = useState<boolean>(trapPaused);
 
@@ -110,9 +113,12 @@ const HeliumDialog = ({
         <HeliumDialogPortal>
           <div
             ref={wrapperRef}
-            className={`h-react-dialog ${uniqueDialogWrapperEl} ${getDialogSize(size)} ${getDialogPosition(
-              position
-            )}`}
+            className={classNames(
+              `h-react-dialog`,
+              uniqueDialogWrapperEl,
+              getDialogSize(size),
+              getDialogPosition(position)
+            )}
             role={getDialogAriaRole(isModalDialog)}
             aria-modal="true"
             aria-labelledby={ariaLabelSelector}
@@ -124,7 +130,7 @@ const HeliumDialog = ({
               onClick={closeDialog}
               aria-label="Close Dialog"
             ></button>
-            <div ref={dialogRef} tabIndex={-1} className={dialogEl}>
+            <div ref={dialogRef} tabIndex={-1} className={classNames(dialogEl, dialogElClass)}>
               {header && (
                 <HeliumDialogHeader
                   headerClass={headerClass}

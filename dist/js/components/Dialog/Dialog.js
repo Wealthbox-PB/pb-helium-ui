@@ -6,11 +6,12 @@ import { HeliumDialogPortal } from './DialogPortal';
 import { HeliumDialogHeader } from './DialogHeader';
 import { HeliumDialogBody } from './DialogBody';
 import { HeliumDialogFooter } from './DialogFooter';
+import classNames from 'classnames';
 var dialogSelectorPrefix = "h-react-dialog";
 var ariaSelectorPrefix = dialogSelectorPrefix + "-aria";
 var dialogEl = dialogSelectorPrefix + "__el";
 var HeliumDialog = function (_a) {
-    var open = _a.open, _b = _a.isModalDialog, isModalDialog = _b === void 0 ? true : _b, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClass = _a.headerClass, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, bodyClass = _a.bodyClass, children = _a.children, _d = _a.hasFooter, hasFooter = _d === void 0 ? true : _d, footer = _a.footer, _e = _a.footerBackground, footerBackground = _e === void 0 ? true : _e, _f = _a.trapPaused, trapPaused = _f === void 0 ? false : _f;
+    var open = _a.open, _b = _a.isModalDialog, isModalDialog = _b === void 0 ? true : _b, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClass = _a.headerClass, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, bodyClass = _a.bodyClass, children = _a.children, _d = _a.hasFooter, hasFooter = _d === void 0 ? true : _d, footer = _a.footer, _e = _a.footerBackground, footerBackground = _e === void 0 ? true : _e, _f = _a.trapPaused, trapPaused = _f === void 0 ? false : _f, dialogElClass = _a.dialogElClass;
     var _g = useState(trapPaused), isTrapPaused = _g[0], setIsTrapPaused = _g[1];
     var wrapperRef = useRef(null);
     var dialogRef = useRef(null);
@@ -55,9 +56,9 @@ var HeliumDialog = function (_a) {
         return function () { return ref === null || ref === void 0 ? void 0 : ref.classList.remove("h-react-dialog--open"); };
     });
     return (React.createElement(React.Fragment, null, open && (React.createElement(HeliumDialogPortal, null,
-        React.createElement("div", { ref: wrapperRef, className: "h-react-dialog " + uniqueDialogWrapperEl + " " + getDialogSize(size) + " " + getDialogPosition(position), role: getDialogAriaRole(isModalDialog), "aria-modal": "true", "aria-labelledby": ariaLabelSelector, "aria-describedby": ariaDescriptionSelector },
+        React.createElement("div", { ref: wrapperRef, className: classNames("h-react-dialog", uniqueDialogWrapperEl, getDialogSize(size), getDialogPosition(position)), role: getDialogAriaRole(isModalDialog), "aria-modal": "true", "aria-labelledby": ariaLabelSelector, "aria-describedby": ariaDescriptionSelector },
             React.createElement("button", { type: "button", className: "h-react-dialog__backdrop", onClick: closeDialog, "aria-label": "Close Dialog" }),
-            React.createElement("div", { ref: dialogRef, tabIndex: -1, className: dialogEl },
+            React.createElement("div", { ref: dialogRef, tabIndex: -1, className: classNames(dialogEl, dialogElClass) },
                 header && (React.createElement(HeliumDialogHeader, { headerClass: headerClass, isModalDialog: isModalDialog, closeDialog: closeDialog, closeInHeader: closeInHeader, ariaLabelSelector: ariaLabelSelector }, header)),
                 React.createElement(HeliumDialogBody, { bodyClass: bodyClass, ariaDescriptionSelector: ariaDescriptionSelector }, children),
                 hasFooter && (React.createElement(HeliumDialogFooter, { closeDialog: closeDialog, submitHandler: submitHandler, footerBackground: footerBackground }, footer))))))));
