@@ -7,7 +7,8 @@ export const useCloseWithEscapeKey = (
 ) => {
   const handleEscapeKeyPress = (event: KeyboardEvent) => {
     if (event.key === `Escape` || event.key === `Esc` || event.keyCode === 27) {
-      return closeCallback();
+      return closeCallback(); // Consider removing this return based on chris che's suggestion
+      // Should we add event.stopPropagation() so this doesn't bubble and cause unwanted ux? https://sarahmhigley.com/writing/escaping-101/
     }
   };
   useEffect(() => {
