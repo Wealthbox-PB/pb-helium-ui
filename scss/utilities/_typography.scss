@@ -64,7 +64,7 @@
   word-break: break-word !important;
 }
 
-//  Text Decoration
+//  Text
 //==========================================================================
 
 .h-text-decoration-none {
@@ -73,4 +73,8 @@
 
 .h-text-decoration-underline {
   text-decoration: underline !important;
+}
+
+.h-user-select-none {
+  user-select: none !important;
 }
