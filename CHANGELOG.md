@@ -40,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `.h-pointer-events-none` utility class.
 - Added `.h-cursor-auto` utility class.
 - Added `.h-table--list` modifier class.
+- Added `.h-overflow-visible`, `.h-overflow-x-visible`, and `.h-overflow-y-visible` utility classes.
 
 ### Changed
 
