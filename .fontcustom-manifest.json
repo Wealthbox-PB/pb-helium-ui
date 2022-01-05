@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "493a7504494d6d96c8d2b0ec73996ff34650149c545ed92e11e915b99b987418",
-    "current": "493a7504494d6d96c8d2b0ec73996ff34650149c545ed92e11e915b99b987418"
+    "previous": "0bb638c55a2307791a3338f5acd2226ed455d24eeea57aa95af6cfc498b86401",
+    "current": "0bb638c55a2307791a3338f5acd2226ed455d24eeea57aa95af6cfc498b86401"
   },
   "fonts": [
-    "fonts/helium-icons_493a7504494d6d96c8d2b0ec73996ff3.ttf",
-    "fonts/helium-icons_493a7504494d6d96c8d2b0ec73996ff3.svg",
-    "fonts/helium-icons_493a7504494d6d96c8d2b0ec73996ff3.woff",
-    "fonts/helium-icons_493a7504494d6d96c8d2b0ec73996ff3.eot",
-    "fonts/helium-icons_493a7504494d6d96c8d2b0ec73996ff3.woff2"
+    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.ttf",
+    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.svg",
+    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.woff",
+    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.eot",
+    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.woff2"
   ],
   "glyphs": {
     "add": {
@@ -511,6 +511,30 @@
       "codepoint": 62059,
       "source": "assets/icons/exclamation--sm.svg"
     },
+    "exclamation-circle": {
+      "codepoint": 62069,
+      "source": "assets/icons/exclamation-circle.svg"
+    },
+    "exclamation-circle--lg": {
+      "codepoint": 62070,
+      "source": "assets/icons/exclamation-circle--lg.svg"
+    },
+    "exclamation-circle--sm": {
+      "codepoint": 62071,
+      "source": "assets/icons/exclamation-circle--sm.svg"
+    },
+    "exclamation-triangle": {
+      "codepoint": 62077,
+      "source": "assets/icons/exclamation-triangle.svg"
+    },
+    "exclamation-triangle--lg": {
+      "codepoint": 62078,
+      "source": "assets/icons/exclamation-triangle--lg.svg"
+    },
+    "exclamation-triangle--sm": {
+      "codepoint": 62079,
+      "source": "assets/icons/exclamation-triangle--sm.svg"
+    },
     "external-link": {
       "codepoint": 61806,
       "source": "assets/icons/external-link.svg"
@@ -583,6 +607,14 @@
       "codepoint": 61821,
       "source": "assets/icons/forward--lg.svg"
     },
+    "fullscreen": {
+      "codepoint": 62067,
+      "source": "assets/icons/fullscreen.svg"
+    },
+    "fullscreen--lg": {
+      "codepoint": 62068,
+      "source": "assets/icons/fullscreen--lg.svg"
+    },
     "graph": {
       "codepoint": 61822,
       "source": "assets/icons/graph.svg"
@@ -630,6 +662,14 @@
     "inbox--lg": {
       "codepoint": 61829,
       "source": "assets/icons/inbox--lg.svg"
+    },
+    "info-circle": {
+      "codepoint": 62065,
+      "source": "assets/icons/info-circle.svg"
+    },
+    "info-circle--lg": {
+      "codepoint": 62066,
+      "source": "assets/icons/info-circle--lg.svg"
     },
     "information": {
       "codepoint": 62040,
@@ -922,6 +962,18 @@
     "question-mark--sm": {
       "codepoint": 62060,
       "source": "assets/icons/question-mark--sm.svg"
+    },
+    "question-mark-circle": {
+      "codepoint": 62074,
+      "source": "assets/icons/question-mark-circle.svg"
+    },
+    "question-mark-circle--lg": {
+      "codepoint": 62075,
+      "source": "assets/icons/question-mark-circle--lg.svg"
+    },
+    "question-mark-circle--sm": {
+      "codepoint": 62076,
+      "source": "assets/icons/question-mark-circle--sm.svg"
     },
     "refresh": {
       "codepoint": 61888,
