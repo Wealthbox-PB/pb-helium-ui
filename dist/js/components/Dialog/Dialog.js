@@ -6,6 +6,7 @@ import { HeliumDialogPortal } from './DialogPortal';
 import { HeliumDialogHeader } from './DialogHeader';
 import { HeliumDialogBody } from './DialogBody';
 import { HeliumDialogFooter } from './DialogFooter';
+import { randomString } from 'helpers/random_string';
 import classNames from 'classnames';
 var dialogSelectorPrefix = "h-react-dialog";
 var ariaSelectorPrefix = dialogSelectorPrefix + "-aria";
@@ -15,7 +16,7 @@ var HeliumDialog = function (_a) {
     var _g = useState(trapPaused), isTrapPaused = _g[0], setIsTrapPaused = _g[1];
     var wrapperRef = useRef(null);
     var dialogRef = useRef(null);
-    var dialogSelectorSuffixRef = useRef(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+    var dialogSelectorSuffixRef = useRef(randomString());
     var ariaLabelSelector = createSelector(ariaSelectorPrefix, "label", dialogSelectorSuffixRef.current);
     var ariaDescriptionSelector = createSelector(ariaSelectorPrefix, "description", dialogSelectorSuffixRef.current);
     var uniqueDialogWrapperEl = dialogSelectorPrefix + "-" + dialogSelectorSuffixRef.current;

@@ -6,6 +6,7 @@ import { HeliumDialogPortal } from './DialogPortal';
 import { HeliumDialogHeader } from './DialogHeader';
 import { HeliumDialogBody } from './DialogBody';
 import { HeliumDialogFooter } from './DialogFooter';
+import { randomString } from 'helpers/random_string';
 import classNames from 'classnames';
 
 interface HeliumDialogProps {
@@ -57,9 +58,7 @@ const HeliumDialog = ({
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  const dialogSelectorSuffixRef = useRef<string>(
-    Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
-  );
+  const dialogSelectorSuffixRef = useRef<string>(randomString());
 
   const ariaLabelSelector = createSelector(ariaSelectorPrefix, `label`, dialogSelectorSuffixRef.current);
   const ariaDescriptionSelector = createSelector(
