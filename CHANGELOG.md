@@ -1,11 +1,38 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.3] - 2021-11-23
+## [2.0.4] - 2022-01-06
+
 ### Added
+
+- Added `exclamation-circle--lg` svg icon asset
+- Added `exclamation-circle--sm` svg icon asset
+- Added `exclamation-circle` svg icon asset
+- Added `exclamation-triangle--lg` svg icon asset
+- Added `exclamation-triangle--sm` svg icon asset
+- Added `exclamation-triangle` svg icon asset
+- Added `fullscreen--lg` svg icon asset
+- Added `fullscreen` svg icon asset
+- Added `info-circle--lg` svg icon asset
+- Added `info-circle` svg icon asset
+- Added `question-mark-circle--lg` svg icon asset
+- Added `question-mark-circle--sm` svg icon asset
+- Added `question-mark-circle` svg icon asset
+
+### Changed
+
+- Update `question-mark--lg` svg icon asset
+- Update `settings-group--lg` svg icon asset
+- Recompiled icon font
+
+## [2.0.3] - 2021-11-23
+
+### Added
+
 - Added `.h-icon-sparkles` for suggest functionality, recompiled icon font.
 - Added `h-form-element-focus-error` mixin to add styles to focused form elements with errors.
 - Added error styling to `.h-input-group` component.
