@@ -1,15 +1,14 @@
 // Color Overrides
-$body-bg:          $h-gray-100;
-$body-color:       $h-color-text-normal;
-$blue:             $h-blue-500;
-$green:            $h-green-500;
-$red:              $h-red-500;
-$purple:           $h-purple-500;
-$orange:           $h-orange-500;
-$yellow:           $h-yellow-500;
-$link-color:       $h-color-link;
+$body-bg: $h-gray-100;
+$body-color: $h-color-text-normal;
+$blue: $h-blue-500;
+$green: $h-green-500;
+$red: $h-red-500;
+$purple: $h-purple-500;
+$orange: $h-orange-500;
+$yellow: $h-yellow-500;
+$link-color: $h-color-link;
 $link-hover-color: $h-color-link-hover;
-
 $custom-select-indicator-color: $h-gray-500;
 $custom-select-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>") !default;
 

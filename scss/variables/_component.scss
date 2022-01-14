@@ -13,14 +13,13 @@ $h-font-size-btn-lg: $h-font-size-lg;
 $h-font-size-btn-xl: $h-font-size-xl;
 
 //  Box Model
-$h-padding-y-btn-xs:     0.1875rem;
-$h-padding-y-btn-sm:     0.25rem;
-$h-padding-y-btn-lg:     0.5rem;
-$h-padding-y-btn-xl:     0.625rem;
-$h-spacing-x-btn:        0.5rem;
-$h-border-radius-btn:    $h-border-radius;
-
-$h-box-shadow-size-btn:  0.1875rem;
+$h-padding-y-btn-xs: 0.1875rem;
+$h-padding-y-btn-sm: 0.25rem;
+$h-padding-y-btn-lg: 0.5rem;
+$h-padding-y-btn-xl: 0.625rem;
+$h-spacing-x-btn: 0.5rem;
+$h-border-radius-btn: $h-border-radius;
+$h-box-shadow-size-btn: 0.1875rem;
 $h-box-shadow-alpha-btn: 0.4;
 
 //  Shared
@@ -30,7 +29,6 @@ $h-color-background-shared-component: $h-white;
 $h-color-background-secondary-shared-component: $h-gray-50;
 $h-color-border-shared-component: $h-gray-100;
 $h-border-radius-shared-component: $h-border-radius-lg;
-
 $h-box-shadow-shared-component: $h-shadow-1;
 
 // Card
@@ -44,57 +42,54 @@ $h-padding-y-card-header-footer: 0.75rem;
 //==========================================================================
 
 //  Color
-$h-color-text-form-element-label:           $h-gray-600;
-$h-color-text-form-element:                 $h-gray-900;
-$h-color-text-form-element-success:         $h-color-text-success;
-$h-color-text-form-element-error:           $h-color-text-error;
-$h-color-text-form-element-disabled:        $h-gray-400;
-$h-color-text-form-element-placeholder:     $h-color-text-lighter;
-$h-color-icon-checkbox-radio:               str-slice("#{$h-white}", 2);
-$h-color-icon-checkbox-radio-disabled:      str-slice("#{$h-gray-250}", 2);
-$h-color-background-form-element:           $h-color-background-shared-component;
-$h-color-background-form-element-alt:       $h-gray-25;
-$h-color-background-form-element-select:    $h-color-background-form-element-alt;
-$h-color-background-form-element-addon:     $h-color-background-form-element-alt;
-$h-color-background-form-element-file:      $h-color-background-form-element-alt;
-$h-color-background-form-element-disabled:  $h-gray-100;
-$h-color-border-form-element:               $h-gray-200;
-$h-color-border-form-element-focused:       $h-blue-300;
-$h-color-border-form-element-error:         $h-red-600;
-$h-color-box-shadow-form-element-focused:   $h-blue-100;
-$h-color-box-shadow-form-element-error:     $h-red-100;
+$h-color-text-form-element-label: $h-gray-600;
+$h-color-text-form-element: $h-gray-900;
+$h-color-text-form-element-success: $h-color-text-success;
+$h-color-text-form-element-error: $h-color-text-error;
+$h-color-text-form-element-disabled: $h-gray-400;
+$h-color-text-form-element-placeholder: $h-color-text-lighter;
+$h-color-icon-checkbox-radio: str-slice("#{$h-white}", 2);
+$h-color-icon-checkbox-radio-disabled: str-slice("#{$h-gray-250}", 2);
+$h-color-background-form-element: $h-color-background-shared-component;
+$h-color-background-form-element-alt: $h-gray-25;
+$h-color-background-form-element-select: $h-color-background-form-element-alt;
+$h-color-background-form-element-addon: $h-color-background-form-element-alt;
+$h-color-background-form-element-file: $h-color-background-form-element-alt;
+$h-color-background-form-element-disabled: $h-gray-100;
+$h-color-border-form-element: $h-gray-200;
+$h-color-border-form-element-focused: $h-blue-300;
+$h-color-border-form-element-error: $h-red-600;
+$h-color-box-shadow-form-element-focused: $h-blue-100;
+$h-color-box-shadow-form-element-error: $h-red-100;
 
 //  Box Model
-$h-spacing-form-element-label:              0.375rem;
-$h-spacing-form-element-check:              0.5rem;
-$h-spacing-form-group:                      1.5rem;
-$h-spacing-form-group-nested:               ($h-spacing-form-group * (2/3));
-
-$h-line-height-form-element:                1.2857142857;
-$h-height-form-element:                     2rem;
-
-$h-padding-x-form-element:                  0.5rem;
-$h-padding-y-form-element:                  0.375rem;
-$h-border-radius-form-element:              $h-border-radius;
-$h-box-shadow-size-form-element:            0 0 0 0.1875rem;
-$h-box-shadow-form-element-focused:         $h-box-shadow-size-form-element $h-color-box-shadow-form-element-focused;
-$h-box-shadow-form-element-error:           $h-box-shadow-size-form-element $h-color-box-shadow-form-element-error;
-
-$h-spacing-checkbox-radio:                  0.5rem;
-$h-size-checkbox-radio:                     1.25rem;
-$h-size-checkbox-radio-sm:                  1rem;
-$h-size-checkbox-radio-lg:                  1.5rem;
-$h-scale-checkbox-radio-active:             1.125;
-$h-scale-checkbox-invisible:                0.35;
-$h-scale-checkbox-visible:                  0.7;
-$h-scale-radio-invisible:                   0.2;
-$h-scale-radio-visible:                     0.4444444444;
-$h-scale-radio-visible-sm:                  0.4285714286;
-$h-scale-radio-visible-lg:                  0.4545454545;
+$h-spacing-form-element-label: 0.375rem;
+$h-spacing-form-element-check: 0.5rem;
+$h-spacing-form-group: 1.5rem;
+$h-spacing-form-group-nested: ($h-spacing-form-group * (2 / 3));
+$h-line-height-form-element: 1.2857;
+$h-height-form-element: 2rem;
+$h-padding-x-form-element: 0.5rem;
+$h-padding-y-form-element: 0.375rem;
+$h-border-radius-form-element: $h-border-radius;
+$h-box-shadow-size-form-element: 0 0 0 0.1875rem;
+$h-box-shadow-form-element-focused: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-focused;
+$h-box-shadow-form-element-error: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-error;
+$h-spacing-checkbox-radio: 0.5rem;
+$h-size-checkbox-radio: 1.25rem;
+$h-size-checkbox-radio-sm: 1rem;
+$h-size-checkbox-radio-lg: 1.5rem;
+$h-scale-checkbox-radio-active: 1.125;
+$h-scale-checkbox-invisible: 0.35;
+$h-scale-checkbox-visible: 0.7;
+$h-scale-radio-invisible: 0.2;
+$h-scale-radio-visible: 0.4444;
+$h-scale-radio-visible-sm: 0.4286;
+$h-scale-radio-visible-lg: 0.4545;
 
 // Animation
-$h-animation-duration-form-element:         $h-animation-duration-sm;
-$h-animation-duration-checkbox-radio:       $h-animation-duration-xl;
+$h-animation-duration-form-element: $h-animation-duration-sm;
+$h-animation-duration-checkbox-radio: $h-animation-duration-xl;
 
 //  Modal
 //==========================================================================
@@ -107,7 +102,6 @@ $h-width-modal-desktop-sm: 360px;
 $h-width-modal-desktop-lg: 650px;
 $h-min-height-modal: $h-width-modal-desktop / 2;
 $h-min-height-modal-lg: $h-width-modal-desktop-lg / 2;
-
 $h-box-shadow-modal: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
 
 //  Dialog

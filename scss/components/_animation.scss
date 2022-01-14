@@ -8,7 +8,7 @@ appropriate sass map for animation names.  A variable should also be created
 via a map-get. This will ensure the animation names will be available as
 variables and utility classes.  */
 
-@-webkit-keyframes h-fade-in {
+@keyframes h-fade-in {
   from {
     opacity: 0;
   }
@@ -28,7 +28,7 @@ variables and utility classes.  */
   }
 }
 
-@-webkit-keyframes h-fade-in-up {
+@keyframes h-fade-in-up {
   from {
     opacity: 0;
     transform: translateY(1rem);
@@ -52,7 +52,7 @@ variables and utility classes.  */
   }
 }
 
-@-webkit-keyframes h-fade-in-down {
+@keyframes h-fade-in-down {
   from {
     opacity: 0;
     transform: translateY(-1rem);
@@ -76,7 +76,7 @@ variables and utility classes.  */
   }
 }
 
-@-webkit-keyframes h-fade-out {
+@keyframes h-fade-out {
   from {
     opacity: 1;
   }

@@ -8,7 +8,6 @@
 
 @each $key, $val in $h-animation-names {
   .h-animation-#{$key} {
-    -webkit-animation-name: $val !important;
     animation-name: $val !important;
   }
 }
@@ -18,12 +17,10 @@
 
 @each $key, $val in $h-animation-durations {
   .h-animation-duration-#{$key} {
-    -webkit-animation-duration: $val !important;
     animation-duration: $val !important;
   }
 
   .h-animation-delay-#{$key} {
-    -webkit-animation-delay: $val !important;
     animation-delay: $val !important;
   }
 }
@@ -33,7 +30,6 @@
 
 @each $key, $val in $h-animation-timings {
   .h-animation-timing-#{$key} {
-    -webkit-animation-timing-function: $val !important;
     animation-timing-function: $val !important;
   }
 }
@@ -43,7 +39,6 @@
 
 @each $key, $val in $h-animation-fill-modes {
   .h-animation-fill-mode-#{$key} {
-    -webkit-animation-fill-mode: $val !important;
     animation-fill-mode: $val !important;
   }
 }
@@ -53,7 +48,6 @@
 
 @each $key, $val in $h-animation-directions {
   .h-animation-direction-#{$key} {
-    -webkit-animation-direction: $val !important;
     animation-direction: $val !important;
   }
 }

@@ -7,56 +7,56 @@
 //==========================================================================
 
 .h-btn {
-  @include h-btn-base();
+  @include h-btn-base;
 }
 
 //  Size
 //==========================================================================
 
 .h-btn--xs {
-  @include h-btn-xs();
+  @include h-btn-xs;
 }
 
 .h-btn--sm {
-  @include h-btn-sm();
+  @include h-btn-sm;
 }
 
 .h-btn--md {
-  @include h-btn-md();
+  @include h-btn-md;
 }
 
 .h-btn--lg {
-  @include h-btn-lg();
+  @include h-btn-lg;
 }
 
 .h-btn--xl {
-  @include h-btn-xl();
+  @include h-btn-xl;
 }
 
 // Shape
 //==========================================================================
 
 .h-btn--square {
-  @include h-btn-square-md();
+  @include h-btn-square-md;
 
   &.h-btn--xs {
-    @include h-btn-square-xs();
+    @include h-btn-square-xs;
   }
 
   &.h-btn--sm {
-    @include h-btn-square-sm();
+    @include h-btn-square-sm;
   }
 
   &.h-btn--md {
-    @include h-btn-square-md();
+    @include h-btn-square-md;
   }
 
   &.h-btn--lg {
-    @include h-btn-square-lg();
+    @include h-btn-square-lg;
   }
 
   &.h-btn--xl {
-    @include h-btn-square-xl();
+    @include h-btn-square-xl;
   }
 }
 
@@ -64,68 +64,68 @@
 //==========================================================================
 
 .h-btn--primary {
-  @include h-btn-primary();
+  @include h-btn-primary;
 }
 
 .h-btn--secondary {
-  @include h-btn-secondary();
+  @include h-btn-secondary;
 }
 
 .h-btn--positive {
-  @include h-btn-positive();
+  @include h-btn-positive;
 }
 
 .h-btn--negative {
-  @include h-btn-negative();
+  @include h-btn-negative;
 }
 
 .h-btn--info {
-  @include h-btn-info();
+  @include h-btn-info;
 }
 
 .h-btn--primary-outline {
-  @include h-btn-primary-outline();
+  @include h-btn-primary-outline;
 }
 
 .h-btn--secondary-outline {
-  @include h-btn-secondary-outline();
+  @include h-btn-secondary-outline;
 }
 
 .h-btn--positive-outline {
-  @include h-btn-positive-outline();
+  @include h-btn-positive-outline;
 }
 
 .h-btn--negative-outline {
-  @include h-btn-negative-outline();
+  @include h-btn-negative-outline;
 }
 
 .h-btn--info-outline {
-  @include h-btn-info-outline();
+  @include h-btn-info-outline;
 }
 
 .h-btn--link-primary {
-  @include h-btn-link();
+  @include h-btn-link;
 }
 
 .h-btn--link-secondary {
-  @include h-btn-link-secondary();
+  @include h-btn-link-secondary;
 }
 
 //  Misc
 //==========================================================================
 
 .h-btn--border-hover {
-  @include h-btn-border-hover();
+  @include h-btn-border-hover;
 }
 
 .h-btn--enabled {
-  @include h-btn-enabled();
+  @include h-btn-enabled;
 }
 
 .h-btn--full-width-mobile {
-  @include h-btn-full-width-mobile();
+  @include h-btn-full-width-mobile;
 }
 
 .h-btn--no-focus {
-  @include h-btn-no-focus();
+  @include h-btn-no-focus;
 }

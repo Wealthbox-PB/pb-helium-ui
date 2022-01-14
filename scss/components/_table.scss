@@ -511,7 +511,6 @@
       & > .h-table__table {
         th,
         .h-table__heading {
-          position: -webkit-sticky;
           position: sticky;
           z-index: 1;
           top: 0;
@@ -521,6 +520,7 @@
         & > .h-table__header {
           th,
           .h-table__heading {
+            /* stylelint-disable-next-line max-line-length */
             box-shadow: 0 1px 0 0 $h-color-border-shared-component; // Heading border workaround because sticky headers do not maintain their border on scroll
           }
         }
@@ -530,6 +530,7 @@
           & > th,
           & > .h-table__heading {
             left: 0;
+            /* stylelint-disable-next-line max-line-length */
             box-shadow: 1px 0 0 0 $h-color-border-shared-component; // Heading border workaround because sticky headers do not maintain their border on scroll
           }
         }

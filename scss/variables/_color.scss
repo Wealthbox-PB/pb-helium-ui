@@ -104,8 +104,8 @@ $h-gray-250: map-get($h-colors-raw, gray-250);
 $h-gray-200: map-get($h-colors-raw, gray-200);
 $h-gray-150: map-get($h-colors-raw, gray-150);
 $h-gray-100: map-get($h-colors-raw, gray-100);
-$h-gray-50:  map-get($h-colors-raw, gray-50);
-$h-gray-25:  map-get($h-colors-raw, gray-25);
+$h-gray-50: map-get($h-colors-raw, gray-50);
+$h-gray-25: map-get($h-colors-raw, gray-25);
 
 //  Blue Palette
 //==========================================================================
@@ -119,8 +119,8 @@ $h-blue-400: map-get($h-colors-raw, blue-400);
 $h-blue-300: map-get($h-colors-raw, blue-300);
 $h-blue-200: map-get($h-colors-raw, blue-200);
 $h-blue-100: map-get($h-colors-raw, blue-100);
-$h-blue-50:  map-get($h-colors-raw, blue-50);
-$h-blue-25:  map-get($h-colors-raw, blue-25);
+$h-blue-50: map-get($h-colors-raw, blue-50);
+$h-blue-25: map-get($h-colors-raw, blue-25);
 
 //  Purple Palette
 //==========================================================================
@@ -134,8 +134,8 @@ $h-purple-400: map-get($h-colors-raw, purple-400);
 $h-purple-300: map-get($h-colors-raw, purple-300);
 $h-purple-200: map-get($h-colors-raw, purple-200);
 $h-purple-100: map-get($h-colors-raw, purple-100);
-$h-purple-50:  map-get($h-colors-raw, purple-50);
-$h-purple-25:  map-get($h-colors-raw, purple-25);
+$h-purple-50: map-get($h-colors-raw, purple-50);
+$h-purple-25: map-get($h-colors-raw, purple-25);
 
 //  Green Palette
 //==========================================================================
@@ -149,8 +149,8 @@ $h-green-400: map-get($h-colors-raw, green-400);
 $h-green-300: map-get($h-colors-raw, green-300);
 $h-green-200: map-get($h-colors-raw, green-200);
 $h-green-100: map-get($h-colors-raw, green-100);
-$h-green-50:  map-get($h-colors-raw, green-50);
-$h-green-25:  map-get($h-colors-raw, green-25);
+$h-green-50: map-get($h-colors-raw, green-50);
+$h-green-25: map-get($h-colors-raw, green-25);
 
 //  Yellow Palette
 //==========================================================================
@@ -164,8 +164,8 @@ $h-yellow-400: map-get($h-colors-raw, yellow-400);
 $h-yellow-300: map-get($h-colors-raw, yellow-300);
 $h-yellow-200: map-get($h-colors-raw, yellow-200);
 $h-yellow-100: map-get($h-colors-raw, yellow-100);
-$h-yellow-50:  map-get($h-colors-raw, yellow-50);
-$h-yellow-25:  map-get($h-colors-raw, yellow-25);
+$h-yellow-50: map-get($h-colors-raw, yellow-50);
+$h-yellow-25: map-get($h-colors-raw, yellow-25);
 
 //  Orange Palette
 //==========================================================================
@@ -179,8 +179,8 @@ $h-orange-400: map-get($h-colors-raw, orange-400);
 $h-orange-300: map-get($h-colors-raw, orange-300);
 $h-orange-200: map-get($h-colors-raw, orange-200);
 $h-orange-100: map-get($h-colors-raw, orange-100);
-$h-orange-50:  map-get($h-colors-raw, orange-50);
-$h-orange-25:  map-get($h-colors-raw, orange-25);
+$h-orange-50: map-get($h-colors-raw, orange-50);
+$h-orange-25: map-get($h-colors-raw, orange-25);
 
 //  Red Palette
 //==========================================================================
@@ -194,8 +194,8 @@ $h-red-400: map-get($h-colors-raw, red-400);
 $h-red-300: map-get($h-colors-raw, red-300);
 $h-red-200: map-get($h-colors-raw, red-200);
 $h-red-100: map-get($h-colors-raw, red-100);
-$h-red-50:  map-get($h-colors-raw, red-50);
-$h-red-25:  map-get($h-colors-raw, red-25);
+$h-red-50: map-get($h-colors-raw, red-50);
+$h-red-25: map-get($h-colors-raw, red-25);
 
 //  Black / White
 //==========================================================================
@@ -227,18 +227,17 @@ $h-colors-text-semantic: (
   link-hover: $h-blue-500,
   heading:    inherit
 );
-
 $h-color-text-lighter: map-get($h-colors-text-semantic, lighter);
-$h-color-text-light:   map-get($h-colors-text-semantic, light);
-$h-color-text-normal:  map-get($h-colors-text-semantic, normal);
-$h-color-text-dark:    map-get($h-colors-text-semantic, dark);
-$h-color-text-darker:  map-get($h-colors-text-semantic, darker);
+$h-color-text-light: map-get($h-colors-text-semantic, light);
+$h-color-text-normal: map-get($h-colors-text-semantic, normal);
+$h-color-text-dark: map-get($h-colors-text-semantic, dark);
+$h-color-text-darker: map-get($h-colors-text-semantic, darker);
 $h-color-text-success: map-get($h-colors-text-semantic, success);
-$h-color-text-error:   map-get($h-colors-text-semantic, error);
-$h-color-text-brand:   map-get($h-colors-text-semantic, brand);
-$h-color-link:         map-get($h-colors-text-semantic, link);
-$h-color-link-hover:   map-get($h-colors-text-semantic, link-hover);
-$h-color-heading:      map-get($h-colors-text-semantic, heading);
+$h-color-text-error: map-get($h-colors-text-semantic, error);
+$h-color-text-brand: map-get($h-colors-text-semantic, brand);
+$h-color-link: map-get($h-colors-text-semantic, link);
+$h-color-link-hover: map-get($h-colors-text-semantic, link-hover);
+$h-color-heading: map-get($h-colors-text-semantic, heading);
 
 //  Background Semantic Color Palette
 //==========================================================================
@@ -249,8 +248,7 @@ $h-colors-background-semantic: (
   brand:   $h-color-brand,
   active:  $h-color-active
 );
-
 $h-color-background-success: map-get($h-colors-background-semantic, success);
-$h-color-background-error:   map-get($h-colors-background-semantic, error);
-$h-color-background-brand:   map-get($h-colors-background-semantic, brand);
-$h-color-background-active:  map-get($h-colors-background-semantic, active);
+$h-color-background-error: map-get($h-colors-background-semantic, error);
+$h-color-background-brand: map-get($h-colors-background-semantic, brand);
+$h-color-background-active: map-get($h-colors-background-semantic, active);

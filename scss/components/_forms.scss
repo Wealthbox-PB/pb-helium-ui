@@ -58,13 +58,11 @@
   display: block;
   width: 100%;
   border: 1px solid $h-color-border-form-element;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border-radius: $h-border-radius-form-element;
   line-height: $h-line-height-form-element;
 
-  @include h-form-element-transition();
+  @include h-form-element-transition;
 }
 
 .h-input,
@@ -85,13 +83,15 @@
 
   &:focus,
   &[readonly]:focus {
-    @include h-form-element-focus();
+    @include h-form-element-focus;
   }
 
+  /* stylelint-disable selector-class-pattern */
   &:disabled,
   &.disabled,
   &[disabled] {
-    @include h-form-element-disabled-readonly();
+    /* stylelint-enable selector-class-pattern */
+    @include h-form-element-disabled-readonly;
 
     cursor: not-allowed;
 
@@ -105,24 +105,8 @@
     border-color: $h-color-border-form-element-error;
 
     &:focus {
-      @include h-form-element-focus-error();
+      @include h-form-element-focus-error;
     }
-  }
-
-  &::-webkit-input-placeholder {
-    color: $h-color-text-form-element-placeholder;
-  }
-
-  &::-moz-placeholder {
-    color: $h-color-text-form-element-placeholder;
-  }
-
-  &:-ms-input-placeholder {
-    color: $h-color-text-form-element-placeholder;
-  }
-
-  &::-ms-input-placeholder {
-    color: $h-color-text-form-element-placeholder;
   }
 
   &::placeholder {
@@ -133,11 +117,11 @@
 .h-input,
 .h-textarea {
   &[readonly] {
-    @include h-form-element-disabled-readonly();
+    @include h-form-element-disabled-readonly;
   }
 
   &[readonly]:focus {
-    @include h-form-element-focus();
+    @include h-form-element-focus;
   }
 }
 
@@ -159,8 +143,6 @@
 
 .h-select {
   padding: $h-padding-y-form-element 1rem $h-padding-y-form-element $h-padding-x-form-element;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   cursor: pointer;
   vertical-align: middle;
@@ -184,7 +166,6 @@ $h-checkbox-radio-selectors-map: (
   checkbox: ".h-checkbox",
   radio: ".h-radio"
 );
-
 $h-checkbox-selector: map-get($h-checkbox-radio-selectors-map, checkbox);
 $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
@@ -216,15 +197,12 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
       ~ #{$h-checkbox-radio-selector}__label-content {
         color: $h-color-text-form-element-label;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
         user-select: none;
       }
 
       &:focus {
         ~ #{$h-checkbox-radio-selector}__container {
-          @include h-form-element-focus();
+          @include h-form-element-focus;
         }
       }
 
@@ -235,9 +213,11 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
         }
       }
 
+      /* stylelint-disable selector-class-pattern */
       &:disabled,
       &.disabled,
       &[disabled] {
+        /* stylelint-enable selector-class-pattern */
         &,
         &:focus {
           ~ #{$h-checkbox-radio-selector}__label-content {
@@ -297,13 +277,11 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 }
 
 #{$h-checkbox-selector} {
-  @function getCheckboxSvgIcon($iconColor, $iconType: "check") {
+  @function get-checkbox-svg-icon($iconColor, $iconType: "check") {
     @if $iconType == "check" {
-      @return "data:image/svg+xml,%3Csvg%20viewBox='0%200%2014%2011'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M.875%205.903L4.6%209.628%2013.125.875'%20stroke='%23#{$iconColor}'%20stroke-width='2'%20fill='none'%3E%3C/path%3E%3C/svg%3E";
-    }
-
-    @else {
-      @return "data:image/svg+xml,%3Csvg%20viewBox='0%200%2012%202'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M0 0h12v2H0z'%20fill='%23#{$iconColor}'%3E%3C/path%3E%3C/svg%3E";
+      @return "data:image/svg+xml,%3Csvg%20viewBox='0%200%2014%2011'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M.875%205.903L4.6%209.628%2013.125.875'%20stroke='%23#{$iconColor}'%20stroke-width='2'%20fill='none'%3E%3C/path%3E%3C/svg%3E"; /* stylelint-disable-line max-line-length */
+    } @else {
+      @return "data:image/svg+xml,%3Csvg%20viewBox='0%200%2012%202'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M0 0h12v2H0z'%20fill='%23#{$iconColor}'%3E%3C/path%3E%3C/svg%3E"; /* stylelint-disable-line max-line-length */
     }
   }
 
@@ -342,14 +320,16 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   #{$h-checkbox-selector}__elm {
     &:checked {
       ~ #{$h-checkbox-selector}__container:after {
-        background-image: url(getCheckboxSvgIcon($h-color-icon-checkbox-radio));
+        background-image: url("#{get-checkbox-svg-icon($h-color-icon-checkbox-radio)}");
       }
 
+      /* stylelint-disable selector-class-pattern */
       &:disabled,
       &.disabled,
       &[disabled] {
+        /* stylelint-enable selector-class-pattern */
         ~ #{$h-checkbox-selector}__container:after {
-          background-image: url(getCheckboxSvgIcon($h-color-icon-checkbox-radio-disabled));
+          background-image: url("#{get-checkbox-svg-icon($h-color-icon-checkbox-radio-disabled)}");
         }
       }
     }
@@ -361,19 +341,21 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       ~ #{$h-checkbox-selector}__container:after {
-        background-image: url(getCheckboxSvgIcon($h-color-icon-checkbox-radio, "indeterminate"));
+        background-image: url("#{get-checkbox-svg-icon($h-color-icon-checkbox-radio, "indeterminate")}");
       }
 
+      /* stylelint-disable selector-class-pattern */
       &:disabled,
       &.disabled,
       &[disabled] {
+        /* stylelint-enable selector-class-pattern */
         ~ #{$h-checkbox-selector}__container {
           border-color: $h-color-border-form-element;
           background-color: $h-color-background-form-element-disabled;
           box-shadow: none;
 
           &::after {
-            background-image: url(getCheckboxSvgIcon($h-color-icon-checkbox-radio-disabled, "indeterminate"));
+            background-image: url("#{get-checkbox-svg-icon($h-color-icon-checkbox-radio-disabled, "indeterminate")}");
           }
         }
       }
@@ -390,8 +372,8 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 }
 
 #{$h-radio-selector} {
-  @function getRadioSvgIcon($iconColor) {
-    @return "data:image/svg+xml,%3Csvg%20viewBox='0%200%208%208'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle%20cx='4'%20cy='4'%20r='4'%20fill='%23#{$iconColor}'%3E%3C/circle%3E%3C/svg%3E";
+  @function get-radio-svg-icon($iconColor) {
+    @return "data:image/svg+xml,%3Csvg%20viewBox='0%200%208%208'%20xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle%20cx='4'%20cy='4'%20r='4'%20fill='%23#{$iconColor}'%3E%3C/circle%3E%3C/svg%3E"; /* stylelint-disable-line max-line-length */
   }
 
   &#{$h-radio-selector}--animate {
@@ -465,14 +447,16 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
     &:checked {
       ~ #{$h-radio-selector}__container:after {
-        background-image: url(getRadioSvgIcon($h-color-icon-checkbox-radio));
+        background-image: url("#{get-radio-svg-icon($h-color-icon-checkbox-radio)}");
       }
 
+      /* stylelint-disable selector-class-pattern */
       &:disabled,
       &.disabled,
       &[disabled] {
+        /* stylelint-enable selector-class-pattern */
         ~ #{$h-radio-selector}__container:after {
-          background-image: url(getRadioSvgIcon($h-color-icon-checkbox-radio-disabled));
+          background-image: url("#{get-radio-svg-icon($h-color-icon-checkbox-radio-disabled)}");
         }
       }
     }
@@ -522,14 +506,16 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   }
 
   &:focus {
-    @include h-form-element-focus();
+    @include h-form-element-focus;
 
     border-radius: $h-border-radius-form-element;
   }
 
+  /* stylelint-disable selector-class-pattern */
   &:disabled,
   &.disabled,
   &[disabled] {
+    /* stylelint-enable selector-class-pattern */
     ~ .h-check__label-text {
       color: $h-color-text-form-element-disabled;
     }
@@ -559,11 +545,11 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
     button.h-input-group__content {
       z-index: 2;
 
-      @include h-btn-disabled();
-      @include h-form-element-transition();
+      @include h-btn-disabled;
+      @include h-form-element-transition;
 
       &:focus {
-        @include h-form-element-focus();
+        @include h-form-element-focus;
       }
     }
   }
@@ -616,7 +602,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
         border-color: $h-color-border-form-element-error;
 
         &:focus {
-          @include h-form-element-focus-error();
+          @include h-form-element-focus-error;
         }
       }
     }
@@ -660,7 +646,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
   &:focus,
   &:focus-within {
-    @include h-form-element-focus();
+    @include h-form-element-focus;
   }
 
   &::-ms-value {
@@ -682,7 +668,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
     &::-ms-browse:focus,
     &::-ms-browse:active {
-      @include h-form-element-focus();
+      @include h-form-element-focus;
     }
   }
 }
