@@ -82,7 +82,7 @@
 //  Shape
 //==========================================================================
 
-/* stylelint-disable */
+/* stylelint-disable number-max-precision */
 @function set-square-button-width(
   $h-padding-y-btn,
   $h-font-size-btn,
@@ -91,7 +91,7 @@
   $has-remainder: false,
   $h-remainder-btn: 0.03125rem
 ) {
-/* stylelint-enable */
+  /* stylelint-enable */
   // Required for instances where we calculate height based on a font-size value that is an odd number, resulting in a decimal remainder
   // Since sass doesn't have a native floor method, we just subtract the remainder value to keep our dimensions integers
   @if $has-remainder {
