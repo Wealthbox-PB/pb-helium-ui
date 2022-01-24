@@ -1,11 +1,11 @@
 /// <reference types="react" />
-interface HeliumDialogHeaderProps {
+interface DialogHeaderProps {
     headerClass?: string;
-    ariaLabelSelector: string;
+    ariaLabelSelector?: string;
     children?: string | JSX.Element[] | JSX.Element;
-    isModalDialog: boolean;
+    dialogRole?: `dialog` | `alertdialog`;
     closeDialog?: () => void;
     closeInHeader?: boolean;
 }
-declare const HeliumDialogHeader: ({ headerClass, ariaLabelSelector, isModalDialog, children, closeDialog, closeInHeader, }: HeliumDialogHeaderProps) => JSX.Element;
-export { HeliumDialogHeader };
+declare const DialogHeader: ({ headerClass, ariaLabelSelector, dialogRole, children, closeDialog, closeInHeader, }: DialogHeaderProps) => JSX.Element;
+export { DialogHeader };

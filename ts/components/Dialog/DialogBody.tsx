@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DialogContext } from './DialogContext';
 
-interface HeliumDialogBodyProps {
+interface DialogBodyProps {
   bodyClass?: string;
-  ariaDescriptionSelector: string;
+  ariaDescriptionSelector?: string;
   children: string | JSX.Element[] | JSX.Element;
 }
 
-const HeliumDialogBody = ({ bodyClass = ``, ariaDescriptionSelector, children }: HeliumDialogBodyProps) => {
+const DialogBody = ({ bodyClass = ``, ariaDescriptionSelector = ``, children }: DialogBodyProps) => {
+  const context = useContext(DialogContext);
+
   return (
-    <div className={`h-react-dialog__body ${bodyClass}`} id={ariaDescriptionSelector}>
+    <div
+      className={`h-react-dialog__body ${bodyClass}`}
+      id={ariaDescriptionSelector || context.ariaDescriptionSelector}
+    >
       {children}
     </div>
   );
 };
 
-export { HeliumDialogBody };
+export { DialogBody };

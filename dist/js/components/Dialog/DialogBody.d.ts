@@ -1,8 +1,8 @@
 /// <reference types="react" />
-interface HeliumDialogBodyProps {
+interface DialogBodyProps {
     bodyClass?: string;
-    ariaDescriptionSelector: string;
+    ariaDescriptionSelector?: string;
     children: string | JSX.Element[] | JSX.Element;
 }
-declare const HeliumDialogBody: ({ bodyClass, ariaDescriptionSelector, children }: HeliumDialogBodyProps) => JSX.Element;
-export { HeliumDialogBody };
+declare const DialogBody: ({ bodyClass, ariaDescriptionSelector, children }: DialogBodyProps) => JSX.Element;
+export { DialogBody };

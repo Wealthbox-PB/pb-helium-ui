@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface HeliumDialogFooterProps {
+interface DialogFooterProps {
   footerClass?: string;
   footerBackground?: boolean;
   children?: string | JSX.Element[] | JSX.Element;
@@ -8,13 +8,13 @@ interface HeliumDialogFooterProps {
   submitHandler?: () => void;
 }
 
-const HeliumDialogFooter = ({
+const DialogFooter = ({
   children,
   footerBackground = true,
   footerClass = ``,
   closeDialog,
   submitHandler,
-}: HeliumDialogFooterProps) => {
+}: DialogFooterProps) => {
   return (
     <div
       className={`h-react-dialog__footer ${
@@ -39,4 +39,4 @@ const HeliumDialogFooter = ({
   );
 };
 
-export { HeliumDialogFooter };
+export { DialogFooter };

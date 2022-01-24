@@ -1,25 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DialogContext } from './DialogContext';
 
-interface HeliumDialogHeaderProps {
+interface DialogHeaderProps {
   headerClass?: string;
-  ariaLabelSelector: string;
+  ariaLabelSelector?: string;
   children?: string | JSX.Element[] | JSX.Element;
-  isModalDialog: boolean;
+  dialogRole?: `dialog` | `alertdialog`;
   closeDialog?: () => void;
   closeInHeader?: boolean;
 }
 
-const HeliumDialogHeader = ({
+const DialogHeader = ({
   headerClass = ``,
-  ariaLabelSelector,
-  isModalDialog,
+  ariaLabelSelector = ``,
+  dialogRole = `dialog`,
   children,
   closeDialog,
-  closeInHeader,
-}: HeliumDialogHeaderProps) => {
+  closeInHeader = true,
+}: DialogHeaderProps) => {
+  const context = useContext(DialogContext);
+
   return (
     <div className={`h-react-dialog__header ${headerClass}`}>
-      <h3 className="h-react-dialog__heading" id={ariaLabelSelector}>
+      <h3 className="h-react-dialog__heading" id={ariaLabelSelector || context.ariaLabelSelector}>
         {children}
       </h3>
       {/* "alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
@@ -28,7 +31,7 @@ const HeliumDialogHeader = ({
       because, the role="alertdialog" is only when an alert, error, or warning occurs. In other words, when a
       dialog's information and controls require the user's immediate attention alertdialog should be used
       instead of dialog. */}
-      {isModalDialog && closeDialog && closeInHeader && (
+      {dialogRole === `dialog` && closeDialog && closeInHeader && (
         <button
           type="button"
           className="h-react-dialog__close"
@@ -42,4 +45,4 @@ const HeliumDialogHeader = ({
   );
 };
 
-export { HeliumDialogHeader };
+export { DialogHeader };

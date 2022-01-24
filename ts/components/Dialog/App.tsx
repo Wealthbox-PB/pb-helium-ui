@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HeliumDialog } from './Dialog';
+import { Dialog } from './Dialog';
 
 function App() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -14,7 +14,7 @@ function App() {
         Toggle Modal
       </button>
 
-      <HeliumDialog
+      <Dialog
         header={`Test Modal`}
         initialFocusEl={`.h-btn--init-focus`}
         open={isDialogOpen}
@@ -29,9 +29,9 @@ function App() {
             Launch 2nd Modal
           </button>
         </p>
-      </HeliumDialog>
+      </Dialog>
 
-      <HeliumDialog
+      <Dialog
         hasFooter={false}
         size={`small`}
         position={`bottom center`}
@@ -50,7 +50,7 @@ function App() {
           et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
         </p>
-      </HeliumDialog>
+      </Dialog>
     </div>
   );
 }

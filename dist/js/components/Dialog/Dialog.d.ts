@@ -1,7 +1,6 @@
 /// <reference types="react" />
-interface HeliumDialogProps {
+interface DialogProps {
     open: boolean;
-    isModalDialog?: boolean;
     size?: string;
     position?: string;
     initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
@@ -18,6 +17,7 @@ interface HeliumDialogProps {
     footerBackground?: boolean;
     trapPaused?: boolean;
     dialogElClass?: string;
+    dialogRole?: `dialog` | `alertdialog`;
 }
-declare const HeliumDialog: ({ open, isModalDialog, size, position, initialFocusEl, returnFocusEl, closeDialog, submitHandler, header, headerClass, closeInHeader, bodyClass, children, hasFooter, footer, footerBackground, trapPaused, dialogElClass, }: HeliumDialogProps) => JSX.Element;
-export { HeliumDialog };
+declare const Dialog: ({ open, size, position, initialFocusEl, returnFocusEl, closeDialog, submitHandler, header, headerClass, closeInHeader, bodyClass, children, hasFooter, footer, footerBackground, trapPaused, dialogElClass, dialogRole, }: DialogProps) => JSX.Element;
+export { Dialog };

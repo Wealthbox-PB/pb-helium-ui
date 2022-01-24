@@ -1,6 +1,6 @@
 /// <reference types="react" />
-interface HeliumDialogPortalProps {
+interface DialogPortalProps {
     children: string | JSX.Element[] | JSX.Element;
 }
-declare const HeliumDialogPortal: ({ children }: HeliumDialogPortalProps) => import("react").ReactPortal;
-export { HeliumDialogPortal };
+declare const DialogPortal: ({ children }: DialogPortalProps) => import("react").ReactPortal;
+export { DialogPortal };
