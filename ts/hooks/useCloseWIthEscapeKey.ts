@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
 
-export const useCloseWithEscapeKey = (
+export function useCloseWithEscapeKey(
   keyDownTargetRef: React.MutableRefObject<HTMLElement | null>,
   closeCallback: () => void,
   open: boolean
-) => {
+) {
   const handleEscapeKeyPress = (event: KeyboardEvent) => {
     if (event.key === `Escape` || event.key === `Esc` || event.keyCode === 27) {
-      return closeCallback(); // Consider removing this return based on chris che's suggestion
-      // Should we add event.stopPropagation() so this doesn't bubble and cause unwanted ux? https://sarahmhigley.com/writing/escaping-101/
+      closeCallback();
+      event.stopPropagation();
     }
   };
   useEffect(() => {
@@ -20,4 +20,4 @@ export const useCloseWithEscapeKey = (
       ref?.removeEventListener(`keydown`, handleEscapeKeyPress);
     };
   });
-};
+}
