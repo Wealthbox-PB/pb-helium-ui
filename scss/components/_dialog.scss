@@ -1,5 +1,5 @@
 
-//  React Dialog
+//  Dialog
 //==========================================================================
 
 // Box Model
@@ -9,12 +9,12 @@ $h-dialog-width--desktop-md: 500px;
 $h-dialog-width--desktop-sm: 360px;
 $h-dialog-width--desktop-lg: 650px;
 
-.h-react-dialog-portal {
+.h-dialog-portal {
   position: fixed;
   z-index: 9999;
 }
 
-.h-react-dialog {
+.h-dialog {
   position: fixed;
   z-index: 9999;
   top: 0;
@@ -30,71 +30,79 @@ $h-dialog-width--desktop-lg: 650px;
   transition: 150ms ease-in-out all;
 }
 
-.h-react-dialog--md {
-  .h-react-dialog__el {
+.h-dialog--md {
+  .h-dialog__el {
     @include media-breakpoint-up(md) {
       width: $h-dialog-width--desktop-md;
     }
   }
 }
 
-.h-react-dialog--sm {
-  .h-react-dialog__el {
+.h-dialog--sm {
+  .h-dialog__el {
     @include media-breakpoint-up(md) {
       width: $h-dialog-width--desktop-sm;
     }
   }
 }
 
-.h-react-dialog--lg {
-  .h-react-dialog__el {
+.h-dialog--lg {
+  .h-dialog__el {
     @include media-breakpoint-up(md) {
       width: $h-dialog-width--desktop-lg;
     }
   }
 }
 
-.h-react-dialog--full-screen {
-  .h-react-dialog__el {
+.h-dialog--full-screen {
+  .h-dialog__el {
     width: 100%;
     height: 100%;
   }
 }
 
-.h-react-dialog--top {
+.h-dialog--top {
   align-items: flex-start;
 }
 
-.h-react-dialog--right {
+.h-dialog--right {
   justify-content: flex-end;
 }
 
-.h-react-dialog--center {
+.h-dialog--center {
   align-items: center;
   justify-content: center;
 }
 
-.h-react-dialog--center-y {
+.h-dialog--center-y {
   align-items: center;
 }
 
-.h-react-dialog--center-x {
+.h-dialog--center-x {
   justify-content: center;
 }
 
-.h-react-dialog--bottom {
+.h-dialog--bottom {
   align-items: flex-end;
 }
 
-.h-react-dialog--left {
+.h-dialog--left {
   justify-content: flex-start;
 }
 
-.h-react-dialog--open {
+.h-dialog--open {
   opacity: 1;
 }
 
-.h-react-dialog__backdrop {
+.h-dialog--backdrop-none {
+  pointer-events: none;
+
+  & > .h-dialog__el {
+    pointer-events: all;
+  }
+}
+
+.h-dialog__backdrop {
   position: fixed;
   z-index: 1;
   top: 0;
@@ -108,7 +116,7 @@ $h-dialog-width--desktop-lg: 650px;
   background: rgba($h-black, 0.5);
 }
 
-.h-react-dialog__el {
+.h-dialog__el {
   position: relative;
   z-index: 2;
   display: flex;
@@ -125,13 +133,13 @@ $h-dialog-width--desktop-lg: 650px;
   }
 }
 
-.h-react-dialog__header {
+.h-dialog__header {
   position: relative;
   display: flex;
   padding: $h-dialog-padding;
 }
 
-.h-react-dialog__heading {
+.h-dialog__heading {
   padding-right: 1.5rem;
   margin: 0;
   color: $h-black;
@@ -140,7 +148,7 @@ $h-dialog-width--desktop-lg: 650px;
   line-height: 20px;
 }
 
-.h-react-dialog__close {
+.h-dialog__close {
   position: absolute;
   top: 1.125rem;
   right: 0.75rem;
@@ -162,7 +170,7 @@ $h-dialog-width--desktop-lg: 650px;
   }
 }
 
-.h-react-dialog__body {
+.h-dialog__body {
   overflow: auto;
   flex-grow: 1;
   padding: $h-dialog-padding;
@@ -173,21 +181,21 @@ $h-dialog-width--desktop-lg: 650px;
   }
 }
 
-.h-react-dialog__header + .h-react-dialog__body {
+.h-dialog__header + .h-dialog__body {
   padding-top: 0;
 }
 
-.h-react-dialog__footer {
+.h-dialog__footer {
   padding: 1rem $h-dialog-padding;
   border-bottom-left-radius: $h-border-radius-shared-component;
   border-bottom-right-radius: $h-border-radius-shared-component;
 }
 
-.h-react-dialog__footer--with-background {
+.h-dialog__footer--with-background {
   background: $h-color-background-secondary-shared-component;
 }
 
-.h-react-dialog__footer-cta-container {
+.h-dialog__footer-cta-container {
   display: flex;
   justify-content: flex-end;
 }
