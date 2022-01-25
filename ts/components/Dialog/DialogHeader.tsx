@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useDialogContext } from './DialogContext';
 
 interface DialogHeaderProps {
-  headerClass?: string;
+  headerClassName?: string;
   ariaLabelSelector?: string;
   children?: string | JSX.Element[] | JSX.Element;
   dialogRole?: `dialog` | `alertdialog`;
@@ -12,7 +12,7 @@ interface DialogHeaderProps {
 }
 
 const DialogHeader = ({
-  headerClass = ``,
+  headerClassName = ``,
   ariaLabelSelector = ``,
   dialogRole = `dialog`,
   children,
@@ -20,9 +20,10 @@ const DialogHeader = ({
   closeInHeader = true,
 }: DialogHeaderProps) => {
   const context = useDialogContext();
+  const handleClose = closeDialog || context.closeDialog;
 
   return (
-    <div className={classNames(`h-dialog__header`, headerClass)}>
+    <div className={classNames(`h-dialog__header`, headerClassName)}>
       <h3 className="h-dialog__heading" id={ariaLabelSelector || context.ariaLabelSelector}>
         {children}
       </h3>
@@ -32,13 +33,8 @@ const DialogHeader = ({
       because, the role="alertdialog" is only when an alert, error, or warning occurs. In other words, when a
       dialog's information and controls require the user's immediate attention alertdialog should be used
       instead of dialog. */}
-      {dialogRole === `dialog` && closeDialog && closeInHeader ? (
-        <button
-          type="button"
-          className="h-dialog__close"
-          aria-label="Close Dialog"
-          onClick={closeDialog || context.closeDialog}
-        >
+      {dialogRole === `dialog` && handleClose && closeInHeader ? (
+        <button type="button" className="h-dialog__close" aria-label="Close Dialog" onClick={handleClose}>
           <span aria-hidden="true" className="h-icon-delete--lg"></span>
         </button>
       ) : null}

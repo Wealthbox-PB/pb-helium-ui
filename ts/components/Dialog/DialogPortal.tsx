@@ -9,7 +9,7 @@ const portalRoot = (): HTMLElement => document.body;
 
 const DialogPortal = ({ children }: DialogPortalProps) => {
   const el = useMemo(() => document.createElement(`div`), []);
-  el.className = `h-react-dialog-portal`;
+  el.className = `h-dialog-portal`;
 
   useEffect(() => {
     portalRoot().appendChild(el);

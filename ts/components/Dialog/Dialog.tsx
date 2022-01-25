@@ -13,19 +13,19 @@ interface DialogProps {
   closeDialog: () => void;
   submitHandler?: () => void;
   header?: string | JSX.Element[] | JSX.Element;
-  headerClass?: string;
+  headerClassName?: string;
   closeInHeader?: boolean;
-  bodyClass?: string;
+  bodyClassName?: string;
   children: string | JSX.Element[] | JSX.Element;
   hasFooter?: boolean;
   footer?: string | JSX.Element[] | JSX.Element;
-  footerClass?: string;
+  footerClassName?: string;
   footerBackground?: boolean;
   trapPaused?: boolean;
-  dialogElClass?: string;
+  dialogClassName?: string;
   dialogRole?: `dialog` | `alertdialog`;
   backdrop?: boolean;
-  backdropClass?: string;
+  backdropClassName?: string;
 }
 
 const Dialog = ({
@@ -37,19 +37,19 @@ const Dialog = ({
   closeDialog,
   submitHandler,
   header,
-  headerClass,
+  headerClassName,
   closeInHeader = true,
-  bodyClass,
+  bodyClassName,
   children,
   hasFooter = true,
   footer,
   footerBackground = true,
-  footerClass,
+  footerClassName,
   trapPaused = false,
-  dialogElClass,
+  dialogClassName,
   dialogRole = `dialog`,
   backdrop = true,
-  backdropClass,
+  backdropClassName,
 }: DialogProps) => {
   return (
     <BasicDialog
@@ -62,16 +62,16 @@ const Dialog = ({
         closeDialog,
         children,
         trapPaused,
-        dialogElClass,
+        dialogClassName,
         dialogRole,
         backdrop,
-        backdropClass,
+        backdropClassName,
       }}
     >
       <>
         {header ? (
           <DialogHeader
-            headerClass={headerClass}
+            headerClassName={headerClassName}
             dialogRole={dialogRole}
             closeDialog={closeDialog}
             closeInHeader={closeInHeader}
@@ -79,10 +79,10 @@ const Dialog = ({
             {header}
           </DialogHeader>
         ) : null}
-        <DialogBody bodyClass={bodyClass}>{children}</DialogBody>
+        <DialogBody bodyClassName={bodyClassName}>{children}</DialogBody>
         {hasFooter ? (
           <DialogFooter
-            footerClass={footerClass}
+            footerClassName={footerClassName}
             closeDialog={closeDialog}
             submitHandler={submitHandler}
             footerBackground={footerBackground}

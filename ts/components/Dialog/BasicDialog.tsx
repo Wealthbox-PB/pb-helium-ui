@@ -1,12 +1,8 @@
 import React from 'react';
 import { DialogPortal } from './DialogPortal';
 import { DialogBackdrop } from './DialogBackdrop';
-import classNames from 'classnames';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
-
-const dialogSelectorPrefix = `h-react-dialog`;
-const dialogEl = `${dialogSelectorPrefix}__el`;
 
 interface BasicDialogProps {
   open: boolean;
@@ -17,10 +13,10 @@ interface BasicDialogProps {
   closeDialog?: () => void;
   children: string | JSX.Element[] | JSX.Element;
   trapPaused?: boolean;
-  dialogElClass?: string;
+  dialogClassName?: string;
   dialogRole?: `dialog` | `alertdialog`;
   backdrop?: boolean;
-  backdropClass?: string;
+  backdropClassName?: string;
 }
 
 export const BasicDialog = ({
@@ -32,12 +28,12 @@ export const BasicDialog = ({
   closeDialog = () => {},
   children,
   trapPaused = false,
-  dialogElClass,
+  dialogClassName,
   dialogRole = `dialog`,
   backdrop = true,
-  backdropClass,
+  backdropClassName,
 }: BasicDialogProps) => {
-  const { getRootProps, dialogRef, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
+  const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
     closeDialog,
     open,
     initialFocusEl,
@@ -45,14 +41,23 @@ export const BasicDialog = ({
     trapPaused,
     size,
     position,
+    dialogClassName,
     dialogRole,
     backdrop,
   });
 
   return (
+    <>
+      {open ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
-              {backdrop ? <DialogBackdrop className={backdropClass} /> : null}
-      )}
-    </DialogContext.Provider>
+          <DialogPortal>
+            <div {...getRootProps()}>
+              {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
+              <div {...getDialogProps()}>{children}</div>
+            </div>
+          </DialogPortal>
+        </DialogContext.Provider>
+      ) : null}
+    </>
   );
 };

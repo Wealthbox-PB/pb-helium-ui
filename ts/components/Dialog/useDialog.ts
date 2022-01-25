@@ -1,12 +1,18 @@
 import { createFocusTrap } from 'focus-trap';
 import { useCloseWithEscapeKey } from '../../hooks/useCloseWithEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { randomString } from '../../helpers/random_string';
 import classNames from 'classnames';
 
-const dialogSelectorPrefix = `h-react-dialog`;
-const ariaSelectorPrefix = `${dialogSelectorPrefix}-aria`;
+const rootDialogClassName = `h-dialog`;
+const ariaSelectorPrefix = `${rootDialogClassName}-aria`;
+const sizeClasses: { [key: string]: string } = {
+  small: `sm`,
+  medium: `md`,
+  large: `lg`,
+  full: `full-screen`,
+};
 
 export function useDialog({
   closeDialog = () => {},
@@ -16,23 +22,20 @@ export function useDialog({
   trapPaused,
   size,
   position,
+  dialogClassName,
   dialogRole,
+  backdrop,
 }) {
   const [isTrapPaused, setIsTrapPaused] = useState<boolean>(trapPaused);
 
   const rootRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  const dialogSelectorSuffixRef = useRef<string>(randomString());
+  const uniqueSuffixRef = useRef<string>(randomString());
 
-  const ariaLabelSelector = createSelector(ariaSelectorPrefix, `label`, dialogSelectorSuffixRef.current);
-  const ariaDescriptionSelector = createSelector(
-    ariaSelectorPrefix,
-    `description`,
-    dialogSelectorSuffixRef.current
-  );
-  const uniqueDialogRootEl = `${dialogSelectorPrefix}-${dialogSelectorSuffixRef.current}`;
+  const ariaLabelSelector = createSelector(ariaSelectorPrefix, `label`, uniqueSuffixRef.current);
+  const ariaDescriptionSelector = createSelector(ariaSelectorPrefix, `description`, uniqueSuffixRef.current);
 
-  useScrollLock(`html`, open);
+  useScrollLock(open && backdrop);
   useCloseWithEscapeKey(rootRef, closeDialog, open);
 
   useEffect(() => {
@@ -44,14 +47,20 @@ export function useDialog({
       return;
     }
 
+    if (isTrapPaused) {
+      return;
+    }
+
     const trapOptions = {
       allowOutsideClick: true,
       fallbackFocus: dialogRef.current,
       initialFocus: initialFocusEl,
       setReturnFocus: returnFocusEl,
     };
+
     const trap = createFocusTrap(dialogRef.current, trapOptions);
     trap.activate();
+
     if (isTrapPaused) {
       trap.pause();
     } else {
@@ -64,48 +73,55 @@ export function useDialog({
 
   useEffect(() => {
     const ref = rootRef.current;
-    ref?.classList.add(`h-react-dialog--open`);
-    return () => ref?.classList.remove(`h-react-dialog--open`);
+    ref?.classList.add(`${rootDialogClassName}--open`);
+    return () => ref?.classList.remove(`${rootDialogClassName}--open`);
   });
 
-  function getRootProps() {
+  const getRootProps = useCallback(() => {
     return {
       ref: rootRef,
       className: classNames(
-        `h-react-dialog`,
-        uniqueDialogRootEl,
+        rootDialogClassName,
+        `${rootDialogClassName}-${uniqueSuffixRef.current}`,
         getDialogSize(size),
-        getDialogPosition(position)
+        getDialogPosition(position),
+        {
+          [`${rootDialogClassName}--backdrop-none`]: !backdrop,
+        }
       ),
       role: dialogRole,
       'aria-modal': true,
       'aria-labelledby': ariaLabelSelector,
       'aria-describedby': ariaDescriptionSelector,
     };
-  }
+  }, [ariaDescriptionSelector, ariaLabelSelector, backdrop, dialogRole, position, size]);
+
+  const getDialogProps = useCallback(() => {
+    return {
+      ref: dialogRef,
+      tabIndex: -1,
+      className: classNames(`${rootDialogClassName}__el`, dialogClassName),
+    };
+  }, [dialogClassName]);
 
   return {
     getRootProps,
-    dialogRef,
+    getDialogProps,
     ariaLabelSelector,
     ariaDescriptionSelector,
   };
 }
 
-function createSelector(prefix: string, type: string | null, suffix: string | number | null): string {
-  return `${prefix}-${type}-${suffix}`;
+function createSelector(...parts): string {
+  return parts.join(`-`);
 }
 
+const sizeKeys = Object.keys(sizeClasses);
 function getDialogSize(size = `medium`): string {
-  const sizeClasses: { [key: string]: string } = {
-    small: `sm`,
-    medium: `md`,
-    large: `lg`,
-    full: `full-screen`,
-  };
-  return Object.prototype.hasOwnProperty.call(sizeClasses, size)
-    ? `${dialogSelectorPrefix}--${sizeClasses[size]}`
-    : ``;
+  if (sizeKeys.includes(size)) {
+    return `${rootDialogClassName}--${sizeClasses[size]}`;
+  }
+  return ``;
 }
 
 function getDialogPosition(position: string = `center`): string {
@@ -113,12 +129,23 @@ function getDialogPosition(position: string = `center`): string {
     return position === `center` ? `center-${axis}` : position;
   };
 
+  // Test cases, in a loop in the function, via a map
+  // "top left" => .h-dialog--top.h-dialog--left
+  // "top center" => .h-dialog--top.h-dialog--center-x
+  // "top right" => .h-dialog--top.h-dialog--right
+  // "center left" => .h-dialog--left.h-dialog--center-y
+  // "center center" => .h-dialog--center-y.h-dialog--center-x || .h-dialog--center
+  // "center right" => .h-dialog--center-y.h-dialog--right
+  // "bottom left" => .h-dialog--bottom.h-dialog--left
+  // "bottom center" => .h-dialog--bottom.h-dialog--center-x
+  // "bottom right" => .h-dialog--bottom.h-dialog--right
+
   const [y, x] = position.toLowerCase().split(` `);
 
   if (!x) {
-    return `${dialogSelectorPrefix}--${y}`;
+    return `${rootDialogClassName}--${y}`;
   } else {
-    return `${dialogSelectorPrefix}--${getPositionClass(`y`, y)} ${dialogSelectorPrefix}--${getPositionClass(
+    return `${rootDialogClassName}--${getPositionClass(`y`, y)} ${rootDialogClassName}--${getPositionClass(
       `x`,
       x
     )}`;

@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import { DialogContext } from './DialogContext';
+import { useDialogContext } from './DialogContext';
 
 interface DialogBodyProps {
-  bodyClass?: string;
+  bodyClassName?: string;
   ariaDescriptionSelector?: string;
   children: string | JSX.Element[] | JSX.Element;
 }
 
-const DialogBody = ({ bodyClass = ``, ariaDescriptionSelector = ``, children }: DialogBodyProps) => {
-  const context = useContext(DialogContext);
+const DialogBody = ({ bodyClassName = ``, ariaDescriptionSelector = ``, children }: DialogBodyProps) => {
+  const context = useDialogContext();
 
   return (
     <div
-      className={classNames(`h-dialog__body`, bodyClass)}
+      className={classNames(`h-dialog__body`, bodyClassName)}
       id={ariaDescriptionSelector || context.ariaDescriptionSelector}
     >
       {children}

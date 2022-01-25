@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useDialogContext } from './DialogContext';
 
 interface DialogFooterProps {
-  footerClass?: string;
+  footerClassName?: string;
   footerBackground?: boolean;
   children?: string | JSX.Element[] | JSX.Element;
   closeDialog: () => void;
@@ -13,7 +13,7 @@ interface DialogFooterProps {
 const DialogFooter = ({
   children,
   footerBackground = true,
-  footerClass = ``,
+  footerClassName = ``,
   closeDialog,
   submitHandler,
 }: DialogFooterProps) => {
@@ -21,7 +21,7 @@ const DialogFooter = ({
 
   return (
     <div
-      className={classNames(`h-dialog__footer`, footerClass, {
+      className={classNames(`h-dialog__footer`, footerClassName, {
         'h-dialog__footer--with-background': footerBackground,
       })}
     >
