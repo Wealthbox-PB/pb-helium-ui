@@ -5,11 +5,13 @@ interface BasicDialogProps {
     position?: string;
     initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
     returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-    closeDialog: () => void;
+    closeDialog?: () => void;
     children: string | JSX.Element[] | JSX.Element;
     trapPaused?: boolean;
-    dialogElClass?: string;
+    dialogClassName?: string;
     dialogRole?: `dialog` | `alertdialog`;
+    backdrop?: boolean;
+    backdropClassName?: string;
 }
-export declare const BasicDialog: ({ open, size, position, initialFocusEl, returnFocusEl, closeDialog, children, trapPaused, dialogElClass, dialogRole, }: BasicDialogProps) => JSX.Element;
+export declare const BasicDialog: ({ open, size, position, initialFocusEl, returnFocusEl, closeDialog, children, trapPaused, dialogClassName, dialogRole, backdrop, backdropClassName, }: BasicDialogProps) => JSX.Element;
 export {};

@@ -1,6 +1,6 @@
 /// <reference types="react" />
 interface DialogBackdropProps {
-    handleClick: () => void;
+    className?: string;
 }
-export declare const DialogBackdrop: ({ handleClick }: DialogBackdropProps) => JSX.Element;
+export declare const DialogBackdrop: ({ className }: DialogBackdropProps) => JSX.Element;
 export {};

@@ -15,7 +15,7 @@ import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';
 import { DialogFooter } from './DialogFooter';
 var Dialog = function (_a) {
-    var open = _a.open, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClass = _a.headerClass, _b = _a.closeInHeader, closeInHeader = _b === void 0 ? true : _b, bodyClass = _a.bodyClass, children = _a.children, _c = _a.hasFooter, hasFooter = _c === void 0 ? true : _c, footer = _a.footer, _d = _a.footerBackground, footerBackground = _d === void 0 ? true : _d, _e = _a.trapPaused, trapPaused = _e === void 0 ? false : _e, dialogElClass = _a.dialogElClass, _f = _a.dialogRole, dialogRole = _f === void 0 ? "dialog" : _f;
+    var open = _a.open, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, closeDialog = _a.closeDialog, submitHandler = _a.submitHandler, header = _a.header, headerClassName = _a.headerClassName, _b = _a.closeInHeader, closeInHeader = _b === void 0 ? true : _b, bodyClassName = _a.bodyClassName, children = _a.children, _c = _a.hasFooter, hasFooter = _c === void 0 ? true : _c, footer = _a.footer, _d = _a.footerBackground, footerBackground = _d === void 0 ? true : _d, footerClassName = _a.footerClassName, _e = _a.trapPaused, trapPaused = _e === void 0 ? false : _e, dialogClassName = _a.dialogClassName, _f = _a.dialogRole, dialogRole = _f === void 0 ? "dialog" : _f, _g = _a.backdrop, backdrop = _g === void 0 ? true : _g, backdropClassName = _a.backdropClassName;
     return (React.createElement(BasicDialog, __assign({}, {
         open: open,
         size: size,
@@ -25,13 +25,15 @@ var Dialog = function (_a) {
         closeDialog: closeDialog,
         children: children,
         trapPaused: trapPaused,
-        dialogElClass: dialogElClass,
+        dialogClassName: dialogClassName,
         dialogRole: dialogRole,
+        backdrop: backdrop,
+        backdropClassName: backdropClassName,
     }),
         React.createElement(React.Fragment, null,
-            header && (React.createElement(DialogHeader, { headerClass: headerClass, dialogRole: dialogRole, closeDialog: closeDialog, closeInHeader: closeInHeader }, header)),
-            React.createElement(DialogBody, { bodyClass: bodyClass }, children),
-            hasFooter && (React.createElement(DialogFooter, { closeDialog: closeDialog, submitHandler: submitHandler, footerBackground: footerBackground }, footer)))));
+            header ? (React.createElement(DialogHeader, { headerClassName: headerClassName, dialogRole: dialogRole, closeDialog: closeDialog, closeInHeader: closeInHeader }, header)) : null,
+            React.createElement(DialogBody, { bodyClassName: bodyClassName }, children),
+            hasFooter ? (React.createElement(DialogFooter, { footerClassName: footerClassName, closeDialog: closeDialog, submitHandler: submitHandler, footerBackground: footerBackground }, footer)) : null)));
 };
 export { Dialog };
 //# sourceMappingURL=Dialog.js.map

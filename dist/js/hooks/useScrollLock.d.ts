@@ -1,1 +1,1 @@
-export declare const useScrollLock: (elementSelector: string, open: boolean) => void;
+export declare function useScrollLock(open: boolean, elementSelector?: string | HTMLElement): void;

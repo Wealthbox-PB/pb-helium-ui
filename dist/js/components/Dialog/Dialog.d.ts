@@ -8,16 +8,19 @@ interface DialogProps {
     closeDialog: () => void;
     submitHandler?: () => void;
     header?: string | JSX.Element[] | JSX.Element;
-    headerClass?: string;
+    headerClassName?: string;
     closeInHeader?: boolean;
-    bodyClass?: string;
+    bodyClassName?: string;
     children: string | JSX.Element[] | JSX.Element;
     hasFooter?: boolean;
     footer?: string | JSX.Element[] | JSX.Element;
+    footerClassName?: string;
     footerBackground?: boolean;
     trapPaused?: boolean;
-    dialogElClass?: string;
+    dialogClassName?: string;
     dialogRole?: `dialog` | `alertdialog`;
+    backdrop?: boolean;
+    backdropClassName?: string;
 }
-declare const Dialog: ({ open, size, position, initialFocusEl, returnFocusEl, closeDialog, submitHandler, header, headerClass, closeInHeader, bodyClass, children, hasFooter, footer, footerBackground, trapPaused, dialogElClass, dialogRole, }: DialogProps) => JSX.Element;
+declare const Dialog: ({ open, size, position, initialFocusEl, returnFocusEl, closeDialog, submitHandler, header, headerClassName, closeInHeader, bodyClassName, children, hasFooter, footer, footerBackground, footerClassName, trapPaused, dialogClassName, dialogRole, backdrop, backdropClassName, }: DialogProps) => JSX.Element;
 export { Dialog };
