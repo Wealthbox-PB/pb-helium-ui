@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+import { useDialogContext } from './DialogContext';
 
 interface DialogFooterProps {
   footerClass?: string;
@@ -15,24 +17,30 @@ const DialogFooter = ({
   closeDialog,
   submitHandler,
 }: DialogFooterProps) => {
+  const context = useDialogContext();
+
   return (
     <div
-      className={`h-react-dialog__footer ${
-        footerBackground && `h-react-dialog__footer--with-background`
-      } ${footerClass}`}
+      className={classNames(`h-dialog__footer`, footerClass, {
+        'h-dialog__footer--with-background': footerBackground,
+      })}
     >
       {children ? (
         children
       ) : (
-        <div className="h-react-dialog__footer-cta-container">
-          <button type="button" onClick={closeDialog} className="h-btn h-btn--secondary">
+        <div className="h-dialog__footer-cta-container">
+          <button
+            type="button"
+            onClick={closeDialog || context.closeDialog}
+            className="h-btn h-btn--secondary"
+          >
             Cancel
           </button>
-          {submitHandler && (
+          {submitHandler ? (
             <button onClick={submitHandler} className="h-btn h-btn--positive h-btn-margin-left">
               Submit
             </button>
-          )}
+          ) : null}
         </div>
       )}
     </div>

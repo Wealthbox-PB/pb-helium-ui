@@ -1,3 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-export const DialogContext = React.createContext({ ariaLabelSelector: ``, ariaDescriptionSelector: `` });
+export const DialogContext = React.createContext({
+  ariaLabelSelector: ``,
+  ariaDescriptionSelector: ``,
+  closeDialog: () => {},
+});
+
+export function useDialogContext() {
+  return useContext(DialogContext);
+}

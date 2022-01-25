@@ -19,10 +19,13 @@ interface DialogProps {
   children: string | JSX.Element[] | JSX.Element;
   hasFooter?: boolean;
   footer?: string | JSX.Element[] | JSX.Element;
+  footerClass?: string;
   footerBackground?: boolean;
   trapPaused?: boolean;
   dialogElClass?: string;
   dialogRole?: `dialog` | `alertdialog`;
+  backdrop?: boolean;
+  backdropClass?: string;
 }
 
 const Dialog = ({
@@ -41,9 +44,12 @@ const Dialog = ({
   hasFooter = true,
   footer,
   footerBackground = true,
+  footerClass,
   trapPaused = false,
   dialogElClass,
   dialogRole = `dialog`,
+  backdrop = true,
+  backdropClass,
 }: DialogProps) => {
   return (
     <BasicDialog
@@ -58,10 +64,12 @@ const Dialog = ({
         trapPaused,
         dialogElClass,
         dialogRole,
+        backdrop,
+        backdropClass,
       }}
     >
       <>
-        {header && (
+        {header ? (
           <DialogHeader
             headerClass={headerClass}
             dialogRole={dialogRole}
@@ -70,17 +78,18 @@ const Dialog = ({
           >
             {header}
           </DialogHeader>
-        )}
+        ) : null}
         <DialogBody bodyClass={bodyClass}>{children}</DialogBody>
-        {hasFooter && (
+        {hasFooter ? (
           <DialogFooter
+            footerClass={footerClass}
             closeDialog={closeDialog}
             submitHandler={submitHandler}
             footerBackground={footerBackground}
           >
             {footer}
           </DialogFooter>
-        )}
+        ) : null}
       </>
     </BasicDialog>
   );

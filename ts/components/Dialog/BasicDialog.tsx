@@ -14,11 +14,13 @@ interface BasicDialogProps {
   position?: string;
   initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
   returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-  closeDialog: () => void;
+  closeDialog?: () => void;
   children: string | JSX.Element[] | JSX.Element;
   trapPaused?: boolean;
   dialogElClass?: string;
   dialogRole?: `dialog` | `alertdialog`;
+  backdrop?: boolean;
+  backdropClass?: string;
 }
 
 export const BasicDialog = ({
@@ -32,6 +34,8 @@ export const BasicDialog = ({
   trapPaused = false,
   dialogElClass,
   dialogRole = `dialog`,
+  backdrop = true,
+  backdropClass,
 }: BasicDialogProps) => {
   const { getRootProps, dialogRef, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
     closeDialog,
@@ -42,19 +46,12 @@ export const BasicDialog = ({
     size,
     position,
     dialogRole,
+    backdrop,
   });
 
   return (
-    <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector }}>
-      {open && (
-        <DialogPortal>
-          <div {...getRootProps()}>
-            <DialogBackdrop handleClick={closeDialog} />
-            <div ref={dialogRef} tabIndex={-1} className={classNames(dialogEl, dialogElClass)}>
-              {children}
-            </div>
-          </div>
-        </DialogPortal>
+        <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
+              {backdrop ? <DialogBackdrop className={backdropClass} /> : null}
       )}
     </DialogContext.Provider>
   );

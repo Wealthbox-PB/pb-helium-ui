@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
-import { DialogContext } from './DialogContext';
+import React from 'react';
+import classNames from 'classnames';
+import { useDialogContext } from './DialogContext';
 
 interface DialogHeaderProps {
   headerClass?: string;
@@ -18,11 +19,11 @@ const DialogHeader = ({
   closeDialog,
   closeInHeader = true,
 }: DialogHeaderProps) => {
-  const context = useContext(DialogContext);
+  const context = useDialogContext();
 
   return (
-    <div className={`h-react-dialog__header ${headerClass}`}>
-      <h3 className="h-react-dialog__heading" id={ariaLabelSelector || context.ariaLabelSelector}>
+    <div className={classNames(`h-dialog__header`, headerClass)}>
+      <h3 className="h-dialog__heading" id={ariaLabelSelector || context.ariaLabelSelector}>
         {children}
       </h3>
       {/* "alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
@@ -31,16 +32,16 @@ const DialogHeader = ({
       because, the role="alertdialog" is only when an alert, error, or warning occurs. In other words, when a
       dialog's information and controls require the user's immediate attention alertdialog should be used
       instead of dialog. */}
-      {dialogRole === `dialog` && closeDialog && closeInHeader && (
+      {dialogRole === `dialog` && closeDialog && closeInHeader ? (
         <button
           type="button"
-          className="h-react-dialog__close"
+          className="h-dialog__close"
           aria-label="Close Dialog"
-          onClick={closeDialog}
+          onClick={closeDialog || context.closeDialog}
         >
           <span aria-hidden="true" className="h-icon-delete--lg"></span>
         </button>
-      )}
+      ) : null}
     </div>
   );
 };

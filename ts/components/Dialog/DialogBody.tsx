@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import classNames from 'classnames';
 import { DialogContext } from './DialogContext';
 
 interface DialogBodyProps {
@@ -12,7 +13,7 @@ const DialogBody = ({ bodyClass = ``, ariaDescriptionSelector = ``, children }: 
 
   return (
     <div
-      className={`h-react-dialog__body ${bodyClass}`}
+      className={classNames(`h-dialog__body`, bodyClass)}
       id={ariaDescriptionSelector || context.ariaDescriptionSelector}
     >
       {children}

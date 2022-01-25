@@ -1,15 +1,19 @@
 import React from 'react';
+import classNames from 'classnames';
+import { useDialogContext } from './DialogContext';
 
 interface DialogBackdropProps {
-  handleClick: () => void;
+  className?: string;
 }
 
-export const DialogBackdrop = ({ handleClick }: DialogBackdropProps) => {
+export const DialogBackdrop = ({ className }: DialogBackdropProps) => {
+  const context = useDialogContext();
+
   return (
     <button
       type="button"
-      className="h-react-dialog__backdrop"
-      onClick={handleClick}
+      className={classNames(`h-dialog__backdrop`, className)}
+      onClick={context.closeDialog}
       aria-label="Close Dialog"
     ></button>
   );
