@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 export var DialogContext = React.createContext({
-    ariaLabelSelector: "",
     ariaDescriptionSelector: "",
+    ariaLabelSelector: "",
     closeDialog: function () { },
 });
 export function useDialogContext() {

@@ -15,16 +15,16 @@ const sizeClasses: { [key: string]: string } = {
 };
 
 export function useDialog({
+  backdrop,
   closeDialog = () => {},
-  open,
-  initialFocusEl,
-  returnFocusEl,
-  trapPaused,
-  size,
-  position,
   dialogClassName,
   dialogRole,
-  backdrop,
+  initialFocusEl,
+  open,
+  position,
+  returnFocusEl,
+  size,
+  trapPaused,
 }) {
   const [isTrapPaused, setIsTrapPaused] = useState<boolean>(trapPaused);
 

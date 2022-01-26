@@ -2,23 +2,23 @@ import React from 'react';
 import { Button, ButtonSize, ButtonVariant } from '../Button';
 
 interface DialogFooterActionsProps {
-  cancel?: string;
-  confirm?: string;
-  cancelVariant?: ButtonVariant;
-  confirmVariant?: ButtonVariant;
   buttonSize?: ButtonSize;
-  onConfirm?: () => void;
-  onCancel?: () => void;
+  cancel?: string;
   cancelRef?: any;
+  cancelVariant?: ButtonVariant;
+  confirm?: string;
+  confirmVariant?: ButtonVariant;
+  onCancel?: () => void;
+  onConfirm?: () => void;
 }
 
 const DialogFooterActions = ({
-  confirm = ``,
-  cancel = ``,
-  confirmVariant = `positive`,
-  cancelVariant = `secondary`,
   buttonSize = `md`,
+  cancel = ``,
   cancelRef,
+  cancelVariant = `secondary`,
+  confirm = ``,
+  confirmVariant = `positive`,
   onCancel = () => {},
   onConfirm = () => {},
 }: DialogFooterActionsProps) => {

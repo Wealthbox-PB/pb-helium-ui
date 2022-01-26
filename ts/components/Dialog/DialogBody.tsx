@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import { useDialogContext } from './DialogContext';
 
 interface DialogBodyProps {
-  bodyClassName?: string;
   ariaDescriptionSelector?: string;
+  bodyClassName?: string;
   children: string | JSX.Element[] | JSX.Element;
 }
 

@@ -13,7 +13,7 @@ var sizeClasses = {
     full: "full-screen",
 };
 export function useDialog(_a) {
-    var _b = _a.closeDialog, closeDialog = _b === void 0 ? function () { } : _b, open = _a.open, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, trapPaused = _a.trapPaused, size = _a.size, position = _a.position, dialogClassName = _a.dialogClassName, dialogRole = _a.dialogRole, backdrop = _a.backdrop;
+    var backdrop = _a.backdrop, _b = _a.closeDialog, closeDialog = _b === void 0 ? function () { } : _b, dialogClassName = _a.dialogClassName, dialogRole = _a.dialogRole, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, trapPaused = _a.trapPaused;
     var _c = useState(trapPaused), isTrapPaused = _c[0], setIsTrapPaused = _c[1];
     var rootRef = useRef(null);
     var dialogRef = useRef(null);

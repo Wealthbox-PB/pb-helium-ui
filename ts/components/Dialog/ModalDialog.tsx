@@ -5,43 +5,43 @@ import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
 
 interface ModalDialogProps {
-  open: boolean;
-  size?: string;
-  position?: string;
-  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-  returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-  closeDialog: () => void;
-  children: string | JSX.Element[] | JSX.Element;
-  trapPaused?: boolean;
-  dialogClassName?: string;
   backdrop?: boolean;
   backdropClassName?: string;
+  children: string | JSX.Element[] | JSX.Element;
+  closeDialog: () => void;
+  dialogClassName?: string;
+  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+  open: boolean;
+  position?: string;
+  returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+  size?: string;
+  trapPaused?: boolean;
 }
 
 const ModalDialog = ({
-  open,
-  size,
-  position,
-  initialFocusEl,
-  returnFocusEl,
-  closeDialog,
-  children,
-  trapPaused = false,
-  dialogClassName,
   backdrop = true,
   backdropClassName,
+  children,
+  closeDialog,
+  dialogClassName,
+  initialFocusEl,
+  open,
+  position,
+  returnFocusEl,
+  size,
+  trapPaused = false,
 }: ModalDialogProps) => {
   const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
+    backdrop,
     closeDialog,
-    open,
-    initialFocusEl,
-    returnFocusEl,
-    trapPaused,
-    size,
-    position,
     dialogClassName,
     dialogRole: `dialog`,
-    backdrop,
+    initialFocusEl,
+    open,
+    position,
+    returnFocusEl,
+    size,
+    trapPaused,
   });
 
   return (

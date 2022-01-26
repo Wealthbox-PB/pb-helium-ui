@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 const scrollLockSelector: string = `h-overflow-hidden`;
 
 export function useScrollLock(
-  open: boolean,
-  elementSelector: string | HTMLElement = document.documentElement
+  elementSelector: string | HTMLElement = document.documentElement,
+  open: boolean
 ) {
   useEffect(() => {
     const element =

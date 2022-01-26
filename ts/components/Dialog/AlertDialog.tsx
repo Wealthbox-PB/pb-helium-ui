@@ -5,25 +5,25 @@ import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 
 interface AlertDialogProps {
-  open: boolean;
-  size?: string;
-  position?: string;
-  returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+  backdropClassName?: string;
   children: string | JSX.Element[] | JSX.Element;
   dialogClassName?: string;
-  backdropClassName?: string;
   leastDestructiveRef?: any;
+  open: boolean;
+  position?: string;
+  returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+  size?: string;
 }
 
 export const AlertDialog = ({
-  open,
-  size,
-  position,
-  returnFocusEl,
-  leastDestructiveRef,
+  backdropClassName,
   children,
   dialogClassName,
-  backdropClassName,
+  leastDestructiveRef,
+  open,
+  position,
+  returnFocusEl,
+  size,
 }: AlertDialogProps) => {
   // alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
   // modal close function to actually close it, AND we also allow consumers to potentially remove the close
@@ -33,16 +33,16 @@ export const AlertDialog = ({
   // instead of dialog.
   const closeDialog = () => {};
   const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
+    backdrop: true,
     closeDialog,
-    open,
+    dialogClassName,
+    dialogRole: `alertdialog`,
     initialFocusEl: null, // Ideally leastDestructiveRef would be handed in here
+    open,
+    position,
     returnFocusEl,
     size: size || `small`,
-    position,
-    dialogClassName,
     trapPaused: false,
-    dialogRole: `alertdialog`,
-    backdrop: true,
   });
 
   useEffect(() => {

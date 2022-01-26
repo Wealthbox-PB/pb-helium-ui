@@ -15,7 +15,7 @@ import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 export var AlertDialog = function (_a) {
-    var open = _a.open, size = _a.size, position = _a.position, returnFocusEl = _a.returnFocusEl, leastDestructiveRef = _a.leastDestructiveRef, children = _a.children, dialogClassName = _a.dialogClassName, backdropClassName = _a.backdropClassName;
+    var backdropClassName = _a.backdropClassName, children = _a.children, dialogClassName = _a.dialogClassName, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size;
     // alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
     // modal close function to actually close it, AND we also allow consumers to potentially remove the close
     // from the header if they want it to appear as an alert and still keep the role="dialog". This is
@@ -24,16 +24,16 @@ export var AlertDialog = function (_a) {
     // instead of dialog.
     var closeDialog = function () { };
     var _b = useDialog({
+        backdrop: true,
         closeDialog: closeDialog,
-        open: open,
+        dialogClassName: dialogClassName,
+        dialogRole: "alertdialog",
         initialFocusEl: null,
+        open: open,
+        position: position,
         returnFocusEl: returnFocusEl,
         size: size || "small",
-        position: position,
-        dialogClassName: dialogClassName,
         trapPaused: false,
-        dialogRole: "alertdialog",
-        backdrop: true,
     }), getRootProps = _b.getRootProps, getDialogProps = _b.getDialogProps, ariaLabelSelector = _b.ariaLabelSelector, ariaDescriptionSelector = _b.ariaDescriptionSelector;
     useEffect(function () {
         var _a;

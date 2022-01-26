@@ -2,9 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 
 interface DialogFooterProps {
-  footerClassName?: string;
-  footerBackground?: boolean;
   children?: string | JSX.Element[] | JSX.Element;
+  footerBackground?: boolean;
+  footerClassName?: string;
 }
 
 const DialogFooter = ({ children, footerBackground = true, footerClassName = `` }: DialogFooterProps) => {

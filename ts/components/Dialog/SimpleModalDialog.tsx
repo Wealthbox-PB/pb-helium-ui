@@ -5,60 +5,60 @@ import { DialogFooter } from './DialogFooter';
 import { ModalDialog } from './ModalDialog';
 
 interface SimpleModalDialogProps {
-  open: boolean;
-  size?: string;
-  position?: string;
-  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-  returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-  closeDialog: () => void;
-  header?: string | JSX.Element[] | JSX.Element;
-  headerClassName?: string;
-  closeInHeader?: boolean;
-  bodyClassName?: string;
-  children: string | JSX.Element[] | JSX.Element;
-  footer?: string | JSX.Element[] | JSX.Element;
-  footerClassName?: string;
-  footerBackground?: boolean;
-  trapPaused?: boolean;
-  dialogClassName?: string;
-  dialogRole?: `dialog` | `alertdialog`;
   backdrop?: boolean;
   backdropClassName?: string;
+  bodyClassName?: string;
+  children: string | JSX.Element[] | JSX.Element;
+  closeDialog: () => void;
+  closeInHeader?: boolean;
+  dialogClassName?: string;
+  dialogRole?: `dialog` | `alertdialog`;
+  footer?: string | JSX.Element[] | JSX.Element;
+  footerBackground?: boolean;
+  footerClassName?: string;
+  header?: string | JSX.Element[] | JSX.Element;
+  headerClassName?: string;
+  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+  open: boolean;
+  position?: string;
+  returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+  size?: string;
+  trapPaused?: boolean;
 }
 
 const SimpleModalDialog = ({
-  open,
-  size,
-  position,
-  initialFocusEl,
-  returnFocusEl,
-  closeDialog,
-  header,
-  headerClassName,
-  closeInHeader = true,
+  backdrop = true,
+  backdropClassName,
   bodyClassName,
   children,
+  closeDialog,
+  closeInHeader = true,
+  dialogClassName,
   footer,
   footerBackground = true,
   footerClassName,
+  header,
+  headerClassName,
+  initialFocusEl,
+  open,
+  position,
+  returnFocusEl,
+  size,
   trapPaused = false,
-  dialogClassName,
-  backdrop = true,
-  backdropClassName,
 }: SimpleModalDialogProps) => {
   return (
     <ModalDialog
       {...{
-        open,
-        size,
-        position,
-        initialFocusEl,
-        returnFocusEl,
-        trapPaused,
-        dialogClassName,
         backdrop,
         backdropClassName,
         closeDialog,
+        dialogClassName,
+        initialFocusEl,
+        open,
+        position,
+        returnFocusEl,
+        size,
+        trapPaused,
       }}
     >
       <>

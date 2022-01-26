@@ -15,18 +15,18 @@ import { DialogBody } from './DialogBody';
 import { DialogFooter } from './DialogFooter';
 import { ModalDialog } from './ModalDialog';
 var SimpleModalDialog = function (_a) {
-    var open = _a.open, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, closeDialog = _a.closeDialog, header = _a.header, headerClassName = _a.headerClassName, _b = _a.closeInHeader, closeInHeader = _b === void 0 ? true : _b, bodyClassName = _a.bodyClassName, children = _a.children, footer = _a.footer, _c = _a.footerBackground, footerBackground = _c === void 0 ? true : _c, footerClassName = _a.footerClassName, _d = _a.trapPaused, trapPaused = _d === void 0 ? false : _d, dialogClassName = _a.dialogClassName, _e = _a.backdrop, backdrop = _e === void 0 ? true : _e, backdropClassName = _a.backdropClassName;
+    var _b = _a.backdrop, backdrop = _b === void 0 ? true : _b, backdropClassName = _a.backdropClassName, bodyClassName = _a.bodyClassName, children = _a.children, closeDialog = _a.closeDialog, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, dialogClassName = _a.dialogClassName, footer = _a.footer, _d = _a.footerBackground, footerBackground = _d === void 0 ? true : _d, footerClassName = _a.footerClassName, header = _a.header, headerClassName = _a.headerClassName, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _e = _a.trapPaused, trapPaused = _e === void 0 ? false : _e;
     return (React.createElement(ModalDialog, __assign({}, {
-        open: open,
-        size: size,
-        position: position,
-        initialFocusEl: initialFocusEl,
-        returnFocusEl: returnFocusEl,
-        trapPaused: trapPaused,
-        dialogClassName: dialogClassName,
         backdrop: backdrop,
         backdropClassName: backdropClassName,
         closeDialog: closeDialog,
+        dialogClassName: dialogClassName,
+        initialFocusEl: initialFocusEl,
+        open: open,
+        position: position,
+        returnFocusEl: returnFocusEl,
+        size: size,
+        trapPaused: trapPaused,
     }),
         React.createElement(React.Fragment, null,
             header ? (React.createElement(DialogHeader, { headerClassName: headerClassName, closeDialog: closeDialog, closeInHeader: closeInHeader }, header)) : null,

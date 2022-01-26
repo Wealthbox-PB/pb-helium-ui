@@ -16,11 +16,11 @@ export type ButtonType = `button` | `submit` | `reset`;
 
 interface ButtonProps {
   children?: string | JSX.Element[] | JSX.Element;
-  onClick?(): void;
-  type?: ButtonType;
   className?: string;
-  variant?: ButtonVariant;
+  onClick?(): void;
   size?: ButtonSize;
+  type?: ButtonType;
+  variant?: ButtonVariant;
 }
 
 const Button = (

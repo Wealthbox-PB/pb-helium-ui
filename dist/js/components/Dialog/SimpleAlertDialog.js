@@ -16,30 +16,30 @@ import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';
 import { DialogFooterActions } from './DialogFooterActions';
 export var SimpleAlertDialog = function (_a) {
-    var _b = _a.header, header = _b === void 0 ? "" : _b, _c = _a.cancel, cancel = _c === void 0 ? "" : _c, _d = _a.cancelVariant, cancelVariant = _d === void 0 ? "secondary" : _d, _e = _a.confirm, confirm = _e === void 0 ? "" : _e, _f = _a.confirmVariant, confirmVariant = _f === void 0 ? "positive" : _f, open = _a.open, size = _a.size, position = _a.position, returnFocusEl = _a.returnFocusEl, _g = _a.onCancel, onCancel = _g === void 0 ? function () { } : _g, _h = _a.onConfirm, onConfirm = _h === void 0 ? function () { } : _h, children = _a.children, dialogClassName = _a.dialogClassName, backdropClassName = _a.backdropClassName, buttonSize = _a.buttonSize;
+    var backdropClassName = _a.backdropClassName, buttonSize = _a.buttonSize, _b = _a.cancel, cancel = _b === void 0 ? "" : _b, _c = _a.cancelVariant, cancelVariant = _c === void 0 ? "secondary" : _c, children = _a.children, _d = _a.confirm, confirm = _d === void 0 ? "" : _d, _e = _a.confirmVariant, confirmVariant = _e === void 0 ? "positive" : _e, dialogClassName = _a.dialogClassName, _f = _a.header, header = _f === void 0 ? "" : _f, _g = _a.onCancel, onCancel = _g === void 0 ? function () { } : _g, _h = _a.onConfirm, onConfirm = _h === void 0 ? function () { } : _h, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size;
     var leastDestructiveRef = useRef(null);
     return (React.createElement(AlertDialog, __assign({}, {
+        backdropClassName: backdropClassName,
+        dialogClassName: dialogClassName,
+        leastDestructiveRef: leastDestructiveRef,
         open: open,
-        size: size,
         position: position,
         returnFocusEl: returnFocusEl,
-        dialogClassName: dialogClassName,
-        backdropClassName: backdropClassName,
-        leastDestructiveRef: leastDestructiveRef,
+        size: size,
     }),
         React.createElement(React.Fragment, null,
             header ? React.createElement(DialogHeader, { closeInHeader: false }, header) : "",
             React.createElement(DialogBody, null, children),
             React.createElement(DialogFooter, null,
                 React.createElement(DialogFooterActions, __assign({}, {
+                    buttonSize: buttonSize,
                     cancel: cancel,
-                    confirm: confirm,
                     cancelRef: leastDestructiveRef,
                     cancelVariant: cancelVariant,
+                    confirm: confirm,
                     confirmVariant: confirmVariant,
                     onCancel: onCancel,
                     onConfirm: onConfirm,
-                    buttonSize: buttonSize,
                 }))))));
 };
 //# sourceMappingURL=SimpleAlertDialog.js.map
