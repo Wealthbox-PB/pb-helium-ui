@@ -28,7 +28,7 @@ export var AlertDialog = function (_a) {
         closeDialog: closeDialog,
         dialogClassName: dialogClassName,
         dialogRole: "alertdialog",
-        initialFocusEl: null,
+        initialFocusEl: undefined,
         open: open,
         position: position,
         returnFocusEl: returnFocusEl,

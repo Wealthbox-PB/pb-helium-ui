@@ -37,7 +37,7 @@ export const AlertDialog = ({
     closeDialog,
     dialogClassName,
     dialogRole: `alertdialog`,
-    initialFocusEl: null, // Ideally leastDestructiveRef would be handed in here
+    initialFocusEl: undefined, // Ideally leastDestructiveRef would be handed in here
     open,
     position,
     returnFocusEl,
