@@ -1,11 +1,8 @@
 import React from 'react';
-import { useDialog } from './useDialog';
 import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';
 import { DialogFooter } from './DialogFooter';
-import { DialogPortal } from './DialogPortal';
-import { DialogBackdrop } from './DialogBackdrop';
-import { DialogContext } from './DialogContext';
+import { ModalDialog } from './ModalDialog';
 
 interface SimpleModalDialogProps {
   open: boolean;
@@ -49,48 +46,39 @@ const SimpleModalDialog = ({
   backdrop = true,
   backdropClassName,
 }: SimpleModalDialogProps) => {
-  const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
-    closeDialog,
-    open,
-    initialFocusEl,
-    returnFocusEl,
-    trapPaused,
-    size,
-    position,
-    dialogClassName,
-    dialogRole: `dialog`,
-    backdrop,
-  });
-
   return (
-    <>
-      {open ? (
-        <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
-          <DialogPortal>
-            <div {...getRootProps()}>
-              {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
-              <div {...getDialogProps()}>
-                {header ? (
-                  <DialogHeader
-                    headerClassName={headerClassName}
-                    closeDialog={closeDialog}
-                    closeInHeader={closeInHeader}
-                  >
-                    {header}
-                  </DialogHeader>
-                ) : null}
-                <DialogBody bodyClassName={bodyClassName}>{children}</DialogBody>
-                {footer ? (
-                  <DialogFooter footerClassName={footerClassName} footerBackground={footerBackground}>
-                    {footer}
-                  </DialogFooter>
-                ) : null}
-              </div>
-            </div>
-          </DialogPortal>
-        </DialogContext.Provider>
-      ) : null}
-    </>
+    <ModalDialog
+      {...{
+        open,
+        size,
+        position,
+        initialFocusEl,
+        returnFocusEl,
+        trapPaused,
+        dialogClassName,
+        backdrop,
+        backdropClassName,
+        closeDialog,
+      }}
+    >
+      <>
+        {header ? (
+          <DialogHeader
+            headerClassName={headerClassName}
+            closeDialog={closeDialog}
+            closeInHeader={closeInHeader}
+          >
+            {header}
+          </DialogHeader>
+        ) : null}
+        <DialogBody bodyClassName={bodyClassName}>{children}</DialogBody>
+        {footer ? (
+          <DialogFooter footerClassName={footerClassName} footerBackground={footerBackground}>
+            {footer}
+          </DialogFooter>
+        ) : null}
+      </>
+    </ModalDialog>
   );
 };
 
