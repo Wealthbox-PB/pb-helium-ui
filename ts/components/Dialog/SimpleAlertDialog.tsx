@@ -3,7 +3,8 @@ import { AlertDialog } from './AlertDialog';
 import { DialogFooter } from './DialogFooter';
 import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';
-import { Button, ButtonVariant } from '../Button';
+import { ButtonVariant } from '../Button';
+import { DialogFooterActions } from './DialogFooterActions';
 
 interface SimpleAlertDialogProps {
   open: boolean;
@@ -59,24 +60,17 @@ export const SimpleAlertDialog = ({
         {header ? <DialogHeader closeInHeader={false}>{header}</DialogHeader> : ``}
         <DialogBody>{children}</DialogBody>
         <DialogFooter>
-          {cancel || confirm ? (
-            <>
-              {cancel ? (
-                <Button onClick={onCancel} variant={cancelVariant} ref={leastDestructiveRef}>
-                  {cancel}
-                </Button>
-              ) : null}
-              {confirm ? (
-                <Button onClick={onConfirm} variant={confirmVariant} className="h-btn-margin-left">
-                  {confirm}
-                </Button>
-              ) : null}
-            </>
-          ) : (
-            <Button onClick={onCancel} ref={leastDestructiveRef}>
-              OK
-            </Button>
-          )}
+          <DialogFooterActions
+            {...{
+              cancel,
+              confirm,
+              cancelRef: leastDestructiveRef,
+              cancelVariant,
+              confirmVariant,
+              onCancel,
+              onConfirm,
+            }}
+          />
         </DialogFooter>
       </>
     </AlertDialog>
