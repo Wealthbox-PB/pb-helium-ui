@@ -4,7 +4,6 @@ interface SimpleAlertDialogProps {
     open: boolean;
     size?: string;
     position?: string;
-    initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
     returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
     onCancel?: () => void;
     onConfirm?: () => void;
@@ -17,5 +16,5 @@ interface SimpleAlertDialogProps {
     confirm?: string;
     confirmVariant?: ButtonVariant;
 }
-export declare const SimpleAlertDialog: ({ header, cancel, cancelVariant, confirm, confirmVariant, open, size, position, initialFocusEl, returnFocusEl, onCancel, onConfirm, children, dialogClassName, backdropClassName, }: SimpleAlertDialogProps) => JSX.Element;
+export declare const SimpleAlertDialog: ({ header, cancel, cancelVariant, confirm, confirmVariant, open, size, position, returnFocusEl, onCancel, onConfirm, children, dialogClassName, backdropClassName, }: SimpleAlertDialogProps) => JSX.Element;
 export {};

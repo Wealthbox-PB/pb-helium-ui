@@ -10,7 +10,6 @@ interface SimpleAlertDialogProps {
   open: boolean;
   size?: string;
   position?: string;
-  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
   returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
   onCancel?: () => void;
   onConfirm?: () => void;
@@ -33,7 +32,6 @@ export const SimpleAlertDialog = ({
   open,
   size,
   position,
-  initialFocusEl,
   returnFocusEl,
   onCancel = () => {},
   onConfirm = () => {},
@@ -49,7 +47,6 @@ export const SimpleAlertDialog = ({
         open,
         size,
         position,
-        initialFocusEl,
         returnFocusEl,
         dialogClassName,
         backdropClassName,

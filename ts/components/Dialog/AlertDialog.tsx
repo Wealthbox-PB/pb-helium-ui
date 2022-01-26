@@ -8,7 +8,6 @@ interface AlertDialogProps {
   open: boolean;
   size?: string;
   position?: string;
-  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
   returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
   children: string | JSX.Element[] | JSX.Element;
   dialogClassName?: string;
@@ -20,7 +19,6 @@ export const AlertDialog = ({
   open,
   size,
   position,
-  initialFocusEl,
   returnFocusEl,
   leastDestructiveRef,
   children,
@@ -37,7 +35,7 @@ export const AlertDialog = ({
   const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
     closeDialog,
     open,
-    initialFocusEl,
+    initialFocusEl: null, // Ideally leastDestructiveRef would be handed in here
     returnFocusEl,
     size: size || `small`,
     position,

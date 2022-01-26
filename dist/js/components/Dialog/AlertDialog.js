@@ -15,7 +15,7 @@ import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 export var AlertDialog = function (_a) {
-    var open = _a.open, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, leastDestructiveRef = _a.leastDestructiveRef, children = _a.children, dialogClassName = _a.dialogClassName, backdropClassName = _a.backdropClassName;
+    var open = _a.open, size = _a.size, position = _a.position, returnFocusEl = _a.returnFocusEl, leastDestructiveRef = _a.leastDestructiveRef, children = _a.children, dialogClassName = _a.dialogClassName, backdropClassName = _a.backdropClassName;
     // "alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
     //   modal close function to actually close it, AND we also allow consumers to potentially remove the close
     //   from the header if they want it to appear as an alert and still keep the role="dialog". This is
@@ -26,7 +26,7 @@ export var AlertDialog = function (_a) {
     var _b = useDialog({
         closeDialog: closeDialog,
         open: open,
-        initialFocusEl: initialFocusEl,
+        initialFocusEl: null,
         returnFocusEl: returnFocusEl,
         size: size || "small",
         position: position,
