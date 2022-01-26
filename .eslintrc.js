@@ -5,64 +5,66 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es6: true,
   },
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended',
-    'plugin:react/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings'
+    `eslint:recommended`,
+    `plugin:@typescript-eslint/eslint-recommended`,
+    `plugin:jsx-a11y/recommended`,
+    `plugin:prettier/recommended`,
+    `plugin:react/recommended`,
+    `plugin:import/errors`,
+    `plugin:import/warnings`,
+    `plugin:testing-library/react`,
+    `plugin:jest-dom/recommended`
   ],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    Atomics: `readonly`,
+    SharedArrayBuffer: `readonly`,
   },
-  parser: '@typescript-eslint/parser',
+  parser: `@typescript-eslint/parser`,
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: `module`,
   },
-  plugins: ['@typescript-eslint', 'react-hooks', 'jsx-a11y', 'prettier'],
+  plugins: [`@typescript-eslint`, `react-hooks`, `jsx-a11y`, `prettier`, `testing-library`, `jest-dom`],
   rules: {
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/rules-of-hooks': `error`,
+    'react-hooks/exhaustive-deps': `warn`,
     'jsx-a11y/no-onchange': 0,
     'prettier/prettier': [
-      'error',
+      `error`,
       {
         printWidth: 110,
-        singleQuote: true
-      }
+        singleQuote: true,
+      },
     ],
-    curly: 'error',
+    curly: `error`,
     quotes: [
-      'error',
-      'backtick',
+      `error`,
+      `backtick`,
       {
-        avoidEscape: true
-      }
+        avoidEscape: true,
+      },
     ],
-    'max-depth': ['error', 4],
+    'max-depth': [`error`, 4],
     'max-len': [
-      'error',
+      `error`,
       {
         code: 110,
-        ignoreRegExpLiterals: true
-      }
+        ignoreRegExpLiterals: true,
+      },
     ],
-    'max-lines': ['error', 400],
-    'max-nested-callbacks': ['error', 7],
-    'max-params': ['error', 8],
-    'max-statements': ['error', 45],
-    'max-statements-per-line': ['error', { max: 1 }],
-    'no-var': 'error',
-    'no-console': 'error',
-    'prefer-arrow-callback': 'error',
-    'prefer-const': 'error',
-    camelcase: ['error', { properties: 'never' }],
+    'max-lines': [`error`, 400],
+    'max-nested-callbacks': [`error`, 7],
+    'max-params': [`error`, 8],
+    'max-statements': [`error`, 45],
+    'max-statements-per-line': [`error`, { max: 1 }],
+    'no-var': `error`,
+    'no-console': `error`,
+    'prefer-arrow-callback': `error`,
+    'prefer-const': `error`,
+    camelcase: [`error`, { properties: `never` }],
     'no-cond-assign': 2,
     'no-unused-vars': 0,
     'import/no-default-export': 2,
@@ -70,20 +72,20 @@ module.exports = {
     'react/prop-types': 0,
     'global-require': 0,
     'no-alert': 0,
-    'no-warning-comments': 2
+    'no-warning-comments': 2,
   },
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: `detect`,
+    },
   },
   overrides: [
     {
-      files: ['*-spec.js', '*.tsx', '**/types.ts'],
+      files: [`*-spec.js`, `*.tsx`, `**/types.ts`],
       rules: {
-        'max-lines': 'off',
-        'max-lines-per-function': 'off'
-      }
-    }
-  ]
+        'max-lines': `off`,
+        'max-lines-per-function': `off`,
+      },
+    },
+  ],
 };

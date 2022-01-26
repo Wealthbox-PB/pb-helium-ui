@@ -1,13 +1,14 @@
 {
   "name": "helium-ui",
-  "version": "2.0.3",
+  "version": "2.0.5",
   "description": "Design system and component library for Starburst Labs, Inc.",
   "main": "dist/js/index",
   "repository": "git@github.com:starburstlabs/helium-ui.git",
   "author": [
-    "Trevor Reiff <trevorreiff@gmail.com>",
-    "Adam Grossi <adam.m.grossi@gmail.com",
-    "Michal Kopanski <info@michalkopanski.com"
+    "Trevor Reiff <trevor.reiff@wealthbox.com>",
+    "Adam Grossi <adam.grossi@wealthbox.com>",
+    "Michal Kopanski <michal.kopanski@wealthbox.com>",
+    "JP Camara <jp.camara@wealthbox.com>"
   ],
   "license": "MIT",
   "private": true,
@@ -68,10 +69,12 @@
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest-dom": "^4.0.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^5.0.4",
     "jest": "^27.0.5",
     "lint-staged": "^10.2.4",
     "pre-commit": "^1.2.2",
