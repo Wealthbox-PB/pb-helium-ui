@@ -1,0 +1,195 @@
+
+//==========================================================================
+//  Dialog
+//==========================================================================
+
+.h-dialog-portal {
+  position: fixed;
+  z-index: 9999;
+}
+
+.h-dialog {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: flex;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: $h-dialog-padding;
+  opacity: 0;
+  transition: 150ms ease-in-out all;
+}
+
+.h-dialog--md {
+  .h-dialog__el {
+    @include media-breakpoint-up(md) {
+      width: $h-dialog-width--desktop-md;
+    }
+  }
+}
+
+.h-dialog--sm {
+  .h-dialog__el {
+    @include media-breakpoint-up(md) {
+      width: $h-dialog-width--desktop-sm;
+    }
+  }
+}
+
+.h-dialog--lg {
+  .h-dialog__el {
+    @include media-breakpoint-up(md) {
+      width: $h-dialog-width--desktop-lg;
+    }
+  }
+}
+
+.h-dialog--full-screen {
+  .h-dialog__el {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.h-dialog--top {
+  align-items: flex-start;
+}
+
+.h-dialog--right {
+  justify-content: flex-end;
+}
+
+.h-dialog--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.h-dialog--center-y {
+  align-items: center;
+}
+
+.h-dialog--center-x {
+  justify-content: center;
+}
+
+.h-dialog--bottom {
+  align-items: flex-end;
+}
+
+.h-dialog--left {
+  justify-content: flex-start;
+}
+
+.h-dialog--open {
+  opacity: 1;
+}
+
+.h-dialog--backdrop-none {
+  pointer-events: none;
+
+  & > .h-dialog__el {
+    pointer-events: all;
+  }
+}
+
+.h-dialog__backdrop {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background: rgba($h-black, 0.5);
+}
+
+.h-dialog__el {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  max-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  background: $h-color-background-shared-component;
+  border-radius: $h-border-radius-shared-component;
+  box-shadow: $h-dialog-box-shadow;
+
+  &:focus {
+    @include h-form-element-focus();
+  }
+}
+
+.h-dialog__header {
+  position: relative;
+  display: flex;
+  padding: $h-dialog-padding;
+}
+
+.h-dialog__heading {
+  padding-right: 1.5rem;
+  margin: 0;
+  color: $h-black;
+  font-size: $h-font-size-xl;
+  font-weight: $h-font-weight-medium;
+  line-height: 20px;
+}
+
+.h-dialog__close {
+  position: absolute;
+  top: 1.125rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  border-radius: $h-border-radius;
+  box-shadow: none;
+  color: $h-color-text-normal;
+  font-size: 1.5rem;
+
+  @include h-form-element-transition();
+
+  &:focus {
+    box-shadow: $h-box-shadow-form-element-focused;
+    outline: none;
+  }
+}
+
+.h-dialog__body {
+  overflow: auto;
+  flex-grow: 1;
+  padding: $h-dialog-padding;
+
+  & > :last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.h-dialog__header + .h-dialog__body {
+  padding-top: 0;
+}
+
+.h-dialog__footer {
+  padding: 1rem $h-dialog-padding;
+  border-bottom-left-radius: $h-border-radius-shared-component;
+  border-bottom-right-radius: $h-border-radius-shared-component;
+}
+
+.h-dialog__footer--with-background {
+  background: $h-color-background-secondary-shared-component;
+}
+
+.h-dialog__footer-cta-container {
+  display: flex;
+  justify-content: flex-end;
+}

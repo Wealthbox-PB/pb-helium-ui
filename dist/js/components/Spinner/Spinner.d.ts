@@ -4,5 +4,5 @@ interface HeliumSpinnerProps {
     screenReaderText?: string;
     size?: string;
 }
-declare const HeliumSpinner: ({ modifierClass, screenReaderText, size, }: HeliumSpinnerProps) => JSX.Element;
+declare const HeliumSpinner: ({ modifierClass, screenReaderText, size }: HeliumSpinnerProps) => JSX.Element;
 export { HeliumSpinner };
