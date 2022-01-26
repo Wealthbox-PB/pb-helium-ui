@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.5] - 2022-01-26
+
+### Added
+
+- Added `ModalDialog` react component
+- Added `AlertDialog` react component
+- Added `SimpleModalDialog` react component
+- Added `SimpleAlertDialog` react component
+- Added `Button` react component
+- Added `useDialog` hook
+- Added `Portal` react component
+- Added `useCloseWithEscapeKey` hook
+- Added `useScrollLock` hook
+- Added `.h-overflow-visible`, `.h-overflow-x-visible`, and `.h-overflow-y-visible` utility classes
+- Added `.h-user-select-none` utility class
+- Added `watch`, `prettier`, and `eslint` scripts in package.json
+- Added `eslint-plugin-testing-library`
+- Added `eslint-plugin-jest-dom`
+
 ## [2.0.4] - 2022-01-06
 
 ### Added
@@ -40,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `.h-pointer-events-none` utility class.
 - Added `.h-cursor-auto` utility class.
 - Added `.h-table--list` modifier class.
-- Added `.h-overflow-visible`, `.h-overflow-x-visible`, and `.h-overflow-y-visible` utility classes.
+
 
 ### Changed
 
