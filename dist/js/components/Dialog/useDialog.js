@@ -34,6 +34,7 @@ export function useDialog(_a) {
         }
         var trapOptions = {
             allowOutsideClick: true,
+            escapeDeactivates: false,
             fallbackFocus: dialogRef.current,
             initialFocus: initialFocusEl,
             setReturnFocus: returnFocusEl,

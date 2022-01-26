@@ -53,6 +53,7 @@ export function useDialog({
 
     const trapOptions = {
       allowOutsideClick: true,
+      escapeDeactivates: false,
       fallbackFocus: dialogRef.current,
       initialFocus: initialFocusEl,
       setReturnFocus: returnFocusEl,
