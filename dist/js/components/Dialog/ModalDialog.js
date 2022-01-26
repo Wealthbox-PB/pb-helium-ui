@@ -10,13 +10,13 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React from 'react';
+import { useDialog } from './useDialog';
 import { DialogPortal } from './DialogPortal';
 import { DialogBackdrop } from './DialogBackdrop';
-import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
-export var BasicDialog = function (_a) {
-    var open = _a.open, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, _b = _a.closeDialog, closeDialog = _b === void 0 ? function () { } : _b, children = _a.children, _c = _a.trapPaused, trapPaused = _c === void 0 ? false : _c, dialogClassName = _a.dialogClassName, _d = _a.dialogRole, dialogRole = _d === void 0 ? "dialog" : _d, _e = _a.backdrop, backdrop = _e === void 0 ? true : _e, backdropClassName = _a.backdropClassName;
-    var _f = useDialog({
+var ModalDialog = function (_a) {
+    var open = _a.open, size = _a.size, position = _a.position, initialFocusEl = _a.initialFocusEl, returnFocusEl = _a.returnFocusEl, closeDialog = _a.closeDialog, children = _a.children, _b = _a.trapPaused, trapPaused = _b === void 0 ? false : _b, dialogClassName = _a.dialogClassName, _c = _a.backdrop, backdrop = _c === void 0 ? true : _c, backdropClassName = _a.backdropClassName;
+    var _d = useDialog({
         closeDialog: closeDialog,
         open: open,
         initialFocusEl: initialFocusEl,
@@ -25,13 +25,14 @@ export var BasicDialog = function (_a) {
         size: size,
         position: position,
         dialogClassName: dialogClassName,
-        dialogRole: dialogRole,
+        dialogRole: "dialog",
         backdrop: backdrop,
-    }), getRootProps = _f.getRootProps, getDialogProps = _f.getDialogProps, ariaLabelSelector = _f.ariaLabelSelector, ariaDescriptionSelector = _f.ariaDescriptionSelector;
+    }), getRootProps = _d.getRootProps, getDialogProps = _d.getDialogProps, ariaLabelSelector = _d.ariaLabelSelector, ariaDescriptionSelector = _d.ariaDescriptionSelector;
     return (React.createElement(React.Fragment, null, open ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
         React.createElement(DialogPortal, null,
             React.createElement("div", __assign({}, getRootProps()),
                 backdrop ? React.createElement(DialogBackdrop, { className: backdropClassName }) : null,
                 React.createElement("div", __assign({}, getDialogProps()), children))))) : null));
 };
-//# sourceMappingURL=BasicDialog.js.map
+export { ModalDialog };
+//# sourceMappingURL=ModalDialog.js.map

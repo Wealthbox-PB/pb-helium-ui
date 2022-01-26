@@ -4,16 +4,17 @@ import { useDialogContext } from './DialogContext';
 
 interface DialogBackdropProps {
   className?: string;
+  closeDialog?: () => void;
 }
 
-export const DialogBackdrop = ({ className }: DialogBackdropProps) => {
+export const DialogBackdrop = ({ className, closeDialog }: DialogBackdropProps) => {
   const context = useDialogContext();
 
   return (
     <button
       type="button"
       className={classNames(`h-dialog__backdrop`, className)}
-      onClick={context.closeDialog}
+      onClick={closeDialog || context.closeDialog}
       aria-label="Close Dialog"
     ></button>
   );

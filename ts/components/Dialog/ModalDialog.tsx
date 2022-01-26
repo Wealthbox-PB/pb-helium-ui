@@ -1,38 +1,36 @@
 import React from 'react';
+import { useDialog } from './useDialog';
 import { DialogPortal } from './DialogPortal';
 import { DialogBackdrop } from './DialogBackdrop';
-import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 
-interface BasicDialogProps {
+interface ModalDialogProps {
   open: boolean;
   size?: string;
   position?: string;
   initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
   returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-  closeDialog?: () => void;
+  closeDialog: () => void;
   children: string | JSX.Element[] | JSX.Element;
   trapPaused?: boolean;
   dialogClassName?: string;
-  dialogRole?: `dialog` | `alertdialog`;
   backdrop?: boolean;
   backdropClassName?: string;
 }
 
-export const BasicDialog = ({
+const ModalDialog = ({
   open,
   size,
   position,
   initialFocusEl,
   returnFocusEl,
-  closeDialog = () => {},
+  closeDialog,
   children,
   trapPaused = false,
   dialogClassName,
-  dialogRole = `dialog`,
   backdrop = true,
   backdropClassName,
-}: BasicDialogProps) => {
+}: ModalDialogProps) => {
   const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
     closeDialog,
     open,
@@ -42,7 +40,7 @@ export const BasicDialog = ({
     size,
     position,
     dialogClassName,
-    dialogRole,
+    dialogRole: `dialog`,
     backdrop,
   });
 
@@ -61,3 +59,5 @@ export const BasicDialog = ({
     </>
   );
 };
+
+export { ModalDialog };

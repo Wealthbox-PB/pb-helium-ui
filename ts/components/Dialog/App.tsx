@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dialog } from './Dialog';
+import { SimpleModalDialog } from './SimpleModalDialog';
 
 function App() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -14,12 +14,11 @@ function App() {
         Toggle Modal
       </button>
 
-      <Dialog
+      <SimpleModalDialog
         header={`Test Modal`}
         initialFocusEl={`.h-btn--init-focus`}
         open={isDialogOpen}
         closeDialog={closeDialog}
-        submitHandler={() => console.log(`I submit!`)} // eslint-disable-line no-console
       >
         <p>
           <button
@@ -29,16 +28,13 @@ function App() {
             Launch 2nd Modal
           </button>
         </p>
-      </Dialog>
+      </SimpleModalDialog>
 
-      <Dialog
-        hasFooter={false}
+      <SimpleModalDialog
         size={`small`}
         position={`bottom center`}
         open={is2ndDialogOpen}
         closeDialog={close2ndDialog}
-        footerBackground={false}
-        submitHandler={() => console.log(`I submit!`)} // eslint-disable-line no-console
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -50,7 +46,7 @@ function App() {
           et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua.
         </p>
-      </Dialog>
+      </SimpleModalDialog>
     </div>
   );
 }
