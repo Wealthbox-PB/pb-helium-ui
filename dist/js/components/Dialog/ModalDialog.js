@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import React from 'react';
 import { useDialog } from './useDialog';
-import { DialogPortal } from './DialogPortal';
+import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
 var ModalDialog = function (_a) {
@@ -29,7 +29,7 @@ var ModalDialog = function (_a) {
         backdrop: backdrop,
     }), getRootProps = _d.getRootProps, getDialogProps = _d.getDialogProps, ariaLabelSelector = _d.ariaLabelSelector, ariaDescriptionSelector = _d.ariaDescriptionSelector;
     return (React.createElement(React.Fragment, null, open ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
-        React.createElement(DialogPortal, null,
+        React.createElement(Portal, { className: "h-dialog-portal" },
             React.createElement("div", __assign({}, getRootProps()),
                 backdrop ? React.createElement(DialogBackdrop, { className: backdropClassName }) : null,
                 React.createElement("div", __assign({}, getDialogProps()), children))))) : null));

@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React, { useEffect } from 'react';
-import { DialogPortal } from './DialogPortal';
+import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
@@ -40,7 +40,7 @@ export var AlertDialog = function (_a) {
         (_a = leastDestructiveRef === null || leastDestructiveRef === void 0 ? void 0 : leastDestructiveRef.current) === null || _a === void 0 ? void 0 : _a.focus();
     }, [leastDestructiveRef]);
     return (React.createElement(React.Fragment, null, open ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
-        React.createElement(DialogPortal, null,
+        React.createElement(Portal, { className: "h-dialog-portal" },
             React.createElement("div", __assign({}, getRootProps()),
                 React.createElement(DialogBackdrop, { className: backdropClassName, closeDialog: closeDialog }),
                 React.createElement("div", __assign({}, getDialogProps()), children))))) : null));

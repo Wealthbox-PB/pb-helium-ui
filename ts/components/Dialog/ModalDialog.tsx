@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDialog } from './useDialog';
-import { DialogPortal } from './DialogPortal';
+import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
 
@@ -48,12 +48,12 @@ const ModalDialog = ({
     <>
       {open ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
-          <DialogPortal>
+          <Portal className="h-dialog-portal">
             <div {...getRootProps()}>
               {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
               <div {...getDialogProps()}>{children}</div>
             </div>
-          </DialogPortal>
+          </Portal>
         </DialogContext.Provider>
       ) : null}
     </>

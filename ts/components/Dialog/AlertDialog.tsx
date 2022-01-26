@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { DialogPortal } from './DialogPortal';
+import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
@@ -53,12 +53,12 @@ export const AlertDialog = ({
     <>
       {open ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
-          <DialogPortal>
+          <Portal className="h-dialog-portal">
             <div {...getRootProps()}>
               <DialogBackdrop className={backdropClassName} closeDialog={closeDialog} />
               <div {...getDialogProps()}>{children}</div>
             </div>
-          </DialogPortal>
+          </Portal>
         </DialogContext.Provider>
       ) : null}
     </>
