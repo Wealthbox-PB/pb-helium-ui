@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { ButtonVariant } from '../Button';
+import { ButtonSize, ButtonVariant } from '../Button';
 interface SimpleAlertDialogProps {
     open: boolean;
     size?: string;
@@ -15,6 +15,7 @@ interface SimpleAlertDialogProps {
     cancelVariant?: ButtonVariant;
     confirm?: string;
     confirmVariant?: ButtonVariant;
+    buttonSize?: ButtonSize;
 }
-export declare const SimpleAlertDialog: ({ header, cancel, cancelVariant, confirm, confirmVariant, open, size, position, returnFocusEl, onCancel, onConfirm, children, dialogClassName, backdropClassName, }: SimpleAlertDialogProps) => JSX.Element;
+export declare const SimpleAlertDialog: ({ header, cancel, cancelVariant, confirm, confirmVariant, open, size, position, returnFocusEl, onCancel, onConfirm, children, dialogClassName, backdropClassName, buttonSize, }: SimpleAlertDialogProps) => JSX.Element;
 export {};

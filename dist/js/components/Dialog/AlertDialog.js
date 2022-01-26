@@ -16,12 +16,12 @@ import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 export var AlertDialog = function (_a) {
     var open = _a.open, size = _a.size, position = _a.position, returnFocusEl = _a.returnFocusEl, leastDestructiveRef = _a.leastDestructiveRef, children = _a.children, dialogClassName = _a.dialogClassName, backdropClassName = _a.backdropClassName;
-    // "alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
-    //   modal close function to actually close it, AND we also allow consumers to potentially remove the close
-    //   from the header if they want it to appear as an alert and still keep the role="dialog". This is
-    //   because, the role="alertdialog" is only when an alert, error, or warning occurs. In other words, when a
-    //   dialog's information and controls require the user's immediate attention alertdialog should be used
-    //   instead of dialog.
+    // alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
+    // modal close function to actually close it, AND we also allow consumers to potentially remove the close
+    // from the header if they want it to appear as an alert and still keep the role="dialog". This is
+    // because, the role="alertdialog" is only when an alert, error, or warning occurs. In other words, when a
+    // dialog's information and controls require the user's immediate attention alertdialog should be used
+    // instead of dialog.
     var closeDialog = function () { };
     var _b = useDialog({
         closeDialog: closeDialog,

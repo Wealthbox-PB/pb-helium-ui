@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SimpleModalDialog } from './SimpleModalDialog';
+import { SimpleModalDialog } from '../components/Dialog/SimpleModalDialog';
 
 function App() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

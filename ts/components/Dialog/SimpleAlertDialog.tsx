@@ -3,7 +3,7 @@ import { AlertDialog } from './AlertDialog';
 import { DialogFooter } from './DialogFooter';
 import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';
-import { ButtonVariant } from '../Button';
+import { ButtonSize, ButtonVariant } from '../Button';
 import { DialogFooterActions } from './DialogFooterActions';
 
 interface SimpleAlertDialogProps {
@@ -21,6 +21,7 @@ interface SimpleAlertDialogProps {
   cancelVariant?: ButtonVariant;
   confirm?: string;
   confirmVariant?: ButtonVariant;
+  buttonSize?: ButtonSize;
 }
 
 export const SimpleAlertDialog = ({
@@ -38,6 +39,7 @@ export const SimpleAlertDialog = ({
   children,
   dialogClassName,
   backdropClassName,
+  buttonSize,
 }: SimpleAlertDialogProps) => {
   const leastDestructiveRef = useRef(null);
 
@@ -66,6 +68,7 @@ export const SimpleAlertDialog = ({
               confirmVariant,
               onCancel,
               onConfirm,
+              buttonSize,
             }}
           />
         </DialogFooter>

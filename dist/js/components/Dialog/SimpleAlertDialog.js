@@ -16,7 +16,7 @@ import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';
 import { DialogFooterActions } from './DialogFooterActions';
 export var SimpleAlertDialog = function (_a) {
-    var _b = _a.header, header = _b === void 0 ? "" : _b, _c = _a.cancel, cancel = _c === void 0 ? "" : _c, _d = _a.cancelVariant, cancelVariant = _d === void 0 ? "secondary" : _d, _e = _a.confirm, confirm = _e === void 0 ? "" : _e, _f = _a.confirmVariant, confirmVariant = _f === void 0 ? "positive" : _f, open = _a.open, size = _a.size, position = _a.position, returnFocusEl = _a.returnFocusEl, _g = _a.onCancel, onCancel = _g === void 0 ? function () { } : _g, _h = _a.onConfirm, onConfirm = _h === void 0 ? function () { } : _h, children = _a.children, dialogClassName = _a.dialogClassName, backdropClassName = _a.backdropClassName;
+    var _b = _a.header, header = _b === void 0 ? "" : _b, _c = _a.cancel, cancel = _c === void 0 ? "" : _c, _d = _a.cancelVariant, cancelVariant = _d === void 0 ? "secondary" : _d, _e = _a.confirm, confirm = _e === void 0 ? "" : _e, _f = _a.confirmVariant, confirmVariant = _f === void 0 ? "positive" : _f, open = _a.open, size = _a.size, position = _a.position, returnFocusEl = _a.returnFocusEl, _g = _a.onCancel, onCancel = _g === void 0 ? function () { } : _g, _h = _a.onConfirm, onConfirm = _h === void 0 ? function () { } : _h, children = _a.children, dialogClassName = _a.dialogClassName, backdropClassName = _a.backdropClassName, buttonSize = _a.buttonSize;
     var leastDestructiveRef = useRef(null);
     return (React.createElement(AlertDialog, __assign({}, {
         open: open,
@@ -39,6 +39,7 @@ export var SimpleAlertDialog = function (_a) {
                     confirmVariant: confirmVariant,
                     onCancel: onCancel,
                     onConfirm: onConfirm,
+                    buttonSize: buttonSize,
                 }))))));
 };
 //# sourceMappingURL=SimpleAlertDialog.js.map

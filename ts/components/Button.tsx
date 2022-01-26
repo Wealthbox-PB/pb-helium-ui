@@ -24,7 +24,7 @@ interface ButtonProps {
 }
 
 const Button = (
-  { children, onClick, variant = `primary`, type = `button`, className = ``, size = `md` }: ButtonProps,
+  { children, onClick, variant = `positive`, type = `button`, className = ``, size = `md` }: ButtonProps,
   ref
 ) => {
   return (
