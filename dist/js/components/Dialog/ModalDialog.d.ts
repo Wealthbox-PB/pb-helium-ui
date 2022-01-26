@@ -1,16 +1,16 @@
 /// <reference types="react" />
 interface ModalDialogProps {
-    open: boolean;
-    size?: string;
-    position?: string;
-    initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-    returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-    closeDialog: () => void;
-    children: string | JSX.Element[] | JSX.Element;
-    trapPaused?: boolean;
-    dialogClassName?: string;
     backdrop?: boolean;
     backdropClassName?: string;
+    children: string | JSX.Element[] | JSX.Element;
+    closeDialog: () => void;
+    dialogClassName?: string;
+    initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+    open: boolean;
+    position?: string;
+    returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+    size?: string;
+    trapPaused?: boolean;
 }
-declare const ModalDialog: ({ open, size, position, initialFocusEl, returnFocusEl, closeDialog, children, trapPaused, dialogClassName, backdrop, backdropClassName, }: ModalDialogProps) => JSX.Element;
+declare const ModalDialog: ({ backdrop, backdropClassName, children, closeDialog, dialogClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: ModalDialogProps) => JSX.Element;
 export { ModalDialog };

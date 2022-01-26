@@ -1,15 +1,15 @@
 /// <reference types="react" />
-export declare function useDialog({ closeDialog, open, initialFocusEl, returnFocusEl, trapPaused, size, position, dialogClassName, dialogRole, backdrop, }: {
+export declare function useDialog({ backdrop, closeDialog, dialogClassName, dialogRole, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: {
+    backdrop: any;
     closeDialog?: (() => void) | undefined;
-    open: any;
-    initialFocusEl: any;
-    returnFocusEl: any;
-    trapPaused: any;
-    size: any;
-    position: any;
     dialogClassName: any;
     dialogRole: any;
-    backdrop: any;
+    initialFocusEl: any;
+    open: any;
+    position: any;
+    returnFocusEl: any;
+    size: any;
+    trapPaused: any;
 }): {
     getRootProps: () => {
         ref: import("react").RefObject<HTMLDivElement>;

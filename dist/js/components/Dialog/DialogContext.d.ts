@@ -1,11 +1,11 @@
 import React from 'react';
 export declare const DialogContext: React.Context<{
-    ariaLabelSelector: string;
     ariaDescriptionSelector: string;
+    ariaLabelSelector: string;
     closeDialog: () => void;
 }>;
 export declare function useDialogContext(): {
-    ariaLabelSelector: string;
     ariaDescriptionSelector: string;
+    ariaLabelSelector: string;
     closeDialog: () => void;
 };

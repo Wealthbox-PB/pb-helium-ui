@@ -15,8 +15,8 @@ function App() {
       </button>
 
       <SimpleModalDialog
-        header={`Test Modal`}
-        initialFocusEl={`.h-btn--init-focus`}
+        header="Test Modal"
+        initialFocusEl=".h-btn--init-focus"
         open={isDialogOpen}
         closeDialog={closeDialog}
       >
@@ -31,8 +31,8 @@ function App() {
       </SimpleModalDialog>
 
       <SimpleModalDialog
-        size={`small`}
-        position={`bottom center`}
+        size="small"
+        position="bottom center"
         open={is2ndDialogOpen}
         closeDialog={close2ndDialog}
       >

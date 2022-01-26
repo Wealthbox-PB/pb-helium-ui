@@ -4,11 +4,11 @@ export declare type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
 export declare type ButtonType = `button` | `submit` | `reset`;
 interface ButtonProps {
     children?: string | JSX.Element[] | JSX.Element;
-    onClick?(): void;
-    type?: ButtonType;
     className?: string;
-    variant?: ButtonVariant;
+    onClick?(): void;
     size?: ButtonSize;
+    type?: ButtonType;
+    variant?: ButtonVariant;
 }
 declare const ButtonRef: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>>;
 export { ButtonRef as Button };

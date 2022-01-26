@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
 export function useCloseWithEscapeKey(
-  closeCallback: () => void,
   keyDownTargetRef: React.MutableRefObject<HTMLElement | null>,
+  closeCallback: () => void,
   open: boolean
 ) {
   const handleEscapeKeyPress = (event: KeyboardEvent) => {

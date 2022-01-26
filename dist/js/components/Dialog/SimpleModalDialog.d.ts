@@ -1,24 +1,24 @@
 /// <reference types="react" />
 interface SimpleModalDialogProps {
-    open: boolean;
-    size?: string;
-    position?: string;
-    initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-    returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-    closeDialog: () => void;
-    header?: string | JSX.Element[] | JSX.Element;
-    headerClassName?: string;
-    closeInHeader?: boolean;
-    bodyClassName?: string;
-    children: string | JSX.Element[] | JSX.Element;
-    footer?: string | JSX.Element[] | JSX.Element;
-    footerClassName?: string;
-    footerBackground?: boolean;
-    trapPaused?: boolean;
-    dialogClassName?: string;
-    dialogRole?: `dialog` | `alertdialog`;
     backdrop?: boolean;
     backdropClassName?: string;
+    bodyClassName?: string;
+    children: string | JSX.Element[] | JSX.Element;
+    closeDialog: () => void;
+    closeInHeader?: boolean;
+    dialogClassName?: string;
+    dialogRole?: `dialog` | `alertdialog`;
+    footer?: string | JSX.Element[] | JSX.Element;
+    footerBackground?: boolean;
+    footerClassName?: string;
+    header?: string | JSX.Element[] | JSX.Element;
+    headerClassName?: string;
+    initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+    open: boolean;
+    position?: string;
+    returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+    size?: string;
+    trapPaused?: boolean;
 }
-declare const SimpleModalDialog: ({ open, size, position, initialFocusEl, returnFocusEl, closeDialog, header, headerClassName, closeInHeader, bodyClassName, children, footer, footerBackground, footerClassName, trapPaused, dialogClassName, backdrop, backdropClassName, }: SimpleModalDialogProps) => JSX.Element;
+declare const SimpleModalDialog: ({ backdrop, backdropClassName, bodyClassName, children, closeDialog, closeInHeader, dialogClassName, footer, footerBackground, footerClassName, header, headerClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: SimpleModalDialogProps) => JSX.Element;
 export { SimpleModalDialog };

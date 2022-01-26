@@ -1,14 +1,14 @@
 /// <reference types="react" />
 import { ButtonSize, ButtonVariant } from '../Button';
 interface DialogFooterActionsProps {
-    cancel?: string;
-    confirm?: string;
-    cancelVariant?: ButtonVariant;
-    confirmVariant?: ButtonVariant;
     buttonSize?: ButtonSize;
-    onConfirm?: () => void;
-    onCancel?: () => void;
+    cancel?: string;
     cancelRef?: any;
+    cancelVariant?: ButtonVariant;
+    confirm?: string;
+    confirmVariant?: ButtonVariant;
+    onCancel?: () => void;
+    onConfirm?: () => void;
 }
-declare const DialogFooterActions: ({ confirm, cancel, confirmVariant, cancelVariant, buttonSize, cancelRef, onCancel, onConfirm, }: DialogFooterActionsProps) => JSX.Element;
+declare const DialogFooterActions: ({ buttonSize, cancel, cancelRef, cancelVariant, confirm, confirmVariant, onCancel, onConfirm, }: DialogFooterActionsProps) => JSX.Element;
 export { DialogFooterActions };
