@@ -8,7 +8,8 @@ module.exports = {
   roots: [`<rootDir>/spec`],
   setupFiles: [`<rootDir>/spec/jest_config_setup.js`],
   snapshotSerializers: [`enzyme-to-json/serializer`],
-  testMatch: [`**/?(*.)+(spec|test).+(ts|tsx)`],
+  testEnvironment: `jsdom`,
+  testMatch: [`**/?(*.|*_)+(spec|test).+(ts|tsx)`],
   transform: {
     '^.+\\.(js|ts|tsx|jsx)?$': `babel-jest`,
   },
