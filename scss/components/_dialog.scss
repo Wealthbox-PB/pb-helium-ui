@@ -121,10 +121,6 @@
   background: $h-color-background-shared-component;
   border-radius: $h-border-radius-shared-component;
   box-shadow: $h-dialog-box-shadow;
-
-  &:focus {
-    @include h-form-element-focus();
-  }
 }
 
 .h-dialog__header {
