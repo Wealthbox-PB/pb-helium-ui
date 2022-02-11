@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.6] - 2022-02-11
+
+### Added
+
+- Add `link-primary` to `ButtonVariant` type
+- Add `link-secondary` to `ButtonVariant` type
+- Add `active` prop to `Button` interface
+- Add `disabled` prop to `Button` interface
+- Add `focus` prop to `Button` interface
+- Add `square` prop to `Button` interface
+- Make button types exportable from helium-ui
+- Add `LinkButton` component to helium-ui
+
+### Changed
+
+- Prefer auto cursor (arrow) on `DialogBackdrop` component to match the ux of similar libraries
+- Handle closing dialog within the `DialogBackdrop` component via an internal handleClose value to be consistent with dialog headers
+- Use jsdom as `testEnvironment` in jest config
+- Use same `testMatch` value as crm-web in jest config
+
+### Removed
+- Remove focus state styling from actual dialog element
+
 ## [2.0.5] - 2022-01-26
 
 ### Added
