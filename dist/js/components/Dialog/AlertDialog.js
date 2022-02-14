@@ -42,7 +42,7 @@ export var AlertDialog = function (_a) {
     return (React.createElement(React.Fragment, null, open ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
         React.createElement(Portal, { className: "h-dialog-portal" },
             React.createElement("div", __assign({}, getRootProps()),
-                React.createElement(DialogBackdrop, { className: backdropClassName }),
+                React.createElement(DialogBackdrop, { className: backdropClassName, closeDialog: closeDialog }),
                 React.createElement("div", __assign({}, getDialogProps()), children))))) : null));
 };
 //# sourceMappingURL=AlertDialog.js.map

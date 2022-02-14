@@ -21,7 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Prefer auto cursor (arrow) on `DialogBackdrop` component to match the ux of similar libraries
-- Handle closing dialog within the `DialogBackdrop` component via an internal handleClose value to be consistent with dialog headers
 - Use jsdom as `testEnvironment` in jest config
 - Use same `testMatch` value as crm-web in jest config
 
