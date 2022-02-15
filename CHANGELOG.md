@@ -90,7 +90,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `.h-cursor-auto` utility class.
 - Added `.h-table--list` modifier class.
 
-
 ### Changed
 
 - Updated all component disabled selectors to include pseudoclass, class, and attribute for posterity and consistency.
