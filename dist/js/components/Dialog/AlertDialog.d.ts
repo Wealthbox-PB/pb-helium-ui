@@ -1,5 +1,6 @@
 /// <reference types="react" />
 interface AlertDialogProps {
+    backdrop?: boolean;
     backdropClassName?: string;
     children: string | JSX.Element[] | JSX.Element;
     dialogClassName?: string;
@@ -9,5 +10,5 @@ interface AlertDialogProps {
     returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
     size?: string;
 }
-export declare const AlertDialog: ({ backdropClassName, children, dialogClassName, leastDestructiveRef, open, position, returnFocusEl, size, }: AlertDialogProps) => JSX.Element;
+export declare const AlertDialog: ({ backdrop, backdropClassName, children, dialogClassName, leastDestructiveRef, open, position, returnFocusEl, size, }: AlertDialogProps) => JSX.Element;
 export {};

@@ -3,8 +3,10 @@ import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
+import classNames from 'classnames';
 
 interface AlertDialogProps {
+  backdrop?: boolean;
   backdropClassName?: string;
   children: string | JSX.Element[] | JSX.Element;
   dialogClassName?: string;
@@ -16,6 +18,7 @@ interface AlertDialogProps {
 }
 
 export const AlertDialog = ({
+  backdrop = true,
   backdropClassName,
   children,
   dialogClassName,
@@ -33,7 +36,7 @@ export const AlertDialog = ({
   // instead of dialog.
   const closeDialog = () => {};
   const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
-    backdrop: true,
+    backdrop,
     closeDialog,
     dialogClassName,
     dialogRole: `alertdialog`,
@@ -55,7 +58,7 @@ export const AlertDialog = ({
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
             <div {...getRootProps()}>
-              <DialogBackdrop className={backdropClassName} closeDialog={closeDialog} />
+              {backdrop ? <DialogBackdrop className={backdropClassName} closeDialog={closeDialog} /> : null}
               <div {...getDialogProps()}>{children}</div>
             </div>
           </Portal>

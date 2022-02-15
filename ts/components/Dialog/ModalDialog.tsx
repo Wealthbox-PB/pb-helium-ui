@@ -3,6 +3,7 @@ import { useDialog } from './useDialog';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
+import classNames from 'classnames';
 
 interface ModalDialogProps {
   backdrop?: boolean;
