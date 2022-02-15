@@ -50,9 +50,11 @@ const ModalDialog = ({
       {open ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
-            <div {...getRootProps()}>
-              {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
-              <div {...getDialogProps()}>{children}</div>
+            <div className={classNames(`h-dialog-wrapper`, { 'h-pointer-events-none': !backdrop })}>
+              <div {...getRootProps()}>
+                {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
+                <div {...getDialogProps()}>{children}</div>
+              </div>
             </div>
           </Portal>
         </DialogContext.Provider>
