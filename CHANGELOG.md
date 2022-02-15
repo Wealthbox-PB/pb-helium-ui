@@ -9,22 +9,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add `link-primary` to `ButtonVariant` type
-- Add `link-secondary` to `ButtonVariant` type
-- Add `active` prop to `Button` interface
-- Add `disabled` prop to `Button` interface
-- Add `focus` prop to `Button` interface
-- Add `square` prop to `Button` interface
-- Make button types exportable from helium-ui
-- Add `LinkButton` component to helium-ui
+- Added `link-primary` to `ButtonVariant` type
+- Added `link-secondary` to `ButtonVariant` type
+- Added `active` prop to `Button` interface
+- Added `disabled` prop to `Button` interface
+- Added `focus` prop to `Button` interface
+- Added `square` prop to `Button` interface
+- Added `Button` type exports
+- Added `LinkButton` component to helium-ui
+- Added `filter-circle` svg icon asset
+- Added `filter-circle--lg` svg icon asset
+- Added check for `backdrop` prop on `AlertDialog` to determine whether or not to render the `DialogBackdrop` component
 
 ### Changed
 
 - Prefer auto cursor (arrow) on `DialogBackdrop` component to match the ux of similar libraries
 - Use jsdom as `testEnvironment` in jest config
 - Use same `testMatch` value as crm-web in jest config
+- Updated `clock` svg icon asset to fix artboard size
+- Updated `clock--lg` svg icon asset to fix artboard size
+- Refactored Dialog component DOM structure
+- Updated Dialog component styling to fix outstanding layout bugs and reflect DOM structure changes
 
 ### Removed
+
 - Remove focus state styling from actual dialog element
 
 ## [2.0.5] - 2022-01-26
