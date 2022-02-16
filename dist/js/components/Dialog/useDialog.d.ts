@@ -11,7 +11,10 @@ export declare function useDialog({ backdrop, closeDialog, dialogClassName, dial
     size: any;
     trapPaused: any;
 }): {
-    getRootProps: () => {
+    getDialogRootProps: () => {
+        className: string;
+    };
+    getDialogContainerProps: () => {
         ref: import("react").RefObject<HTMLDivElement>;
         className: string;
         role: any;

@@ -4,8 +4,8 @@ import { useScrollLock } from '../../hooks/useScrollLock';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { randomString } from '../../helpers/random_string';
 import classNames from 'classnames';
-var rootDialogClassName = "h-dialog";
-var ariaSelectorPrefix = rootDialogClassName + "-aria";
+var dialogContainerClassname = "h-dialog";
+var ariaSelectorPrefix = dialogContainerClassname + "-aria";
 var sizeClasses = {
     small: "sm",
     medium: "md",
@@ -15,13 +15,13 @@ var sizeClasses = {
 export function useDialog(_a) {
     var backdrop = _a.backdrop, _b = _a.closeDialog, closeDialog = _b === void 0 ? function () { } : _b, dialogClassName = _a.dialogClassName, dialogRole = _a.dialogRole, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, trapPaused = _a.trapPaused;
     var _c = useState(trapPaused), isTrapPaused = _c[0], setIsTrapPaused = _c[1];
-    var rootRef = useRef(null);
+    var dialogContainerRef = useRef(null);
     var dialogRef = useRef(null);
     var uniqueSuffixRef = useRef(randomString());
     var ariaLabelSelector = createSelector(ariaSelectorPrefix, "label", uniqueSuffixRef.current);
     var ariaDescriptionSelector = createSelector(ariaSelectorPrefix, "description", uniqueSuffixRef.current);
     useScrollLock(open && backdrop);
-    useCloseWithEscapeKey(rootRef, closeDialog, open);
+    useCloseWithEscapeKey(dialogContainerRef, closeDialog, open);
     useEffect(function () {
         setIsTrapPaused(trapPaused);
     }, [trapPaused]);
@@ -52,16 +52,21 @@ export function useDialog(_a) {
         };
     }, [returnFocusEl, open, isTrapPaused, initialFocusEl]);
     useEffect(function () {
-        var ref = rootRef.current;
-        ref === null || ref === void 0 ? void 0 : ref.classList.add(rootDialogClassName + "--open");
-        return function () { return ref === null || ref === void 0 ? void 0 : ref.classList.remove(rootDialogClassName + "--open"); };
+        var ref = dialogContainerRef.current;
+        ref === null || ref === void 0 ? void 0 : ref.classList.add(dialogContainerClassname + "--open");
+        return function () { return ref === null || ref === void 0 ? void 0 : ref.classList.remove(dialogContainerClassname + "--open"); };
     });
-    var getRootProps = useCallback(function () {
+    var getDialogRootProps = useCallback(function () {
+        return {
+            className: classNames("h-dialog-wrapper", { 'h-pointer-events-none': !backdrop }),
+        };
+    }, [backdrop]);
+    var getDialogContainerProps = useCallback(function () {
         var _a;
         return {
-            ref: rootRef,
-            className: classNames(rootDialogClassName, rootDialogClassName + "-" + uniqueSuffixRef.current, getDialogSize(size), getDialogPosition(position), (_a = {},
-                _a[rootDialogClassName + "--backdrop-none"] = !backdrop,
+            ref: dialogContainerRef,
+            className: classNames(dialogContainerClassname, dialogContainerClassname + "-" + uniqueSuffixRef.current, getDialogSize(size), getDialogPosition(position), (_a = {},
+                _a[dialogContainerClassname + "--backdrop-none"] = !backdrop,
                 _a)),
             role: dialogRole,
             'aria-modal': true,
@@ -73,11 +78,12 @@ export function useDialog(_a) {
         return {
             ref: dialogRef,
             tabIndex: -1,
-            className: classNames(rootDialogClassName + "__el", dialogClassName),
+            className: classNames(dialogContainerClassname + "__el", dialogClassName),
         };
     }, [dialogClassName]);
     return {
-        getRootProps: getRootProps,
+        getDialogRootProps: getDialogRootProps,
+        getDialogContainerProps: getDialogContainerProps,
         getDialogProps: getDialogProps,
         ariaLabelSelector: ariaLabelSelector,
         ariaDescriptionSelector: ariaDescriptionSelector,
@@ -94,7 +100,7 @@ var sizeKeys = Object.keys(sizeClasses);
 function getDialogSize(size) {
     if (size === void 0) { size = "medium"; }
     if (sizeKeys.includes(size)) {
-        return rootDialogClassName + "--" + sizeClasses[size];
+        return dialogContainerClassname + "--" + sizeClasses[size];
     }
     return "";
 }
@@ -115,10 +121,10 @@ function getDialogPosition(position) {
     // "bottom right" => .h-dialog--bottom.h-dialog--right
     var _a = position.toLowerCase().split(" "), y = _a[0], x = _a[1];
     if (!x) {
-        return rootDialogClassName + "--" + y;
+        return dialogContainerClassname + "--" + y;
     }
     else {
-        return rootDialogClassName + "--" + getPositionClass("y", y) + " " + rootDialogClassName + "--" + getPositionClass("x", x);
+        return dialogContainerClassname + "--" + getPositionClass("y", y) + " " + dialogContainerClassname + "--" + getPositionClass("x", x);
     }
 }
 //# sourceMappingURL=useDialog.js.map

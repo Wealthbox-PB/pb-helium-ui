@@ -14,7 +14,6 @@ import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
-import classNames from 'classnames';
 export var AlertDialog = function (_a) {
     var _b = _a.backdrop, backdrop = _b === void 0 ? true : _b, backdropClassName = _a.backdropClassName, children = _a.children, dialogClassName = _a.dialogClassName, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size;
     // alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
@@ -35,15 +34,15 @@ export var AlertDialog = function (_a) {
         returnFocusEl: returnFocusEl,
         size: size || "small",
         trapPaused: false,
-    }), getRootProps = _c.getRootProps, getDialogProps = _c.getDialogProps, ariaLabelSelector = _c.ariaLabelSelector, ariaDescriptionSelector = _c.ariaDescriptionSelector;
+    }), getDialogRootProps = _c.getDialogRootProps, getDialogContainerProps = _c.getDialogContainerProps, getDialogProps = _c.getDialogProps, ariaLabelSelector = _c.ariaLabelSelector, ariaDescriptionSelector = _c.ariaDescriptionSelector;
     useEffect(function () {
         var _a;
         (_a = leastDestructiveRef === null || leastDestructiveRef === void 0 ? void 0 : leastDestructiveRef.current) === null || _a === void 0 ? void 0 : _a.focus();
     }, [leastDestructiveRef]);
     return (React.createElement(React.Fragment, null, open ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
         React.createElement(Portal, { className: "h-dialog-portal" },
-            React.createElement("div", { className: classNames("h-dialog-wrapper", { 'h-pointer-events-none': !backdrop }) },
-                React.createElement("div", __assign({}, getRootProps()),
+            React.createElement("div", __assign({}, getDialogRootProps()),
+                React.createElement("div", __assign({}, getDialogContainerProps()),
                     backdrop ? React.createElement(DialogBackdrop, { className: backdropClassName, closeDialog: closeDialog }) : null,
                     React.createElement("div", __assign({}, getDialogProps()), children)))))) : null));
 };

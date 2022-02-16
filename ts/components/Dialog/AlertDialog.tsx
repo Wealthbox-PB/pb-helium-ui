@@ -3,7 +3,6 @@ import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
-import classNames from 'classnames';
 
 interface AlertDialogProps {
   backdrop?: boolean;
@@ -35,7 +34,13 @@ export const AlertDialog = ({
   // dialog's information and controls require the user's immediate attention alertdialog should be used
   // instead of dialog.
   const closeDialog = () => {};
-  const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
+  const {
+    getDialogRootProps,
+    getDialogContainerProps,
+    getDialogProps,
+    ariaLabelSelector,
+    ariaDescriptionSelector,
+  } = useDialog({
     backdrop,
     closeDialog,
     dialogClassName,
@@ -57,8 +62,8 @@ export const AlertDialog = ({
       {open ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
-            <div className={classNames(`h-dialog-wrapper`, { 'h-pointer-events-none': !backdrop })}>
-              <div {...getRootProps()}>
+            <div {...getDialogRootProps()}>
+              <div {...getDialogContainerProps()}>
                 {backdrop ? <DialogBackdrop className={backdropClassName} closeDialog={closeDialog} /> : null}
                 <div {...getDialogProps()}>{children}</div>
               </div>

@@ -5,8 +5,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { randomString } from '../../helpers/random_string';
 import classNames from 'classnames';
 
-const rootDialogClassName = `h-dialog`;
-const ariaSelectorPrefix = `${rootDialogClassName}-aria`;
+const dialogContainerClassname = `h-dialog`;
+const ariaSelectorPrefix = `${dialogContainerClassname}-aria`;
 const sizeClasses: { [key: string]: string } = {
   small: `sm`,
   medium: `md`,
@@ -28,7 +28,7 @@ export function useDialog({
 }) {
   const [isTrapPaused, setIsTrapPaused] = useState<boolean>(trapPaused);
 
-  const rootRef = useRef<HTMLDivElement>(null);
+  const dialogContainerRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const uniqueSuffixRef = useRef<string>(randomString());
 
@@ -36,7 +36,7 @@ export function useDialog({
   const ariaDescriptionSelector = createSelector(ariaSelectorPrefix, `description`, uniqueSuffixRef.current);
 
   useScrollLock(open && backdrop);
-  useCloseWithEscapeKey(rootRef, closeDialog, open);
+  useCloseWithEscapeKey(dialogContainerRef, closeDialog, open);
 
   useEffect(() => {
     setIsTrapPaused(trapPaused);
@@ -73,21 +73,27 @@ export function useDialog({
   }, [returnFocusEl, open, isTrapPaused, initialFocusEl]);
 
   useEffect(() => {
-    const ref = rootRef.current;
-    ref?.classList.add(`${rootDialogClassName}--open`);
-    return () => ref?.classList.remove(`${rootDialogClassName}--open`);
+    const ref = dialogContainerRef.current;
+    ref?.classList.add(`${dialogContainerClassname}--open`);
+    return () => ref?.classList.remove(`${dialogContainerClassname}--open`);
   });
 
-  const getRootProps = useCallback(() => {
+  const getDialogRootProps = useCallback(() => {
     return {
-      ref: rootRef,
+      className: classNames(`h-dialog-wrapper`, { 'h-pointer-events-none': !backdrop }),
+    };
+  }, [backdrop]);
+
+  const getDialogContainerProps = useCallback(() => {
+    return {
+      ref: dialogContainerRef,
       className: classNames(
-        rootDialogClassName,
-        `${rootDialogClassName}-${uniqueSuffixRef.current}`,
+        dialogContainerClassname,
+        `${dialogContainerClassname}-${uniqueSuffixRef.current}`,
         getDialogSize(size),
         getDialogPosition(position),
         {
-          [`${rootDialogClassName}--backdrop-none`]: !backdrop,
+          [`${dialogContainerClassname}--backdrop-none`]: !backdrop,
         }
       ),
       role: dialogRole,
@@ -101,12 +107,13 @@ export function useDialog({
     return {
       ref: dialogRef,
       tabIndex: -1,
-      className: classNames(`${rootDialogClassName}__el`, dialogClassName),
+      className: classNames(`${dialogContainerClassname}__el`, dialogClassName),
     };
   }, [dialogClassName]);
 
   return {
-    getRootProps,
+    getDialogRootProps,
+    getDialogContainerProps,
     getDialogProps,
     ariaLabelSelector,
     ariaDescriptionSelector,
@@ -120,7 +127,7 @@ function createSelector(...parts): string {
 const sizeKeys = Object.keys(sizeClasses);
 function getDialogSize(size = `medium`): string {
   if (sizeKeys.includes(size)) {
-    return `${rootDialogClassName}--${sizeClasses[size]}`;
+    return `${dialogContainerClassname}--${sizeClasses[size]}`;
   }
   return ``;
 }
@@ -144,11 +151,11 @@ function getDialogPosition(position: string = `center`): string {
   const [y, x] = position.toLowerCase().split(` `);
 
   if (!x) {
-    return `${rootDialogClassName}--${y}`;
+    return `${dialogContainerClassname}--${y}`;
   } else {
-    return `${rootDialogClassName}--${getPositionClass(`y`, y)} ${rootDialogClassName}--${getPositionClass(
-      `x`,
-      x
-    )}`;
+    return `${dialogContainerClassname}--${getPositionClass(
+      `y`,
+      y
+    )} ${dialogContainerClassname}--${getPositionClass(`x`, x)}`;
   }
 }
