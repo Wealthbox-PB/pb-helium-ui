@@ -5,7 +5,6 @@ import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 
 interface AlertDialogProps {
-  backdrop?: boolean;
   backdropClassName?: string;
   children: string | JSX.Element[] | JSX.Element;
   dialogClassName?: string;
@@ -17,7 +16,6 @@ interface AlertDialogProps {
 }
 
 export const AlertDialog = ({
-  backdrop = true,
   backdropClassName,
   children,
   dialogClassName,
@@ -41,7 +39,7 @@ export const AlertDialog = ({
     ariaLabelSelector,
     ariaDescriptionSelector,
   } = useDialog({
-    backdrop,
+    backdrop: true,
     closeDialog,
     dialogClassName,
     dialogRole: `alertdialog`,
@@ -64,7 +62,7 @@ export const AlertDialog = ({
           <Portal className="h-dialog-portal">
             <div {...getDialogRootProps()}>
               <div {...getDialogContainerProps()}>
-                {backdrop ? <DialogBackdrop className={backdropClassName} closeDialog={closeDialog} /> : null}
+                <DialogBackdrop className={backdropClassName} closeDialog={closeDialog} />
                 <div {...getDialogProps()}>{children}</div>
               </div>
             </div>

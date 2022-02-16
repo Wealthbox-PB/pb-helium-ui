@@ -15,7 +15,7 @@ import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 export var AlertDialog = function (_a) {
-    var _b = _a.backdrop, backdrop = _b === void 0 ? true : _b, backdropClassName = _a.backdropClassName, children = _a.children, dialogClassName = _a.dialogClassName, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size;
+    var backdropClassName = _a.backdropClassName, children = _a.children, dialogClassName = _a.dialogClassName, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size;
     // alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
     // modal close function to actually close it, AND we also allow consumers to potentially remove the close
     // from the header if they want it to appear as an alert and still keep the role="dialog". This is
@@ -23,8 +23,8 @@ export var AlertDialog = function (_a) {
     // dialog's information and controls require the user's immediate attention alertdialog should be used
     // instead of dialog.
     var closeDialog = function () { };
-    var _c = useDialog({
-        backdrop: backdrop,
+    var _b = useDialog({
+        backdrop: true,
         closeDialog: closeDialog,
         dialogClassName: dialogClassName,
         dialogRole: "alertdialog",
@@ -34,7 +34,7 @@ export var AlertDialog = function (_a) {
         returnFocusEl: returnFocusEl,
         size: size || "small",
         trapPaused: false,
-    }), getDialogRootProps = _c.getDialogRootProps, getDialogContainerProps = _c.getDialogContainerProps, getDialogProps = _c.getDialogProps, ariaLabelSelector = _c.ariaLabelSelector, ariaDescriptionSelector = _c.ariaDescriptionSelector;
+    }), getDialogRootProps = _b.getDialogRootProps, getDialogContainerProps = _b.getDialogContainerProps, getDialogProps = _b.getDialogProps, ariaLabelSelector = _b.ariaLabelSelector, ariaDescriptionSelector = _b.ariaDescriptionSelector;
     useEffect(function () {
         var _a;
         (_a = leastDestructiveRef === null || leastDestructiveRef === void 0 ? void 0 : leastDestructiveRef.current) === null || _a === void 0 ? void 0 : _a.focus();
@@ -43,7 +43,7 @@ export var AlertDialog = function (_a) {
         React.createElement(Portal, { className: "h-dialog-portal" },
             React.createElement("div", __assign({}, getDialogRootProps()),
                 React.createElement("div", __assign({}, getDialogContainerProps()),
-                    backdrop ? React.createElement(DialogBackdrop, { className: backdropClassName, closeDialog: closeDialog }) : null,
+                    React.createElement(DialogBackdrop, { className: backdropClassName, closeDialog: closeDialog }),
                     React.createElement("div", __assign({}, getDialogProps()), children)))))) : null));
 };
 //# sourceMappingURL=AlertDialog.js.map
