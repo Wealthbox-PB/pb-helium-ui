@@ -51,9 +51,9 @@ const Button = (
       onClick={onClick}
       disabled={disabled}
       className={classNames(`h-btn h-btn--${variant} h-btn--${size}`, className, {
-        [`h-btn--active`]: active,
-        [`h-btn--focus`]: focus,
-        [`h-btn--square`]: square,
+        'h-btn--active': active,
+        'h-btn--focus': focus,
+        'h-btn--square': square,
       })}
     >
       {children}
