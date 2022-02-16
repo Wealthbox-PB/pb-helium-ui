@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `filter-circle--filled--lg` svg icon asset
 - Added check for `backdrop` prop on `AlertDialog` to determine whether or not to render the `DialogBackdrop` component
 - Added `user-select: none` rule to dialog backdrop element to disallow content selection when the dialog is open
+- Added disabled styles to helium button link modifiers
 
 ### Changed
 
