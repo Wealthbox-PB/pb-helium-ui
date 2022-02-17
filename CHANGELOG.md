@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added check for `backdrop` prop on `AlertDialog` to determine whether or not to render the `DialogBackdrop` component
 - Added `user-select: none` rule to dialog backdrop element to disallow content selection when the dialog is open
 - Added disabled styles to helium button link modifiers
+- Added getDialogRootProps method for the dialog wrapper props in useDialog hook
 
 ### Changed
 
@@ -40,6 +41,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed `filter--filled--lg` icon to `filter-alt--filled--lg`
 - Refactored Dialog component DOM structure
 - Updated Dialog component styling to fix outstanding layout bugs and reflect DOM structure changes
+- Renamed getRootProps to getDialogContainerProps in useDialog hook since it is no longer the root element
+- Updated any references that were using "root" to now use "container" for consistency in useDialog Hook
 
 ### Removed
 
