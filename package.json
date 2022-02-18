@@ -3,6 +3,7 @@
   "version": "2.0.6",
   "description": "Design system and component library for Starburst Labs, Inc.",
   "main": "dist/js/index",
+  "types": "dist/js/index.d.ts",
   "repository": "git@github.com:starburstlabs/helium-ui.git",
   "author": [
     "Trevor Reiff <trevor.reiff@wealthbox.com>",
