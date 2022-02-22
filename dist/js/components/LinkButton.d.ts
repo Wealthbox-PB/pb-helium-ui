@@ -7,9 +7,10 @@ interface LinkButtonProps {
     focus?: boolean;
     href: string;
     isExternal?: boolean;
+    onClick?(): void;
     size?: ButtonSize;
     square?: boolean;
     variant?: ButtonVariant;
 }
-declare const LinkButton: ({ active, children, className, focus, href, isExternal, size, square, variant, }: LinkButtonProps) => JSX.Element;
+declare const LinkButton: ({ active, children, className, focus, href, isExternal, onClick, size, square, variant, }: LinkButtonProps) => JSX.Element;
 export { LinkButton };
