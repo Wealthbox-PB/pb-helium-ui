@@ -9,6 +9,7 @@ interface LinkButtonProps {
   focus?: boolean;
   href: string;
   isExternal?: boolean;
+  onClick?(): void;
   size?: ButtonSize;
   square?: boolean;
   variant?: ButtonVariant;
@@ -21,12 +22,14 @@ const LinkButton = ({
   focus = false,
   href,
   isExternal = false,
+  onClick = () => {},
   size = `md`,
   square = false,
   variant = `positive`,
 }: LinkButtonProps) => {
   return (
     <a
+      onClick={onClick}
       href={href}
       target={isExternal ? `_blank` : undefined}
       rel={isExternal ? `noopener noreferrer` : undefined}
