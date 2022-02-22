@@ -36,7 +36,7 @@ const Button = (
     className = ``,
     disabled = false,
     focus = false,
-    onClick,
+    onClick = () => {},
     size = `md`,
     square = false,
     type = `button`,
