@@ -27,12 +27,13 @@ var ModalDialog = function (_a) {
         returnFocusEl: returnFocusEl,
         size: size,
         trapPaused: trapPaused,
-    }), getRootProps = _d.getRootProps, getDialogProps = _d.getDialogProps, ariaLabelSelector = _d.ariaLabelSelector, ariaDescriptionSelector = _d.ariaDescriptionSelector;
+    }), getDialogRootProps = _d.getDialogRootProps, getDialogContainerProps = _d.getDialogContainerProps, getDialogProps = _d.getDialogProps, ariaLabelSelector = _d.ariaLabelSelector, ariaDescriptionSelector = _d.ariaDescriptionSelector;
     return (React.createElement(React.Fragment, null, open ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
         React.createElement(Portal, { className: "h-dialog-portal" },
-            React.createElement("div", __assign({}, getRootProps()),
-                backdrop ? React.createElement(DialogBackdrop, { className: backdropClassName }) : null,
-                React.createElement("div", __assign({}, getDialogProps()), children))))) : null));
+            React.createElement("div", __assign({}, getDialogRootProps()),
+                React.createElement("div", __assign({}, getDialogContainerProps()),
+                    backdrop ? React.createElement(DialogBackdrop, { className: backdropClassName }) : null,
+                    React.createElement("div", __assign({}, getDialogProps()), children)))))) : null));
 };
 export { ModalDialog };
 //# sourceMappingURL=ModalDialog.js.map

@@ -7,6 +7,8 @@ export { DialogBody } from './components/Dialog/DialogBody';
 export { DialogFooter } from './components/Dialog/DialogFooter';
 export { DialogFooterActions } from './components/Dialog/DialogFooterActions';
 export { Button } from './components/Button';
+export type { ButtonSize, ButtonType, ButtonVariant } from './components/Button';
+export { LinkButton } from './components/LinkButton';
 export { Portal } from './components/Portal';
 export { HeliumSpinner } from './components/Spinner/Spinner';
 export { randomString } from './helpers/random_string';

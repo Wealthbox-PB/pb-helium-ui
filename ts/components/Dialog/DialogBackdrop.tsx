@@ -9,12 +9,13 @@ interface DialogBackdropProps {
 
 export const DialogBackdrop = ({ className, closeDialog }: DialogBackdropProps) => {
   const context = useDialogContext();
+  const handleClose = closeDialog || context.closeDialog;
 
   return (
     <button
       type="button"
-      className={classNames(`h-dialog__backdrop`, className)}
-      onClick={closeDialog || context.closeDialog}
+      className={classNames(`h-dialog__backdrop h-cursor-auto`, className)}
+      onClick={handleClose}
       aria-label="Close Dialog"
     ></button>
   );

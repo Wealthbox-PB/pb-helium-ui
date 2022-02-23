@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import React from 'react';
+import classNames from 'classnames';
 
 export type ButtonVariant =
   | `primary`
@@ -10,21 +10,38 @@ export type ButtonVariant =
   | `primary-outline`
   | `secondary-outline`
   | `negative-outline`
-  | `info-outline`;
+  | `info-outline`
+  | `link-primary`
+  | `link-secondary`;
 export type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
 export type ButtonType = `button` | `submit` | `reset`;
 
 interface ButtonProps {
+  active?: boolean;
   children?: string | JSX.Element[] | JSX.Element;
   className?: string;
+  disabled?: boolean;
+  focus?: boolean;
   onClick?(): void;
   size?: ButtonSize;
+  square?: boolean;
   type?: ButtonType;
   variant?: ButtonVariant;
 }
 
 const Button = (
-  { children, onClick, variant = `positive`, type = `button`, className = ``, size = `md` }: ButtonProps,
+  {
+    active = false,
+    children,
+    className = ``,
+    disabled = false,
+    focus = false,
+    onClick = () => {},
+    size = `md`,
+    square = false,
+    type = `button`,
+    variant = `positive`,
+  }: ButtonProps,
   ref
 ) => {
   return (
@@ -32,7 +49,12 @@ const Button = (
       ref={ref}
       type={type}
       onClick={onClick}
-      className={classNames(`h-btn h-btn--${variant} h-btn--${size}`, className)}
+      disabled={disabled}
+      className={classNames(`h-btn h-btn--${variant} h-btn--${size}`, className, {
+        'h-btn--active': active,
+        'h-btn--focus': focus,
+        'h-btn--square': square,
+      })}
     >
       {children}
     </button>

@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "0bb638c55a2307791a3338f5acd2226ed455d24eeea57aa95af6cfc498b86401",
-    "current": "0bb638c55a2307791a3338f5acd2226ed455d24eeea57aa95af6cfc498b86401"
+    "previous": "52d341e24430e5d95a2f203082cde1623b104d635fe2234ca36447170eca240e",
+    "current": "52d341e24430e5d95a2f203082cde1623b104d635fe2234ca36447170eca240e"
   },
   "fonts": [
-    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.ttf",
-    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.svg",
-    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.woff",
-    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.eot",
-    "fonts/helium-icons_0bb638c55a2307791a3338f5acd2226e.woff2"
+    "fonts/helium-icons_52d341e24430e5d95a2f203082cde162.ttf",
+    "fonts/helium-icons_52d341e24430e5d95a2f203082cde162.svg",
+    "fonts/helium-icons_52d341e24430e5d95a2f203082cde162.woff",
+    "fonts/helium-icons_52d341e24430e5d95a2f203082cde162.eot",
+    "fonts/helium-icons_52d341e24430e5d95a2f203082cde162.woff2"
   ],
   "glyphs": {
     "add": {
@@ -579,17 +579,41 @@
       "codepoint": 61816,
       "source": "assets/icons/filter.svg"
     },
-    "filter--filled": {
-      "codepoint": 62033,
-      "source": "assets/icons/filter--filled.svg"
-    },
-    "filter--filled--lg": {
-      "codepoint": 62034,
-      "source": "assets/icons/filter--filled--lg.svg"
-    },
     "filter--lg": {
       "codepoint": 61817,
       "source": "assets/icons/filter--lg.svg"
+    },
+    "filter-alt": {
+      "codepoint": 62084,
+      "source": "assets/icons/filter-alt.svg"
+    },
+    "filter-alt--filled": {
+      "codepoint": 62085,
+      "source": "assets/icons/filter-alt--filled.svg"
+    },
+    "filter-alt--filled--lg": {
+      "codepoint": 62086,
+      "source": "assets/icons/filter-alt--filled--lg.svg"
+    },
+    "filter-alt--lg": {
+      "codepoint": 62087,
+      "source": "assets/icons/filter-alt--lg.svg"
+    },
+    "filter-circle": {
+      "codepoint": 62080,
+      "source": "assets/icons/filter-circle.svg"
+    },
+    "filter-circle--filled": {
+      "codepoint": 62082,
+      "source": "assets/icons/filter-circle--filled.svg"
+    },
+    "filter-circle--filled--lg": {
+      "codepoint": 62083,
+      "source": "assets/icons/filter-circle--filled--lg.svg"
+    },
+    "filter-circle--lg": {
+      "codepoint": 62081,
+      "source": "assets/icons/filter-circle--lg.svg"
     },
     "folder": {
       "codepoint": 61818,
@@ -1512,7 +1536,7 @@
     "font_design_size": 16,
     "font_em": 512,
     "font_name": "helium-icons",
-    "force": false,
+    "force": true,
     "input": {
       "templates": "fonts/templates",
       "vectors": "assets/icons"

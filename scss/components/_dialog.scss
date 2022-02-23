@@ -3,22 +3,22 @@
 //  Dialog
 //==========================================================================
 
-.h-dialog-portal {
-  position: fixed;
-  z-index: 9999;
-}
-
-.h-dialog {
+.h-dialog-wrapper {
   position: fixed;
   z-index: 9999;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  display: flex;
   overflow: auto;
   width: 100%;
   height: 100%;
-  align-items: center;
-  justify-content: center;
+}
+
+.h-dialog {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
   padding: $h-dialog-padding;
   opacity: 0;
   transition: 150ms ease-in-out all;
@@ -50,17 +50,16 @@
 
 .h-dialog--full-screen {
   .h-dialog__el {
-    width: 100%;
-    height: 100%;
+    flex: 1;
   }
 }
 
 .h-dialog--top {
-  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .h-dialog--right {
-  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .h-dialog--center {
@@ -69,19 +68,19 @@
 }
 
 .h-dialog--center-y {
-  align-items: center;
-}
-
-.h-dialog--center-x {
   justify-content: center;
 }
 
+.h-dialog--center-x {
+  align-items: center;
+}
+
 .h-dialog--bottom {
-  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .h-dialog--left {
-  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .h-dialog--open {
@@ -108,6 +107,7 @@
   border: 0;
   margin: 0;
   background: rgba($h-black, 0.5);
+  user-select: none;
 }
 
 .h-dialog__el {
@@ -121,10 +121,6 @@
   background: $h-color-background-shared-component;
   border-radius: $h-border-radius-shared-component;
   box-shadow: $h-dialog-box-shadow;
-
-  &:focus {
-    @include h-form-element-focus();
-  }
 }
 
 .h-dialog__header {
@@ -165,7 +161,6 @@
 }
 
 .h-dialog__body {
-  overflow: auto;
   flex-grow: 1;
   padding: $h-dialog-padding;
 

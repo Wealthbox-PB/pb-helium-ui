@@ -345,6 +345,21 @@
   &.h-btn--focus {
     box-shadow: $h-box-shadow-form-element-focused;
   }
+
+  &:disabled,
+  &.disabled,
+  &[disabled],
+  &.h-btn--disabled {
+    &:hover,
+    &.h-btn--hover,
+    &:active,
+    &.h-btn--active,
+    &:focus,
+    &.h-btn--focus {
+      color: $h-color-text-btn;
+      text-decoration: none;
+    }
+  }
 }
 
 @mixin h-btn-link {

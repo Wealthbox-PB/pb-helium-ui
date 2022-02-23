@@ -32,7 +32,13 @@ export const AlertDialog = ({
   // dialog's information and controls require the user's immediate attention alertdialog should be used
   // instead of dialog.
   const closeDialog = () => {};
-  const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
+  const {
+    getDialogRootProps,
+    getDialogContainerProps,
+    getDialogProps,
+    ariaLabelSelector,
+    ariaDescriptionSelector,
+  } = useDialog({
     backdrop: true,
     closeDialog,
     dialogClassName,
@@ -54,9 +60,11 @@ export const AlertDialog = ({
       {open ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
-            <div {...getRootProps()}>
-              <DialogBackdrop className={backdropClassName} closeDialog={closeDialog} />
-              <div {...getDialogProps()}>{children}</div>
+            <div {...getDialogRootProps()}>
+              <div {...getDialogContainerProps()}>
+                <DialogBackdrop className={backdropClassName} closeDialog={closeDialog} />
+                <div {...getDialogProps()}>{children}</div>
+              </div>
             </div>
           </Portal>
         </DialogContext.Provider>

@@ -31,7 +31,13 @@ const ModalDialog = ({
   size,
   trapPaused = false,
 }: ModalDialogProps) => {
-  const { getRootProps, getDialogProps, ariaLabelSelector, ariaDescriptionSelector } = useDialog({
+  const {
+    getDialogRootProps,
+    getDialogContainerProps,
+    getDialogProps,
+    ariaLabelSelector,
+    ariaDescriptionSelector,
+  } = useDialog({
     backdrop,
     closeDialog,
     dialogClassName,
@@ -49,9 +55,11 @@ const ModalDialog = ({
       {open ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
-            <div {...getRootProps()}>
-              {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
-              <div {...getDialogProps()}>{children}</div>
+            <div {...getDialogRootProps()}>
+              <div {...getDialogContainerProps()}>
+                {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
+                <div {...getDialogProps()}>{children}</div>
+              </div>
             </div>
           </Portal>
         </DialogContext.Provider>

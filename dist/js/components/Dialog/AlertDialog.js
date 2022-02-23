@@ -34,15 +34,16 @@ export var AlertDialog = function (_a) {
         returnFocusEl: returnFocusEl,
         size: size || "small",
         trapPaused: false,
-    }), getRootProps = _b.getRootProps, getDialogProps = _b.getDialogProps, ariaLabelSelector = _b.ariaLabelSelector, ariaDescriptionSelector = _b.ariaDescriptionSelector;
+    }), getDialogRootProps = _b.getDialogRootProps, getDialogContainerProps = _b.getDialogContainerProps, getDialogProps = _b.getDialogProps, ariaLabelSelector = _b.ariaLabelSelector, ariaDescriptionSelector = _b.ariaDescriptionSelector;
     useEffect(function () {
         var _a;
         (_a = leastDestructiveRef === null || leastDestructiveRef === void 0 ? void 0 : leastDestructiveRef.current) === null || _a === void 0 ? void 0 : _a.focus();
     }, [leastDestructiveRef]);
     return (React.createElement(React.Fragment, null, open ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
         React.createElement(Portal, { className: "h-dialog-portal" },
-            React.createElement("div", __assign({}, getRootProps()),
-                React.createElement(DialogBackdrop, { className: backdropClassName, closeDialog: closeDialog }),
-                React.createElement("div", __assign({}, getDialogProps()), children))))) : null));
+            React.createElement("div", __assign({}, getDialogRootProps()),
+                React.createElement("div", __assign({}, getDialogContainerProps()),
+                    React.createElement(DialogBackdrop, { className: backdropClassName, closeDialog: closeDialog }),
+                    React.createElement("div", __assign({}, getDialogProps()), children)))))) : null));
 };
 //# sourceMappingURL=AlertDialog.js.map
