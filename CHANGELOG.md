@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.6] - 2022-02-11
+## [2.0.6] - 2022-02-23
 
 ### Added
 
@@ -26,12 +26,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added check for `backdrop` prop on `AlertDialog` to determine whether or not to render the `DialogBackdrop` component
 - Added `user-select: none` rule to dialog backdrop element to disallow content selection when the dialog is open
 - Added disabled styles to helium button link modifiers
-- Added getDialogRootProps method for the dialog wrapper props in useDialog hook
+- Added `getDialogRootProps` method for the dialog wrapper props in `useDialog` hook
 
 ### Changed
 
 - Prefer auto cursor (arrow) on `DialogBackdrop` component to match the ux of similar libraries
-- Use jsdom as `testEnvironment` in jest config
+- Use `jsdom` as `testEnvironment` in jest config
 - Use same `testMatch` value as crm-web in jest config
 - Updated `clock` svg icon asset to fix artboard size
 - Updated `clock--lg` svg icon asset to fix artboard size
@@ -39,10 +39,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed `filter--lg` icon to `filter-alt--lg`
 - Renamed `filter--filled` icon to `filter-alt--filled`
 - Renamed `filter--filled--lg` icon to `filter-alt--filled--lg`
-- Refactored Dialog component DOM structure
-- Updated Dialog component styling to fix outstanding layout bugs and reflect DOM structure changes
-- Renamed getRootProps to getDialogContainerProps in useDialog hook since it is no longer the root element
-- Updated any references that were using "root" to now use "container" for consistency in useDialog Hook
+- Refactored `Dialog` component DOM structure
+- Updated `Dialog` component styling to fix outstanding layout bugs and reflect DOM structure changes
+- Renamed `getRootProps` to `getDialogContainerProps` in `useDialog` hook since it is no longer the root element
+- Updated any references that were using "root" to now use "container" for consistency in `useDialog` hook
 
 ### Removed
 
