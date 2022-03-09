@@ -27,7 +27,7 @@
 .h-dialog--md {
   .h-dialog__el {
     @include media-breakpoint-up(md) {
-      width: $h-dialog-width--desktop-md;
+      width: $h-dialog-width-desktop-md;
     }
   }
 }
@@ -35,7 +35,7 @@
 .h-dialog--sm {
   .h-dialog__el {
     @include media-breakpoint-up(md) {
-      width: $h-dialog-width--desktop-sm;
+      width: $h-dialog-width-desktop-sm;
     }
   }
 }
@@ -43,7 +43,7 @@
 .h-dialog--lg {
   .h-dialog__el {
     @include media-breakpoint-up(md) {
-      width: $h-dialog-width--desktop-lg;
+      width: $h-dialog-width-desktop-lg;
     }
   }
 }
@@ -152,7 +152,7 @@
   color: $h-color-text-normal;
   font-size: 1.5rem;
 
-  @include h-form-element-transition();
+  @include h-form-element-transition;
 
   &:focus {
     box-shadow: $h-box-shadow-form-element-focused;

@@ -351,10 +351,12 @@
     box-shadow: $h-box-shadow-form-element-focused;
   }
 
+  /* stylelint-disable selector-class-pattern */
   &:disabled,
   &.disabled,
   &[disabled],
   &.h-btn--disabled {
+    /* stylelint-enable selector-class-pattern */
     &:hover,
     &.h-btn--hover,
     &:active,
