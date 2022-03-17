@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.7] - 2022-03-17
+
+### Added
+- Added `postcss` version 8
+
+### Changed
+- Base stylelint config off crm-web and add necessary updates
+- Restrict classnames and ids to only use `h-[a-z]` prefix
+- Upgrade to stylelint version 14
+- Remove `stylelint-config-standard` and replace `stylelint-config-standard-scss`
+
 ## [2.0.6] - 2022-02-23
 
 ### Added

@@ -34,5 +34,6 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "stylelint.enable": true
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "scss"]
 }
