@@ -5,10 +5,10 @@ interface ModalDialogProps {
     children: string | JSX.Element[] | JSX.Element;
     closeDialog: () => void;
     dialogClassName?: string;
-    initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+    initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined | false;
     open: boolean;
     position?: string;
-    returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+    returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined | false;
     size?: string;
     trapPaused?: boolean;
 }

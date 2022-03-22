@@ -13,10 +13,10 @@ interface SimpleModalDialogProps {
     footerClassName?: string;
     header?: string | JSX.Element[] | JSX.Element;
     headerClassName?: string;
-    initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+    initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined | false;
     open: boolean;
     position?: string;
-    returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+    returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined | false;
     size?: string;
     trapPaused?: boolean;
 }
