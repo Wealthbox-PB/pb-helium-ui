@@ -111,6 +111,14 @@ export function useDialog({
     };
   }, [dialogClassName]);
 
+  useEffect(() => {
+    const container = dialogContainerRef.current;
+    const handleCloseEvent = () => closeDialog();
+    container?.addEventListener(`modal:close`, handleCloseEvent);
+
+    return () => container?.removeEventListener(`modal:close`, handleCloseEvent);
+  }, [dialogContainerRef, closeDialog]);
+
   return {
     getDialogRootProps,
     getDialogContainerProps,

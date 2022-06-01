@@ -1,6 +1,6 @@
 {
   "name": "helium-ui",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Design system and component library for Starburst Labs, Inc.",
   "main": "dist/js/index",
   "types": "dist/js/index.d.ts",
@@ -9,7 +9,8 @@
     "Trevor Reiff <trevor.reiff@wealthbox.com>",
     "Adam Grossi <adam.grossi@wealthbox.com>",
     "Michal Kopanski <michal.kopanski@wealthbox.com>",
-    "JP Camara <jp.camara@wealthbox.com>"
+    "JP Camara <jp.camara@wealthbox.com>",
+    "Kevin Clark <kevin.clark@wealthbox.com>"
   ],
   "license": "MIT",
   "private": true,

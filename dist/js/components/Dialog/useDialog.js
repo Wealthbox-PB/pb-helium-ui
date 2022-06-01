@@ -81,6 +81,12 @@ export function useDialog(_a) {
             className: classNames(dialogContainerClassname + "__el", dialogClassName),
         };
     }, [dialogClassName]);
+    useEffect(function () {
+        var container = dialogContainerRef.current;
+        var handleCloseEvent = function () { return closeDialog(); };
+        container === null || container === void 0 ? void 0 : container.addEventListener("modal:close", handleCloseEvent);
+        return function () { return container === null || container === void 0 ? void 0 : container.removeEventListener("modal:close", handleCloseEvent); };
+    }, [dialogContainerRef, closeDialog]);
     return {
         getDialogRootProps: getDialogRootProps,
         getDialogContainerProps: getDialogContainerProps,
