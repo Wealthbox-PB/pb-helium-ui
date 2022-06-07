@@ -28,3 +28,24 @@
 .h-cursor-auto {
   cursor: auto !important;
 }
+
+//  Floating UI
+//=========================================================================
+
+.h-floating-ui {
+  position: relative;
+  z-index: 1001;
+}
+
+.h-floating-ui--modals {
+  z-index: 1002;
+}
+
+.h-floating-ui--popovers,
+.h-floating-ui--dropdown {
+  z-index: 1003;
+}
+
+.h-floating-ui--tooltips {
+  z-index: 1004;
+}

@@ -1,0 +1,70 @@
+//==========================================================================
+//  Tooltip
+//==========================================================================
+
+$h-tooltip-color-background: rgba($h-black, 0.95) !default;
+$h-tooltip-color-text: $h-white !default;
+$h-tooltip-arrow-size: 6px !default;
+
+//  Base
+//==========================================================================
+
+.h-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 10rem;
+  padding: 0.425rem 0.5rem;
+  background-color: $h-tooltip-color-background;
+  border-radius: $h-border-radius;
+  color: $h-tooltip-color-text;
+  font-size: $h-font-size-sm;
+  line-height: $h-line-height-heading;
+  text-align: center;
+}
+
+.h-tooltip__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  &--top,
+  &--top-start,
+  &--top-end {
+    border-top: $h-tooltip-arrow-size solid $h-tooltip-color-background;
+    border-right: $h-tooltip-arrow-size solid transparent;
+    border-left: $h-tooltip-arrow-size solid transparent;
+  }
+
+  &--right,
+  &--right-start,
+  &--right-end {
+    border-top: $h-tooltip-arrow-size solid transparent;
+    border-right: $h-tooltip-arrow-size solid $h-tooltip-color-background;
+    border-bottom: $h-tooltip-arrow-size solid transparent;
+  }
+
+  &--bottom,
+  &--bottom-start,
+  &--bottom-end {
+    border-right: $h-tooltip-arrow-size solid transparent;
+    border-bottom: $h-tooltip-arrow-size solid $h-tooltip-color-background;
+    border-left: $h-tooltip-arrow-size solid transparent;
+  }
+
+  &--left,
+  &--left-start,
+  &--left-end {
+    border-top: $h-tooltip-arrow-size solid transparent;
+    border-bottom: $h-tooltip-arrow-size solid transparent;
+    border-left: $h-tooltip-arrow-size solid $h-tooltip-color-background;
+  }
+}
+
+.h-tooltip--lg {
+  max-width: calc(50vw - 8px);
+}
+
+.h-tooltip--full {
+  max-width: calc(100vw - 8px);
+}

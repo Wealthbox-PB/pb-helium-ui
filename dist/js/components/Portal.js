@@ -12,7 +12,7 @@ var Portal = function (_a) {
     var children = _a.children, selector = _a.selector, _b = _a.className, className = _b === void 0 ? "" : _b;
     var el = useMemo(function () {
         var div = document.createElement("div");
-        div.classList.add(className);
+        div.className = className;
         return div;
     }, [className]);
     useEffect(function () {
