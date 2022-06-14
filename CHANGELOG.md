@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.10] - 2022-06-14
+
+### Changed
+
+- Added a `h-icon-content()` function to the "\_iconography.scss" FontCustom file template that wraps a string in quotes and prefixes a backslash.
+- Replaced the native `glyphs` FontCustom method with implicitly iterating through each glyph so we can wrap the icons unicode in the `h-icon-content()` function to fix known `dart-sass` issue.
+- Recompiled icon font as well as generated corrected "\_iconography.scss" stylesheet.
+
 ## [2.0.9] - 2022-06-01
 
 ### Added
