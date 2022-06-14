@@ -20,15 +20,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added an effect to the `useDialog` hook to call `closeDialog` when a `modal:close` event is dispatched
 
 ## [2.0.8] - 2022-03-22
+
 ### Added
+
 - Added `false` type option to `initialFocusEl` and `returnFocusEl` props in modal dialogs to match allowed types from focus-trap library
 
 ## [2.0.7] - 2022-03-17
 
 ### Added
+
 - Added `postcss` version 8
 
 ### Changed
+
 - Base stylelint config off crm-web and add necessary updates
 - Restrict classnames and ids to only use `h-[a-z]` prefix
 - Upgrade to stylelint version 14
