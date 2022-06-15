@@ -5,7 +5,6 @@
 
 $icons_preprocessor_path: 'helium-ui/fonts' !default;
 
-
 <%= font_face(url: "font-url", path: @font_path_alt) %>
 
 [data-h-icon]<%= pseudo_element %> { content: attr(data-icon); }
