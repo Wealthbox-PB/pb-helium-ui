@@ -14,4 +14,19 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 <%= glyph_properties %>
 }
 
-<%= glyphs %>
+// This function wraps a unicode character code in quotes and prefixes it with a backslash. It's a
+//   workaround for a known dart-sass compilation side effect where unicode character codes will be encoded,
+//   which would at times be interpreted incorrectly by the browser, displaying strange characters in place of
+//   Helium icons. When the unicode is wrapped in a function like this, dart-sass will skip encoding it during
+//   compilation. More information can be found at https://github.com/sass/dart-sass/issues/568 and
+//   https://github.com/FortAwesome/Font-Awesome/issues/17644
+
+@function h-icon-content($icon_unicode) {
+  @return unquote("\"") + unquote(str-insert($icon_unicode, "\\", 1)) + unquote("\"");
+}
+
+// Rather than returning the default styles from the FontCustom provided "glyphs" method, we now need to
+//   implicitly iterate through each glyph and define the CSS rules using the "h-icon-content()" function to
+//   wrap the glyph's unicode known as "codepoint".
+<% @glyphs.each do |name, value| %>
+<%= @options[:css_selector].sub('{{glyph}}', name.to_s)%><%= @pseudo_element%> { content: h-icon-content(<%= value[:codepoint].to_s(16) %>); }<% end %>

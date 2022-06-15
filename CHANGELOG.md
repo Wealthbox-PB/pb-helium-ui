@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.10] - 2022-06-15
+
+### Changed
+
+- Added a `h-icon-content()` function to the "\_iconography.scss" FontCustom file template that wraps a string in quotes and prefixes a backslash.
+- Replaced the native `glyphs` FontCustom method with implicitly iterating through each glyph so we can wrap the icons unicode in the `h-icon-content()` function to fix known `dart-sass` issue.
+- Recompiled icon font as well as generated corrected "\_iconography.scss" stylesheet.
+
 ## [2.0.9] - 2022-06-01
 
 ### Added
@@ -12,15 +20,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added an effect to the `useDialog` hook to call `closeDialog` when a `modal:close` event is dispatched
 
 ## [2.0.8] - 2022-03-22
+
 ### Added
+
 - Added `false` type option to `initialFocusEl` and `returnFocusEl` props in modal dialogs to match allowed types from focus-trap library
 
 ## [2.0.7] - 2022-03-17
 
 ### Added
+
 - Added `postcss` version 8
 
 ### Changed
+
 - Base stylelint config off crm-web and add necessary updates
 - Restrict classnames and ids to only use `h-[a-z]` prefix
 - Upgrade to stylelint version 14
