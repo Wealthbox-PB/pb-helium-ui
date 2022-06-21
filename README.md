@@ -21,7 +21,7 @@ You are browsing this source code because of your contractual relationship with 
 
 ### Icon Font Compilation Tooling
 
-This project uses [FontCustom](https://github.com/FontCustom/fontcustom) to compile SVG icon assets into custom font coupled with a generated stylesheet with icon classes.
+This project uses [FontCustom](https://github.com/FontCustom/fontcustom) to compile SVG icon assets into a custom font coupled with a generated stylesheet with icon classes.
 
 #### Installing FontCustom
 
