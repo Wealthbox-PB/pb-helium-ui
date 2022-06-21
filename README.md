@@ -28,11 +28,7 @@ This project uses [FontCustom](https://github.com/FontCustom/fontcustom) to comp
 ```
 brew tap bramstein/webfonttools
 brew update
-brew install woff2
-brew install sfnt2woff
-
-brew install fontforge
-brew install eot-utils
+brew install woff2 sfnt2woff fontforge eot-utils
 gem install fontcustom
 ```
 
