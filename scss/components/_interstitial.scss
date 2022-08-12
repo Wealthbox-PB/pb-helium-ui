@@ -1,0 +1,40 @@
+
+//==========================================================================
+//  Interstitial
+//==========================================================================
+
+.h-interstitial {
+  display: block;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.h-interstitial__content {
+  margin: 1.5rem 0 0;
+  color: $h-color-text-normal;
+  font-size: $h-font-size-md;
+}
+
+.h-interstitial__icon {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  color: $h-gray-150;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.h-interstitial--sm {
+  padding: 2rem 0;
+
+  .h-interstitial__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 2.5rem;
+  }
+
+  .h-interstitial__content {
+    margin: 0.5rem 0 0;
+    font-size: $h-font-size-sm;
+  }
+}

@@ -7,6 +7,7 @@ export { DialogBody } from './components/Dialog/DialogBody';
 export { DialogFooter } from './components/Dialog/DialogFooter';
 export { DialogFooterActions } from './components/Dialog/DialogFooterActions';
 export { Button } from './components/Button';
+export { Interstitial } from './components/Interstitial';
 export { LinkButton } from './components/LinkButton';
 export { Portal } from './components/Portal';
 export { HeliumSpinner } from './components/Spinner/Spinner';

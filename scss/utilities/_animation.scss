@@ -51,3 +51,22 @@
     animation-direction: $val !important;
   }
 }
+
+//  Helper Classes
+//=========================================================================
+
+.h-animate-fade-in {
+  animation:
+    $h-animation-fade-in
+    $h-animation-duration-lg
+    $h-animation-timing-ease-out
+    $h-animation-fill-mode-backwards;
+}
+
+.h-animate-fade-out {
+  animation:
+    $h-animation-fade-out
+    $h-animation-duration-lg
+    $h-animation-timing-ease-out
+    $h-animation-fill-mode-forwards;
+}
