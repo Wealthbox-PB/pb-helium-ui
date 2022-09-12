@@ -9,13 +9,17 @@ interface DialogFooterProps {
 
 const DialogFooter = ({ children, footerBackground = true, footerClassName = `` }: DialogFooterProps) => {
   return (
-    <div
+    <footer
       className={classNames(`h-dialog__footer`, footerClassName, {
         'h-dialog__footer--with-background': footerBackground,
       })}
     >
-      <div className="h-dialog__footer-cta-container">{children}</div>
-    </div>
+      {children ? (
+        <div className="h-dialog__footer-cta-container" data-testid="h-dialog__footer-cta-container">
+          {children}
+        </div>
+      ) : null}
+    </footer>
   );
 };
 

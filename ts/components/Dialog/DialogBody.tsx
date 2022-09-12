@@ -15,6 +15,7 @@ const DialogBody = ({ bodyClassName = ``, ariaDescriptionSelector = ``, children
     <div
       className={classNames(`h-dialog__body`, bodyClassName)}
       id={ariaDescriptionSelector || context.ariaDescriptionSelector}
+      data-testid="h-dialog__body"
     >
       {children}
     </div>

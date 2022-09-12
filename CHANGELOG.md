@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.13] - 2022-09-12
+
+### Added
+- Added `/coverage` directory to `.gitignore` file
+- Added spec for `DialogBody` component
+- Added spec for `DialogFooter` component
+
+### Changed
+- Updated `bootstrap` to version `5.1.3`
+- Changed `bootstrap` package.json entry to include `~` instead of `^` to upgrade only to latest 5.1 patch releases
+- Fixed eslint errors in js files
+- Updated `Spinner` component specs to use `jest` instead of `enzyme`
+- Updated `DialogFooter` component:
+  - Updated component wrapping element from a `div` to `footer` for better semantics and testability
+  - Added ternary to only render `children` container when `children` exist
+
+### Removed
+- Removed duplicate keyframe animations from animation scss file
+- Removed packages and references to `enzyme-adapter-react-16`
+
 ## [2.0.12] - 2022-08-12
 
 ### Added

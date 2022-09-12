@@ -16,7 +16,7 @@ module.exports = {
     `plugin:import/errors`,
     `plugin:import/warnings`,
     `plugin:testing-library/react`,
-    `plugin:jest-dom/recommended`
+    `plugin:jest-dom/recommended`,
   ],
   globals: {
     Atomics: `readonly`,

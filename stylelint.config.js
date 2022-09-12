@@ -12,7 +12,18 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: [`at-root`, `each`, `extend`, `for`, `if`, `else`, `function`, `return`, `include`, `mixin`],
+        ignoreAtRules: [
+          `at-root`,
+          `each`,
+          `extend`,
+          `for`,
+          `if`,
+          `else`,
+          `function`,
+          `return`,
+          `include`,
+          `mixin`,
+        ],
       },
     ],
     'max-line-length': [
@@ -30,8 +41,8 @@ module.exports = {
     'scss/double-slash-comment-empty-line-before': null,
     'scss/double-slash-comment-whitespace-inside': null,
     'scss/no-global-function-names': null, // Revisit this rule after upgrading to Dart Sass
-    'selector-class-pattern': 'h-[a-z]+', // helium-ui specific configuration
-    'selector-id-pattern': 'h-[a-z]+', // helium-ui specific configuration
+    'selector-class-pattern': `h-[a-z]+`, // helium-ui specific configuration
+    'selector-id-pattern': `h-[a-z]+`, // helium-ui specific configuration
     'selector-type-no-unknown': null,
   },
 };

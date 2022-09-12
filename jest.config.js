@@ -6,7 +6,6 @@ module.exports = {
   moduleFileExtensions: [`js`, `json`, `jsx`, `ts`, `tsx`],
   moduleDirectories: [`node_modules`],
   roots: [`<rootDir>/spec`],
-  setupFiles: [`<rootDir>/spec/jest_config_setup.js`],
   snapshotSerializers: [`enzyme-to-json/serializer`],
   testEnvironment: `jsdom`,
   testMatch: [`**/?(*.|*_)+(spec|test).+(ts|tsx)`],
