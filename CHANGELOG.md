@@ -5,14 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.14] - 2022-10-14
+
+### Added
+
+- Added new `share` svg icon asset
+- Added new `share--lg` svg icon asset
+
+### Changed
+
+- Recompiled icon font
+
 ## [2.0.13] - 2022-09-12
 
 ### Added
+
 - Added `/coverage` directory to `.gitignore` file
 - Added spec for `DialogBody` component
 - Added spec for `DialogFooter` component
 
 ### Changed
+
 - Updated `bootstrap` to version `5.1.3`
 - Changed `bootstrap` package.json entry to include `~` instead of `^` to upgrade only to latest 5.1 patch releases
 - Fixed eslint errors in js files
@@ -22,12 +35,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added ternary to only render `children` container when `children` exist
 
 ### Removed
+
 - Removed duplicate keyframe animations from animation scss file
 - Removed packages and references to `enzyme-adapter-react-16`
 
 ## [2.0.12] - 2022-08-12
 
 ### Added
+
 - Added basic animation helper classes based off classes from crm-web: `h-animate-fade-in` and `h-animate-fade-out`
 - Added `Interstitial` component based off of crm-web `NoResults` component
 - Added `jest-dom` package for testing components

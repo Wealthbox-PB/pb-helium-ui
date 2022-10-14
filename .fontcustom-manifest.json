@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "f20c3669f9482503884a5d9f5a92f4f865b5b0bc215c82188208b8fe3740f7bd",
-    "current": "f20c3669f9482503884a5d9f5a92f4f865b5b0bc215c82188208b8fe3740f7bd"
+    "previous": "66f7ef53c3bd38db3587dd52c638046f649598f8b6183e92867e0f5eac5b2f5e",
+    "current": "66f7ef53c3bd38db3587dd52c638046f649598f8b6183e92867e0f5eac5b2f5e"
   },
   "fonts": [
-    "fonts/helium-icons_f20c3669f9482503884a5d9f5a92f4f8.ttf",
-    "fonts/helium-icons_f20c3669f9482503884a5d9f5a92f4f8.svg",
-    "fonts/helium-icons_f20c3669f9482503884a5d9f5a92f4f8.woff",
-    "fonts/helium-icons_f20c3669f9482503884a5d9f5a92f4f8.eot",
-    "fonts/helium-icons_f20c3669f9482503884a5d9f5a92f4f8.woff2"
+    "fonts/helium-icons_66f7ef53c3bd38db3587dd52c638046f.ttf",
+    "fonts/helium-icons_66f7ef53c3bd38db3587dd52c638046f.svg",
+    "fonts/helium-icons_66f7ef53c3bd38db3587dd52c638046f.woff",
+    "fonts/helium-icons_66f7ef53c3bd38db3587dd52c638046f.eot",
+    "fonts/helium-icons_66f7ef53c3bd38db3587dd52c638046f.woff2"
   ],
   "glyphs": {
     "add": {
@@ -1351,6 +1351,14 @@
       "codepoint": 61971,
       "source": "assets/icons/settings-group--lg.svg"
     },
+    "share": {
+      "codepoint": 62088,
+      "source": "assets/icons/share.svg"
+    },
+    "share--lg": {
+      "codepoint": 62089,
+      "source": "assets/icons/share--lg.svg"
+    },
     "smile": {
       "codepoint": 61972,
       "source": "assets/icons/smile.svg"
@@ -1536,7 +1544,7 @@
     "font_design_size": 16,
     "font_em": 512,
     "font_name": "helium-icons",
-    "force": true,
+    "force": false,
     "input": {
       "templates": "fonts/templates",
       "vectors": "assets/icons"
