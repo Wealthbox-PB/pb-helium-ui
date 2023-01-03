@@ -15,14 +15,13 @@ import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 export var AlertDialog = function (_a) {
-    var backdropClassName = _a.backdropClassName, children = _a.children, dialogClassName = _a.dialogClassName, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size;
+    var backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size;
     // alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
     // modal close function to actually close it, AND we also allow consumers to potentially remove the close
     // from the header if they want it to appear as an alert and still keep the role="dialog". This is
     // because, the role="alertdialog" is only when an alert, error, or warning occurs. In other words, when a
     // dialog's information and controls require the user's immediate attention alertdialog should be used
     // instead of dialog.
-    var closeDialog = function () { };
     var _b = useDialog({
         backdrop: true,
         closeDialog: closeDialog,
@@ -43,7 +42,7 @@ export var AlertDialog = function (_a) {
         React.createElement(Portal, { className: "h-dialog-portal" },
             React.createElement("div", __assign({}, getDialogRootProps()),
                 React.createElement("div", __assign({}, getDialogContainerProps()),
-                    React.createElement(DialogBackdrop, { className: backdropClassName, closeDialog: closeDialog }),
+                    React.createElement(DialogBackdrop, { className: backdropClassName, closeDialog: function () { } }),
                     React.createElement("div", __assign({}, getDialogProps()), children)))))) : null));
 };
 //# sourceMappingURL=AlertDialog.js.map

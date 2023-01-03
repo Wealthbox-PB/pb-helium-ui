@@ -7,6 +7,7 @@ import { DialogContext } from './DialogContext';
 interface AlertDialogProps {
   backdropClassName?: string;
   children: string | JSX.Element[] | JSX.Element;
+  closeDialog: () => void;
   dialogClassName?: string;
   leastDestructiveRef?: any;
   open: boolean;
@@ -18,6 +19,7 @@ interface AlertDialogProps {
 export const AlertDialog = ({
   backdropClassName,
   children,
+  closeDialog,
   dialogClassName,
   leastDestructiveRef,
   open,
@@ -31,7 +33,6 @@ export const AlertDialog = ({
   // because, the role="alertdialog" is only when an alert, error, or warning occurs. In other words, when a
   // dialog's information and controls require the user's immediate attention alertdialog should be used
   // instead of dialog.
-  const closeDialog = () => {};
   const {
     getDialogRootProps,
     getDialogContainerProps,
@@ -62,7 +63,7 @@ export const AlertDialog = ({
           <Portal className="h-dialog-portal">
             <div {...getDialogRootProps()}>
               <div {...getDialogContainerProps()}>
-                <DialogBackdrop className={backdropClassName} closeDialog={closeDialog} />
+                <DialogBackdrop className={backdropClassName} closeDialog={() => {}} />
                 <div {...getDialogProps()}>{children}</div>
               </div>
             </div>

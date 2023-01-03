@@ -12,10 +12,13 @@ interface SimpleAlertDialogProps {
   cancel?: string;
   cancelVariant?: ButtonVariant;
   children: string | JSX.Element[] | JSX.Element;
+  closeDialog: () => void;
+  closeInHeader?: boolean;
   confirm?: string;
   confirmVariant?: ButtonVariant;
   dialogClassName?: string;
   header?: string;
+  headerClassName?: string;
   onCancel?: () => void;
   onConfirm?: () => void;
   open: boolean;
@@ -32,8 +35,11 @@ export const SimpleAlertDialog = ({
   children,
   confirm = ``,
   confirmVariant = `positive`,
+  closeInHeader = false,
+  closeDialog,
   dialogClassName,
   header = ``,
+  headerClassName,
   onCancel = () => {},
   onConfirm = () => {},
   open,
@@ -47,6 +53,7 @@ export const SimpleAlertDialog = ({
     <AlertDialog
       {...{
         backdropClassName,
+        closeDialog,
         dialogClassName,
         leastDestructiveRef,
         open,
@@ -56,7 +63,15 @@ export const SimpleAlertDialog = ({
       }}
     >
       <>
-        {header ? <DialogHeader closeInHeader={false}>{header}</DialogHeader> : ``}
+        {header ? (
+          <DialogHeader
+            headerClassName={headerClassName}
+            closeDialog={closeDialog}
+            closeInHeader={closeInHeader}
+          >
+            {header}
+          </DialogHeader>
+        ) : null}
         <DialogBody>{children}</DialogBody>
         <DialogFooter>
           <DialogFooterActions
