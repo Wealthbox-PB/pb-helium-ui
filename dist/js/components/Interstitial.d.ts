@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 interface InterstitialProps {
     animate?: boolean;
     children: string | JSX.Element[] | JSX.Element;
@@ -7,5 +7,5 @@ interface InterstitialProps {
     iconClassName?: string;
     size?: `small`;
 }
-declare const Interstitial: ({ animate, children, className, contentClassName, iconClassName, size, }: InterstitialProps) => JSX.Element;
+declare const Interstitial: ({ animate, children, className, contentClassName, iconClassName, size, }: InterstitialProps) => React.JSX.Element;
 export { Interstitial };

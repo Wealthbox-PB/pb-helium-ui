@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import { ButtonVariant, ButtonSize } from './Button';
 interface LinkButtonProps {
     active?: boolean;
@@ -12,5 +12,5 @@ interface LinkButtonProps {
     square?: boolean;
     variant?: ButtonVariant;
 }
-declare const LinkButton: ({ active, children, className, focus, href, isExternal, onClick, size, square, variant, }: LinkButtonProps) => JSX.Element;
+declare const LinkButton: ({ active, children, className, focus, href, isExternal, onClick, size, square, variant, }: LinkButtonProps) => React.JSX.Element;
 export { LinkButton };

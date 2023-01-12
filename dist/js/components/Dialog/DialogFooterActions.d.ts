@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import { ButtonSize, ButtonVariant } from '../Button';
 interface DialogFooterActionsProps {
     buttonSize?: ButtonSize;
@@ -10,5 +10,5 @@ interface DialogFooterActionsProps {
     onCancel?: () => void;
     onConfirm?: () => void;
 }
-declare const DialogFooterActions: ({ buttonSize, cancel, cancelRef, cancelVariant, confirm, confirmVariant, onCancel, onConfirm, }: DialogFooterActionsProps) => JSX.Element;
+declare const DialogFooterActions: ({ buttonSize, cancel, cancelRef, cancelVariant, confirm, confirmVariant, onCancel, onConfirm, }: DialogFooterActionsProps) => React.JSX.Element;
 export { DialogFooterActions };

@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 interface ModalDialogProps {
     backdrop?: boolean;
     backdropClassName?: string;
@@ -12,5 +12,5 @@ interface ModalDialogProps {
     size?: string;
     trapPaused?: boolean;
 }
-declare const ModalDialog: ({ backdrop, backdropClassName, children, closeDialog, dialogClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: ModalDialogProps) => JSX.Element;
+declare const ModalDialog: ({ backdrop, backdropClassName, children, closeDialog, dialogClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: ModalDialogProps) => React.JSX.Element;
 export { ModalDialog };

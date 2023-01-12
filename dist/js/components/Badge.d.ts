@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 interface BadgeProps {
     children: string | JSX.Element[] | JSX.Element;
     className?: string;
@@ -7,5 +7,5 @@ interface BadgeProps {
     scale?: `smaller` | `base` | `bigger`;
     variant?: `info` | `negative` | `positive` | `secondary` | `warning`;
 }
-export declare const Badge: ({ children, className, contentClassName, iconClassName, scale, variant, }: BadgeProps) => JSX.Element;
+export declare const Badge: ({ children, className, contentClassName, iconClassName, scale, variant, }: BadgeProps) => React.JSX.Element;
 export {};
