@@ -6,6 +6,7 @@ export { DialogFooter } from './components/Dialog/DialogFooter';
 export { DialogFooterActions } from './components/Dialog/DialogFooterActions';
 export { DialogHeader } from './components/Dialog/DialogHeader';
 export { HeliumSpinner } from './components/Spinner/Spinner';
+export { Dropdown } from './components/Dropdown/Dropdown';
 export { Interstitial } from './components/Interstitial';
 export { LinkButton } from './components/LinkButton';
 export { ModalDialog } from './components/Dialog/ModalDialog';

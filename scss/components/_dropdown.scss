@@ -1,0 +1,23 @@
+
+//==========================================================================
+//  Dropdown
+//==========================================================================
+
+.h-dropdown {
+  min-width: 10rem;
+  padding: 0.5rem;
+  background-color: $h-color-background-shared-component;
+  border-radius: $h-border-radius-shared-component;
+  box-shadow: $h-box-shadow-shared-component;
+  font-size: $h-font-size-md;
+}
+
+.h-dropdown__separator {
+  border-bottom: 1px solid $h-color-border-shared-component;
+  margin: 8px -8px;
+}
+
+.h-dropdown--outlined {
+  border: 1px solid $h-color-border-shared-component;
+  box-shadow: none;
+}
