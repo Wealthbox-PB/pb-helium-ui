@@ -23,6 +23,7 @@ import {
   FloatingTree,
   FloatingFocusManager,
 } from '@floating-ui/react';
+import classNames from 'classnames';
 
 interface MenuItemProps {
   label: string;
@@ -44,203 +45,224 @@ interface MenuProps {
   label: string;
   nested?: boolean;
   children?: React.ReactNode | string;
+  buttonDisabled?: boolean;
+  buttonClasses?: string;
+  buttonContent?: string | JSX.Element[] | JSX.Element;
+  buttonContentClasses?: string;
+  buttonOpenClass?: string;
+  buttonClosedClass?: string;
 }
 export const MenuComponent = React.forwardRef<
   HTMLButtonElement,
   MenuProps & React.HTMLProps<HTMLButtonElement>
->(({ children, label, ...props }, forwardedRef) => {
-  const [open, setOpen] = React.useState(false);
-  const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
-  const [allowHover, setAllowHover] = React.useState(false);
+>(
+  (
+    {
+      buttonClasses = ``,
+      buttonContent,
+      buttonContentClasses,
+      buttonDisabled = false,
+      buttonOpenClass = ``,
+      buttonClosedClass = ``,
+      children,
+      label,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const [open, setOpen] = React.useState(false);
+    const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
+    const [allowHover, setAllowHover] = React.useState(false);
 
-  const dropdownContentContainerRef = useRef(null);
+    const dropdownContentContainerRef = useRef(null);
 
-  const listItemsRef = React.useRef<Array<HTMLButtonElement | null>>([]);
-  const listContentRef = React.useRef(
-    React.Children.map(children, (child) =>
-      React.isValidElement(child) ? child.props.label : null
-    ) as Array<string | null>
-  );
+    const listItemsRef = React.useRef<Array<HTMLButtonElement | null>>([]);
+    const listContentRef = React.useRef(
+      React.Children.map(children, (child) =>
+        React.isValidElement(child) ? child.props.label : null
+      ) as Array<string | null>
+    );
 
-  const tree = useFloatingTree();
-  const nodeId = useFloatingNodeId();
-  const parentId = useFloatingParentNodeId();
-  const nested = parentId != null;
+    const tree = useFloatingTree();
+    const nodeId = useFloatingNodeId();
+    const parentId = useFloatingParentNodeId();
+    const nested = parentId != null;
 
-  const { x, y, reference, floating, strategy, context } = useFloating<HTMLButtonElement>({
-    open,
-    nodeId,
-    onOpenChange: setOpen,
-    placement: nested ? `right-start` : `bottom-start`,
-    middleware: [offset({ mainAxis: 4, alignmentAxis: nested ? -5 : 0 }), flip(), shift()],
-    whileElementsMounted: autoUpdate,
-  });
-
-  const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
-    useHover(context, {
-      handleClose: safePolygon({ restMs: 25 }),
-      enabled: nested && allowHover,
-      delay: { open: 75 },
-    }),
-    useClick(context, {
-      toggle: !nested || !allowHover,
-      event: `mousedown`,
-      ignoreMouse: nested && allowHover,
-    }),
-    useRole(context, { role: `menu` }),
-    useDismiss(context),
-    useListNavigation(context, {
-      listRef: listItemsRef,
-      activeIndex,
-      nested,
-      onNavigate: setActiveIndex,
-    }),
-    useTypeahead(context, {
-      listRef: listContentRef,
-      onMatch: open ? setActiveIndex : undefined,
-      activeIndex,
-    }),
-  ]);
-
-  // Event emitter allows you to communicate across tree components.
-  // This effect closes all menus when an item gets clicked anywhere
-  // in the tree.
-  React.useEffect(() => {
-    function handleTreeClick() {
-      setOpen(false);
-    }
-
-    tree?.events.on(`click`, handleTreeClick);
-    return () => {
-      tree?.events.off(`click`, handleTreeClick);
-    };
-  }, [tree]);
-
-  // Determine if "hover" logic can run based on the modality of input. This
-  // prevents unwanted focus synchronization as menus open and close with
-  // keyboard navigation and the cursor is resting on the menu.
-  React.useEffect(() => {
-    function onPointerMove({ pointerType }: PointerEvent) {
-      if (pointerType !== `touch`) {
-        setAllowHover(true);
-      }
-    }
-
-    function onKeyDown() {
-      setAllowHover(false);
-    }
-
-    window.addEventListener(`pointermove`, onPointerMove, {
-      once: true,
-      capture: true,
+    const { x, y, reference, floating, strategy, context } = useFloating<HTMLButtonElement>({
+      open,
+      nodeId,
+      onOpenChange: setOpen,
+      placement: nested ? `right-start` : `bottom-start`,
+      middleware: [offset({ mainAxis: 4, alignmentAxis: nested ? -5 : 0 }), flip(), shift()],
+      whileElementsMounted: autoUpdate,
     });
-    window.addEventListener(`keydown`, onKeyDown, true);
-    return () => {
-      window.removeEventListener(`pointermove`, onPointerMove, {
+
+    const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
+      useHover(context, {
+        handleClose: safePolygon({ restMs: 25 }),
+        enabled: nested && allowHover,
+        delay: { open: 75 },
+      }),
+      useClick(context, {
+        toggle: !nested || !allowHover,
+        event: `mousedown`,
+        ignoreMouse: nested && allowHover,
+      }),
+      useRole(context, { role: `menu` }),
+      useDismiss(context),
+      useListNavigation(context, {
+        listRef: listItemsRef,
+        activeIndex,
+        nested,
+        onNavigate: setActiveIndex,
+      }),
+      useTypeahead(context, {
+        listRef: listContentRef,
+        onMatch: open ? setActiveIndex : undefined,
+        activeIndex,
+      }),
+    ]);
+
+    // Event emitter allows you to communicate across tree components.
+    // This effect closes all menus when an item gets clicked anywhere
+    // in the tree.
+    React.useEffect(() => {
+      function handleTreeClick() {
+        setOpen(false);
+      }
+
+      tree?.events.on(`click`, handleTreeClick);
+      return () => {
+        tree?.events.off(`click`, handleTreeClick);
+      };
+    }, [tree]);
+
+    // Determine if "hover" logic can run based on the modality of input. This
+    // prevents unwanted focus synchronization as menus open and close with
+    // keyboard navigation and the cursor is resting on the menu.
+    React.useEffect(() => {
+      function onPointerMove({ pointerType }: PointerEvent) {
+        if (pointerType !== `touch`) {
+          setAllowHover(true);
+        }
+      }
+
+      function onKeyDown() {
+        setAllowHover(false);
+      }
+
+      window.addEventListener(`pointermove`, onPointerMove, {
+        once: true,
         capture: true,
       });
-      window.removeEventListener(`keydown`, onKeyDown, true);
-    };
-  }, [allowHover]);
+      window.addEventListener(`keydown`, onKeyDown, true);
+      return () => {
+        window.removeEventListener(`pointermove`, onPointerMove, {
+          capture: true,
+        });
+        window.removeEventListener(`keydown`, onKeyDown, true);
+      };
+    }, [allowHover]);
 
-  const referenceRef = useMergeRefs([reference, forwardedRef]);
+    const referenceRef = useMergeRefs([reference, forwardedRef]);
 
-  return (
-    <FloatingNode id={nodeId}>
-      <button
-        ref={referenceRef}
-        {...getReferenceProps({
-          ...props,
-          className: `${nested ? `MenuItem` : `RootMenu`}${open ? ` open` : ``}`,
-          onClick(event) {
-            event.stopPropagation();
-          },
-          ...(nested && {
-            // Indicates this is a nested <Menu /> acting as a <MenuItem />.
-            role: `menuitem`,
-          }),
-        })}
-      >
-        {label}
-        {` `}
-        {nested && (
-          <span aria-hidden style={{ marginLeft: 10 }}>
-            ➔
-          </span>
-        )}
-      </button>
-      <FloatingPortal>
-        {open && (
-          <FloatingFocusManager
-            context={context}
-            // Prevent outside content interference.
-            modal={!nested}
-            // Only initially focus the root floating menu.
-            initialFocus={nested ? -1 : 0}
-            // Only return focus to the root menu's reference when menus close.
-            returnFocus={!nested}
-            // Allow touch screen readers to escape the modal root menu
-            // without selecting anything.
-            visuallyHiddenDismiss
-          >
-            <div
-              ref={floating}
-              className="Menu"
-              style={{
-                position: strategy,
-                top: y ?? 0,
-                left: x ?? 0,
-                width: `max-content`,
-              }}
-              {...getFloatingProps({
-                // Pressing tab dismisses the menu and places focus
-                // back on the trigger.
-                onKeyDown(event) {
-                  if (event.key === `Tab`) {
-                    setOpen(false);
-                  }
-                },
-              })}
+    return (
+      <FloatingNode id={nodeId}>
+        <button
+          ref={referenceRef}
+          disabled={buttonDisabled}
+          {...getReferenceProps({
+            ...props,
+            className: classNames(
+              { [buttonClasses]: !nested },
+              { RootMenu: nested },
+              { [buttonClosedClass]: !open },
+              { [buttonOpenClass]: open }
+            ),
+            onClick(event) {
+              event.stopPropagation();
+            },
+            ...(nested && {
+              // Indicates this is a nested <Menu /> acting as a <MenuItem />.
+              role: `menuitem`,
+            }),
+          })}
+        >
+          {buttonContent ? <span className={buttonContentClasses}>{buttonContent}</span> : label}
+          {nested && <span aria-hidden className="ms-2 h-icon-chevron-right h-color-text-lighter"></span>}
+        </button>
+        <FloatingPortal>
+          {open && (
+            <FloatingFocusManager
+              context={context}
+              // Prevent outside content interference.
+              modal={!nested}
+              // Only initially focus the root floating menu.
+              initialFocus={nested ? -1 : 0}
+              // Only return focus to the root menu's reference when menus close.
+              returnFocus={!nested}
+              // Allow touch screen readers to escape the modal root menu
+              // without selecting anything.
+              visuallyHiddenDismiss
             >
-              {React.Children.map(children, (child, index) =>
-                React.isValidElement(child) ? (
-                  React.cloneElement(
-                    child,
-                    getItemProps({
-                      tabIndex: activeIndex === index ? 0 : -1,
-                      role: `menuitem`,
-                      className: `MenuItem`,
-                      ref(node: HTMLButtonElement) {
-                        listItemsRef.current[index] = node;
-                      },
-                      onClick(event) {
-                        child.props.onClick?.(event);
-                        tree?.events.emit(`click`);
-                      },
-                      // Allow focus synchronization if the cursor did not move.
-                      onPointerEnter() {
-                        if (allowHover) {
-                          setActiveIndex(index);
-                        }
-                      },
-                    })
-                  )
-                ) : (
-                  <div className="h-dropdown">
+              <div
+                ref={floating}
+                className="Menu"
+                style={{
+                  position: strategy,
+                  top: y ?? 0,
+                  left: x ?? 0,
+                  width: `max-content`,
+                }}
+                {...getFloatingProps({
+                  // Pressing tab dismisses the menu and places focus
+                  // back on the trigger.
+                  onKeyDown(event) {
+                    if (event.key === `Tab`) {
+                      setOpen(false);
+                    }
+                  },
+                })}
+              >
+                {React.Children.map(children, (child, index) =>
+                  React.isValidElement(child) ? (
+                    React.cloneElement(
+                      child,
+                      getItemProps({
+                        tabIndex: activeIndex === index ? 0 : -1,
+                        role: `menuitem`,
+                        className: `MenuItem`,
+                        ref(node: HTMLButtonElement) {
+                          listItemsRef.current[index] = node;
+                        },
+                        onClick(event) {
+                          child.props.onClick?.(event);
+                          tree?.events.emit(`click`);
+                        },
+                        // Allow focus synchronization if the cursor did not move.
+                        onPointerEnter() {
+                          if (allowHover) {
+                            setActiveIndex(index);
+                          }
+                        },
+                      })
+                    )
+                  ) : (
                     <div
+                      className="h-dropdown"
                       ref={dropdownContentContainerRef}
                       dangerouslySetInnerHTML={{ __html: children as string }}
                     ></div>
-                  </div>
-                )
-              )}
-            </div>
-          </FloatingFocusManager>
-        )}
-      </FloatingPortal>
-    </FloatingNode>
-  );
-});
+                  )
+                )}
+              </div>
+            </FloatingFocusManager>
+          )}
+        </FloatingPortal>
+      </FloatingNode>
+    );
+  }
+);
 
 export const Dropdown = React.forwardRef<HTMLButtonElement, MenuProps & React.HTMLProps<HTMLButtonElement>>(
   (props, ref) => {
