@@ -23,15 +23,17 @@ var __rest = (this && this.__rest) || function (s, e) {
 import * as React from 'react';
 import { useRef } from 'react';
 import { useFloating, offset, flip, shift, useListNavigation, useHover, useTypeahead, useInteractions, useRole, useClick, useDismiss, autoUpdate, safePolygon, FloatingPortal, useFloatingTree, useFloatingNodeId, useFloatingParentNodeId, useMergeRefs, FloatingNode, FloatingTree, FloatingFocusManager, } from '@floating-ui/react';
+import classNames from 'classnames';
 export var MenuItem = React.forwardRef(function (_a, ref) {
     var label = _a.label, disabled = _a.disabled, props = __rest(_a, ["label", "disabled"]);
     return (React.createElement("button", __assign({}, props, { ref: ref, role: "menuitem", disabled: disabled }), label));
 });
 export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
-    var children = _a.children, label = _a.label, props = __rest(_a, ["children", "label"]);
-    var _b = React.useState(false), open = _b[0], setOpen = _b[1];
-    var _c = React.useState(null), activeIndex = _c[0], setActiveIndex = _c[1];
-    var _d = React.useState(false), allowHover = _d[0], setAllowHover = _d[1];
+    var _b, _c, _d;
+    var _e = _a.buttonClasses, buttonClasses = _e === void 0 ? "" : _e, buttonContent = _a.buttonContent, buttonContentClasses = _a.buttonContentClasses, _f = _a.buttonDisabled, buttonDisabled = _f === void 0 ? false : _f, _g = _a.buttonOpenClass, buttonOpenClass = _g === void 0 ? "" : _g, _h = _a.buttonClosedClass, buttonClosedClass = _h === void 0 ? "" : _h, children = _a.children, label = _a.label, props = __rest(_a, ["buttonClasses", "buttonContent", "buttonContentClasses", "buttonDisabled", "buttonOpenClass", "buttonClosedClass", "children", "label"]);
+    var _j = React.useState(false), open = _j[0], setOpen = _j[1];
+    var _k = React.useState(null), activeIndex = _k[0], setActiveIndex = _k[1];
+    var _l = React.useState(false), allowHover = _l[0], setAllowHover = _l[1];
     var dropdownContentContainerRef = useRef(null);
     var listItemsRef = React.useRef([]);
     var listContentRef = React.useRef(React.Children.map(children, function (child) {
@@ -41,15 +43,15 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
     var nodeId = useFloatingNodeId();
     var parentId = useFloatingParentNodeId();
     var nested = parentId != null;
-    var _e = useFloating({
+    var _m = useFloating({
         open: open,
         nodeId: nodeId,
         onOpenChange: setOpen,
         placement: nested ? "right-start" : "bottom-start",
         middleware: [offset({ mainAxis: 4, alignmentAxis: nested ? -5 : 0 }), flip(), shift()],
         whileElementsMounted: autoUpdate,
-    }), x = _e.x, y = _e.y, reference = _e.reference, floating = _e.floating, strategy = _e.strategy, context = _e.context;
-    var _f = useInteractions([
+    }), x = _m.x, y = _m.y, reference = _m.reference, floating = _m.floating, strategy = _m.strategy, context = _m.context;
+    var _o = useInteractions([
         useHover(context, {
             handleClose: safePolygon({ restMs: 25 }),
             enabled: nested && allowHover,
@@ -73,7 +75,7 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
             onMatch: open ? setActiveIndex : undefined,
             activeIndex: activeIndex,
         }),
-    ]), getReferenceProps = _f.getReferenceProps, getFloatingProps = _f.getFloatingProps, getItemProps = _f.getItemProps;
+    ]), getReferenceProps = _o.getReferenceProps, getFloatingProps = _o.getFloatingProps, getItemProps = _o.getItemProps;
     // Event emitter allows you to communicate across tree components.
     // This effect closes all menus when an item gets clicked anywhere
     // in the tree.
@@ -113,14 +115,14 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
     }, [allowHover]);
     var referenceRef = useMergeRefs([reference, forwardedRef]);
     return (React.createElement(FloatingNode, { id: nodeId },
-        React.createElement("button", __assign({ ref: referenceRef }, getReferenceProps(__assign(__assign(__assign({}, props), { className: "".concat(nested ? "MenuItem" : "RootMenu").concat(open ? " open" : ""), onClick: function (event) {
+        React.createElement("button", __assign({ ref: referenceRef, disabled: buttonDisabled }, getReferenceProps(__assign(__assign(__assign({}, props), { className: classNames((_b = {}, _b[buttonClasses] = !nested, _b), { RootMenu: nested }, (_c = {}, _c[buttonClosedClass] = !open, _c), (_d = {}, _d[buttonOpenClass] = open, _d)), onClick: function (event) {
                 event.stopPropagation();
             } }), (nested && {
             // Indicates this is a nested <Menu /> acting as a <MenuItem />.
             role: "menuitem",
         })))),
-            label, " ",
-            nested && (React.createElement("span", { "aria-hidden": true, style: { marginLeft: 10 } }, "\u2794"))),
+            buttonContent ? React.createElement("span", { className: buttonContentClasses }, buttonContent) : label,
+            nested && React.createElement("span", { "aria-hidden": true, className: "ms-2 h-icon-chevron-right h-color-text-lighter" })),
         React.createElement(FloatingPortal, null, open && (React.createElement(FloatingFocusManager, { context: context, 
             // Prevent outside content interference.
             modal: !nested, 
@@ -163,8 +165,7 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
                             setActiveIndex(index);
                         }
                     },
-                }))) : (React.createElement("div", { className: "h-dropdown" },
-                    React.createElement("div", { ref: dropdownContentContainerRef, dangerouslySetInnerHTML: { __html: children } })));
+                }))) : (React.createElement("div", { className: "h-dropdown", ref: dropdownContentContainerRef, dangerouslySetInnerHTML: { __html: children } }));
             })))))));
 });
 export var Dropdown = React.forwardRef(function (props, ref) {
