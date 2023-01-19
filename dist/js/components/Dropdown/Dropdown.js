@@ -24,9 +24,13 @@ import * as React from 'react';
 import { useRef } from 'react';
 import { useFloating, offset, flip, shift, useListNavigation, useHover, useTypeahead, useInteractions, useRole, useClick, useDismiss, autoUpdate, safePolygon, FloatingPortal, useFloatingTree, useFloatingNodeId, useFloatingParentNodeId, useMergeRefs, FloatingNode, FloatingTree, FloatingFocusManager, } from '@floating-ui/react';
 import classNames from 'classnames';
+import parse from 'html-react-parser';
 export var MenuItem = React.forwardRef(function (_a, ref) {
     var label = _a.label, disabled = _a.disabled, props = __rest(_a, ["label", "disabled"]);
     return (React.createElement("button", __assign({}, props, { ref: ref, role: "menuitem", disabled: disabled }), label));
+});
+var MyMappedComponent = React.forwardRef(function (props, ref) {
+    return React.createElement("div", { ref: ref }, props.children);
 });
 export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
     var _b, _c, _d;
@@ -39,6 +43,7 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
     var listContentRef = React.useRef(React.Children.map(children, function (child) {
         return React.isValidElement(child) ? child.props.label : null;
     }));
+    var htmlElements = parse(children).filter(function (element) { return typeof element !== "function"; });
     var tree = useFloatingTree();
     var nodeId = useFloatingNodeId();
     var parentId = useFloatingParentNodeId();
@@ -114,6 +119,11 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
         };
     }, [allowHover]);
     var referenceRef = useMergeRefs([reference, forwardedRef]);
+    // function processChildren(children: string) {
+    //   const menuContent = document.createElement(`div`);
+    //   menuContent.innerHTML = children;
+    //   console.log(menuContent.childNodes);
+    // }
     return (React.createElement(FloatingNode, { id: nodeId },
         React.createElement("button", __assign({ ref: referenceRef, disabled: buttonDisabled }, getReferenceProps(__assign(__assign(__assign({}, props), { className: classNames((_b = {}, _b[buttonClasses] = !nested, _b), { RootMenu: nested }, (_c = {}, _c[buttonClosedClass] = !open, _c), (_d = {}, _d[buttonOpenClass] = open, _d)), onClick: function (event) {
                 event.stopPropagation();
@@ -147,26 +157,40 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
                     }
                 },
             })), React.Children.map(children, function (child, index) {
-                return React.isValidElement(child) ? (React.cloneElement(child, getItemProps({
-                    tabIndex: activeIndex === index ? 0 : -1,
-                    role: "menuitem",
-                    className: "MenuItem",
-                    ref: function (node) {
-                        listItemsRef.current[index] = node;
-                    },
-                    onClick: function (event) {
-                        var _a, _b;
-                        (_b = (_a = child.props).onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
-                        tree === null || tree === void 0 ? void 0 : tree.events.emit("click");
-                    },
-                    // Allow focus synchronization if the cursor did not move.
-                    onPointerEnter: function () {
-                        if (allowHover) {
-                            setActiveIndex(index);
+                return React.isValidElement(child)
+                    ? React.cloneElement(child, getItemProps({
+                        tabIndex: activeIndex === index ? 0 : -1,
+                        role: "menuitem",
+                        className: "MenuItem",
+                        ref: function (node) {
+                            listItemsRef.current[index] = node;
+                        },
+                        onClick: function (event) {
+                            var _a, _b;
+                            (_b = (_a = child.props).onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
+                            tree === null || tree === void 0 ? void 0 : tree.events.emit("click");
+                        },
+                        // Allow focus synchronization if the cursor did not move.
+                        onPointerEnter: function () {
+                            if (allowHover) {
+                                setActiveIndex(index);
+                            }
+                        },
+                    }))
+                    : function () {
+                        {
+                            htmlElements.map(function (element, i) {
+                                return React.createElement(MyMappedComponent, { key: i }, element);
+                            });
                         }
-                    },
-                }))) : (React.createElement("div", { className: "h-dropdown", ref: dropdownContentContainerRef, dangerouslySetInnerHTML: { __html: children } }));
-            })))))));
+                    };
+            }
+            // <div
+            //   className="h-dropdown"
+            //   ref={dropdownContentContainerRef}
+            //   dangerouslySetInnerHTML={{ __html: child as string }}
+            // ></div>
+            )))))));
 });
 export var Dropdown = React.forwardRef(function (props, ref) {
     var parentId = useFloatingParentNodeId();

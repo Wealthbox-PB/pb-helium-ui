@@ -24,6 +24,7 @@ import {
   FloatingFocusManager,
 } from '@floating-ui/react';
 import classNames from 'classnames';
+import parse from 'html-react-parser';
 
 interface MenuItemProps {
   label: string;
@@ -40,6 +41,24 @@ export const MenuItem = React.forwardRef<
     </button>
   );
 });
+
+const MyMappedComponent = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
+  return <div ref={ref}>{props.children}</div>;
+});
+
+// class MyComponent extends React.Component<Props> {
+//   render() {
+//     const htmlString = this.props.html;
+//     const htmlElements = parse(htmlString);
+//     return (
+//       <div>
+//         {htmlElements.map((element, i) => {
+//           return <MyMappedComponent key={i}>{element}</MyMappedComponent>;
+//         })}
+//       </div>
+//     );
+//   }
+// }
 
 interface MenuProps {
   label: string;
@@ -82,6 +101,8 @@ export const MenuComponent = React.forwardRef<
         React.isValidElement(child) ? child.props.label : null
       ) as Array<string | null>
     );
+
+    const htmlElements = parse(children as string).filter((element) => typeof element !== `function`);
 
     const tree = useFloatingTree();
     const nodeId = useFloatingNodeId();
@@ -166,6 +187,13 @@ export const MenuComponent = React.forwardRef<
 
     const referenceRef = useMergeRefs([reference, forwardedRef]);
 
+    // function processChildren(children: string) {
+    //   const menuContent = document.createElement(`div`);
+    //   menuContent.innerHTML = children;
+
+    //   console.log(menuContent.childNodes);
+    // }
+
     return (
       <FloatingNode id={nodeId}>
         <button
@@ -224,36 +252,44 @@ export const MenuComponent = React.forwardRef<
                   },
                 })}
               >
-                {React.Children.map(children, (child, index) =>
-                  React.isValidElement(child) ? (
-                    React.cloneElement(
-                      child,
-                      getItemProps({
-                        tabIndex: activeIndex === index ? 0 : -1,
-                        role: `menuitem`,
-                        className: `MenuItem`,
-                        ref(node: HTMLButtonElement) {
-                          listItemsRef.current[index] = node;
-                        },
-                        onClick(event) {
-                          child.props.onClick?.(event);
-                          tree?.events.emit(`click`);
-                        },
-                        // Allow focus synchronization if the cursor did not move.
-                        onPointerEnter() {
-                          if (allowHover) {
-                            setActiveIndex(index);
+                {React.Children.map(
+                  children,
+                  (child, index) =>
+                    React.isValidElement(child)
+                      ? React.cloneElement(
+                          child,
+                          getItemProps({
+                            tabIndex: activeIndex === index ? 0 : -1,
+                            role: `menuitem`,
+                            className: `MenuItem`,
+                            ref(node: HTMLButtonElement) {
+                              listItemsRef.current[index] = node;
+                            },
+                            onClick(event) {
+                              child.props.onClick?.(event);
+                              tree?.events.emit(`click`);
+                            },
+                            // Allow focus synchronization if the cursor did not move.
+                            onPointerEnter() {
+                              if (allowHover) {
+                                setActiveIndex(index);
+                              }
+                            },
+                          })
+                        )
+                      : () => {
+                          {
+                            htmlElements.map((element, i) => {
+                              return <MyMappedComponent key={i}>{element}</MyMappedComponent>;
+                            });
                           }
-                        },
-                      })
-                    )
-                  ) : (
-                    <div
-                      className="h-dropdown"
-                      ref={dropdownContentContainerRef}
-                      dangerouslySetInnerHTML={{ __html: children as string }}
-                    ></div>
-                  )
+                        }
+
+                  // <div
+                  //   className="h-dropdown"
+                  //   ref={dropdownContentContainerRef}
+                  //   dangerouslySetInnerHTML={{ __html: child as string }}
+                  // ></div>
                 )}
               </div>
             </FloatingFocusManager>
