@@ -20,43 +20,33 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import * as React from 'react';
-import { useRef } from 'react';
+import React, { Children, cloneElement, forwardRef, isValidElement, useEffect, useRef, useState, } from 'react';
 import { useFloating, offset, flip, shift, useListNavigation, useHover, useTypeahead, useInteractions, useRole, useClick, useDismiss, autoUpdate, safePolygon, FloatingPortal, useFloatingTree, useFloatingNodeId, useFloatingParentNodeId, useMergeRefs, FloatingNode, FloatingTree, FloatingFocusManager, } from '@floating-ui/react';
-import classNames from 'classnames';
-import parse from 'html-react-parser';
-export var MenuItem = React.forwardRef(function (_a, ref) {
+export var MenuItem = forwardRef(function (_a, ref) {
     var label = _a.label, disabled = _a.disabled, props = __rest(_a, ["label", "disabled"]);
     return (React.createElement("button", __assign({}, props, { ref: ref, role: "menuitem", disabled: disabled }), label));
 });
-var MyMappedComponent = React.forwardRef(function (props, ref) {
-    return React.createElement("div", { ref: ref }, props.children);
-});
-export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
-    var _b, _c, _d;
-    var _e = _a.buttonClasses, buttonClasses = _e === void 0 ? "" : _e, buttonContent = _a.buttonContent, buttonContentClasses = _a.buttonContentClasses, _f = _a.buttonDisabled, buttonDisabled = _f === void 0 ? false : _f, _g = _a.buttonOpenClass, buttonOpenClass = _g === void 0 ? "" : _g, _h = _a.buttonClosedClass, buttonClosedClass = _h === void 0 ? "" : _h, children = _a.children, label = _a.label, props = __rest(_a, ["buttonClasses", "buttonContent", "buttonContentClasses", "buttonDisabled", "buttonOpenClass", "buttonClosedClass", "children", "label"]);
-    var _j = React.useState(false), open = _j[0], setOpen = _j[1];
-    var _k = React.useState(null), activeIndex = _k[0], setActiveIndex = _k[1];
-    var _l = React.useState(false), allowHover = _l[0], setAllowHover = _l[1];
+export var MenuComponent = forwardRef(function (_a, forwardedRef) {
+    var children = _a.children, label = _a.label, props = __rest(_a, ["children", "label"]);
+    var _b = useState(false), open = _b[0], setOpen = _b[1];
+    var _c = useState(null), activeIndex = _c[0], setActiveIndex = _c[1];
+    var _d = useState(false), allowHover = _d[0], setAllowHover = _d[1];
+    var listItemsRef = useRef([]);
+    var listContentRef = useRef(Children.map(children, function (child) { return (isValidElement(child) ? child.props.label : null); }));
     var dropdownContentContainerRef = useRef(null);
-    var listItemsRef = React.useRef([]);
-    var listContentRef = React.useRef(React.Children.map(children, function (child) {
-        return React.isValidElement(child) ? child.props.label : null;
-    }));
-    var htmlElements = parse(children).filter(function (element) { return typeof element !== "function"; });
     var tree = useFloatingTree();
     var nodeId = useFloatingNodeId();
     var parentId = useFloatingParentNodeId();
     var nested = parentId != null;
-    var _m = useFloating({
+    var _e = useFloating({
         open: open,
         nodeId: nodeId,
         onOpenChange: setOpen,
         placement: nested ? "right-start" : "bottom-start",
         middleware: [offset({ mainAxis: 4, alignmentAxis: nested ? -5 : 0 }), flip(), shift()],
         whileElementsMounted: autoUpdate,
-    }), x = _m.x, y = _m.y, reference = _m.reference, floating = _m.floating, strategy = _m.strategy, context = _m.context;
-    var _o = useInteractions([
+    }), x = _e.x, y = _e.y, strategy = _e.strategy, refs = _e.refs, context = _e.context;
+    var _f = useInteractions([
         useHover(context, {
             handleClose: safePolygon({ restMs: 25 }),
             enabled: nested && allowHover,
@@ -65,7 +55,7 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
         useClick(context, {
             toggle: !nested || !allowHover,
             event: "mousedown",
-            ignoreMouse: nested && allowHover,
+            ignoreMouse: nested,
         }),
         useRole(context, { role: "menu" }),
         useDismiss(context),
@@ -80,23 +70,38 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
             onMatch: open ? setActiveIndex : undefined,
             activeIndex: activeIndex,
         }),
-    ]), getReferenceProps = _o.getReferenceProps, getFloatingProps = _o.getFloatingProps, getItemProps = _o.getItemProps;
+    ]), getReferenceProps = _f.getReferenceProps, getFloatingProps = _f.getFloatingProps, getItemProps = _f.getItemProps;
     // Event emitter allows you to communicate across tree components.
     // This effect closes all menus when an item gets clicked anywhere
     // in the tree.
-    React.useEffect(function () {
+    useEffect(function () {
         function handleTreeClick() {
             setOpen(false);
         }
+        function onSubMenuOpen(event) {
+            if (event.nodeId !== nodeId && event.parentId === parentId) {
+                setOpen(false);
+            }
+        }
         tree === null || tree === void 0 ? void 0 : tree.events.on("click", handleTreeClick);
+        tree === null || tree === void 0 ? void 0 : tree.events.on("menuopen", onSubMenuOpen);
         return function () {
             tree === null || tree === void 0 ? void 0 : tree.events.off("click", handleTreeClick);
+            tree === null || tree === void 0 ? void 0 : tree.events.off("menuopen", onSubMenuOpen);
         };
-    }, [tree]);
+    }, [tree, nodeId, parentId]);
+    useEffect(function () {
+        if (open) {
+            tree === null || tree === void 0 ? void 0 : tree.events.emit("menuopen", {
+                parentId: parentId,
+                nodeId: nodeId,
+            });
+        }
+    }, [tree, open, nodeId, parentId]);
     // Determine if "hover" logic can run based on the modality of input. This
     // prevents unwanted focus synchronization as menus open and close with
     // keyboard navigation and the cursor is resting on the menu.
-    React.useEffect(function () {
+    useEffect(function () {
         function onPointerMove(_a) {
             var pointerType = _a.pointerType;
             if (pointerType !== "touch") {
@@ -118,21 +123,16 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
             window.removeEventListener("keydown", onKeyDown, true);
         };
     }, [allowHover]);
-    var referenceRef = useMergeRefs([reference, forwardedRef]);
-    // function processChildren(children: string) {
-    //   const menuContent = document.createElement(`div`);
-    //   menuContent.innerHTML = children;
-    //   console.log(menuContent.childNodes);
-    // }
+    var referenceRef = useMergeRefs([refs.setReference, forwardedRef]);
     return (React.createElement(FloatingNode, { id: nodeId },
-        React.createElement("button", __assign({ ref: referenceRef, disabled: buttonDisabled }, getReferenceProps(__assign(__assign(__assign({}, props), { className: classNames((_b = {}, _b[buttonClasses] = !nested, _b), { RootMenu: nested }, (_c = {}, _c[buttonClosedClass] = !open, _c), (_d = {}, _d[buttonOpenClass] = open, _d)), onClick: function (event) {
+        React.createElement("button", __assign({ ref: referenceRef }, getReferenceProps(__assign(__assign(__assign({}, props), { className: "" + (nested ? "MenuItem" : "RootMenu") + (open ? " open" : ""), onClick: function (event) {
                 event.stopPropagation();
             } }), (nested && {
             // Indicates this is a nested <Menu /> acting as a <MenuItem />.
             role: "menuitem",
         })))),
-            buttonContent ? React.createElement("span", { className: buttonContentClasses }, buttonContent) : label,
-            nested && React.createElement("span", { "aria-hidden": true, className: "ms-2 h-icon-chevron-right h-color-text-lighter" })),
+            label, " ",
+            nested && (React.createElement("span", { "aria-hidden": true, style: { marginLeft: 10 } }, "\u2794"))),
         React.createElement(FloatingPortal, null, open && (React.createElement(FloatingFocusManager, { context: context, 
             // Prevent outside content interference.
             modal: !nested, 
@@ -143,56 +143,42 @@ export var MenuComponent = React.forwardRef(function (_a, forwardedRef) {
             // Allow touch screen readers to escape the modal root menu
             // without selecting anything.
             visuallyHiddenDismiss: true },
-            React.createElement("div", __assign({ ref: floating, className: "Menu", style: {
+            React.createElement("div", __assign({ ref: refs.setFloating, className: "Menu", style: {
                     position: strategy,
                     top: y !== null && y !== void 0 ? y : 0,
                     left: x !== null && x !== void 0 ? x : 0,
                     width: "max-content",
                 } }, getFloatingProps({
-                // Pressing tab dismisses the menu and places focus
-                // back on the trigger.
+                // Pressing tab dismisses the menu due to the modal
+                // focus management on the root menu.
                 onKeyDown: function (event) {
                     if (event.key === "Tab") {
                         setOpen(false);
                     }
                 },
-            })), React.Children.map(children, function (child, index) {
-                return React.isValidElement(child)
-                    ? React.cloneElement(child, getItemProps({
-                        tabIndex: activeIndex === index ? 0 : -1,
-                        role: "menuitem",
-                        className: "MenuItem",
-                        ref: function (node) {
-                            listItemsRef.current[index] = node;
-                        },
-                        onClick: function (event) {
-                            var _a, _b;
-                            (_b = (_a = child.props).onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
-                            tree === null || tree === void 0 ? void 0 : tree.events.emit("click");
-                        },
-                        // Allow focus synchronization if the cursor did not move.
-                        onPointerEnter: function () {
-                            if (allowHover) {
-                                setActiveIndex(index);
-                            }
-                        },
-                    }))
-                    : function () {
-                        {
-                            htmlElements.map(function (element, i) {
-                                return React.createElement(MyMappedComponent, { key: i }, element);
-                            });
+            })), Children.map(children, function (child, index) {
+                return isValidElement(child) ? (cloneElement(child, getItemProps({
+                    tabIndex: activeIndex === index ? 0 : -1,
+                    role: "menuitem",
+                    className: "MenuItem",
+                    ref: function (node) {
+                        listItemsRef.current[index] = node;
+                    },
+                    onClick: function (event) {
+                        var _a, _b;
+                        (_b = (_a = child.props).onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
+                        tree === null || tree === void 0 ? void 0 : tree.events.emit("click");
+                    },
+                    // Allow focus synchronization if the cursor did not move.
+                    onMouseEnter: function () {
+                        if (allowHover && open) {
+                            setActiveIndex(index);
                         }
-                    };
-            }
-            // <div
-            //   className="h-dropdown"
-            //   ref={dropdownContentContainerRef}
-            //   dangerouslySetInnerHTML={{ __html: child as string }}
-            // ></div>
-            )))))));
+                    },
+                }))) : (React.createElement("div", { className: "h-dropdown", ref: dropdownContentContainerRef, dangerouslySetInnerHTML: { __html: child } }));
+            })))))));
 });
-export var Dropdown = React.forwardRef(function (props, ref) {
+export var Dropdown = forwardRef(function (props, ref) {
     var parentId = useFloatingParentNodeId();
     if (parentId == null) {
         return (React.createElement(FloatingTree, null,
