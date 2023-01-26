@@ -48,6 +48,14 @@
   }
 }
 
+.h-dialog--xl {
+  .h-dialog__el {
+    @include media-breakpoint-up(xl) {
+      width: $h-dialog-width-desktop-xl;
+    }
+  }
+}
+
 .h-dialog--full-screen {
   .h-dialog__el {
     flex: 1;
