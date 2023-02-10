@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.19] - 2023-02-10
+
+### Added
+
+- Added a `Switch` React component
+- Added supporting CSS styles
+- Added new semantic variables for `positive`, `negative`, and `primary` colors
+- Added deprecation comments for `success` and `error` semantic variables in favor of `positive` and `negative`
+- Added new variables and mixins for `positive`, `negative`, and `disabled` form element focus states
+
+### Changed
+
+- Updated some semantic color variable references for `success` and `error` to use `positive` and `negative`
+
 ## [2.0.18] - 2023-01-26
 
 ### Added
@@ -12,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added a new available size `xl` to the Dialog component
 - Added supporting CSS styles
 
-## Changed
+### Changed
 
 - Updated the TS config to ignore changes in `/dist` folder
 

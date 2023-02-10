@@ -1,3 +1,4 @@
+/* stylelint-disable max-line-length */
 
 //==========================================================================
 //  Color Variables
@@ -207,8 +208,11 @@ $h-white: map-get($h-colors-raw, white);
 //==========================================================================
 
 $h-color-brand: $h-blue-500;
-$h-color-success: $h-green-500;
-$h-color-error: $h-red-600;
+$h-color-primary: $h-blue-500;
+$h-color-positive: $h-green-500;
+$h-color-success: $h-color-positive; // Consider deprecation in v3.0 in favor of "positive"
+$h-color-negative: $h-red-600;
+$h-color-error: $h-color-negative; // Consider deprecation in v3.0 in favor of "negative"
 $h-color-active: $h-blue-25;
 
 //  Text Semantic Color Palette
@@ -220,9 +224,12 @@ $h-colors-text-semantic: (
   normal:     $h-gray-700,
   dark:       $h-gray-800,
   darker:     $h-gray-900,
-  success:    $h-color-success,
-  error:      $h-color-error,
+  positive:   $h-color-positive,
+  success:    $h-color-positive, // Consider deprecation in v3.0 in favor of "positive"
+  negative:   $h-color-negative,
+  error:      $h-color-negative, // Consider deprecation in v3.0 in favor of "negative"
   brand:      $h-color-brand,
+  primary:    $h-color-primary,
   link:       $h-blue-600,
   link-hover: $h-blue-500,
   heading:    inherit
@@ -232,9 +239,12 @@ $h-color-text-light: map-get($h-colors-text-semantic, light);
 $h-color-text-normal: map-get($h-colors-text-semantic, normal);
 $h-color-text-dark: map-get($h-colors-text-semantic, dark);
 $h-color-text-darker: map-get($h-colors-text-semantic, darker);
-$h-color-text-success: map-get($h-colors-text-semantic, success);
+$h-color-text-positive: map-get($h-colors-text-semantic, positive);
+$h-color-text-success: map-get($h-colors-text-semantic, success); // Consider deprecation in v3.0 in favor of "positive"
+$h-color-text-negative: map-get($h-colors-text-semantic, negative);
 $h-color-text-error: map-get($h-colors-text-semantic, error);
 $h-color-text-brand: map-get($h-colors-text-semantic, brand);
+$h-color-text-primary: map-get($h-colors-text-semantic, primary);
 $h-color-link: map-get($h-colors-text-semantic, link);
 $h-color-link-hover: map-get($h-colors-text-semantic, link-hover);
 $h-color-heading: map-get($h-colors-text-semantic, heading);
@@ -243,12 +253,18 @@ $h-color-heading: map-get($h-colors-text-semantic, heading);
 //==========================================================================
 
 $h-colors-background-semantic: (
-  success: $h-color-success,
-  error:   $h-color-error,
-  brand:   $h-color-brand,
-  active:  $h-color-active
+  positive: $h-color-positive,
+  success:  $h-color-positive, // Consider deprecation in v3.0 in favor of "positive"
+  negative: $h-color-negative,
+  error:    $h-color-negative, // Consider deprecation in v3.0 in favor of "negative"
+  brand:    $h-color-brand,
+  primary:  $h-color-primary,
+  active:   $h-color-active
 );
-$h-color-background-success: map-get($h-colors-background-semantic, success);
-$h-color-background-error: map-get($h-colors-background-semantic, error);
+$h-color-background-positive: map-get($h-colors-background-semantic, positive);
+$h-color-background-success: map-get($h-colors-background-semantic, success); // Consider deprecation in v3.0 in favor of "positive"
+$h-color-background-negative: map-get($h-colors-background-semantic, negative);
+$h-color-background-error: map-get($h-colors-background-semantic, error); // Consider deprecation in v3.0 in favor of "negative"
 $h-color-background-brand: map-get($h-colors-background-semantic, brand);
+$h-color-background-primary: map-get($h-colors-background-semantic, primary);
 $h-color-background-active: map-get($h-colors-background-semantic, active);

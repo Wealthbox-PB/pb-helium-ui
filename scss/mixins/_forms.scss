@@ -16,13 +16,33 @@
   outline: 0;
 }
 
-@mixin h-form-element-focus-error {
+@mixin h-form-element-focus-positive {
+  border-color: $h-color-border-form-element-positive;
+  box-shadow: $h-box-shadow-form-element-positive;
+  outline: 0;
+}
+
+@mixin h-form-element-focus-negative {
+  border-color: $h-color-border-form-element-negative;
+  box-shadow: $h-box-shadow-form-element-negative;
+  outline: 0;
+}
+
+@mixin h-form-element-focus-error { // Consider deprecation in v3.0 in favor of "negative"
   border-color: $h-color-border-form-element-error;
   box-shadow: $h-box-shadow-form-element-error;
   outline: 0;
 }
 
+@mixin h-form-element-focus-disabled {
+  // Generally used for components without text content
+  border-color: $h-color-border-form-element;
+  box-shadow: $h-box-shadow-form-element-disabled;
+  outline: 0;
+}
+
 @mixin h-form-element-disabled-readonly {
+  // Generally used for components with text content
   border-color: $h-color-border-form-element;
   background-color: $h-color-background-form-element-disabled;
   color: $h-color-text-form-element-disabled;

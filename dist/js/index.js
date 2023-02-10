@@ -12,4 +12,5 @@ export { LinkButton } from './components/LinkButton';
 export { Portal } from './components/Portal';
 export { HeliumSpinner } from './components/Spinner/Spinner';
 export { randomString } from './helpers/random_string';
+export { Switch } from './components/Switch';
 //# sourceMappingURL=index.js.map

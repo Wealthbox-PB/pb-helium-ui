@@ -3,7 +3,16 @@
 //  Component Variables
 //==========================================================================
 
-//  Button
+// Shared
+//==========================================================================
+
+$h-color-background-shared-component: $h-white;
+$h-color-background-secondary-shared-component: $h-gray-50;
+$h-color-border-shared-component: $h-gray-100;
+$h-border-radius-shared-component: $h-border-radius-lg;
+$h-box-shadow-shared-component: $h-shadow-1;
+
+// Button
 //==========================================================================
 
 $h-font-size-btn-xs: $h-font-size-xs;
@@ -22,15 +31,6 @@ $h-border-radius-btn: $h-border-radius;
 $h-box-shadow-size-btn: 0.1875rem;
 $h-box-shadow-alpha-btn: 0.4;
 
-//  Shared
-//==========================================================================
-
-$h-color-background-shared-component: $h-white;
-$h-color-background-secondary-shared-component: $h-gray-50;
-$h-color-border-shared-component: $h-gray-100;
-$h-border-radius-shared-component: $h-border-radius-lg;
-$h-box-shadow-shared-component: $h-shadow-1;
-
 // Card
 //==========================================================================
 
@@ -38,14 +38,16 @@ $h-box-shadow-shared-component: $h-shadow-1;
 $h-padding-card: 1rem;
 $h-padding-y-card-header-footer: 0.75rem;
 
-//  Form Elements
+// Form Elements
 //==========================================================================
 
-//  Color
+// Color
 $h-color-text-form-element-label: $h-gray-600;
 $h-color-text-form-element: $h-gray-900;
-$h-color-text-form-element-success: $h-color-text-success;
-$h-color-text-form-element-error: $h-color-text-error;
+$h-color-text-form-element-positive: $h-color-text-positive;
+$h-color-text-form-element-success: $h-color-text-positive; // Consider deprecation in v3.0 in favor of "positive"
+$h-color-text-form-element-negative: $h-color-text-negative;
+$h-color-text-form-element-error: $h-color-text-negative; // Consider deprecation in v3.0 in favor of "negative"
 $h-color-text-form-element-disabled: $h-gray-400;
 $h-color-text-form-element-placeholder: $h-color-text-lighter;
 $h-color-icon-checkbox-radio: str-slice("#{$h-white}", 2);
@@ -58,11 +60,16 @@ $h-color-background-form-element-file: $h-color-background-form-element-alt;
 $h-color-background-form-element-disabled: $h-gray-100;
 $h-color-border-form-element: $h-gray-200;
 $h-color-border-form-element-focused: $h-blue-300;
-$h-color-border-form-element-error: $h-red-600;
+$h-color-border-form-element-positive: $h-green-600;
+$h-color-border-form-element-negative: $h-red-600;
+$h-color-border-form-element-error: $h-red-600; // Consider deprecation in v3.0 in favor of "negative"
+$h-color-box-shadow-form-element-disabled: $h-gray-150;
 $h-color-box-shadow-form-element-focused: $h-blue-100;
-$h-color-box-shadow-form-element-error: $h-red-100;
+$h-color-box-shadow-form-element-positive: $h-green-200;
+$h-color-box-shadow-form-element-negative: $h-red-100;
+$h-color-box-shadow-form-element-error: $h-red-100; // Consider deprecation in v3.0 in favor of "negative"
 
-//  Box Model
+// Box Model
 $h-spacing-form-element-label: 0.375rem;
 $h-spacing-form-element-check: 0.5rem;
 $h-spacing-form-group: 1.5rem;
@@ -73,8 +80,12 @@ $h-padding-x-form-element: 0.5rem;
 $h-padding-y-form-element: 0.375rem;
 $h-border-radius-form-element: $h-border-radius;
 $h-box-shadow-size-form-element: 0 0 0 0.1875rem;
+$h-box-shadow-form-element-disabled: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-disabled;
 $h-box-shadow-form-element-focused: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-focused;
-$h-box-shadow-form-element-error: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-error;
+$h-box-shadow-form-element-positive: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-positive;
+$h-box-shadow-form-element-negative: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-negative;
+/* stylelint-disable-next-line max-line-length */
+$h-box-shadow-form-element-error: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-error; // Consider deprecation in v3.0 in favor of "negative"
 $h-spacing-checkbox-radio: 0.5rem;
 $h-size-checkbox-radio: 1.25rem;
 $h-size-checkbox-radio-sm: 1rem;
@@ -91,7 +102,7 @@ $h-scale-radio-visible-lg: 0.4545;
 $h-animation-duration-form-element: $h-animation-duration-sm;
 $h-animation-duration-checkbox-radio: $h-animation-duration-xl;
 
-//  Modal
+// Modal
 //==========================================================================
 
 // Box Model
@@ -104,7 +115,7 @@ $h-min-height-modal: calc($h-width-modal-desktop / 2);
 $h-min-height-modal-lg: calc($h-width-modal-desktop-lg / 2);
 $h-box-shadow-modal: 0 0 0.75rem -0.25rem rgba($h-black, 0.25);
 
-//  Dialog
+// Dialog
 //==========================================================================
 
 // Box Model
@@ -123,3 +134,18 @@ $h-spacing-x-table-cell: 1rem;
 $h-spacing-y-table-cell: 0.5rem;
 $h-spacing-x-dense-table-cell: 0.5rem;
 $h-spacing-y-dense-table-cell: 0.25rem;
+
+// Switch
+//==========================================================================
+
+// Color
+$h-color-background-switch: $h-gray-200;
+$h-color-background-switch-dot: $h-white;
+
+// Box Model
+$h-height-switch: 1.5rem;
+$h-size-switch-dot: 1.125rem;
+$h-border-radius-switch: calc($h-height-switch / 2);
+
+// Animation
+$h-animation-duration-switch: $h-animation-duration-sm;

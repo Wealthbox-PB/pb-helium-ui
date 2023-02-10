@@ -1,0 +1,56 @@
+
+//==========================================================================
+//  Switch
+//==========================================================================
+
+.h-switch,
+.h-switch::before {
+  display: inline-block;
+  border-radius: $h-border-radius-switch;
+  transition:
+    background-color $h-animation-duration-switch $h-animation-timing-ease-out,
+    transform $h-animation-duration-switch $h-animation-timing-ease-out;
+}
+
+.h-switch {
+  position: relative;
+  height: $h-height-switch;
+  padding-left: 2.625rem;
+  margin: 0 0.25rem;
+  background-color: $h-color-background-switch;
+  cursor: pointer;
+  line-height: $h-height-switch;
+
+  &:focus {
+    @include h-form-element-focus;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0.1875rem;
+    left: 0.1875rem;
+    width: $h-size-switch-dot;
+    height: $h-size-switch-dot;
+    background-color: $h-color-background-switch-dot;
+    box-shadow: $h-box-shadow-shared-component;
+    content: "";
+  }
+}
+
+.h-switch--enabled {
+  &::before {
+    transform: translateX($h-size-switch-dot);
+  }
+}
+
+.h-switch--primary {
+  background-color: $h-color-background-primary;
+}
+
+.h-switch--positive {
+  background-color: $h-color-background-positive;
+
+  &:focus {
+    @include h-form-element-focus-positive;
+  }
+}
