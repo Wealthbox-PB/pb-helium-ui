@@ -1,0 +1,10 @@
+
+//==========================================================================
+//  Shared
+//==========================================================================
+
+@mixin h-shared-component-disabled {
+  box-shadow: none;
+  cursor: $h-cursor-disabled-shared-component;
+  opacity: $h-opacity-disabled-shared-component;
+}

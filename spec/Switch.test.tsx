@@ -26,18 +26,22 @@ describe(`<Switch />`, () => {
       expect(screen.getByRole(`switch`, { name: `Off` })).toBeInTheDocument();
     });
 
-    it(`should not be checked/enabled`, () => {
+    it(`should not be checked/on`, () => {
       render(<Switch />);
 
       expect(screen.getByRole(`switch`, { name: `Off` })).not.toBeChecked();
     });
 
-    it(`should not have enabled or primary variant styling`, () => {
+    it(`should not have "on" or "primary" variant styling`, () => {
       render(<Switch />);
 
-      expect(screen.getByRole(`switch`, { name: `Off` })).not.toHaveClass(
-        `h-switch--enabled h-switch--primary`
-      );
+      expect(screen.getByRole(`switch`, { name: `Off` })).not.toHaveClass(`h-switch--on h-switch--primary`);
+    });
+
+    it(`should not be disabled`, () => {
+      render(<Switch />);
+
+      expect(screen.getByRole(`switch`, { name: `Off` })).toBeEnabled();
     });
   });
 
@@ -72,6 +76,14 @@ describe(`<Switch />`, () => {
       });
     });
 
+    describe(`when the disabled prop is set to "true"`, () => {
+      it(`should be disabled`, () => {
+        render(<Switch disabled={true} />);
+
+        expect(screen.getByRole(`switch`, { name: `Off` })).toBeDisabled();
+      });
+    });
+
     describe(`when the defaultValue prop is set to true`, () => {
       it(`should have a hidden input with a value attribute set to "true"`, () => {
         render(<Switch defaultValue={true} />);
@@ -86,25 +98,23 @@ describe(`<Switch />`, () => {
         expect(screen.getByRole(`switch`, { name: `On` })).toBeInTheDocument();
       });
 
-      it(`should be checked/enabled`, () => {
+      it(`should be checked/on`, () => {
         render(<Switch defaultValue={true} />);
 
         expect(screen.getByRole(`switch`, { name: `On` })).toBeChecked();
       });
 
-      it(`should have enabled and primary variant styling`, () => {
+      it(`should have "on" and "primary" variant styling`, () => {
         render(<Switch defaultValue={true} />);
 
-        expect(screen.getByRole(`switch`, { name: `On` })).toHaveClass(`h-switch--enabled h-switch--primary`);
+        expect(screen.getByRole(`switch`, { name: `On` })).toHaveClass(`h-switch--on h-switch--primary`);
       });
 
       describe(`when the variant prop is set to "positive"`, () => {
-        it(`should have enabled and positive variant styling`, () => {
+        it(`should have "on" and "positive" variant styling`, () => {
           render(<Switch defaultValue={true} variant="positive" />);
 
-          expect(screen.getByRole(`switch`, { name: `On` })).toHaveClass(
-            `h-switch--enabled h-switch--positive`
-          );
+          expect(screen.getByRole(`switch`, { name: `On` })).toHaveClass(`h-switch--on h-switch--positive`);
         });
       });
     });

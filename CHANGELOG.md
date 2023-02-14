@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.20] - 2023-02-14
+
+### Added
+
+- Added disabled prop to `Switch` React component
+- Added supporting CSS styles
+- Added `h-shared-component-disabled` mixin and associated variables
+- Added new `shared` mixins file
+
+### Changed
+
+- Changed internal state of `Switch` component to use `on` instead of `enabled`
+- Changed `Switch` component CSS classes to use `on` instead of `enabled`
+- Updated `button` and `Switch` component styles to use `h-shared-component-disabled` mixin when disabled
+
+### Removed
+
+- Removed unused `h-form-element-focus-disabled` mixin from `v2.0.19`
+
 ## [2.0.19] - 2023-02-10
 
 ### Added

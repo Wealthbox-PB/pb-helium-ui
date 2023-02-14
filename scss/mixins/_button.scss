@@ -409,9 +409,7 @@
   &[disabled],
   &.h-btn--disabled {
     /* stylelint-enable selector-class-pattern */
-    box-shadow: none;
-    cursor: auto;
-    opacity: 0.5;
+    @include h-shared-component-disabled;
   }
 }
 

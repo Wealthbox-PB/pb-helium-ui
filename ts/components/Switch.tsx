@@ -3,36 +3,45 @@ import classNames from 'classnames';
 import { Switch as HeadlessUiSwitch } from '@headlessui/react';
 
 interface SwitchProps {
-  name?: string;
   ariaLabel?: string;
   defaultValue?: boolean;
+  disabled?: boolean;
+  name?: string;
   variant?: `primary` | `positive`;
 }
 
-export const Switch = ({ name, ariaLabel, defaultValue = false, variant = `primary` }: SwitchProps) => {
-  const [enabled, setEnabled] = useState(defaultValue);
+export const Switch = ({
+  ariaLabel,
+  defaultValue = false,
+  disabled = false,
+  name,
+  variant = `primary`,
+}: SwitchProps) => {
+  const [on, setOn] = useState(defaultValue);
 
   return (
     <>
-      <input type="hidden" name={name} value={enabled.toString()} data-testid="h-switch-hidden-input" />
+      <input type="hidden" name={name} value={on.toString()} data-testid="h-switch-hidden-input" />
       <HeadlessUiSwitch
-        checked={enabled}
-        onChange={setEnabled}
+        disabled={disabled}
+        checked={on}
+        onChange={setOn}
         className={classNames(`h-switch`, {
-          'h-switch--enabled': enabled,
-          'h-switch--primary': enabled && variant === `primary`,
-          'h-switch--positive': enabled && variant === `positive`,
+          'h-switch--on': on,
+          'h-switch--primary': on && variant === `primary`,
+          'h-switch--positive': on && variant === `positive`,
+          'h-switch--disabled': disabled,
         })}
-        aria-label={setAriaLabel(ariaLabel, enabled)}
+        aria-label={setAriaLabel(ariaLabel, on)}
       ></HeadlessUiSwitch>
     </>
   );
 };
 
-const setAriaLabel = (ariaLabel: string | undefined, enabled: boolean): string => {
+const setAriaLabel = (ariaLabel: string | undefined, on: boolean): string => {
   if (ariaLabel) {
     return ariaLabel;
   }
 
-  return enabled ? `On` : `Off`;
+  return on ? `On` : `Off`;
 };

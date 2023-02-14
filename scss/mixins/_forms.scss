@@ -34,13 +34,6 @@
   outline: 0;
 }
 
-@mixin h-form-element-focus-disabled {
-  // Generally used for components without text content
-  border-color: $h-color-border-form-element;
-  box-shadow: $h-box-shadow-form-element-disabled;
-  outline: 0;
-}
-
 @mixin h-form-element-disabled-readonly {
   // Generally used for components with text content
   border-color: $h-color-border-form-element;

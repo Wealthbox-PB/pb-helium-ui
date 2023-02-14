@@ -1,9 +1,10 @@
 /// <reference types="react" />
 interface SwitchProps {
-    name?: string;
     ariaLabel?: string;
     defaultValue?: boolean;
+    disabled?: boolean;
+    name?: string;
     variant?: `primary` | `positive`;
 }
-export declare const Switch: ({ name, ariaLabel, defaultValue, variant }: SwitchProps) => JSX.Element;
+export declare const Switch: ({ ariaLabel, defaultValue, disabled, name, variant, }: SwitchProps) => JSX.Element;
 export {};
