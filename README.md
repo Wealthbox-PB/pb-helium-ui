@@ -32,9 +32,9 @@ This setup is pretty cumbersome and painful. We're hoping to integrate some of t
 ##### Initial Setup (You only have to do this once)
 
 - `docker volume create yarn-cache`
-- Open `docker-utils/wb-docker-sync` in a new terminal window and run `.start.sh [PATH_TO_HELIUM_UI]` to create a new volume and start the file sync process.
+- Open `docker-utils/wb-docker-sync` in a new terminal window and run `./start.sh [PATH_TO_HELIUM_UI]` to create a new volume and start the file sync process.
 - Open another terminal window/pane and run `docker volume ls | grep helium-ui` to get the name of the volume.
-- Copy the volume name — we'll need it later.
+- Copy the volume name (generated from the path passed into the `./start` script in the first step) — we'll need it later.
   - It should look something like `Users-[username]-[directory]-helium-ui`
 - Open `crm-web` and run `DOCKER_OPTIONS="--mount source=[HELIUM_UI_DOCKER_VOLUME_NAME],target=/helium-ui --mount source=yarn-cache,target=/usr/local/share/.config/yarn" bin/docker/interactive.sh` to open the interactive shell (_be sure to replace the `[HELIUM_UI_DOCKER_VOLUME_NAME]` source with the volume name you copied in the previous step_). There are 2 main parts to this command:
   - **1)** The first part sets an environment variable called `DOCKER_OPTIONS` which mounts the `helium-ui` volume that's synced with your local `helium-ui` repository, as well as `yarn-cache` which enables us to to link packages inside of the Docker container (save these options somewhere safe, because we'll need them to prefix all Docker commands while doing local Helium UI development)
@@ -50,8 +50,8 @@ This setup is pretty cumbersome and painful. We're hoping to integrate some of t
 ##### Starting Development
 
 - Open `docker-utils/wb-docker-sync` in a new terminal window.
-- If you don't already have it running from the Initial Setup step above, `.start.sh [PATH_TO_HELIUM_UI]` to start the docker sync process.
-- If you don't already have `crm-web` sync running, start it with `.start.sh [PATH_TO_CRM_WEB]` in another window/pane.
+- If you don't already have it running from the Initial Setup step above, `./start.sh [PATH_TO_HELIUM_UI]` to start the docker sync process.
+- If you don't already have `crm-web` sync running, start it with `./start.sh [PATH_TO_CRM_WEB]` in another window/pane.
 - Open your local `helium-ui` repo directory (on your local machine, not in the wealthbox Docker shell) and run `yarn watch` to start auto-building when making changes to JS or CSS files.
 - Open your `crm-web` repository directory and start your server using your preferred command documented [here](https://github.com/starburstlabs/crm-web#running-wealthbox), prefixed with the `DOCKER_OPTIONS`:
   - for `bin/dev`:
