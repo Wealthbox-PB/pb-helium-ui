@@ -30,7 +30,6 @@ export const Switch = ({
           'h-switch--on': on,
           'h-switch--primary': on && variant === `primary`,
           'h-switch--positive': on && variant === `positive`,
-          'h-switch--disabled': disabled,
         })}
         aria-label={setAriaLabel(ariaLabel, on)}
       ></HeadlessUiSwitch>

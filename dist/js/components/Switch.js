@@ -10,7 +10,6 @@ export var Switch = function (_a) {
                 'h-switch--on': on,
                 'h-switch--primary': on && variant === "primary",
                 'h-switch--positive': on && variant === "positive",
-                'h-switch--disabled': disabled,
             }), "aria-label": setAriaLabel(ariaLabel, on) })));
 };
 var setAriaLabel = function (ariaLabel, on) {

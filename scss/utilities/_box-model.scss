@@ -75,8 +75,12 @@
   overflow-y: visible !important;
 }
 
-//  Width
+//  Height & Width
 //==========================================================================
+
+.h-min-height-0 {
+  min-height: 0 !important;
+}
 
 .h-min-width-0 {
   min-width: 0 !important;

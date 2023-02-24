@@ -17,6 +17,10 @@
 //  Pointer Events
 //=========================================================================
 
+.h-pointer-events-all {
+  pointer-events: all !important;
+}
+
 .h-pointer-events-none {
   pointer-events: none !important;
 }

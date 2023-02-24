@@ -33,16 +33,17 @@
     box-shadow: $h-box-shadow-shared-component;
     content: "";
   }
+
+  &:disabled,
+  &[disabled] {
+    @include h-shared-component-disabled;
+  }
 }
 
 .h-switch--on {
   &::before {
     transform: translateX($h-size-switch-dot);
   }
-}
-
-.h-switch--disabled {
-  @include h-shared-component-disabled;
 }
 
 .h-switch--primary {
