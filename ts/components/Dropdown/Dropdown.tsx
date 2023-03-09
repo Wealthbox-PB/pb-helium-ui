@@ -10,6 +10,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+
 import {
   useFloating,
   offset,
@@ -33,6 +34,8 @@ import {
   FloatingTree,
   FloatingFocusManager,
 } from '@floating-ui/react';
+import classNames from 'classnames';
+import { JsxElement } from 'typescript';
 
 interface MenuItemProps {
   label: string;
@@ -69,6 +72,7 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & HTMLProps
     );
 
     const dropdownContentContainerRef = useRef(null);
+    // const dropdownRef = useRef<HTMLDivElement | null>(null);
 
     const tree = useFloatingTree();
     const nodeId = useFloatingNodeId();
@@ -177,7 +181,7 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & HTMLProps
           ref={referenceRef}
           {...getReferenceProps({
             ...props,
-            className: `${nested ? `MenuItem` : `RootMenu`}${open ? ` open` : ``}`,
+            className: `${nested ? `MenuItem` : `h-btn h-btn--secondary`}${open ? ` open` : ``}`,
             onClick(event) {
               event.stopPropagation();
             },
@@ -211,7 +215,7 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & HTMLProps
             >
               <div
                 ref={refs.setFloating}
-                className="Menu"
+                className="h-dropdown"
                 style={{
                   position: strategy,
                   top: y ?? 0,
@@ -229,35 +233,19 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & HTMLProps
                 })}
               >
                 {Children.map(children, (child, index) =>
-                  isValidElement(child) ? (
-                    cloneElement(
-                      child,
-                      getItemProps({
-                        tabIndex: activeIndex === index ? 0 : -1,
-                        role: `menuitem`,
-                        className: `MenuItem`,
-                        ref(node: HTMLButtonElement) {
-                          listItemsRef.current[index] = node;
-                        },
-                        onClick(event) {
-                          child.props.onClick?.(event);
-                          tree?.events.emit(`click`);
-                        },
-                        // Allow focus synchronization if the cursor did not move.
-                        onMouseEnter() {
-                          if (allowHover && open) {
-                            setActiveIndex(index);
-                          }
-                        },
-                      })
-                    )
-                  ) : (
-                    <div
-                      className="h-dropdown"
-                      ref={dropdownContentContainerRef}
-                      dangerouslySetInnerHTML={{ __html: child as string }}
-                    ></div>
-                  )
+                  isValidElement(child) && child?.props?.children?.length
+                    ? parseChildren(
+                        child,
+                        getItemProps,
+                        activeIndex,
+                        index,
+                        listItemsRef,
+                        tree,
+                        allowHover,
+                        open,
+                        setActiveIndex
+                      )
+                    : child
                 )}
               </div>
             </FloatingFocusManager>
@@ -267,6 +255,40 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & HTMLProps
     );
   }
 );
+
+function parseChildren(
+  child,
+  getItemProps,
+  activeIndex,
+  index,
+  listItemsRef,
+  tree,
+  allowHover,
+  open,
+  setActiveIndex
+) {
+  return cloneElement(
+    child,
+    getItemProps({
+      tabIndex: activeIndex === index ? 0 : -1,
+      role: `menuitem`,
+      className: classNames(child.props.className, `MenuItem`),
+      ref(node: HTMLButtonElement) {
+        listItemsRef.current[index] = node;
+      },
+      onClick(event) {
+        child.props.onClick?.(event);
+        tree?.events.emit(`click`);
+      },
+      // Allow focus synchronization if the cursor did not move.
+      onMouseEnter() {
+        if (allowHover && open) {
+          setActiveIndex(index);
+        }
+      },
+    })
+  );
+}
 
 export const Dropdown = forwardRef<HTMLButtonElement, MenuProps & HTMLProps<HTMLButtonElement>>(
   (props, ref) => {
