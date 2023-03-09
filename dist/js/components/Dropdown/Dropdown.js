@@ -22,6 +22,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import React, { Children, cloneElement, forwardRef, isValidElement, useEffect, useRef, useState, } from 'react';
 import { useFloating, offset, flip, shift, useListNavigation, useHover, useTypeahead, useInteractions, useRole, useClick, useDismiss, autoUpdate, safePolygon, FloatingPortal, useFloatingTree, useFloatingNodeId, useFloatingParentNodeId, useMergeRefs, FloatingNode, FloatingTree, FloatingFocusManager, } from '@floating-ui/react';
+import classNames from 'classnames';
 export var MenuItem = forwardRef(function (_a, ref) {
     var label = _a.label, disabled = _a.disabled, props = __rest(_a, ["label", "disabled"]);
     return (React.createElement("button", __assign({}, props, { ref: ref, role: "menuitem", disabled: disabled }), label));
@@ -34,6 +35,7 @@ export var MenuComponent = forwardRef(function (_a, forwardedRef) {
     var listItemsRef = useRef([]);
     var listContentRef = useRef(Children.map(children, function (child) { return (isValidElement(child) ? child.props.label : null); }));
     var dropdownContentContainerRef = useRef(null);
+    // const dropdownRef = useRef<HTMLDivElement | null>(null);
     var tree = useFloatingTree();
     var nodeId = useFloatingNodeId();
     var parentId = useFloatingParentNodeId();
@@ -125,7 +127,7 @@ export var MenuComponent = forwardRef(function (_a, forwardedRef) {
     }, [allowHover]);
     var referenceRef = useMergeRefs([refs.setReference, forwardedRef]);
     return (React.createElement(FloatingNode, { id: nodeId },
-        React.createElement("button", __assign({ ref: referenceRef }, getReferenceProps(__assign(__assign(__assign({}, props), { className: "" + (nested ? "MenuItem" : "RootMenu") + (open ? " open" : ""), onClick: function (event) {
+        React.createElement("button", __assign({ ref: referenceRef }, getReferenceProps(__assign(__assign(__assign({}, props), { className: "".concat(nested ? "MenuItem" : "h-btn h-btn--secondary").concat(open ? " open" : ""), onClick: function (event) {
                 event.stopPropagation();
             } }), (nested && {
             // Indicates this is a nested <Menu /> acting as a <MenuItem />.
@@ -143,7 +145,7 @@ export var MenuComponent = forwardRef(function (_a, forwardedRef) {
             // Allow touch screen readers to escape the modal root menu
             // without selecting anything.
             visuallyHiddenDismiss: true },
-            React.createElement("div", __assign({ ref: refs.setFloating, className: "Menu", style: {
+            React.createElement("div", __assign({ ref: refs.setFloating, className: "h-dropdown", style: {
                     position: strategy,
                     top: y !== null && y !== void 0 ? y : 0,
                     left: x !== null && x !== void 0 ? x : 0,
@@ -157,27 +159,33 @@ export var MenuComponent = forwardRef(function (_a, forwardedRef) {
                     }
                 },
             })), Children.map(children, function (child, index) {
-                return isValidElement(child) ? (cloneElement(child, getItemProps({
-                    tabIndex: activeIndex === index ? 0 : -1,
-                    role: "menuitem",
-                    className: "MenuItem",
-                    ref: function (node) {
-                        listItemsRef.current[index] = node;
-                    },
-                    onClick: function (event) {
-                        var _a, _b;
-                        (_b = (_a = child.props).onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
-                        tree === null || tree === void 0 ? void 0 : tree.events.emit("click");
-                    },
-                    // Allow focus synchronization if the cursor did not move.
-                    onMouseEnter: function () {
-                        if (allowHover && open) {
-                            setActiveIndex(index);
-                        }
-                    },
-                }))) : (React.createElement("div", { className: "h-dropdown", ref: dropdownContentContainerRef, dangerouslySetInnerHTML: { __html: child } }));
+                var _a, _b;
+                return isValidElement(child) && ((_b = (_a = child === null || child === void 0 ? void 0 : child.props) === null || _a === void 0 ? void 0 : _a.children) === null || _b === void 0 ? void 0 : _b.length)
+                    ? parseChildren(child, getItemProps, activeIndex, index, listItemsRef, tree, allowHover, open, setActiveIndex)
+                    : child;
             })))))));
 });
+function parseChildren(child, getItemProps, activeIndex, index, listItemsRef, tree, allowHover, open, setActiveIndex) {
+    return cloneElement(child, getItemProps({
+        tabIndex: activeIndex === index ? 0 : -1,
+        role: "menuitem",
+        className: classNames(child.props.className, "MenuItem"),
+        ref: function (node) {
+            listItemsRef.current[index] = node;
+        },
+        onClick: function (event) {
+            var _a, _b;
+            (_b = (_a = child.props).onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
+            tree === null || tree === void 0 ? void 0 : tree.events.emit("click");
+        },
+        // Allow focus synchronization if the cursor did not move.
+        onMouseEnter: function () {
+            if (allowHover && open) {
+                setActiveIndex(index);
+            }
+        },
+    }));
+}
 export var Dropdown = forwardRef(function (props, ref) {
     var parentId = useFloatingParentNodeId();
     if (parentId == null) {
