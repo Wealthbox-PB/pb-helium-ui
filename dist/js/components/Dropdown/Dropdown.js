@@ -23,19 +23,27 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React, { Children, cloneElement, forwardRef, isValidElement, useEffect, useRef, useState, } from 'react';
 import { useFloating, offset, flip, shift, useListNavigation, useHover, useTypeahead, useInteractions, useRole, useClick, useDismiss, autoUpdate, safePolygon, FloatingPortal, useFloatingTree, useFloatingNodeId, useFloatingParentNodeId, useMergeRefs, FloatingNode, FloatingTree, FloatingFocusManager, } from '@floating-ui/react';
 import classNames from 'classnames';
+// TODO: fix display-name warning
+// eslint-disable-next-line react/display-name
 export var MenuItem = forwardRef(function (_a, ref) {
     var label = _a.label, disabled = _a.disabled, props = __rest(_a, ["label", "disabled"]);
     return (React.createElement("button", __assign({}, props, { ref: ref, role: "menuitem", disabled: disabled }), label));
 });
 export var MenuComponent = forwardRef(function (_a, forwardedRef) {
-    var children = _a.children, label = _a.label, props = __rest(_a, ["children", "label"]);
+    var children = _a.children, label = _a.label, trigger = _a.trigger, props = __rest(_a, ["children", "label", "trigger"]);
     var _b = useState(false), open = _b[0], setOpen = _b[1];
     var _c = useState(null), activeIndex = _c[0], setActiveIndex = _c[1];
     var _d = useState(false), allowHover = _d[0], setAllowHover = _d[1];
     var listItemsRef = useRef([]);
-    var listContentRef = useRef(Children.map(children, function (child) { return (isValidElement(child) ? child.props.label : null); }));
-    var dropdownContentContainerRef = useRef(null);
-    // const dropdownRef = useRef<HTMLDivElement | null>(null);
+    function getText(child) {
+        var _a, _b;
+        if (isValidElement(child) && ((_b = (_a = child === null || child === void 0 ? void 0 : child.props) === null || _a === void 0 ? void 0 : _a.children) === null || _b === void 0 ? void 0 : _b.length)) {
+            return getText(child.props.children[0]);
+        }
+        return "".concat(child);
+    }
+    var littleBuddy = Children.map(children, function (child) { return getText(child); });
+    var listContentRef = useRef(littleBuddy);
     var tree = useFloatingTree();
     var nodeId = useFloatingNodeId();
     var parentId = useFloatingParentNodeId();
@@ -127,14 +135,16 @@ export var MenuComponent = forwardRef(function (_a, forwardedRef) {
     }, [allowHover]);
     var referenceRef = useMergeRefs([refs.setReference, forwardedRef]);
     return (React.createElement(FloatingNode, { id: nodeId },
-        React.createElement("button", __assign({ ref: referenceRef }, getReferenceProps(__assign(__assign(__assign({}, props), { className: "".concat(nested ? "MenuItem" : "h-btn h-btn--secondary").concat(open ? " open" : ""), onClick: function (event) {
+        !nested && trigger ? (cloneElement(trigger, getItemProps(__assign({ ref: referenceRef }, getReferenceProps(__assign(__assign({}, props), { className: classNames(trigger.props.className, { open: open }), onClick: function (event) {
+                event.stopPropagation();
+            } })))))) : (React.createElement("button", __assign({ ref: referenceRef }, getReferenceProps(__assign(__assign(__assign({}, props), { className: "".concat(nested ? "MenuItem" : "h-btn h-btn--secondary").concat(open ? " open" : ""), onClick: function (event) {
                 event.stopPropagation();
             } }), (nested && {
             // Indicates this is a nested <Menu /> acting as a <MenuItem />.
             role: "menuitem",
         })))),
             label, " ",
-            nested && (React.createElement("span", { "aria-hidden": true, style: { marginLeft: 10 } }, "\u2794"))),
+            nested && (React.createElement("span", { "aria-hidden": true, style: { marginLeft: 10 } }, "\u2794")))),
         React.createElement(FloatingPortal, null, open && (React.createElement(FloatingFocusManager, { context: context, 
             // Prevent outside content interference.
             modal: !nested, 
@@ -165,27 +175,35 @@ export var MenuComponent = forwardRef(function (_a, forwardedRef) {
                     : child;
             })))))));
 });
+// TODO: fix max-params warning
+// eslint-disable-next-line max-params
 function parseChildren(child, getItemProps, activeIndex, index, listItemsRef, tree, allowHover, open, setActiveIndex) {
-    return cloneElement(child, getItemProps({
-        tabIndex: activeIndex === index ? 0 : -1,
-        role: "menuitem",
-        className: classNames(child.props.className, "MenuItem"),
-        ref: function (node) {
-            listItemsRef.current[index] = node;
-        },
-        onClick: function (event) {
-            var _a, _b;
-            (_b = (_a = child.props).onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
-            tree === null || tree === void 0 ? void 0 : tree.events.emit("click");
-        },
-        // Allow focus synchronization if the cursor did not move.
-        onMouseEnter: function () {
-            if (allowHover && open) {
-                setActiveIndex(index);
-            }
-        },
-    }));
+    child.props.children.forEach(function (otherChild, i) {
+        child.props.children[i] = cloneElement(otherChild, getItemProps({
+            key: index,
+            tabIndex: activeIndex === index ? 0 : -1,
+            role: "menuitem",
+            className: classNames(otherChild.props.className, "MenuItem"),
+            ref: function (node) {
+                listItemsRef.current[index] = node;
+            },
+            onClick: function (event) {
+                var _a, _b;
+                (_b = (_a = otherChild.props).onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
+                tree === null || tree === void 0 ? void 0 : tree.events.emit("click");
+            },
+            // Allow focus synchronization if the cursor did not move.
+            onMouseEnter: function () {
+                if (allowHover && open) {
+                    setActiveIndex(index);
+                }
+            },
+        }));
+    });
+    return child;
 }
+// TODO: fix display-name warning
+// eslint-disable-next-line react/display-name
 export var Dropdown = forwardRef(function (props, ref) {
     var parentId = useFloatingParentNodeId();
     if (parentId == null) {

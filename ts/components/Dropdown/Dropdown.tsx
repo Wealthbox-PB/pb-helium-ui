@@ -37,11 +37,18 @@ import {
 import classNames from 'classnames';
 import { JsxElement } from 'typescript';
 
+type ChildProps = {
+  // your other props here...
+  children?: React.ReactNode;
+};
+
 interface MenuItemProps {
   label: string;
   disabled?: boolean;
 }
 
+// TODO: fix display-name warning
+// eslint-disable-next-line react/display-name
 export const MenuItem = forwardRef<
   HTMLButtonElement,
   MenuItemProps & ButtonHTMLAttributes<HTMLButtonElement>
@@ -57,22 +64,23 @@ interface MenuProps {
   label: string;
   nested?: boolean;
   children?: ReactNode;
+  trigger?: ReactNode;
 }
 export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & HTMLProps<HTMLButtonElement>>(
-  ({ children, label, ...props }, forwardedRef) => {
+  ({ children, label, trigger, ...props }, forwardedRef) => {
     const [open, setOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [allowHover, setAllowHover] = useState(false);
 
-    const listItemsRef = useRef<Array<HTMLButtonElement | null>>([]);
-    const listContentRef = useRef(
-      Children.map(children, (child) => (isValidElement(child) ? child.props.label : null)) as Array<
-        string | null
-      >
-    );
-
-    const dropdownContentContainerRef = useRef(null);
-    // const dropdownRef = useRef<HTMLDivElement | null>(null);
+    const listItemsRef = useRef<Array<JsxElement | null>>([]);
+    function getText(child) {
+      if (isValidElement(child) && child?.props?.children?.length) {
+        return getText(child.props.children[0]);
+      }
+      return `${child}`;
+    }
+    const littleBuddy = Children.map(children, (child) => getText(child));
+    const listContentRef = useRef(littleBuddy as Array<string | null>);
 
     const tree = useFloatingTree();
     const nodeId = useFloatingNodeId();
@@ -177,28 +185,44 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & HTMLProps
 
     return (
       <FloatingNode id={nodeId}>
-        <button
-          ref={referenceRef}
-          {...getReferenceProps({
-            ...props,
-            className: `${nested ? `MenuItem` : `h-btn h-btn--secondary`}${open ? ` open` : ``}`,
-            onClick(event) {
-              event.stopPropagation();
-            },
-            ...(nested && {
-              // Indicates this is a nested <Menu /> acting as a <MenuItem />.
-              role: `menuitem`,
-            }),
-          })}
-        >
-          {label}
-          {` `}
-          {nested && (
-            <span aria-hidden style={{ marginLeft: 10 }}>
-              ➔
-            </span>
-          )}
-        </button>
+        {!nested && trigger ? (
+          cloneElement(
+            trigger,
+            getItemProps({
+              ref: referenceRef,
+              ...getReferenceProps({
+                ...props,
+                className: classNames(trigger.props.className, { open }),
+                onClick(event) {
+                  event.stopPropagation();
+                },
+              }),
+            })
+          )
+        ) : (
+          <button
+            ref={referenceRef}
+            {...getReferenceProps({
+              ...props,
+              className: `${nested ? `MenuItem` : `h-btn h-btn--secondary`}${open ? ` open` : ``}`,
+              onClick(event) {
+                event.stopPropagation();
+              },
+              ...(nested && {
+                // Indicates this is a nested <Menu /> acting as a <MenuItem />.
+                role: `menuitem`,
+              }),
+            })}
+          >
+            {label}
+            {` `}
+            {nested && (
+              <span aria-hidden style={{ marginLeft: 10 }}>
+                ➔
+              </span>
+            )}
+          </button>
+        )}
         <FloatingPortal>
           {open && (
             <FloatingFocusManager
@@ -256,6 +280,8 @@ export const MenuComponent = forwardRef<HTMLButtonElement, MenuProps & HTMLProps
   }
 );
 
+// TODO: fix max-params warning
+// eslint-disable-next-line max-params
 function parseChildren(
   child,
   getItemProps,
@@ -267,29 +293,35 @@ function parseChildren(
   open,
   setActiveIndex
 ) {
-  return cloneElement(
-    child,
-    getItemProps({
-      tabIndex: activeIndex === index ? 0 : -1,
-      role: `menuitem`,
-      className: classNames(child.props.className, `MenuItem`),
-      ref(node: HTMLButtonElement) {
-        listItemsRef.current[index] = node;
-      },
-      onClick(event) {
-        child.props.onClick?.(event);
-        tree?.events.emit(`click`);
-      },
-      // Allow focus synchronization if the cursor did not move.
-      onMouseEnter() {
-        if (allowHover && open) {
-          setActiveIndex(index);
-        }
-      },
-    })
-  );
+  child.props.children.forEach((otherChild, i) => {
+    child.props.children[i] = cloneElement(
+      otherChild,
+      getItemProps({
+        key: index,
+        tabIndex: activeIndex === index ? 0 : -1,
+        role: `menuitem`,
+        className: classNames(otherChild.props.className, `MenuItem`),
+        ref(node: HTMLButtonElement) {
+          listItemsRef.current[index] = node;
+        },
+        onClick(event) {
+          otherChild.props.onClick?.(event);
+          tree?.events.emit(`click`);
+        },
+        // Allow focus synchronization if the cursor did not move.
+        onMouseEnter() {
+          if (allowHover && open) {
+            setActiveIndex(index);
+          }
+        },
+      })
+    );
+  });
+  return child;
 }
 
+// TODO: fix display-name warning
+// eslint-disable-next-line react/display-name
 export const Dropdown = forwardRef<HTMLButtonElement, MenuProps & HTMLProps<HTMLButtonElement>>(
   (props, ref) => {
     const parentId = useFloatingParentNodeId();
