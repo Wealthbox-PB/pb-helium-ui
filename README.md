@@ -94,15 +94,20 @@ This project uses [FontCustom](https://github.com/FontCustom/fontcustom) to comp
 
 #### Installing FontCustom
 
+1. Download and install the MacOS FontForge app at https://github.com/fontforge/fontforge/releases/tag/20220308
+
+2. Run the commands below to install fontcustom:
+
 ```
 brew tap bramstein/webfonttools
 brew update
-brew install woff2 sfnt2woff fontforge eot-utils
+brew install woff2 sfnt2woff eot-utils
 gem install fontcustom
 ```
 
 #### Compiling Helium Icons
 
 1. Add or modify an svg icon asset in the `assets/icons` folder
-2. Run `fontcustom compile` command in the terminal (from the project root directory)
-3. You should now see the old font files have been removed, a set of new font files has been added, and a re-generated `_iconography.scss` stylesheet
+2. Run `yarn svgo [PATH_TO_NEW_ICON]` to minimize/compress the svg assets
+3. Run `fontcustom compile` command in the terminal (from the project root directory) to compile all svg assets into a custom font
+4. You should now see the old font files have been removed, a set of new font files has been added, and a re-generated `_iconography.scss` stylesheet
