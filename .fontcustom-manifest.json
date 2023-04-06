@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "7773ac90dc6a01fd92b88af370a43864f32a9f84bf0632420219c68cf470db43",
-    "current": "7773ac90dc6a01fd92b88af370a43864f32a9f84bf0632420219c68cf470db43"
+    "previous": "f1041cece4ec0d14861870cb5e8534248d18a0d9e954676bd373913e6e56ff6c",
+    "current": "f1041cece4ec0d14861870cb5e8534248d18a0d9e954676bd373913e6e56ff6c"
   },
   "fonts": [
-    "fonts/helium-icons_7773ac90dc6a01fd92b88af370a43864.ttf",
-    "fonts/helium-icons_7773ac90dc6a01fd92b88af370a43864.svg",
-    "fonts/helium-icons_7773ac90dc6a01fd92b88af370a43864.woff",
-    "fonts/helium-icons_7773ac90dc6a01fd92b88af370a43864.eot",
-    "fonts/helium-icons_7773ac90dc6a01fd92b88af370a43864.woff2"
+    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.ttf",
+    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.svg",
+    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.woff",
+    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.eot",
+    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.woff2"
   ],
   "glyphs": {
     "add": {
@@ -1572,7 +1572,7 @@
     "font_design_size": 16,
     "font_em": 512,
     "font_name": "helium-icons",
-    "force": true,
+    "force": false,
     "input": {
       "templates": "fonts/templates",
       "vectors": "assets/icons"
