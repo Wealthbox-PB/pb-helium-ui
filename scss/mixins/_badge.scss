@@ -1,0 +1,23 @@
+
+//==========================================================================
+//  Badge
+//==========================================================================
+
+@mixin h-badge-base($h-badge-scale: 1) {
+  display: inline-flex;
+  min-height: calc(1.7145em * $h-badge-scale); // em value based off of scale in designs
+  align-items: center;
+  padding: calc($h-padding-y-badge-base * $h-badge-scale) calc($h-padding-x-badge-base * $h-badge-scale);
+  border-radius: 10em;
+  line-height: $h-line-height-1;
+  white-space: nowrap;
+
+  .h-badge__icon {
+    margin-right: $h-spacing-right-badge-icon-base;
+    font-size: calc(1.1429em * $h-badge-scale); // em value based off of scale in designs
+  }
+
+  .h-badge__content {
+    font-size: #{$h-badge-scale}em;
+  }
+}

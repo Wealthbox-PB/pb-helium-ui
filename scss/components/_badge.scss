@@ -1,0 +1,41 @@
+
+//==========================================================================
+//  Badge
+//==========================================================================
+
+.h-badge {
+  @include h-badge-base;
+}
+
+.h-badge--smaller {
+  @include h-badge-base(0.875);
+}
+
+.h-badge--bigger {
+  @include h-badge-base(1.25);
+}
+
+.h-badge--info {
+  background-color: $h-blue-100;
+  color: $h-blue-700;
+}
+
+.h-badge--negative {
+  background-color: $h-red-100;
+  color: $h-red-700;
+}
+
+.h-badge--positive {
+  background-color: $h-green-100;
+  color: $h-green-800;
+}
+
+.h-badge--secondary {
+  background-color: $h-gray-100;
+  color: $h-gray-700;
+}
+
+.h-badge--warning {
+  background-color: $h-yellow-200;
+  color: $h-yellow-900;
+}

@@ -1,3 +1,4 @@
+/// <reference types="react" />
 interface SwitchProps {
     ariaLabel?: string;
     defaultValue?: boolean;
