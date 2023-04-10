@@ -10,13 +10,13 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React, { cloneElement, useRef, useState } from 'react';
-import { offset, flip, arrow, shift, autoUpdate, useFloating, useInteractions, useHover, useFocus, useRole, useDismiss, useTransitionStyles, } from '@floating-ui/react';
+import { offset, flip, arrow as middlewareArrow, shift, autoUpdate, useFloating, useInteractions, useHover, useFocus, useRole, useDismiss, useTransitionStyles, } from '@floating-ui/react';
 import classNames from 'classnames';
 import Parser from 'html-react-parser';
 import { Portal } from './Portal';
 export var Tooltip = function (_a) {
     var _b, _c;
-    var children = _a.children, title = _a.title, _d = _a.placement, placement = _d === void 0 ? "top" : _d, _e = _a.width, width = _e === void 0 ? null : _e, _f = _a.hideArrow, hideArrow = _f === void 0 ? false : _f, boundary = _a.boundary;
+    var children = _a.children, title = _a.title, _d = _a.placement, placement = _d === void 0 ? "top" : _d, _e = _a.width, width = _e === void 0 ? "base" : _e, _f = _a.arrow, arrow = _f === void 0 ? true : _f, boundary = _a.boundary;
     var _g = useState(false), open = _g[0], setOpen = _g[1];
     var arrowRef = useRef(null);
     var _h = useFloating({
@@ -29,7 +29,7 @@ export var Tooltip = function (_a) {
                 boundary: boundary ? document.querySelector(boundary) : "clippingAncestors",
             }),
             shift({ padding: 4 }),
-            arrow({ element: arrowRef, padding: 8 }),
+            middlewareArrow({ element: arrowRef, padding: 8 }),
         ],
         whileElementsMounted: autoUpdate,
     }), x = _h.x, y = _h.y, reference = _h.reference, floating = _h.floating, strategy = _h.strategy, context = _h.context, currentPlacement = _h.placement, _j = _h.middlewareData.arrow, _k = _j === void 0 ? {} : _j, arrowX = _k.x, arrowY = _k.y;
@@ -51,17 +51,17 @@ export var Tooltip = function (_a) {
         open && isMounted ? (React.createElement(Portal, { className: "h-floating-ui h-floating-ui--tooltips" },
             React.createElement("div", __assign({}, getFloatingProps({
                 ref: floating,
-                className: classNames("h-tooltip", (_b = {}, _b["h-tooltip--" + width] = width, _b)),
+                className: classNames("h-tooltip", (_b = {}, _b["h-tooltip--".concat(width)] = width, _b)),
                 style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : "", left: x !== null && x !== void 0 ? x : "" }, styles),
             })),
                 Parser(title),
-                !hideArrow && (React.createElement("div", { className: classNames("h-tooltip__arrow", "h-tooltip__arrow--" + currentPlacement), ref: arrowRef, style: (_c = {
-                            left: arrowX != null ? arrowX + "px" : "",
-                            top: arrowY != null ? arrowY + "px" : "",
+                arrow ? (React.createElement("div", { className: classNames("h-tooltip__arrow", "h-tooltip__arrow--".concat(currentPlacement)), ref: arrowRef, style: (_c = {
+                            left: arrowX != null ? "".concat(arrowX, "px") : "",
+                            top: arrowY != null ? "".concat(arrowY, "px") : "",
                             right: "",
                             bottom: ""
                         },
                         _c[staticSide] = "-6px",
-                        _c) }))))) : null));
+                        _c) })) : null))) : null));
 };
 //# sourceMappingURL=Tooltip.js.map

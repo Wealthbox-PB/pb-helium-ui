@@ -2,7 +2,7 @@ import React, { cloneElement, useRef, useState } from 'react';
 import {
   offset,
   flip,
-  arrow,
+  arrow as middlewareArrow,
   shift,
   autoUpdate,
   useFloating,
@@ -21,19 +21,19 @@ import { Portal } from './Portal';
 
 interface TooltipProps {
   title: string;
-  hideArrow?: boolean;
+  arrow?: boolean;
   placement?: Placement;
   children: JSX.Element;
   boundary?: string;
-  width?: null | `lg` | `full`;
+  width?: `base` | `lg` | `full`;
 }
 
 export const Tooltip = ({
   children,
   title,
   placement = `top`,
-  width = null,
-  hideArrow = false,
+  width = `base`,
+  arrow = true,
   boundary,
 }: TooltipProps) => {
   const [open, setOpen] = useState(false);
@@ -58,7 +58,7 @@ export const Tooltip = ({
         boundary: boundary ? (document.querySelector(boundary) as Boundary) : `clippingAncestors`,
       }),
       shift({ padding: 4 }),
-      arrow({ element: arrowRef, padding: 8 }),
+      middlewareArrow({ element: arrowRef, padding: 8 }),
     ],
     whileElementsMounted: autoUpdate,
   });
@@ -97,7 +97,7 @@ export const Tooltip = ({
             })}
           >
             {Parser(title)}
-            {!hideArrow && (
+            {arrow ? (
               <div
                 className={classNames(`h-tooltip__arrow`, `h-tooltip__arrow--${currentPlacement}`)}
                 ref={arrowRef}
@@ -109,7 +109,7 @@ export const Tooltip = ({
                   [staticSide]: `-6px`,
                 }}
               ></div>
-            )}
+            ) : null}
           </div>
         </Portal>
       ) : null}
