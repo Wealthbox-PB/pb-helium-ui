@@ -1,0 +1,66 @@
+//==========================================================================
+//  Tooltip
+//==========================================================================
+
+//  Base
+//==========================================================================
+
+.h-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 10rem;
+  padding: 0.425rem 0.5rem;
+  background-color: $h-color-background-tooltip;
+  border-radius: $h-border-radius;
+  color: $h-color-text-tooltip;
+  font-size: $h-font-size-sm;
+  line-height: $h-line-height-heading;
+  text-align: center;
+}
+
+.h-tooltip__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  &--top,
+  &--top-start,
+  &--top-end {
+    border-top: $h-arrow-size-tooltip solid $h-color-background-tooltip;
+    border-right: $h-arrow-size-tooltip solid transparent;
+    border-left: $h-arrow-size-tooltip solid transparent;
+  }
+
+  &--right,
+  &--right-start,
+  &--right-end {
+    border-top: $h-arrow-size-tooltip solid transparent;
+    border-right: $h-arrow-size-tooltip solid $h-color-background-tooltip;
+    border-bottom: $h-arrow-size-tooltip solid transparent;
+  }
+
+  &--bottom,
+  &--bottom-start,
+  &--bottom-end {
+    border-right: $h-arrow-size-tooltip solid transparent;
+    border-bottom: $h-arrow-size-tooltip solid $h-color-background-tooltip;
+    border-left: $h-arrow-size-tooltip solid transparent;
+  }
+
+  &--left,
+  &--left-start,
+  &--left-end {
+    border-top: $h-arrow-size-tooltip solid transparent;
+    border-bottom: $h-arrow-size-tooltip solid transparent;
+    border-left: $h-arrow-size-tooltip solid $h-color-background-tooltip;
+  }
+}
+
+.h-tooltip--wide {
+  max-width: calc(50vw - 8px);
+}
+
+.h-tooltip--full {
+  max-width: calc(100vw - 8px);
+}
