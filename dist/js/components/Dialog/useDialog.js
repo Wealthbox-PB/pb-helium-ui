@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { randomString } from '../../helpers/random_string';
 import classNames from 'classnames';
 var dialogContainerClassname = "h-dialog";
-var ariaSelectorPrefix = dialogContainerClassname + "-aria";
+var ariaSelectorPrefix = "".concat(dialogContainerClassname, "-aria");
 var sizeClasses = {
     small: "sm",
     medium: "md",
@@ -54,8 +54,8 @@ export function useDialog(_a) {
     }, [returnFocusEl, open, isTrapPaused, initialFocusEl]);
     useEffect(function () {
         var ref = dialogContainerRef.current;
-        ref === null || ref === void 0 ? void 0 : ref.classList.add(dialogContainerClassname + "--open");
-        return function () { return ref === null || ref === void 0 ? void 0 : ref.classList.remove(dialogContainerClassname + "--open"); };
+        ref === null || ref === void 0 ? void 0 : ref.classList.add("".concat(dialogContainerClassname, "--open"));
+        return function () { return ref === null || ref === void 0 ? void 0 : ref.classList.remove("".concat(dialogContainerClassname, "--open")); };
     });
     var getDialogRootProps = useCallback(function () {
         return {
@@ -66,8 +66,8 @@ export function useDialog(_a) {
         var _a;
         return {
             ref: dialogContainerRef,
-            className: classNames(dialogContainerClassname, dialogContainerClassname + "-" + uniqueSuffixRef.current, getDialogSize(size), getDialogPosition(position), (_a = {},
-                _a[dialogContainerClassname + "--backdrop-none"] = !backdrop,
+            className: classNames(dialogContainerClassname, "".concat(dialogContainerClassname, "-").concat(uniqueSuffixRef.current), getDialogSize(size), getDialogPosition(position), (_a = {},
+                _a["".concat(dialogContainerClassname, "--backdrop-none")] = !backdrop,
                 _a)),
             role: dialogRole,
             'aria-modal': true,
@@ -79,7 +79,7 @@ export function useDialog(_a) {
         return {
             ref: dialogRef,
             tabIndex: -1,
-            className: classNames(dialogContainerClassname + "__el", dialogClassName),
+            className: classNames("".concat(dialogContainerClassname, "__el"), dialogClassName),
         };
     }, [dialogClassName]);
     useEffect(function () {
@@ -107,14 +107,14 @@ var sizeKeys = Object.keys(sizeClasses);
 function getDialogSize(size) {
     if (size === void 0) { size = "medium"; }
     if (sizeKeys.includes(size)) {
-        return dialogContainerClassname + "--" + sizeClasses[size];
+        return "".concat(dialogContainerClassname, "--").concat(sizeClasses[size]);
     }
     return "";
 }
 function getDialogPosition(position) {
     if (position === void 0) { position = "center"; }
     var getPositionClass = function (axis, position) {
-        return position === "center" ? "center-" + axis : position;
+        return position === "center" ? "center-".concat(axis) : position;
     };
     // Test cases, in a loop in the function, via a map
     // "top left" => .h-dialog--top.h-dialog--left
@@ -128,10 +128,10 @@ function getDialogPosition(position) {
     // "bottom right" => .h-dialog--bottom.h-dialog--right
     var _a = position.toLowerCase().split(" "), y = _a[0], x = _a[1];
     if (!x) {
-        return dialogContainerClassname + "--" + y;
+        return "".concat(dialogContainerClassname, "--").concat(y);
     }
     else {
-        return dialogContainerClassname + "--" + getPositionClass("y", y) + " " + dialogContainerClassname + "--" + getPositionClass("x", x);
+        return "".concat(dialogContainerClassname, "--").concat(getPositionClass("y", y), " ").concat(dialogContainerClassname, "--").concat(getPositionClass("x", x));
     }
 }
 //# sourceMappingURL=useDialog.js.map
