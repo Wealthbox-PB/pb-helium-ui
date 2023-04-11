@@ -18,7 +18,9 @@ interface PortalProps {
 const Portal = ({ children, selector, className = `` }: PortalProps) => {
   const el = useMemo(() => {
     const div = document.createElement(`div`);
-    div.className = className;
+    if (className.length) {
+      div.className = className;
+    }
     return div;
   }, [className]);
 
