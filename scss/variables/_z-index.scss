@@ -1,0 +1,30 @@
+
+//==========================================================================
+//  Z-Index Variables
+//==========================================================================
+
+//  Layers
+//==========================================================================
+
+$h-z-index-base: 1000;
+$h-z-index-1: $h-z-index-base + 1;
+$h-z-index-2: $h-z-index-base + 2;
+$h-z-index-3: $h-z-index-base + 3;
+$h-z-index-4: $h-z-index-base + 4;
+$h-z-index-5: $h-z-index-base + 5;
+
+//  Semantic Names
+//==========================================================================
+
+$h-z-index-semantic: (
+  floating-ui: $h-z-index-1,
+  modals: $h-z-index-2,
+  popovers: $h-z-index-3,
+  dropdowns: $h-z-index-4,
+  tooltips: $h-z-index-5,
+);
+$h-z-index-floating-ui: map-get($h-z-index-semantic, floating-ui);
+$h-z-index-modals: map-get($h-z-index-semantic, modals);
+$h-z-index-popovers: map-get($h-z-index-semantic, popovers);
+$h-z-index-dropdowns: map-get($h-z-index-semantic, dropdowns);
+$h-z-index-tooltips: map-get($h-z-index-semantic, tooltips);
