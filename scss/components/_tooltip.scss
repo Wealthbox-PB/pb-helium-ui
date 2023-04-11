@@ -2,10 +2,6 @@
 //  Tooltip
 //==========================================================================
 
-$h-tooltip-color-background: rgba($h-black, 0.95) !default;
-$h-tooltip-color-text: $h-white !default;
-$h-tooltip-arrow-size: 6px !default;
-
 //  Base
 //==========================================================================
 
@@ -15,9 +11,9 @@ $h-tooltip-arrow-size: 6px !default;
   left: 0;
   max-width: 10rem;
   padding: 0.425rem 0.5rem;
-  background-color: $h-tooltip-color-background;
+  background-color: $h-color-background-tooltip;
   border-radius: $h-border-radius;
-  color: $h-tooltip-color-text;
+  color: $h-color-text-tooltip;
   font-size: $h-font-size-sm;
   line-height: $h-line-height-heading;
   text-align: center;
@@ -31,33 +27,33 @@ $h-tooltip-arrow-size: 6px !default;
   &--top,
   &--top-start,
   &--top-end {
-    border-top: $h-tooltip-arrow-size solid $h-tooltip-color-background;
-    border-right: $h-tooltip-arrow-size solid transparent;
-    border-left: $h-tooltip-arrow-size solid transparent;
+    border-top: $h-arrow-size-tooltip solid $h-color-background-tooltip;
+    border-right: $h-arrow-size-tooltip solid transparent;
+    border-left: $h-arrow-size-tooltip solid transparent;
   }
 
   &--right,
   &--right-start,
   &--right-end {
-    border-top: $h-tooltip-arrow-size solid transparent;
-    border-right: $h-tooltip-arrow-size solid $h-tooltip-color-background;
-    border-bottom: $h-tooltip-arrow-size solid transparent;
+    border-top: $h-arrow-size-tooltip solid transparent;
+    border-right: $h-arrow-size-tooltip solid $h-color-background-tooltip;
+    border-bottom: $h-arrow-size-tooltip solid transparent;
   }
 
   &--bottom,
   &--bottom-start,
   &--bottom-end {
-    border-right: $h-tooltip-arrow-size solid transparent;
-    border-bottom: $h-tooltip-arrow-size solid $h-tooltip-color-background;
-    border-left: $h-tooltip-arrow-size solid transparent;
+    border-right: $h-arrow-size-tooltip solid transparent;
+    border-bottom: $h-arrow-size-tooltip solid $h-color-background-tooltip;
+    border-left: $h-arrow-size-tooltip solid transparent;
   }
 
   &--left,
   &--left-start,
   &--left-end {
-    border-top: $h-tooltip-arrow-size solid transparent;
-    border-bottom: $h-tooltip-arrow-size solid transparent;
-    border-left: $h-tooltip-arrow-size solid $h-tooltip-color-background;
+    border-top: $h-arrow-size-tooltip solid transparent;
+    border-bottom: $h-arrow-size-tooltip solid transparent;
+    border-left: $h-arrow-size-tooltip solid $h-color-background-tooltip;
   }
 }
 

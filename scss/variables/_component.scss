@@ -160,3 +160,13 @@ $h-border-radius-switch: calc($h-height-switch / 2);
 
 // Animation
 $h-animation-duration-switch: $h-animation-duration-sm;
+
+// Tooltip
+//==========================================================================
+
+// Box Model
+$h-size-tooltip-arrow: 0.75rem !default;
+
+// Color
+$h-color-background-tooltip: rgba($h-black, 0.95) !default;
+$h-color-text-tooltip: $h-white !default;
