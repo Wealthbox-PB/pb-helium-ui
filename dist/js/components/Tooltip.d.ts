@@ -6,7 +6,7 @@ interface TooltipProps {
     placement?: Placement;
     children: JSX.Element;
     boundary?: string;
-    width?: `base` | `lg` | `full`;
+    width?: `base` | `wide` | `full`;
 }
 export declare const Tooltip: ({ children, title, placement, width, arrow, boundary, }: TooltipProps) => JSX.Element;
 export {};

@@ -25,7 +25,7 @@ interface TooltipProps {
   placement?: Placement;
   children: JSX.Element;
   boundary?: string;
-  width?: `base` | `lg` | `full`;
+  width?: `base` | `wide` | `full`;
 }
 
 export const Tooltip = ({
