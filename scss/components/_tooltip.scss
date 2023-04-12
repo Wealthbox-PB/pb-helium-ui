@@ -27,33 +27,33 @@
   &--top,
   &--top-start,
   &--top-end {
-    border-top: $h-arrow-size-tooltip solid $h-color-background-tooltip;
-    border-right: $h-arrow-size-tooltip solid transparent;
-    border-left: $h-arrow-size-tooltip solid transparent;
+    border-top: $h-size-tooltip-arrow solid $h-color-background-tooltip;
+    border-right: $h-size-tooltip-arrow solid transparent;
+    border-left: $h-size-tooltip-arrow solid transparent;
   }
 
   &--right,
   &--right-start,
   &--right-end {
-    border-top: $h-arrow-size-tooltip solid transparent;
-    border-right: $h-arrow-size-tooltip solid $h-color-background-tooltip;
-    border-bottom: $h-arrow-size-tooltip solid transparent;
+    border-top: $h-size-tooltip-arrow solid transparent;
+    border-right: $h-size-tooltip-arrow solid $h-color-background-tooltip;
+    border-bottom: $h-size-tooltip-arrow solid transparent;
   }
 
   &--bottom,
   &--bottom-start,
   &--bottom-end {
-    border-right: $h-arrow-size-tooltip solid transparent;
-    border-bottom: $h-arrow-size-tooltip solid $h-color-background-tooltip;
-    border-left: $h-arrow-size-tooltip solid transparent;
+    border-right: $h-size-tooltip-arrow solid transparent;
+    border-bottom: $h-size-tooltip-arrow solid $h-color-background-tooltip;
+    border-left: $h-size-tooltip-arrow solid transparent;
   }
 
   &--left,
   &--left-start,
   &--left-end {
-    border-top: $h-arrow-size-tooltip solid transparent;
-    border-bottom: $h-arrow-size-tooltip solid transparent;
-    border-left: $h-arrow-size-tooltip solid $h-color-background-tooltip;
+    border-top: $h-size-tooltip-arrow solid transparent;
+    border-bottom: $h-size-tooltip-arrow solid transparent;
+    border-left: $h-size-tooltip-arrow solid $h-color-background-tooltip;
   }
 }
 
