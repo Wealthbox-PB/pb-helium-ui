@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `Tooltip` component
+- Added `Badge` component
+- Added bootstrap `height` utility classes
 - Added new `table` svg icon asset
 - Added new `table-chart` svg icon asset
 - Added new `bar-chart` svg icon asset
