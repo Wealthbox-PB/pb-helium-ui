@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.24] - 2023-04-12
+
+### Added
+
+- Added `Tooltip` component
+- Added `Badge` component
+- Added Bootstrap `height` utility classes
+- Added new `table` svg icon asset
+- Added new `table-chart` svg icon asset
+- Added new `bar-chart` svg icon asset
+- Added `svgo` package for svg asset compression
+- Added support for Yarn 3
+
+### Changed
+
+- Updated `package.lock` with a `resolution` for `@types/react`
+- Updated `yarn.lock` file with several dependency updates
+- Recompiled icon font
+
 ## [2.0.23] - 2023-02-23
 
 ### Added

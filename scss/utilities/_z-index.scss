@@ -1,0 +1,18 @@
+//==========================================================================
+//  Z-Index Utilities
+//==========================================================================
+
+//  Z-Index Helper Classes
+//==========================================================================
+
+@for $i from 1 through 6 {
+  .h-z-index-#{"" + $i} {
+    z-index: $h-z-index-base + $i !important;
+  }
+}
+
+@each $key, $val in $h-z-index-semantic {
+  .h-z-index-#{"" + $key} {
+    z-index: $val !important;
+  }
+}
