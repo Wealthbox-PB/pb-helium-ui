@@ -130,11 +130,25 @@
       & > .h-table__row {
         background: $h-color-background-shared-component;
 
+        &.h-table__row--hover {
+          &:hover,
+          &:focus-within {
+            background: $h-color-background-active;
+          }
+        }
+
         & > th,
         & > .h-table__heading,
         & > td,
         & > .h-table__data {
           border-top: 1px solid $h-color-border-shared-component;
+
+          &.h-table__data--hover {
+            &:hover,
+            &:focus-within {
+              background: $h-color-background-active;
+            }
+          }
         }
 
         &:first-child {
@@ -690,14 +704,6 @@
             }
           }
         }
-      }
-    }
-
-    .h-table__row--hover,
-    .h-table__cell--hover {
-      &:hover,
-      &:focus-within {
-        background: $h-color-background-active;
       }
     }
 
