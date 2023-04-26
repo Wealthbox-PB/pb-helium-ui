@@ -29,7 +29,7 @@ export var Tooltip = function (_a) {
                 boundary: boundary ? document.querySelector(boundary) : "clippingAncestors",
             }),
             shift({ padding: 4 }),
-            middlewareArrow({ element: arrowRef, padding: 8 }),
+            middlewareArrow({ element: arrowRef, padding: 4 }),
         ],
         whileElementsMounted: autoUpdate,
     }), x = _h.x, y = _h.y, reference = _h.reference, floating = _h.floating, strategy = _h.strategy, context = _h.context, currentPlacement = _h.placement, _j = _h.middlewareData.arrow, _k = _j === void 0 ? {} : _j, arrowX = _k.x, arrowY = _k.y;
@@ -55,13 +55,14 @@ export var Tooltip = function (_a) {
                 style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : "", left: x !== null && x !== void 0 ? x : "" }, styles),
             })),
                 Parser(title),
-                arrow ? (React.createElement("div", { className: classNames("h-tooltip__arrow", "h-tooltip__arrow--".concat(currentPlacement)), ref: arrowRef, style: (_c = {
-                            left: arrowX != null ? "".concat(arrowX, "px") : "",
-                            top: arrowY != null ? "".concat(arrowY, "px") : "",
-                            right: "",
-                            bottom: ""
-                        },
-                        _c[staticSide] = "-6px",
-                        _c) })) : null))) : null));
+                arrow ? (React.createElement(React.Fragment, null,
+                    React.createElement("div", { className: classNames("h-tooltip__arrow", "h-tooltip__arrow--".concat(currentPlacement)), ref: arrowRef, style: (_c = {
+                                left: arrowX != null ? "".concat(arrowX, "px") : "",
+                                top: arrowY != null ? "".concat(arrowY, "px") : "",
+                                right: "",
+                                bottom: ""
+                            },
+                            _c[staticSide] = "-6px",
+                            _c) }))) : null))) : null));
 };
 //# sourceMappingURL=Tooltip.js.map

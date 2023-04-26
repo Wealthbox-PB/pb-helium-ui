@@ -58,7 +58,7 @@ export const Tooltip = ({
         boundary: boundary ? (document.querySelector(boundary) as Boundary) : `clippingAncestors`,
       }),
       shift({ padding: 4 }),
-      middlewareArrow({ element: arrowRef, padding: 8 }),
+      middlewareArrow({ element: arrowRef, padding: 4 }),
     ],
     whileElementsMounted: autoUpdate,
   });
@@ -98,17 +98,19 @@ export const Tooltip = ({
           >
             {Parser(title)}
             {arrow ? (
-              <div
-                className={classNames(`h-tooltip__arrow`, `h-tooltip__arrow--${currentPlacement}`)}
-                ref={arrowRef}
-                style={{
-                  left: arrowX != null ? `${arrowX}px` : ``,
-                  top: arrowY != null ? `${arrowY}px` : ``,
-                  right: ``,
-                  bottom: ``,
-                  [staticSide]: `-6px`,
-                }}
-              ></div>
+              <>
+                <div
+                  className={classNames(`h-tooltip__arrow`, `h-tooltip__arrow--${currentPlacement}`)}
+                  ref={arrowRef}
+                  style={{
+                    left: arrowX != null ? `${arrowX}px` : ``,
+                    top: arrowY != null ? `${arrowY}px` : ``,
+                    right: ``,
+                    bottom: ``,
+                    [staticSide]: `-6px`,
+                  }}
+                ></div>
+              </>
             ) : null}
           </div>
         </Portal>
