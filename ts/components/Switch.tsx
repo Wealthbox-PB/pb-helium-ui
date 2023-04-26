@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import classNames from 'classnames';
 import { Switch as HeadlessUiSwitch } from '@headlessui/react';
 
@@ -8,7 +8,7 @@ interface SwitchProps {
   disabled?: boolean;
   name?: string;
   variant?: `primary` | `positive`;
-  onChange?: (e) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement> | boolean) => void;
 }
 
 export const Switch = ({
