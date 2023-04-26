@@ -16,13 +16,13 @@ import Parser from 'html-react-parser';
 import { Portal } from './Portal';
 export var Tooltip = function (_a) {
     var _b, _c;
-    var children = _a.children, title = _a.title, _d = _a.placement, placement = _d === void 0 ? "top" : _d, _e = _a.width, width = _e === void 0 ? "base" : _e, _f = _a.arrow, arrow = _f === void 0 ? true : _f, boundary = _a.boundary;
-    var _g = useState(false), open = _g[0], setOpen = _g[1];
+    var children = _a.children, title = _a.title, _d = _a.placement, placement = _d === void 0 ? "top" : _d, _e = _a.width, width = _e === void 0 ? "base" : _e, _f = _a.arrow, arrow = _f === void 0 ? true : _f, boundary = _a.boundary, _g = _a.open, open = _g === void 0 ? false : _g;
+    var _h = useState(false), hovered = _h[0], setHovered = _h[1];
     var arrowRef = useRef(null);
-    var _h = useFloating({
+    var _j = useFloating({
         placement: placement,
-        open: open,
-        onOpenChange: setOpen,
+        open: open || hovered,
+        onOpenChange: setHovered,
         middleware: [
             offset(8),
             flip({
@@ -32,23 +32,23 @@ export var Tooltip = function (_a) {
             middlewareArrow({ element: arrowRef, padding: 4 }),
         ],
         whileElementsMounted: autoUpdate,
-    }), x = _h.x, y = _h.y, reference = _h.reference, floating = _h.floating, strategy = _h.strategy, context = _h.context, currentPlacement = _h.placement, _j = _h.middlewareData.arrow, _k = _j === void 0 ? {} : _j, arrowX = _k.x, arrowY = _k.y;
-    var _l = useInteractions([
+    }), x = _j.x, y = _j.y, reference = _j.reference, floating = _j.floating, strategy = _j.strategy, context = _j.context, currentPlacement = _j.placement, _k = _j.middlewareData.arrow, _l = _k === void 0 ? {} : _k, arrowX = _l.x, arrowY = _l.y;
+    var _m = useInteractions([
         useHover(context),
         useFocus(context),
         useRole(context, { role: "tooltip" }),
         useDismiss(context),
-    ]), getReferenceProps = _l.getReferenceProps, getFloatingProps = _l.getFloatingProps;
+    ]), getReferenceProps = _m.getReferenceProps, getFloatingProps = _m.getFloatingProps;
     var staticSide = {
         top: "bottom",
         right: "left",
         bottom: "top",
         left: "right",
     }[currentPlacement.split("-")[0]];
-    var _m = useTransitionStyles(context), isMounted = _m.isMounted, styles = _m.styles;
+    var _o = useTransitionStyles(context), isMounted = _o.isMounted, styles = _o.styles;
     return (React.createElement(React.Fragment, null,
         cloneElement(children, getReferenceProps(__assign({ ref: reference }, children.props))),
-        open && isMounted ? (React.createElement(Portal, { className: "h-floating-ui h-floating-ui--tooltips" },
+        isMounted ? (React.createElement(Portal, { className: "h-floating-ui h-floating-ui--tooltips" },
             React.createElement("div", __assign({}, getFloatingProps({
                 ref: floating,
                 className: classNames("h-tooltip", (_b = {}, _b["h-tooltip--".concat(width)] = width, _b)),
