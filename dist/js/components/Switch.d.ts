@@ -1,4 +1,3 @@
-import React from 'react';
 interface SwitchProps {
     ariaLabel?: string;
     defaultValue?: boolean;
@@ -7,5 +6,5 @@ interface SwitchProps {
     variant?: `primary` | `positive`;
     onChange?: (e: any) => void;
 }
-declare const SwitchRef: React.ForwardRefExoticComponent<SwitchProps & React.RefAttributes<unknown>>;
-export { SwitchRef as Switch };
+export declare const Switch: ({ ariaLabel, defaultValue, disabled, name, variant, onChange, }: SwitchProps) => JSX.Element;
+export {};

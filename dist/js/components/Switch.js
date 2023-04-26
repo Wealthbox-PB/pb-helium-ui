@@ -1,11 +1,11 @@
-import React, { forwardRef, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { Switch as HeadlessUiSwitch } from '@headlessui/react';
-var Switch = function (_a, ref) {
+export var Switch = function (_a) {
     var ariaLabel = _a.ariaLabel, _b = _a.defaultValue, defaultValue = _b === void 0 ? false : _b, _c = _a.disabled, disabled = _c === void 0 ? false : _c, name = _a.name, _d = _a.variant, variant = _d === void 0 ? "primary" : _d, onChange = _a.onChange;
     var _e = useState(defaultValue), on = _e[0], setOn = _e[1];
     return (React.createElement(React.Fragment, null,
-        React.createElement("input", { type: "hidden", name: name, value: on.toString(), "data-testid": "h-switch-hidden-input", ref: ref }),
+        React.createElement("input", { type: "hidden", name: name, value: on.toString(), "data-testid": "h-switch-hidden-input" }),
         React.createElement(HeadlessUiSwitch, { disabled: disabled, checked: on, onChange: function (e) {
                 onChange === null || onChange === void 0 ? void 0 : onChange(e);
                 setOn(!on);
@@ -21,6 +21,4 @@ var setAriaLabel = function (ariaLabel, on) {
     }
     return on ? "On" : "Off";
 };
-var SwitchRef = forwardRef(Switch);
-export { SwitchRef as Switch };
 //# sourceMappingURL=Switch.js.map

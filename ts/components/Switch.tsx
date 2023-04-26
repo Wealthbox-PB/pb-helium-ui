@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { Switch as HeadlessUiSwitch } from '@headlessui/react';
 
@@ -11,15 +11,19 @@ interface SwitchProps {
   onChange?: (e) => void;
 }
 
-const Switch = (
-  { ariaLabel, defaultValue = false, disabled = false, name, variant = `primary`, onChange }: SwitchProps,
-  ref
-) => {
+export const Switch = ({
+  ariaLabel,
+  defaultValue = false,
+  disabled = false,
+  name,
+  variant = `primary`,
+  onChange,
+}: SwitchProps) => {
   const [on, setOn] = useState(defaultValue);
 
   return (
     <>
-      <input type="hidden" name={name} value={on.toString()} data-testid="h-switch-hidden-input" ref={ref} />
+      <input type="hidden" name={name} value={on.toString()} data-testid="h-switch-hidden-input" />
       <HeadlessUiSwitch
         disabled={disabled}
         checked={on}
@@ -45,6 +49,3 @@ const setAriaLabel = (ariaLabel: string | undefined, on: boolean): string => {
 
   return on ? `On` : `Off`;
 };
-
-const SwitchRef = forwardRef(Switch);
-export { SwitchRef as Switch };
