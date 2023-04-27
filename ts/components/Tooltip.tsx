@@ -100,19 +100,17 @@ export const Tooltip = ({
           >
             {Parser(title)}
             {arrow ? (
-              <>
-                <div
-                  className={classNames(`h-tooltip__arrow`, `h-tooltip__arrow--${currentPlacement}`)}
-                  ref={arrowRef}
-                  style={{
-                    left: arrowX != null ? `${arrowX}px` : ``,
-                    top: arrowY != null ? `${arrowY}px` : ``,
-                    right: ``,
-                    bottom: ``,
-                    [staticSide]: `-6px`,
-                  }}
-                ></div>
-              </>
+              <div
+                className={classNames(`h-tooltip__arrow`, `h-tooltip__arrow--${currentPlacement}`)}
+                ref={arrowRef}
+                style={{
+                  left: arrowX != null ? `${arrowX}px` : ``,
+                  top: arrowY != null ? `${arrowY}px` : ``,
+                  right: ``,
+                  bottom: ``,
+                  [staticSide]: `-6px`,
+                }}
+              ></div>
             ) : null}
           </div>
         </Portal>
