@@ -50,8 +50,16 @@
 
 .h-dialog--xl {
   .h-dialog__el {
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lg) {
       width: $h-dialog-width-desktop-xl;
+    }
+  }
+}
+
+.h-dialog--xxl {
+  .h-dialog__el {
+    @include media-breakpoint-up(xl) {
+      width: $h-dialog-width-desktop-xxl;
     }
   }
 }

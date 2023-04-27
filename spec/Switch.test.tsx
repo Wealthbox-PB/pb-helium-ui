@@ -117,6 +117,19 @@ describe(`<Switch />`, () => {
           expect(screen.getByRole(`switch`, { name: `On` })).toHaveClass(`h-switch--on h-switch--positive`);
         });
       });
+
+      describe(`when the onChange prop is set`, () => {
+        it(`should call the passed function when clicked`, async () => {
+          const onChange = jest.fn();
+          render(<Switch defaultValue={true} onChange={onChange} />);
+
+          userEvent.click(screen.getByRole(`switch`, { name: `On` }));
+
+          await waitFor(() => {
+            expect(onChange).toHaveBeenCalledTimes(1);
+          });
+        });
+      });
     });
   });
 

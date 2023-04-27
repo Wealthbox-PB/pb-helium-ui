@@ -29,6 +29,14 @@
     }
   }
 
+  &.h-table--layout-fixed-lg-up {
+    @include media-breakpoint-up(lg) {
+      & > .h-table__table {
+        table-layout: fixed;
+      }
+    }
+  }
+
   &.h-table--align-middle {
     & > .h-table__table {
       th,
@@ -122,11 +130,25 @@
       & > .h-table__row {
         background: $h-color-background-shared-component;
 
+        &.h-table__row--hover {
+          &:hover,
+          &:focus-within {
+            background: $h-color-background-active;
+          }
+        }
+
         & > th,
         & > .h-table__heading,
         & > td,
         & > .h-table__data {
           border-top: 1px solid $h-color-border-shared-component;
+
+          &.h-table__data--hover {
+            &:hover,
+            &:focus-within {
+              background: $h-color-background-active;
+            }
+          }
         }
 
         &:first-child {
@@ -509,29 +531,15 @@
       overflow: auto;
 
       & > .h-table__table {
-        th,
-        .h-table__heading {
-          position: sticky;
-          z-index: 1;
-          top: 0;
-        }
-
         & > thead,
         & > .h-table__header {
           th,
           .h-table__heading {
+            position: sticky;
+            z-index: 1;
+            top: 0;
             /* stylelint-disable-next-line max-line-length */
             box-shadow: 0 1px 0 0 $h-color-border-shared-component; // Heading border workaround because sticky headers do not maintain their border on scroll
-          }
-        }
-
-        & > tbody,
-        & > .h-table__body {
-          & > th,
-          & > .h-table__heading {
-            left: 0;
-            /* stylelint-disable-next-line max-line-length */
-            box-shadow: 1px 0 0 0 $h-color-border-shared-component; // Heading border workaround because sticky headers do not maintain their border on scroll
           }
         }
       }
@@ -553,6 +561,24 @@
       }
     }
 
+    &.h-table--overflow-x-md-down {
+      @include media-breakpoint-down(lg) {
+        overflow-x: auto;
+
+        & > .h-table__table {
+          table-layout: auto;
+          word-break: normal;
+
+          th,
+          .h-table__heading,
+          td,
+          .h-table__data {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
     &.h-table--hover {
       & > .h-table__table {
         & > tbody,
@@ -563,6 +589,20 @@
             &:focus-within {
               background: $h-color-background-active;
               cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    &.h-table--focus-within {
+      & > .h-table__table {
+        & > tbody,
+        & > .h-table__body {
+          & > tr,
+          & > .h-table__row {
+            &:focus-within {
+              background: $h-color-background-active;
             }
           }
         }
@@ -650,14 +690,6 @@
             }
           }
         }
-      }
-    }
-
-    .h-table__row--hover,
-    .h-table__cell--hover {
-      &:hover,
-      &:focus-within {
-        background: $h-color-background-active;
       }
     }
 

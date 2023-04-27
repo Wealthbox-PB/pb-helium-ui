@@ -12,6 +12,7 @@ const sizeClasses: { [key: string]: string } = {
   medium: `md`,
   large: `lg`,
   xl: `xl`,
+  xxl: `xxl`,
   full: `full-screen`,
 };
 
