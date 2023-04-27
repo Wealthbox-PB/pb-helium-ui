@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "f1041cece4ec0d14861870cb5e8534248d18a0d9e954676bd373913e6e56ff6c",
-    "current": "f1041cece4ec0d14861870cb5e8534248d18a0d9e954676bd373913e6e56ff6c"
+    "previous": "08d2c173152bb9fd08428f94cb52fe9679b0d54dccc55d92b0080899a1b127de",
+    "current": "08d2c173152bb9fd08428f94cb52fe9679b0d54dccc55d92b0080899a1b127de"
   },
   "fonts": [
-    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.ttf",
-    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.svg",
-    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.woff",
-    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.eot",
-    "fonts/helium-icons_f1041cece4ec0d14861870cb5e853424.woff2"
+    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.ttf",
+    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.svg",
+    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.woff",
+    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.eot",
+    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.woff2"
   ],
   "glyphs": {
     "add": {
@@ -1042,6 +1042,18 @@
     "reply-all--lg": {
       "codepoint": 61893,
       "source": "assets/icons/reply-all--lg.svg"
+    },
+    "report": {
+      "codepoint": 62097,
+      "source": "assets/icons/report.svg"
+    },
+    "report-chart": {
+      "codepoint": 62098,
+      "source": "assets/icons/report-chart.svg"
+    },
+    "report-hybrid": {
+      "codepoint": 62099,
+      "source": "assets/icons/report-hybrid.svg"
     },
     "s-aboutme": {
       "codepoint": 61894,
