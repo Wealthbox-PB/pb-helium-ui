@@ -26,6 +26,7 @@ interface TooltipProps {
   children: JSX.Element;
   boundary?: string;
   width?: `base` | `wide` | `full`;
+  open?: boolean;
 }
 
 export const Tooltip = ({
@@ -35,8 +36,9 @@ export const Tooltip = ({
   width = `base`,
   arrow = true,
   boundary,
+  open = false,
 }: TooltipProps) => {
-  const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const arrowRef = useRef(null);
 
   const {
@@ -50,15 +52,15 @@ export const Tooltip = ({
     middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
   } = useFloating({
     placement,
-    open,
-    onOpenChange: setOpen,
+    open: open || hovered,
+    onOpenChange: setHovered,
     middleware: [
       offset(8),
       flip({
         boundary: boundary ? (document.querySelector(boundary) as Boundary) : `clippingAncestors`,
       }),
       shift({ padding: 4 }),
-      middlewareArrow({ element: arrowRef, padding: 8 }),
+      middlewareArrow({ element: arrowRef, padding: 4 }),
     ],
     whileElementsMounted: autoUpdate,
   });
@@ -82,7 +84,7 @@ export const Tooltip = ({
   return (
     <>
       {cloneElement(children, getReferenceProps({ ref: reference, ...children.props }))}
-      {open && isMounted ? (
+      {isMounted ? (
         <Portal className="h-floating-ui h-floating-ui--tooltips">
           <div
             {...getFloatingProps({
