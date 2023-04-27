@@ -11,6 +11,7 @@ var sizeClasses = {
     medium: "md",
     large: "lg",
     xl: "xl",
+    xxl: "xxl",
     full: "full-screen",
 };
 export function useDialog(_a) {
