@@ -531,29 +531,15 @@
       overflow: auto;
 
       & > .h-table__table {
-        th,
-        .h-table__heading {
-          position: sticky;
-          z-index: 1;
-          top: 0;
-        }
-
         & > thead,
         & > .h-table__header {
           th,
           .h-table__heading {
+            position: sticky;
+            z-index: 1;
+            top: 0;
             /* stylelint-disable-next-line max-line-length */
             box-shadow: 0 1px 0 0 $h-color-border-shared-component; // Heading border workaround because sticky headers do not maintain their border on scroll
-          }
-        }
-
-        & > tbody,
-        & > .h-table__body {
-          & > th,
-          & > .h-table__heading {
-            left: 0;
-            /* stylelint-disable-next-line max-line-length */
-            box-shadow: 1px 0 0 0 $h-color-border-shared-component; // Heading border workaround because sticky headers do not maintain their border on scroll
           }
         }
       }
