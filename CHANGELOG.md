@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.25] - 2023-04-28
+
+### Added
+
+- Added new `report` svg icon asset
+- Added new `report-hybrid` svg icon asset
+- Added new `report-chart` svg icon asset
+- Added an `open` prop to `Tooltip` component
+- Added an `onChange` prop to `Switch` component
+- Added new `.h-table--layout-fixed-lg-up` modifier class
+- Added new `.h-table--overflow-x-md-down` modifier class
+- Added new `.h-table--focus-within` modifier class
+
+### Changed
+
+- Fixed `Tooltip` arrow styling and positioning
+- Updated xl `Dialog` size to 800px
+- Updated xxl `Dialog` size to 1140px
+- Recompiled icon font
+
 ## [2.0.24] - 2023-04-12
 
 ### Added
