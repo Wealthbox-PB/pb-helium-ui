@@ -48,9 +48,9 @@ This setup will get us a livereload `crm-web` environment that listens for chang
 
 - `cd` into `[PATH_TO_CRM_WEB]` and run `bin/docker/ds_start.sh`.
 
-  - The first time this runs, it will automatically create a volume for the `yarn` cache folder. This allows us to use `yarn link` inside of the Docker container.
-
 - now run `bin/docker/interactive.sh`
+
+  - When this runs, it will automatically create a volume for the `yarn` cache folder. This allows us to use `yarn link` inside of the Docker container.
 
 - once in interactive, `cd node_modules/react` and `yarn link` to register the `react` package
 
