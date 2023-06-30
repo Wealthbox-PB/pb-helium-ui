@@ -40,23 +40,19 @@ This setup will get us a livereload `crm-web` environment that listens for chang
 
 ##### Starting Development
 
-- `cd` into `docker-utils/wb-docker-sync` and run `./start.sh [PATH_TO_CRM_WEB]`.
-
-  - The first time this runs, it will automatically create a volume for the yarn cache folder. This allows us to use `yarn link` inside of the Docker container.
-
-  - When this is running correctly, you should start to see dots printing in the terminal window.
-
-- In a new window, `cd` into `docker-utils/wb-docker-sync` and run `./start.sh $HELIUM_PATH` to start the `helium-ui` file sync process.
+- in the `$HELIUM_PATH` directory, run `bin/docker/ds_start.sh` to start the `helium-ui` file sync process.
 
   - The first time this runs, it will automatically create a docker volume for `helium-ui`. This allows us to `yarn link` the `helium-ui` package code for local development.
 
   - Make sure you have the `$HELIUM_PATH` variable defined — for help, see the "Initial Setup" section above.
 
-  - When this is running correctly, you should start to see dots printing in the terminal window.
+- `cd` into `[PATH_TO_CRM_WEB]` and run `bin/docker/ds_start.sh`.
 
-- Open a new terminal window, `cd` into `[PATH_TO_CRM_WEB]` and run `bin/docker/interactive.sh`
+  - The first time this runs, it will automatically create a volume for the `yarn` cache folder. This allows us to use `yarn link` inside of the Docker container.
 
-- `cd node_modules/react` and `yarn link` to register the `react` package
+- now run `bin/docker/interactive.sh`
+
+- once in interactive, `cd node_modules/react` and `yarn link` to register the `react` package
 
   - If you encounter errors, try running `yarn install` to make sure your packages are up to date, and you have `react` installed properly.
 
@@ -74,7 +70,7 @@ This setup will get us a livereload `crm-web` environment that listens for chang
 
 - `cd /wealthbox` and `yarn link helium-ui` to create a symlink to Helium UI
 
-- Open a new terminal window, `cd $HELIUM_PATH` and (on your local machine, not in the wealthbox Docker shell) and run `yarn watch` to start auto-building when making changes to JS or CSS files.
+- in a new terminal window, `cd $HELIUM_PATH` and (on your local machine, not in the wealthbox Docker shell) and run `yarn watch` to start auto-building when making changes to JS or CSS files.
 
 - `cd` into `[PATH_TO_CRM_WEB]` and start your server using your preferred command documented [here](https://github.com/starburstlabs/crm-web#running-wealthbox) (e.g. `bin/docker/dev`).
 
