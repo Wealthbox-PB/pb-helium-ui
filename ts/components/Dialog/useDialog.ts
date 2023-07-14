@@ -119,7 +119,7 @@ export function useDialog({
     container?.addEventListener(`modal:close`, handleCloseEvent);
 
     return () => container?.removeEventListener(`modal:close`, handleCloseEvent);
-  }, [dialogContainerRef, closeDialog]);
+  }, [dialogContainerRef, closeDialog, open]);
 
   return {
     getDialogRootProps,

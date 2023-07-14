@@ -88,7 +88,7 @@ export function useDialog(_a) {
         var handleCloseEvent = function () { return closeDialog(); };
         container === null || container === void 0 ? void 0 : container.addEventListener("modal:close", handleCloseEvent);
         return function () { return container === null || container === void 0 ? void 0 : container.removeEventListener("modal:close", handleCloseEvent); };
-    }, [dialogContainerRef, closeDialog]);
+    }, [dialogContainerRef, closeDialog, open]);
     return {
         getDialogRootProps: getDialogRootProps,
         getDialogContainerProps: getDialogContainerProps,

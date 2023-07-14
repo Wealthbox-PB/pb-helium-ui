@@ -67,12 +67,28 @@
 //  Text
 //==========================================================================
 
+.h-link {
+  color: $h-color-link;
+  text-decoration: none;
+
+  &:hover {
+    color: $h-color-link-hover;
+    text-decoration: underline;
+  }
+}
+
 .h-text-decoration-none {
   text-decoration: none !important;
 }
 
 .h-text-decoration-underline {
   text-decoration: underline !important;
+}
+
+.h-text-decoration-underline-hover {
+  &:hover {
+    text-decoration: underline !important;
+  }
 }
 
 .h-user-select-none {
