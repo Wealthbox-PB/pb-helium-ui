@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "08d2c173152bb9fd08428f94cb52fe9679b0d54dccc55d92b0080899a1b127de",
-    "current": "08d2c173152bb9fd08428f94cb52fe9679b0d54dccc55d92b0080899a1b127de"
+    "previous": "74efb7ba7b23afe26c1d414598c8385d0db524756206af8562b479fd3561b1f0",
+    "current": "74efb7ba7b23afe26c1d414598c8385d0db524756206af8562b479fd3561b1f0"
   },
   "fonts": [
-    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.ttf",
-    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.svg",
-    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.woff",
-    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.eot",
-    "fonts/helium-icons_08d2c173152bb9fd08428f94cb52fe96.woff2"
+    "fonts/helium-icons_74efb7ba7b23afe26c1d414598c8385d.ttf",
+    "fonts/helium-icons_74efb7ba7b23afe26c1d414598c8385d.svg",
+    "fonts/helium-icons_74efb7ba7b23afe26c1d414598c8385d.woff",
+    "fonts/helium-icons_74efb7ba7b23afe26c1d414598c8385d.eot",
+    "fonts/helium-icons_74efb7ba7b23afe26c1d414598c8385d.woff2"
   ],
   "glyphs": {
     "add": {
@@ -1010,6 +1010,18 @@
     "question-mark-circle": {
       "codepoint": 62074,
       "source": "assets/icons/question-mark-circle.svg"
+    },
+    "question-mark-circle--filled": {
+      "codepoint": 62100,
+      "source": "assets/icons/question-mark-circle--filled.svg"
+    },
+    "question-mark-circle--filled--lg": {
+      "codepoint": 62101,
+      "source": "assets/icons/question-mark-circle--filled--lg.svg"
+    },
+    "question-mark-circle--filled--sm": {
+      "codepoint": 62102,
+      "source": "assets/icons/question-mark-circle--filled--sm.svg"
     },
     "question-mark-circle--lg": {
       "codepoint": 62075,
