@@ -1,16 +1,17 @@
 {
   "name": "helium-ui",
-  "version": "2.0.28",
+  "version": "2.0.29",
   "description": "Design system and component library for Starburst Labs, Inc.",
   "main": "dist/js/index",
   "types": "dist/js/index.d.ts",
   "repository": "git@github.com:starburstlabs/helium-ui.git",
   "author": [
-    "Trevor Reiff <trevor.reiff@wealthbox.com>",
     "Adam Grossi <adam.grossi@wealthbox.com>",
-    "Michal Kopanski <michal.kopanski@wealthbox.com>",
+    "Jeffrey Bondorew <jeffrey.bondorew@wealthbox.com>",
     "JP Camara <jp.camara@wealthbox.com>",
-    "Kevin Clark <kevin.clark@wealthbox.com>"
+    "Kevin Clark <kevin.clark@wealthbox.com>",
+    "Michal Kopanski <michal.kopanski@wealthbox.com>",
+    "Trevor Reiff <trevor.reiff@wealthbox.com>"
   ],
   "license": "MIT",
   "private": true,
