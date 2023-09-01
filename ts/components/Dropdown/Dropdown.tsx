@@ -14,6 +14,7 @@ import {
   useListNavigation,
   FloatingList,
   FloatingFocusManager,
+  useTypeahead,
 } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
@@ -46,6 +47,7 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
   });
 
   const elementsRef = React.useRef<HTMLElement[]>([]);
+  const labelsRef = React.useRef<(string | null)[]>([]);
 
   const listNavigation = useListNavigation(context, {
     listRef: elementsRef,
@@ -54,10 +56,17 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
     loop: true,
   });
 
+  const typeahead = useTypeahead(context, {
+    listRef: labelsRef,
+    activeIndex,
+    onMatch: setActiveIndex,
+  });
+
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
     useDismiss(context),
     useClick(context),
     listNavigation,
+    typeahead,
   ]);
 
   const dropdownContext = useMemo(() => ({ activeIndex, getItemProps }), [activeIndex, getItemProps]);
@@ -109,7 +118,9 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
                 })}
               >
                 <ul>
-                  <FloatingList elementsRef={elementsRef}>{children}</FloatingList>
+                  <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
+                    {children}
+                  </FloatingList>
                 </ul>
               </div>
             </FloatingFocusManager>

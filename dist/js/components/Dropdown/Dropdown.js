@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
-import { useDismiss, useFloating, useInteractions, useClick, autoUpdate, offset, flip, shift, limitShift, FloatingPortal, useListNavigation, FloatingList, FloatingFocusManager, } from '@floating-ui/react';
+import { useDismiss, useFloating, useInteractions, useClick, autoUpdate, offset, flip, shift, limitShift, FloatingPortal, useListNavigation, FloatingList, FloatingFocusManager, useTypeahead, } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
 var Dropdown = function (_a) {
     var renderOpener = _a.renderOpener, _b = _a.placement, placement = _b === void 0 ? "bottom-end" : _b, children = _a.children;
@@ -26,16 +26,23 @@ var Dropdown = function (_a) {
         onOpenChange: setOpen,
     }), x = _e.x, y = _e.y, _f = _e.refs, setReference = _f.setReference, setFloating = _f.setFloating, strategy = _e.strategy, context = _e.context;
     var elementsRef = React.useRef([]);
+    var labelsRef = React.useRef([]);
     var listNavigation = useListNavigation(context, {
         listRef: elementsRef,
         activeIndex: activeIndex,
         onNavigate: setActiveIndex,
         loop: true,
     });
+    var typeahead = useTypeahead(context, {
+        listRef: labelsRef,
+        activeIndex: activeIndex,
+        onMatch: setActiveIndex,
+    });
     var _g = useInteractions([
         useDismiss(context),
         useClick(context),
         listNavigation,
+        typeahead,
     ]), getReferenceProps = _g.getReferenceProps, getFloatingProps = _g.getFloatingProps, getItemProps = _g.getItemProps;
     var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps }); }, [activeIndex, getItemProps]);
     return (React.createElement(React.Fragment, null,
@@ -74,7 +81,7 @@ var Dropdown = function (_a) {
                         },
                     })),
                         React.createElement("ul", null,
-                            React.createElement(FloatingList, { elementsRef: elementsRef }, children))))))) : null));
+                            React.createElement(FloatingList, { elementsRef: elementsRef, labelsRef: labelsRef }, children))))))) : null));
 };
 export { Dropdown };
 //# sourceMappingURL=Dropdown.js.map

@@ -4,7 +4,7 @@ import { useDropdownContext } from './DropdownContext';
 
 export const DropdownMenuItem = ({ label, onSelect }) => {
   const { activeIndex, getItemProps } = useDropdownContext();
-  const { ref, index } = useListItem();
+  const { ref, index } = useListItem({ label });
 
   const isActive = activeIndex === index;
   return (
