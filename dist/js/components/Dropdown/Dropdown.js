@@ -44,7 +44,7 @@ var Dropdown = function (_a) {
         listNavigation,
         typeahead,
     ]), getReferenceProps = _g.getReferenceProps, getFloatingProps = _g.getFloatingProps, getItemProps = _g.getItemProps;
-    var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps }); }, [activeIndex, getItemProps]);
+    var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, setOpen: setOpen }); }, [activeIndex, getItemProps, setOpen]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference }, getReferenceProps({
             onClick: function (e) {
@@ -63,15 +63,12 @@ var Dropdown = function (_a) {
         }))),
         open ? (React.createElement(DropdownContext.Provider, { value: dropdownContext },
             React.createElement(FloatingPortal, null,
-                React.createElement(FloatingFocusManager, { context: context, modal: false },
+                React.createElement(FloatingFocusManager, { context: context },
                     React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown", { 'd-block': open }), style: {
                             position: strategy,
                             top: y !== null && y !== void 0 ? y : 0,
                             left: x !== null && x !== void 0 ? x : 0,
                         }, role: "menu" }, getFloatingProps({
-                        onClick: function () {
-                            setOpen(false);
-                        },
                         // Pressing tab dismisses the menu due to the modal
                         // focus management on the root menu.
                         onKeyDown: function (event) {

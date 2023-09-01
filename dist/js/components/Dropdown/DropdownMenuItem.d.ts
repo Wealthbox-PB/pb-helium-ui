@@ -1,5 +1,8 @@
 import React from 'react';
-export declare const DropdownMenuItem: ({ label, onSelect }: {
-    label: any;
-    onSelect: any;
-}) => React.JSX.Element;
+interface DropdownMenuItemProps {
+    label: string;
+    onSelect: () => void;
+    variant?: `normal` | `delete`;
+}
+export declare const DropdownMenuItem: ({ label, onSelect, variant }: DropdownMenuItemProps) => React.JSX.Element;
+export {};

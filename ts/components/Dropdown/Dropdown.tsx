@@ -69,7 +69,10 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
     typeahead,
   ]);
 
-  const dropdownContext = useMemo(() => ({ activeIndex, getItemProps }), [activeIndex, getItemProps]);
+  const dropdownContext = useMemo(
+    () => ({ activeIndex, getItemProps, setOpen }),
+    [activeIndex, getItemProps, setOpen]
+  );
 
   return (
     <>
@@ -94,7 +97,7 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
       {open ? (
         <DropdownContext.Provider value={dropdownContext}>
           <FloatingPortal>
-            <FloatingFocusManager context={context} modal={false}>
+            <FloatingFocusManager context={context}>
               <div
                 ref={setFloating}
                 className={classNames(`h-dropdown`, { 'd-block': open })}
@@ -105,9 +108,6 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
                 }}
                 role="menu"
                 {...getFloatingProps({
-                  onClick() {
-                    setOpen(false);
-                  },
                   // Pressing tab dismisses the menu due to the modal
                   // focus management on the root menu.
                   onKeyDown(event) {

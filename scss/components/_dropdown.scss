@@ -14,16 +14,6 @@
   list-style: none;
 }
 
-.h-dropdown__separator {
-  border-bottom: 1px solid $h-color-border-shared-component;
-  margin: 8px -8px;
-}
-
-.h-dropdown--outlined {
-  border: 1px solid $h-color-border-shared-component;
-  box-shadow: none;
-}
-
 .h-dropdown__menu__item button {
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -41,14 +31,24 @@
   transition: 75ms ease-in-out all;
   white-space: nowrap;
   word-wrap: break-word;
+}
 
-  &:hover,
-  &:focus-visible, {
-    background-color: $h-blue-50;
-    color: $h-blue-400;
-  }
+.h-dropdown__menu__item--active button {
+  background-color: $h-blue-50;
+  color: $h-blue-400;
+}
 
-  &:focus-visible {
-    outline: auto;
-  }
+.h-dropdown__menu__item--delete button {
+  background-color: $h-red-50;
+  color: $h-red-400;
+}
+
+.h-dropdown__menu-separator {
+  border-bottom: 1px solid $h-color-border-shared-component;
+  margin: 8px -8px;
+}
+
+.h-dropdown--outlined {
+  border: 1px solid $h-color-border-shared-component;
+  box-shadow: none;
 }
