@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   useDismiss,
   useFloating,
@@ -11,8 +11,12 @@ import {
   shift,
   limitShift,
   FloatingPortal,
+  useListNavigation,
+  FloatingList,
+  FloatingFocusManager,
 } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
+import { DropdownContext } from './DropdownContext';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
@@ -25,6 +29,7 @@ interface DropdownProps {
 
 const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: DropdownProps) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const {
     x,
     y,
@@ -40,7 +45,22 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
     onOpenChange: setOpen,
   });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([useDismiss(context), useClick(context)]);
+  const elementsRef = React.useRef<HTMLElement[]>([]);
+
+  const listNavigation = useListNavigation(context, {
+    listRef: elementsRef,
+    activeIndex,
+    onNavigate: setActiveIndex,
+    loop: true,
+  });
+
+  const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
+    useDismiss(context),
+    useClick(context),
+    listNavigation,
+  ]);
+
+  const dropdownContext = useMemo(() => ({ activeIndex, getItemProps }), [activeIndex, getItemProps]);
 
   return (
     <>
@@ -63,32 +83,38 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
         }),
       })}
       {open ? (
-        <FloatingPortal>
-          <div
-            ref={setFloating}
-            className={classNames(`h-dropdown`, { 'd-block': open })}
-            style={{
-              position: strategy,
-              top: y ?? 0,
-              left: x ?? 0,
-            }}
-            role="menu"
-            {...getFloatingProps({
-              onClick() {
-                setOpen(false);
-              },
-              // Pressing tab dismisses the menu due to the modal
-              // focus management on the root menu.
-              onKeyDown(event) {
-                if (event.key === `Tab`) {
-                  setOpen(false);
-                }
-              },
-            })}
-          >
-            <ul>{children}</ul>
-          </div>
-        </FloatingPortal>
+        <DropdownContext.Provider value={dropdownContext}>
+          <FloatingPortal>
+            <FloatingFocusManager context={context} modal={false}>
+              <div
+                ref={setFloating}
+                className={classNames(`h-dropdown`, { 'd-block': open })}
+                style={{
+                  position: strategy,
+                  top: y ?? 0,
+                  left: x ?? 0,
+                }}
+                role="menu"
+                {...getFloatingProps({
+                  onClick() {
+                    setOpen(false);
+                  },
+                  // Pressing tab dismisses the menu due to the modal
+                  // focus management on the root menu.
+                  onKeyDown(event) {
+                    if (event.key === `Tab`) {
+                      setOpen(false);
+                    }
+                  },
+                })}
+              >
+                <ul>
+                  <FloatingList elementsRef={elementsRef}>{children}</FloatingList>
+                </ul>
+              </div>
+            </FloatingFocusManager>
+          </FloatingPortal>
+        </DropdownContext.Provider>
       ) : null}
     </>
   );

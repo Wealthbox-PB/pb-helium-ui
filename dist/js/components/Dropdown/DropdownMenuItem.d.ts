@@ -1,5 +1,5 @@
 import React from 'react';
-export declare const DropdownMenuItem: ({ label, onClick }: {
+export declare const DropdownMenuItem: ({ label, onSelect }: {
     label: any;
-    onClick: any;
+    onSelect: any;
 }) => React.JSX.Element;
