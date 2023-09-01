@@ -32,25 +32,25 @@ export var Tooltip = function (_a) {
             middlewareArrow({ element: arrowRef, padding: 4 }),
         ],
         whileElementsMounted: autoUpdate,
-    }), x = _j.x, y = _j.y, reference = _j.reference, floating = _j.floating, strategy = _j.strategy, context = _j.context, currentPlacement = _j.placement, _k = _j.middlewareData.arrow, _l = _k === void 0 ? {} : _k, arrowX = _l.x, arrowY = _l.y;
-    var _m = useInteractions([
+    }), x = _j.x, y = _j.y, _k = _j.refs, setReference = _k.setReference, setFloating = _k.setFloating, strategy = _j.strategy, context = _j.context, currentPlacement = _j.placement, _l = _j.middlewareData.arrow, _m = _l === void 0 ? {} : _l, arrowX = _m.x, arrowY = _m.y;
+    var _o = useInteractions([
         useHover(context),
         useFocus(context),
         useRole(context, { role: "tooltip" }),
         useDismiss(context),
-    ]), getReferenceProps = _m.getReferenceProps, getFloatingProps = _m.getFloatingProps;
+    ]), getReferenceProps = _o.getReferenceProps, getFloatingProps = _o.getFloatingProps;
     var staticSide = {
         top: "bottom",
         right: "left",
         bottom: "top",
         left: "right",
     }[currentPlacement.split("-")[0]];
-    var _o = useTransitionStyles(context), isMounted = _o.isMounted, styles = _o.styles;
+    var _p = useTransitionStyles(context), isMounted = _p.isMounted, styles = _p.styles;
     return (React.createElement(React.Fragment, null,
-        cloneElement(children, getReferenceProps(__assign({ ref: reference }, children.props))),
+        cloneElement(children, getReferenceProps(__assign({ ref: setReference }, children.props))),
         isMounted ? (React.createElement(Portal, { className: "h-floating-ui h-floating-ui--tooltips" },
             React.createElement("div", __assign({}, getFloatingProps({
-                ref: floating,
+                ref: setFloating,
                 className: classNames("h-tooltip", (_b = {}, _b["h-tooltip--".concat(width)] = width, _b)),
                 style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : "", left: x !== null && x !== void 0 ? x : "" }, styles),
             })),

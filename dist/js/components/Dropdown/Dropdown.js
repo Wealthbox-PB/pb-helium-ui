@@ -9,158 +9,46 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-import React, { Children, cloneElement, forwardRef, isValidElement, useEffect, useRef, useState, } from 'react';
-import { useFloating, offset, flip, shift, useListNavigation, useHover, useTypeahead, useInteractions, useRole, useClick, useDismiss, autoUpdate, safePolygon, FloatingPortal, useFloatingTree, useFloatingNodeId, useFloatingParentNodeId, useMergeRefs, FloatingNode, FloatingTree, FloatingFocusManager, } from '@floating-ui/react';
 import classNames from 'classnames';
-// TODO: fix display-name warning
-// eslint-disable-next-line react/display-name
-export var MenuItem = forwardRef(function (_a, ref) {
-    var label = _a.label, disabled = _a.disabled, props = __rest(_a, ["label", "disabled"]);
-    return (React.createElement("button", __assign({}, props, { ref: ref, role: "menuitem", disabled: disabled }), label));
-});
-export var MenuComponent = forwardRef(function (_a, forwardedRef) {
-    var children = _a.children, label = _a.label, trigger = _a.trigger, props = __rest(_a, ["children", "label", "trigger"]);
-    var _b = useState(false), open = _b[0], setOpen = _b[1];
-    var _c = useState(null), activeIndex = _c[0], setActiveIndex = _c[1];
-    var _d = useState(false), allowHover = _d[0], setAllowHover = _d[1];
-    var listItemsRef = useRef([]);
-    function getText(child) {
-        var _a, _b;
-        if (isValidElement(child) && ((_b = (_a = child === null || child === void 0 ? void 0 : child.props) === null || _a === void 0 ? void 0 : _a.children) === null || _b === void 0 ? void 0 : _b.length)) {
-            return getText(child.props.children[0]);
-        }
-        return "".concat(child);
-    }
-    var littleBuddy = Children.map(children, function (child) { return getText(child); });
-    var listContentRef = useRef(littleBuddy);
-    var tree = useFloatingTree();
-    var nodeId = useFloatingNodeId();
-    var parentId = useFloatingParentNodeId();
-    var nested = parentId != null;
-    var _e = useFloating({
+import React, { useState } from 'react';
+import { useDismiss, useFloating, useInteractions, useClick, autoUpdate, offset, flip, shift, limitShift, FloatingPortal, } from '@floating-ui/react';
+var Dropdown = function (_a) {
+    var renderOpener = _a.renderOpener, _b = _a.placement, placement = _b === void 0 ? "bottom-end" : _b, children = _a.children;
+    var _c = useState(false), open = _c[0], setOpen = _c[1];
+    var _d = useFloating({
         open: open,
-        nodeId: nodeId,
-        onOpenChange: setOpen,
-        placement: nested ? "right-start" : "bottom-start",
-        middleware: [offset({ mainAxis: 4, alignmentAxis: nested ? -5 : 0 }), flip(), shift()],
         whileElementsMounted: autoUpdate,
-    }), x = _e.x, y = _e.y, strategy = _e.strategy, refs = _e.refs, context = _e.context;
-    var _f = useInteractions([
-        useHover(context, {
-            handleClose: safePolygon({ restMs: 25 }),
-            enabled: nested && allowHover,
-            delay: { open: 75 },
-        }),
-        useClick(context, {
-            toggle: !nested || !allowHover,
-            event: "mousedown",
-            ignoreMouse: nested,
-        }),
-        useRole(context, { role: "menu" }),
-        useDismiss(context),
-        useListNavigation(context, {
-            listRef: listItemsRef,
-            activeIndex: activeIndex,
-            nested: nested,
-            onNavigate: setActiveIndex,
-        }),
-        useTypeahead(context, {
-            listRef: listContentRef,
-            onMatch: open ? setActiveIndex : undefined,
-            activeIndex: activeIndex,
-        }),
-    ]), getReferenceProps = _f.getReferenceProps, getFloatingProps = _f.getFloatingProps, getItemProps = _f.getItemProps;
-    // Event emitter allows you to communicate across tree components.
-    // This effect closes all menus when an item gets clicked anywhere
-    // in the tree.
-    useEffect(function () {
-        function handleTreeClick() {
-            setOpen(false);
-        }
-        function onSubMenuOpen(event) {
-            if (event.nodeId !== nodeId && event.parentId === parentId) {
-                setOpen(false);
-            }
-        }
-        tree === null || tree === void 0 ? void 0 : tree.events.on("click", handleTreeClick);
-        tree === null || tree === void 0 ? void 0 : tree.events.on("menuopen", onSubMenuOpen);
-        return function () {
-            tree === null || tree === void 0 ? void 0 : tree.events.off("click", handleTreeClick);
-            tree === null || tree === void 0 ? void 0 : tree.events.off("menuopen", onSubMenuOpen);
-        };
-    }, [tree, nodeId, parentId]);
-    useEffect(function () {
-        if (open) {
-            tree === null || tree === void 0 ? void 0 : tree.events.emit("menuopen", {
-                parentId: parentId,
-                nodeId: nodeId,
-            });
-        }
-    }, [tree, open, nodeId, parentId]);
-    // Determine if "hover" logic can run based on the modality of input. This
-    // prevents unwanted focus synchronization as menus open and close with
-    // keyboard navigation and the cursor is resting on the menu.
-    useEffect(function () {
-        function onPointerMove(_a) {
-            var pointerType = _a.pointerType;
-            if (pointerType !== "touch") {
-                setAllowHover(true);
-            }
-        }
-        function onKeyDown() {
-            setAllowHover(false);
-        }
-        window.addEventListener("pointermove", onPointerMove, {
-            once: true,
-            capture: true,
-        });
-        window.addEventListener("keydown", onKeyDown, true);
-        return function () {
-            window.removeEventListener("pointermove", onPointerMove, {
-                capture: true,
-            });
-            window.removeEventListener("keydown", onKeyDown, true);
-        };
-    }, [allowHover]);
-    var referenceRef = useMergeRefs([refs.setReference, forwardedRef]);
-    return (React.createElement(FloatingNode, { id: nodeId },
-        !nested && trigger ? (cloneElement(trigger, getItemProps(__assign({ ref: referenceRef }, getReferenceProps(__assign(__assign({}, props), { className: classNames(trigger.props.className, { open: open }), onClick: function (event) {
-                event.stopPropagation();
-            } })))))) : (React.createElement("button", __assign({ ref: referenceRef }, getReferenceProps(__assign(__assign(__assign({}, props), { className: "".concat(nested ? "MenuItem" : "h-btn h-btn--secondary").concat(open ? " open" : ""), onClick: function (event) {
-                event.stopPropagation();
-            } }), (nested && {
-            // Indicates this is a nested <Menu /> acting as a <MenuItem />.
-            role: "menuitem",
-        })))),
-            label, " ",
-            nested && (React.createElement("span", { "aria-hidden": true, style: { marginLeft: 10 } }, "\u2794")))),
-        React.createElement(FloatingPortal, null, open && (React.createElement(FloatingFocusManager, { context: context, 
-            // Prevent outside content interference.
-            modal: !nested, 
-            // Only initially focus the root floating menu.
-            initialFocus: nested ? -1 : 0, 
-            // Only return focus to the root menu's reference when menus close.
-            returnFocus: !nested, 
-            // Allow touch screen readers to escape the modal root menu
-            // without selecting anything.
-            visuallyHiddenDismiss: true },
-            React.createElement("div", __assign({ ref: refs.setFloating, className: "h-dropdown", style: {
+        placement: placement,
+        strategy: "absolute",
+        middleware: [offset(4), flip(), shift({ padding: 4, limiter: limitShift() })],
+        onOpenChange: setOpen,
+    }), x = _d.x, y = _d.y, _e = _d.refs, setReference = _e.setReference, setFloating = _e.setFloating, strategy = _d.strategy, context = _d.context;
+    var _f = useInteractions([useDismiss(context), useClick(context)]), getReferenceProps = _f.getReferenceProps, getFloatingProps = _f.getFloatingProps;
+    return (React.createElement(React.Fragment, null,
+        renderOpener(__assign({ ref: setReference }, getReferenceProps({
+            onClick: function (e) {
+                setOpen(!open);
+                e.stopPropagation();
+                // Normalize button focus while clicking on Safari.
+                e.currentTarget.focus();
+            },
+            onKeyPress: function (e) {
+                // This stops propagation up to the parent onKeyPress, which then triggers both the onKeyPress and
+                //   the onClick because buttons trigger key presses as clicks
+                e.stopPropagation();
+            },
+            open: open,
+            tabIndex: 0,
+        }))),
+        open ? (React.createElement(FloatingPortal, null,
+            React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown", { 'd-block': open }), style: {
                     position: strategy,
                     top: y !== null && y !== void 0 ? y : 0,
                     left: x !== null && x !== void 0 ? x : 0,
-                    width: "max-content",
-                } }, getFloatingProps({
+                }, role: "menu" }, getFloatingProps({
+                onClick: function () {
+                    setOpen(false);
+                },
                 // Pressing tab dismisses the menu due to the modal
                 // focus management on the root menu.
                 onKeyDown: function (event) {
@@ -168,48 +56,8 @@ export var MenuComponent = forwardRef(function (_a, forwardedRef) {
                         setOpen(false);
                     }
                 },
-            })), Children.map(children, function (child, index) {
-                var _a, _b;
-                return isValidElement(child) && ((_b = (_a = child === null || child === void 0 ? void 0 : child.props) === null || _a === void 0 ? void 0 : _a.children) === null || _b === void 0 ? void 0 : _b.length)
-                    ? parseChildren(child, getItemProps, activeIndex, index, listItemsRef, tree, allowHover, open, setActiveIndex)
-                    : child;
-            })))))));
-});
-// TODO: fix max-params warning
-// eslint-disable-next-line max-params
-function parseChildren(child, getItemProps, activeIndex, index, listItemsRef, tree, allowHover, open, setActiveIndex) {
-    child.props.children.forEach(function (otherChild, i) {
-        child.props.children[i] = cloneElement(otherChild, getItemProps({
-            key: index,
-            tabIndex: activeIndex === index ? 0 : -1,
-            role: "menuitem",
-            className: classNames(otherChild.props.className, "MenuItem"),
-            ref: function (node) {
-                listItemsRef.current[index] = node;
-            },
-            onClick: function (event) {
-                var _a, _b;
-                (_b = (_a = otherChild.props).onClick) === null || _b === void 0 ? void 0 : _b.call(_a, event);
-                tree === null || tree === void 0 ? void 0 : tree.events.emit("click");
-            },
-            // Allow focus synchronization if the cursor did not move.
-            onMouseEnter: function () {
-                if (allowHover && open) {
-                    setActiveIndex(index);
-                }
-            },
-        }));
-    });
-    return child;
-}
-// TODO: fix display-name warning
-// eslint-disable-next-line react/display-name
-export var Dropdown = forwardRef(function (props, ref) {
-    var parentId = useFloatingParentNodeId();
-    if (parentId == null) {
-        return (React.createElement(FloatingTree, null,
-            React.createElement(MenuComponent, __assign({}, props, { ref: ref }))));
-    }
-    return React.createElement(MenuComponent, __assign({}, props, { ref: ref }));
-});
+            })),
+                React.createElement("ul", null, children)))) : null));
+};
+export { Dropdown };
 //# sourceMappingURL=Dropdown.js.map

@@ -1,15 +1,12 @@
-import React, { ReactNode } from 'react';
-interface MenuItemProps {
-    label: string;
-    disabled?: boolean;
+import React from 'react';
+import type { Placement, ReferenceType } from '@floating-ui/react';
+interface RenderOpenerProps {
+    ref: (node: ReferenceType | null) => void;
 }
-export declare const MenuItem: React.ForwardRefExoticComponent<MenuItemProps & React.ButtonHTMLAttributes<HTMLButtonElement> & React.RefAttributes<HTMLButtonElement>>;
-interface MenuProps {
-    label: string;
-    nested?: boolean;
-    children?: ReactNode;
-    trigger?: ReactNode;
+interface DropdownProps {
+    renderOpener: (props: RenderOpenerProps) => React.ReactNode;
+    children: JSX.Element | JSX.Element[];
+    placement?: Placement;
 }
-export declare const MenuComponent: React.ForwardRefExoticComponent<Omit<MenuProps & React.HTMLProps<HTMLButtonElement>, "ref"> & React.RefAttributes<HTMLButtonElement>>;
-export declare const Dropdown: React.ForwardRefExoticComponent<Omit<MenuProps & React.HTMLProps<HTMLButtonElement>, "ref"> & React.RefAttributes<HTMLButtonElement>>;
-export {};
+declare const Dropdown: ({ renderOpener, placement, children }: DropdownProps) => React.JSX.Element;
+export { Dropdown };

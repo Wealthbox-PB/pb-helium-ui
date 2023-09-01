@@ -44,8 +44,7 @@ export const Tooltip = ({
   const {
     x,
     y,
-    reference,
-    floating,
+    refs: { setReference, setFloating },
     strategy,
     context,
     placement: currentPlacement,
@@ -83,12 +82,12 @@ export const Tooltip = ({
 
   return (
     <>
-      {cloneElement(children, getReferenceProps({ ref: reference, ...children.props }))}
+      {cloneElement(children, getReferenceProps({ ref: setReference, ...children.props }))}
       {isMounted ? (
         <Portal className="h-floating-ui h-floating-ui--tooltips">
           <div
             {...getFloatingProps({
-              ref: floating,
+              ref: setFloating,
               className: classNames(`h-tooltip`, { [`h-tooltip--${width}`]: width }),
               style: {
                 position: strategy,
