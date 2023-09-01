@@ -6,7 +6,7 @@ import classNames from 'classnames';
 interface DropdownMenuItemProps {
   label: string;
   onSelect: () => void;
-  variant?: `normal` | `delete`;
+  variant?: `normal` | `negative`;
 }
 
 export const DropdownMenuItem = ({ label, onSelect, variant = `normal` }: DropdownMenuItemProps) => {
@@ -19,7 +19,7 @@ export const DropdownMenuItem = ({ label, onSelect, variant = `normal` }: Dropdo
     <li
       className={classNames(`h-dropdown__menu__item `, {
         'h-dropdown__menu__item--active': isActive,
-        'h-dropdown__menu__item--delete': isActive && variant === `delete`,
+        'h-dropdown__menu__item--negative': isActive && variant === `negative`,
       })}
     >
       <button

@@ -20,7 +20,7 @@ export var DropdownMenuItem = function (_a) {
     var isActive = activeIndex === index;
     return (React.createElement("li", { className: classNames("h-dropdown__menu__item ", {
             'h-dropdown__menu__item--active': isActive,
-            'h-dropdown__menu__item--delete': isActive && variant === "delete",
+            'h-dropdown__menu__item--negative': isActive && variant === "negative",
         }) },
         React.createElement("button", __assign({ ref: ref, tabIndex: isActive ? 0 : -1 }, getItemProps({
             onClick: function () {
