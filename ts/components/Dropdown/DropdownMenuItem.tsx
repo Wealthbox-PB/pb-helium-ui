@@ -5,11 +5,11 @@ import classNames from 'classnames';
 
 interface DropdownMenuItemProps {
   label: string;
-  onSelect: () => void;
+  onClick: () => void;
   variant?: `normal` | `negative`;
 }
 
-export const DropdownMenuItem = ({ label, onSelect, variant = `normal` }: DropdownMenuItemProps) => {
+export const DropdownMenuItem = ({ label, onClick, variant = `normal` }: DropdownMenuItemProps) => {
   const { activeIndex, getItemProps, setOpen } = useDropdownContext();
   const { ref, index } = useListItem({ label });
 
@@ -25,10 +25,11 @@ export const DropdownMenuItem = ({ label, onSelect, variant = `normal` }: Dropdo
       <button
         ref={ref}
         tabIndex={isActive ? 0 : -1}
+        role="menuitem"
         {...getItemProps({
           onClick() {
             setOpen(false);
-            return onSelect();
+            return onClick();
           },
         })}
       >

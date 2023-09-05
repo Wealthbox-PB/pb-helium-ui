@@ -14,7 +14,7 @@ import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 export var DropdownMenuItem = function (_a) {
-    var label = _a.label, onSelect = _a.onSelect, _b = _a.variant, variant = _b === void 0 ? "normal" : _b;
+    var label = _a.label, onClick = _a.onClick, _b = _a.variant, variant = _b === void 0 ? "normal" : _b;
     var _c = useDropdownContext(), activeIndex = _c.activeIndex, getItemProps = _c.getItemProps, setOpen = _c.setOpen;
     var _d = useListItem({ label: label }), ref = _d.ref, index = _d.index;
     var isActive = activeIndex === index;
@@ -22,10 +22,10 @@ export var DropdownMenuItem = function (_a) {
             'h-dropdown__menu__item--active': isActive,
             'h-dropdown__menu__item--negative': isActive && variant === "negative",
         }) },
-        React.createElement("button", __assign({ ref: ref, tabIndex: isActive ? 0 : -1 }, getItemProps({
+        React.createElement("button", __assign({ ref: ref, tabIndex: isActive ? 0 : -1, role: "menuitem" }, getItemProps({
             onClick: function () {
                 setOpen(false);
-                return onSelect();
+                return onClick();
             },
         })), label)));
 };
