@@ -4,8 +4,8 @@ interface RenderOpenerProps {
     ref: (node: ReferenceType | null) => void;
 }
 interface DropdownProps {
-    renderOpener: (props: RenderOpenerProps) => React.ReactNode;
-    children: JSX.Element | JSX.Element[];
+    renderOpener: (props: RenderOpenerProps) => JSX.Element;
+    children: JSX.Element;
     placement?: Placement;
 }
 declare const Dropdown: ({ renderOpener, placement, children }: DropdownProps) => React.JSX.Element;
