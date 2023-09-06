@@ -100,7 +100,7 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
             <FloatingFocusManager context={context}>
               <div
                 ref={setFloating}
-                className={classNames(`h-dropdown`, { 'd-block': open })}
+                className={classNames(`h-dropdown`)}
                 style={{
                   position: strategy,
                   top: y ?? 0,

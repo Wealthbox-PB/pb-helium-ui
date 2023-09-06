@@ -9,7 +9,7 @@
   margin: 0.125rem 0;
   background-color: $h-color-background-shared-component;
   border-radius: $h-border-radius;
-  box-shadow: $h-box-shadow-shared-component;
+  box-shadow: $h-shadow-2;
   font-size: $h-font-size-md;
   list-style: none;
 }
@@ -17,17 +17,13 @@
 .h-dropdown__menu__item button {
   width: 100%;
   padding: 0.375rem 0.75rem;
-  border-bottom: 0;
   background: none;
   border-radius: $h-border-radius;
-  clear: both;
   color: $h-color-text-normal;
   cursor: pointer;
-  filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)";
   font-weight: $h-font-weight-normal;
   line-height: 1.125;
   text-align: left;
-  text-decoration: none !important;
   transition: 75ms ease-in-out all;
   white-space: nowrap;
   word-wrap: break-word;
@@ -46,9 +42,4 @@
 .h-dropdown__menu-separator {
   border-bottom: 1px solid $h-color-border-shared-component;
   margin: 8px -8px;
-}
-
-.h-dropdown--outlined {
-  border: 1px solid $h-color-border-shared-component;
-  box-shadow: none;
 }

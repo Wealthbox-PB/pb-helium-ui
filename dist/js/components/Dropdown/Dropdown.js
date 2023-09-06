@@ -64,7 +64,7 @@ var Dropdown = function (_a) {
         open ? (React.createElement(DropdownContext.Provider, { value: dropdownContext },
             React.createElement(FloatingPortal, null,
                 React.createElement(FloatingFocusManager, { context: context },
-                    React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown", { 'd-block': open }), style: {
+                    React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown"), style: {
                             position: strategy,
                             top: y !== null && y !== void 0 ? y : 0,
                             left: x !== null && x !== void 0 ? x : 0,
