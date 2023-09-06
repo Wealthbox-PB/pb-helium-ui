@@ -2,17 +2,21 @@ import React from 'react';
 interface InputProps {
     autofocus?: boolean;
     disabled?: boolean;
-    iconClass?: string;
     inputClasses?: string;
     label?: string;
+    labelClasses?: string;
+    leftIconClass?: string;
     name?: string;
-    placeholder?: string;
-    type?: `text` | `password | email` | `tel` | `search`;
-    value: string;
     onBlur?: (e: any) => void;
     onChange?: (e: any) => void;
-    onClearSearch?: (e: any) => void;
+    onRightIconClick?: (e: any) => void;
     onFocus?: (e: any) => void;
+    placeholder?: string;
+    rightIconClass?: string;
+    showRightIcon?: boolean;
+    theme?: `light` | `dark`;
+    type?: `text` | `password` | `email` | `tel` | `search`;
+    value: string;
 }
-declare const Input: ({ autofocus, disabled, iconClass, inputClasses, label, name, placeholder, type, value, onBlur, onChange, onClearSearch, onFocus, }: InputProps) => React.JSX.Element;
+declare const Input: ({ autofocus, disabled, leftIconClass, inputClasses, label, labelClasses, name, placeholder, theme, type, value, onBlur, onChange, onFocus, onRightIconClick, showRightIcon, rightIconClass }: InputProps) => React.JSX.Element;
 export { Input };

@@ -1,44 +1,33 @@
 import React from 'react';
+import classNames from 'classnames';
 
 interface ProgressBarProps {
-  currentStep: number;
+  completedSteps: number;
   totalSteps: number;
-  complete?: boolean;
-  label?: string;
-  onClick?: () => void;
+  variant?: `default` | `large`;
 }
 
 const ProgressBar = ({
-  currentStep = 1,
-  totalSteps = 4,
-  complete = false,
-  label,
+  completedSteps,
+  totalSteps,
+  variant = `default`,
 }: ProgressBarProps) => (
   <>
     <div className="d-flex align-items-center">
-      {label ?
-        <div className="pe-2">
-          {label}
-        </div>
-        :
-        null
-      }
       <div className="position-relative flex-grow-1">
         <div
-          style={{ width: `${percentComplete(currentStep, totalSteps, complete)}%` }}
-          className="h-progress-bar-fill position-absolute h-color-background-blue-500"
+          style={{ width: `${percentComplete(completedSteps, totalSteps)}%` }}
+          className={classNames(`h-progress-bar-fill position-absolute h-color-background-blue-500`,
+            `h-progress-bar-${variant}`)}
         ></div>
-        <div className="h-progress-bar"></div>
+        <div className={classNames(`h-progress-bar`, `h-progress-bar-${variant}`)}></div>
       </div>
     </div>
   </>
 );
 
-const percentComplete = (currentStep, totalSteps, complete) => {
-  if (complete) {
-    return 100;
-  }
-  return ((currentStep + ((totalSteps - currentStep) * 0.1)) - 0.5) / totalSteps * 100;
+const percentComplete = (completedSteps, totalSteps) => {
+  return completedSteps / totalSteps * 100;
 };
 
 export { ProgressBar };

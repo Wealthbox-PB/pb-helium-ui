@@ -217,6 +217,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       &:disabled,
       &.disabled,
       &[disabled] {
+        cursor: not-allowed;
         /* stylelint-enable selector-class-pattern */
         &,
         &:focus {
@@ -229,6 +230,12 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
             border-color: $h-color-border-form-element;
             background-color: $h-color-background-form-element-disabled;
             box-shadow: none;
+          }
+        }
+
+        &:active {
+          ~ #{$h-checkbox-radio-selector}__container {
+            transform: none !important;
           }
         }
       }
@@ -617,6 +624,88 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       border-top-right-radius: 0;
     }
   }
+}
+
+.h-input.h-input--lg {
+  height: 2.5rem;
+}
+
+.h-input-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  button {
+    color: $h-gray-500;
+  }
+}
+
+//==========================================================================
+//  Styling for a dark helium input field
+//==========================================================================
+
+.h-input--dark {
+  border-color: $h-blue-600;
+  background-color: $h-blue-600;
+  color: $h-blue-100;
+
+  &::placeholder {
+    color: $h-blue-100;
+  }
+
+  &:focus {
+    border-color: $h-blue-600;
+    background-color: $h-blue-600;
+    box-shadow: $h-box-shadow-size-form-element $h-blue-300;
+    color: $h-white;
+
+    &::placeholder {
+      color: $h-blue-300;
+    }
+  }
+
+  & ~ button {
+    color: $h-blue-200;
+  }
+
+  /* stylelint-disable selector-class-pattern */
+  &:disabled,
+  &.disabled,
+  &[disabled] {
+    /* stylelint-enable selector-class-pattern */
+    border-color: $h-blue-600;
+    background-color: $h-blue-600;
+    box-shadow: none;
+    color: $h-blue-200;
+    opacity: 0.75;
+
+    &::placeholder {
+      color: $h-blue-200;
+    }
+  }
+}
+
+//==========================================================================
+//  Styling for search field
+//==========================================================================
+
+.h-input--pill {
+  padding-right: 2.25rem;
+  padding-left: 2.25rem;
+  border-radius: 1.25rem;
+}
+
+.h-input--icon {
+  padding-left: 2.5rem;
+}
+
+.h-input-icon-left {
+  left: 0.75rem;
+}
+
+.h-input-icon-right {
+  right: 0.75rem;
 }
 
 //  File Inputs

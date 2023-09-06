@@ -1,12 +1,14 @@
 import React from 'react';
 interface RadioButtonProps {
-    name: string;
+    autofocus?: boolean;
     checked: boolean;
+    disabled?: boolean;
+    name: string;
     label: string;
-    size?: `small` | `large`;
-    style?: `default` | `pill`;
     onClick?: () => void;
     onChange?: () => void;
+    size?: `small` | `large`;
+    variant?: `default` | `pill`;
 }
-declare const RadioButton: ({ name, checked, label, size, style, onClick, onChange, }: RadioButtonProps) => React.JSX.Element;
+declare const RadioButton: ({ autofocus, name, disabled, checked, label, size, variant, onClick, onChange, }: RadioButtonProps) => React.JSX.Element;
 export { RadioButton };

@@ -4,33 +4,41 @@ import classNames from 'classnames';
 interface InputProps {
   autofocus?: boolean;
   disabled?: boolean;
-  iconClass?: string;
   inputClasses?: string;
   label?: string;
+  labelClasses?: string;
+  leftIconClass?: string;
   name?: string;
-  placeholder?: string;
-  type?: `text` | `password | email` | `tel` | `search`;
-  value: string;
   onBlur?: (e) => void;
   onChange?: (e) => void;
-  onClearSearch?: (e) => void;
+  onRightIconClick?: (e) => void;
   onFocus?: (e) => void;
+  placeholder?: string;
+  rightIconClass?: string;
+  showRightIcon?: boolean;
+  theme?: `light` | `dark`;
+  type?: `text` | `password` | `email` | `tel` | `search`;
+  value: string;
 }
 
 const Input = ({
   autofocus = false,
   disabled = false,
-  iconClass,
+  leftIconClass,
   inputClasses,
   label,
+  labelClasses,
   name,
   placeholder,
+  theme = `light`,
   type = "text",
   value,
   onBlur,
   onChange,
-  onClearSearch,
   onFocus,
+  onRightIconClick,
+  showRightIcon = true,
+  rightIconClass
 }: InputProps) => {
   const input = useRef<HTMLInputElement | null>(null);
 
@@ -44,23 +52,14 @@ const Input = ({
     <>
       <label className="w-100">
         {label ?
-          <span className="d-inline-block mb-2">{label}</span>
+          <span className={classNames(`d-inline-block mb-2`, labelClasses, {'h-color-text-blue-200' : theme === 'dark'})}>
+            {label}
+          </span>
           :
           null
         }
         <div className="d-flex">
-          <div className="h-input-container">
-            {iconClass ?
-              <span
-                aria-hidden="true"
-                className={classNames(
-                  `position-absolute ml-2 h-icon-search h-input--search__icon h-icon-font-size-md`,
-                  `h-color-text-gray-500`
-                )}
-              ></span>
-              :
-              null
-            }
+          <div className="h-input-container h-color-text-gray-500">
             <input
               disabled={disabled}
               type={type}
@@ -68,20 +67,41 @@ const Input = ({
               role="searchbox"
               name={name}
               aria-label={name}
-              className={classNames(`h-input`, inputClasses)}
+              className={classNames(`h-input`,
+                inputClasses,
+                {
+                  'h-input--icon' : leftIconClass,
+                  'h-input--dark': theme === `dark`,
+                })}
               placeholder={placeholder}
               value={value}
               onChange={onChange}
               onFocus={onFocus}
               onBlur={onBlur}
             ></input>
-            {onClearSearch && value.length > 0 ?
+            {leftIconClass ?
+              <span
+                aria-hidden="true"
+                className={classNames(
+                  `position-absolute ml-2 h-input-icon-left h-icon-font-size-md`
+                  , leftIconClass,
+                  {'h-color-text-blue-200' : theme === 'dark'}
+                )}
+              ></span>
+              :
+              null
+            }
+            {rightIconClass && showRightIcon ?
               <button
                 type="reset"
                 name="Clear Search"
                 aria-label="Clear Search"
-                onClick={onClearSearch}
-                className="ml-2 h-icon-delete h-input__clear-icon h-icon-font-size-md h-color-text-gray-500"
+                onClick={onRightIconClick}
+                className={classNames(
+                  `"ml-2 h-input-icon-right h-icon-font-size-md position-absolute`
+                  , rightIconClass,
+                  {'h-color-text-blue-200' : theme === 'dark'}
+                )}
               ></button>
               :
               null

@@ -1,10 +1,8 @@
 import React from 'react';
 interface ProgressBarProps {
-    currentStep: number;
+    completedSteps: number;
     totalSteps: number;
-    complete?: boolean;
-    label?: string;
-    onClick?: () => void;
+    variant?: `default` | `large`;
 }
-declare const ProgressBar: ({ currentStep, totalSteps, complete, label, }: ProgressBarProps) => React.JSX.Element;
+declare const ProgressBar: ({ completedSteps, totalSteps, variant, }: ProgressBarProps) => React.JSX.Element;
 export { ProgressBar };

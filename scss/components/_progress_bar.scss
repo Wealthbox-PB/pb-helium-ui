@@ -1,0 +1,22 @@
+//==========================================================================
+//  Helium Progress Bar
+//==========================================================================
+
+.h-progress-bar,
+.h-progress-bar-fill {
+  height: 0.5rem;
+  border-radius: $h-border-radius-lg;
+}
+
+.h-progress-bar-large {
+  height: 1rem;
+}
+
+.h-progress-bar {
+  border: 1px solid $h-color-border-shared-component;
+  background-color: $h-color-background-secondary-shared-component;
+}
+
+.h-progress-bar-fill {
+  transition: all 180ms ease-out;
+}

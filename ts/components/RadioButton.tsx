@@ -2,40 +2,46 @@ import React from 'react';
 import classNames from 'classnames';
 
 interface RadioButtonProps {
-  name: string;
+  autofocus?: boolean;
   checked: boolean;
+  disabled?: boolean;
+  name: string;
   label: string;
-  size?: `small` | `large`;
-  style?: `default` | `pill`;
   onClick?: () => void;
   onChange?: () => void;
+  size?: `small` | `large`;
+  variant?: `default` | `pill`;
 }
 
 const RadioButton = ({
+  autofocus = false,
   name,
+  disabled = false,
   checked = false,
   label,
   size = `large`,
-  style = `default`,
+  variant = `default`,
   onClick,
   onChange,
 }: RadioButtonProps) => (
   <>
     <label className={classNames(`h-radio h-radio--animate`, {
-      'h-checkbox--sm': size === `small`,
-      'h-checkbox--lg': size === `large`,
-      'h-radio-pill-button': style === `pill`,
+      'h-radio--sm': size === `small`,
+      'h-radio--lg': size === `large`,
+      'h-radio-pill-button': variant === `pill`,
     })}>
       <input
+        autoFocus={autofocus}
         className="h-radio__elm"
         type="radio"
         name={name}
         checked={checked}
+        disabled={disabled}
         onClick={onClick}
         onChange={onChange}
       />
       <span className="h-radio__container"></span>
-      <span className="h-radio__label ms-2">{label}</span>
+      <span className={classNames(`h-radio__label ms-2`, {'h-color-text-gray-500' : disabled})}>{label}</span>
       <span className="h-radio-pill-button-radio-fill"></span>
     </label>
   </>
