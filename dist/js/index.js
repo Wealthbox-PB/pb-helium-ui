@@ -2,7 +2,6 @@ export { AlertDialog } from './components/Dialog/AlertDialog';
 export { Badge } from './components/Badge';
 export { Input } from './components/Input';
 export { CheckBox } from './components/CheckBox';
-export { ImageButton } from './components/ImageButton';
 export { RadioButton } from './components/RadioButton';
 export { ProgressBar } from './components/ProgressBar';
 export { Button } from './components/Button';

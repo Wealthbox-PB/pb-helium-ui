@@ -13,15 +13,13 @@ const ProgressBar = ({
   variant = `default`,
 }: ProgressBarProps) => (
   <>
-    <div className="d-flex align-items-center">
-      <div className="position-relative flex-grow-1">
-        <div
-          style={{ width: `${percentComplete(completedSteps, totalSteps)}%` }}
-          className={classNames(`h-progress-bar-fill position-absolute h-color-background-blue-500`,
-            `h-progress-bar-${variant}`)}
-        ></div>
-        <div className={classNames(`h-progress-bar`, `h-progress-bar-${variant}`)}></div>
-      </div>
+    <div className="position-relative w-100">
+      <div
+        style={{ width: `${percentComplete(completedSteps, totalSteps)}%` }}
+        className={classNames(`h-progress-bar-fill position-absolute h-color-background-blue-500`,
+          `h-progress-bar-${variant}`)}
+      ></div>
+      <div className={classNames(`h-progress-bar`, `h-progress-bar-${variant}`)}></div>
     </div>
   </>
 );
