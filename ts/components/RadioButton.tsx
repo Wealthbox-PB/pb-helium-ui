@@ -3,9 +3,9 @@ import classNames from 'classnames';
 
 interface RadioButtonProps {
   autofocus?: boolean;
-  checked: boolean;
+  checked?: boolean;
   disabled?: boolean;
-  label: string;
+  label?: string;
   name: string;
   onChange?: () => void;
   onClick?: () => void;
@@ -25,11 +25,13 @@ const RadioButton = ({
   variant = `default`,
 }: RadioButtonProps) => (
   <>
-    <label className={classNames(`h-radio h-radio--animate`, {
-      'h-radio--sm': size === `small`,
-      'h-radio--lg': size === `large`,
-      'h-radio-pill-button': variant === `pill`,
-    })}>
+    <label
+      data-testid="h-radio"
+      className={classNames(`h-radio h-radio--animate`, {
+        'h-radio--sm': size === `small`,
+        'h-radio--lg': size === `large`,
+        'h-radio-pill-button': variant === `pill`,
+      })}>
       <input
         autoFocus={autofocus}
         className="h-radio__elm"

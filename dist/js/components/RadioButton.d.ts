@@ -1,9 +1,9 @@
 import React from 'react';
 interface RadioButtonProps {
     autofocus?: boolean;
-    checked: boolean;
+    checked?: boolean;
     disabled?: boolean;
-    label: string;
+    label?: string;
     name: string;
     onChange?: () => void;
     onClick?: () => void;
