@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-export var DropdownContext = React.createContext({
+import { createContext, useContext } from 'react';
+export var DropdownContext = createContext({
     activeIndex: null,
     getItemProps: function () { return ({}); },
     setOpen: function () { },

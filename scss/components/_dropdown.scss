@@ -9,7 +9,7 @@
   margin: 0.125rem 0;
   background-color: $h-color-background-shared-component;
   border-radius: $h-border-radius;
-  box-shadow: $h-shadow-2;
+  box-shadow: $h-shadow-1;
   font-size: $h-font-size-md;
   list-style: none;
 }
@@ -24,14 +24,14 @@
   font-weight: $h-font-weight-normal;
   line-height: 1.125;
   text-align: left;
-  transition: 75ms ease-in-out all;
+  transition: $h-animation-duration-xs $h-animation-timing-ease-in-out all;
   white-space: nowrap;
   word-wrap: break-word;
 }
 
 .h-dropdown__menu__item--active button {
   background-color: $h-blue-50;
-  color: $h-blue-400;
+  color: $h-color-link-hover;
 }
 
 .h-dropdown__menu__item--negative button {
@@ -41,5 +41,5 @@
 
 .h-dropdown__menu-separator {
   border-bottom: 1px solid $h-color-border-shared-component;
-  margin: 8px -8px;
+  margin: 0.5rem -0.5rem;
 }

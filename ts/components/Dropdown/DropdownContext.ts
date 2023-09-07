@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import { Dispatch, SetStateAction, createContext, useContext } from 'react';
 import { useInteractions } from '@floating-ui/react';
 
 interface DropdownContextType {
   activeIndex: number | null;
   getItemProps: ReturnType<typeof useInteractions>[`getItemProps`];
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export const DropdownContext = React.createContext<DropdownContextType>({
+export const DropdownContext = createContext<DropdownContextType>({
   activeIndex: null,
   getItemProps: () => ({}),
   setOpen: () => {},

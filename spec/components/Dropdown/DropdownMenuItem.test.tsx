@@ -38,7 +38,7 @@ describe(`<DropdownMenuItem />`, () => {
   describe(`props`, () => {
     it(`should render the label`, () => {
       setup();
-      expect(screen.getByText(`One`)).toBeInTheDocument();
+      expect(screen.getByRole(`menuitem`)).toHaveTextContent(`One`);
     });
   });
 

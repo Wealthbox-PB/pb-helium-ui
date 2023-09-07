@@ -21,6 +21,7 @@ import { DropdownContext } from './DropdownContext';
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
 }
+
 interface DropdownProps {
   renderOpener: (props: RenderOpenerProps) => JSX.Element;
   children: JSX.Element | JSX.Element[];
@@ -28,7 +29,7 @@ interface DropdownProps {
 }
 
 const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: DropdownProps) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const {
     x,
