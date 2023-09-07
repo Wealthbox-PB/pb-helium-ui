@@ -23,7 +23,7 @@ interface RenderOpenerProps {
 }
 interface DropdownProps {
   renderOpener: (props: RenderOpenerProps) => JSX.Element;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
   placement?: Placement;
 }
 

@@ -26,7 +26,7 @@ describe(`<Dropdown />`, () => {
   });
 
   describe(`when the renderOpener is clicked`, () => {
-    it(`should render the menu`, async () => {
+    it(`should render and open the menu`, async () => {
       setup();
 
       userEvent.click(screen.getByText(`button`));
