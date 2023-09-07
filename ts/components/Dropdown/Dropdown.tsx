@@ -1,19 +1,18 @@
-import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
 import {
+  autoUpdate,
+  flip,
+  FloatingFocusManager,
+  FloatingList,
+  FloatingPortal,
+  limitShift,
+  offset,
+  shift,
+  useClick,
   useDismiss,
   useFloating,
   useInteractions,
-  useClick,
-  autoUpdate,
-  offset,
-  flip,
-  shift,
-  limitShift,
-  FloatingPortal,
   useListNavigation,
-  FloatingList,
-  FloatingFocusManager,
   useTypeahead,
 } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
@@ -100,7 +99,7 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
             <FloatingFocusManager context={context}>
               <div
                 ref={setFloating}
-                className={classNames(`h-dropdown`)}
+                className="h-dropdown"
                 style={{
                   position: strategy,
                   top: y ?? 0,

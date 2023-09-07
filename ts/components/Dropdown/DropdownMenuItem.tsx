@@ -6,10 +6,10 @@ import classNames from 'classnames';
 interface DropdownMenuItemProps {
   label: string;
   onClick: () => void;
-  variant?: `normal` | `negative`;
+  variant?: `default` | `negative`;
 }
 
-export const DropdownMenuItem = ({ label, onClick, variant = `normal` }: DropdownMenuItemProps) => {
+export const DropdownMenuItem = ({ label, onClick, variant = `default` }: DropdownMenuItemProps) => {
   const { activeIndex, getItemProps, setOpen } = useDropdownContext();
   const { ref, index } = useListItem({ label });
 

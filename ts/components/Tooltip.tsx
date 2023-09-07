@@ -1,20 +1,19 @@
 import React, { cloneElement, useRef, useState } from 'react';
 import {
-  offset,
-  flip,
   arrow as middlewareArrow,
-  shift,
   autoUpdate,
-  useFloating,
-  useInteractions,
-  useHover,
-  useFocus,
-  useRole,
+  flip,
+  offset,
+  shift,
   useDismiss,
+  useFloating,
+  useFocus,
+  useHover,
+  useInteractions,
+  useRole,
   useTransitionStyles,
-  Placement,
-  Boundary,
 } from '@floating-ui/react';
+import type { Boundary, Placement } from '@floating-ui/react';
 import classNames from 'classnames';
 import Parser from 'html-react-parser';
 import { Portal } from './Portal';

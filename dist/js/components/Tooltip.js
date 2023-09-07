@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React, { cloneElement, useRef, useState } from 'react';
-import { offset, flip, arrow as middlewareArrow, shift, autoUpdate, useFloating, useInteractions, useHover, useFocus, useRole, useDismiss, useTransitionStyles, } from '@floating-ui/react';
+import { arrow as middlewareArrow, autoUpdate, flip, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, useRole, useTransitionStyles, } from '@floating-ui/react';
 import classNames from 'classnames';
 import Parser from 'html-react-parser';
 import { Portal } from './Portal';
