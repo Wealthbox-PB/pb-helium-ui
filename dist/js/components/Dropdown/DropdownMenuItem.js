@@ -22,7 +22,7 @@ export var DropdownMenuItem = function (_a) {
             'h-dropdown__menu__item--active': isActive,
             'h-dropdown__menu__item--negative': isActive && variant === "negative",
         }) },
-        React.createElement("button", __assign({ ref: ref, tabIndex: isActive ? 0 : -1, role: "menuitem" }, getItemProps({
+        React.createElement("button", __assign({ className: "h-dropdown__menu__item__cta", ref: ref, tabIndex: isActive ? 0 : -1, role: "menuitem" }, getItemProps({
             onClick: function () {
                 setOpen(false);
                 return onClick();

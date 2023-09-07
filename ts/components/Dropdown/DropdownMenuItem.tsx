@@ -23,6 +23,7 @@ export const DropdownMenuItem = ({ label, onClick, variant = `default` }: Dropdo
       })}
     >
       <button
+        className="h-dropdown__menu__item__cta"
         ref={ref}
         tabIndex={isActive ? 0 : -1}
         role="menuitem"
