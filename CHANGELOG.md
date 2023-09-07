@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added new `DropdownMenuSeparator` component
 - Added specs for `Dropdown`, `DropdownMenuItem`, and `DropdownMenuSeparator`
 - Added a `_dropdown.scss` file
+- Added `$h-box-shadow-secondary-shared-component` variable
+- Added `$h-border-radius-secondary-shared-component` variable
 
 ### Changed
 
