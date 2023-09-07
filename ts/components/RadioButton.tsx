@@ -5,24 +5,24 @@ interface RadioButtonProps {
   autofocus?: boolean;
   checked: boolean;
   disabled?: boolean;
-  name: string;
   label: string;
-  onClick?: () => void;
+  name: string;
   onChange?: () => void;
+  onClick?: () => void;
   size?: `small` | `large`;
   variant?: `default` | `pill`;
 }
 
 const RadioButton = ({
   autofocus = false,
-  name,
-  disabled = false,
   checked = false,
+  disabled = false,
   label,
+  name,
+  onChange,
+  onClick,
   size = `large`,
   variant = `default`,
-  onClick,
-  onChange,
 }: RadioButtonProps) => (
   <>
     <label className={classNames(`h-radio h-radio--animate`, {

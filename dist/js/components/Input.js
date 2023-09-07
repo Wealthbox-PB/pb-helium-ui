@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import classNames from 'classnames';
 var Input = function (_a) {
-    var _b = _a.autofocus, autofocus = _b === void 0 ? false : _b, _c = _a.disabled, disabled = _c === void 0 ? false : _c, leftIconClass = _a.leftIconClass, inputClasses = _a.inputClasses, label = _a.label, labelClasses = _a.labelClasses, name = _a.name, placeholder = _a.placeholder, _d = _a.theme, theme = _d === void 0 ? "light" : _d, _e = _a.type, type = _e === void 0 ? "text" : _e, value = _a.value, onBlur = _a.onBlur, onChange = _a.onChange, onFocus = _a.onFocus, onRightIconClick = _a.onRightIconClick, _f = _a.showRightIcon, showRightIcon = _f === void 0 ? true : _f, rightIconClass = _a.rightIconClass;
+    var _b = _a.autofocus, autofocus = _b === void 0 ? false : _b, _c = _a.disabled, disabled = _c === void 0 ? false : _c, inputClasses = _a.inputClasses, label = _a.label, labelClasses = _a.labelClasses, leftIconClass = _a.leftIconClass, name = _a.name, onBlur = _a.onBlur, onChange = _a.onChange, onFocus = _a.onFocus, onRightIconClick = _a.onRightIconClick, placeholder = _a.placeholder, rightIconClass = _a.rightIconClass, _d = _a.showRightIcon, showRightIcon = _d === void 0 ? true : _d, _e = _a.theme, theme = _e === void 0 ? "light" : _e, _f = _a.type, type = _f === void 0 ? "text" : _f, value = _a.value;
     var input = useRef(null);
     useEffect(function () {
         if (input.current && autofocus) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 var RadioButton = function (_a) {
-    var _b = _a.autofocus, autofocus = _b === void 0 ? false : _b, name = _a.name, _c = _a.disabled, disabled = _c === void 0 ? false : _c, _d = _a.checked, checked = _d === void 0 ? false : _d, label = _a.label, _e = _a.size, size = _e === void 0 ? "large" : _e, _f = _a.variant, variant = _f === void 0 ? "default" : _f, onClick = _a.onClick, onChange = _a.onChange;
+    var _b = _a.autofocus, autofocus = _b === void 0 ? false : _b, _c = _a.checked, checked = _c === void 0 ? false : _c, _d = _a.disabled, disabled = _d === void 0 ? false : _d, label = _a.label, name = _a.name, onChange = _a.onChange, onClick = _a.onClick, _e = _a.size, size = _e === void 0 ? "large" : _e, _f = _a.variant, variant = _f === void 0 ? "default" : _f;
     return (React.createElement(React.Fragment, null,
         React.createElement("label", { className: classNames("h-radio h-radio--animate", {
                 'h-radio--sm': size === "small",

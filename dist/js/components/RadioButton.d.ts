@@ -3,12 +3,12 @@ interface RadioButtonProps {
     autofocus?: boolean;
     checked: boolean;
     disabled?: boolean;
-    name: string;
     label: string;
-    onClick?: () => void;
+    name: string;
     onChange?: () => void;
+    onClick?: () => void;
     size?: `small` | `large`;
     variant?: `default` | `pill`;
 }
-declare const RadioButton: ({ autofocus, name, disabled, checked, label, size, variant, onClick, onChange, }: RadioButtonProps) => React.JSX.Element;
+declare const RadioButton: ({ autofocus, checked, disabled, label, name, onChange, onClick, size, variant, }: RadioButtonProps) => React.JSX.Element;
 export { RadioButton };

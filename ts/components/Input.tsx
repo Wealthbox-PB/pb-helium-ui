@@ -11,8 +11,8 @@ interface InputProps {
   name?: string;
   onBlur?: (e) => void;
   onChange?: (e) => void;
-  onRightIconClick?: (e) => void;
   onFocus?: (e) => void;
+  onRightIconClick?: (e) => void;
   placeholder?: string;
   rightIconClass?: string;
   showRightIcon?: boolean;
@@ -24,21 +24,21 @@ interface InputProps {
 const Input = ({
   autofocus = false,
   disabled = false,
-  leftIconClass,
   inputClasses,
   label,
   labelClasses,
+  leftIconClass,
   name,
-  placeholder,
-  theme = `light`,
-  type = "text",
-  value,
   onBlur,
   onChange,
   onFocus,
   onRightIconClick,
+  placeholder,
+  rightIconClass,
   showRightIcon = true,
-  rightIconClass
+  theme = `light`,
+  type = "text",
+  value
 }: InputProps) => {
   const input = useRef<HTMLInputElement | null>(null);
 
@@ -52,7 +52,7 @@ const Input = ({
     <>
       <label className="w-100">
         {label ?
-          <span className={classNames(`d-inline-block mb-2`, labelClasses, {'h-color-text-blue-200' : theme === 'dark'})}>
+          <span className={classNames(`d-inline-block mb-2`, labelClasses, { 'h-color-text-blue-200': theme === 'dark' })}>
             {label}
           </span>
           :
@@ -70,7 +70,7 @@ const Input = ({
               className={classNames(`h-input`,
                 inputClasses,
                 {
-                  'h-input--icon' : leftIconClass,
+                  'h-input--icon': leftIconClass,
                   'h-input--dark': theme === `dark`,
                 })}
               placeholder={placeholder}
@@ -85,7 +85,7 @@ const Input = ({
                 className={classNames(
                   `position-absolute ml-2 h-input-icon-left h-icon-font-size-md`
                   , leftIconClass,
-                  {'h-color-text-blue-200' : theme === 'dark'}
+                  { 'h-color-text-blue-200': theme === 'dark' }
                 )}
               ></span>
               :
@@ -100,7 +100,7 @@ const Input = ({
                 className={classNames(
                   `"ml-2 h-input-icon-right h-icon-font-size-md position-absolute`
                   , rightIconClass,
-                  {'h-color-text-blue-200' : theme === 'dark'}
+                  { 'h-color-text-blue-200': theme === 'dark' }
                 )}
               ></button>
               :
