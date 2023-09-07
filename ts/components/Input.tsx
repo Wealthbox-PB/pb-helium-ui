@@ -59,7 +59,7 @@ const Input = ({
           null
         }
         <div className="d-flex">
-          <div className="h-input-container h-color-text-gray-500">
+          <div className="h-color-text-gray-500 align-items-center d-flex position-relative w-100">
             <input
               disabled={disabled}
               type={type}
@@ -100,7 +100,10 @@ const Input = ({
                 className={classNames(
                   `"ml-2 h-input-icon-right h-icon-font-size-md position-absolute`
                   , rightIconClass,
-                  { 'h-color-text-blue-200': theme === 'dark' }
+                  {
+                    'h-color-text-blue-200': theme === 'dark',
+                    'h-color-text-gray-500': theme === 'light'
+                  },
                 )}
               ></button>
               :

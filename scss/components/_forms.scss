@@ -638,17 +638,6 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 //  Styling for inputs with icons
 //==========================================================================
 
-.h-input-container {
-  position: relative;
-  display: flex;
-  width: 100%;
-  align-items: center;
-
-  button {
-    color: $h-gray-500;
-  }
-}
-
 .h-input--icon {
   padding-left: 2.5rem;
 }

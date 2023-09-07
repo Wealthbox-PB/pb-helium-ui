@@ -15,7 +15,7 @@ var Input = function (_a) {
                 :
                     null,
             React.createElement("div", { className: "d-flex" },
-                React.createElement("div", { className: "h-input-container h-color-text-gray-500" },
+                React.createElement("div", { className: "h-color-text-gray-500 align-items-center d-flex position-relative w-100" },
                     React.createElement("input", { disabled: disabled, type: type, ref: input, role: "searchbox", name: name, "aria-label": name, className: classNames("h-input", inputClasses, {
                             'h-input--icon': leftIconClass,
                             'h-input--dark': theme === "dark",
@@ -25,7 +25,10 @@ var Input = function (_a) {
                         :
                             null,
                     rightIconClass && showRightIcon ?
-                        React.createElement("button", { type: "reset", name: "Clear Search", "aria-label": "Clear Search", onClick: onRightIconClick, className: classNames("\"ml-2 h-input-icon-right h-icon-font-size-md position-absolute", rightIconClass, { 'h-color-text-blue-200': theme === 'dark' }) })
+                        React.createElement("button", { type: "reset", name: "Clear Search", "aria-label": "Clear Search", onClick: onRightIconClick, className: classNames("\"ml-2 h-input-icon-right h-icon-font-size-md position-absolute", rightIconClass, {
+                                'h-color-text-blue-200': theme === 'dark',
+                                'h-color-text-gray-500': theme === 'light'
+                            }) })
                         :
                             null)))));
 };
