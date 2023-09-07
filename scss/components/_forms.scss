@@ -635,6 +635,16 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 }
 
 //==========================================================================
+//  Styling for 'pill' style input, used on search input fields
+//==========================================================================
+
+.h-input--pill {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border-radius: 1.25rem;
+}
+
+//==========================================================================
 //  Styling for inputs with icons
 //==========================================================================
 
@@ -648,16 +658,6 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
 .h-input-icon-right {
   right: 0.75rem;
-}
-
-//==========================================================================
-//  Styling for 'pill' style input, used on search input fields
-//==========================================================================
-
-.h-input--pill {
-  padding-right: 2.25rem;
-  padding-left: 2.25rem;
-  border-radius: 1.25rem;
 }
 
 //==========================================================================
