@@ -18,5 +18,5 @@
 }
 
 .h-progress-bar-fill {
-  transition: all 180ms ease-out;
+  transition: all $h-animation-duration-sm $h-animation-timing-ease-out;
 }
