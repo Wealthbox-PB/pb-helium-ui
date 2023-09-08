@@ -55,9 +55,9 @@ export var Tooltip = function (_a) {
                 style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : "", left: x !== null && x !== void 0 ? x : "" }, styles),
             })),
                 Parser(title),
-                arrow ? (React.createElement("div", { className: classNames("h-tooltip__arrow", "h-tooltip__arrow--" + currentPlacement), ref: arrowRef, style: (_c = {
-                            left: arrowX != null ? arrowX + "px" : "",
-                            top: arrowY != null ? arrowY + "px" : "",
+                arrow ? (React.createElement("div", { className: classNames("h-tooltip__arrow", "h-tooltip__arrow--".concat(currentPlacement)), ref: arrowRef, style: (_c = {
+                            left: arrowX != null ? "".concat(arrowX, "px") : "",
+                            top: arrowY != null ? "".concat(arrowY, "px") : "",
                             right: "",
                             bottom: ""
                         },

@@ -83,7 +83,7 @@ const Input = ({
               <span
                 aria-hidden="true"
                 className={classNames(
-                  `position-absolute ml-2 h-input-icon-left h-icon-font-size-md`
+                  `position-absolute ml-2 h-position-left-2 ps-1 h-icon-font-size-md`
                   , leftIconClass,
                   { 'h-color-text-blue-200': theme === 'dark' }
                 )}
@@ -98,7 +98,7 @@ const Input = ({
                 aria-label="Clear Search"
                 onClick={onRightIconClick}
                 className={classNames(
-                  `"ml-2 h-input-icon-right h-icon-font-size-md position-absolute`
+                  `"ml-2 h-position-right-2 pe-1 h-icon-font-size-md position-absolute`
                   , rightIconClass,
                   {
                     'h-color-text-blue-200': theme === 'dark',

@@ -1,0 +1,20 @@
+//==========================================================================
+//  Position utility classes
+//==========================================================================
+@each $key, $val in $spacers {
+  .h-position-left-#{$key} {
+    left: $val;
+  }
+
+  .h-position-right-#{$key} {
+    right: $val;
+  }
+
+  .h-position-top-#{$key} {
+    top: $val;
+  }
+
+  .h-position-bottom-#{$key} {
+    bottom: $val;
+  }
+}

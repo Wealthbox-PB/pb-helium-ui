@@ -21,11 +21,11 @@ var Input = function (_a) {
                             'h-input--dark': theme === "dark",
                         }), placeholder: placeholder, value: value, onChange: onChange, onFocus: onFocus, onBlur: onBlur }),
                     leftIconClass ?
-                        React.createElement("span", { "aria-hidden": "true", className: classNames("position-absolute ml-2 h-input-icon-left h-icon-font-size-md", leftIconClass, { 'h-color-text-blue-200': theme === 'dark' }) })
+                        React.createElement("span", { "aria-hidden": "true", className: classNames("position-absolute ml-2 h-position-left-2 ps-1 h-icon-font-size-md", leftIconClass, { 'h-color-text-blue-200': theme === 'dark' }) })
                         :
                             null,
                     rightIconClass && showRightIcon ?
-                        React.createElement("button", { type: "reset", name: "Clear Search", "aria-label": "Clear Search", onClick: onRightIconClick, className: classNames("\"ml-2 h-input-icon-right h-icon-font-size-md position-absolute", rightIconClass, {
+                        React.createElement("button", { type: "reset", name: "Clear Search", "aria-label": "Clear Search", onClick: onRightIconClick, className: classNames("\"ml-2 h-position-right-2 pe-1 h-icon-font-size-md position-absolute", rightIconClass, {
                                 'h-color-text-blue-200': theme === 'dark',
                                 'h-color-text-gray-500': theme === 'light'
                             }) })

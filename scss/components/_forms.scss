@@ -631,7 +631,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 //==========================================================================
 
 .h-input--lg {
-  height: 2.5rem;
+  height: $h-height-form-element-lg;
 }
 
 //==========================================================================
@@ -650,14 +650,6 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
 .h-input--icon {
   padding-left: 2.5rem;
-}
-
-.h-input-icon-left {
-  left: 0.75rem;
-}
-
-.h-input-icon-right {
-  right: 0.75rem;
 }
 
 //==========================================================================
