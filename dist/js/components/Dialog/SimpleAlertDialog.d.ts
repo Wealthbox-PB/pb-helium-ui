@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import { ButtonSize, ButtonVariant } from '../Button';
 interface SimpleAlertDialogProps {
     backdropClassName?: string;
@@ -20,5 +20,5 @@ interface SimpleAlertDialogProps {
     returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
     size?: string;
 }
-export declare const SimpleAlertDialog: ({ backdropClassName, buttonSize, cancel, cancelVariant, children, confirm, confirmVariant, closeInHeader, closeDialog, dialogClassName, header, headerClassName, onCancel, onConfirm, open, position, returnFocusEl, size, }: SimpleAlertDialogProps) => JSX.Element;
+export declare const SimpleAlertDialog: ({ backdropClassName, buttonSize, cancel, cancelVariant, children, confirm, confirmVariant, closeInHeader, closeDialog, dialogClassName, header, headerClassName, onCancel, onConfirm, open, position, returnFocusEl, size, }: SimpleAlertDialogProps) => React.JSX.Element;
 export {};

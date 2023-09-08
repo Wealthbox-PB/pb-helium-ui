@@ -10,7 +10,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "jsx": "react",
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext"
+    ],
     "module": "esnext",
     "outDir": "./dist/js",
     "rootDir": "./ts",
@@ -18,7 +21,10 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/*", "ts/*"]
+      "*": [
+        "node_modules/*",
+        "ts/*"
+      ]
     },
     "sourceMap": true,
     "target": "es5",

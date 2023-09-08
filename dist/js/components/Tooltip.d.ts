@@ -1,5 +1,5 @@
-/// <reference types="react" />
-import { Placement } from '@floating-ui/react';
+import React from 'react';
+import type { Placement } from '@floating-ui/react';
 interface TooltipProps {
     title: string;
     arrow?: boolean;
@@ -9,5 +9,5 @@ interface TooltipProps {
     width?: `base` | `wide` | `full`;
     open?: boolean;
 }
-export declare const Tooltip: ({ children, title, placement, width, arrow, boundary, open, }: TooltipProps) => JSX.Element;
+export declare const Tooltip: ({ children, title, placement, width, arrow, boundary, open, }: TooltipProps) => React.JSX.Element;
 export {};

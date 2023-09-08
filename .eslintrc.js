@@ -29,6 +29,8 @@ module.exports = {
   },
   plugins: [`@typescript-eslint`, `react-hooks`, `jsx-a11y`, `prettier`, `testing-library`, `jest-dom`],
   rules: {
+    'testing-library/render-result-naming-convention': `off`,
+    'testing-library/no-node-access': `off`,
     'react-hooks/rules-of-hooks': `error`,
     'react-hooks/exhaustive-deps': `warn`,
     'jsx-a11y/no-onchange': 0,

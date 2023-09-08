@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [2.1.0] - 2023-09-07
+
+### Added
+
+- Added new `Dropdown` component
+- Added new `DropdownMenuItem` component
+- Added new `DropdownMenuSeparator` component
+- Added specs for `Dropdown`, `DropdownMenuItem`, and `DropdownMenuSeparator`
+- Added a `_dropdown.scss` file
+- Added `$h-box-shadow-secondary-shared-component` variable
+- Added `$h-border-radius-secondary-shared-component` variable
+
+### Changed
+
+- Updated `@floating-ui/react` version to `^0.25.2`
+- Updated `.eslintrc.js` rules for `testing-library`
+  - set `testing-library/render-result-naming-convention` to off
+  - set `testing-library/no-node-access` to off
+- Updated `Tooltip.tsx` imports:
+  - importing `Boundary` and `Placement` as `@floating-ui/react` types instead of components
+
 ## [2.0.29] - 2023-08-22
 
 ### Added

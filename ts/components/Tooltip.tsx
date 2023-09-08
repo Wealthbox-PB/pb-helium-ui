@@ -1,20 +1,19 @@
 import React, { cloneElement, useRef, useState } from 'react';
 import {
-  offset,
-  flip,
   arrow as middlewareArrow,
-  shift,
   autoUpdate,
-  useFloating,
-  useInteractions,
-  useHover,
-  useFocus,
-  useRole,
+  flip,
+  offset,
+  shift,
   useDismiss,
+  useFloating,
+  useFocus,
+  useHover,
+  useInteractions,
+  useRole,
   useTransitionStyles,
-  Placement,
-  Boundary,
 } from '@floating-ui/react';
+import type { Boundary, Placement } from '@floating-ui/react';
 import classNames from 'classnames';
 import Parser from 'html-react-parser';
 import { Portal } from './Portal';
@@ -44,8 +43,7 @@ export const Tooltip = ({
   const {
     x,
     y,
-    reference,
-    floating,
+    refs: { setReference, setFloating },
     strategy,
     context,
     placement: currentPlacement,
@@ -83,12 +81,12 @@ export const Tooltip = ({
 
   return (
     <>
-      {cloneElement(children, getReferenceProps({ ref: reference, ...children.props }))}
+      {cloneElement(children, getReferenceProps({ ref: setReference, ...children.props }))}
       {isMounted ? (
         <Portal className="h-floating-ui h-floating-ui--tooltips">
           <div
             {...getFloatingProps({
-              ref: floating,
+              ref: setFloating,
               className: classNames(`h-tooltip`, { [`h-tooltip--${width}`]: width }),
               style: {
                 position: strategy,

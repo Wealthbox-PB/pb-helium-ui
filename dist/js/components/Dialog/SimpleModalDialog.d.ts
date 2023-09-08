@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 interface SimpleModalDialogProps {
     backdrop?: boolean;
     backdropClassName?: string;
@@ -20,5 +20,5 @@ interface SimpleModalDialogProps {
     size?: string;
     trapPaused?: boolean;
 }
-declare const SimpleModalDialog: ({ backdrop, backdropClassName, bodyClassName, children, closeDialog, closeInHeader, dialogClassName, footer, footerBackground, footerClassName, header, headerClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: SimpleModalDialogProps) => JSX.Element;
+declare const SimpleModalDialog: ({ backdrop, backdropClassName, bodyClassName, children, closeDialog, closeInHeader, dialogClassName, footer, footerBackground, footerClassName, header, headerClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: SimpleModalDialogProps) => React.JSX.Element;
 export { SimpleModalDialog };
