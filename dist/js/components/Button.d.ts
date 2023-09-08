@@ -1,7 +1,7 @@
 import React from 'react';
-export type ButtonVariant = `primary` | `secondary` | `positive` | `negative` | `info` | `primary-outline` | `secondary-outline` | `negative-outline` | `info-outline` | `link-primary` | `link-secondary`;
-export type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
-export type ButtonType = `button` | `submit` | `reset`;
+export declare type ButtonVariant = `primary` | `secondary` | `positive` | `negative` | `info` | `primary-outline` | `secondary-outline` | `negative-outline` | `info-outline` | `link-primary` | `link-secondary`;
+export declare type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
+export declare type ButtonType = `button` | `submit` | `reset`;
 interface ButtonProps {
     active?: boolean;
     children?: string | JSX.Element[] | JSX.Element;
