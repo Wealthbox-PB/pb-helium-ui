@@ -662,7 +662,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   color: $h-blue-100;
 
   &::placeholder {
-    color: $h-blue-100;
+    color: $h-blue-300;
   }
 
   &:focus {
@@ -670,14 +670,6 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
     background-color: $h-blue-600;
     box-shadow: $h-box-shadow-size-form-element $h-blue-300;
     color: $h-white;
-
-    &::placeholder {
-      color: $h-blue-300;
-    }
-  }
-
-  & ~ button {
-    color: $h-blue-200;
   }
 
   /* stylelint-disable selector-class-pattern */
@@ -689,7 +681,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
     background-color: $h-blue-600;
     box-shadow: none;
     color: $h-blue-200;
-    opacity: 0.75;
+    opacity: $h-opacity-disabled-shared-component;
 
     &::placeholder {
       color: $h-blue-200;
