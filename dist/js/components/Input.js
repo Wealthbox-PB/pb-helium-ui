@@ -13,13 +13,16 @@ var Input = function (_a) {
             React.createElement("span", { className: classNames("h-input-label", labelClasses, { 'h-color-text-blue-200': theme === 'dark' }) }, label)
             :
                 null,
-        React.createElement("div", { className: "h-input-container h-color-text-gray-500" },
+        React.createElement("div", { className: "h-input-container" },
             React.createElement("input", { disabled: disabled, type: type, ref: input, name: name, "aria-label": name, className: classNames("h-input", inputClasses, {
                     'h-input--icon': leftIconClass,
                     'h-input--dark': theme === "dark",
                 }), placeholder: placeholder, value: value, onChange: onChange, onFocus: onFocus, onBlur: onBlur }),
             leftIconClass ?
-                React.createElement("span", { "aria-hidden": "true", className: classNames("h-input__icon--left", leftIconClass, { 'h-color-text-blue-200': theme === 'dark' }) })
+                React.createElement("span", { "aria-hidden": "true", className: classNames("h-input__icon--left", leftIconClass, {
+                        'h-color-text-blue-200': theme === 'dark',
+                        'h-color-text-gray-500': theme === 'light'
+                    }) })
                 :
                     null,
             rightIconClass && showRightIcon ?

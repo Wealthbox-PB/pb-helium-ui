@@ -57,7 +57,7 @@ const Input = ({
         :
         null
       }
-      <div className="h-input-container h-color-text-gray-500">
+      <div className="h-input-container">
         <input
           disabled={disabled}
           type={type}
@@ -82,7 +82,10 @@ const Input = ({
             className={classNames(
               `h-input__icon--left`
               , leftIconClass,
-              { 'h-color-text-blue-200': theme === 'dark' }
+              {
+                'h-color-text-blue-200': theme === 'dark',
+                'h-color-text-gray-500': theme === 'light'
+              }
             )}
           ></span>
           :
