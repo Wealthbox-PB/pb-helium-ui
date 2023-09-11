@@ -627,6 +627,26 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 }
 
 //==========================================================================
+//  Styling for input container
+//==========================================================================
+
+.h-input-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+//==========================================================================
+//  Styling for the input label
+//==========================================================================
+
+.h-input-label {
+  display: inline-block;
+  margin-bottom: $h-spacing-form-element-label;
+}
+
+//==========================================================================
 //  Styling for a taller input field
 //==========================================================================
 
@@ -650,6 +670,22 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
 .h-input--icon {
   padding-left: 2.5rem;
+}
+
+.h-input__icon--left,
+.h-input__icon--right {
+  position: absolute;
+  font-size: $h-size-form-element-icon;
+}
+
+.h-input__icon--left {
+  left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
+.h-input__icon--right {
+  right: 0.75rem;
+  margin-left: 0.75rem;
 }
 
 //==========================================================================
