@@ -10,7 +10,7 @@ var RadioButton = function (_a) {
             }) },
             React.createElement("input", { autoFocus: autofocus, className: "h-radio__elm", type: "radio", name: name, checked: checked, disabled: disabled, onClick: onClick, onChange: onChange }),
             React.createElement("span", { className: "h-radio__container" }),
-            React.createElement("span", { className: classNames("h-radio__label ms-2", { 'h-color-text-gray-500': disabled }) }, label),
+            React.createElement("span", { className: classNames("h-radio__label-content", { 'h-color-text-gray-500': disabled }) }, label),
             React.createElement("span", { className: "h-radio-pill-button-radio-fill" }))));
 };
 export { RadioButton };

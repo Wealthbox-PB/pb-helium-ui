@@ -43,7 +43,7 @@ const RadioButton = ({
         onChange={onChange}
       />
       <span className="h-radio__container"></span>
-      <span className={classNames(`h-radio__label ms-2`, { 'h-color-text-gray-500': disabled })}>{label}</span>
+      <span className={classNames(`h-radio__label-content`, { 'h-color-text-gray-500': disabled })}>{label}</span>
       <span className="h-radio-pill-button-radio-fill"></span>
     </label>
   </>
