@@ -5,9 +5,9 @@
 .h-radio-pill-button {
   position: relative;
   display: flex;
-  height: 2.5rem;
+  height: $h-height-form-element-lg;
   align-items: center;
-  padding: 0 0.75rem;
+  padding: 0 $h-padding-x-form-element-lg;
   color: $h-gray-900;
   transition: all $h-animation-duration-sm $h-animation-timing-ease;
 
@@ -24,7 +24,7 @@
     width: 100%;
     height: 100%;
     border: 1px solid $h-gray-200;
-    border-radius: 1.25rem;
+    border-radius: $h-border-radius-form-element-lg;
     transition: all $h-animation-duration-sm $h-animation-timing-ease;
   }
 

@@ -12,7 +12,9 @@ const ProgressBar = ({
   totalSteps,
   variant = `default`,
 }: ProgressBarProps) => (
-  <div className="h-progress-bar">
+  <div
+    role="progressbar"
+    className="h-progress-bar">
     <div
       style={{ width: `${percentComplete(completedSteps, totalSteps)}%` }}
       className={classNames(`h-progress-bar__fill h-color-background-blue-500`,

@@ -15,6 +15,7 @@ interface InputProps {
   onRightIconClick?: (e) => void;
   placeholder?: string;
   rightIconClass?: string;
+  role?: string;
   showRightIcon?: boolean;
   theme?: `light` | `dark`;
   type?: `text` | `password` | `email` | `tel` | `search`;
@@ -35,6 +36,7 @@ const Input = ({
   onRightIconClick,
   placeholder,
   rightIconClass,
+  role = `textbox`,
   showRightIcon = true,
   theme = `light`,
   type = "text",
@@ -71,6 +73,7 @@ const Input = ({
               'h-input--dark': theme === `dark`,
             })}
           placeholder={placeholder}
+          role={role}
           value={value}
           onChange={onChange}
           onFocus={onFocus}

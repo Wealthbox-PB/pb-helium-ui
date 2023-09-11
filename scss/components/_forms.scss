@@ -679,13 +679,13 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 }
 
 .h-input__icon--left {
-  left: 0.75rem;
-  margin-right: 0.75rem;
+  left: $h-spacing-form-element-icon;
+  margin-right: $h-spacing-form-element-icon;
 }
 
 .h-input__icon--right {
-  right: 0.75rem;
-  margin-left: 0.75rem;
+  right: $h-spacing-form-element-icon;
+  margin-left: $h-spacing-form-element-icon;
 }
 
 //==========================================================================
