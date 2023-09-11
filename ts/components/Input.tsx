@@ -49,70 +49,68 @@ const Input = ({
   }, []);
 
   return (
-    <>
-      <label className="w-100">
-        {label ?
-          <span className={classNames(`d-inline-block mb-2`, labelClasses, { 'h-color-text-blue-200': theme === 'dark' })}>
-            {label}
-          </span>
-          :
-          null
-        }
-        <div className="d-flex">
-          <div className="h-color-text-gray-500 align-items-center d-flex position-relative w-100">
-            <input
-              disabled={disabled}
-              type={type}
-              ref={input}
-              role="searchbox"
-              name={name}
-              aria-label={name}
-              className={classNames(`h-input`,
-                inputClasses,
+    <label className="h-width-100">
+      {label ?
+        <span className={classNames(`d-inline-block mb-2`, labelClasses, { 'h-color-text-blue-200': theme === 'dark' })}>
+          {label}
+        </span>
+        :
+        null
+      }
+      <div className="d-flex">
+        <div className="h-color-text-gray-500 align-items-center d-flex position-relative w-100">
+          <input
+            disabled={disabled}
+            type={type}
+            ref={input}
+            role="searchbox"
+            name={name}
+            aria-label={name}
+            className={classNames(`h-input`,
+              inputClasses,
+              {
+                'h-input--icon': leftIconClass,
+                'h-input--dark': theme === `dark`,
+              })}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            onFocus={onFocus}
+            onBlur={onBlur}
+          ></input>
+          {leftIconClass ?
+            <span
+              aria-hidden="true"
+              className={classNames(
+                `position-absolute ml-2 h-position-left-2 ps-1 h-icon-font-size-md`
+                , leftIconClass,
+                { 'h-color-text-blue-200': theme === 'dark' }
+              )}
+            ></span>
+            :
+            null
+          }
+          {rightIconClass && showRightIcon ?
+            <button
+              type="reset"
+              name="Clear Search"
+              aria-label="Clear Search"
+              onClick={onRightIconClick}
+              className={classNames(
+                `"ml-2 h-position-right-2 pe-1 h-icon-font-size-md position-absolute`
+                , rightIconClass,
                 {
-                  'h-input--icon': leftIconClass,
-                  'h-input--dark': theme === `dark`,
-                })}
-              placeholder={placeholder}
-              value={value}
-              onChange={onChange}
-              onFocus={onFocus}
-              onBlur={onBlur}
-            ></input>
-            {leftIconClass ?
-              <span
-                aria-hidden="true"
-                className={classNames(
-                  `position-absolute ml-2 h-position-left-2 ps-1 h-icon-font-size-md`
-                  , leftIconClass,
-                  { 'h-color-text-blue-200': theme === 'dark' }
-                )}
-              ></span>
-              :
-              null
-            }
-            {rightIconClass && showRightIcon ?
-              <button
-                type="reset"
-                name="Clear Search"
-                aria-label="Clear Search"
-                onClick={onRightIconClick}
-                className={classNames(
-                  `"ml-2 h-position-right-2 pe-1 h-icon-font-size-md position-absolute`
-                  , rightIconClass,
-                  {
-                    'h-color-text-blue-200': theme === 'dark',
-                    'h-color-text-gray-500': theme === 'light'
-                  },
-                )}
-              ></button>
-              :
-              null
-            }
-          </div>
+                  'h-color-text-blue-200': theme === 'dark',
+                  'h-color-text-gray-500': theme === 'light'
+                },
+              )}
+            ></button>
+            :
+            null
+          }
         </div>
-      </label>
-    </>
+      </div>
+    </label>
   );
 };
 
