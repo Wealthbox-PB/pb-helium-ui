@@ -81,6 +81,12 @@ $h-color-box-shadow-form-element-focused: $h-blue-100;
 $h-color-box-shadow-form-element-positive: $h-green-200;
 $h-color-box-shadow-form-element-negative: $h-red-100;
 $h-color-box-shadow-form-element-error: $h-red-100; // Consider deprecation in v3.0 in favor of "negative"
+$h-color-border-form-element-dark: $h-blue-600;
+$h-color-background-form-element-dark: $h-blue-600;
+$h-color-text-form-element-dark: $h-blue-100;
+$h-color-text-form-element-dark-disabled: $h-blue-200;
+$h-color-text-form-element-dark-placeholder: $h-blue-300;
+$h-color-box-shadow-form-element-dark-focused: $h-blue-300;
 
 // Box Model
 $h-spacing-form-element-label: 0.375rem;

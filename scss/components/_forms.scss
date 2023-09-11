@@ -657,18 +657,18 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 //==========================================================================
 
 .h-input--dark {
-  border-color: $h-blue-600;
-  background-color: $h-blue-600;
-  color: $h-blue-100;
+  border-color: $h-color-border-form-element-dark;
+  background-color: $h-color-background-form-element-dark;
+  color: $h-color-text-form-element-dark;
 
   &::placeholder {
-    color: $h-blue-300;
+    color: $h-color-text-form-element-dark-placeholder;
   }
 
   &:focus {
-    border-color: $h-blue-600;
-    background-color: $h-blue-600;
-    box-shadow: $h-box-shadow-size-form-element $h-blue-300;
+    border-color: $h-color-border-form-element-dark;
+    background-color: $h-color-background-form-element-dark;
+    box-shadow: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-dark-focused;
     color: $h-white;
   }
 
@@ -677,14 +677,14 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   &.disabled,
   &[disabled] {
     /* stylelint-enable selector-class-pattern */
-    border-color: $h-blue-600;
-    background-color: $h-blue-600;
+    border-color: $h-color-border-form-element-dark;
+    background-color: $h-color-background-form-element-dark;
     box-shadow: none;
-    color: $h-blue-200;
+    color: $h-color-text-form-element-dark-disabled;
     opacity: $h-opacity-disabled-shared-component;
 
     &::placeholder {
-      color: $h-blue-200;
+      color: $h-color-text-form-element-dark-disabled;
     }
   }
 }
