@@ -62,7 +62,6 @@ const Input = ({
           disabled={disabled}
           type={type}
           ref={input}
-          role="searchbox"
           name={name}
           aria-label={name}
           className={classNames(`h-input`,

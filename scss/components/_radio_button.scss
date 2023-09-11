@@ -28,7 +28,8 @@
     transition: all $h-animation-duration-sm $h-animation-timing-ease;
   }
 
-  span {
+  .h-radio__label-content,
+  .h-radio__container {
     position: relative;
     z-index: 1;
     pointer-events: none;

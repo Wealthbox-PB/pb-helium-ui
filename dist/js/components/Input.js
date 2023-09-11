@@ -14,7 +14,7 @@ var Input = function (_a) {
             :
                 null,
         React.createElement("div", { className: "h-input-container h-color-text-gray-500" },
-            React.createElement("input", { disabled: disabled, type: type, ref: input, role: "searchbox", name: name, "aria-label": name, className: classNames("h-input", inputClasses, {
+            React.createElement("input", { disabled: disabled, type: type, ref: input, name: name, "aria-label": name, className: classNames("h-input", inputClasses, {
                     'h-input--icon': leftIconClass,
                     'h-input--dark': theme === "dark",
                 }), placeholder: placeholder, value: value, onChange: onChange, onFocus: onFocus, onBlur: onBlur }),
