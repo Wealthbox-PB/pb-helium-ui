@@ -2,6 +2,11 @@
 //  Helium Progress Bar
 //==========================================================================
 
+.h-progress-bar {
+  position: relative;
+  width: 100%;
+}
+
 .h-progress-bar__background,
 .h-progress-bar__fill {
   height: 0.5rem;
@@ -18,5 +23,6 @@
 }
 
 .h-progress-bar__fill {
+  position: absolute;
   transition: all $h-animation-duration-sm $h-animation-timing-ease-out;
 }
