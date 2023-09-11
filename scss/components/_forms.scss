@@ -217,7 +217,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       &:disabled,
       &.disabled,
       &[disabled] {
-        cursor: not-allowed;
+        cursor: $h-cursor-disabled-shared-component;
         /* stylelint-enable selector-class-pattern */
         &,
         &:focus {
