@@ -76,7 +76,7 @@ var Dropdown = function (_a) {
                             }
                         },
                     })),
-                        React.createElement("ul", null,
+                        React.createElement("ul", { className: "h-dropdown__menu" },
                             React.createElement(FloatingList, { elementsRef: elementsRef, labelsRef: labelsRef }, children))))))) : null));
 };
 export { Dropdown };

@@ -117,7 +117,7 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
                   },
                 })}
               >
-                <ul>
+                <ul className="h-dropdown__menu">
                   <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
                     {children}
                   </FloatingList>
