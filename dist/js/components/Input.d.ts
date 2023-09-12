@@ -8,10 +8,10 @@ interface InputProps {
     labelClassName?: string;
     leftIconClassName?: string;
     name?: string;
-    onBlur?: () => void;
-    onChange?: () => void;
-    onFocus?: () => void;
-    onRightButtonClick?: () => void;
+    onBlur?: (e: any) => void;
+    onChange?: (e: any) => void;
+    onFocus?: (e: any) => void;
+    onRightButtonClick?: (e: any) => void;
     placeholder?: string;
     rightButtonClassName?: string;
     role?: string;
