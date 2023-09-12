@@ -14,7 +14,7 @@ var RadioButton = function (_a) {
             React.createElement("input", { id: id ? id : uniqueID.current, autoFocus: autofocus, className: "h-radio__elm", type: "radio", name: name, checked: checked, disabled: disabled, onClick: onClick, onChange: onChange }),
             React.createElement("span", { className: "h-radio__container" }),
             label ?
-                React.createElement(Label, { labelText: label, labelClassName: disabled ? "h-radio__label-content h-color-text-gray-500" : "h-radio__label-content", htmlFor: id ? id : uniqueID.current })
+                React.createElement(Label, { labelClassName: disabled ? "h-radio__label-content h-color-text-gray-500" : "h-radio__label-content", htmlFor: id ? id : uniqueID.current }, label)
                 :
                     null,
             React.createElement("span", { className: "h-radio-pill-button-radio-fill" }))));

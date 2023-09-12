@@ -2,21 +2,21 @@ import React from 'react';
 import classNames from 'classnames';
 
 interface LabelProps {
+  children: string | JSX.Element | JSX.Element[];
   htmlFor?: string;
-  labelText: string;
   labelClassName?: string;
 }
 
 const Label = ({
+  children,
   htmlFor,
-  labelText,
   labelClassName,
 }: LabelProps) => (
   <label
     data-testid="h-label"
-    className={classNames(`h-input-label`, labelClassName)}
+    className={classNames(`h-form-label`, labelClassName)}
     htmlFor={htmlFor}>
-    {labelText}
+    {children}
   </label>
 );
 

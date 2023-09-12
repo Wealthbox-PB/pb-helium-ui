@@ -13,7 +13,7 @@ var Input = function (_a) {
     }, []);
     return (React.createElement("label", { className: "h-width-100" },
         label ?
-            React.createElement(Label, { labelText: label, labelClassName: variant === "dark-blue" ? "h-color-text-blue-200 ".concat(labelClassName) : labelClassName, htmlFor: id ? id : uniqueID.current })
+            React.createElement(Label, { labelClassName: variant === "dark-blue" ? "h-color-text-blue-200 ".concat(labelClassName) : labelClassName, htmlFor: id ? id : uniqueID.current }, label)
             :
                 null,
         React.createElement("div", { className: "h-input-container" },

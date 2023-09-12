@@ -60,7 +60,11 @@ const Input = ({
   return (
     <label className="h-width-100">
       {label ?
-        <Label labelText={label} labelClassName={variant === `dark-blue` ? `h-color-text-blue-200 ${labelClassName}` : labelClassName} htmlFor={id ? id : uniqueID.current}></Label>
+        <Label
+          labelClassName={variant === `dark-blue` ? `h-color-text-blue-200 ${labelClassName}` : labelClassName}
+          htmlFor={id ? id : uniqueID.current}>
+          {label}
+        </Label>
         :
         null
       }

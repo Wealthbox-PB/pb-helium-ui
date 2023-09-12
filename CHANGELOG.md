@@ -17,19 +17,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `$h-box-shadow-secondary-shared-component` variable
 - Added `$h-border-radius-secondary-shared-component` variable
 
-## [2.1.1] - 2023-09-12
-
-### Added
-
-- Added new `Input` component
-- Added new `Label` component
-- Added new `RadioButton` component
-- Added new `ProgressBar` component
-- Added specs for `Input`, `Label`, `RadioButton`, and `ProgressBar`
-- Added a `_dropdown.scss` file
-- Added `$h-box-shadow-secondary-shared-component` variable
-- Added `$h-border-radius-secondary-shared-component` variable
-
 ## [2.1.0] - 2023-09-07
 
 ### Added

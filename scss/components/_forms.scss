@@ -639,15 +639,6 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 }
 
 //==========================================================================
-//  Styling for the input label
-//==========================================================================
-
-.h-input-label {
-  display: inline-block;
-  margin-bottom: $h-spacing-form-element-label;
-}
-
-//==========================================================================
 //  Styling for a taller input field
 //==========================================================================
 
