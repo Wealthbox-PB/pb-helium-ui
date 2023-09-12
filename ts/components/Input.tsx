@@ -5,44 +5,44 @@ import classNames from 'classnames';
 interface InputProps {
   autofocus?: boolean;
   disabled?: boolean;
-  inputClasses?: string;
+  inputClassName?: string;
   label?: string;
-  labelClasses?: string;
-  leftIconClass?: string;
+  labelClassName?: string;
+  leftIconClassName?: string;
   name?: string;
   onBlur?: (e) => void;
   onChange?: (e) => void;
   onFocus?: (e) => void;
   onRightButtonClick?: (e) => void;
   placeholder?: string;
-  rightButtonClass?: string;
+  rightButtonClassName?: string;
   role?: string;
   showLeftIcon?: boolean;
   showRightButton?: boolean;
-  theme?: `light` | `dark`;
-  type?: `text` | `password` | `email` | `tel` | `search`;
+  variant?: `default` | `dark-blue`;
+  inputType?: `text` | `password` | `email` | `tel` | `search`;
   value: string;
 }
 
 const Input = ({
   autofocus = false,
   disabled = false,
-  inputClasses,
+  inputClassName,
   label,
-  labelClasses = ``,
-  leftIconClass,
+  labelClassName = ``,
+  leftIconClassName,
   name,
   onBlur,
   onChange,
   onFocus,
   onRightButtonClick,
   placeholder,
-  rightButtonClass,
+  rightButtonClassName,
   role = `textbox`,
   showLeftIcon = true,
   showRightButton = true,
-  theme = `light`,
-  type = "text",
+  variant = `default`,
+  inputType = "text",
   value
 }: InputProps) => {
   const id = self.crypto.randomUUID();
@@ -58,7 +58,7 @@ const Input = ({
   return (
     <label className="h-width-100">
       {label ?
-        <Label labelText={label} labelClassName={theme === `dark` ? `h-color-text-blue-200 ${labelClasses}` : labelClasses} htmlFor={id}></Label>
+        <Label labelText={label} labelClassName={variant === `dark-blue` ? `h-color-text-blue-200 ${labelClassName}` : labelClassName} htmlFor={id}></Label>
         :
         null
       }
@@ -66,15 +66,15 @@ const Input = ({
         <input
           id={id}
           disabled={disabled}
-          type={type}
+          type={inputType}
           ref={input}
           name={name}
           aria-label={name}
           className={classNames(`h-input`,
-            inputClasses,
+            inputClassName,
             {
-              'h-input--with-icon': leftIconClass && showLeftIcon,
-              'h-input--dark': theme === `dark`,
+              'h-input--with-icon': leftIconClassName && showLeftIcon,
+              'h-input--dark-blue': variant === `dark-blue`,
             })}
           placeholder={placeholder}
           role={role}
@@ -83,22 +83,22 @@ const Input = ({
           onFocus={onFocus}
           onBlur={onBlur}
         ></input>
-        {leftIconClass && showLeftIcon ?
+        {leftIconClassName && showLeftIcon ?
           <span
             aria-hidden="true"
             className={classNames(
               `h-input__icon--left`
-              , leftIconClass,
+              , leftIconClassName,
               {
-                'h-color-text-blue-200': theme === 'dark',
-                'h-color-text-gray-500': theme === 'light'
+                'h-color-text-blue-200': variant === 'dark-blue',
+                'h-color-text-gray-500': variant === 'default'
               }
             )}
           ></span>
           :
           null
         }
-        {rightButtonClass && showRightButton ?
+        {rightButtonClassName && showRightButton ?
           <button
             type="reset"
             name="Clear Search"
@@ -106,10 +106,10 @@ const Input = ({
             onClick={onRightButtonClick}
             className={classNames(
               `h-input__icon--right`
-              , rightButtonClass,
+              , rightButtonClassName,
               {
-                'h-color-text-blue-200': theme === 'dark',
-                'h-color-text-gray-500': theme === 'light'
+                'h-color-text-blue-200': variant === 'dark-blue',
+                'h-color-text-gray-500': variant === 'default'
               },
             )}
           ></button>

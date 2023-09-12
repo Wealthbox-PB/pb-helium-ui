@@ -693,19 +693,19 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 //  Styling for a dark input field
 //==========================================================================
 
-.h-input--dark {
-  border-color: $h-color-border-form-element-dark;
-  background-color: $h-color-background-form-element-dark;
-  color: $h-color-text-form-element-dark;
+.h-input--dark-blue {
+  border-color: $h-color-border-form-element-dark-blue;
+  background-color: $h-color-background-form-element-dark-blue;
+  color: $h-color-text-form-element-dark-blue;
 
   &::placeholder {
-    color: $h-color-text-form-element-dark-placeholder;
+    color: $h-color-text-form-element-dark-blue-placeholder;
   }
 
   &:focus {
-    border-color: $h-color-border-form-element-dark;
-    background-color: $h-color-background-form-element-dark;
-    box-shadow: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-dark-focused;
+    border-color: $h-color-border-form-element-dark-blue;
+    background-color: $h-color-background-form-element-dark-blue;
+    box-shadow: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-dark-blue-focused;
     color: $h-white;
   }
 
@@ -714,14 +714,14 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   &.disabled,
   &[disabled] {
     /* stylelint-enable selector-class-pattern */
-    border-color: $h-color-border-form-element-dark;
-    background-color: $h-color-background-form-element-dark;
+    border-color: $h-color-border-form-element-dark-blue;
+    background-color: $h-color-background-form-element-dark-blue;
     box-shadow: none;
-    color: $h-color-text-form-element-dark-disabled;
+    color: $h-color-text-form-element-dark-blue-disabled;
     opacity: $h-opacity-disabled-shared-component;
 
     &::placeholder {
-      color: $h-color-text-form-element-dark-disabled;
+      color: $h-color-text-form-element-dark-blue-disabled;
     }
   }
 }
