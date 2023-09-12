@@ -4,6 +4,8 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { Switch } from '../../ts/components/Switch';
 import { RadioButton } from '../../ts/components/RadioButton';
+// const crypto = require(`crypto`);
+
 
 describe(`<RadioButton />`, () => {
   describe(`The default RadioButton UI`, () => {
@@ -37,22 +39,9 @@ describe(`<RadioButton />`, () => {
       it(`should include a label displayed beside the radio button`, () => {
         render(<RadioButton name="radio-group-1" label="label" />);
 
-        // expect(screen.getByTestId(`h-switch-hidden-input`)).not.toBeVisible();
-        expect(screen.getByTestId(`h-radio-label`)).toHaveAttribute(`label`, `label`);
+        expect(screen.getByTestId(`h-label`)).toBeInTheDocument();
       });
 
-      //     describe(`when the switch is rendered inside a form`, () => {
-      //       it(`should have a form value for name set to "false"`, () => {
-      //         render(
-      //           <form data-testid="h-switch-form">
-      //             <Switch name="name" />
-      //             <button type="submit">Submit</button>
-      //           </form>
-      //         );
-
-      //         expect(screen.getByTestId(`h-switch-form`)).toHaveFormValues({ name: `false` });
-      //       });
-      //     });
       //   });
 
       //   describe(`when the ariaLabel prop is set`, () => {
@@ -120,20 +109,68 @@ describe(`<RadioButton />`, () => {
       //   });
     });
 
+    describe(`interactions`, () => {
+      describe(`when the onChange prop is set`, () => {
+        it(`should call the passed function when clicked`, async () => {
+          const onChange = jest.fn();
+          render(<RadioButton name="radio-group-1" onChange={onChange} />);
+
+          userEvent.click(screen.getByRole(`radio`));
+
+          await waitFor(() => {
+            expect(onChange).toHaveBeenCalledTimes(1);
+          });
+        });
+      });
+
+      describe(`when the onClick prop is set`, () => {
+        it(`should call the passed function when clicked`, async () => {
+          const onClick = jest.fn();
+          render(<RadioButton name="radio-group-1" onClick={onClick} />);
+
+          userEvent.click(screen.getByRole(`radio`));
+
+          await waitFor(() => {
+            expect(onClick).toHaveBeenCalledTimes(1);
+          });
+        });
+      });
+      // it(`should call the onChange function when clicked`, async () => {
+      //   let checked = false;
+      //   let toggleRadio = () => {
+      //     checked = !checked;
+      //   }
+      // render(<RadioButton name="radio-group-1" onChange={onChange} />);
+
+      //   expect(screen.getByRole(`radio`)).not.toBeChecked();
+
+
+      //   // expect(screen.getByRole(`switch`, { name: `Off` })).not.toBeChecked();
+
+      // userEvent.click(screen.getByRole(`radio`));
+
+      //   await waitFor(() => {
+      //     expect(screen.getByRole(`radio`)).toBeChecked();
+      //   });
+
+      //   expect(screen.getByRole(`radio`)).toBeChecked();
+      // });
+    });
+
     // describe(`DOM interactions`, () => {
-    //   it(`should change state when clicked`, async () => {
-    //     render(<Switch />);
+    // it(`should change state when clicked`, async () => {
+    //   render(<Switch />);
 
-    //     expect(screen.getByRole(`switch`, { name: `Off` })).not.toBeChecked();
+    //   expect(screen.getByRole(`switch`, { name: `Off` })).not.toBeChecked();
 
-    //     userEvent.click(screen.getByRole(`switch`, { name: `Off` }));
+    //   userEvent.click(screen.getByRole(`switch`, { name: `Off` }));
 
-    //     await waitFor(() => {
-    //       expect(screen.queryByRole(`switch`, { name: `Off` })).not.toBeInTheDocument();
-    //     });
-
-    //     expect(screen.getByRole(`switch`, { name: `On` })).toBeChecked();
+    //   await waitFor(() => {
+    //     expect(screen.queryByRole(`switch`, { name: `Off` })).not.toBeInTheDocument();
     //   });
+
+    //   expect(screen.getByRole(`switch`, { name: `On` })).toBeChecked();
+    // });
 
     //   it(`should change state when the space key is pressed`, async () => {
     //     render(<Switch />);
@@ -153,3 +190,4 @@ describe(`<RadioButton />`, () => {
     //   });
     // });
   });
+});

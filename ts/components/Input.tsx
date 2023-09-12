@@ -1,19 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import { Label } from './Label';
 import classNames from 'classnames';
+import { randomString } from '../helpers/random_string';
 
 interface InputProps {
   autofocus?: boolean;
   disabled?: boolean;
+  id?: string;
   inputClassName?: string;
   label?: string;
   labelClassName?: string;
   leftIconClassName?: string;
   name?: string;
-  onBlur?: (e) => void;
-  onChange?: (e) => void;
-  onFocus?: (e) => void;
-  onRightButtonClick?: (e) => void;
+  onBlur?: () => void;
+  onChange?: () => void;
+  onFocus?: () => void;
+  onRightButtonClick?: () => void;
   placeholder?: string;
   rightButtonClassName?: string;
   role?: string;
@@ -27,6 +29,7 @@ interface InputProps {
 const Input = ({
   autofocus = false,
   disabled = false,
+  id,
   inputClassName,
   label,
   labelClassName = ``,
@@ -45,9 +48,8 @@ const Input = ({
   inputType = "text",
   value
 }: InputProps) => {
-  const id = self.crypto.randomUUID();
   const input = useRef<HTMLInputElement | null>(null);
-
+  const uniqueID = useRef<string>(randomString());
 
   useEffect(() => {
     if (input.current && autofocus) {
@@ -58,13 +60,13 @@ const Input = ({
   return (
     <label className="h-width-100">
       {label ?
-        <Label labelText={label} labelClassName={variant === `dark-blue` ? `h-color-text-blue-200 ${labelClassName}` : labelClassName} htmlFor={id}></Label>
+        <Label labelText={label} labelClassName={variant === `dark-blue` ? `h-color-text-blue-200 ${labelClassName}` : labelClassName} htmlFor={id ? id : uniqueID.current}></Label>
         :
         null
       }
       <div className="h-input-container">
         <input
-          id={id}
+          id={id ? id : uniqueID.current}
           disabled={disabled}
           type={inputType}
           ref={input}
