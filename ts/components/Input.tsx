@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Label } from './Label';
 import classNames from 'classnames';
 
 interface InputProps {
@@ -27,7 +28,7 @@ const Input = ({
   disabled = false,
   inputClasses,
   label,
-  labelClasses,
+  labelClasses = ``,
   leftIconClass,
   name,
   onBlur,
@@ -42,7 +43,9 @@ const Input = ({
   type = "text",
   value
 }: InputProps) => {
+  const id = self.crypto.randomUUID();
   const input = useRef<HTMLInputElement | null>(null);
+
 
   useEffect(() => {
     if (input.current && autofocus) {
@@ -53,14 +56,13 @@ const Input = ({
   return (
     <label className="h-width-100">
       {label ?
-        <span className={classNames(`h-input-label`, labelClasses, { 'h-color-text-blue-200': theme === 'dark' })}>
-          {label}
-        </span>
+        <Label labelText={label} labelClassName={theme === `dark` ? `h-color-text-blue-200 ${labelClasses}` : labelClasses} htmlFor={id}></Label>
         :
         null
       }
       <div className="h-input-container">
         <input
+          id={id}
           disabled={disabled}
           type={type}
           ref={input}
@@ -113,7 +115,7 @@ const Input = ({
           null
         }
       </div>
-    </label>
+    </label >
   );
 };
 

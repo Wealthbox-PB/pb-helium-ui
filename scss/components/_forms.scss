@@ -262,6 +262,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
       + #{$h-checkbox-radio-selector}__label-content {
         padding-left: $h-spacing-checkbox-radio;
+        margin-bottom: 0;
       }
     }
 
@@ -650,7 +651,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 //  Styling for a taller input field
 //==========================================================================
 
-.h-input--lg {
+.h-input--tall {
   height: $h-height-form-element-lg;
 }
 
