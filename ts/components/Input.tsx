@@ -17,6 +17,7 @@ interface InputProps {
   placeholder?: string;
   rightButtonClass?: string;
   role?: string;
+  showLeftIcon?: boolean;
   showRightButton?: boolean;
   theme?: `light` | `dark`;
   type?: `text` | `password` | `email` | `tel` | `search`;
@@ -38,6 +39,7 @@ const Input = ({
   placeholder,
   rightButtonClass,
   role = `textbox`,
+  showLeftIcon = true,
   showRightButton = true,
   theme = `light`,
   type = "text",
@@ -71,7 +73,7 @@ const Input = ({
           className={classNames(`h-input`,
             inputClasses,
             {
-              'h-input--icon': leftIconClass,
+              'h-input--with-icon': leftIconClass && showLeftIcon,
               'h-input--dark': theme === `dark`,
             })}
           placeholder={placeholder}
@@ -81,7 +83,7 @@ const Input = ({
           onFocus={onFocus}
           onBlur={onBlur}
         ></input>
-        {leftIconClass ?
+        {leftIconClass && showLeftIcon ?
           <span
             aria-hidden="true"
             className={classNames(
