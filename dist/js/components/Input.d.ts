@@ -10,14 +10,14 @@ interface InputProps {
     onBlur?: (e: any) => void;
     onChange?: (e: any) => void;
     onFocus?: (e: any) => void;
-    onRightIconClick?: (e: any) => void;
+    onRightButtonClick?: (e: any) => void;
     placeholder?: string;
-    rightIconClass?: string;
+    rightButtonClass?: string;
     role?: string;
-    showRightIcon?: boolean;
+    showRightButton?: boolean;
     theme?: `light` | `dark`;
     type?: `text` | `password` | `email` | `tel` | `search`;
     value: string;
 }
-declare const Input: ({ autofocus, disabled, inputClasses, label, labelClasses, leftIconClass, name, onBlur, onChange, onFocus, onRightIconClick, placeholder, rightIconClass, role, showRightIcon, theme, type, value }: InputProps) => React.JSX.Element;
+declare const Input: ({ autofocus, disabled, inputClasses, label, labelClasses, leftIconClass, name, onBlur, onChange, onFocus, onRightButtonClick, placeholder, rightButtonClass, role, showRightButton, theme, type, value }: InputProps) => React.JSX.Element;
 export { Input };

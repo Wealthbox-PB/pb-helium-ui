@@ -13,11 +13,11 @@ interface InputProps {
   onBlur?: (e) => void;
   onChange?: (e) => void;
   onFocus?: (e) => void;
-  onRightIconClick?: (e) => void;
+  onRightButtonClick?: (e) => void;
   placeholder?: string;
-  rightIconClass?: string;
+  rightButtonClass?: string;
   role?: string;
-  showRightIcon?: boolean;
+  showRightButton?: boolean;
   theme?: `light` | `dark`;
   type?: `text` | `password` | `email` | `tel` | `search`;
   value: string;
@@ -34,11 +34,11 @@ const Input = ({
   onBlur,
   onChange,
   onFocus,
-  onRightIconClick,
+  onRightButtonClick,
   placeholder,
-  rightIconClass,
+  rightButtonClass,
   role = `textbox`,
-  showRightIcon = true,
+  showRightButton = true,
   theme = `light`,
   type = "text",
   value
@@ -96,15 +96,15 @@ const Input = ({
           :
           null
         }
-        {rightIconClass && showRightIcon ?
+        {rightButtonClass && showRightButton ?
           <button
             type="reset"
             name="Clear Search"
             aria-label="Clear Search"
-            onClick={onRightIconClick}
+            onClick={onRightButtonClick}
             className={classNames(
               `h-input__icon--right`
-              , rightIconClass,
+              , rightButtonClass,
               {
                 'h-color-text-blue-200': theme === 'dark',
                 'h-color-text-gray-500': theme === 'light'
