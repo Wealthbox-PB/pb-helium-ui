@@ -9,6 +9,7 @@ export { Dropdown } from './components/Dropdown/Dropdown';
 export { DropdownMenuItem } from './components/Dropdown/DropdownMenuItem';
 export { DropdownMenuSeparator } from './components/Dropdown/DropdownMenuSeparator';
 export { HeliumSpinner } from './components/Spinner/Spinner';
+export { IconDropdown } from './components/Dropdown/IconDropdown';
 export { Label } from './components/Label';
 export { Interstitial } from './components/Interstitial';
 export { LinkButton } from './components/LinkButton';
