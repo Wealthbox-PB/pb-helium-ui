@@ -13,9 +13,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added new `RadioButton` component
 - Added new `ProgressBar` component
 - Added specs for `Input`, `Label`, `RadioButton`, and `ProgressBar`
-- Added a `_dropdown.scss` file
-- Added `$h-box-shadow-secondary-shared-component` variable
-- Added `$h-border-radius-secondary-shared-component` variable
+- Added new `_progress_bar.scss` file
+- Added new `_radio_button.scss` file
+- Added new `_flex.scss` file
+- Added new `_position.scss` file
+
+### Changed
+
+- Updated `_forms.scss` file to include styling for new components
+- Updated `_color.scss` variables file to include teal 500 color
+- Updated `_component.scss` variables file to include more input ui variables
 
 ## [2.1.0] - 2023-09-07
 

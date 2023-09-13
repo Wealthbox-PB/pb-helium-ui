@@ -2,7 +2,7 @@
 //  Pill Radio Button
 //==========================================================================
 
-.h-radio-pill-button {
+.h-radio--pill-button {
   position: relative;
   display: flex;
   height: $h-height-form-element-lg;
@@ -16,7 +16,7 @@
     box-shadow: none;
   }
 
-  .h-radio-pill-button-radio-fill {
+  .h-radio__pill-button-radio-fill {
     position: absolute;
     z-index: 0;
     top: 0;
@@ -36,7 +36,7 @@
   }
 
   &:hover {
-    .h-radio-pill-button-radio-fill {
+    .h-radio__pill-button-radio-fill {
       border-color: $h-blue-300;
     }
   }
@@ -46,7 +46,7 @@
       color: $h-blue-500;
     }
 
-    & ~ .h-radio-pill-button-radio-fill {
+    & ~ .h-radio__pill-button-radio-fill {
       border-color: $h-blue-500;
       background-color: $h-blue-50;
     }

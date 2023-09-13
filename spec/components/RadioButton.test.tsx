@@ -2,192 +2,181 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import { Switch } from '../../ts/components/Switch';
 import { RadioButton } from '../../ts/components/RadioButton';
-// const crypto = require(`crypto`);
 
 
 describe(`<RadioButton />`, () => {
-  describe(`The default RadioButton UI`, () => {
-    it(`should have a radio input with a name attribute`, () => {
-      render(<RadioButton name="radio-group-1" />);
+  describe(`Default UI`, () => {
+    describe(`The "name" prop`, () => {
+      it(`should be set on the radio input.`, () => {
+        render(<RadioButton name="radio-group-1" />);
 
-      expect(screen.getByRole(`radio`)).toHaveAttribute(`name`, `radio-group-1`);
+        expect(screen.getByRole(`radio`)).toHaveAttribute(`name`, `radio-group-1`);
+      });
     });
 
-    it(`should not be checked`, () => {
-      render(<RadioButton name="radio-group-1" />);
+    describe(`The "checked" prop`, () => {
+      it(`should not be set`, () => {
+        render(<RadioButton name="radio-group-1" />);
 
-      expect(screen.getByRole(`radio`)).not.toBeChecked();
+        expect(screen.getByRole(`radio`)).not.toBeChecked();
+      });
     });
 
-    it(`should not be disabled`, () => {
-      render(<RadioButton name="radio-group-1" />);
+    describe(`The "disabled" prop`, () => {
+      it(`should not be set`, () => {
+        render(<RadioButton name="radio-group-1" />);
 
-      expect(screen.getByRole(`radio`)).toBeEnabled();
+        expect(screen.getByRole(`radio`)).toBeEnabled();
+      });
     });
 
-    it(`should not have the 'pill' styling`, () => {
-      render(<RadioButton name="radio-group-1" />);
+    describe(`The "variant" prop`, () => {
+      it(`should not set the custom 'pill' styling on the component.`, () => {
+        render(<RadioButton name="radio-group-1" />);
 
-      expect(screen.getByTestId(`h-radio`)).not.toHaveClass(`h-radio-pill-button`);
+        expect(screen.getByTestId(`h-radio`)).not.toHaveClass(`h-radio--pill-button`);
+      });
     });
   });
 
-  describe(`props`, () => {
-    describe(`when the label prop is set`, () => {
-      it(`should include a label displayed beside the radio button`, () => {
+  describe(`Props`, () => {
+    describe(`The "autofocus" prop`, () => {
+      it(`should autofocus the radio input`, () => {
+        render(<RadioButton autofocus={true} name="radio-group-1" label="label" />);
+
+        expect(document.activeElement).toHaveAttribute(`name`, `radio-group-1`);
+      });
+    });
+
+    describe(`The "checked" prop`, () => {
+      it(`should set the "checked" attribute of the radio input`, () => {
+        const onChange = jest.fn();
+        render(<RadioButton checked={true} name="radio-group-1" onChange={onChange} label="label" />);
+
+        expect(screen.getByRole(`radio`)).toBeChecked();
+      });
+    });
+
+    describe(`The "disabled" prop`, () => {
+      it(`should set the "disabled" attribute of the radio input`, () => {
+        render(<RadioButton disabled={true} name="radio-group-1" label="label" />);
+
+        expect(screen.getByRole(`radio`)).toBeDisabled();
+      });
+    });
+
+    describe(`The "id" prop`, () => {
+      it(`should set the "id" attribute of the radio input`, () => {
+        render(<RadioButton id="test" name="radio-group-1" label="label" />);
+
+        expect(screen.getByRole(`radio`)).toHaveAttribute(`id`, `test`);
+      });
+    });
+
+    describe(`The "label" prop`, () => {
+      it(`should display a label beside the radio button`, () => {
         render(<RadioButton name="radio-group-1" label="label" />);
 
         expect(screen.getByTestId(`h-label`)).toBeInTheDocument();
       });
-
-      //   });
-
-      //   describe(`when the ariaLabel prop is set`, () => {
-      //     it(`should have an accessible label set to the passed value`, () => {
-      //       render(<Switch ariaLabel="Test" />);
-
-      //       expect(screen.getByRole(`switch`, { name: `Test` })).toBeInTheDocument();
-      //     });
-      //   });
-
-      //   describe(`when the disabled prop is set to "true"`, () => {
-      //     it(`should be disabled`, () => {
-      //       render(<Switch disabled={true} />);
-
-      //       expect(screen.getByRole(`switch`, { name: `Off` })).toBeDisabled();
-      //     });
-      //   });
-
-      //   describe(`when the defaultValue prop is set to true`, () => {
-      //     it(`should have a hidden input with a value attribute set to "true"`, () => {
-      //       render(<Switch defaultValue={true} />);
-
-      //       expect(screen.getByTestId(`h-switch-hidden-input`)).not.toBeVisible();
-      //       expect(screen.getByTestId(`h-switch-hidden-input`)).toHaveValue(`true`);
-      //     });
-
-      //     it(`should have an accessible label set to "On"`, () => {
-      //       render(<Switch defaultValue={true} />);
-
-      //       expect(screen.getByRole(`switch`, { name: `On` })).toBeInTheDocument();
-      //     });
-
-      //     it(`should be checked/on`, () => {
-      //       render(<Switch defaultValue={true} />);
-
-      //       expect(screen.getByRole(`switch`, { name: `On` })).toBeChecked();
-      //     });
-
-      //     it(`should have "on" and "primary" variant styling`, () => {
-      //       render(<Switch defaultValue={true} />);
-
-      //       expect(screen.getByRole(`switch`, { name: `On` })).toHaveClass(`h-switch--on h-switch--primary`);
-      //     });
-
-      //     describe(`when the variant prop is set to "positive"`, () => {
-      //       it(`should have "on" and "positive" variant styling`, () => {
-      //         render(<Switch defaultValue={true} variant="positive" />);
-
-      //         expect(screen.getByRole(`switch`, { name: `On` })).toHaveClass(`h-switch--on h-switch--positive`);
-      //       });
-      //     });
-
-      //     describe(`when the onChange prop is set`, () => {
-      //       it(`should call the passed function when clicked`, async () => {
-      //         const onChange = jest.fn();
-      //         render(<Switch defaultValue={true} onChange={onChange} />);
-
-      //         userEvent.click(screen.getByRole(`switch`, { name: `On` }));
-
-      //         await waitFor(() => {
-      //           expect(onChange).toHaveBeenCalledTimes(1);
-      //         });
-      //       });
-      //     });
-      //   });
     });
 
-    describe(`interactions`, () => {
-      describe(`when the onChange prop is set`, () => {
-        it(`should call the passed function when clicked`, async () => {
-          const onChange = jest.fn();
-          render(<RadioButton name="radio-group-1" onChange={onChange} />);
+    describe(`The "name" prop`, () => {
+      it(`should set the "name" attribute of the radio input`, () => {
+        render(<RadioButton name="radio-group-1" label="label" />);
 
-          userEvent.click(screen.getByRole(`radio`));
-
-          await waitFor(() => {
-            expect(onChange).toHaveBeenCalledTimes(1);
-          });
-        });
+        expect(screen.getByRole(`radio`)).toHaveAttribute(`name`, `radio-group-1`);
       });
-
-      describe(`when the onClick prop is set`, () => {
-        it(`should call the passed function when clicked`, async () => {
-          const onClick = jest.fn();
-          render(<RadioButton name="radio-group-1" onClick={onClick} />);
-
-          userEvent.click(screen.getByRole(`radio`));
-
-          await waitFor(() => {
-            expect(onClick).toHaveBeenCalledTimes(1);
-          });
-        });
-      });
-      // it(`should call the onChange function when clicked`, async () => {
-      //   let checked = false;
-      //   let toggleRadio = () => {
-      //     checked = !checked;
-      //   }
-      // render(<RadioButton name="radio-group-1" onChange={onChange} />);
-
-      //   expect(screen.getByRole(`radio`)).not.toBeChecked();
-
-
-      //   // expect(screen.getByRole(`switch`, { name: `Off` })).not.toBeChecked();
-
-      // userEvent.click(screen.getByRole(`radio`));
-
-      //   await waitFor(() => {
-      //     expect(screen.getByRole(`radio`)).toBeChecked();
-      //   });
-
-      //   expect(screen.getByRole(`radio`)).toBeChecked();
-      // });
     });
 
-    // describe(`DOM interactions`, () => {
-    // it(`should change state when clicked`, async () => {
-    //   render(<Switch />);
+    describe(`The "size" prop`, () => {
+      it(`should set the "name" attribute of the radio input`, () => {
+        render(<RadioButton name="radio-group-1" size="small" label="label" />);
 
-    //   expect(screen.getByRole(`switch`, { name: `Off` })).not.toBeChecked();
+        expect(screen.getByTestId(`h-radio`)).toHaveClass(`h-radio--sm`);
+      });
+    });
 
-    //   userEvent.click(screen.getByRole(`switch`, { name: `Off` }));
+    describe(`The "variant" prop`, () => {
+      it(`should set custom styling on the component`, () => {
+        render(<RadioButton variant="pill" name="radio-group-1" />);
 
-    //   await waitFor(() => {
-    //     expect(screen.queryByRole(`switch`, { name: `Off` })).not.toBeInTheDocument();
-    //   });
+        expect(screen.getByTestId(`h-radio`)).toHaveClass(`h-radio--pill-button`);
+      });
+    });
 
-    //   expect(screen.getByRole(`switch`, { name: `On` })).toBeChecked();
-    // });
+  });
 
-    //   it(`should change state when the space key is pressed`, async () => {
-    //     render(<Switch />);
+  describe(`Interactions`, () => {
+    describe(`The "onChange" prop`, () => {
+      it(`should call the passed function when the radio value changes.`, async () => {
+        const onChange = jest.fn();
+        render(<RadioButton name="radio-group-1" onChange={onChange} />);
 
-    //     const switchEl = screen.getByRole(`switch`);
+        userEvent.click(screen.getByRole(`radio`));
 
-    //     expect(screen.getByRole(`switch`, { name: `Off` })).not.toBeChecked();
+        await waitFor(() => {
+          expect(onChange).toHaveBeenCalledTimes(1);
+        });
+      });
+    });
 
-    //     switchEl.focus();
-    //     userEvent.keyboard(` `);
+    describe(`The "onClick" prop`, () => {
+      it(`should call the passed function when clicked.`, async () => {
+        const onClick = jest.fn();
+        render(<RadioButton name="radio-group-1" onClick={onClick} />);
 
-    //     await waitFor(() => {
-    //       expect(screen.queryByRole(`switch`, { name: `Off` })).not.toBeInTheDocument();
-    //     });
+        userEvent.click(screen.getByRole(`radio`));
 
-    //     expect(screen.getByRole(`switch`, { name: `On` })).toBeChecked();
-    //   });
-    // });
+        await waitFor(() => {
+          expect(onClick).toHaveBeenCalledTimes(1);
+        });
+      });
+    });
+
+    describe(`The "checked" prop`, () => {
+      it(`should update the checked state of the radio button`, async () => {
+        let checked = false;
+        const onChange = jest.fn(() => {
+          checked = !checked;
+        });
+        const { rerender } = render(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} />);
+
+        expect(screen.getByRole(`radio`)).not.toBeChecked();
+
+        userEvent.click(screen.getByRole(`radio`));
+
+        await waitFor(() => {
+          expect(onChange).toHaveBeenCalledTimes(1);
+        });
+
+        rerender(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} />);
+
+        expect(screen.getByRole(`radio`)).toBeChecked();
+      });
+    });
+
+    describe(`The "label" prop`, () => {
+      it(`should select the radio input when clicked`, async () => {
+        let checked = false;
+        const onChange = jest.fn(() => {
+          checked = !checked;
+        });
+        const { rerender } = render(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} label="label" />);
+
+        expect(screen.getByRole(`radio`)).not.toBeChecked();
+
+        userEvent.click(screen.getByTestId(`h-label`));
+
+        await waitFor(() => {
+          expect(onChange).toHaveBeenCalledTimes(1);
+        });
+
+        rerender(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} />);
+
+        expect(screen.getByRole(`radio`)).toBeChecked();
+      });
+    });
   });
 });

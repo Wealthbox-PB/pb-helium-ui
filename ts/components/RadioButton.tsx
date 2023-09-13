@@ -18,8 +18,8 @@ interface RadioButtonProps {
 
 const RadioButton = ({
   autofocus = false,
-  checked = false,
-  disabled = false,
+  checked,
+  disabled,
   id = randomString(),
   label,
   name,
@@ -37,7 +37,7 @@ const RadioButton = ({
         className={classNames(`h-radio h-radio--animate`, {
           'h-radio--sm': size === `small`,
           'h-radio--lg': size === `large`,
-          'h-radio-pill-button': variant === `pill`,
+          'h-radio--pill-button': variant === `pill`,
         })}>
         <input
           autoFocus={autofocus}
@@ -60,7 +60,7 @@ const RadioButton = ({
           :
           null
         }
-        <span className="h-radio-pill-button-radio-fill"></span>
+        <span className="h-radio__pill-button-radio-fill"></span>
       </label>
     </>
   );

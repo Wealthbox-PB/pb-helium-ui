@@ -27,8 +27,8 @@ interface InputProps {
 }
 
 const Input = ({
-  autofocus = false,
-  disabled = false,
+  autofocus,
+  disabled,
   id,
   inputClassName,
   label,
