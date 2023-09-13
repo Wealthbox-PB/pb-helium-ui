@@ -12,10 +12,17 @@ describe(`<Label />`, () => {
     });
   });
 
-  // describe(`The "variant" prop`, () => {
-  //   it(`should set style variations on the ProgressBar.`, () => {
-  //     render(<ProgressBar variant="large" completedSteps={3} totalSteps={4} ></ProgressBar>);
-  //     expect(screen.getByTestId(`progress-bar-fill`)).toHaveClass(`h-progress-bar--large`);
-  //   });
-  // });
+  describe(`The "htmlFor" prop`, () => {
+    it(`should set the "for" attribute on the label element when it is rendered.`, () => {
+      render(<Label htmlFor="test-id">Test Label</Label>);
+      expect(screen.getByTestId(`h-label`)).toHaveAttribute(`for`, `test-id`);
+    });
+  });
+
+  describe(`The "labelClassName" prop`, () => {
+    it(`should set custom class names on the label element when it is rendered.`, () => {
+      render(<Label labelClassName="test-class">Test Label</Label>);
+      expect(screen.getByTestId(`h-label`)).toHaveClass(`test-class`);
+    });
+  });
 });
