@@ -16,6 +16,7 @@ const ProgressBar = ({
     role="progressbar"
     className="h-progress-bar">
     <div
+      data-testid="progress-bar-fill"
       style={{ width: `${percentComplete(completedSteps, totalSteps)}%` }}
       className={classNames(`h-progress-bar__fill h-color-background-blue-500`,
         `h-progress-bar--${variant}`)}

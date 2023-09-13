@@ -48,12 +48,12 @@ const Input = ({
   inputType = `text`,
   value
 }: InputProps) => {
-  const input = useRef<HTMLInputElement | null>(null);
-  const uniqueID = useRef<string>(randomString());
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const uniqueIDRef = useRef<string>(randomString());
 
   useEffect(() => {
-    if (input.current && autofocus) {
-      input.current.focus();
+    if (inputRef.current && autofocus) {
+      inputRef.current.focus();
     }
   }, []);
 
@@ -62,7 +62,7 @@ const Input = ({
       {label ?
         <Label
           labelClassName={variant === `dark-blue` ? `h-color-text-blue-200 ${labelClassName}` : labelClassName}
-          htmlFor={id ? id : uniqueID.current}>
+          htmlFor={id ? id : uniqueIDRef.current}>
           {label}
         </Label>
         :
@@ -70,10 +70,10 @@ const Input = ({
       }
       <div className="h-input-container">
         <input
-          id={id ? id : uniqueID.current}
+          id={id ? id : uniqueIDRef.current}
           disabled={disabled}
           type={inputType}
-          ref={input}
+          ref={inputRef}
           name={name}
           aria-label={name}
           className={classNames(`h-input`,
