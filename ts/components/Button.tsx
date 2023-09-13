@@ -12,7 +12,8 @@ export type ButtonVariant =
   | `negative-outline`
   | `info-outline`
   | `link-primary`
-  | `link-secondary`;
+  | `link-secondary`
+  | `border-hover`;
 export type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
 export type ButtonType = `button` | `submit` | `reset`;
 
@@ -27,6 +28,7 @@ interface ButtonProps {
   square?: boolean;
   type?: ButtonType;
   variant?: ButtonVariant;
+  id?: string | undefined;
 }
 
 const Button = (
@@ -41,11 +43,13 @@ const Button = (
     square = false,
     type = `button`,
     variant = `positive`,
+    id = undefined,
   }: ButtonProps,
   ref
 ) => {
   return (
     <button
+      id={id}
       ref={ref}
       type={type}
       onClick={onClick}

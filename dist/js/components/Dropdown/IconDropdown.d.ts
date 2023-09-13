@@ -5,12 +5,13 @@ interface IconDropdownProps {
     componentClass?: string;
     buttonAriaLabel?: string;
     buttonClass?: string;
-    buttonId?: string;
+    buttonId?: string | undefined;
     iconClass?: string;
+    iconName?: string;
     placement?: Placement;
     children: JSX.Element[] | JSX.Element;
-    variant?: ButtonVariant | null;
+    variant?: ButtonVariant;
     size?: ButtonSize;
 }
-declare const IconDropdown: ({ buttonAriaLabel, buttonClass, buttonId, children, componentClass, iconClass, placement, size, variant, }: IconDropdownProps) => React.JSX.Element;
+declare const IconDropdown: ({ buttonAriaLabel, buttonClass, buttonId, children, iconClass, iconName, placement, size, variant, }: IconDropdownProps) => React.JSX.Element;
 export { IconDropdown };

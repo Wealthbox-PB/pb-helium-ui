@@ -1,18 +1,19 @@
 import React from 'react';
 import { Dropdown } from './Dropdown';
 import type { Placement } from '@floating-ui/react';
-import { ButtonSize, ButtonVariant } from 'components/Button';
+import { Button, ButtonSize, ButtonVariant } from 'components/Button';
 import classNames from 'classnames';
 
 interface IconDropdownProps {
   componentClass?: string;
   buttonAriaLabel?: string;
   buttonClass?: string;
-  buttonId?: string;
+  buttonId?: string | undefined;
   iconClass?: string;
+  iconName?: string;
   placement?: Placement;
   children: JSX.Element[] | JSX.Element;
-  variant?: ButtonVariant | null;
+  variant?: ButtonVariant;
   size?: ButtonSize;
 }
 
@@ -21,26 +22,26 @@ const IconDropdown = ({
   buttonClass = ``,
   buttonId = ``,
   children,
-  componentClass = ``,
-  iconClass = `h-icon-dots`,
+  iconClass = ``,
+  iconName = `dots`,
   placement = `bottom-end`,
   size = `xs`,
-  variant = null,
+  variant = `border-hover`,
 }: IconDropdownProps) => (
   <Dropdown
     renderOpener={({ ref, ...props }) => (
-      <button
+      <Button
+        variant={variant}
+        size={size}
         ref={ref}
-        className={classNames(`h-btn h-btn--square h-btn--${size}`, buttonClass, {
-          [`h-btn--${variant}`]: variant,
-          [`h-btn--border-hover`]: !variant,
-        })}
         aria-label={buttonAriaLabel}
+        square={true}
         id={buttonId}
+        className={buttonClass}
         {...props}
       >
-        <i className={`${iconClass} ${componentClass}`} />
-      </button>
+        <span className={classNames(`h-icon-${iconName}`, iconClass)}></span>
+      </Button>
     )}
     placement={placement}
   >
