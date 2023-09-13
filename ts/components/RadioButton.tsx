@@ -40,15 +40,15 @@ const RadioButton = ({
           'h-radio-pill-button': variant === `pill`,
         })}>
         <input
-          id={id ? id : uniqueID.current}
           autoFocus={autofocus}
-          className="h-radio__elm"
-          type="radio"
-          name={name}
           checked={checked}
+          className="h-radio__elm"
           disabled={disabled}
-          onClick={onClick}
+          id={id ? id : uniqueID.current}
+          name={name}
           onChange={onChange}
+          onClick={onClick}
+          type="radio"
         />
         <span className="h-radio__container"></span>
         {label ?

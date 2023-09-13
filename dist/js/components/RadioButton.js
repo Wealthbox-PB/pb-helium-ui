@@ -11,7 +11,7 @@ var RadioButton = function (_a) {
                 'h-radio--lg': size === "large",
                 'h-radio-pill-button': variant === "pill",
             }) },
-            React.createElement("input", { id: id ? id : uniqueID.current, autoFocus: autofocus, className: "h-radio__elm", type: "radio", name: name, checked: checked, disabled: disabled, onClick: onClick, onChange: onChange }),
+            React.createElement("input", { autoFocus: autofocus, checked: checked, className: "h-radio__elm", disabled: disabled, id: id ? id : uniqueID.current, name: name, onChange: onChange, onClick: onClick, type: "radio" }),
             React.createElement("span", { className: "h-radio__container" }),
             label ?
                 React.createElement(Label, { labelClassName: disabled ? "h-radio__label-content h-color-text-gray-500" : "h-radio__label-content", htmlFor: id ? id : uniqueID.current }, label)

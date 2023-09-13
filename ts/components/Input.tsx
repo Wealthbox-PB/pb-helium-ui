@@ -45,7 +45,7 @@ const Input = ({
   showLeftIcon = true,
   showRightButton = true,
   variant = `default`,
-  inputType = "text",
+  inputType = `text`,
   value
 }: InputProps) => {
   const input = useRef<HTMLInputElement | null>(null);
