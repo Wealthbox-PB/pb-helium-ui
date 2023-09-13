@@ -3,6 +3,7 @@ import { Dropdown } from './Dropdown';
 import type { Placement } from '@floating-ui/react';
 import { Button, ButtonSize, ButtonVariant } from 'components/Button';
 import classNames from 'classnames';
+import type { Icons } from '../../types/icons';
 
 interface IconDropdownProps {
   componentClass?: string;
@@ -10,7 +11,7 @@ interface IconDropdownProps {
   buttonClass?: string;
   buttonId?: string | undefined;
   iconClass?: string;
-  iconName?: string;
+  iconName?: Icons;
   placement?: Placement;
   children: JSX.Element[] | JSX.Element;
   variant?: ButtonVariant;
