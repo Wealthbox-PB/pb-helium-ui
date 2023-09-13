@@ -91,6 +91,7 @@ const Input = ({
         ></input>
         {leftIconClassName && showLeftIcon ?
           <span
+            data-testid="h-input__icon--left"
             aria-hidden="true"
             className={classNames(
               `h-input__icon--left`

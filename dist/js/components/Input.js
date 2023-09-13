@@ -22,7 +22,7 @@ var Input = function (_a) {
                     'h-input--dark-blue': variant === "dark-blue",
                 }), placeholder: placeholder, role: role, value: value, onChange: onChange, onFocus: onFocus, onBlur: onBlur }),
             leftIconClassName && showLeftIcon ?
-                React.createElement("span", { "aria-hidden": "true", className: classNames("h-input__icon--left", leftIconClassName, {
+                React.createElement("span", { "data-testid": "h-input__icon--left", "aria-hidden": "true", className: classNames("h-input__icon--left", leftIconClassName, {
                         'h-color-text-blue-200': variant === 'dark-blue',
                         'h-color-text-gray-500': variant === 'default'
                     }) })
