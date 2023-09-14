@@ -75,9 +75,9 @@ describe(`<RadioButton />`, () => {
 
     describe(`The "label" prop`, () => {
       it(`should display a label beside the radio button`, () => {
-        render(<RadioButton name="radio-group-1" label="label" />);
+        render(<RadioButton name="radio-group-1" label="Test Label" />);
 
-        expect(screen.getByTestId(`h-label`)).toBeInTheDocument();
+        expect(screen.getByText(`Test Label`)).toBeInTheDocument();
       });
     });
 
@@ -156,11 +156,11 @@ describe(`<RadioButton />`, () => {
         const onChange = jest.fn(() => {
           checked = !checked;
         });
-        const { rerender } = render(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} label="label" />);
+        const { rerender } = render(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} label="Test Label" />);
 
         expect(screen.getByRole(`radio`)).not.toBeChecked();
 
-        await userEvent.click(screen.getByTestId(`h-label`));
+        await userEvent.click(screen.getByText(`Test Label`));
 
         expect(onChange).toHaveBeenCalledTimes(1);
 

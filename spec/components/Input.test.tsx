@@ -51,10 +51,10 @@ describe(`<Input />`, () => {
 
     describe(`The "id" prop`, () => {
       it(`should set the "id" attribute on the input element and the "for" attribute on the label.`, () => {
-        render(<Input id="test-id" value="test value" label="test label" ></Input>);
+        render(<Input id="test-id" value="test value" label="Test Label" ></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveAttribute(`id`, `test-id`);
-        expect(screen.getByTestId(`h-label`)).toHaveAttribute(`for`, `test-id`);
+        expect(screen.getByText(`Test Label`)).toHaveAttribute(`for`, `test-id`);
       });
     });
 
@@ -70,7 +70,7 @@ describe(`<Input />`, () => {
       it(`should render a label element along with the input element.`, () => {
         render(<Input value="test value" label="Test Label" ></Input>);
 
-        expect(screen.getByTestId(`h-label`)).toBeInTheDocument();
+        expect(screen.getByText(`Test Label`)).toBeInTheDocument();
       });
     });
 
@@ -78,7 +78,7 @@ describe(`<Input />`, () => {
       it(`should apply custom classes to a label element that is rendered along with the input element.`, () => {
         render(<Input value="test value" label="Test Label" labelClassName="test-class"></Input>);
 
-        expect(screen.getByTestId(`h-label`)).toHaveClass(`test-class`);
+        expect(screen.getByText(`Test Label`)).toHaveClass(`test-class`);
       });
     });
 
@@ -134,9 +134,9 @@ describe(`<Input />`, () => {
   describe(`Interactions`, () => {
     describe(`Clicking on the input label`, () => {
       it(`should focus the input element.`, async () => {
-        render(<Input value="test" label="test-label"></Input>);
+        render(<Input value="test" label="Test Label"></Input>);
 
-        await userEvent.click(screen.getByTestId(`h-label`));
+        await userEvent.click(screen.getByText(`Test Label`));
 
         expect(document.activeElement).toHaveAttribute(`value`, `test`);
       });

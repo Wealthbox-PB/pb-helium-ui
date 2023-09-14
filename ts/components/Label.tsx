@@ -12,10 +12,7 @@ const Label = ({
   htmlFor,
   labelClassName,
 }: LabelProps) => (
-  <label
-    data-testid="h-label"
-    className={classNames(`h-form-label`, labelClassName)}
-    htmlFor={htmlFor}>
+  <label className={classNames(`h-form-label`, labelClassName)} htmlFor={htmlFor}>
     {children}
   </label>
 );

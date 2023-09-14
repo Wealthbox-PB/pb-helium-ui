@@ -8,21 +8,21 @@ describe(`<Label />`, () => {
   describe(`The "children" prop`, () => {
     it(`should set the inner contents of the label element when it is rendered.`, () => {
       render(<Label>Test Label</Label>);
-      expect(screen.getByTestId(`h-label`)).toHaveTextContent(`Test Label`);
+      expect(screen.getByText(`Test Label`)).toHaveTextContent(`Test Label`);
     });
   });
 
   describe(`The "htmlFor" prop`, () => {
     it(`should set the "for" attribute on the label element when it is rendered.`, () => {
       render(<Label htmlFor="test-id">Test Label</Label>);
-      expect(screen.getByTestId(`h-label`)).toHaveAttribute(`for`, `test-id`);
+      expect(screen.getByText(`Test Label`)).toHaveAttribute(`for`, `test-id`);
     });
   });
 
   describe(`The "labelClassName" prop`, () => {
     it(`should set custom class names on the label element when it is rendered.`, () => {
       render(<Label labelClassName="test-class">Test Label</Label>);
-      expect(screen.getByTestId(`h-label`)).toHaveClass(`test-class`);
+      expect(screen.getByText(`Test Label`)).toHaveClass(`test-class`);
     });
   });
 });
