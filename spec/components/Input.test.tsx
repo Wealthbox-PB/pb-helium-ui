@@ -9,7 +9,7 @@ describe(`<Input />`, () => {
   describe(`Default UI`, () => {
     describe(`The "role" prop`, () => {
       it(`should be set to "textbox" and set as the "role" attribute on the input.`, () => {
-        render(<Input value="test" ></Input>);
+        render(<Input value="test" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toBeInTheDocument();
       });
@@ -17,7 +17,7 @@ describe(`<Input />`, () => {
 
     describe(`The "inputType" prop`, () => {
       it(`should be set to "text" and set as the "type" attribute on the input.`, () => {
-        render(<Input value="test" ></Input>);
+        render(<Input value="test" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveAttribute(`type`, `text`);
       });
@@ -25,7 +25,7 @@ describe(`<Input />`, () => {
 
     describe(`The "variant" prop`, () => {
       it(`should be set to "default".`, () => {
-        render(<Input value="test" ></Input>);
+        render(<Input value="test" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).not.toHaveClass(`h-input--dark-blue`);
       });
@@ -35,15 +35,23 @@ describe(`<Input />`, () => {
   describe(`Props`, () => {
     describe(`The "autofocus" prop`, () => {
       it(`should set the "autofocus" attribute on the input element.`, () => {
-        render(<Input value="test" autofocus={true}></Input>);
+        render(<Input value="test" autofocus={true} onChange={() => { }}></Input>);
 
         expect(document.activeElement).toHaveAttribute(`value`, `test`);
       });
     });
 
+    describe(`The "aria-label" prop`, () => {
+      it(`should set the "aria-label" attribute on the input element.`, () => {
+        render(<Input value="test" aria-label="test name" onChange={() => { }}></Input>);
+
+        expect(screen.getByRole(`textbox`)).toHaveAttribute(`aria-label`, `test name`);
+      });
+    });
+
     describe(`The "disabled" prop`, () => {
       it(`should set the "disabled" attribute on the input element.`, () => {
-        render(<Input disabled={true} value="test"></Input>);
+        render(<Input disabled={true} value="test" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveAttribute(`disabled`);
       });
@@ -51,7 +59,7 @@ describe(`<Input />`, () => {
 
     describe(`The "id" prop`, () => {
       it(`should set the "id" attribute on the input element and the "for" attribute on the label.`, () => {
-        render(<Input id="test-id" value="test value" label="Test Label" ></Input>);
+        render(<Input id="test-id" value="test value" label="Test Label" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveAttribute(`id`, `test-id`);
         expect(screen.getByText(`Test Label`)).toHaveAttribute(`for`, `test-id`);
@@ -60,7 +68,7 @@ describe(`<Input />`, () => {
 
     describe(`The "inputClassName" prop`, () => {
       it(`should apply additional classes to the input element.`, () => {
-        render(<Input value="test value" inputClassName="h-input--tall" ></Input>);
+        render(<Input value="test value" inputClassName="h-input--tall" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveClass(`h-input--tall`);
       });
@@ -68,7 +76,7 @@ describe(`<Input />`, () => {
 
     describe(`The "label" prop`, () => {
       it(`should render a label element along with the input element.`, () => {
-        render(<Input value="test value" label="Test Label" ></Input>);
+        render(<Input value="test value" label="Test Label" onChange={() => { }}></Input>);
 
         expect(screen.getByText(`Test Label`)).toBeInTheDocument();
       });
@@ -76,7 +84,7 @@ describe(`<Input />`, () => {
 
     describe(`The "labelClassName" prop`, () => {
       it(`should apply custom classes to a label element that is rendered along with the input element.`, () => {
-        render(<Input value="test value" label="Test Label" labelClassName="test-class"></Input>);
+        render(<Input value="test value" label="Test Label" labelClassName="test-class" onChange={() => { }}></Input>);
 
         expect(screen.getByText(`Test Label`)).toHaveClass(`test-class`);
       });
@@ -84,7 +92,7 @@ describe(`<Input />`, () => {
 
     describe(`The "leftIconClassName" prop`, () => {
       it(`should render a left-aligned icon within the Input component.`, () => {
-        render(<Input value="test value" label="Test Label" leftIconClassName="h-icon-search"></Input>);
+        render(<Input value="test value" label="Test Label" leftIconClassName="h-icon-search" onChange={() => { }}></Input>);
 
         expect(screen.getByTestId(`h-input__icon--left`)).toHaveClass(`h-icon-search`);
       });
@@ -92,15 +100,23 @@ describe(`<Input />`, () => {
 
     describe(`The "name" prop`, () => {
       it(`should set the "name" attribute on the input element.`, () => {
-        render(<Input name="test name" value="test value" ></Input>);
+        render(<Input name="test name" value="test value" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveAttribute(`name`, `test name`);
       });
     });
 
+    describe(`The "placeholder" prop`, () => {
+      it(`should set the "placeholder" attribute on the input element.`, () => {
+        render(<Input placeholder="placeholder" value="test value" onChange={() => { }}></Input>);
+
+        expect(screen.getByRole(`textbox`)).toHaveAttribute(`placeholder`, `placeholder`);
+      });
+    });
+
     describe(`The "role" prop`, () => {
       it(`should set the "role" attribute on the input element.`, () => {
-        render(<Input value="test" role="searchbox"></Input>);
+        render(<Input value="test" role="searchbox" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`searchbox`)).toBeInTheDocument();
       });
@@ -108,7 +124,7 @@ describe(`<Input />`, () => {
 
     describe(`The "variant" prop`, () => {
       it(`should set custom styling on the component.`, () => {
-        render(<Input value="test" variant="dark-blue"></Input>);
+        render(<Input value="test" variant="dark-blue" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveClass(`h-input--dark-blue`);
       });
@@ -116,7 +132,7 @@ describe(`<Input />`, () => {
 
     describe(`The "inputType" prop`, () => {
       it(`should set the "type" attribute on the input element.`, () => {
-        render(<Input value="test" inputType="email"></Input>);
+        render(<Input value="test" inputType="email" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveAttribute(`type`, `email`);
       });
@@ -124,7 +140,7 @@ describe(`<Input />`, () => {
 
     describe(`The "value" prop`, () => {
       it(`should set the "value" attribute on the input element.`, () => {
-        render(<Input value="test"></Input>);
+        render(<Input value="test" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveAttribute(`value`, `test`);
       });
@@ -134,7 +150,7 @@ describe(`<Input />`, () => {
   describe(`Interactions`, () => {
     describe(`Clicking on the input label`, () => {
       it(`should focus the input element.`, async () => {
-        render(<Input value="test" label="Test Label"></Input>);
+        render(<Input value="test" label="Test Label" onChange={() => { }}></Input>);
 
         await userEvent.click(screen.getByText(`Test Label`));
 
@@ -146,7 +162,7 @@ describe(`<Input />`, () => {
       it(`should call the onFocus event.`, async () => {
         const onFocus = jest.fn();
 
-        render(<Input value="test value" onFocus={onFocus}></Input>);
+        render(<Input value="test value" onFocus={onFocus} onChange={() => { }}></Input>);
 
         await userEvent.click(screen.getByRole(`textbox`));
 
@@ -161,7 +177,7 @@ describe(`<Input />`, () => {
         render(
           <div>
             <div data-testid="test-div">test</div>
-            <Input value="" onBlur={onBlur}></Input>
+            <Input value="" onBlur={onBlur} onChange={() => { }}></Input>
           </div>
         );
 

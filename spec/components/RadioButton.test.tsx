@@ -43,9 +43,17 @@ describe(`<RadioButton />`, () => {
   describe(`Props`, () => {
     describe(`The "autofocus" prop`, () => {
       it(`should autofocus the radio input`, () => {
-        render(<RadioButton autofocus={true} name="radio-group-1" label="label" />);
+        render(<RadioButton autoFocus={true} name="radio-group-1" label="label" />);
 
         expect(document.activeElement).toHaveAttribute(`name`, `radio-group-1`);
+      });
+    });
+
+    describe(`The "aria-label" prop`, () => {
+      it(`should set the "aria-label" attribute on the input element.`, () => {
+        render(<RadioButton aria-label="test name"></RadioButton>);
+
+        expect(screen.getByRole(`radio`)).toHaveAttribute(`aria-label`, `test name`);
       });
     });
 
@@ -91,7 +99,7 @@ describe(`<RadioButton />`, () => {
 
     describe(`The "size" prop`, () => {
       it(`should set the "name" attribute of the radio input`, () => {
-        render(<RadioButton name="radio-group-1" size="small" label="label" />);
+        render(<RadioButton name="radio-group-1" buttonSize="small" label="label" />);
 
         expect(screen.getByTestId(`h-radio`)).toHaveClass(`h-radio--sm`);
       });

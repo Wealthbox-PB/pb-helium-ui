@@ -1,32 +1,27 @@
-import React, { useRef } from 'react';
+import React, { useRef, InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
 import { Label } from './Label';
 import { randomString } from '../helpers/random_string';
 
-interface RadioButtonProps {
-  autofocus?: boolean;
-  checked?: boolean;
+interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   id?: string;
   label?: string;
-  name: string;
   onChange?: () => void;
   onClick?: () => void;
-  size?: `small` | `large`;
+  buttonSize?: `small` | `large`;
   variant?: `default` | `pill`;
 }
 
 const RadioButton = ({
-  autofocus = false,
-  checked,
   disabled,
   id = randomString(),
   label,
-  name,
   onChange,
   onClick,
-  size = `large`,
+  buttonSize = `large`,
   variant = `default`,
+  ...rest
 }: RadioButtonProps) => {
   const uniqueIDRef = useRef<string>(randomString());
 
@@ -34,20 +29,18 @@ const RadioButton = ({
     <label
       data-testid="h-radio"
       className={classNames(`h-radio h-radio--animate`, {
-        'h-radio--sm': size === `small`,
-        'h-radio--lg': size === `large`,
+        'h-radio--sm': buttonSize === `small`,
+        'h-radio--lg': buttonSize === `large`,
         'h-radio--pill-button': variant === `pill`,
       })}>
       <input
-        autoFocus={autofocus}
-        checked={checked}
         className="h-radio__elm"
         disabled={disabled}
         id={id ? id : uniqueIDRef.current}
-        name={name}
         onChange={onChange}
         onClick={onClick}
         type="radio"
+        {...rest}
       />
       <span className="h-radio__container"></span>
       {label ?

@@ -1,52 +1,44 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, InputHTMLAttributes } from 'react';
 import { Label } from './Label';
 import classNames from 'classnames';
 import { randomString } from '../helpers/random_string';
 
-interface InputProps {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   autofocus?: boolean;
-  disabled?: boolean;
   id?: string;
   inputClassName?: string;
   label?: string;
   labelClassName?: string;
   leftIconClassName?: string;
-  name?: string;
   onBlur?: (e) => void;
   onChange?: (e) => void;
   onFocus?: (e) => void;
   onRightButtonClick?: (e) => void;
-  placeholder?: string;
   rightButtonClassName?: string;
-  role?: string;
   showLeftIcon?: boolean;
   showRightButton?: boolean;
   variant?: `default` | `dark-blue`;
   inputType?: `text` | `password` | `email` | `tel` | `search`;
-  value: string;
 }
 
 const Input = ({
   autofocus,
-  disabled,
   id,
   inputClassName,
   label,
   labelClassName = ``,
   leftIconClassName,
-  name,
   onBlur,
   onChange,
   onFocus,
   onRightButtonClick,
-  placeholder,
   rightButtonClassName,
   role = `textbox`,
   showLeftIcon = true,
   showRightButton = true,
   variant = `default`,
   inputType = `text`,
-  value
+  ...rest
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const uniqueIDRef = useRef<string>(randomString());
@@ -71,23 +63,19 @@ const Input = ({
       <div className="h-input-container">
         <input
           id={id ? id : uniqueIDRef.current}
-          disabled={disabled}
           type={inputType}
           ref={inputRef}
-          name={name}
-          aria-label={name}
           className={classNames(`h-input`,
             inputClassName,
             {
               'h-input--with-icon': leftIconClassName && showLeftIcon,
               'h-input--dark-blue': variant === `dark-blue`,
             })}
-          placeholder={placeholder}
           role={role}
-          value={value}
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
+          {...rest}
         ></input>
         {leftIconClassName && showLeftIcon ?
           <span
