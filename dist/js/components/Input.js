@@ -25,7 +25,7 @@ import { Label } from './Label';
 import classNames from 'classnames';
 import { randomString } from '../helpers/random_string';
 var Input = function (_a) {
-    var autoFocus = _a.autoFocus, _b = _a.id, id = _b === void 0 ? randomString() : _b, className = _a.className, _c = _a.inputType, inputType = _c === void 0 ? "text" : _c, label = _a.label, _d = _a.labelClassName, labelClassName = _d === void 0 ? "" : _d, leftIconClassName = _a.leftIconClassName, onBlur = _a.onBlur, onChange = _a.onChange, onFocus = _a.onFocus, onRightButtonClick = _a.onRightButtonClick, rightButtonClassName = _a.rightButtonClassName, _e = _a.role, role = _e === void 0 ? "textbox" : _e, _f = _a.showLeftIcon, showLeftIcon = _f === void 0 ? true : _f, _g = _a.showRightButton, showRightButton = _g === void 0 ? true : _g, _h = _a.variant, variant = _h === void 0 ? "default" : _h, rest = __rest(_a, ["autoFocus", "id", "className", "inputType", "label", "labelClassName", "leftIconClassName", "onBlur", "onChange", "onFocus", "onRightButtonClick", "rightButtonClassName", "role", "showLeftIcon", "showRightButton", "variant"]);
+    var autoFocus = _a.autoFocus, _b = _a.id, id = _b === void 0 ? randomString() : _b, className = _a.className, _c = _a.inputType, inputType = _c === void 0 ? "text" : _c, label = _a.label, _d = _a.labelClassName, labelClassName = _d === void 0 ? "" : _d, leftIconClassName = _a.leftIconClassName, onRightButtonClick = _a.onRightButtonClick, rightButtonClassName = _a.rightButtonClassName, _e = _a.role, role = _e === void 0 ? "textbox" : _e, _f = _a.showLeftIcon, showLeftIcon = _f === void 0 ? true : _f, _g = _a.showRightButton, showRightButton = _g === void 0 ? true : _g, _h = _a.variant, variant = _h === void 0 ? "default" : _h, rest = __rest(_a, ["autoFocus", "id", "className", "inputType", "label", "labelClassName", "leftIconClassName", "onRightButtonClick", "rightButtonClassName", "role", "showLeftIcon", "showRightButton", "variant"]);
     var inputRef = useRef(null);
     var uniqueIDRef = useRef(randomString());
     useEffect(function () {
@@ -42,7 +42,7 @@ var Input = function (_a) {
             React.createElement("input", __assign({ id: id ? id : uniqueIDRef.current, type: inputType, ref: inputRef, className: classNames("h-input", className, {
                     'h-input--with-icon': leftIconClassName && showLeftIcon,
                     'h-input--dark-blue': variant === "dark-blue",
-                }), role: role, onChange: onChange, onFocus: onFocus, onBlur: onBlur }, rest)),
+                }), role: role }, rest)),
             leftIconClassName && showLeftIcon ?
                 React.createElement("span", { "data-testid": "h-input__icon--left", "aria-hidden": "true", className: classNames("h-input__icon--left", leftIconClassName, {
                         'h-color-text-blue-200': variant === 'dark-blue',

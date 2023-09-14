@@ -11,5 +11,5 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     variant?: `default` | `dark-blue`;
     inputType?: `text` | `password` | `email` | `tel` | `search`;
 }
-declare const Input: ({ autoFocus, id, className, inputType, label, labelClassName, leftIconClassName, onBlur, onChange, onFocus, onRightButtonClick, rightButtonClassName, role, showLeftIcon, showRightButton, variant, ...rest }: InputProps) => React.JSX.Element;
+declare const Input: ({ autoFocus, id, className, inputType, label, labelClassName, leftIconClassName, onRightButtonClick, rightButtonClassName, role, showLeftIcon, showRightButton, variant, ...rest }: InputProps) => React.JSX.Element;
 export { Input };

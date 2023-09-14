@@ -13,8 +13,6 @@ const RadioButton = ({
   disabled,
   id = randomString(),
   label,
-  onChange,
-  onClick,
   buttonSize = `large`,
   variant = `default`,
   ...rest
@@ -33,8 +31,6 @@ const RadioButton = ({
         className="h-radio__elm"
         disabled={disabled}
         id={id ? id : uniqueIDRef.current}
-        onChange={onChange}
-        onClick={onClick}
         type="radio"
         {...rest}
       />

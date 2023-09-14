@@ -24,9 +24,6 @@ const Input = ({
   label,
   labelClassName = ``,
   leftIconClassName,
-  onBlur,
-  onChange,
-  onFocus,
   onRightButtonClick,
   rightButtonClassName,
   role = `textbox`,
@@ -67,9 +64,6 @@ const Input = ({
               'h-input--dark-blue': variant === `dark-blue`,
             })}
           role={role}
-          onChange={onChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
           {...rest}
         ></input>
         {leftIconClassName && showLeftIcon ?

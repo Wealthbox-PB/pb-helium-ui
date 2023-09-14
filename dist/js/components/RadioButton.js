@@ -25,14 +25,14 @@ import classNames from 'classnames';
 import { Label } from './Label';
 import { randomString } from '../helpers/random_string';
 var RadioButton = function (_a) {
-    var disabled = _a.disabled, _b = _a.id, id = _b === void 0 ? randomString() : _b, label = _a.label, onChange = _a.onChange, onClick = _a.onClick, _c = _a.buttonSize, buttonSize = _c === void 0 ? "large" : _c, _d = _a.variant, variant = _d === void 0 ? "default" : _d, rest = __rest(_a, ["disabled", "id", "label", "onChange", "onClick", "buttonSize", "variant"]);
+    var disabled = _a.disabled, _b = _a.id, id = _b === void 0 ? randomString() : _b, label = _a.label, _c = _a.buttonSize, buttonSize = _c === void 0 ? "large" : _c, _d = _a.variant, variant = _d === void 0 ? "default" : _d, rest = __rest(_a, ["disabled", "id", "label", "buttonSize", "variant"]);
     var uniqueIDRef = useRef(randomString());
     return (React.createElement("label", { "data-testid": "h-radio", className: classNames("h-radio h-radio--animate", {
             'h-radio--sm': buttonSize === "small",
             'h-radio--lg': buttonSize === "large",
             'h-radio--pill-button': variant === "pill",
         }) },
-        React.createElement("input", __assign({ className: "h-radio__elm", disabled: disabled, id: id ? id : uniqueIDRef.current, onChange: onChange, onClick: onClick, type: "radio" }, rest)),
+        React.createElement("input", __assign({ className: "h-radio__elm", disabled: disabled, id: id ? id : uniqueIDRef.current, type: "radio" }, rest)),
         React.createElement("span", { className: "h-radio__container" }),
         label ?
             React.createElement(Label, { labelClassName: disabled ? "h-radio__label-content h-color-text-gray-500" : "h-radio__label-content", htmlFor: id ? id : uniqueIDRef.current }, label)
