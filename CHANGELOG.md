@@ -8,11 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added new `Input` component
+- Added new `TextInput` component
 - Added new `Label` component
 - Added new `RadioButton` component
 - Added new `ProgressBar` component
-- Added specs for `Input`, `Label`, `RadioButton`, and `ProgressBar`
+- Added specs for `TextInput`, `Label`, `RadioButton`, and `ProgressBar`
 - Added new `_progress_bar.scss` file
 - Added new `_radio_button.scss` file
 - Added new `_flex.scss` file
