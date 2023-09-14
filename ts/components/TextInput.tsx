@@ -16,7 +16,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputType?: `text` | `password` | `email` | `tel` | `search`;
 }
 
-const Input = ({
+const TextInput = ({
   autoFocus,
   id = randomString(),
   className,
@@ -105,4 +105,4 @@ const Input = ({
   );
 };
 
-export { Input };
+export { TextInput };
