@@ -1,0 +1,64 @@
+//==========================================================================
+//  Pill Radio Button
+//==========================================================================
+
+.h-radio--pill-button {
+  position: relative;
+  display: flex;
+  height: $h-height-form-element-lg;
+  align-items: center;
+  padding: 0 $h-padding-x-form-element-lg;
+  color: $h-color-text-darker;
+  transition: all $h-animation-duration-sm $h-animation-timing-ease-in-out;
+
+  &.h-radio .h-radio__elm:focus ~ .h-radio__container {
+    border-color: $h-gray-200;
+    box-shadow: none;
+  }
+
+  .h-radio__pill-button-radio-fill {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid $h-gray-200;
+    border-radius: $h-border-radius-form-element-lg;
+    transition: all $h-animation-duration-sm $h-animation-timing-ease-in-out;
+  }
+
+  .h-radio__label-content,
+  .h-radio__container {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &:hover {
+    .h-radio__pill-button-radio-fill {
+      border-color: $h-blue-300;
+    }
+  }
+
+  input.h-radio__elm:checked {
+    span {
+      color: $h-blue-500;
+    }
+
+    & ~ .h-radio__pill-button-radio-fill {
+      border-color: $h-blue-500;
+      background-color: $h-blue-50;
+    }
+
+    &:focus {
+      & ~ .h-radio__container {
+        border-color: $h-blue-500;
+      }
+    }
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}

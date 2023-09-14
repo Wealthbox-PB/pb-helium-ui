@@ -217,6 +217,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       &:disabled,
       &.disabled,
       &[disabled] {
+        cursor: $h-cursor-disabled-shared-component;
         /* stylelint-enable selector-class-pattern */
         &,
         &:focus {
@@ -229,6 +230,12 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
             border-color: $h-color-border-form-element;
             background-color: $h-color-background-form-element-disabled;
             box-shadow: none;
+          }
+        }
+
+        &:active {
+          ~ #{$h-checkbox-radio-selector}__container {
+            transform: none !important;
           }
         }
       }
@@ -255,6 +262,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
       + #{$h-checkbox-radio-selector}__label-content {
         padding-left: $h-spacing-checkbox-radio;
+        margin-bottom: 0;
       }
     }
 
@@ -615,6 +623,96 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
     &:not(:last-child) {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
+    }
+  }
+}
+
+//==========================================================================
+//  Styling for input container
+//==========================================================================
+
+.h-input-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+//==========================================================================
+//  Styling for a taller input field
+//==========================================================================
+
+.h-input--tall {
+  height: $h-height-form-element-lg;
+}
+
+//==========================================================================
+//  Styling for 'pill' style input, used on search input fields
+//==========================================================================
+
+.h-input--pill {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border-radius: 1.25rem;
+}
+
+//==========================================================================
+//  Styling for inputs with icons
+//==========================================================================
+
+.h-input--with-icon {
+  padding-left: 2.5rem;
+}
+
+.h-input__icon--left,
+.h-input__icon--right {
+  position: absolute;
+  font-size: $h-size-form-element-icon;
+}
+
+.h-input__icon--left {
+  left: $h-spacing-form-element-icon;
+  margin-right: $h-spacing-form-element-icon;
+}
+
+.h-input__icon--right {
+  right: $h-spacing-form-element-icon;
+  margin-left: $h-spacing-form-element-icon;
+}
+
+//==========================================================================
+//  Styling for a dark input field
+//==========================================================================
+
+.h-input--dark-blue {
+  border-color: $h-color-border-form-element-dark-blue;
+  background-color: $h-color-background-form-element-dark-blue;
+  color: $h-color-text-form-element-dark-blue;
+
+  &::placeholder {
+    color: $h-color-text-form-element-dark-blue-placeholder;
+  }
+
+  &:focus {
+    border-color: $h-color-border-form-element-dark-blue;
+    background-color: $h-color-background-form-element-dark-blue;
+    box-shadow: $h-box-shadow-size-form-element $h-color-box-shadow-form-element-dark-blue-focused;
+    color: $h-white;
+  }
+
+  /* stylelint-disable selector-class-pattern */
+  &:disabled,
+  &.disabled,
+  &[disabled] {
+    /* stylelint-enable selector-class-pattern */
+    border-color: $h-color-border-form-element-dark-blue;
+    background-color: $h-color-background-form-element-dark-blue;
+    box-shadow: none;
+    color: $h-color-text-form-element-dark-blue-disabled;
+    opacity: $h-opacity-disabled-shared-component;
+
+    &::placeholder {
+      color: $h-color-text-form-element-dark-blue-disabled;
     }
   }
 }
