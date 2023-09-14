@@ -25,11 +25,11 @@ import { Label } from './Label';
 import classNames from 'classnames';
 import { randomString } from '../helpers/random_string';
 var Input = function (_a) {
-    var autofocus = _a.autofocus, id = _a.id, inputClassName = _a.inputClassName, label = _a.label, _b = _a.labelClassName, labelClassName = _b === void 0 ? "" : _b, leftIconClassName = _a.leftIconClassName, onBlur = _a.onBlur, onChange = _a.onChange, onFocus = _a.onFocus, onRightButtonClick = _a.onRightButtonClick, rightButtonClassName = _a.rightButtonClassName, _c = _a.role, role = _c === void 0 ? "textbox" : _c, _d = _a.showLeftIcon, showLeftIcon = _d === void 0 ? true : _d, _e = _a.showRightButton, showRightButton = _e === void 0 ? true : _e, _f = _a.variant, variant = _f === void 0 ? "default" : _f, _g = _a.inputType, inputType = _g === void 0 ? "text" : _g, rest = __rest(_a, ["autofocus", "id", "inputClassName", "label", "labelClassName", "leftIconClassName", "onBlur", "onChange", "onFocus", "onRightButtonClick", "rightButtonClassName", "role", "showLeftIcon", "showRightButton", "variant", "inputType"]);
+    var autoFocus = _a.autoFocus, _b = _a.id, id = _b === void 0 ? randomString() : _b, className = _a.className, _c = _a.inputType, inputType = _c === void 0 ? "text" : _c, label = _a.label, _d = _a.labelClassName, labelClassName = _d === void 0 ? "" : _d, leftIconClassName = _a.leftIconClassName, onBlur = _a.onBlur, onChange = _a.onChange, onFocus = _a.onFocus, onRightButtonClick = _a.onRightButtonClick, rightButtonClassName = _a.rightButtonClassName, _e = _a.role, role = _e === void 0 ? "textbox" : _e, _f = _a.showLeftIcon, showLeftIcon = _f === void 0 ? true : _f, _g = _a.showRightButton, showRightButton = _g === void 0 ? true : _g, _h = _a.variant, variant = _h === void 0 ? "default" : _h, rest = __rest(_a, ["autoFocus", "id", "className", "inputType", "label", "labelClassName", "leftIconClassName", "onBlur", "onChange", "onFocus", "onRightButtonClick", "rightButtonClassName", "role", "showLeftIcon", "showRightButton", "variant"]);
     var inputRef = useRef(null);
     var uniqueIDRef = useRef(randomString());
     useEffect(function () {
-        if (inputRef.current && autofocus) {
+        if (inputRef.current && autoFocus) {
             inputRef.current.focus();
         }
     }, []);
@@ -39,7 +39,7 @@ var Input = function (_a) {
             :
                 null,
         React.createElement("div", { className: "h-input-container" },
-            React.createElement("input", __assign({ id: id ? id : uniqueIDRef.current, type: inputType, ref: inputRef, className: classNames("h-input", inputClassName, {
+            React.createElement("input", __assign({ id: id ? id : uniqueIDRef.current, type: inputType, ref: inputRef, className: classNames("h-input", className, {
                     'h-input--with-icon': leftIconClassName && showLeftIcon,
                     'h-input--dark-blue': variant === "dark-blue",
                 }), role: role, onChange: onChange, onFocus: onFocus, onBlur: onBlur }, rest)),

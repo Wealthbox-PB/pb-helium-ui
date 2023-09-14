@@ -33,9 +33,9 @@ describe(`<Input />`, () => {
   });
 
   describe(`Props`, () => {
-    describe(`The "autofocus" prop`, () => {
-      it(`should set the "autofocus" attribute on the input element.`, () => {
-        render(<Input value="test" autofocus={true} onChange={() => { }}></Input>);
+    describe(`The "autoFocus" prop`, () => {
+      it(`should set the "autoFocus" attribute on the input element.`, () => {
+        render(<Input value="test" autoFocus={true} onChange={() => { }}></Input>);
 
         expect(document.activeElement).toHaveAttribute(`value`, `test`);
       });
@@ -66,9 +66,9 @@ describe(`<Input />`, () => {
       });
     });
 
-    describe(`The "inputClassName" prop`, () => {
+    describe(`The "className" prop`, () => {
       it(`should apply additional classes to the input element.`, () => {
-        render(<Input value="test value" inputClassName="h-input--tall" onChange={() => { }}></Input>);
+        render(<Input value="test value" className="h-input--tall" onChange={() => { }}></Input>);
 
         expect(screen.getByRole(`textbox`)).toHaveClass(`h-input--tall`);
       });

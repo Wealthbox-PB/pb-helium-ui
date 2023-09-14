@@ -4,15 +4,10 @@ import classNames from 'classnames';
 import { randomString } from '../helpers/random_string';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  autofocus?: boolean;
-  id?: string;
-  inputClassName?: string;
+  className?: string;
   label?: string;
   labelClassName?: string;
   leftIconClassName?: string;
-  onBlur?: (e) => void;
-  onChange?: (e) => void;
-  onFocus?: (e) => void;
   onRightButtonClick?: (e) => void;
   rightButtonClassName?: string;
   showLeftIcon?: boolean;
@@ -22,9 +17,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = ({
-  autofocus,
-  id,
-  inputClassName,
+  autoFocus,
+  id = randomString(),
+  className,
+  inputType = `text`,
   label,
   labelClassName = ``,
   leftIconClassName,
@@ -37,14 +33,13 @@ const Input = ({
   showLeftIcon = true,
   showRightButton = true,
   variant = `default`,
-  inputType = `text`,
   ...rest
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const uniqueIDRef = useRef<string>(randomString());
 
   useEffect(() => {
-    if (inputRef.current && autofocus) {
+    if (inputRef.current && autoFocus) {
       inputRef.current.focus();
     }
   }, []);
@@ -66,7 +61,7 @@ const Input = ({
           type={inputType}
           ref={inputRef}
           className={classNames(`h-input`,
-            inputClassName,
+            className,
             {
               'h-input--with-icon': leftIconClassName && showLeftIcon,
               'h-input--dark-blue': variant === `dark-blue`,
