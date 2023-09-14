@@ -51,8 +51,7 @@ describe(`<RadioButton />`, () => {
 
     describe(`The "checked" prop`, () => {
       it(`should set the "checked" attribute of the radio input`, () => {
-        const onChange = jest.fn();
-        render(<RadioButton checked={true} name="radio-group-1" onChange={onChange} label="label" />);
+        render(<RadioButton checked={true} name="radio-group-1" onChange={() => { }} label="label" />);
 
         expect(screen.getByRole(`radio`)).toBeChecked();
       });
@@ -114,11 +113,9 @@ describe(`<RadioButton />`, () => {
         const onChange = jest.fn();
         render(<RadioButton name="radio-group-1" onChange={onChange} />);
 
-        userEvent.click(screen.getByRole(`radio`));
+        await userEvent.click(screen.getByRole(`radio`));
 
-        await waitFor(() => {
-          expect(onChange).toHaveBeenCalledTimes(1);
-        });
+        expect(onChange).toHaveBeenCalledTimes(1);
       });
     });
 
@@ -127,11 +124,9 @@ describe(`<RadioButton />`, () => {
         const onClick = jest.fn();
         render(<RadioButton name="radio-group-1" onClick={onClick} />);
 
-        userEvent.click(screen.getByRole(`radio`));
+        await userEvent.click(screen.getByRole(`radio`));
 
-        await waitFor(() => {
-          expect(onClick).toHaveBeenCalledTimes(1);
-        });
+        expect(onClick).toHaveBeenCalledTimes(1);
       });
     });
 
@@ -145,11 +140,9 @@ describe(`<RadioButton />`, () => {
 
         expect(screen.getByRole(`radio`)).not.toBeChecked();
 
-        userEvent.click(screen.getByRole(`radio`));
+        await userEvent.click(screen.getByRole(`radio`));
 
-        await waitFor(() => {
-          expect(onChange).toHaveBeenCalledTimes(1);
-        });
+        expect(onChange).toHaveBeenCalledTimes(1);
 
         rerender(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} />);
 
@@ -167,11 +160,9 @@ describe(`<RadioButton />`, () => {
 
         expect(screen.getByRole(`radio`)).not.toBeChecked();
 
-        userEvent.click(screen.getByTestId(`h-label`));
+        await userEvent.click(screen.getByTestId(`h-label`));
 
-        await waitFor(() => {
-          expect(onChange).toHaveBeenCalledTimes(1);
-        });
+        expect(onChange).toHaveBeenCalledTimes(1);
 
         rerender(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} />);
 

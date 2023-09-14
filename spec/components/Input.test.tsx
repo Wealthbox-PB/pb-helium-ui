@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
@@ -35,9 +35,9 @@ describe(`<Input />`, () => {
   describe(`Props`, () => {
     describe(`The "autofocus" prop`, () => {
       it(`should set the "autofocus" attribute on the input element.`, () => {
-        render(<Input value="test" role="searchbox"></Input>);
+        render(<Input value="test" autofocus={true}></Input>);
 
-        expect(screen.getByRole(`searchbox`)).toBeInTheDocument();
+        expect(document.activeElement).toHaveAttribute(`value`, `test`);
       });
     });
 
@@ -113,29 +113,83 @@ describe(`<Input />`, () => {
         expect(screen.getByRole(`textbox`)).toHaveClass(`h-input--dark-blue`);
       });
     });
+
+    describe(`The "inputType" prop`, () => {
+      it(`should set the "type" attribute on the input element.`, () => {
+        render(<Input value="test" inputType="email"></Input>);
+
+        expect(screen.getByRole(`textbox`)).toHaveAttribute(`type`, `email`);
+      });
+    });
+
+    describe(`The "value" prop`, () => {
+      it(`should set the "value" attribute on the input element.`, () => {
+        render(<Input value="test"></Input>);
+
+        expect(screen.getByRole(`textbox`)).toHaveAttribute(`value`, `test`);
+      });
+    });
   });
 
   describe(`Interactions`, () => {
-    // describe(`The "checked" prop`, () => {
-    //   it(`should update the checked state of the radio button`, async () => {
-    //     let checked = false;
-    //     const onChange = jest.fn(() => {
-    //       checked = !checked;
-    //     });
-    //     const { rerender } = render(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} />);
+    describe(`Clicking on the input label`, () => {
+      it(`should focus the input element.`, async () => {
+        render(<Input value="test" label="test-label"></Input>);
 
-    //     expect(screen.getByRole(`radio`)).not.toBeChecked();
+        await userEvent.click(screen.getByTestId(`h-label`));
 
-    //     userEvent.click(screen.getByRole(`radio`));
+        expect(document.activeElement).toHaveAttribute(`value`, `test`);
+      });
+    });
 
-    //     await waitFor(() => {
-    //       expect(onChange).toHaveBeenCalledTimes(1);
-    //     });
+    describe(`Focusing on the input`, () => {
+      it(`should call the onFocus event.`, async () => {
+        const onFocus = jest.fn();
 
-    //     rerender(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} />);
+        render(<Input value="test value" onFocus={onFocus}></Input>);
 
-    //     expect(screen.getByRole(`radio`)).toBeChecked();
-    //   });
-    // });
+        await userEvent.click(screen.getByRole(`textbox`));
+
+        expect(onFocus).toHaveBeenCalledTimes(1);
+      });
+    });
+
+    describe(`Removing focus from the input`, () => {
+      it(`should call the onBlur function.`, async () => {
+        const onBlur = jest.fn();
+
+        render(
+          <div>
+            <div data-testid="test-div">test</div>
+            <Input value="" onBlur={onBlur}></Input>
+          </div>
+        );
+
+        await userEvent.click(screen.getByRole(`textbox`));
+
+        await userEvent.click(screen.getByTestId(`test-div`));
+
+        expect(onBlur).toHaveBeenCalledTimes(1);
+      });
+    });
+
+    describe(`Typing in the input`, () => {
+      it(`should call the onChange function.`, async () => {
+        let value = ``;
+
+        const onChange = jest.fn((e) => {
+          value = e.target.value;
+          rerender(<Input value={value} onChange={onChange}></Input>);
+        });
+
+        const { rerender } = render(<Input value={value} onChange={onChange}></Input>);
+
+        expect(screen.getByRole(`textbox`)).toHaveValue(``);
+
+        await userEvent.type(screen.getByRole(`textbox`), `test value`);
+
+        expect(screen.getByRole(`textbox`)).toHaveValue(`test value`);
+      });
+    });
   });
 });
