@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-## [2.1.2] - 2023-09-12
+## [2.2.0] - 2023-09-14
 
 ### Added
 
@@ -21,8 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Updated `_forms.scss` file to include styling for new components
-- Updated `_color.scss` variables file to include teal 500 color
-- Updated `_component.scss` variables file to include more input ui variables
+- Updated `_color.scss` variables file to include teal-500 color
+- Updated `_component.scss` variables file to include more input UI variables
 
 ## [2.1.0] - 2023-09-07
 
