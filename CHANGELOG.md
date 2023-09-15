@@ -11,7 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added new `IconDropdown` component
 - Added new `icon.ts` font template and types file
 - Added specs for `IconDropdown`
-- Added new `_progress_bar.scss` file
 
 ### Changed
 
