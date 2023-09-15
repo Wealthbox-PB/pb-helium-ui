@@ -19,7 +19,7 @@ export type ButtonType = `button` | `submit` | `reset`;
 
 interface ButtonProps {
   active?: boolean;
-  buttonAriaLabel?: string | undefined;
+  ariaLabel?: string;
   children?: string | JSX.Element[] | JSX.Element;
   className?: string;
   disabled?: boolean;
@@ -29,15 +29,15 @@ interface ButtonProps {
   square?: boolean;
   type?: ButtonType;
   variant?: ButtonVariant;
-  id?: string | undefined;
+  id?: string;
 }
 
 const Button = (
   {
     active = false,
-    buttonAriaLabel = undefined,
+    ariaLabel,
     children,
-    className = ``,
+    className,
     disabled = false,
     focus = false,
     onClick = () => {},
@@ -45,7 +45,7 @@ const Button = (
     square = false,
     type = `button`,
     variant = `positive`,
-    id = undefined,
+    id,
   }: ButtonProps,
   ref
 ) => {
@@ -56,7 +56,7 @@ const Button = (
       type={type}
       onClick={onClick}
       disabled={disabled}
-      aria-label={buttonAriaLabel}
+      aria-label={ariaLabel}
       className={classNames(`h-btn h-btn--${variant} h-btn--${size}`, className, {
         'h-btn--active': active,
         'h-btn--focus': focus,

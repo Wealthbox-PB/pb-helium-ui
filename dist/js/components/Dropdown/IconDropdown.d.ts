@@ -4,9 +4,9 @@ import { ButtonSize, ButtonVariant } from '../Button';
 import type { Icons } from '../../types/icons';
 interface IconDropdownProps {
     componentClass?: string;
-    buttonAriaLabel?: string;
+    ariaLabel?: string;
     buttonClass?: string;
-    buttonId?: string | undefined;
+    buttonId?: string;
     iconClass?: string;
     iconName?: Icons;
     placement?: Placement;
@@ -14,5 +14,5 @@ interface IconDropdownProps {
     variant?: ButtonVariant;
     size?: ButtonSize;
 }
-declare const IconDropdown: ({ buttonAriaLabel, buttonClass, buttonId, children, iconClass, iconName, placement, size, variant, }: IconDropdownProps) => React.JSX.Element;
+declare const IconDropdown: ({ ariaLabel, buttonClass, buttonId, children, iconClass, iconName, placement, size, variant, }: IconDropdownProps) => React.JSX.Element;
 export { IconDropdown };

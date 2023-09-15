@@ -4,7 +4,7 @@ export type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
 export type ButtonType = `button` | `submit` | `reset`;
 interface ButtonProps {
     active?: boolean;
-    buttonAriaLabel?: string | undefined;
+    ariaLabel?: string;
     children?: string | JSX.Element[] | JSX.Element;
     className?: string;
     disabled?: boolean;
@@ -14,7 +14,7 @@ interface ButtonProps {
     square?: boolean;
     type?: ButtonType;
     variant?: ButtonVariant;
-    id?: string | undefined;
+    id?: string;
 }
 declare const ButtonRef: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>>;
 export { ButtonRef as Button };

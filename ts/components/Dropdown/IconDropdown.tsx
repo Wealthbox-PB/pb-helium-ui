@@ -7,9 +7,9 @@ import type { Icons } from '../../types/icons';
 
 interface IconDropdownProps {
   componentClass?: string;
-  buttonAriaLabel?: string;
+  ariaLabel?: string;
   buttonClass?: string;
-  buttonId?: string | undefined;
+  buttonId?: string;
   iconClass?: string;
   iconName?: Icons;
   placement?: Placement;
@@ -19,11 +19,11 @@ interface IconDropdownProps {
 }
 
 const IconDropdown = ({
-  buttonAriaLabel = ``,
-  buttonClass = ``,
-  buttonId = undefined,
+  ariaLabel,
+  buttonClass,
+  buttonId,
   children,
-  iconClass = ``,
+  iconClass,
   iconName = `dots`,
   placement = `bottom-end`,
   size = `xs`,
@@ -35,7 +35,7 @@ const IconDropdown = ({
         variant={variant}
         size={size}
         ref={ref}
-        buttonAriaLabel={buttonAriaLabel}
+        ariaLabel={ariaLabel}
         square={true}
         id={buttonId}
         className={buttonClass}
