@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IconDropdown /> matches the snapshot 1`] = `
+<DocumentFragment>
+  <button
+    aria-label="menu"
+    class="h-btn h-btn--border-hover h-btn--xs me-2 h-btn--square"
+    type="button"
+  >
+    <span
+      class="h-icon-add p-4"
+    />
+  </button>
+</DocumentFragment>
+`;
