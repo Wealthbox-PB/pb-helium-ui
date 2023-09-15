@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [2.3.0] - 2023-09-15
+
+### Added
+
+- Added new `IconDropdown` component
+- Added new `icon.ts` font template and types file
+- Added specs for `IconDropdown`
+- Added new `_progress_bar.scss` file
+
+### Changed
+
+- Updated `fontcustom.yml` to auto autogenerate `icon.ts` icon type file
+- Recompiled icon font
+- Updated `Button` component
+  - Added `buttonAriaLabel` and `id` props
+  - Added `border-hover` to `ButtonVariant` types
+- Updated `_dropdown.scss` to remove `:focus-visible` outline from  `.h-dropdown`
+- Updated `tsconfig.json` to exclude the `font` directory
+
 ## [2.2.1] - 2023-09-14
 
 ### Removed
