@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dropdown } from './Dropdown';
 import type { Placement } from '@floating-ui/react';
-import { Button, ButtonSize, ButtonVariant } from 'components/Button';
+import { Button, ButtonSize, ButtonVariant } from '../Button';
 import classNames from 'classnames';
 import type { Icons } from '../../types/icons';
 
@@ -21,7 +21,7 @@ interface IconDropdownProps {
 const IconDropdown = ({
   buttonAriaLabel = ``,
   buttonClass = ``,
-  buttonId = ``,
+  buttonId = undefined,
   children,
   iconClass = ``,
   iconName = `dots`,
@@ -35,7 +35,7 @@ const IconDropdown = ({
         variant={variant}
         size={size}
         ref={ref}
-        aria-label={buttonAriaLabel}
+        buttonAriaLabel={buttonAriaLabel}
         square={true}
         id={buttonId}
         className={buttonClass}

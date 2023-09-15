@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Placement } from '@floating-ui/react';
-import { ButtonSize, ButtonVariant } from 'components/Button';
+import { ButtonSize, ButtonVariant } from '../Button';
 import type { Icons } from '../../types/icons';
 interface IconDropdownProps {
     componentClass?: string;

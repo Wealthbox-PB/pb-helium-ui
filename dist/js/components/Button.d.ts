@@ -4,6 +4,7 @@ export type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
 export type ButtonType = `button` | `submit` | `reset`;
 interface ButtonProps {
     active?: boolean;
+    buttonAriaLabel?: string | undefined;
     children?: string | JSX.Element[] | JSX.Element;
     className?: string;
     disabled?: boolean;

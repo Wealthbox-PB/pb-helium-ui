@@ -19,6 +19,7 @@ export type ButtonType = `button` | `submit` | `reset`;
 
 interface ButtonProps {
   active?: boolean;
+  buttonAriaLabel?: string | undefined;
   children?: string | JSX.Element[] | JSX.Element;
   className?: string;
   disabled?: boolean;
@@ -34,6 +35,7 @@ interface ButtonProps {
 const Button = (
   {
     active = false,
+    buttonAriaLabel = undefined,
     children,
     className = ``,
     disabled = false,
@@ -54,6 +56,7 @@ const Button = (
       type={type}
       onClick={onClick}
       disabled={disabled}
+      aria-label={buttonAriaLabel}
       className={classNames(`h-btn h-btn--${variant} h-btn--${size}`, className, {
         'h-btn--active': active,
         'h-btn--focus': focus,

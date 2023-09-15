@@ -22,13 +22,13 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import React from 'react';
 import { Dropdown } from './Dropdown';
-import { Button } from 'components/Button';
+import { Button } from '../Button';
 import classNames from 'classnames';
 var IconDropdown = function (_a) {
-    var _b = _a.buttonAriaLabel, buttonAriaLabel = _b === void 0 ? "" : _b, _c = _a.buttonClass, buttonClass = _c === void 0 ? "" : _c, _d = _a.buttonId, buttonId = _d === void 0 ? "" : _d, children = _a.children, _e = _a.iconClass, iconClass = _e === void 0 ? "" : _e, _f = _a.iconName, iconName = _f === void 0 ? "dots" : _f, _g = _a.placement, placement = _g === void 0 ? "bottom-end" : _g, _h = _a.size, size = _h === void 0 ? "xs" : _h, _j = _a.variant, variant = _j === void 0 ? "border-hover" : _j;
+    var _b = _a.buttonAriaLabel, buttonAriaLabel = _b === void 0 ? "" : _b, _c = _a.buttonClass, buttonClass = _c === void 0 ? "" : _c, _d = _a.buttonId, buttonId = _d === void 0 ? undefined : _d, children = _a.children, _e = _a.iconClass, iconClass = _e === void 0 ? "" : _e, _f = _a.iconName, iconName = _f === void 0 ? "dots" : _f, _g = _a.placement, placement = _g === void 0 ? "bottom-end" : _g, _h = _a.size, size = _h === void 0 ? "xs" : _h, _j = _a.variant, variant = _j === void 0 ? "border-hover" : _j;
     return (React.createElement(Dropdown, { renderOpener: function (_a) {
             var ref = _a.ref, props = __rest(_a, ["ref"]);
-            return (React.createElement(Button, __assign({ variant: variant, size: size, ref: ref, "aria-label": buttonAriaLabel, square: true, id: buttonId, className: buttonClass }, props),
+            return (React.createElement(Button, __assign({ variant: variant, size: size, ref: ref, buttonAriaLabel: buttonAriaLabel, square: true, id: buttonId, className: buttonClass }, props),
                 React.createElement("span", { className: classNames("h-icon-".concat(iconName), iconClass) })));
         }, placement: placement }, children));
 };
