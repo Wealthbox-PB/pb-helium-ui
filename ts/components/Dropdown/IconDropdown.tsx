@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import type { Icons } from '../../types/icons';
 
 interface IconDropdownProps {
-  componentClass?: string;
   ariaLabel?: string;
   className?: string;
   buttonId?: string;

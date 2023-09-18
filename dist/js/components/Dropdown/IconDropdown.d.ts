@@ -3,7 +3,6 @@ import type { Placement } from '@floating-ui/react';
 import { ButtonSize, ButtonVariant } from '../Button';
 import type { Icons } from '../../types/icons';
 interface IconDropdownProps {
-    componentClass?: string;
     ariaLabel?: string;
     className?: string;
     buttonId?: string;
