@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `fontcustom.yml` to auto autogenerate `icon.ts` icon type file
 - Recompiled icon font
 - Updated `Button` component
-  - Added `buttonAriaLabel` and `id` props
+  - Extend `ButtonProps` with `ButtonHTMLAttributes`
   - Added `border-hover` to `ButtonVariant` types
 - Updated `_dropdown.scss` to remove `:focus-visible` outline from  `.h-dropdown`
 - Updated `tsconfig.json` to exclude the `font` directory
