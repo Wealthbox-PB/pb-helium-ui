@@ -3,10 +3,11 @@ debug: true
 verbose: true
 preprocessor_path: '#{$icons_preprocessor_path}'
 css_selector: .h-icon-{{glyph}}
-templates: [ _iconography.scss ]
+templates: [ _iconography.scss, icons.ts ]
 input:
   vectors: assets/icons
   templates: fonts/templates
 output:
   fonts: fonts
   css: scss/utilities
+  icons.ts: ts/types

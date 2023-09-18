@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import classNames from 'classnames';
 
 export type ButtonVariant =
@@ -12,17 +12,16 @@ export type ButtonVariant =
   | `negative-outline`
   | `info-outline`
   | `link-primary`
-  | `link-secondary`;
+  | `link-secondary`
+  | `border-hover`;
 export type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
 export type ButtonType = `button` | `submit` | `reset`;
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
   children?: string | JSX.Element[] | JSX.Element;
   className?: string;
-  disabled?: boolean;
   focus?: boolean;
-  onClick?(): void;
   size?: ButtonSize;
   square?: boolean;
   type?: ButtonType;
@@ -33,14 +32,13 @@ const Button = (
   {
     active = false,
     children,
-    className = ``,
-    disabled = false,
+    className,
     focus = false,
-    onClick = () => {},
     size = `md`,
     square = false,
     type = `button`,
     variant = `positive`,
+    ...props
   }: ButtonProps,
   ref
 ) => {
@@ -48,13 +46,12 @@ const Button = (
     <button
       ref={ref}
       type={type}
-      onClick={onClick}
-      disabled={disabled}
       className={classNames(`h-btn h-btn--${variant} h-btn--${size}`, className, {
         'h-btn--active': active,
         'h-btn--focus': focus,
         'h-btn--square': square,
       })}
+      {...props}
     >
       {children}
     </button>

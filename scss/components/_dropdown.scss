@@ -12,6 +12,10 @@
   box-shadow: $h-box-shadow-secondary-shared-component;
   font-size: $h-font-size-md;
   list-style: none;
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .h-dropdown__menu {

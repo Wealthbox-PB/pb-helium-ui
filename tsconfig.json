@@ -40,7 +40,8 @@
     "dist",
     "**/*.d.ts",
     "node_modules",
-    "spec"
+    "spec",
+    "fonts"
   ],
   "compileOnSave": false
 }
