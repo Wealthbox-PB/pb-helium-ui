@@ -8,9 +8,9 @@ import type { Icons } from '../../types/icons';
 interface IconDropdownProps {
   componentClass?: string;
   ariaLabel?: string;
-  buttonClass?: string;
+  className?: string;
   buttonId?: string;
-  iconClass?: string;
+  iconClassName?: string;
   iconName?: Icons;
   placement?: Placement;
   children: JSX.Element[] | JSX.Element;
@@ -20,10 +20,10 @@ interface IconDropdownProps {
 
 const IconDropdown = ({
   ariaLabel,
-  buttonClass,
+  className,
   buttonId,
   children,
-  iconClass,
+  iconClassName,
   iconName = `dots`,
   placement = `bottom-end`,
   size = `xs`,
@@ -38,10 +38,10 @@ const IconDropdown = ({
         aria-label={ariaLabel}
         square={true}
         id={buttonId}
-        className={buttonClass}
+        className={className}
         {...props}
       >
-        <span className={classNames(`h-icon-${iconName}`, iconClass)}></span>
+        <span className={classNames(`h-icon-${iconName}`, iconClassName)}></span>
       </Button>
     )}
     placement={placement}

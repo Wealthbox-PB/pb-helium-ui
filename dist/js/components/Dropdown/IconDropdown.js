@@ -25,11 +25,11 @@ import { Dropdown } from './Dropdown';
 import { Button } from '../Button';
 import classNames from 'classnames';
 var IconDropdown = function (_a) {
-    var ariaLabel = _a.ariaLabel, buttonClass = _a.buttonClass, buttonId = _a.buttonId, children = _a.children, iconClass = _a.iconClass, _b = _a.iconName, iconName = _b === void 0 ? "dots" : _b, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, _d = _a.size, size = _d === void 0 ? "xs" : _d, _e = _a.variant, variant = _e === void 0 ? "border-hover" : _e;
+    var ariaLabel = _a.ariaLabel, className = _a.className, buttonId = _a.buttonId, children = _a.children, iconClassName = _a.iconClassName, _b = _a.iconName, iconName = _b === void 0 ? "dots" : _b, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, _d = _a.size, size = _d === void 0 ? "xs" : _d, _e = _a.variant, variant = _e === void 0 ? "border-hover" : _e;
     return (React.createElement(Dropdown, { renderOpener: function (_a) {
             var ref = _a.ref, props = __rest(_a, ["ref"]);
-            return (React.createElement(Button, __assign({ variant: variant, size: size, ref: ref, "aria-label": ariaLabel, square: true, id: buttonId, className: buttonClass }, props),
-                React.createElement("span", { className: classNames("h-icon-".concat(iconName), iconClass) })));
+            return (React.createElement(Button, __assign({ variant: variant, size: size, ref: ref, "aria-label": ariaLabel, square: true, id: buttonId, className: className }, props),
+                React.createElement("span", { className: classNames("h-icon-".concat(iconName), iconClassName) })));
         }, placement: placement }, children));
 };
 export { IconDropdown };

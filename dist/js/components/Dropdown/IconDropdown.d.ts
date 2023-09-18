@@ -5,14 +5,14 @@ import type { Icons } from '../../types/icons';
 interface IconDropdownProps {
     componentClass?: string;
     ariaLabel?: string;
-    buttonClass?: string;
+    className?: string;
     buttonId?: string;
-    iconClass?: string;
+    iconClassName?: string;
     iconName?: Icons;
     placement?: Placement;
     children: JSX.Element[] | JSX.Element;
     variant?: ButtonVariant;
     size?: ButtonSize;
 }
-declare const IconDropdown: ({ ariaLabel, buttonClass, buttonId, children, iconClass, iconName, placement, size, variant, }: IconDropdownProps) => React.JSX.Element;
+declare const IconDropdown: ({ ariaLabel, className, buttonId, children, iconClassName, iconName, placement, size, variant, }: IconDropdownProps) => React.JSX.Element;
 export { IconDropdown };

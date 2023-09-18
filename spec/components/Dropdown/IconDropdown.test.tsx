@@ -5,7 +5,7 @@ import { IconDropdown } from '../../../ts/components/Dropdown/IconDropdown';
 
 const setup = () =>
   render(
-    <IconDropdown ariaLabel="menu" buttonClass="me-2" iconName="add" iconClass="p-4">
+    <IconDropdown ariaLabel="menu" className="me-2" iconName="add" iconClassName="h-color-text-blue-500">
       <li>Item</li>
     </IconDropdown>
   );
