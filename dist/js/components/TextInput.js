@@ -20,26 +20,20 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Label } from './Label';
 import classNames from 'classnames';
 import { randomString } from '../helpers/random_string';
-var TextInput = function (_a) {
-    var autoFocus = _a.autoFocus, _b = _a.id, id = _b === void 0 ? randomString() : _b, className = _a.className, _c = _a.inputType, inputType = _c === void 0 ? "text" : _c, label = _a.label, _d = _a.labelClassName, labelClassName = _d === void 0 ? "" : _d, leftIconClassName = _a.leftIconClassName, onRightButtonClick = _a.onRightButtonClick, rightButtonClassName = _a.rightButtonClassName, _e = _a.role, role = _e === void 0 ? "textbox" : _e, _f = _a.showLeftIcon, showLeftIcon = _f === void 0 ? true : _f, _g = _a.showRightButton, showRightButton = _g === void 0 ? true : _g, _h = _a.variant, variant = _h === void 0 ? "default" : _h, rest = __rest(_a, ["autoFocus", "id", "className", "inputType", "label", "labelClassName", "leftIconClassName", "onRightButtonClick", "rightButtonClassName", "role", "showLeftIcon", "showRightButton", "variant"]);
-    var inputRef = useRef(null);
+var TextInput = React.forwardRef(function (_a, ref) {
+    var _b = _a.id, id = _b === void 0 ? randomString() : _b, className = _a.className, _c = _a.inputType, inputType = _c === void 0 ? "text" : _c, label = _a.label, _d = _a.labelClassName, labelClassName = _d === void 0 ? "" : _d, leftIconClassName = _a.leftIconClassName, onRightButtonClick = _a.onRightButtonClick, rightButtonClassName = _a.rightButtonClassName, _e = _a.role, role = _e === void 0 ? "textbox" : _e, _f = _a.showLeftIcon, showLeftIcon = _f === void 0 ? true : _f, _g = _a.showRightButton, showRightButton = _g === void 0 ? true : _g, _h = _a.variant, variant = _h === void 0 ? "default" : _h, rest = __rest(_a, ["id", "className", "inputType", "label", "labelClassName", "leftIconClassName", "onRightButtonClick", "rightButtonClassName", "role", "showLeftIcon", "showRightButton", "variant"]);
     var uniqueIDRef = useRef(randomString());
-    useEffect(function () {
-        if (inputRef.current && autoFocus) {
-            inputRef.current.focus();
-        }
-    }, []);
     return (React.createElement("label", { className: "h-width-100" },
         label ?
             React.createElement(Label, { labelClassName: variant === "dark-blue" ? "h-color-text-blue-200 ".concat(labelClassName) : labelClassName, htmlFor: id ? id : uniqueIDRef.current }, label)
             :
                 null,
         React.createElement("div", { className: "h-input-container" },
-            React.createElement("input", __assign({ id: id ? id : uniqueIDRef.current, type: inputType, ref: inputRef, className: classNames("h-input", className, {
+            React.createElement("input", __assign({ id: id ? id : uniqueIDRef.current, type: inputType, ref: ref, className: classNames("h-input", className, {
                     'h-input--with-icon': leftIconClassName && showLeftIcon,
                     'h-input--dark-blue': variant === "dark-blue",
                 }), role: role }, rest)),
@@ -57,6 +51,6 @@ var TextInput = function (_a) {
                     }) })
                 :
                     null)));
-};
+});
 export { TextInput };
 //# sourceMappingURL=TextInput.js.map

@@ -4,5 +4,5 @@ interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
     buttonSize?: `small` | `large`;
     variant?: `default` | `pill`;
 }
-declare const RadioButton: ({ disabled, id, label, buttonSize, variant, ...rest }: RadioButtonProps) => React.JSX.Element;
+declare const RadioButton: React.ForwardRefExoticComponent<RadioButtonProps & React.RefAttributes<HTMLInputElement>>;
 export { RadioButton };

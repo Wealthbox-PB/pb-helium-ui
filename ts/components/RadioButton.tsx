@@ -9,14 +9,16 @@ interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: `default` | `pill`;
 }
 
-const RadioButton = ({
+const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(( {
   disabled,
   id = randomString(),
   label,
   buttonSize = `large`,
   variant = `default`,
   ...rest
-}: RadioButtonProps) => {
+}: RadioButtonProps,
+  ref
+  ) => {
   const uniqueIDRef = useRef<string>(randomString());
 
   return (
@@ -28,6 +30,7 @@ const RadioButton = ({
         'h-radio--pill-button': variant === `pill`,
       })}>
       <input
+        ref={ref}
         className="h-radio__elm"
         disabled={disabled}
         id={id ? id : uniqueIDRef.current}
@@ -47,6 +50,6 @@ const RadioButton = ({
       <span className="h-radio__pill-button-radio-fill"></span>
     </label>
   );
-};
+});
 
 export { RadioButton };

@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes } from 'react';
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
     className?: string;
     label?: string;
     labelClassName?: string;
@@ -11,5 +11,5 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     variant?: `default` | `dark-blue`;
     inputType?: `text` | `password` | `email` | `tel` | `search`;
 }
-declare const TextInput: ({ autoFocus, id, className, inputType, label, labelClassName, leftIconClassName, onRightButtonClick, rightButtonClassName, role, showLeftIcon, showRightButton, variant, ...rest }: InputProps) => React.JSX.Element;
+declare const TextInput: React.ForwardRefExoticComponent<TextInputProps & React.RefAttributes<HTMLInputElement>>;
 export { TextInput };
