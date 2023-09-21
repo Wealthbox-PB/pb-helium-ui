@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "014c75c1864fb2800fc4c3812cd678104c5c303c4b6846df118bef4a25ffde2d",
-    "current": "014c75c1864fb2800fc4c3812cd678104c5c303c4b6846df118bef4a25ffde2d"
+    "previous": "0692f5f8983a61c1dac8e80aea5dfa338ae465ca5ddd2c6f880b1c6959ad2ca9",
+    "current": "0692f5f8983a61c1dac8e80aea5dfa338ae465ca5ddd2c6f880b1c6959ad2ca9"
   },
   "fonts": [
-    "fonts/helium-icons_014c75c1864fb2800fc4c3812cd67810.ttf",
-    "fonts/helium-icons_014c75c1864fb2800fc4c3812cd67810.svg",
-    "fonts/helium-icons_014c75c1864fb2800fc4c3812cd67810.woff",
-    "fonts/helium-icons_014c75c1864fb2800fc4c3812cd67810.eot",
-    "fonts/helium-icons_014c75c1864fb2800fc4c3812cd67810.woff2"
+    "fonts/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.ttf",
+    "fonts/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.svg",
+    "fonts/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.woff",
+    "fonts/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.eot",
+    "fonts/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.woff2"
   ],
   "glyphs": {
     "add": {
@@ -55,6 +55,14 @@
       "codepoint": 61706,
       "source": "assets/icons/arrow-down-circle.svg"
     },
+    "arrow-down-circle--filled": {
+      "codepoint": 62105,
+      "source": "assets/icons/arrow-down-circle--filled.svg"
+    },
+    "arrow-down-circle--filled--lg": {
+      "codepoint": 62106,
+      "source": "assets/icons/arrow-down-circle--filled--lg.svg"
+    },
     "arrow-down-circle--lg": {
       "codepoint": 61707,
       "source": "assets/icons/arrow-down-circle--lg.svg"
@@ -82,6 +90,14 @@
     "arrow-up--lg": {
       "codepoint": 61713,
       "source": "assets/icons/arrow-up--lg.svg"
+    },
+    "arrow-up-circle--filled": {
+      "codepoint": 62107,
+      "source": "assets/icons/arrow-up-circle--filled.svg"
+    },
+    "arrow-up-circle--filled--lg": {
+      "codepoint": 62108,
+      "source": "assets/icons/arrow-up-circle--filled--lg.svg"
     },
     "b-blueleaf": {
       "codepoint": 62022,

@@ -12,6 +12,8 @@ export type Icons =
   | `arrow-down`
   | `arrow-down--lg`
   | `arrow-down-circle`
+  | `arrow-down-circle--filled`
+  | `arrow-down-circle--filled--lg`
   | `arrow-down-circle--lg`
   | `arrow-left`
   | `arrow-left--lg`
@@ -19,6 +21,8 @@ export type Icons =
   | `arrow-right--lg`
   | `arrow-up`
   | `arrow-up--lg`
+  | `arrow-up-circle--filled`
+  | `arrow-up-circle--filled--lg`
   | `b-blueleaf`
   | `b-cloud`
   | `b-outlook-csv`

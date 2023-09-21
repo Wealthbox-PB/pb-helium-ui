@@ -1,18 +1,18 @@
 //
 // Icon Font: helium-icons
-// Current Version: 014c75c1864fb2800fc4c3812cd678104c5c303c4b6846df118bef4a25ffde2d
+// Current Version: 0692f5f8983a61c1dac8e80aea5dfa338ae465ca5ddd2c6f880b1c6959ad2ca9
 //
 
 $icons_preprocessor_path: 'helium-ui/fonts' !default;
 
 @font-face {
   font-family: "helium-icons";
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_014c75c1864fb2800fc4c3812cd67810.eot");
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_014c75c1864fb2800fc4c3812cd67810.eot?#iefix") format("embedded-opentype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_014c75c1864fb2800fc4c3812cd67810.woff2") format("woff2"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_014c75c1864fb2800fc4c3812cd67810.woff") format("woff"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_014c75c1864fb2800fc4c3812cd67810.ttf") format("truetype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_014c75c1864fb2800fc4c3812cd67810.svg#helium-icons") format("svg");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.eot");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.eot?#iefix") format("embedded-opentype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.woff2") format("woff2"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.woff") format("woff"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.ttf") format("truetype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.svg#helium-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,7 +20,7 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "helium-icons";
-    src: font-url("#{$icons_preprocessor_path}/helium-icons_014c75c1864fb2800fc4c3812cd67810.svg#helium-icons") format("svg");
+    src: font-url("#{$icons_preprocessor_path}/helium-icons_0692f5f8983a61c1dac8e80aea5dfa33.svg#helium-icons") format("svg");
   }
 }
 
@@ -38,6 +38,8 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-arrow-down:before,
 .h-icon-arrow-down--lg:before,
 .h-icon-arrow-down-circle:before,
+.h-icon-arrow-down-circle--filled:before,
+.h-icon-arrow-down-circle--filled--lg:before,
 .h-icon-arrow-down-circle--lg:before,
 .h-icon-arrow-left:before,
 .h-icon-arrow-left--lg:before,
@@ -45,6 +47,8 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-arrow-right--lg:before,
 .h-icon-arrow-up:before,
 .h-icon-arrow-up--lg:before,
+.h-icon-arrow-up-circle--filled:before,
+.h-icon-arrow-up-circle--filled--lg:before,
 .h-icon-b-blueleaf:before,
 .h-icon-b-cloud:before,
 .h-icon-b-outlook-csv:before,
@@ -461,6 +465,8 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-arrow-down:before { content: h-icon-content(f108); }
 .h-icon-arrow-down--lg:before { content: h-icon-content(f109); }
 .h-icon-arrow-down-circle:before { content: h-icon-content(f10a); }
+.h-icon-arrow-down-circle--filled:before { content: h-icon-content(f299); }
+.h-icon-arrow-down-circle--filled--lg:before { content: h-icon-content(f29a); }
 .h-icon-arrow-down-circle--lg:before { content: h-icon-content(f10b); }
 .h-icon-arrow-left:before { content: h-icon-content(f10c); }
 .h-icon-arrow-left--lg:before { content: h-icon-content(f10d); }
@@ -468,6 +474,8 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-arrow-right--lg:before { content: h-icon-content(f10f); }
 .h-icon-arrow-up:before { content: h-icon-content(f110); }
 .h-icon-arrow-up--lg:before { content: h-icon-content(f111); }
+.h-icon-arrow-up-circle--filled:before { content: h-icon-content(f29b); }
+.h-icon-arrow-up-circle--filled--lg:before { content: h-icon-content(f29c); }
 .h-icon-b-blueleaf:before { content: h-icon-content(f246); }
 .h-icon-b-cloud:before { content: h-icon-content(f255); }
 .h-icon-b-outlook-csv:before { content: h-icon-content(f256); }
