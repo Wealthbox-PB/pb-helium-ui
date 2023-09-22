@@ -15,6 +15,8 @@ export { Label } from './components/Label';
 export { LinkButton } from './components/LinkButton';
 export { ModalDialog } from './components/Dialog/ModalDialog';
 export { Portal } from './components/Portal';
+export { Popover } from './components/Popover/Popover';
+export { UpgradePopover } from './components/Popover/UpgradePopover';
 export { ProgressBar } from './components/ProgressBar';
 export { RadioButton } from './components/RadioButton';
 export { randomString } from './helpers/random_string';
