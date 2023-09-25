@@ -36,7 +36,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
   const uniqueIDRef = useRef<string>(randomString());
 
   return (
-    <label className="h-width-100">
+    <>
       {label ?
         <Label
           labelClassName={variant === `dark-blue` ? `h-color-text-blue-200 ${labelClassName}` : labelClassName}
@@ -95,7 +95,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
           null
         }
       </div>
-    </label >
+    </>
   );
 });
 
