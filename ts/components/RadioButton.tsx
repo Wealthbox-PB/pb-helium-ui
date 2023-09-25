@@ -1,4 +1,4 @@
-import React, { useRef, InputHTMLAttributes } from 'react';
+import React, { forwardRef, useRef, InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
 import { Label } from './Label';
 import { randomString } from '../helpers/random_string';
@@ -9,7 +9,7 @@ interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: `default` | `pill`;
 }
 
-const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(( {
+const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(({
   disabled,
   id = randomString(),
   label,
@@ -18,7 +18,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(( {
   ...rest
 }: RadioButtonProps,
   ref
-  ) => {
+) => {
   const uniqueIDRef = useRef<string>(randomString());
 
   return (
