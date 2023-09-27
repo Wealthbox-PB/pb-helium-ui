@@ -11,5 +11,5 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
     variant?: `default` | `dark-blue`;
     inputType?: `text` | `password` | `email` | `tel` | `search`;
 }
-declare const TextInput: React.ForwardRefExoticComponent<TextInputProps & React.RefAttributes<HTMLInputElement>>;
-export { TextInput };
+declare const TextInputRef: React.ForwardRefExoticComponent<TextInputProps & React.RefAttributes<unknown>>;
+export { TextInputRef as TextInput };

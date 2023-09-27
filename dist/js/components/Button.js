@@ -24,7 +24,7 @@ import React from 'react';
 import classNames from 'classnames';
 var Button = function (_a, ref) {
     var _b = _a.active, active = _b === void 0 ? false : _b, children = _a.children, className = _a.className, _c = _a.focus, focus = _c === void 0 ? false : _c, _d = _a.size, size = _d === void 0 ? "md" : _d, _e = _a.square, square = _e === void 0 ? false : _e, _f = _a.type, type = _f === void 0 ? "button" : _f, _g = _a.variant, variant = _g === void 0 ? "positive" : _g, props = __rest(_a, ["active", "children", "className", "focus", "size", "square", "type", "variant"]);
-    return (React.createElement("button", __assign({ ref: ref, type: type, className: classNames("h-btn h-btn--" + variant + " h-btn--" + size, className, {
+    return (React.createElement("button", __assign({ ref: ref, type: type, className: classNames("h-btn h-btn--".concat(variant, " h-btn--").concat(size), className, {
             'h-btn--active': active,
             'h-btn--focus': focus,
             'h-btn--square': square,

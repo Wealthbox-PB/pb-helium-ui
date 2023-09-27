@@ -20,11 +20,11 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React, { forwardRef, useRef } from 'react';
+import React, { useRef } from 'react';
 import classNames from 'classnames';
 import { Label } from './Label';
 import { randomString } from '../helpers/random_string';
-var RadioButton = forwardRef(function (_a, ref) {
+var RadioButton = function (_a, ref) {
     var disabled = _a.disabled, _b = _a.id, id = _b === void 0 ? randomString() : _b, label = _a.label, _c = _a.buttonSize, buttonSize = _c === void 0 ? "large" : _c, _d = _a.variant, variant = _d === void 0 ? "default" : _d, rest = __rest(_a, ["disabled", "id", "label", "buttonSize", "variant"]);
     var uniqueIDRef = useRef(randomString());
     return (React.createElement("label", { "data-testid": "h-radio", className: classNames("h-radio h-radio--animate", {
@@ -39,6 +39,7 @@ var RadioButton = forwardRef(function (_a, ref) {
             :
                 null,
         React.createElement("span", { className: "h-radio__pill-button-radio-fill" })));
-});
-export { RadioButton };
+};
+var RadioButtonRef = React.forwardRef(RadioButton);
+export { RadioButtonRef as RadioButton };
 //# sourceMappingURL=RadioButton.js.map

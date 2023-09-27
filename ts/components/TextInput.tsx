@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, InputHTMLAttributes } from 'react';
+import React, { useRef, InputHTMLAttributes } from 'react';
 import { Label } from './Label';
 import classNames from 'classnames';
 import { randomString } from '../helpers/random_string';
@@ -16,7 +16,8 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputType?: `text` | `password` | `email` | `tel` | `search`;
 }
 
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
+// const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
+const TextInput = ({
   id = randomString(),
   className,
   inputType = `text`,
@@ -97,6 +98,8 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
       </div>
     </>
   );
-});
+};
 
-export { TextInput };
+const TextInputRef = React.forwardRef(TextInput);
+
+export { TextInputRef as TextInput };
