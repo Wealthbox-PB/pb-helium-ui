@@ -16,7 +16,6 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputType?: `text` | `password` | `email` | `tel` | `search`;
 }
 
-// const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
 const TextInput = ({
   id = randomString(),
   className,
