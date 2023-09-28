@@ -34,9 +34,9 @@ var SelectInput = function (_a, ref) {
             :
                 null,
         React.createElement(Button, __assign({ id: id ? id : uniqueIDRef.current, type: type, ref: ref, className: classNames("h-select h-align-start", className) }, rest), value ?
-            React.createElement("span", { className: "h-color-text-darker h-font-weight-normal" }, value)
+            React.createElement("span", { className: "h-text-ellipsis h-color-text-darker h-font-weight-normal" }, value)
             :
-                React.createElement("span", { className: "h-color-text-lighter h-font-weight-normal" }, placeholder))));
+                React.createElement("span", { className: "h-text-ellipsis h-color-text-lighter h-font-weight-normal" }, placeholder))));
 };
 var SelectInputRef = React.forwardRef(SelectInput);
 export { SelectInputRef as SelectInput };

@@ -95,6 +95,13 @@
   user-select: none !important;
 }
 
+.h-text-ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 //==========================================================================
 //  Icon size utility classes
 //==========================================================================

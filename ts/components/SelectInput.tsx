@@ -44,9 +44,9 @@ const SelectInput = ({
         {...rest}
       >
         {value ?
-          <span className="h-color-text-darker h-font-weight-normal">{value}</span>
+          <span className="h-text-ellipsis h-color-text-darker h-font-weight-normal">{value}</span>
           :
-          <span className="h-color-text-lighter h-font-weight-normal">{placeholder}</span>
+          <span className="h-text-ellipsis h-color-text-lighter h-font-weight-normal">{placeholder}</span>
         }
       </Button>
     </>
