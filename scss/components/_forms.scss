@@ -159,6 +159,13 @@
   }
 }
 
+.h-select span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 // Checkbox / Radio
 //==========================================================================
 
@@ -644,6 +651,11 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 
 .h-input--tall {
   height: $h-height-form-element-lg;
+}
+
+.h-select.h-input--tall {
+  padding-right: 1.5rem;
+  background-position: calc(100% - 0.75rem) center;
 }
 
 //==========================================================================
