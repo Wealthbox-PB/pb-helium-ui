@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, InputHTMLAttributes } from 'react';
+import React, { useRef, InputHTMLAttributes } from 'react';
 import { Label } from './Label';
 import classNames from 'classnames';
 import { randomString } from '../helpers/random_string';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   label?: string;
   labelClassName?: string;
@@ -17,7 +17,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const TextInput = ({
-  autoFocus,
   id = randomString(),
   className,
   inputType = `text`,
@@ -31,18 +30,13 @@ const TextInput = ({
   showRightButton = true,
   variant = `default`,
   ...rest
-}: InputProps) => {
-  const inputRef = useRef<HTMLInputElement | null>(null);
+}: TextInputProps,
+  ref
+) => {
   const uniqueIDRef = useRef<string>(randomString());
 
-  useEffect(() => {
-    if (inputRef.current && autoFocus) {
-      inputRef.current.focus();
-    }
-  }, []);
-
   return (
-    <label className="h-width-100">
+    <>
       {label ?
         <Label
           labelClassName={variant === `dark-blue` ? `h-color-text-blue-200 ${labelClassName}` : labelClassName}
@@ -56,7 +50,7 @@ const TextInput = ({
         <input
           id={id ? id : uniqueIDRef.current}
           type={inputType}
-          ref={inputRef}
+          ref={ref}
           className={classNames(`h-input`,
             className,
             {
@@ -101,8 +95,10 @@ const TextInput = ({
           null
         }
       </div>
-    </label >
+    </>
   );
 };
 
-export { TextInput };
+const TextInputRef = React.forwardRef(TextInput);
+
+export { TextInputRef as TextInput };

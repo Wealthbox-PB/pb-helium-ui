@@ -16,7 +16,9 @@ const RadioButton = ({
   buttonSize = `large`,
   variant = `default`,
   ...rest
-}: RadioButtonProps) => {
+}: RadioButtonProps,
+  ref
+) => {
   const uniqueIDRef = useRef<string>(randomString());
 
   return (
@@ -28,6 +30,7 @@ const RadioButton = ({
         'h-radio--pill-button': variant === `pill`,
       })}>
       <input
+        ref={ref}
         className="h-radio__elm"
         disabled={disabled}
         id={id ? id : uniqueIDRef.current}
@@ -49,4 +52,6 @@ const RadioButton = ({
   );
 };
 
-export { RadioButton };
+const RadioButtonRef = React.forwardRef(RadioButton);
+
+export { RadioButtonRef as RadioButton };
