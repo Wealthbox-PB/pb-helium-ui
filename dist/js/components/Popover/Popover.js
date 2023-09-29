@@ -44,7 +44,6 @@ var Popover = function (_a) {
         left: "right",
     }[currentPlacement.split("-")[0]];
     var _s = useTransitionStyles(context), isMounted = _s.isMounted, styles = _s.styles;
-    // const handleClose = closeDialog || setOpen(false);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference }, getReferenceProps({
             onClick: function (e) {
@@ -62,12 +61,7 @@ var Popover = function (_a) {
             tabIndex: 0,
         }))),
         isMounted ? (React.createElement(FloatingPortal, null,
-            React.createElement("div", __assign({ ref: setFloating, className: classNames([
-                    "h-popover",
-                    (_b = {}, _b["h-popover--".concat(size)] = size, _b),
-                    (_c = {}, _c["h-popover--".concat(theme)] = theme, _c),
-                    className,
-                ]), style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : 0, left: x !== null && x !== void 0 ? x : 0 }, styles), role: "menu" }, getFloatingProps({
+            React.createElement("div", __assign({ ref: setFloating, className: classNames("h-popover", (_b = {}, _b["h-popover--".concat(size)] = size, _b), (_c = {}, _c["h-popover--".concat(theme)] = theme, _c), className), style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : 0, left: x !== null && x !== void 0 ? x : 0 }, styles), role: "menu" }, getFloatingProps({
                 // Pressing tab dismisses the menu due to the modal
                 // focus management on the root menu.
                 onKeyDown: function (event) {
@@ -76,11 +70,11 @@ var Popover = function (_a) {
                     }
                 },
             })),
-                React.createElement("div", { className: classNames(["h-popover__body"], (_d = {}, _d["d-flex class=\"align-items-baseline"] = closeInPopover, _d), bodyClassName) }, closeInPopover ? (React.createElement(React.Fragment, null,
+                React.createElement("div", { className: classNames("h-popover__body", (_d = {}, _d["d-flex align-items-baseline"] = closeInPopover, _d), bodyClassName) }, closeInPopover ? (React.createElement(React.Fragment, null,
                     React.createElement("div", { className: "col" }, children),
                     React.createElement("div", { className: "col-auto ms-1" },
-                        React.createElement(Button, { className: "h-popover__close", variant: "border-hover", size: "xs", square: true, style: { marginTop: "-0.25em" }, onClick: function () { return setOpen(false); } },
-                            React.createElement("span", { className: "h-icon-delete" }))))) : (children)),
+                        React.createElement(Button, { className: "h-popover__close", variant: "border-hover", size: "xs", square: true, style: { marginTop: "-0.25rem" }, onClick: function () { return setOpen(false); }, "aria-label": "Close popover" },
+                            React.createElement("span", { className: "h-icon-delete", "aria-hidden": "true" }))))) : (children)),
                 arrow ? (React.createElement("div", { className: classNames("h-popover__arrow", "h-popover__arrow--".concat(currentPlacement)), ref: arrowRef, style: (_e = {
                             left: arrowX != null ? "".concat(arrowX, "px") : "",
                             top: arrowY != null ? "".concat(arrowY, "px") : "",

@@ -91,7 +91,6 @@ const Popover = ({
   }[currentPlacement.split(`-`)[0]]!;
 
   const { isMounted, styles } = useTransitionStyles(context);
-  // const handleClose = closeDialog || setOpen(false);
 
   return (
     <>
@@ -117,12 +116,12 @@ const Popover = ({
         <FloatingPortal>
           <div
             ref={setFloating}
-            className={classNames([
+            className={classNames(
               `h-popover`,
               { [`h-popover--${size}`]: size },
               { [`h-popover--${theme}`]: theme },
-              className,
-            ])}
+              className
+            )}
             style={{
               position: strategy,
               top: y ?? 0,
@@ -142,8 +141,8 @@ const Popover = ({
           >
             <div
               className={classNames(
-                [`h-popover__body`],
-                { [`d-flex class="align-items-baseline`]: closeInPopover },
+                `h-popover__body`,
+                { [`d-flex align-items-baseline`]: closeInPopover },
                 bodyClassName
               )}
             >
@@ -156,10 +155,11 @@ const Popover = ({
                       variant="border-hover"
                       size="xs"
                       square
-                      style={{ marginTop: `-0.25em` }}
+                      style={{ marginTop: `-0.25rem` }}
                       onClick={() => setOpen(false)}
+                      aria-label="Close popover"
                     >
-                      <span className="h-icon-delete"></span>
+                      <span className="h-icon-delete" aria-hidden="true"></span>
                     </Button>
                   </div>
                 </>
