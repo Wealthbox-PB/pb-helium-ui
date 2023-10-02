@@ -139,33 +139,23 @@ const Popover = ({
               },
             })}
           >
-            <div
-              className={classNames(
-                `h-popover__body`,
-                { [`d-flex align-items-baseline`]: closeInPopover },
-                bodyClassName
-              )}
-            >
+            <div className={classNames(`h-popover__body`, bodyClassName)}>
+              <div className="h-popover__body__content">{children}</div>
               {closeInPopover ? (
                 <>
-                  <div className="col">{children}</div>
-                  <div className="col-auto ms-1">
-                    <Button
-                      className="h-popover__close"
-                      variant="border-hover"
-                      size="xs"
-                      square
-                      style={{ marginTop: `-0.25rem` }}
-                      onClick={() => setOpen(false)}
-                      aria-label="Close popover"
-                    >
-                      <span className="h-icon-delete" aria-hidden="true"></span>
-                    </Button>
-                  </div>
+                  <Button
+                    className="h-popover__close"
+                    variant="border-hover"
+                    size="xs"
+                    square
+                    style={{ marginTop: `-0.25rem` }}
+                    onClick={() => setOpen(false)}
+                    aria-label="Close popover"
+                  >
+                    <span className="h-icon-delete" aria-hidden="true"></span>
+                  </Button>
                 </>
-              ) : (
-                children
-              )}
+              ) : null}
             </div>
             {arrow ? (
               <div
