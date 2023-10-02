@@ -13,10 +13,6 @@
   font-size: $h-font-size-md;
   list-style: none;
   outline: $h-outline-floating-component;
-
-  &:focus-visible {
-    outline: none;
-  }
 }
 
 .h-dropdown__menu {
