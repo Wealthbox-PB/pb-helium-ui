@@ -25,5 +25,4 @@ export { SimpleModalDialog } from './components/Dialog/SimpleModalDialog';
 export { Switch } from './components/Switch';
 export { TextInput } from './components/TextInput';
 export { Tooltip } from './components/Tooltip';
-export { UpgradePopover } from './components/Popover/UpgradePopover';
 //# sourceMappingURL=index.js.map
