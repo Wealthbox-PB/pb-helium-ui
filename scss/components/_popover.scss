@@ -120,7 +120,7 @@
 .h-popover--dark {
   .h-popover__body {
     background-color: $h-black;
-    color: mix($h-white, $h-black, 75%) !important;
+    color: rgba($h-white, 0.75) !important;
 
     h1,
     h2,
@@ -132,7 +132,7 @@
     }
 
     p {
-      color: mix($h-white, $h-black, 75%);
+      color: rgba($h-white, 0.75);
     }
 
     a:not(.h-btn) {
@@ -145,14 +145,14 @@
   }
 
   .h-popover-separator {
-    border-bottom-color: mix($h-white, $h-black, 20%);
+    border-bottom-color: rgba($h-white, 0.2);
   }
 }
 
 .h-popover--primary {
   .h-popover__body {
     background-color: $h-color-background-brand;
-    color: mix($h-white, $h-color-background-brand, 75%) !important;
+    color: rgba($h-white, 0.75) !important;
 
     h1,
     h2,
@@ -164,7 +164,7 @@
     }
 
     p {
-      color: mix($h-white, $h-color-background-brand, 75%);
+      color: rgba($h-white, 0.75);
     }
 
     a:not(.h-btn) {
@@ -177,6 +177,6 @@
   }
 
   .h-popover-separator {
-    border-bottom-color: mix($h-white, $h-color-background-brand, 20%);
+    border-bottom-color: rgba($h-white, 0.2);
   }
 }
