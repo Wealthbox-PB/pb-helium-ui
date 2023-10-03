@@ -16,7 +16,7 @@ import classNames from 'classnames';
 import { Button } from 'components/Button';
 var Popover = function (_a) {
     var _b, _c, _d;
-    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.openOnLoad, openOnLoad = _h === void 0 ? false : _h, size = _a.size, _j = _a.theme, theme = _j === void 0 ? "light" : _j, className = _a.className, bodyClassName = _a.bodyClassName, closeInPopover = _a.closeInPopover;
+    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.openOnLoad, openOnLoad = _h === void 0 ? false : _h, size = _a.size, _j = _a.theme, theme = _j === void 0 ? "light" : _j, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton;
     var _k = useState(openOnLoad), open = _k[0], setOpen = _k[1];
     var arrowRef = useRef(null);
     var _l = useFloating({
@@ -33,9 +33,9 @@ var Popover = function (_a) {
         onOpenChange: setOpen,
     }), x = _l.x, y = _l.y, _m = _l.refs, setReference = _m.setReference, setFloating = _m.setFloating, strategy = _l.strategy, context = _l.context, _o = _l.middlewareData.arrow, _p = _o === void 0 ? {} : _o, arrowX = _p.x, arrowY = _p.y, currentPlacement = _l.placement;
     var _q = useInteractions([
-        useDismiss(context, { enabled: !closeInPopover }),
+        useDismiss(context, { enabled: !showCloseButton }),
         useHover(context, {
-            enabled: closeInPopover === true && open
+            enabled: showCloseButton === true && open
                 ? false
                 : trigger === "hover" && openProp === undefined
                     ? true
@@ -79,7 +79,7 @@ var Popover = function (_a) {
             })),
                 React.createElement("div", { className: classNames("h-popover__body", bodyClassName) },
                     React.createElement("div", { className: "h-popover__body__content" }, children),
-                    closeInPopover && !openProp ? (React.createElement(React.Fragment, null,
+                    showCloseButton && !openProp ? (React.createElement(React.Fragment, null,
                         React.createElement(Button, { className: "h-popover__close", variant: "border-hover", size: "xs", square: true, style: { marginTop: "-0.25rem" }, onClick: function () { return setOpen(false); }, "aria-label": "Close popover" },
                             React.createElement("span", { className: "h-icon-delete", "aria-hidden": "true" })))) : null),
                 arrow ? (React.createElement("div", { className: classNames("h-popover__arrow", "h-popover__arrow--".concat(currentPlacement)), ref: arrowRef, style: (_d = {

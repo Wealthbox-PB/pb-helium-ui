@@ -36,7 +36,7 @@ interface PopoverProps {
   theme?: `light` | `dark` | `primary`;
   className?: string;
   bodyClassName?: string;
-  closeInPopover?: boolean;
+  showCloseButton?: boolean;
   closeDialog?: () => void;
 }
 
@@ -52,7 +52,7 @@ const Popover = ({
   theme = `light`,
   className,
   bodyClassName,
-  closeInPopover,
+  showCloseButton,
 }: PopoverProps) => {
   const [open, setOpen] = useState(openOnLoad);
   const arrowRef = useRef(null);
@@ -80,10 +80,10 @@ const Popover = ({
   });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    useDismiss(context, { enabled: !closeInPopover }),
+    useDismiss(context, { enabled: !showCloseButton }),
     useHover(context, {
       enabled:
-        closeInPopover === true && open
+        showCloseButton === true && open
           ? false
           : trigger === `hover` && openProp === undefined
           ? true
@@ -152,7 +152,7 @@ const Popover = ({
           >
             <div className={classNames(`h-popover__body`, bodyClassName)}>
               <div className="h-popover__body__content">{children}</div>
-              {closeInPopover && !openProp ? (
+              {showCloseButton && !openProp ? (
                 <>
                   <Button
                     className="h-popover__close"
