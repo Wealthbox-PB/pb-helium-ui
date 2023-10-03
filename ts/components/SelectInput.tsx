@@ -19,7 +19,7 @@ const SelectInput = ({
   placeholder,
   value,
   type = "button",
-  ...rest
+  ...props
 }: SelectInputProps,
   ref
 ) => {
@@ -41,13 +41,14 @@ const SelectInput = ({
         type={type}
         ref={ref}
         className={classNames(`h-select h-align-start`, className)}
-        {...rest}
+        {...props}
       >
-        {value ?
-          <span className="h-text-ellipsis h-color-text-darker h-font-weight-normal">{value}</span>
-          :
-          <span className="h-text-ellipsis h-color-text-lighter h-font-weight-normal">{placeholder}</span>
-        }
+        <span className={classNames(`h-text-ellipsis h-font-weight-normal`, {
+          "h-color-text-lighter": !value,
+          "h-color-text-darker": value,
+        })}>
+          {value || placeholder}
+        </span>
       </Button>
     </>
   );
