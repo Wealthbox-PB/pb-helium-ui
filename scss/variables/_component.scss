@@ -126,6 +126,11 @@ $h-spacing-form-element-icon: 0.75rem;
 $h-animation-duration-form-element: $h-animation-duration-sm;
 $h-animation-duration-checkbox-radio: $h-animation-duration-xl;
 
+// Floating
+//==========================================================================
+
+$h-outline-floating-component: 1px solid rgba($h-black, 0.033);
+
 // Modal
 //==========================================================================
 
@@ -184,3 +189,12 @@ $h-size-tooltip-arrow: 0.375rem !default;
 // Color
 $h-color-background-tooltip: rgba($h-black, 0.95) !default;
 $h-color-text-tooltip: $h-white !default;
+
+// Popover
+//==========================================================================
+
+// Box Model
+$h-popover-arrow-size-x: 1.25rem !default;
+$h-popover-arrow-size-y: 2.5rem !default;
+$h-popover-arrow-offset-x: calc($h-popover-arrow-size-x / -1.5) !default;
+$h-popover-arrow-offset-y: calc($h-popover-arrow-size-x / 2) !default;

@@ -1,0 +1,188 @@
+
+//==========================================================================
+//  Dropdown
+//==========================================================================
+
+.h-popover {
+  position: relative;
+  min-width: 10rem;
+  max-width: 20rem;
+  margin: 0.125rem 0;
+  isolation: isolate;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.h-popover--sm {
+  max-width: 10rem;
+}
+
+.h-popover--md {
+  max-width: 20rem;
+}
+
+.h-popover--lg {
+  max-width: 30rem;
+}
+
+.h-popover--xl {
+  max-width: 40rem;
+}
+
+.h-popover__body {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: baseline;
+  padding: 1rem;
+  background-color: $h-color-background-shared-component;
+  border-radius: $h-border-radius-shared-component;
+  box-shadow: $h-box-shadow-secondary-shared-component;
+  font-size: $h-font-size-md;
+  list-style: none;
+  outline: $h-outline-floating-component;
+}
+
+.h-popover__body__content {
+  flex: 1 0 0%;
+}
+
+.h-popover__arrow {
+  position: absolute;
+  overflow: hidden;
+
+  &::before {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: $h-popover-arrow-size-x;
+    height: $h-popover-arrow-size-x;
+    background-color: $h-color-background-shared-component;
+    box-shadow: $h-shadow-2-se;
+    content: "";
+    outline: $h-outline-floating-component;
+    transform: rotate(45deg);
+  }
+}
+
+.h-popover__arrow--top,
+.h-popover__arrow--top-start,
+.h-popover__arrow--top-end {
+  width: $h-popover-arrow-size-y;
+  height: $h-popover-arrow-size-x;
+
+  &::before {
+    top: $h-popover-arrow-offset-x;
+    left: $h-popover-arrow-offset-y;
+    border-bottom-right-radius: $h-border-radius;
+  }
+}
+
+.h-popover__arrow--right,
+.h-popover__arrow--right-start,
+.h-popover__arrow--right-end {
+  width: $h-popover-arrow-size-x;
+  height: $h-popover-arrow-size-y;
+
+  &::before {
+    top: $h-popover-arrow-offset-y;
+    right: $h-popover-arrow-offset-x;
+    border-bottom-left-radius: $h-border-radius;
+  }
+}
+
+.h-popover__arrow--bottom,
+.h-popover__arrow--bottom-start,
+.h-popover__arrow--bottom-end {
+  width: $h-popover-arrow-size-y;
+  height: $h-popover-arrow-size-x;
+
+  &::before {
+    bottom: $h-popover-arrow-offset-x;
+    left: $h-popover-arrow-offset-y;
+    border-top-left-radius: $h-border-radius;
+  }
+}
+
+.h-popover__arrow--left,
+.h-popover__arrow--left-start,
+.h-popover__arrow--left-end {
+  width: $h-popover-arrow-size-x;
+  height: $h-popover-arrow-size-y;
+
+  &::before {
+    top: $h-popover-arrow-offset-y;
+    left: $h-popover-arrow-offset-x;
+    border-top-right-radius: $h-border-radius;
+  }
+}
+
+.h-popover-separator {
+  border-bottom: 1px solid $h-color-border-shared-component;
+}
+
+.h-popover--dark {
+  .h-popover__body {
+    background-color: $h-black;
+    color: rgba($h-white, 0.75) !important;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $h-white !important;
+    }
+
+    p {
+      color: rgba($h-white, 0.75);
+    }
+
+    a:not(.h-btn) {
+      color: $h-blue-300 !important;
+    }
+  }
+
+  .h-popover__arrow::before {
+    background-color: $h-black;
+  }
+
+  .h-popover-separator {
+    border-bottom-color: rgba($h-white, 0.2);
+  }
+}
+
+.h-popover--primary {
+  .h-popover__body {
+    background-color: $h-color-background-brand;
+    color: rgba($h-white, 0.75) !important;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $h-white !important;
+    }
+
+    p {
+      color: rgba($h-white, 0.75);
+    }
+
+    a:not(.h-btn) {
+      color: $h-blue-300 !important;
+    }
+  }
+
+  .h-popover__arrow::before {
+    background-color: $h-color-background-brand;
+  }
+
+  .h-popover-separator {
+    border-bottom-color: rgba($h-white, 0.2);
+  }
+}
