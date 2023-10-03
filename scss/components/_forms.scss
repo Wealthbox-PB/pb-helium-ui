@@ -646,6 +646,11 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   height: $h-height-form-element-lg;
 }
 
+.h-select.h-input--tall {
+  padding-right: 1.5rem;
+  background-position: calc(100% - 0.75rem) center;
+}
+
 //==========================================================================
 //  Styling for 'pill' style input, used on search input fields
 //==========================================================================
