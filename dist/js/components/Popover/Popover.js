@@ -16,23 +16,24 @@ import classNames from 'classnames';
 import { Button } from 'components/Button';
 var Popover = function (_a) {
     var _b, _c, _d;
-    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.openOnLoad, openOnLoad = _h === void 0 ? false : _h, size = _a.size, _j = _a.theme, theme = _j === void 0 ? "light" : _j, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton;
-    var _k = useState(openOnLoad), internalOpenState = _k[0], setInternalOpenState = _k[1];
+    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.openOnLoad, openOnLoad = _h === void 0 ? false : _h, size = _a.size, _j = _a.theme, theme = _j === void 0 ? "light" : _j, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton, _k = _a.offset, offsetProp = _k === void 0 ? 8 : _k;
+    var _l = useState(openOnLoad), internalOpenState = _l[0], setInternalOpenState = _l[1];
     var arrowRef = useRef(null);
-    var _l = useFloating({
+    var arrowElHeight = 11;
+    var _m = useFloating({
         open: openProp || internalOpenState,
         whileElementsMounted: autoUpdate,
         placement: placement,
         strategy: "absolute",
         middleware: [
-            offset(20),
+            offset(offsetProp + (arrow ? arrowElHeight : 0)),
             flip(),
             shift({ padding: 4, limiter: limitShift() }),
             middlewareArrow({ element: arrowRef, padding: 4 }),
         ],
         onOpenChange: setInternalOpenState,
-    }), x = _l.x, y = _l.y, _m = _l.refs, setReference = _m.setReference, setFloating = _m.setFloating, strategy = _l.strategy, context = _l.context, _o = _l.middlewareData.arrow, _p = _o === void 0 ? {} : _o, arrowX = _p.x, arrowY = _p.y, currentPlacement = _l.placement;
-    var _q = useInteractions([
+    }), x = _m.x, y = _m.y, _o = _m.refs, setReference = _o.setReference, setFloating = _o.setFloating, strategy = _m.strategy, context = _m.context, _p = _m.middlewareData.arrow, _q = _p === void 0 ? {} : _p, arrowX = _q.x, arrowY = _q.y, currentPlacement = _m.placement;
+    var _r = useInteractions([
         useDismiss(context, { enabled: !showCloseButton }),
         useHover(context, {
             enabled: showCloseButton === true && internalOpenState
@@ -43,14 +44,14 @@ var Popover = function (_a) {
             handleClose: safePolygon(),
         }),
         useClick(context, { enabled: openProp === undefined && trigger === "click" }),
-    ]), getReferenceProps = _q.getReferenceProps, getFloatingProps = _q.getFloatingProps;
+    ]), getReferenceProps = _r.getReferenceProps, getFloatingProps = _r.getFloatingProps;
     var staticSide = {
         top: "bottom",
         right: "left",
         bottom: "top",
         left: "right",
     }[currentPlacement.split("-")[0]];
-    var _r = useTransitionStyles(context), isMounted = _r.isMounted, styles = _r.styles;
+    var _s = useTransitionStyles(context), isMounted = _s.isMounted, styles = _s.styles;
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference }, getReferenceProps({
             onClick: function (e) {

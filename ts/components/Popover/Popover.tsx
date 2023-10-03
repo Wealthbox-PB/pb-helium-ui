@@ -37,6 +37,7 @@ interface PopoverProps {
   className?: string;
   bodyClassName?: string;
   showCloseButton?: boolean;
+  offset?: number;
 }
 
 const Popover = ({
@@ -52,9 +53,11 @@ const Popover = ({
   className,
   bodyClassName,
   showCloseButton,
+  offset: offsetProp = 8,
 }: PopoverProps) => {
   const [internalOpenState, setInternalOpenState] = useState(openOnLoad);
   const arrowRef = useRef(null);
+  const arrowElHeight = 11;
 
   const {
     x,
@@ -70,7 +73,7 @@ const Popover = ({
     placement,
     strategy: `absolute`,
     middleware: [
-      offset(20),
+      offset(offsetProp + (arrow ? arrowElHeight : 0)),
       flip(),
       shift({ padding: 4, limiter: limitShift() }),
       middlewareArrow({ element: arrowRef, padding: 4 }),
