@@ -17,10 +17,10 @@ import { Button } from 'components/Button';
 var Popover = function (_a) {
     var _b, _c, _d;
     var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.openOnLoad, openOnLoad = _h === void 0 ? false : _h, size = _a.size, _j = _a.theme, theme = _j === void 0 ? "light" : _j, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton;
-    var _k = useState(openOnLoad), open = _k[0], setOpen = _k[1];
+    var _k = useState(openOnLoad), internalOpenState = _k[0], setInternalOpenState = _k[1];
     var arrowRef = useRef(null);
     var _l = useFloating({
-        open: openProp || open,
+        open: openProp || internalOpenState,
         whileElementsMounted: autoUpdate,
         placement: placement,
         strategy: "absolute",
@@ -30,12 +30,12 @@ var Popover = function (_a) {
             shift({ padding: 4, limiter: limitShift() }),
             middlewareArrow({ element: arrowRef, padding: 4 }),
         ],
-        onOpenChange: setOpen,
+        onOpenChange: setInternalOpenState,
     }), x = _l.x, y = _l.y, _m = _l.refs, setReference = _m.setReference, setFloating = _m.setFloating, strategy = _l.strategy, context = _l.context, _o = _l.middlewareData.arrow, _p = _o === void 0 ? {} : _o, arrowX = _p.x, arrowY = _p.y, currentPlacement = _l.placement;
     var _q = useInteractions([
         useDismiss(context, { enabled: !showCloseButton }),
         useHover(context, {
-            enabled: showCloseButton === true && open
+            enabled: showCloseButton === true && internalOpenState
                 ? false
                 : trigger === "hover" && openProp === undefined
                     ? true
@@ -54,7 +54,7 @@ var Popover = function (_a) {
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference }, getReferenceProps({
             onClick: function (e) {
-                openProp && setOpen(!open);
+                openProp && setInternalOpenState(!internalOpenState);
                 e.stopPropagation();
                 // Normalize button focus while clicking on Safari.
                 e.currentTarget.focus();
@@ -64,23 +64,23 @@ var Popover = function (_a) {
                 // the onClick because buttons trigger key presses as clicks
                 e.stopPropagation();
             },
-            open: open,
+            open: internalOpenState,
             tabIndex: 0,
         }))),
         isMounted ? (React.createElement(FloatingPortal, null,
             React.createElement("div", __assign({ ref: setFloating, className: classNames("h-popover", (_b = {}, _b["h-popover--".concat(size)] = size, _b), (_c = {}, _c["h-popover--".concat(theme)] = theme, _c), className), style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : 0, left: x !== null && x !== void 0 ? x : 0 }, styles), role: "menu" }, getFloatingProps({
-                // Pressing tab dismisses the menu due to the modal
+                // Pressing tab dismisses the popover due to the modal
                 // focus management on the root menu.
                 onKeyDown: function (event) {
                     if (event.key === "Tab") {
-                        setOpen(false);
+                        setInternalOpenState(false);
                     }
                 },
             })),
                 React.createElement("div", { className: classNames("h-popover__body", bodyClassName) },
                     React.createElement("div", { className: "h-popover__body__content" }, children),
                     showCloseButton && !openProp ? (React.createElement(React.Fragment, null,
-                        React.createElement(Button, { className: "h-popover__close", variant: "border-hover", size: "xs", square: true, style: { marginTop: "-0.25rem" }, onClick: function () { return setOpen(false); }, "aria-label": "Close popover" },
+                        React.createElement(Button, { className: "h-popover__close", variant: "border-hover", size: "xs", square: true, style: { marginTop: "-0.25rem" }, onClick: function () { return setInternalOpenState(false); }, "aria-label": "Close popover" },
                             React.createElement("span", { className: "h-icon-delete", "aria-hidden": "true" })))) : null),
                 arrow ? (React.createElement("div", { className: classNames("h-popover__arrow", "h-popover__arrow--".concat(currentPlacement)), ref: arrowRef, style: (_d = {
                             left: arrowX != null ? "".concat(arrowX, "px") : "",

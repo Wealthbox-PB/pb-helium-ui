@@ -54,7 +54,7 @@ const Popover = ({
   bodyClassName,
   showCloseButton,
 }: PopoverProps) => {
-  const [open, setOpen] = useState(openOnLoad);
+  const [internalOpenState, setInternalOpenState] = useState(openOnLoad);
   const arrowRef = useRef(null);
 
   const {
@@ -66,7 +66,7 @@ const Popover = ({
     middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
     placement: currentPlacement,
   } = useFloating({
-    open: openProp || open,
+    open: openProp || internalOpenState,
     whileElementsMounted: autoUpdate,
     placement,
     strategy: `absolute`,
@@ -76,14 +76,14 @@ const Popover = ({
       shift({ padding: 4, limiter: limitShift() }),
       middlewareArrow({ element: arrowRef, padding: 4 }),
     ],
-    onOpenChange: setOpen,
+    onOpenChange: setInternalOpenState,
   });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useDismiss(context, { enabled: !showCloseButton }),
     useHover(context, {
       enabled:
-        showCloseButton === true && open
+        showCloseButton === true && internalOpenState
           ? false
           : trigger === `hover` && openProp === undefined
           ? true
@@ -109,7 +109,7 @@ const Popover = ({
         ref: setReference,
         ...getReferenceProps({
           onClick(e) {
-            openProp && setOpen(!open);
+            openProp && setInternalOpenState(!internalOpenState);
             e.stopPropagation();
             // Normalize button focus while clicking on Safari.
             (e.currentTarget as HTMLButtonElement).focus();
@@ -119,7 +119,7 @@ const Popover = ({
             // the onClick because buttons trigger key presses as clicks
             e.stopPropagation();
           },
-          open,
+          open: internalOpenState,
           tabIndex: 0,
         }),
       })}
@@ -141,11 +141,11 @@ const Popover = ({
             }}
             role="menu"
             {...getFloatingProps({
-              // Pressing tab dismisses the menu due to the modal
+              // Pressing tab dismisses the popover due to the modal
               // focus management on the root menu.
               onKeyDown(event) {
                 if (event.key === `Tab`) {
-                  setOpen(false);
+                  setInternalOpenState(false);
                 }
               },
             })}
@@ -160,7 +160,7 @@ const Popover = ({
                     size="xs"
                     square
                     style={{ marginTop: `-0.25rem` }}
-                    onClick={() => setOpen(false)}
+                    onClick={() => setInternalOpenState(false)}
                     aria-label="Close popover"
                   >
                     <span className="h-icon-delete" aria-hidden="true"></span>
