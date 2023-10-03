@@ -37,7 +37,6 @@ interface PopoverProps {
   className?: string;
   bodyClassName?: string;
   showCloseButton?: boolean;
-  closeDialog?: () => void;
 }
 
 const Popover = ({

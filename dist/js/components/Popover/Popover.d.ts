@@ -16,7 +16,6 @@ interface PopoverProps {
     className?: string;
     bodyClassName?: string;
     showCloseButton?: boolean;
-    closeDialog?: () => void;
 }
 declare const Popover: ({ renderOpener, placement, children, trigger, arrow, open: openProp, openOnLoad, size, theme, className, bodyClassName, showCloseButton, }: PopoverProps) => React.JSX.Element;
 export { Popover };
