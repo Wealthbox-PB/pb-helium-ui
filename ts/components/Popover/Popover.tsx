@@ -31,6 +31,7 @@ interface PopoverProps {
   trigger?: `click` | `hover`;
   arrow?: boolean;
   open?: boolean;
+  openOnLoad?: boolean;
   size?: `sm` | `md` | `lg` | `xl`;
   theme?: `light` | `dark` | `primary`;
   className?: string;
@@ -45,14 +46,15 @@ const Popover = ({
   children,
   trigger = `hover`,
   arrow = true,
-  open: openProp = false,
+  open: openProp,
+  openOnLoad = false,
   size,
   theme = `light`,
   className,
   bodyClassName,
   closeInPopover,
 }: PopoverProps) => {
-  const [open, setOpen] = useState(openProp);
+  const [open, setOpen] = useState(openOnLoad);
   const arrowRef = useRef(null);
 
   const {
@@ -64,7 +66,7 @@ const Popover = ({
     middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
     placement: currentPlacement,
   } = useFloating({
-    open,
+    open: openProp || open,
     whileElementsMounted: autoUpdate,
     placement,
     strategy: `absolute`,
@@ -78,9 +80,18 @@ const Popover = ({
   });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    useDismiss(context),
-    useHover(context, { enabled: trigger === `hover`, handleClose: safePolygon() }),
-    useClick(context, { enabled: trigger === `click` }),
+    useDismiss(context, { enabled: !closeInPopover }),
+    useHover(context, {
+      enabled:
+        closeInPopover === true && open
+          ? false
+          : trigger === `hover` && openProp === undefined
+          ? true
+          : false,
+
+      handleClose: safePolygon(),
+    }),
+    useClick(context, { enabled: openProp === undefined && trigger === `click` }),
   ]);
 
   const staticSide: string = {
@@ -98,7 +109,7 @@ const Popover = ({
         ref: setReference,
         ...getReferenceProps({
           onClick(e) {
-            setOpen(!open);
+            openProp && setOpen(!open);
             e.stopPropagation();
             // Normalize button focus while clicking on Safari.
             (e.currentTarget as HTMLButtonElement).focus();
@@ -141,7 +152,7 @@ const Popover = ({
           >
             <div className={classNames(`h-popover__body`, bodyClassName)}>
               <div className="h-popover__body__content">{children}</div>
-              {closeInPopover ? (
+              {closeInPopover && !openProp ? (
                 <>
                   <Button
                     className="h-popover__close"

@@ -10,6 +10,7 @@ interface PopoverProps {
     trigger?: `click` | `hover`;
     arrow?: boolean;
     open?: boolean;
+    openOnLoad?: boolean;
     size?: `sm` | `md` | `lg` | `xl`;
     theme?: `light` | `dark` | `primary`;
     className?: string;
@@ -17,5 +18,5 @@ interface PopoverProps {
     closeInPopover?: boolean;
     closeDialog?: () => void;
 }
-declare const Popover: ({ renderOpener, placement, children, trigger, arrow, open: openProp, size, theme, className, bodyClassName, closeInPopover, }: PopoverProps) => React.JSX.Element;
+declare const Popover: ({ renderOpener, placement, children, trigger, arrow, open: openProp, openOnLoad, size, theme, className, bodyClassName, closeInPopover, }: PopoverProps) => React.JSX.Element;
 export { Popover };
