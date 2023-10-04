@@ -7,6 +7,7 @@ interface DropdownProps {
     renderOpener: (props: RenderOpenerProps) => JSX.Element;
     children: JSX.Element | JSX.Element[];
     placement?: Placement;
+    width?: `auto` | `full` | number;
 }
-declare const Dropdown: ({ renderOpener, placement, children }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ renderOpener, placement, children, width }: DropdownProps) => React.JSX.Element;
 export { Dropdown };

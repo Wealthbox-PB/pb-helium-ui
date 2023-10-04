@@ -10,21 +10,35 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React, { useMemo, useState } from 'react';
-import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useTypeahead, } from '@floating-ui/react';
+import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useTypeahead, size, } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
 import { Portal } from 'components/Portal';
 var Dropdown = function (_a) {
-    var renderOpener = _a.renderOpener, _b = _a.placement, placement = _b === void 0 ? "bottom-end" : _b, children = _a.children;
-    var _c = useState(false), open = _c[0], setOpen = _c[1];
-    var _d = useState(null), activeIndex = _d[0], setActiveIndex = _d[1];
-    var _e = useFloating({
+    var renderOpener = _a.renderOpener, _b = _a.placement, placement = _b === void 0 ? "bottom-end" : _b, children = _a.children, _c = _a.width, width = _c === void 0 ? "auto" : _c;
+    var _d = useState(false), open = _d[0], setOpen = _d[1];
+    var _e = useState(null), activeIndex = _e[0], setActiveIndex = _e[1];
+    var _f = useFloating({
         open: open,
         whileElementsMounted: autoUpdate,
         placement: placement,
         strategy: "absolute",
-        middleware: [offset(4), flip(), shift({ padding: 4, limiter: limitShift() })],
+        middleware: [
+            offset(4),
+            flip(),
+            shift({ padding: 4, limiter: limitShift() }),
+            size({
+                apply: function (_a) {
+                    var availableHeight = _a.availableHeight, elements = _a.elements, rects = _a.rects;
+                    Object.assign(elements.floating.style, {
+                        maxWidth: width === "auto" ? "".concat(rects.reference.width, "px") : width + "px" || null,
+                        maxHeight: "".concat(availableHeight - 4, "px"),
+                        width: width === "full" ? "".concat(rects.reference.width, "px") : width === "auto" ? null : width + "px",
+                    });
+                },
+            }),
+        ],
         onOpenChange: setOpen,
-    }), x = _e.x, y = _e.y, _f = _e.refs, setReference = _f.setReference, setFloating = _f.setFloating, strategy = _e.strategy, context = _e.context;
+    }), x = _f.x, y = _f.y, _g = _f.refs, setReference = _g.setReference, setFloating = _g.setFloating, strategy = _f.strategy, context = _f.context;
     var elementsRef = React.useRef([]);
     var labelsRef = React.useRef([]);
     var listNavigation = useListNavigation(context, {
@@ -38,12 +52,12 @@ var Dropdown = function (_a) {
         activeIndex: activeIndex,
         onMatch: setActiveIndex,
     });
-    var _g = useInteractions([
+    var _h = useInteractions([
         useDismiss(context),
         useClick(context),
         listNavigation,
         typeahead,
-    ]), getReferenceProps = _g.getReferenceProps, getFloatingProps = _g.getFloatingProps, getItemProps = _g.getItemProps;
+    ]), getReferenceProps = _h.getReferenceProps, getFloatingProps = _h.getFloatingProps, getItemProps = _h.getItemProps;
     var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, setOpen: setOpen }); }, [activeIndex, getItemProps, setOpen]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference }, getReferenceProps({
@@ -64,7 +78,7 @@ var Dropdown = function (_a) {
         open ? (React.createElement(DropdownContext.Provider, { value: dropdownContext },
             React.createElement(Portal, { className: "h-floating-ui h-floating-ui--dropdowns" },
                 React.createElement(FloatingFocusManager, { context: context },
-                    React.createElement("div", __assign({ ref: setFloating, className: "h-dropdown", style: {
+                    React.createElement("div", __assign({ ref: setFloating, className: "h-dropdown h-overflow-auto", style: {
                             position: strategy,
                             top: y !== null && y !== void 0 ? y : 0,
                             left: x !== null && x !== void 0 ? x : 0,
