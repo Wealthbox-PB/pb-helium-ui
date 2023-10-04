@@ -4,7 +4,6 @@ import {
   arrow as middlewareArrow,
   autoUpdate,
   flip,
-  FloatingPortal,
   limitShift,
   offset,
   safePolygon,
@@ -19,6 +18,7 @@ import {
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import classNames from 'classnames';
 import { Button } from 'components/Button';
+import { Portal } from 'components/Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
@@ -126,7 +126,7 @@ const Popover = ({
         }),
       })}
       {isMounted ? (
-        <FloatingPortal>
+        <Portal className="h-floating-ui h-floating-ui--popovers">
           <div
             ref={setFloating}
             className={classNames(
@@ -184,7 +184,7 @@ const Popover = ({
               ></div>
             ) : null}
           </div>
-        </FloatingPortal>
+        </Portal>
       ) : null}
     </>
   );
