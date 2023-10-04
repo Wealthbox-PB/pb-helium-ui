@@ -36,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `Button` component
   - Extend `ButtonProps` with `ButtonHTMLAttributes`
   - Added `border-hover` to `ButtonVariant` types
-- Updated `_dropdown.scss` to remove `:focus-visible` outline from  `.h-dropdown`
+- Updated `_dropdown.scss` to remove `:focus-visible` outline from `.h-dropdown`
 - Updated `tsconfig.json` to exclude the `font` directory
 
 ## [2.2.1] - 2023-09-14
