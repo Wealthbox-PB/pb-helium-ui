@@ -29,14 +29,11 @@ var SelectInput = function (_a, ref) {
     var className = _a.className, _b = _a.id, id = _b === void 0 ? randomString() : _b, label = _a.label, labelClassName = _a.labelClassName, placeholder = _a.placeholder, value = _a.value, _c = _a.type, type = _c === void 0 ? "button" : _c, props = __rest(_a, ["className", "id", "label", "labelClassName", "placeholder", "value", "type"]);
     var uniqueIDRef = useRef(randomString());
     return (React.createElement(React.Fragment, null,
-        label ?
-            React.createElement(Label, { labelClassName: labelClassName, htmlFor: id ? id : uniqueIDRef.current }, label)
-            :
-                null,
+        label ? (React.createElement(Label, { labelClassName: labelClassName, htmlFor: id ? id : uniqueIDRef.current }, label)) : null,
         React.createElement(Button, __assign({ id: id ? id : uniqueIDRef.current, type: type, ref: ref, className: classNames("h-select h-align-start", className) }, props),
             React.createElement("span", { className: classNames("h-text-ellipsis h-font-weight-normal", {
-                    "h-color-text-lighter": !value,
-                    "h-color-text-darker": value,
+                    'h-color-text-lighter': !value,
+                    'h-color-text-darker': value,
                 }) }, value || placeholder))));
 };
 var SelectInputRef = React.forwardRef(SelectInput);

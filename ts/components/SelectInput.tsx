@@ -11,31 +11,28 @@ interface SelectInputProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type?: ButtonType;
 }
 
-const SelectInput = ({
-  className,
-  id = randomString(),
-  label,
-  labelClassName,
-  placeholder,
-  value,
-  type = "button",
-  ...props
-}: SelectInputProps,
+const SelectInput = (
+  {
+    className,
+    id = randomString(),
+    label,
+    labelClassName,
+    placeholder,
+    value,
+    type = `button`,
+    ...props
+  }: SelectInputProps,
   ref
 ) => {
   const uniqueIDRef = useRef<string>(randomString());
 
   return (
     <>
-      {label ?
-        <Label
-          labelClassName={labelClassName}
-          htmlFor={id ? id : uniqueIDRef.current}>
+      {label ? (
+        <Label labelClassName={labelClassName} htmlFor={id ? id : uniqueIDRef.current}>
           {label}
         </Label>
-        :
-        null
-      }
+      ) : null}
       <Button
         id={id ? id : uniqueIDRef.current}
         type={type}
@@ -43,10 +40,12 @@ const SelectInput = ({
         className={classNames(`h-select h-align-start`, className)}
         {...props}
       >
-        <span className={classNames(`h-text-ellipsis h-font-weight-normal`, {
-          "h-color-text-lighter": !value,
-          "h-color-text-darker": value,
-        })}>
+        <span
+          className={classNames(`h-text-ellipsis h-font-weight-normal`, {
+            'h-color-text-lighter': !value,
+            'h-color-text-darker': value,
+          })}
+        >
           {value || placeholder}
         </span>
       </Button>
