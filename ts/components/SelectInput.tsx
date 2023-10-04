@@ -17,8 +17,7 @@ const SelectInput = (
     id = randomString(),
     label,
     labelClassName,
-    placeholder,
-    value,
+    value = `Select...`,
     type = `button`,
     ...props
   }: SelectInputProps,
@@ -37,17 +36,11 @@ const SelectInput = (
         id={id ? id : uniqueIDRef.current}
         type={type}
         ref={ref}
-        className={classNames(`h-select h-align-start`, className)}
+        className={classNames(`h-select h-align-start h-font-weight-normal h-color-text-darker`, className)}
+        variant={null}
         {...props}
       >
-        <span
-          className={classNames(`h-text-ellipsis h-font-weight-normal`, {
-            'h-color-text-lighter': !value,
-            'h-color-text-darker': value,
-          })}
-        >
-          {value || placeholder}
-        </span>
+        <span className="h-text-ellipsis">{value}</span>
       </Button>
     </>
   );
