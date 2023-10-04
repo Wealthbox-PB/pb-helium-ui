@@ -23,12 +23,13 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React from 'react';
 import classNames from 'classnames';
 var Button = function (_a, ref) {
-    var _b = _a.active, active = _b === void 0 ? false : _b, children = _a.children, className = _a.className, _c = _a.focus, focus = _c === void 0 ? false : _c, _d = _a.size, size = _d === void 0 ? "md" : _d, _e = _a.square, square = _e === void 0 ? false : _e, _f = _a.type, type = _f === void 0 ? "button" : _f, _g = _a.variant, variant = _g === void 0 ? "positive" : _g, props = __rest(_a, ["active", "children", "className", "focus", "size", "square", "type", "variant"]);
-    return (React.createElement("button", __assign({ ref: ref, type: type, className: classNames("h-btn h-btn--".concat(variant, " h-btn--").concat(size), className, {
+    var _b;
+    var _c = _a.active, active = _c === void 0 ? false : _c, children = _a.children, className = _a.className, _d = _a.focus, focus = _d === void 0 ? false : _d, _e = _a.size, size = _e === void 0 ? "md" : _e, _f = _a.square, square = _f === void 0 ? false : _f, _g = _a.type, type = _g === void 0 ? "button" : _g, _h = _a.variant, variant = _h === void 0 ? "positive" : _h, props = __rest(_a, ["active", "children", "className", "focus", "size", "square", "type", "variant"]);
+    return (React.createElement("button", __assign({ ref: ref, type: type, className: classNames("h-btn h-btn--".concat(size), (_b = {}, _b["h-btn--".concat(variant)] = variant, _b), {
             'h-btn--active': active,
             'h-btn--focus': focus,
             'h-btn--square': square,
-        }) }, props), children));
+        }, className) }, props), children));
 };
 var ButtonRef = React.forwardRef(Button);
 export { ButtonRef as Button };
