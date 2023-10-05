@@ -10,8 +10,9 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React, { useMemo, useState } from 'react';
-import { autoUpdate, flip, FloatingFocusManager, FloatingList, FloatingPortal, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useTypeahead, } from '@floating-ui/react';
+import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useTypeahead, } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
+import { Portal } from 'components/Portal';
 var Dropdown = function (_a) {
     var renderOpener = _a.renderOpener, _b = _a.placement, placement = _b === void 0 ? "bottom-end" : _b, children = _a.children;
     var _c = useState(false), open = _c[0], setOpen = _c[1];
@@ -61,7 +62,7 @@ var Dropdown = function (_a) {
             tabIndex: 0,
         }))),
         open ? (React.createElement(DropdownContext.Provider, { value: dropdownContext },
-            React.createElement(FloatingPortal, null,
+            React.createElement(Portal, { className: "h-floating-ui h-floating-ui--dropdowns" },
                 React.createElement(FloatingFocusManager, { context: context },
                     React.createElement("div", __assign({ ref: setFloating, className: "h-dropdown", style: {
                             position: strategy,

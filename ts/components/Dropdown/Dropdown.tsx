@@ -4,7 +4,6 @@ import {
   flip,
   FloatingFocusManager,
   FloatingList,
-  FloatingPortal,
   limitShift,
   offset,
   shift,
@@ -17,6 +16,7 @@ import {
 } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
+import { Portal } from 'components/Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
@@ -96,7 +96,7 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
       })}
       {open ? (
         <DropdownContext.Provider value={dropdownContext}>
-          <FloatingPortal>
+          <Portal className="h-floating-ui h-floating-ui--dropdowns">
             <FloatingFocusManager context={context}>
               <div
                 ref={setFloating}
@@ -124,7 +124,7 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
                 </ul>
               </div>
             </FloatingFocusManager>
-          </FloatingPortal>
+          </Portal>
         </DropdownContext.Provider>
       ) : null}
     </>
