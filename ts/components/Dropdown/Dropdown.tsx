@@ -13,6 +13,7 @@ import {
   useInteractions,
   useListNavigation,
   useTypeahead,
+  size,
 } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
@@ -23,14 +24,27 @@ interface RenderOpenerProps {
 }
 
 interface DropdownProps {
-  renderOpener: (props: RenderOpenerProps) => JSX.Element;
   children: JSX.Element | JSX.Element[];
+  flip?: boolean;
+  height?: number;
   placement?: Placement;
+  renderOpener: (props: RenderOpenerProps) => JSX.Element;
+  width?: `auto` | `full` | number;
+  grow?: boolean;
 }
 
-const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: DropdownProps) => {
+const Dropdown = ({
+  children,
+  flip: flipProp = true,
+  height = 200,
+  placement = `bottom-end`,
+  renderOpener,
+  width = `auto`,
+  grow = true,
+}: DropdownProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   const {
     x,
     y,
@@ -42,7 +56,20 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
     whileElementsMounted: autoUpdate,
     placement: placement,
     strategy: `absolute`,
-    middleware: [offset(4), flip(), shift({ padding: 4, limiter: limitShift() })],
+    middleware: [
+      offset(4),
+      flip({ mainAxis: flipProp }),
+      shift({ padding: 4, limiter: limitShift() }),
+      size({
+        apply({ availableHeight, elements, rects }) {
+          Object.assign(elements.floating.style, {
+            height: grow ? `${Math.max(height, availableHeight) - 4}px` : `${height}px`,
+            maxWidth:
+              width === `full` ? `${rects.reference.width}px` : width === `auto` ? null : width + `px`,
+          });
+        },
+      }),
+    ],
     onOpenChange: setOpen,
   });
 
@@ -100,7 +127,7 @@ const Dropdown = ({ renderOpener, placement = `bottom-end`, children }: Dropdown
             <FloatingFocusManager context={context}>
               <div
                 ref={setFloating}
-                className="h-dropdown"
+                className="h-dropdown h-overflow-auto"
                 style={{
                   position: strategy,
                   top: y ?? 0,
