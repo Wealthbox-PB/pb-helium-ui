@@ -4,51 +4,44 @@ import { Button, ButtonType } from './Button';
 import { randomString } from '../helpers/random_string';
 import classNames from 'classnames';
 
-interface SelectInputProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface SelectInputProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, `placeholder`> {
   label?: string;
   labelClassName?: string;
-  placeholder?: string;
+  placeholder?: string | false | null;
   type?: ButtonType;
 }
 
-const SelectInput = ({
-  className,
-  id = randomString(),
-  label,
-  labelClassName,
-  placeholder,
-  value,
-  type = "button",
-  ...props
-}: SelectInputProps,
+const SelectInput = (
+  {
+    className,
+    id = randomString(),
+    label,
+    labelClassName,
+    placeholder = `Select...`,
+    type = `button`,
+    value,
+    ...props
+  }: SelectInputProps,
   ref
 ) => {
   const uniqueIDRef = useRef<string>(randomString());
 
   return (
     <>
-      {label ?
-        <Label
-          labelClassName={labelClassName}
-          htmlFor={id ? id : uniqueIDRef.current}>
+      {label ? (
+        <Label labelClassName={labelClassName} htmlFor={id ? id : uniqueIDRef.current}>
           {label}
         </Label>
-        :
-        null
-      }
+      ) : null}
       <Button
         id={id ? id : uniqueIDRef.current}
         type={type}
         ref={ref}
-        className={classNames(`h-select h-align-start`, className)}
+        className={classNames(`h-select h-align-start h-font-weight-normal h-color-text-darker`, className)}
+        variant={null}
         {...props}
       >
-        <span className={classNames(`h-text-ellipsis h-font-weight-normal`, {
-          "h-color-text-lighter": !value,
-          "h-color-text-darker": value,
-        })}>
-          {value || placeholder}
-        </span>
+        <span className="h-text-ellipsis">{value || placeholder}</span>
       </Button>
     </>
   );

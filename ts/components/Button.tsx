@@ -13,7 +13,8 @@ export type ButtonVariant =
   | `info-outline`
   | `link-primary`
   | `link-secondary`
-  | `border-hover`;
+  | `border-hover`
+  | null;
 export type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
 export type ButtonType = `button` | `submit` | `reset`;
 
@@ -46,11 +47,16 @@ const Button = (
     <button
       ref={ref}
       type={type}
-      className={classNames(`h-btn h-btn--${variant} h-btn--${size}`, className, {
-        'h-btn--active': active,
-        'h-btn--focus': focus,
-        'h-btn--square': square,
-      })}
+      className={classNames(
+        `h-btn h-btn--${size}`,
+        { [`h-btn--${variant}`]: variant },
+        {
+          'h-btn--active': active,
+          'h-btn--focus': focus,
+          'h-btn--square': square,
+        },
+        className
+      )}
       {...props}
     >
       {children}
