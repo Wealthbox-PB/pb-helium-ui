@@ -5,9 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.1] - 2023-10-05
+
+### Added
+
+- Added new `h-align-start` typography utility class
+
+### Changed
+
+- Updated `Dropdown` and `Popover` components to use the helium-ui `Portal` instead of floating-ui's `FloatingPortal`
+- Updated `Dropdown` component to add `flip`, `grow` and `height` props for improved placement control
+- Updated `ButtonVariant` type to add a `null` option in case we want to opt out of setting a variant
+- Updated `Button` variant class name handling based on new `null` option in the `ButtonVariant` type
+- Updated `SelectInput` component to remove special styling for `placeholder` text
+- Updated `SelectInput` to set the default `placeholder` value to "Select..."
+
+### Removed
+
+- Removed `margin` property from `h-dropdown` default styling
+
 ## [2.4.0] - 2023-10-03
 
-# Added
+### Added
 
 - Added new `SelectInput` component
 - Added new `h-text-ellipsis` typography utility class
