@@ -4,10 +4,10 @@ import { Button, ButtonType } from './Button';
 import { randomString } from '../helpers/random_string';
 import classNames from 'classnames';
 
-interface SelectInputProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface SelectInputProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, `placeholder`> {
   label?: string;
   labelClassName?: string;
-  placeholder?: string;
+  placeholder?: string | false | null;
   type?: ButtonType;
 }
 
@@ -17,8 +17,9 @@ const SelectInput = (
     id = randomString(),
     label,
     labelClassName,
-    value = `Select...`,
+    placeholder = `Select...`,
     type = `button`,
+    value,
     ...props
   }: SelectInputProps,
   ref
@@ -40,7 +41,7 @@ const SelectInput = (
         variant={null}
         {...props}
       >
-        <span className="h-text-ellipsis">{value}</span>
+        <span className="h-text-ellipsis">{value || placeholder}</span>
       </Button>
     </>
   );

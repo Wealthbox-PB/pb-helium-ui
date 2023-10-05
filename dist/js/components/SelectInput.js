@@ -26,12 +26,12 @@ import { Button } from './Button';
 import { randomString } from '../helpers/random_string';
 import classNames from 'classnames';
 var SelectInput = function (_a, ref) {
-    var className = _a.className, _b = _a.id, id = _b === void 0 ? randomString() : _b, label = _a.label, labelClassName = _a.labelClassName, _c = _a.value, value = _c === void 0 ? "Select..." : _c, _d = _a.type, type = _d === void 0 ? "button" : _d, props = __rest(_a, ["className", "id", "label", "labelClassName", "value", "type"]);
+    var className = _a.className, _b = _a.id, id = _b === void 0 ? randomString() : _b, label = _a.label, labelClassName = _a.labelClassName, _c = _a.placeholder, placeholder = _c === void 0 ? "Select..." : _c, _d = _a.type, type = _d === void 0 ? "button" : _d, value = _a.value, props = __rest(_a, ["className", "id", "label", "labelClassName", "placeholder", "type", "value"]);
     var uniqueIDRef = useRef(randomString());
     return (React.createElement(React.Fragment, null,
         label ? (React.createElement(Label, { labelClassName: labelClassName, htmlFor: id ? id : uniqueIDRef.current }, label)) : null,
         React.createElement(Button, __assign({ id: id ? id : uniqueIDRef.current, type: type, ref: ref, className: classNames("h-select h-align-start h-font-weight-normal h-color-text-darker", className), variant: null }, props),
-            React.createElement("span", { className: "h-text-ellipsis" }, value))));
+            React.createElement("span", { className: "h-text-ellipsis" }, value || placeholder))));
 };
 var SelectInputRef = React.forwardRef(SelectInput);
 export { SelectInputRef as SelectInput };
