@@ -4,10 +4,13 @@ interface RenderOpenerProps {
     ref: (node: ReferenceType | null) => void;
 }
 interface DropdownProps {
-    renderOpener: (props: RenderOpenerProps) => JSX.Element;
     children: JSX.Element | JSX.Element[];
+    flip?: boolean;
+    height?: number;
     placement?: Placement;
+    renderOpener: (props: RenderOpenerProps) => JSX.Element;
     width?: `auto` | `full` | number;
+    grow?: boolean;
 }
-declare const Dropdown: ({ renderOpener, placement, children, width }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ children, flip: flipProp, height, placement, renderOpener, width, grow, }: DropdownProps) => React.JSX.Element;
 export { Dropdown };

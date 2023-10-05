@@ -14,31 +14,30 @@ import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offse
 import { DropdownContext } from './DropdownContext';
 import { Portal } from 'components/Portal';
 var Dropdown = function (_a) {
-    var renderOpener = _a.renderOpener, _b = _a.placement, placement = _b === void 0 ? "bottom-end" : _b, children = _a.children, _c = _a.width, width = _c === void 0 ? "auto" : _c;
-    var _d = useState(false), open = _d[0], setOpen = _d[1];
-    var _e = useState(null), activeIndex = _e[0], setActiveIndex = _e[1];
-    var _f = useFloating({
+    var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, _c = _a.height, height = _c === void 0 ? 200 : _c, _d = _a.placement, placement = _d === void 0 ? "bottom-end" : _d, renderOpener = _a.renderOpener, _e = _a.width, width = _e === void 0 ? "auto" : _e, _f = _a.grow, grow = _f === void 0 ? true : _f;
+    var _g = useState(false), open = _g[0], setOpen = _g[1];
+    var _h = useState(null), activeIndex = _h[0], setActiveIndex = _h[1];
+    var _j = useFloating({
         open: open,
         whileElementsMounted: autoUpdate,
         placement: placement,
         strategy: "absolute",
         middleware: [
             offset(4),
-            flip(),
+            flip({ mainAxis: flipProp }),
             shift({ padding: 4, limiter: limitShift() }),
             size({
                 apply: function (_a) {
                     var availableHeight = _a.availableHeight, elements = _a.elements, rects = _a.rects;
                     Object.assign(elements.floating.style, {
-                        maxWidth: width === "auto" ? "".concat(rects.reference.width, "px") : width + "px" || null,
-                        maxHeight: "".concat(availableHeight - 4, "px"),
-                        width: width === "full" ? "".concat(rects.reference.width, "px") : width === "auto" ? null : width + "px",
+                        height: grow ? "".concat(Math.max(height, availableHeight) - 4, "px") : "".concat(height, "px"),
+                        maxWidth: width === "full" ? "".concat(rects.reference.width, "px") : width === "auto" ? null : width + "px",
                     });
                 },
             }),
         ],
         onOpenChange: setOpen,
-    }), x = _f.x, y = _f.y, _g = _f.refs, setReference = _g.setReference, setFloating = _g.setFloating, strategy = _f.strategy, context = _f.context;
+    }), x = _j.x, y = _j.y, _k = _j.refs, setReference = _k.setReference, setFloating = _k.setFloating, strategy = _j.strategy, context = _j.context;
     var elementsRef = React.useRef([]);
     var labelsRef = React.useRef([]);
     var listNavigation = useListNavigation(context, {
@@ -52,12 +51,12 @@ var Dropdown = function (_a) {
         activeIndex: activeIndex,
         onMatch: setActiveIndex,
     });
-    var _h = useInteractions([
+    var _l = useInteractions([
         useDismiss(context),
         useClick(context),
         listNavigation,
         typeahead,
-    ]), getReferenceProps = _h.getReferenceProps, getFloatingProps = _h.getFloatingProps, getItemProps = _h.getItemProps;
+    ]), getReferenceProps = _l.getReferenceProps, getFloatingProps = _l.getFloatingProps, getItemProps = _l.getItemProps;
     var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, setOpen: setOpen }); }, [activeIndex, getItemProps, setOpen]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference }, getReferenceProps({
