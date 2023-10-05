@@ -26,21 +26,23 @@ interface RenderOpenerProps {
 interface DropdownProps {
   children: JSX.Element | JSX.Element[];
   flip?: boolean;
-  height?: number;
+  minHeight?: number;
+  maxHeight?: number;
+  height?: string;
   placement?: Placement;
   renderOpener: (props: RenderOpenerProps) => JSX.Element;
   width?: `auto` | `full` | number;
-  grow?: boolean;
 }
 
 const Dropdown = ({
   children,
   flip: flipProp = true,
-  height = 200,
+  minHeight,
   placement = `bottom-end`,
   renderOpener,
   width = `auto`,
-  grow = true,
+  maxHeight,
+  height = `auto`,
 }: DropdownProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -63,9 +65,15 @@ const Dropdown = ({
       size({
         apply({ availableHeight, elements, rects }) {
           Object.assign(elements.floating.style, {
-            height: grow ? `${Math.max(height, availableHeight) - 4}px` : `${height}px`,
-            maxWidth:
-              width === `full` ? `${rects.reference.width}px` : width === `auto` ? null : width + `px`,
+            maxHeight:
+              height === `auto`
+                ? maxHeight
+                  ? `${Math.min(maxHeight, availableHeight) - 4}px`
+                  : `${availableHeight - 4}px`
+                : null,
+            minHeight: height == `auto` ? (minHeight ? `${minHeight - 4}px` : null) : null,
+            height: height,
+            width: width === `full` ? `${rects.reference.width}px` : width === `auto` ? null : width + `px`,
           });
         },
       }),

@@ -6,11 +6,12 @@ interface RenderOpenerProps {
 interface DropdownProps {
     children: JSX.Element | JSX.Element[];
     flip?: boolean;
-    height?: number;
+    minHeight?: number;
+    maxHeight?: number;
+    height?: string;
     placement?: Placement;
     renderOpener: (props: RenderOpenerProps) => JSX.Element;
     width?: `auto` | `full` | number;
-    grow?: boolean;
 }
-declare const Dropdown: ({ children, flip: flipProp, height, placement, renderOpener, width, grow, }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ children, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, }: DropdownProps) => React.JSX.Element;
 export { Dropdown };

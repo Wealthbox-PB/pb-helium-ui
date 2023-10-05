@@ -14,10 +14,10 @@ import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offse
 import { DropdownContext } from './DropdownContext';
 import { Portal } from 'components/Portal';
 var Dropdown = function (_a) {
-    var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, _c = _a.height, height = _c === void 0 ? 200 : _c, _d = _a.placement, placement = _d === void 0 ? "bottom-end" : _d, renderOpener = _a.renderOpener, _e = _a.width, width = _e === void 0 ? "auto" : _e, _f = _a.grow, grow = _f === void 0 ? true : _f;
-    var _g = useState(false), open = _g[0], setOpen = _g[1];
-    var _h = useState(null), activeIndex = _h[0], setActiveIndex = _h[1];
-    var _j = useFloating({
+    var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e;
+    var _f = useState(false), open = _f[0], setOpen = _f[1];
+    var _g = useState(null), activeIndex = _g[0], setActiveIndex = _g[1];
+    var _h = useFloating({
         open: open,
         whileElementsMounted: autoUpdate,
         placement: placement,
@@ -30,14 +30,20 @@ var Dropdown = function (_a) {
                 apply: function (_a) {
                     var availableHeight = _a.availableHeight, elements = _a.elements, rects = _a.rects;
                     Object.assign(elements.floating.style, {
-                        height: grow ? "".concat(Math.max(height, availableHeight) - 4, "px") : "".concat(height, "px"),
-                        maxWidth: width === "full" ? "".concat(rects.reference.width, "px") : width === "auto" ? null : width + "px",
+                        maxHeight: height === "auto"
+                            ? maxHeight
+                                ? "".concat(Math.min(maxHeight, availableHeight) - 4, "px")
+                                : "".concat(availableHeight - 4, "px")
+                            : null,
+                        minHeight: height == "auto" ? (minHeight ? "".concat(minHeight - 4, "px") : null) : null,
+                        height: height,
+                        width: width === "full" ? "".concat(rects.reference.width, "px") : width === "auto" ? null : width + "px",
                     });
                 },
             }),
         ],
         onOpenChange: setOpen,
-    }), x = _j.x, y = _j.y, _k = _j.refs, setReference = _k.setReference, setFloating = _k.setFloating, strategy = _j.strategy, context = _j.context;
+    }), x = _h.x, y = _h.y, _j = _h.refs, setReference = _j.setReference, setFloating = _j.setFloating, strategy = _h.strategy, context = _h.context;
     var elementsRef = React.useRef([]);
     var labelsRef = React.useRef([]);
     var listNavigation = useListNavigation(context, {
@@ -51,12 +57,12 @@ var Dropdown = function (_a) {
         activeIndex: activeIndex,
         onMatch: setActiveIndex,
     });
-    var _l = useInteractions([
+    var _k = useInteractions([
         useDismiss(context),
         useClick(context),
         listNavigation,
         typeahead,
-    ]), getReferenceProps = _l.getReferenceProps, getFloatingProps = _l.getFloatingProps, getItemProps = _l.getItemProps;
+    ]), getReferenceProps = _k.getReferenceProps, getFloatingProps = _k.getFloatingProps, getItemProps = _k.getItemProps;
     var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, setOpen: setOpen }); }, [activeIndex, getItemProps, setOpen]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference }, getReferenceProps({
