@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import React, { useMemo, useState } from 'react';
 import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useTypeahead, size, } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
-import { Portal } from 'components/Portal';
+import { Portal } from '../Portal';
 var Dropdown = function (_a) {
     var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e;
     var _f = useState(false), open = _f[0], setOpen = _f[1];
@@ -32,12 +32,12 @@ var Dropdown = function (_a) {
                     Object.assign(elements.floating.style, {
                         maxHeight: height === "auto"
                             ? maxHeight
-                                ? "".concat(Math.min(maxHeight, availableHeight) - 4, "px")
-                                : "".concat(availableHeight - 4, "px")
+                                ? Math.min(maxHeight, availableHeight) - 4 + "px"
+                                : availableHeight - 4 + "px"
                             : null,
-                        minHeight: height == "auto" ? (minHeight ? "".concat(minHeight - 4, "px") : null) : null,
+                        minHeight: height == "auto" ? (minHeight ? minHeight - 4 + "px" : null) : null,
                         height: height,
-                        width: width === "full" ? "".concat(rects.reference.width, "px") : width === "auto" ? null : width + "px",
+                        width: width === "full" ? rects.reference.width + "px" : width === "auto" ? null : width + "px",
                     });
                 },
             }),
