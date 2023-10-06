@@ -14,10 +14,10 @@ import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offse
 import { DropdownContext } from './DropdownContext';
 import { Portal } from '../Portal';
 var Dropdown = function (_a) {
-    var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g;
-    var _h = useState(openProp), open = _h[0], setOpen = _h[1];
-    var _j = useState(null), activeIndex = _j[0], setActiveIndex = _j[1];
-    var _k = useFloating({
+    var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g, _h = _a.typeahead, typeaheadProp = _h === void 0 ? true : _h, onOpen = _a.onOpen, onClose = _a.onClose, initialFocusEl = _a.initialFocusEl;
+    var _j = useState(openProp), open = _j[0], setOpen = _j[1];
+    var _k = useState(null), activeIndex = _k[0], setActiveIndex = _k[1];
+    var _l = useFloating({
         open: open,
         whileElementsMounted: autoUpdate,
         placement: placement,
@@ -42,8 +42,16 @@ var Dropdown = function (_a) {
                 },
             }),
         ],
-        onOpenChange: setOpen,
-    }), x = _k.x, y = _k.y, _l = _k.refs, setReference = _l.setReference, setFloating = _l.setFloating, strategy = _k.strategy, context = _k.context;
+        onOpenChange: function (open) {
+            setOpen(open);
+            if (open) {
+                onOpen === null || onOpen === void 0 ? void 0 : onOpen();
+            }
+            else {
+                onClose === null || onClose === void 0 ? void 0 : onClose();
+            }
+        },
+    }), x = _l.x, y = _l.y, _m = _l.refs, setReference = _m.setReference, setFloating = _m.setFloating, strategy = _l.strategy, context = _l.context;
     var elementsRef = React.useRef([]);
     var labelsRef = React.useRef([]);
     var listNavigation = useListNavigation(context, {
@@ -53,16 +61,17 @@ var Dropdown = function (_a) {
         loop: true,
     });
     var typeahead = useTypeahead(context, {
+        enabled: typeaheadProp,
         listRef: labelsRef,
         activeIndex: activeIndex,
         onMatch: setActiveIndex,
     });
-    var _m = useInteractions([
+    var _o = useInteractions([
         useDismiss(context, { enabled: dismissible }),
         useClick(context),
         listNavigation,
         typeahead,
-    ]), getReferenceProps = _m.getReferenceProps, getFloatingProps = _m.getFloatingProps, getItemProps = _m.getItemProps;
+    ]), getReferenceProps = _o.getReferenceProps, getFloatingProps = _o.getFloatingProps, getItemProps = _o.getItemProps;
     var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, setOpen: setOpen }); }, [activeIndex, getItemProps, setOpen]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ open: open, ref: setReference }, getReferenceProps({
@@ -82,7 +91,7 @@ var Dropdown = function (_a) {
         }))),
         open ? (React.createElement(DropdownContext.Provider, { value: dropdownContext },
             React.createElement(Portal, { className: "h-floating-ui h-floating-ui--dropdowns" },
-                React.createElement(FloatingFocusManager, { context: context },
+                React.createElement(FloatingFocusManager, { context: context, initialFocus: initialFocusEl },
                     React.createElement("div", __assign({ ref: setFloating, className: "h-dropdown h-overflow-auto", style: {
                             position: strategy,
                             top: y !== null && y !== void 0 ? y : 0,

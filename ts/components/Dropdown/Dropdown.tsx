@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { MutableRefObject, useMemo, useState } from 'react';
 import {
   autoUpdate,
   flip,
@@ -35,6 +35,10 @@ interface DropdownProps {
   width?: `auto` | `full` | number;
   open?: boolean;
   dismissible?: boolean;
+  typeahead?: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
+  initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
 }
 
 const Dropdown = ({
@@ -48,6 +52,10 @@ const Dropdown = ({
   height = `auto`,
   open: openProp = false,
   dismissible = true,
+  typeahead: typeaheadProp = true,
+  onOpen,
+  onClose,
+  initialFocusEl,
 }: DropdownProps) => {
   const [open, setOpen] = useState(openProp);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -83,7 +91,14 @@ const Dropdown = ({
         },
       }),
     ],
-    onOpenChange: setOpen,
+    onOpenChange: (open) => {
+      setOpen(open);
+      if (open) {
+        onOpen?.();
+      } else {
+        onClose?.();
+      }
+    },
   });
 
   const elementsRef = React.useRef<HTMLElement[]>([]);
@@ -97,6 +112,7 @@ const Dropdown = ({
   });
 
   const typeahead = useTypeahead(context, {
+    enabled: typeaheadProp,
     listRef: labelsRef,
     activeIndex,
     onMatch: setActiveIndex,
@@ -138,7 +154,7 @@ const Dropdown = ({
       {open ? (
         <DropdownContext.Provider value={dropdownContext}>
           <Portal className="h-floating-ui h-floating-ui--dropdowns">
-            <FloatingFocusManager context={context}>
+            <FloatingFocusManager context={context} initialFocus={initialFocusEl}>
               <div
                 ref={setFloating}
                 className="h-dropdown h-overflow-auto"

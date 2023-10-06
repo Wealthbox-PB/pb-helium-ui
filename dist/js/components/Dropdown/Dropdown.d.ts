@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MutableRefObject } from 'react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 interface RenderOpenerProps {
     ref: (node: ReferenceType | null) => void;
@@ -15,6 +15,10 @@ interface DropdownProps {
     width?: `auto` | `full` | number;
     open?: boolean;
     dismissible?: boolean;
+    typeahead?: boolean;
+    onOpen?: () => void;
+    onClose?: () => void;
+    initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
 }
-declare const Dropdown: ({ children, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ children, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, }: DropdownProps) => React.JSX.Element;
 export { Dropdown };
