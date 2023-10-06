@@ -17,8 +17,8 @@ import {
 } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import classNames from 'classnames';
-import { Button } from 'components/Button';
-import { Portal } from 'components/Portal';
+import { Button } from '../Button';
+import { Portal } from '../Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;

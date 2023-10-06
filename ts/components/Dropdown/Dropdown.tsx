@@ -17,7 +17,7 @@ import {
 } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
-import { Portal } from 'components/Portal';
+import { Portal } from '../Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
