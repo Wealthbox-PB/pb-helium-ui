@@ -25,7 +25,7 @@ import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 export var DropdownMenuButton = function (_a) {
-    var buttonClassName = _a.buttonClassName, className = _a.className, label = _a.label, iconName = _a.iconName, onClick = _a.onClick, _b = _a.variant, variant = _b === void 0 ? "default" : _b, props = __rest(_a, ["buttonClassName", "className", "label", "iconName", "onClick", "variant"]);
+    var buttonClassName = _a.buttonClassName, children = _a.children, className = _a.className, iconName = _a.iconName, label = _a.label, onClick = _a.onClick, _b = _a.variant, variant = _b === void 0 ? "default" : _b, props = __rest(_a, ["buttonClassName", "children", "className", "iconName", "label", "onClick", "variant"]);
     var _c = useDropdownContext(), activeIndex = _c.activeIndex, getItemProps = _c.getItemProps, setOpen = _c.setOpen;
     var _d = useListItem({ label: label }), ref = _d.ref, index = _d.index;
     var isActive = activeIndex === index;
@@ -39,8 +39,8 @@ export var DropdownMenuButton = function (_a) {
                 setOpen(false);
                 return onClick();
             },
-        }), props),
+        }), props), children || (React.createElement(React.Fragment, null,
             iconName ? React.createElement("span", { className: "h-icon-".concat(iconName, " me-1") }) : null,
-            label)));
+            label)))));
 };
 //# sourceMappingURL=DropdownMenuButton.js.map

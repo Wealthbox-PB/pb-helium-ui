@@ -25,7 +25,7 @@ import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 export var DropdownMenuLink = function (_a) {
-    var label = _a.label, iconName = _a.iconName, _b = _a.variant, variant = _b === void 0 ? "default" : _b, className = _a.className, linkClassName = _a.linkClassName, props = __rest(_a, ["label", "iconName", "variant", "className", "linkClassName"]);
+    var children = _a.children, label = _a.label, iconName = _a.iconName, _b = _a.variant, variant = _b === void 0 ? "default" : _b, className = _a.className, linkClassName = _a.linkClassName, props = __rest(_a, ["children", "label", "iconName", "variant", "className", "linkClassName"]);
     var _c = useDropdownContext(), activeIndex = _c.activeIndex, getItemProps = _c.getItemProps, setOpen = _c.setOpen;
     var _d = useListItem({ label: label }), ref = _d.ref, index = _d.index;
     var isActive = activeIndex === index;
@@ -38,8 +38,8 @@ export var DropdownMenuLink = function (_a) {
                 e.stopPropagation();
                 setOpen(false);
             },
-        }), props),
+        }), props), children || (React.createElement(React.Fragment, null,
             iconName ? React.createElement("span", { className: "h-icon-".concat(iconName, " me-1") }) : null,
-            label)));
+            label)))));
 };
 //# sourceMappingURL=DropdownMenuLink.js.map

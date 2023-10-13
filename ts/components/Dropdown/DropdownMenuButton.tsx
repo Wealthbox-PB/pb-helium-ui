@@ -6,9 +6,10 @@ import { Icons } from '../../types/icons';
 
 interface DropdownMenuButtonProps extends Omit<HTMLAttributes<HTMLButtonElement>, `className` | `onClick`> {
   buttonClassName?: string;
+  children?: JSX.Element[] | JSX.Element;
   className?: string;
-  label: string;
   iconName?: Icons;
+  label: string;
   onClick: () => void;
   useSelect?: string;
   variant?: `default` | `negative`;
@@ -16,9 +17,10 @@ interface DropdownMenuButtonProps extends Omit<HTMLAttributes<HTMLButtonElement>
 
 export const DropdownMenuButton = ({
   buttonClassName,
+  children,
   className,
-  label,
   iconName,
+  label,
   onClick,
   variant = `default`,
   ...props
@@ -49,8 +51,12 @@ export const DropdownMenuButton = ({
         })}
         {...props}
       >
-        {iconName ? <span className={`h-icon-${iconName} me-1`}></span> : null}
-        {label}
+        {children || (
+          <>
+            {iconName ? <span className={`h-icon-${iconName} me-1`}></span> : null}
+            {label}
+          </>
+        )}
       </button>
     </li>
   );

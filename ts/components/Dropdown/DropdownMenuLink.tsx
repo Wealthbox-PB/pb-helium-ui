@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { Icons } from '../../types/icons';
 
 interface DropdownMenuLinkProps extends Omit<HTMLAttributes<HTMLAnchorElement>, `className`> {
+  children?: JSX.Element[] | JSX.Element;
   className?: string;
   iconName?: Icons;
   label: string;
@@ -14,6 +15,7 @@ interface DropdownMenuLinkProps extends Omit<HTMLAttributes<HTMLAnchorElement>, 
 }
 
 export const DropdownMenuLink = ({
+  children,
   label,
   iconName,
   variant = `default`,
@@ -46,8 +48,12 @@ export const DropdownMenuLink = ({
         })}
         {...props}
       >
-        {iconName ? <span className={`h-icon-${iconName} me-1`}></span> : null}
-        {label}
+        {children || (
+          <>
+            {iconName ? <span className={`h-icon-${iconName} me-1`}></span> : null}
+            {label}
+          </>
+        )}
       </a>
     </li>
   );
