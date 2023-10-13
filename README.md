@@ -101,6 +101,10 @@ brew install woff2 sfnt2woff eot-utils
 gem install fontcustom
 ```
 
+3. Add the FontForge `PATH` to your shell
+
+- Example: `export PATH="$PATH:/Applications/FontForge.app/Contents/Resources/opt/local/bin"`
+
 #### Compiling Helium Icons
 
 1. Add or modify an svg icon asset in the `assets/icons` folder
