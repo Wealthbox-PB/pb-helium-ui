@@ -171,6 +171,8 @@ export type Icons =
   | `graph--lg`
   | `grid`
   | `grid--lg`
+  | `grid-view`
+  | `grid-view--lg`
   | `history`
   | `history--lg`
   | `household`
