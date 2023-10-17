@@ -128,6 +128,8 @@ export type Icons =
   | `event--lg`
   | `event-add`
   | `event-add--lg`
+  | `event-today`
+  | `event-today--lg`
   | `examplekey-backspace`
   | `examplekey-backspace--lg`
   | `examplekey-return`
