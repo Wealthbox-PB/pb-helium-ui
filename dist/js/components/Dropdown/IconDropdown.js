@@ -29,7 +29,7 @@ var IconDropdown = function (_a) {
     return (React.createElement(Dropdown, { renderOpener: function (_a) {
             var ref = _a.ref, props = __rest(_a, ["ref"]);
             return (React.createElement(Button, __assign({ variant: variant, size: size, ref: ref, "aria-label": ariaLabel, square: true, id: buttonId, className: className }, props),
-                React.createElement("span", { className: classNames("h-icon-" + iconName, iconClassName) })));
+                React.createElement("span", { className: classNames("h-icon-".concat(iconName), iconClassName) })));
         }, placement: placement }, children));
 };
 export { IconDropdown };

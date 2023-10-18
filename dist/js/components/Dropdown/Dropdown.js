@@ -32,12 +32,12 @@ var Dropdown = function (_a) {
                     Object.assign(elements.floating.style, {
                         maxHeight: height === "auto"
                             ? maxHeight
-                                ? Math.min(maxHeight, availableHeight) - 4 + "px"
-                                : availableHeight - 4 + "px"
+                                ? "".concat(Math.min(maxHeight, availableHeight) - 4, "px")
+                                : "".concat(availableHeight - 4, "px")
                             : null,
-                        minHeight: height == "auto" ? (minHeight ? minHeight - 4 + "px" : null) : null,
+                        minHeight: height == "auto" ? (minHeight ? "".concat(minHeight - 4, "px") : null) : null,
                         height: height,
-                        width: width === "full" ? rects.reference.width + "px" : width === "auto" ? null : width + "px",
+                        width: width === "full" ? "".concat(rects.reference.width, "px") : width === "auto" ? null : width + "px",
                     });
                 },
             }),
