@@ -29,7 +29,7 @@ var TextInput = function (_a, ref) {
     var uniqueIDRef = useRef(randomString());
     return (React.createElement(React.Fragment, null,
         label ?
-            React.createElement(Label, { labelClassName: variant === "dark-blue" ? "h-color-text-blue-200 " + labelClassName : labelClassName, htmlFor: id ? id : uniqueIDRef.current }, label)
+            React.createElement(Label, { labelClassName: variant === "dark-blue" ? "h-color-text-blue-200 ".concat(labelClassName) : labelClassName, htmlFor: id ? id : uniqueIDRef.current }, label)
             :
                 null,
         React.createElement("div", { className: "h-input-container" },

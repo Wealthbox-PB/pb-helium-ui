@@ -70,7 +70,7 @@ var Popover = function (_a) {
             tabIndex: 0,
         }))),
         isMounted ? (React.createElement(Portal, { className: "h-floating-ui h-floating-ui--popovers" },
-            React.createElement("div", __assign({ ref: setFloating, className: classNames("h-popover", (_b = {}, _b["h-popover--" + size] = size, _b), (_c = {}, _c["h-popover--" + theme] = theme, _c), className), style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : 0, left: x !== null && x !== void 0 ? x : 0 }, styles), role: "menu" }, getFloatingProps({
+            React.createElement("div", __assign({ ref: setFloating, className: classNames("h-popover", (_b = {}, _b["h-popover--".concat(size)] = size, _b), (_c = {}, _c["h-popover--".concat(theme)] = theme, _c), className), style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : 0, left: x !== null && x !== void 0 ? x : 0 }, styles), role: "menu" }, getFloatingProps({
                 // Pressing tab dismisses the popover due to the modal
                 // focus management on the root menu.
                 onKeyDown: function (event) {
@@ -84,9 +84,9 @@ var Popover = function (_a) {
                     showCloseButton && !openProp ? (React.createElement(React.Fragment, null,
                         React.createElement(Button, { className: "h-popover__close", variant: "border-hover", size: "xs", square: true, style: { marginTop: "-0.25rem" }, onClick: function () { return setInternalOpenState(false); }, "aria-label": "Close popover" },
                             React.createElement("span", { className: "h-icon-delete", "aria-hidden": "true" })))) : null),
-                arrow ? (React.createElement("div", { className: classNames("h-popover__arrow", "h-popover__arrow--" + currentPlacement), ref: arrowRef, style: (_d = {
-                            left: arrowX != null ? arrowX + "px" : "",
-                            top: arrowY != null ? arrowY + "px" : "",
+                arrow ? (React.createElement("div", { className: classNames("h-popover__arrow", "h-popover__arrow--".concat(currentPlacement)), ref: arrowRef, style: (_d = {
+                            left: arrowX != null ? "".concat(arrowX, "px") : "",
+                            top: arrowY != null ? "".concat(arrowY, "px") : "",
                             right: "",
                             bottom: ""
                         },

@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes } from 'react';
-export declare type ButtonVariant = `primary` | `secondary` | `positive` | `negative` | `info` | `primary-outline` | `secondary-outline` | `negative-outline` | `info-outline` | `link-primary` | `link-secondary` | `border-hover` | null;
-export declare type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
-export declare type ButtonType = `button` | `submit` | `reset`;
+export type ButtonVariant = `primary` | `secondary` | `positive` | `negative` | `info` | `primary-outline` | `secondary-outline` | `negative-outline` | `info-outline` | `link-primary` | `link-secondary` | `border-hover` | null;
+export type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
+export type ButtonType = `button` | `submit` | `reset`;
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     active?: boolean;
     children?: string | JSX.Element[] | JSX.Element;

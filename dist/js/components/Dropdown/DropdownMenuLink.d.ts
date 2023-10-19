@@ -1,6 +1,6 @@
-import React, { HTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes } from 'react';
 import { Icons } from '../../types/icons';
-interface DropdownMenuLinkProps extends Omit<HTMLAttributes<HTMLAnchorElement>, `className`> {
+interface DropdownMenuLinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, `className`> {
     children?: JSX.Element[] | JSX.Element;
     className?: string;
     iconName?: Icons;
