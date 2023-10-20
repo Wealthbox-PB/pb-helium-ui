@@ -1,10 +1,11 @@
-import React, { HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 import { Icons } from '../../types/icons';
 
-interface DropdownMenuButtonProps extends Omit<HTMLAttributes<HTMLButtonElement>, `className` | `onClick`> {
+interface DropdownMenuButtonProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, `className` | `onClick`> {
   buttonClassName?: string;
   children?: JSX.Element[] | JSX.Element;
   className?: string;
