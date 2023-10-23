@@ -35,9 +35,8 @@ export var DropdownMenuButton = function (_a) {
         }) },
         React.createElement("button", __assign({ className: classNames("h-dropdown__menu__item__cta", buttonClassName), ref: ref, tabIndex: isActive ? 0 : -1, role: "menuitem" }, getItemProps({
             onClick: function (e) {
-                e.stopPropagation();
                 setOpen(false);
-                return onClick();
+                onClick(e);
             },
         }), props), children || (React.createElement(React.Fragment, null,
             iconName ? React.createElement("span", { className: "h-icon-".concat(iconName, " me-1") }) : null,
