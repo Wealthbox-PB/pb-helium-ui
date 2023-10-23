@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, MouseEvent } from 'react';
 import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
@@ -11,7 +11,7 @@ interface DropdownMenuButtonProps
   className?: string;
   iconName?: Icons;
   label: string;
-  onClick: () => void;
+  onClick: (e?: MouseEvent) => void;
   useSelect?: string;
   variant?: `default` | `negative`;
 }
@@ -45,9 +45,8 @@ export const DropdownMenuButton = ({
         role="menuitem"
         {...getItemProps({
           onClick(e) {
-            e.stopPropagation();
             setOpen(false);
-            return onClick();
+            onClick(e);
           },
         })}
         {...props}

@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, MouseEvent } from 'react';
 import { Icons } from '../../types/icons';
 interface DropdownMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, `className` | `onClick`> {
     buttonClassName?: string;
@@ -6,7 +6,7 @@ interface DropdownMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEl
     className?: string;
     iconName?: Icons;
     label: string;
-    onClick: () => void;
+    onClick: (e?: MouseEvent) => void;
     useSelect?: string;
     variant?: `default` | `negative`;
 }

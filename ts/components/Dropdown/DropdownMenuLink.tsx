@@ -1,15 +1,17 @@
-import React, { AnchorHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, MouseEvent } from 'react';
 import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 import { Icons } from '../../types/icons';
 
-interface DropdownMenuLinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, `className`> {
+interface DropdownMenuLinkProps
+  extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, `className` | `onClick`> {
   children?: JSX.Element[] | JSX.Element;
   className?: string;
   iconName?: Icons;
   label: string;
   linkClassName?: string;
+  onClick?: (e?: MouseEvent) => void;
   useSelect?: string;
   variant?: `default` | `negative`;
 }
@@ -21,6 +23,7 @@ export const DropdownMenuLink = ({
   variant = `default`,
   className,
   linkClassName,
+  onClick,
   ...props
 }: DropdownMenuLinkProps) => {
   const { activeIndex, getItemProps, setOpen } = useDropdownContext();
@@ -42,8 +45,8 @@ export const DropdownMenuLink = ({
         role="menuitem"
         {...getItemProps({
           onClick(e) {
-            e.stopPropagation();
             setOpen(false);
+            onClick && onClick(e);
           },
         })}
         {...props}

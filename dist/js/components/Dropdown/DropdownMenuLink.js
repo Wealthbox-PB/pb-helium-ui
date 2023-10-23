@@ -25,7 +25,7 @@ import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 export var DropdownMenuLink = function (_a) {
-    var children = _a.children, label = _a.label, iconName = _a.iconName, _b = _a.variant, variant = _b === void 0 ? "default" : _b, className = _a.className, linkClassName = _a.linkClassName, props = __rest(_a, ["children", "label", "iconName", "variant", "className", "linkClassName"]);
+    var children = _a.children, label = _a.label, iconName = _a.iconName, _b = _a.variant, variant = _b === void 0 ? "default" : _b, className = _a.className, linkClassName = _a.linkClassName, onClick = _a.onClick, props = __rest(_a, ["children", "label", "iconName", "variant", "className", "linkClassName", "onClick"]);
     var _c = useDropdownContext(), activeIndex = _c.activeIndex, getItemProps = _c.getItemProps, setOpen = _c.setOpen;
     var _d = useListItem({ label: label }), ref = _d.ref, index = _d.index;
     var isActive = activeIndex === index;
@@ -35,8 +35,8 @@ export var DropdownMenuLink = function (_a) {
         }) },
         React.createElement("a", __assign({ className: classNames("h-dropdown__menu__item__cta", linkClassName), ref: ref, tabIndex: isActive ? 0 : -1, role: "menuitem" }, getItemProps({
             onClick: function (e) {
-                e.stopPropagation();
                 setOpen(false);
+                onClick && onClick(e);
             },
         }), props), children || (React.createElement(React.Fragment, null,
             iconName ? React.createElement("span", { className: "h-icon-".concat(iconName, " me-1") }) : null,
