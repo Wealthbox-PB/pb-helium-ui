@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Updated `DropdownMenuButton`
+  - Update props extension to `ButtonHTMLAttributes`
   - Added optional event parameter to `onClick` prop
 - Updated `DropdownMenuLink`
   - Added optional `onClick` prop
