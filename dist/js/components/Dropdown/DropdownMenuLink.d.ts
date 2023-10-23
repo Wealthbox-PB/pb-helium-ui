@@ -6,7 +6,7 @@ interface DropdownMenuLinkProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElem
     iconName?: Icons;
     label: string;
     linkClassName?: string;
-    onClick?: (e?: MouseEvent) => void;
+    onClick?: (e?: MouseEvent<HTMLElement>) => void;
     useSelect?: string;
     variant?: `default` | `negative`;
 }

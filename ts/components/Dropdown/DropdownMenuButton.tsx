@@ -11,7 +11,7 @@ interface DropdownMenuButtonProps
   className?: string;
   iconName?: Icons;
   label: string;
-  onClick: (e?: MouseEvent) => void;
+  onClick: (e?: MouseEvent<HTMLElement>) => void;
   useSelect?: string;
   variant?: `default` | `negative`;
 }
