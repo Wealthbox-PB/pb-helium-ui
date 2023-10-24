@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.0] - 2023-10-24
+
+### Changed
+
+- Updated `SelectInput`
+  - Update props extension
+  - Added `value` prop
+- Updated `_dropdown.scss_` file
+  - Added `h-dropdown__menu__item__cta--select` and `h-dropdown__menu__item__cta--selected` classes
+
+### Added
+
+- `Select` component
+- `SelectMenuButton` component
+
 ## [2.4.5] - 2023-10-23
 
 ### Changed
