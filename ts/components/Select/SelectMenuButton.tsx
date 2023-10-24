@@ -26,7 +26,7 @@ export const SelectMenuButton = ({
   variant = `default`,
   ...props
 }: SelectMenuButtonProps) => {
-  const { activeIndex, getItemProps, handleSelect, selectedIndex, setOpen } = useSelectContext();
+  const { activeIndex, getItemProps, handleSelect, selectedIndex } = useSelectContext();
   const { ref, index } = useListItem({ label });
 
   const isActive = activeIndex === index;
@@ -50,7 +50,6 @@ export const SelectMenuButton = ({
         {...getItemProps({
           onClick(e) {
             handleSelect(index);
-            setOpen(false);
             onClick(e);
           },
         })}

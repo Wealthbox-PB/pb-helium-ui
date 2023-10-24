@@ -9,17 +9,17 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useTypeahead, size, } from '@floating-ui/react';
 import { SelectContext } from './SelectContext';
 import { Portal } from '../Portal';
 var Select = function (_a) {
-    var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e;
-    var _f = useState(false), open = _f[0], setOpen = _f[1];
-    var _g = useState(null), activeIndex = _g[0], setActiveIndex = _g[1];
-    var _h = React.useState(null), selectedIndex = _h[0], setSelectedIndex = _h[1];
-    var _j = React.useState(null), selectedLabel = _j[0], setSelectedLabel = _j[1];
-    var _k = useFloating({
+    var children = _a.children, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, _c = _a.flip, flipProp = _c === void 0 ? true : _c, _d = _a.initialSelectedValue, initialSelectedValue = _d === void 0 ? null : _d, _e = _a.initialSelectedIndex, initialSelectedIndex = _e === void 0 ? null : _e, minHeight = _a.minHeight, _f = _a.placement, placement = _f === void 0 ? "bottom-end" : _f, renderOpener = _a.renderOpener, _g = _a.width, width = _g === void 0 ? "auto" : _g, maxHeight = _a.maxHeight, _h = _a.height, height = _h === void 0 ? "auto" : _h;
+    var _j = useState(false), open = _j[0], setOpen = _j[1];
+    var _k = useState(null), activeIndex = _k[0], setActiveIndex = _k[1];
+    var _l = useState(initialSelectedIndex), selectedIndex = _l[0], setSelectedIndex = _l[1];
+    var _m = useState(initialSelectedValue), selectedLabel = _m[0], setSelectedLabel = _m[1];
+    var _o = useFloating({
         open: open,
         whileElementsMounted: autoUpdate,
         placement: placement,
@@ -45,36 +45,34 @@ var Select = function (_a) {
             }),
         ],
         onOpenChange: setOpen,
-    }), x = _k.x, y = _k.y, _l = _k.refs, setReference = _l.setReference, setFloating = _l.setFloating, strategy = _k.strategy, context = _k.context;
-    var elementsRef = React.useRef([]);
-    var labelsRef = React.useRef([]);
-    var handleSelect = React.useCallback(function (index) {
+    }), x = _o.x, y = _o.y, _p = _o.refs, setReference = _p.setReference, setFloating = _p.setFloating, strategy = _o.strategy, context = _o.context;
+    var elementsRef = useRef([]);
+    var labelsRef = useRef([]);
+    var handleSelect = useCallback(function (index) {
         setSelectedIndex(index);
-        setOpen(false);
+        closeOnSelect && setOpen(false);
         if (index !== null) {
             setSelectedLabel(labelsRef.current[index]);
         }
-    }, []);
+    }, [closeOnSelect]);
     var listNavigation = useListNavigation(context, {
         listRef: elementsRef,
         activeIndex: activeIndex,
-        selectedIndex: selectedIndex,
         onNavigate: setActiveIndex,
         loop: true,
     });
     var typeahead = useTypeahead(context, {
         listRef: labelsRef,
         activeIndex: activeIndex,
-        selectedIndex: selectedIndex,
         onMatch: setActiveIndex,
     });
-    var _m = useInteractions([
+    var _q = useInteractions([
         useDismiss(context),
         useClick(context),
         listNavigation,
         typeahead,
-    ]), getReferenceProps = _m.getReferenceProps, getFloatingProps = _m.getFloatingProps, getItemProps = _m.getItemProps;
-    var selectContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, handleSelect: handleSelect, setOpen: setOpen, selectedIndex: selectedIndex }); }, [activeIndex, getItemProps, handleSelect, setOpen, selectedIndex]);
+    ]), getReferenceProps = _q.getReferenceProps, getFloatingProps = _q.getFloatingProps, getItemProps = _q.getItemProps;
+    var selectContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, handleSelect: handleSelect, selectedIndex: selectedIndex }); }, [activeIndex, getItemProps, handleSelect, selectedIndex]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference, selectedLabel: selectedLabel }, getReferenceProps({
             onClick: function (e) {

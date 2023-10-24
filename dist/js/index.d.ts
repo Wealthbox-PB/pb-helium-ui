@@ -20,6 +20,8 @@ export { Portal } from './components/Portal';
 export { ProgressBar } from './components/ProgressBar';
 export { RadioButton } from './components/RadioButton';
 export { randomString } from './helpers/random_string';
+export { Select } from './components/Select/Select';
+export { SelectMenuButton } from './components/Select/SelectMenuButton';
 export { SelectInput } from './components/SelectInput';
 export { SimpleAlertDialog } from './components/Dialog/SimpleAlertDialog';
 export { SimpleModalDialog } from './components/Dialog/SimpleModalDialog';

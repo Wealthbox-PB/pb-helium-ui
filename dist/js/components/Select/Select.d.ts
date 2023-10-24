@@ -6,13 +6,16 @@ interface RenderOpenerProps {
 }
 interface SelectProps {
     children: JSX.Element | JSX.Element[];
+    closeOnSelect?: boolean;
     flip?: boolean;
     minHeight?: number;
     maxHeight?: number;
     height?: string;
+    initialSelectedValue?: string | null;
+    initialSelectedIndex?: number | null;
     placement?: Placement;
     renderOpener: (props: RenderOpenerProps) => JSX.Element;
     width?: `auto` | `full` | number;
 }
-declare const Select: ({ children, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, }: SelectProps) => React.JSX.Element;
+declare const Select: ({ children, closeOnSelect, flip: flipProp, initialSelectedValue, initialSelectedIndex, minHeight, placement, renderOpener, width, maxHeight, height, }: SelectProps) => React.JSX.Element;
 export { Select };

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import {
   autoUpdate,
   flip,
@@ -26,10 +26,13 @@ interface RenderOpenerProps {
 
 interface SelectProps {
   children: JSX.Element | JSX.Element[];
+  closeOnSelect?: boolean;
   flip?: boolean;
   minHeight?: number;
   maxHeight?: number;
   height?: string;
+  initialSelectedValue?: string | null;
+  initialSelectedIndex?: number | null;
   placement?: Placement;
   renderOpener: (props: RenderOpenerProps) => JSX.Element;
   width?: `auto` | `full` | number;
@@ -37,7 +40,10 @@ interface SelectProps {
 
 const Select = ({
   children,
+  closeOnSelect = true,
   flip: flipProp = true,
+  initialSelectedValue = null,
+  initialSelectedIndex = null,
   minHeight,
   placement = `bottom-end`,
   renderOpener,
@@ -47,8 +53,8 @@ const Select = ({
 }: SelectProps) => {
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
-  const [selectedLabel, setSelectedLabel] = React.useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(initialSelectedIndex);
+  const [selectedLabel, setSelectedLabel] = useState<string | null>(initialSelectedValue);
 
   const {
     x,
@@ -84,21 +90,23 @@ const Select = ({
     onOpenChange: setOpen,
   });
 
-  const elementsRef = React.useRef<HTMLElement[]>([]);
-  const labelsRef = React.useRef<(string | null)[]>([]);
+  const elementsRef = useRef<HTMLElement[]>([]);
+  const labelsRef = useRef<(string | null)[]>([]);
 
-  const handleSelect = React.useCallback((index: number | null) => {
-    setSelectedIndex(index);
-    setOpen(false);
-    if (index !== null) {
-      setSelectedLabel(labelsRef.current[index]);
-    }
-  }, []);
+  const handleSelect = useCallback(
+    (index: number | null) => {
+      setSelectedIndex(index);
+      closeOnSelect && setOpen(false);
+      if (index !== null) {
+        setSelectedLabel(labelsRef.current[index]);
+      }
+    },
+    [closeOnSelect]
+  );
 
   const listNavigation = useListNavigation(context, {
     listRef: elementsRef,
     activeIndex,
-    selectedIndex,
     onNavigate: setActiveIndex,
     loop: true,
   });
@@ -106,7 +114,6 @@ const Select = ({
   const typeahead = useTypeahead(context, {
     listRef: labelsRef,
     activeIndex,
-    selectedIndex,
     onMatch: setActiveIndex,
   });
 
@@ -118,8 +125,8 @@ const Select = ({
   ]);
 
   const selectContext = useMemo(
-    () => ({ activeIndex, getItemProps, handleSelect, setOpen, selectedIndex }),
-    [activeIndex, getItemProps, handleSelect, setOpen, selectedIndex]
+    () => ({ activeIndex, getItemProps, handleSelect, selectedIndex }),
+    [activeIndex, getItemProps, handleSelect, selectedIndex]
   );
 
   return (
