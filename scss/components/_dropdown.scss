@@ -39,6 +39,15 @@
       text-decoration: none;
     }
   }
+
+  .h-dropdown__menu__item__cta--select {
+    padding-left: 0.25rem;
+  }
+}
+
+.h-dropdown__menu__item__cta-selected {
+  display: inline-block;
+  width: 0.875rem;
 }
 
 .h-dropdown__menu__item--active {
