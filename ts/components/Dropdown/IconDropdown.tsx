@@ -24,10 +24,10 @@ const IconDropdown = ({
   iconName = `dots`,
   size = `xs`,
   variant = `border-hover`,
-  ...rest
+  ...props
 }: IconDropdownProps) => (
   <Dropdown
-    renderOpener={({ ref, ...props }) => (
+    renderOpener={({ ref, ...openerProps }) => (
       <Button
         variant={variant}
         size={size}
@@ -36,12 +36,12 @@ const IconDropdown = ({
         square={true}
         id={buttonId}
         className={className}
-        {...props}
+        {...openerProps}
       >
         <span className={classNames(`h-icon-${iconName}`, iconClassName)}></span>
       </Button>
     )}
-    {...rest}
+    {...props}
   >
     {children}
   </Dropdown>

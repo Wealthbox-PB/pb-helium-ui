@@ -12,5 +12,5 @@ interface IconDropdownProps extends Omit<ComponentProps<typeof Dropdown>, `rende
     variant?: ButtonVariant;
     size?: ButtonSize;
 }
-declare const IconDropdown: ({ ariaLabel, className, buttonId, children, iconClassName, iconName, size, variant, ...rest }: IconDropdownProps) => React.JSX.Element;
+declare const IconDropdown: ({ ariaLabel, className, buttonId, children, iconClassName, iconName, size, variant, ...props }: IconDropdownProps) => React.JSX.Element;
 export { IconDropdown };
