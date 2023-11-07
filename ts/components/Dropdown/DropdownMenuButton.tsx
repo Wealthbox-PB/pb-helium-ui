@@ -14,6 +14,7 @@ interface DropdownMenuButtonProps
   onClick: (e?: MouseEvent<HTMLElement>) => void;
   useSelect?: string;
   variant?: `default` | `negative`;
+  closeOnClick?: boolean;
 }
 
 export const DropdownMenuButton = ({
@@ -23,6 +24,7 @@ export const DropdownMenuButton = ({
   iconName,
   label,
   onClick,
+  closeOnClick = true,
   variant = `default`,
   ...props
 }: DropdownMenuButtonProps) => {
@@ -45,7 +47,7 @@ export const DropdownMenuButton = ({
         role="menuitem"
         {...getItemProps({
           onClick(e) {
-            setOpen(false);
+            closeOnClick ? setOpen(false) : () => {};
             onClick(e);
           },
         })}
