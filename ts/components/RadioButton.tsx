@@ -9,14 +9,15 @@ interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: `default` | `pill`;
 }
 
-const RadioButton = ({
-  disabled,
-  id = randomString(),
-  label,
-  buttonSize = `large`,
-  variant = `default`,
-  ...rest
-}: RadioButtonProps,
+const RadioButton = (
+  {
+    disabled,
+    id = randomString(),
+    label,
+    buttonSize = `large`,
+    variant = `default`,
+    ...rest
+  }: RadioButtonProps,
   ref
 ) => {
   const uniqueIDRef = useRef<string>(randomString());
@@ -28,7 +29,8 @@ const RadioButton = ({
         'h-radio--sm': buttonSize === `small`,
         'h-radio--lg': buttonSize === `large`,
         'h-radio--pill-button': variant === `pill`,
-      })}>
+      })}
+    >
       <input
         ref={ref}
         className="h-radio__elm"
@@ -38,15 +40,16 @@ const RadioButton = ({
         {...rest}
       />
       <span className="h-radio__container"></span>
-      {label ?
+      {label ? (
         <Label
-          labelClassName={disabled ? `h-radio__label-content h-color-text-gray-500` : `h-radio__label-content`}
-          htmlFor={id ? id : uniqueIDRef.current}>
+          labelClassName={
+            disabled ? `h-radio__label-content h-color-text-gray-500` : `h-radio__label-content`
+          }
+          htmlFor={id ? id : uniqueIDRef.current}
+        >
           {label}
         </Label>
-        :
-        null
-      }
+      ) : null}
       <span className="h-radio__pill-button-radio-fill"></span>
     </label>
   );
