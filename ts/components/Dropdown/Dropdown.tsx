@@ -21,6 +21,7 @@ import { Portal } from '../Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
+  open: boolean;
 }
 
 interface DropdownProps {
@@ -32,6 +33,7 @@ interface DropdownProps {
   placement?: Placement;
   renderOpener: (props: RenderOpenerProps) => JSX.Element;
   width?: `auto` | `full` | number;
+  open?: boolean;
 }
 
 const Dropdown = ({
@@ -43,8 +45,9 @@ const Dropdown = ({
   width = `auto`,
   maxHeight,
   height = `auto`,
+  open: openProp = false,
 }: DropdownProps) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(openProp);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const {
@@ -112,6 +115,7 @@ const Dropdown = ({
   return (
     <>
       {renderOpener({
+        open: open,
         ref: setReference,
         ...getReferenceProps({
           onClick(e) {
