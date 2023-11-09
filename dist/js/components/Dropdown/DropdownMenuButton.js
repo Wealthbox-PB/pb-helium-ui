@@ -25,9 +25,9 @@ import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 export var DropdownMenuButton = function (_a) {
-    var buttonClassName = _a.buttonClassName, children = _a.children, className = _a.className, iconName = _a.iconName, label = _a.label, onClick = _a.onClick, _b = _a.variant, variant = _b === void 0 ? "default" : _b, props = __rest(_a, ["buttonClassName", "children", "className", "iconName", "label", "onClick", "variant"]);
-    var _c = useDropdownContext(), activeIndex = _c.activeIndex, getItemProps = _c.getItemProps, setOpen = _c.setOpen;
-    var _d = useListItem({ label: label }), ref = _d.ref, index = _d.index;
+    var buttonClassName = _a.buttonClassName, children = _a.children, className = _a.className, iconName = _a.iconName, label = _a.label, onClick = _a.onClick, _b = _a.closeOnClick, closeOnClick = _b === void 0 ? true : _b, _c = _a.variant, variant = _c === void 0 ? "default" : _c, props = __rest(_a, ["buttonClassName", "children", "className", "iconName", "label", "onClick", "closeOnClick", "variant"]);
+    var _d = useDropdownContext(), activeIndex = _d.activeIndex, getItemProps = _d.getItemProps, setOpen = _d.setOpen;
+    var _e = useListItem({ label: label }), ref = _e.ref, index = _e.index;
     var isActive = activeIndex === index;
     return (React.createElement("li", { className: classNames("h-dropdown__menu__item ", className, {
             'h-dropdown__menu__item--active': isActive,
@@ -35,7 +35,7 @@ export var DropdownMenuButton = function (_a) {
         }) },
         React.createElement("button", __assign({ className: classNames("h-dropdown__menu__item__cta", buttonClassName), ref: ref, tabIndex: isActive ? 0 : -1, role: "menuitem" }, getItemProps({
             onClick: function (e) {
-                setOpen(false);
+                closeOnClick ? setOpen(false) : function () { };
                 onClick(e);
             },
         }), props), children || (React.createElement(React.Fragment, null,

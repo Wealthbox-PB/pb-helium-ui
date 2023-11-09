@@ -34,10 +34,7 @@ var RadioButton = function (_a, ref) {
         }) },
         React.createElement("input", __assign({ ref: ref, className: "h-radio__elm", disabled: disabled, id: id ? id : uniqueIDRef.current, type: "radio" }, rest)),
         React.createElement("span", { className: "h-radio__container" }),
-        label ?
-            React.createElement(Label, { labelClassName: disabled ? "h-radio__label-content h-color-text-gray-500" : "h-radio__label-content", htmlFor: id ? id : uniqueIDRef.current }, label)
-            :
-                null,
+        label ? (React.createElement(Label, { labelClassName: disabled ? "h-radio__label-content h-color-text-gray-500" : "h-radio__label-content", htmlFor: id ? id : uniqueIDRef.current }, label)) : null,
         React.createElement("span", { className: "h-radio__pill-button-radio-fill" })));
 };
 var RadioButtonRef = React.forwardRef(RadioButton);

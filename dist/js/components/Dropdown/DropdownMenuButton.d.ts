@@ -9,6 +9,7 @@ interface DropdownMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEl
     onClick: (e?: MouseEvent<HTMLElement>) => void;
     useSelect?: string;
     variant?: `default` | `negative`;
+    closeOnClick?: boolean;
 }
-export declare const DropdownMenuButton: ({ buttonClassName, children, className, iconName, label, onClick, variant, ...props }: DropdownMenuButtonProps) => React.JSX.Element;
+export declare const DropdownMenuButton: ({ buttonClassName, children, className, iconName, label, onClick, closeOnClick, variant, ...props }: DropdownMenuButtonProps) => React.JSX.Element;
 export {};
