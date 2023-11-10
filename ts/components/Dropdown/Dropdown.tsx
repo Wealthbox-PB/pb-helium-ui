@@ -34,6 +34,7 @@ interface DropdownProps {
   renderOpener: (props: RenderOpenerProps) => JSX.Element;
   width?: `auto` | `full` | number;
   open?: boolean;
+  dismissible?: boolean;
 }
 
 const Dropdown = ({
@@ -46,6 +47,7 @@ const Dropdown = ({
   maxHeight,
   height = `auto`,
   open: openProp = false,
+  dismissible = true,
 }: DropdownProps) => {
   const [open, setOpen] = useState(openProp);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -101,7 +103,7 @@ const Dropdown = ({
   });
 
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
-    useDismiss(context),
+    useDismiss(context, { enabled: dismissible }),
     useClick(context),
     listNavigation,
     typeahead,

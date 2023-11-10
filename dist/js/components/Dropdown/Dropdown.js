@@ -14,10 +14,10 @@ import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offse
 import { DropdownContext } from './DropdownContext';
 import { Portal } from '../Portal';
 var Dropdown = function (_a) {
-    var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f;
-    var _g = useState(openProp), open = _g[0], setOpen = _g[1];
-    var _h = useState(null), activeIndex = _h[0], setActiveIndex = _h[1];
-    var _j = useFloating({
+    var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g;
+    var _h = useState(openProp), open = _h[0], setOpen = _h[1];
+    var _j = useState(null), activeIndex = _j[0], setActiveIndex = _j[1];
+    var _k = useFloating({
         open: open,
         whileElementsMounted: autoUpdate,
         placement: placement,
@@ -43,7 +43,7 @@ var Dropdown = function (_a) {
             }),
         ],
         onOpenChange: setOpen,
-    }), x = _j.x, y = _j.y, _k = _j.refs, setReference = _k.setReference, setFloating = _k.setFloating, strategy = _j.strategy, context = _j.context;
+    }), x = _k.x, y = _k.y, _l = _k.refs, setReference = _l.setReference, setFloating = _l.setFloating, strategy = _k.strategy, context = _k.context;
     var elementsRef = React.useRef([]);
     var labelsRef = React.useRef([]);
     var listNavigation = useListNavigation(context, {
@@ -57,12 +57,12 @@ var Dropdown = function (_a) {
         activeIndex: activeIndex,
         onMatch: setActiveIndex,
     });
-    var _l = useInteractions([
-        useDismiss(context),
+    var _m = useInteractions([
+        useDismiss(context, { enabled: dismissible }),
         useClick(context),
         listNavigation,
         typeahead,
-    ]), getReferenceProps = _l.getReferenceProps, getFloatingProps = _l.getFloatingProps, getItemProps = _l.getItemProps;
+    ]), getReferenceProps = _m.getReferenceProps, getFloatingProps = _m.getFloatingProps, getItemProps = _m.getItemProps;
     var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, setOpen: setOpen }); }, [activeIndex, getItemProps, setOpen]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ open: open, ref: setReference }, getReferenceProps({

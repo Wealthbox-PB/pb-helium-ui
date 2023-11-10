@@ -14,6 +14,7 @@ interface DropdownProps {
     renderOpener: (props: RenderOpenerProps) => JSX.Element;
     width?: `auto` | `full` | number;
     open?: boolean;
+    dismissible?: boolean;
 }
-declare const Dropdown: ({ children, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ children, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, }: DropdownProps) => React.JSX.Element;
 export { Dropdown };
