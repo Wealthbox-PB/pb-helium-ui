@@ -6,6 +6,7 @@ export { DialogFooter } from './components/Dialog/DialogFooter';
 export { DialogFooterActions } from './components/Dialog/DialogFooterActions';
 export { DialogHeader } from './components/Dialog/DialogHeader';
 export { Dropdown } from './components/Dropdown/Dropdown';
+export { DropdownMenuItem } from './components/Dropdown/DropdownMenuItem';
 export { DropdownMenuButton } from './components/Dropdown/DropdownMenuButton';
 export { DropdownMenuLink } from './components/Dropdown/DropdownMenuLink';
 export { DropdownMenuSeparator } from './components/Dropdown/DropdownMenuSeparator';

@@ -20,24 +20,14 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React from 'react';
+import React, { Children, cloneElement } from 'react';
 import { useListItem } from '@floating-ui/react';
-import { useDropdownContext } from './DropdownContext';
-import classNames from 'classnames';
 export var DropdownMenuItem = function (_a) {
-    var label = _a.label, onClick = _a.onClick, _b = _a.variant, variant = _b === void 0 ? "default" : _b, props = __rest(_a, ["label", "onClick", "variant"]);
-    var _c = useDropdownContext(), activeIndex = _c.activeIndex, getItemProps = _c.getItemProps, setOpen = _c.setOpen;
-    var _d = useListItem({ label: label }), ref = _d.ref, index = _d.index;
-    var isActive = activeIndex === index;
-    return (React.createElement("li", __assign({ className: classNames("h-dropdown__menu__item ", {
-            'h-dropdown__menu__item--active': isActive,
-            'h-dropdown__menu__item--negative': isActive && variant === "negative",
-        }) }, props),
-        React.createElement("button", __assign({ className: "h-dropdown__menu__item__cta", ref: ref, tabIndex: isActive ? 0 : -1, role: "menuitem" }, getItemProps({
-            onClick: function () {
-                setOpen(false);
-                return onClick();
-            },
-        })), label)));
+    var label = _a.label, props = __rest(_a, ["label"]);
+    var ref = useListItem({ label: label }).ref;
+    return (React.createElement("li", __assign({}, props), cloneElement(Children.only(props.children), {
+        className: props.children.props.className,
+        ref: ref,
+    })));
 };
 //# sourceMappingURL=DropdownMenuItem.js.map

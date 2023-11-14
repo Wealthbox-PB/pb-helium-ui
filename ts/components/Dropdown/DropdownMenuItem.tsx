@@ -1,47 +1,20 @@
-import React from 'react';
+import React, { Children, cloneElement } from 'react';
 import { useListItem } from '@floating-ui/react';
-import { useDropdownContext } from './DropdownContext';
-import classNames from 'classnames';
 
 interface DropdownMenuItemProps {
   label: string;
-  onClick: () => void;
-  variant?: `default` | `negative`;
+  children: JSX.Element;
 }
 
-export const DropdownMenuItem = ({
-  label,
-  onClick,
-  variant = `default`,
-  ...props
-}: DropdownMenuItemProps) => {
-  const { activeIndex, getItemProps, setOpen } = useDropdownContext();
-  const { ref, index } = useListItem({ label });
-
-  const isActive = activeIndex === index;
+export const DropdownMenuItem = ({ label, ...props }: DropdownMenuItemProps) => {
+  const { ref } = useListItem({ label });
 
   return (
-    <li
-      className={classNames(`h-dropdown__menu__item `, {
-        'h-dropdown__menu__item--active': isActive,
-        'h-dropdown__menu__item--negative': isActive && variant === `negative`,
+    <li {...props}>
+      {cloneElement(Children.only(props.children), {
+        className: props.children.props.className,
+        ref,
       })}
-      {...props}
-    >
-      <button
-        className="h-dropdown__menu__item__cta"
-        ref={ref}
-        tabIndex={isActive ? 0 : -1}
-        role="menuitem"
-        {...getItemProps({
-          onClick() {
-            setOpen(false);
-            return onClick();
-          },
-        })}
-      >
-        {label}
-      </button>
     </li>
   );
 };

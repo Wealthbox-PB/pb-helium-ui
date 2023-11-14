@@ -1,8 +1,7 @@
 import React from 'react';
 interface DropdownMenuItemProps {
     label: string;
-    onClick: () => void;
-    variant?: `default` | `negative`;
+    children: JSX.Element;
 }
-export declare const DropdownMenuItem: ({ label, onClick, variant, ...props }: DropdownMenuItemProps) => React.JSX.Element;
+export declare const DropdownMenuItem: ({ label, ...props }: DropdownMenuItemProps) => React.JSX.Element;
 export {};
