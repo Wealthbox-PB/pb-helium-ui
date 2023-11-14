@@ -93,11 +93,7 @@ const Dropdown = ({
     ],
     onOpenChange: (open) => {
       setOpen(open);
-      if (open) {
-        onOpen?.();
-      } else {
-        onClose?.();
-      }
+      open ? onOpen?.() : onClose?.();
     },
   });
 

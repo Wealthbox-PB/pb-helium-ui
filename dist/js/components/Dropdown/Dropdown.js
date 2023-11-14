@@ -44,12 +44,7 @@ var Dropdown = function (_a) {
         ],
         onOpenChange: function (open) {
             setOpen(open);
-            if (open) {
-                onOpen === null || onOpen === void 0 ? void 0 : onOpen();
-            }
-            else {
-                onClose === null || onClose === void 0 ? void 0 : onClose();
-            }
+            open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
         },
     }), x = _l.x, y = _l.y, _m = _l.refs, setReference = _m.setReference, setFloating = _m.setFloating, strategy = _l.strategy, context = _l.context;
     var elementsRef = React.useRef([]);
