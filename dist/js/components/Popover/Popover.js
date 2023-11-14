@@ -17,7 +17,7 @@ import { Button } from '../Button';
 import { Portal } from '../Portal';
 var Popover = function (_a) {
     var _b, _c, _d;
-    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.openOnLoad, openOnLoad = _h === void 0 ? false : _h, size = _a.size, _j = _a.theme, theme = _j === void 0 ? "light" : _j, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton, _k = _a.offset, offsetProp = _k === void 0 ? 8 : _k;
+    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.openOnLoad, openOnLoad = _h === void 0 ? false : _h, size = _a.size, _j = _a.theme, theme = _j === void 0 ? "light" : _j, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton, _k = _a.offset, offsetProp = _k === void 0 ? 8 : _k, onOpen = _a.onOpen, onClose = _a.onClose;
     var _l = useState(openOnLoad), internalOpenState = _l[0], setInternalOpenState = _l[1];
     var arrowRef = useRef(null);
     var arrowElHeight = 11;
@@ -32,7 +32,10 @@ var Popover = function (_a) {
             shift({ padding: 4, limiter: limitShift() }),
             middlewareArrow({ element: arrowRef, padding: 4 }),
         ],
-        onOpenChange: setInternalOpenState,
+        onOpenChange: function (open) {
+            setInternalOpenState;
+            open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
+        },
     }), x = _m.x, y = _m.y, _o = _m.refs, setReference = _o.setReference, setFloating = _o.setFloating, strategy = _m.strategy, context = _m.context, _p = _m.middlewareData.arrow, _q = _p === void 0 ? {} : _p, arrowX = _q.x, arrowY = _q.y, currentPlacement = _m.placement;
     var _r = useInteractions([
         useDismiss(context, { enabled: !showCloseButton }),

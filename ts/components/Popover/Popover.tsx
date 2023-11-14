@@ -38,6 +38,8 @@ interface PopoverProps {
   bodyClassName?: string;
   showCloseButton?: boolean;
   offset?: number;
+  onOpen?: () => void;
+  onClose?: () => void;
 }
 
 const Popover = ({
@@ -54,6 +56,8 @@ const Popover = ({
   bodyClassName,
   showCloseButton,
   offset: offsetProp = 8,
+  onOpen,
+  onClose,
 }: PopoverProps) => {
   const [internalOpenState, setInternalOpenState] = useState(openOnLoad);
   const arrowRef = useRef(null);
@@ -78,7 +82,10 @@ const Popover = ({
       shift({ padding: 4, limiter: limitShift() }),
       middlewareArrow({ element: arrowRef, padding: 4 }),
     ],
-    onOpenChange: setInternalOpenState,
+    onOpenChange: (open) => {
+      setInternalOpenState;
+      open ? onOpen?.() : onClose?.();
+    },
   });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
