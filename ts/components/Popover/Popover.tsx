@@ -83,7 +83,7 @@ const Popover = ({
       middlewareArrow({ element: arrowRef, padding: 4 }),
     ],
     onOpenChange: (open) => {
-      setInternalOpenState;
+      setInternalOpenState(open);
       open ? onOpen?.() : onClose?.();
     },
   });

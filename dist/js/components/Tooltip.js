@@ -23,7 +23,7 @@ export var Tooltip = function (_a) {
         placement: placement,
         open: open || hovered,
         onOpenChange: function (open) {
-            setHovered;
+            setHovered(open);
             open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
         },
         middleware: [

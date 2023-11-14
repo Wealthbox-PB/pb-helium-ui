@@ -56,7 +56,7 @@ export const Tooltip = ({
     placement,
     open: open || hovered,
     onOpenChange: (open) => {
-      setHovered;
+      setHovered(open);
       open ? onOpen?.() : onClose?.();
     },
     middleware: [

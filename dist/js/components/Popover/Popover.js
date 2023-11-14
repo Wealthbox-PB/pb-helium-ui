@@ -33,7 +33,7 @@ var Popover = function (_a) {
             middlewareArrow({ element: arrowRef, padding: 4 }),
         ],
         onOpenChange: function (open) {
-            setInternalOpenState;
+            setInternalOpenState(open);
             open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
         },
     }), x = _m.x, y = _m.y, _o = _m.refs, setReference = _o.setReference, setFloating = _o.setFloating, strategy = _m.strategy, context = _m.context, _p = _m.middlewareData.arrow, _q = _p === void 0 ? {} : _p, arrowX = _q.x, arrowY = _q.y, currentPlacement = _m.placement;
