@@ -44,17 +44,8 @@ var Dropdown = function (_a) {
             }),
         ],
         onOpenChange: function (open) {
-<<<<<<< HEAD
             setOpen(open);
             open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
-=======
-            if (open) {
-                onOpen === null || onOpen === void 0 ? void 0 : onOpen();
-            }
-            else {
-                onClose === null || onClose === void 0 ? void 0 : onClose();
-            }
->>>>>>> f77180d (extend dropdown for autocomplete)
         },
     }), x = _p.x, y = _p.y, _q = _p.refs, setReference = _q.setReference, setFloating = _q.setFloating, strategy = _p.strategy, context = _p.context;
     useEffect(function () {
