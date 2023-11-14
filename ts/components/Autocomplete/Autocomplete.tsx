@@ -1,5 +1,4 @@
-import React, { useEffect, MutableRefObject, useMemo, useState } from 'react';
-import classNames from 'classnames';
+import React, { useMemo, useState, useEffect } from 'react';
 import {
   autoUpdate,
   flip,
@@ -13,45 +12,35 @@ import {
   useFloating,
   useInteractions,
   useListNavigation,
-  useTypeahead,
   size,
 } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
-import { DropdownContext } from './DropdownContext';
+import { DropdownContext } from '../Dropdown/DropdownContext';
 import { Portal } from '../Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
   open: boolean;
-  activeIndex: number | null;
-  activeNode?: HTMLElement | null;
 }
 
 interface DropdownProps {
   children: JSX.Element | JSX.Element[];
-  className?: string;
-  closeOnItemTab?: boolean;
   flip?: boolean;
   minHeight?: number;
   maxHeight?: number;
   height?: string;
-  virtualFocus?: boolean;
   placement?: Placement;
   renderOpener: (props: RenderOpenerProps) => JSX.Element;
   width?: `auto` | `full` | number;
   open?: boolean;
+  openProp?: boolean;
   dismissible?: boolean;
-  toggleOpenOnOpenerClick?: boolean;
-  typeahead?: boolean;
   onOpen?: () => void;
   onClose?: () => void;
-  initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
 }
 
-const Dropdown = ({
+const AutoComplete = ({
   children,
-  className,
-  closeOnItemTab = true,
   flip: flipProp = true,
   minHeight,
   placement = `bottom-end`,
@@ -61,15 +50,11 @@ const Dropdown = ({
   height = `auto`,
   open: openProp = false,
   dismissible = true,
-  typeahead: typeaheadProp = true,
   onOpen,
   onClose,
-  initialFocusEl,
-  virtualFocus = false,
-  toggleOpenOnOpenerClick = true,
 }: DropdownProps) => {
   const [open, setOpen] = useState(openProp);
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const {
     x,
@@ -103,14 +88,14 @@ const Dropdown = ({
       }),
     ],
     onOpenChange: (open) => {
-      setOpen(open);
-      open ? onOpen?.() : onClose?.();
+      // setOpen(open);
+      if (open) {
+        onOpen?.();
+      } else {
+        onClose?.();
+      }
     },
   });
-
-  useEffect(() => {
-    setOpen(openProp);
-  }, [openProp]);
 
   const elementsRef = React.useRef<HTMLElement[]>([]);
   const labelsRef = React.useRef<(string | null)[]>([]);
@@ -119,28 +104,24 @@ const Dropdown = ({
     listRef: elementsRef,
     activeIndex,
     onNavigate: setActiveIndex,
-    virtual: virtualFocus,
+    virtual: true,
     loop: true,
   });
 
-  const typeahead = useTypeahead(context, {
-    enabled: typeaheadProp,
-    listRef: labelsRef,
-    activeIndex,
-    onMatch: setActiveIndex,
-  });
-
-  const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
+  const { getReferenceProps, getItemProps } = useInteractions([
     useDismiss(context, { enabled: dismissible }),
     useClick(context),
     listNavigation,
-    typeahead,
   ]);
 
   const dropdownContext = useMemo(
     () => ({ activeIndex, getItemProps, setOpen }),
     [activeIndex, getItemProps, setOpen]
   );
+
+  useEffect(() => {
+    setOpen(openProp);
+  }, [openProp]);
 
   useEffect(() => {
     setActiveIndex(0);
@@ -151,16 +132,7 @@ const Dropdown = ({
       {renderOpener({
         open: open,
         ref: setReference,
-        activeIndex: activeIndex,
         ...getReferenceProps({
-          onClick(e) {
-            if (toggleOpenOnOpenerClick) {
-              setOpen(!open);
-            }
-            e.stopPropagation();
-            // Normalize button focus while clicking on Safari.
-            (e.currentTarget as HTMLButtonElement).focus();
-          },
           open,
           tabIndex: 0,
         }),
@@ -168,25 +140,21 @@ const Dropdown = ({
       {open ? (
         <DropdownContext.Provider value={dropdownContext}>
           <Portal className="h-floating-ui h-floating-ui--dropdowns">
-            <FloatingFocusManager context={context} initialFocus={initialFocusEl}>
+            <FloatingFocusManager
+              closeOnFocusOut={false}
+              context={context}
+              initialFocus={-1}
+              visuallyHiddenDismiss
+            >
               <div
                 ref={setFloating}
-                className={classNames(`h-dropdown h-overflow-auto`, className)}
+                className="h-dropdown h-overflow-auto"
                 style={{
                   position: strategy,
                   top: y ?? 0,
                   left: x ?? 0,
                 }}
                 role="menu"
-                {...getFloatingProps({
-                  // Pressing tab dismisses the menu due to the modal
-                  // focus management on the root menu.
-                  onKeyDown(event) {
-                    if (event.key === `Tab` && closeOnItemTab) {
-                      setOpen(false);
-                    }
-                  },
-                })}
               >
                 <ul className="h-dropdown__menu">
                   <FloatingList elementsRef={elementsRef} labelsRef={labelsRef}>
@@ -202,4 +170,4 @@ const Dropdown = ({
   );
 };
 
-export { Dropdown };
+export { AutoComplete };

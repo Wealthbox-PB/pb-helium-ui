@@ -3,22 +3,28 @@ import type { Placement, ReferenceType } from '@floating-ui/react';
 interface RenderOpenerProps {
     ref: (node: ReferenceType | null) => void;
     open: boolean;
+    activeIndex: number | null;
+    activeNode?: HTMLElement | null;
 }
 interface DropdownProps {
     children: JSX.Element | JSX.Element[];
+    className?: string;
+    closeOnItemTab?: boolean;
     flip?: boolean;
     minHeight?: number;
     maxHeight?: number;
     height?: string;
+    virtualFocus?: boolean;
     placement?: Placement;
     renderOpener: (props: RenderOpenerProps) => JSX.Element;
     width?: `auto` | `full` | number;
     open?: boolean;
     dismissible?: boolean;
+    toggleOpenOnOpenerClick?: boolean;
     typeahead?: boolean;
     onOpen?: () => void;
     onClose?: () => void;
     initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
 }
-declare const Dropdown: ({ children, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ children, className, closeOnItemTab, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, virtualFocus, toggleOpenOnOpenerClick, }: DropdownProps) => React.JSX.Element;
 export { Dropdown };

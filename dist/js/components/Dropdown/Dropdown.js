@@ -9,15 +9,16 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import classNames from 'classnames';
 import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useTypeahead, size, } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
 import { Portal } from '../Portal';
 var Dropdown = function (_a) {
-    var children = _a.children, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g, _h = _a.typeahead, typeaheadProp = _h === void 0 ? true : _h, onOpen = _a.onOpen, onClose = _a.onClose, initialFocusEl = _a.initialFocusEl;
-    var _j = useState(openProp), open = _j[0], setOpen = _j[1];
-    var _k = useState(null), activeIndex = _k[0], setActiveIndex = _k[1];
-    var _l = useFloating({
+    var children = _a.children, className = _a.className, _b = _a.closeOnItemTab, closeOnItemTab = _b === void 0 ? true : _b, _c = _a.flip, flipProp = _c === void 0 ? true : _c, minHeight = _a.minHeight, _d = _a.placement, placement = _d === void 0 ? "bottom-end" : _d, renderOpener = _a.renderOpener, _e = _a.width, width = _e === void 0 ? "auto" : _e, maxHeight = _a.maxHeight, _f = _a.height, height = _f === void 0 ? "auto" : _f, _g = _a.open, openProp = _g === void 0 ? false : _g, _h = _a.dismissible, dismissible = _h === void 0 ? true : _h, _j = _a.typeahead, typeaheadProp = _j === void 0 ? true : _j, onOpen = _a.onOpen, onClose = _a.onClose, initialFocusEl = _a.initialFocusEl, _k = _a.virtualFocus, virtualFocus = _k === void 0 ? false : _k, _l = _a.toggleOpenOnOpenerClick, toggleOpenOnOpenerClick = _l === void 0 ? true : _l;
+    var _m = useState(openProp), open = _m[0], setOpen = _m[1];
+    var _o = useState(0), activeIndex = _o[0], setActiveIndex = _o[1];
+    var _p = useFloating({
         open: open,
         whileElementsMounted: autoUpdate,
         placement: placement,
@@ -43,16 +44,29 @@ var Dropdown = function (_a) {
             }),
         ],
         onOpenChange: function (open) {
+<<<<<<< HEAD
             setOpen(open);
             open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
+=======
+            if (open) {
+                onOpen === null || onOpen === void 0 ? void 0 : onOpen();
+            }
+            else {
+                onClose === null || onClose === void 0 ? void 0 : onClose();
+            }
+>>>>>>> f77180d (extend dropdown for autocomplete)
         },
-    }), x = _l.x, y = _l.y, _m = _l.refs, setReference = _m.setReference, setFloating = _m.setFloating, strategy = _l.strategy, context = _l.context;
+    }), x = _p.x, y = _p.y, _q = _p.refs, setReference = _q.setReference, setFloating = _q.setFloating, strategy = _p.strategy, context = _p.context;
+    useEffect(function () {
+        setOpen(openProp);
+    }, [openProp]);
     var elementsRef = React.useRef([]);
     var labelsRef = React.useRef([]);
     var listNavigation = useListNavigation(context, {
         listRef: elementsRef,
         activeIndex: activeIndex,
         onNavigate: setActiveIndex,
+        virtual: virtualFocus,
         loop: true,
     });
     var typeahead = useTypeahead(context, {
@@ -61,25 +75,25 @@ var Dropdown = function (_a) {
         activeIndex: activeIndex,
         onMatch: setActiveIndex,
     });
-    var _o = useInteractions([
+    var _r = useInteractions([
         useDismiss(context, { enabled: dismissible }),
         useClick(context),
         listNavigation,
         typeahead,
-    ]), getReferenceProps = _o.getReferenceProps, getFloatingProps = _o.getFloatingProps, getItemProps = _o.getItemProps;
+    ]), getReferenceProps = _r.getReferenceProps, getFloatingProps = _r.getFloatingProps, getItemProps = _r.getItemProps;
     var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, setOpen: setOpen }); }, [activeIndex, getItemProps, setOpen]);
+    useEffect(function () {
+        setActiveIndex(0);
+    }, [children]);
     return (React.createElement(React.Fragment, null,
-        renderOpener(__assign({ open: open, ref: setReference }, getReferenceProps({
+        renderOpener(__assign({ open: open, ref: setReference, activeIndex: activeIndex }, getReferenceProps({
             onClick: function (e) {
-                setOpen(!open);
+                if (toggleOpenOnOpenerClick) {
+                    setOpen(!open);
+                }
                 e.stopPropagation();
                 // Normalize button focus while clicking on Safari.
                 e.currentTarget.focus();
-            },
-            onKeyPress: function (e) {
-                // This stops propagation up to the parent onKeyPress, which then triggers both the onKeyPress and
-                //   the onClick because buttons trigger key presses as clicks
-                e.stopPropagation();
             },
             open: open,
             tabIndex: 0,
@@ -87,7 +101,7 @@ var Dropdown = function (_a) {
         open ? (React.createElement(DropdownContext.Provider, { value: dropdownContext },
             React.createElement(Portal, { className: "h-floating-ui h-floating-ui--dropdowns" },
                 React.createElement(FloatingFocusManager, { context: context, initialFocus: initialFocusEl },
-                    React.createElement("div", __assign({ ref: setFloating, className: "h-dropdown h-overflow-auto", style: {
+                    React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown h-overflow-auto", className), style: {
                             position: strategy,
                             top: y !== null && y !== void 0 ? y : 0,
                             left: x !== null && x !== void 0 ? x : 0,
@@ -95,7 +109,7 @@ var Dropdown = function (_a) {
                         // Pressing tab dismisses the menu due to the modal
                         // focus management on the root menu.
                         onKeyDown: function (event) {
-                            if (event.key === "Tab") {
+                            if (event.key === "Tab" && closeOnItemTab) {
                                 setOpen(false);
                             }
                         },
