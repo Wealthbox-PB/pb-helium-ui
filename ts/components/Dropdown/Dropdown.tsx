@@ -24,7 +24,6 @@ interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
   open: boolean;
   activeIndex: number | null;
-  activeNode?: HTMLElement | null;
 }
 
 interface DropdownProps {
