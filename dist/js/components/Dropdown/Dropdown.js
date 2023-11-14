@@ -44,7 +44,9 @@ var Dropdown = function (_a) {
             }),
         ],
         onOpenChange: function (open) {
-            setOpen(open);
+            if (toggleOpenOnOpenerClick) {
+                setOpen(open);
+            }
             open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
         },
     }), x = _p.x, y = _p.y, _q = _p.refs, setReference = _q.setReference, setFloating = _q.setFloating, strategy = _p.strategy, context = _p.context;
