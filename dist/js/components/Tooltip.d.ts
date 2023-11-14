@@ -8,6 +8,8 @@ interface TooltipProps {
     boundary?: string;
     width?: `base` | `wide` | `full`;
     open?: boolean;
+    onOpen?: () => void;
+    onClose?: () => void;
 }
-export declare const Tooltip: ({ children, title, placement, width, arrow, boundary, open, }: TooltipProps) => React.JSX.Element;
+export declare const Tooltip: ({ children, title, placement, width, arrow, boundary, open, onOpen, onClose, }: TooltipProps) => React.JSX.Element;
 export {};
