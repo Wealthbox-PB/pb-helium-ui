@@ -29,7 +29,6 @@ interface RenderOpenerProps {
 interface DropdownProps {
   children: JSX.Element | JSX.Element[];
   className?: string;
-  closeOnItemTab?: boolean;
   flip?: boolean;
   minHeight?: number;
   maxHeight?: number;
@@ -50,7 +49,6 @@ interface DropdownProps {
 const Dropdown = ({
   children,
   className,
-  closeOnItemTab = true,
   flip: flipProp = true,
   minHeight,
   placement = `bottom-end`,
@@ -183,7 +181,7 @@ const Dropdown = ({
                   // Pressing tab dismisses the menu due to the modal
                   // focus management on the root menu.
                   onKeyDown(event) {
-                    if (event.key === `Tab` && closeOnItemTab) {
+                    if (dismissible && event.key === `Tab`) {
                       setOpen(false);
                     }
                   },

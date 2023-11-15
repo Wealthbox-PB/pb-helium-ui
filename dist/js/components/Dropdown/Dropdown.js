@@ -15,10 +15,10 @@ import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offse
 import { DropdownContext } from './DropdownContext';
 import { Portal } from '../Portal';
 var Dropdown = function (_a) {
-    var children = _a.children, className = _a.className, _b = _a.closeOnItemTab, closeOnItemTab = _b === void 0 ? true : _b, _c = _a.flip, flipProp = _c === void 0 ? true : _c, minHeight = _a.minHeight, _d = _a.placement, placement = _d === void 0 ? "bottom-end" : _d, renderOpener = _a.renderOpener, _e = _a.width, width = _e === void 0 ? "auto" : _e, maxHeight = _a.maxHeight, _f = _a.height, height = _f === void 0 ? "auto" : _f, _g = _a.open, openProp = _g === void 0 ? false : _g, _h = _a.dismissible, dismissible = _h === void 0 ? true : _h, _j = _a.typeahead, typeaheadProp = _j === void 0 ? true : _j, onOpen = _a.onOpen, onClose = _a.onClose, initialFocusEl = _a.initialFocusEl, _k = _a.virtualFocus, virtualFocus = _k === void 0 ? false : _k, _l = _a.toggleOpenOnOpenerClick, toggleOpenOnOpenerClick = _l === void 0 ? true : _l;
-    var _m = useState(openProp), open = _m[0], setOpen = _m[1];
-    var _o = useState(0), activeIndex = _o[0], setActiveIndex = _o[1];
-    var _p = useFloating({
+    var children = _a.children, className = _a.className, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g, _h = _a.typeahead, typeaheadProp = _h === void 0 ? true : _h, onOpen = _a.onOpen, onClose = _a.onClose, initialFocusEl = _a.initialFocusEl, _j = _a.virtualFocus, virtualFocus = _j === void 0 ? false : _j, _k = _a.toggleOpenOnOpenerClick, toggleOpenOnOpenerClick = _k === void 0 ? true : _k;
+    var _l = useState(openProp), open = _l[0], setOpen = _l[1];
+    var _m = useState(0), activeIndex = _m[0], setActiveIndex = _m[1];
+    var _o = useFloating({
         open: open,
         whileElementsMounted: autoUpdate,
         placement: placement,
@@ -49,7 +49,7 @@ var Dropdown = function (_a) {
             }
             open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
         },
-    }), x = _p.x, y = _p.y, _q = _p.refs, setReference = _q.setReference, setFloating = _q.setFloating, strategy = _p.strategy, context = _p.context;
+    }), x = _o.x, y = _o.y, _p = _o.refs, setReference = _p.setReference, setFloating = _p.setFloating, strategy = _o.strategy, context = _o.context;
     useEffect(function () {
         setOpen(openProp);
     }, [openProp]);
@@ -68,12 +68,12 @@ var Dropdown = function (_a) {
         activeIndex: activeIndex,
         onMatch: setActiveIndex,
     });
-    var _r = useInteractions([
+    var _q = useInteractions([
         useDismiss(context, { enabled: dismissible }),
         useClick(context),
         listNavigation,
         typeahead,
-    ]), getReferenceProps = _r.getReferenceProps, getFloatingProps = _r.getFloatingProps, getItemProps = _r.getItemProps;
+    ]), getReferenceProps = _q.getReferenceProps, getFloatingProps = _q.getFloatingProps, getItemProps = _q.getItemProps;
     var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, setOpen: setOpen }); }, [activeIndex, getItemProps, setOpen]);
     useEffect(function () {
         setActiveIndex(0);
@@ -102,7 +102,7 @@ var Dropdown = function (_a) {
                         // Pressing tab dismisses the menu due to the modal
                         // focus management on the root menu.
                         onKeyDown: function (event) {
-                            if (event.key === "Tab" && closeOnItemTab) {
+                            if (dismissible && event.key === "Tab") {
                                 setOpen(false);
                             }
                         },
