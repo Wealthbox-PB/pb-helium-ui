@@ -10,6 +10,7 @@ interface PopoverProps {
     trigger?: `click` | `hover`;
     arrow?: boolean;
     open?: boolean;
+    dismissible?: boolean;
     openOnLoad?: boolean;
     size?: `sm` | `md` | `lg` | `xl`;
     theme?: `light` | `dark` | `primary`;
@@ -20,5 +21,5 @@ interface PopoverProps {
     onOpen?: () => void;
     onClose?: () => void;
 }
-declare const Popover: ({ renderOpener, placement, children, trigger, arrow, open: openProp, openOnLoad, size, theme, className, bodyClassName, showCloseButton, offset: offsetProp, onOpen, onClose, }: PopoverProps) => React.JSX.Element;
+declare const Popover: ({ renderOpener, placement, children, trigger, arrow, open: openProp, dismissible, openOnLoad, size, theme, className, bodyClassName, showCloseButton, offset: offsetProp, onOpen, onClose, }: PopoverProps) => React.JSX.Element;
 export { Popover };
