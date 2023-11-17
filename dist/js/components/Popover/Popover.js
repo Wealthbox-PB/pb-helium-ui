@@ -10,23 +10,30 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 /* eslint-disable max-len */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { arrow as middlewareArrow, autoUpdate, flip, limitShift, offset, safePolygon, shift, useClick, useDismiss, useFloating, useHover, useInteractions, useTransitionStyles, } from '@floating-ui/react';
 import classNames from 'classnames';
 import { Button } from '../Button';
 import { Portal } from '../Portal';
 var Popover = function (_a) {
     var _b, _c, _d;
-    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.dismissible, dismissible = _h === void 0 ? true : _h, _j = _a.openOnLoad, openOnLoad = _j === void 0 ? false : _j, size = _a.size, _k = _a.theme, theme = _k === void 0 ? "light" : _k, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton, _l = _a.offset, offsetProp = _l === void 0 ? 8 : _l, onOpen = _a.onOpen, onClose = _a.onClose;
-    var _m = useState(openOnLoad), internalOpenState = _m[0], setInternalOpenState = _m[1];
+    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.dismissible, dismissible = _h === void 0 ? true : _h, _j = _a.openOnLoad, openOnLoad = _j === void 0 ? false : _j, size = _a.size, _k = _a.theme, theme = _k === void 0 ? "light" : _k, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton, _l = _a.offset, offsetProp = _l === void 0 ? 8 : _l, _m = _a.onOpen, onOpen = _m === void 0 ? function () { } : _m, _o = _a.onClose, onClose = _o === void 0 ? function () { } : _o;
+    var _p = useState(openOnLoad || openProp), internalOpenState = _p[0], setInternalOpenState = _p[1];
+    var previousOpenState = useRef(internalOpenState);
+    var onOpenCallback = useCallback(onOpen, [onOpen]);
+    var onCloseCallback = useCallback(onClose, [onClose]);
     var arrowRef = useRef(null);
     var arrowElHeight = 11;
     useEffect(function () {
-        if (openProp !== undefined) {
-            setInternalOpenState(openProp);
-        }
+        setInternalOpenState(openProp);
     }, [openProp]);
-    var _o = useFloating({
+    useEffect(function () {
+        if (previousOpenState.current !== internalOpenState) {
+            internalOpenState ? onOpenCallback === null || onOpenCallback === void 0 ? void 0 : onOpenCallback() : onCloseCallback === null || onCloseCallback === void 0 ? void 0 : onCloseCallback();
+        }
+        previousOpenState.current = internalOpenState;
+    }, [internalOpenState, onOpenCallback, onCloseCallback]);
+    var _q = useFloating({
         open: internalOpenState,
         whileElementsMounted: autoUpdate,
         placement: placement,
@@ -38,27 +45,24 @@ var Popover = function (_a) {
             middlewareArrow({ element: arrowRef, padding: 4 }),
         ],
         onOpenChange: function (open) {
-            console.log("onOpenChange");
-            console.log("open: ".concat(open));
             setInternalOpenState(open);
-            open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
         },
-    }), x = _o.x, y = _o.y, _p = _o.refs, setReference = _p.setReference, setFloating = _p.setFloating, strategy = _o.strategy, context = _o.context, _q = _o.middlewareData.arrow, _r = _q === void 0 ? {} : _q, arrowX = _r.x, arrowY = _r.y, currentPlacement = _o.placement;
-    var _s = useInteractions([
+    }), x = _q.x, y = _q.y, _r = _q.refs, setReference = _r.setReference, setFloating = _r.setFloating, strategy = _q.strategy, context = _q.context, _s = _q.middlewareData.arrow, _t = _s === void 0 ? {} : _s, arrowX = _t.x, arrowY = _t.y, currentPlacement = _q.placement;
+    var _u = useInteractions([
         useDismiss(context, { enabled: dismissible }),
         useHover(context, {
             enabled: showCloseButton === true && internalOpenState ? false : trigger === "hover" ? true : false,
             handleClose: safePolygon(),
         }),
         useClick(context, { enabled: trigger === "click" }),
-    ]), getReferenceProps = _s.getReferenceProps, getFloatingProps = _s.getFloatingProps;
+    ]), getReferenceProps = _u.getReferenceProps, getFloatingProps = _u.getFloatingProps;
     var staticSide = {
         top: "bottom",
         right: "left",
         bottom: "top",
         left: "right",
     }[currentPlacement.split("-")[0]];
-    var _t = useTransitionStyles(context), isMounted = _t.isMounted, styles = _t.styles;
+    var _v = useTransitionStyles(context), isMounted = _v.isMounted, styles = _v.styles;
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference }, getReferenceProps({
             onClick: function (e) {

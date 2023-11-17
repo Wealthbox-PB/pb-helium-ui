@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   arrow as middlewareArrow,
   autoUpdate,
@@ -58,18 +58,26 @@ const Popover = ({
   bodyClassName,
   showCloseButton,
   offset: offsetProp = 8,
-  onOpen,
-  onClose,
+  onOpen = () => {},
+  onClose = () => {},
 }: PopoverProps) => {
-  const [internalOpenState, setInternalOpenState] = useState(openOnLoad);
+  const [internalOpenState, setInternalOpenState] = useState(openOnLoad || openProp);
+  const previousOpenState = useRef(internalOpenState);
+  const onOpenCallback = useCallback(onOpen, [onOpen]);
+  const onCloseCallback = useCallback(onClose, [onClose]);
   const arrowRef = useRef(null);
   const arrowElHeight = 11;
 
   useEffect(() => {
-    if (openProp !== undefined) {
-      setInternalOpenState(openProp);
-    }
+    setInternalOpenState(openProp);
   }, [openProp]);
+
+  useEffect(() => {
+    if (previousOpenState.current !== internalOpenState) {
+      internalOpenState ? onOpenCallback?.() : onCloseCallback?.();
+    }
+    previousOpenState.current = internalOpenState;
+  }, [internalOpenState, onOpenCallback, onCloseCallback]);
 
   const {
     x,
@@ -91,10 +99,7 @@ const Popover = ({
       middlewareArrow({ element: arrowRef, padding: 4 }),
     ],
     onOpenChange: (open) => {
-      console.log(`onOpenChange`);
-      console.log(`open: ${open}`);
       setInternalOpenState(open);
-      open ? onOpen?.() : onClose?.();
     },
   });
 
