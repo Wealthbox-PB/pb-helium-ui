@@ -1,4 +1,4 @@
-import React, { useEffect, MutableRefObject, useMemo, useState } from 'react';
+import React, { useEffect, MutableRefObject, useMemo, useState, useRef, useCallback } from 'react';
 import classNames from 'classnames';
 import {
   autoUpdate,
@@ -59,14 +59,28 @@ const Dropdown = ({
   open: openProp = false,
   dismissible = true,
   typeahead: typeaheadProp = true,
-  onOpen,
-  onClose,
+  onOpen = () => {},
+  onClose = () => {},
   initialFocusEl,
   virtualFocus = false,
   toggleOpenOnOpenerClick = true,
 }: DropdownProps) => {
   const [open, setOpen] = useState(openProp);
+  const previousOpenState = useRef(open);
+  const onOpenCallback = useCallback(onOpen, [onOpen]);
+  const onCloseCallback = useCallback(onClose, [onClose]);
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
+  useEffect(() => {
+    setOpen(openProp);
+  }, [openProp]);
+
+  useEffect(() => {
+    if (previousOpenState.current !== open) {
+      open ? onOpenCallback?.() : onCloseCallback?.();
+    }
+    previousOpenState.current = open;
+  }, [open, onOpenCallback, onCloseCallback]);
 
   const {
     x,
@@ -103,13 +117,8 @@ const Dropdown = ({
       if (toggleOpenOnOpenerClick) {
         setOpen(open);
       }
-      open ? onOpen?.() : onClose?.();
     },
   });
-
-  useEffect(() => {
-    setOpen(openProp);
-  }, [openProp]);
 
   const elementsRef = React.useRef<HTMLElement[]>([]);
   const labelsRef = React.useRef<(string | null)[]>([]);
