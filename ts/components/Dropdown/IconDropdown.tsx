@@ -27,7 +27,7 @@ const IconDropdown = ({
   ...props
 }: IconDropdownProps) => (
   <Dropdown
-    renderOpener={({ ref, ...openerProps }) => (
+    renderOpener={({ ref, activeIndex, ...openerProps }) => (
       <Button
         variant={variant}
         size={size}
