@@ -360,6 +360,8 @@ export type Icons =
   | `share--lg`
   | `smile`
   | `smile--lg`
+  | `sort`
+  | `sort--lg`
   | `sparkles`
   | `special-date`
   | `special-date--lg`
