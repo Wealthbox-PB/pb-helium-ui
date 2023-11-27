@@ -4,6 +4,8 @@ interface RenderOpenerProps {
     ref: (node: ReferenceType | null) => void;
     open: boolean;
     activeIndex: number | null;
+    onFocus?: (e: any) => void;
+    onBlur?: (e: any) => void;
 }
 interface DropdownProps {
     children: JSX.Element | JSX.Element[];
@@ -23,6 +25,7 @@ interface DropdownProps {
     onOpen?: () => void;
     onClose?: () => void;
     initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
+    returnFocus?: boolean | undefined;
 }
-declare const Dropdown: ({ children, className, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, virtualFocus, toggleOpenOnOpenerClick, }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ children, className, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, returnFocus, virtualFocus, toggleOpenOnOpenerClick, }: DropdownProps) => React.JSX.Element;
 export { Dropdown };

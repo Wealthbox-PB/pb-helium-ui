@@ -24,6 +24,8 @@ interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
   open: boolean;
   activeIndex: number | null;
+  onFocus?: (e: any) => void;
+  onBlur?: (e: any) => void;
 }
 
 interface DropdownProps {
@@ -44,6 +46,7 @@ interface DropdownProps {
   onOpen?: () => void;
   onClose?: () => void;
   initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
+  returnFocus?: boolean | undefined;
 }
 
 const Dropdown = ({
@@ -62,6 +65,7 @@ const Dropdown = ({
   onOpen = () => {},
   onClose = () => {},
   initialFocusEl,
+  returnFocus = true,
   virtualFocus = false,
   toggleOpenOnOpenerClick = true,
 }: DropdownProps) => {
@@ -176,7 +180,7 @@ const Dropdown = ({
       {open ? (
         <DropdownContext.Provider value={dropdownContext}>
           <Portal className="h-floating-ui h-floating-ui--dropdowns">
-            <FloatingFocusManager context={context} initialFocus={initialFocusEl}>
+            <FloatingFocusManager context={context} initialFocus={initialFocusEl} returnFocus={returnFocus}>
               <div
                 ref={setFloating}
                 className={classNames(`h-dropdown h-overflow-auto`, className)}
