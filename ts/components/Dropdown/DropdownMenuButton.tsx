@@ -14,6 +14,8 @@ interface DropdownMenuButtonProps
   className?: string;
   iconName?: Icons;
   label: string;
+  onClick?: (e?: MouseEvent<HTMLElement>) => void;
+  onEnter?: (e?: KeyboardEvent) => void;
   onSelect?: (e?: MouseEvent<HTMLElement> | KeyboardEvent | undefined) => void;
   useSelect?: string;
   variant?: `default` | `negative`;
@@ -26,6 +28,8 @@ export const DropdownMenuButton = ({
   className,
   iconName,
   label,
+  onClick,
+  onEnter,
   onSelect,
   closeOnSelect = true,
   variant = `default`,
@@ -54,12 +58,7 @@ export const DropdownMenuButton = ({
             if (closeOnSelect) {
               setOpen(false);
             }
-            onSelect?.(e);
-          },
-          onMouseDown(e) {
-            if (closeOnSelect) {
-              setOpen(false);
-            }
+            onClick?.(e);
             onSelect?.(e);
           },
           onKeyDown(e) {
@@ -67,6 +66,7 @@ export const DropdownMenuButton = ({
               if (closeOnSelect) {
                 setOpen(false);
               }
+              onEnter?.(e);
               onSelect?.(e);
             }
           },

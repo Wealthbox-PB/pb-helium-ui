@@ -25,7 +25,7 @@ import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 export var DropdownMenuButton = function (_a) {
-    var buttonClassName = _a.buttonClassName, children = _a.children, className = _a.className, iconName = _a.iconName, label = _a.label, onSelect = _a.onSelect, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, _c = _a.variant, variant = _c === void 0 ? "default" : _c, props = __rest(_a, ["buttonClassName", "children", "className", "iconName", "label", "onSelect", "closeOnSelect", "variant"]);
+    var buttonClassName = _a.buttonClassName, children = _a.children, className = _a.className, iconName = _a.iconName, label = _a.label, onClick = _a.onClick, onEnter = _a.onEnter, onSelect = _a.onSelect, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, _c = _a.variant, variant = _c === void 0 ? "default" : _c, props = __rest(_a, ["buttonClassName", "children", "className", "iconName", "label", "onClick", "onEnter", "onSelect", "closeOnSelect", "variant"]);
     var _d = useDropdownContext(), activeIndex = _d.activeIndex, getItemProps = _d.getItemProps, setOpen = _d.setOpen;
     var _e = useListItem({ label: label }), ref = _e.ref, index = _e.index;
     var isActive = activeIndex === index;
@@ -38,12 +38,7 @@ export var DropdownMenuButton = function (_a) {
                 if (closeOnSelect) {
                     setOpen(false);
                 }
-                onSelect === null || onSelect === void 0 ? void 0 : onSelect(e);
-            },
-            onMouseDown: function (e) {
-                if (closeOnSelect) {
-                    setOpen(false);
-                }
+                onClick === null || onClick === void 0 ? void 0 : onClick(e);
                 onSelect === null || onSelect === void 0 ? void 0 : onSelect(e);
             },
             onKeyDown: function (e) {
@@ -51,6 +46,7 @@ export var DropdownMenuButton = function (_a) {
                     if (closeOnSelect) {
                         setOpen(false);
                     }
+                    onEnter === null || onEnter === void 0 ? void 0 : onEnter(e);
                     onSelect === null || onSelect === void 0 ? void 0 : onSelect(e);
                 }
             },
