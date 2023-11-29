@@ -41,6 +41,9 @@ export var DropdownMenuButton = function (_a) {
                 onClick === null || onClick === void 0 ? void 0 : onClick(e);
                 onSelect === null || onSelect === void 0 ? void 0 : onSelect(e);
             },
+            onMouseDown: function (e) {
+                e.preventDefault();
+            },
             onKeyDown: function (e) {
                 if (e.key === "Enter") {
                     if (closeOnSelect) {
