@@ -5,20 +5,54 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.5.0] - 2023-10-24
-
-### Changed
-
-- Updated `SelectInput`
-  - Update props extension
-  - Added `value` prop
-- Updated `_dropdown.scss_` file
-  - Added `h-dropdown__menu__item__cta--select` and `h-dropdown__menu__item__cta--selected` classes
+## [2.5.0] - 2023-10-29
 
 ### Added
 
 - `Select` component
 - `SelectMenuButton` component
+- Added new `sort` svg icon asset
+- Added new `sort--lg` svg icon asset
+
+### Changed
+
+- Updated `IconDropdown`
+  - Extend props from Helium UI `Dropdown` component
+- Update `index.ts` to export `useCloseWithEscapeKey` and `useScrollLock` hooks
+- Updated `SelectInput`
+  - Update props extension
+  - Added `value` prop
+- Updated `Dropdown`
+  - Added `open` prop
+  - Added `dismissible` prop
+  - Added `toggleOpenOnOpenerClick` prop
+  - Added `typeahead` prop
+  - Added `onOpen` callback function prop
+  - Added `onClose` callback function prop
+  - Added `initialFocusEl` prop
+  - Added `returnFocus` prop
+  - Added `virtualFocus` prop
+  - Updated `renderOpenerProps` types interface to add `open`, `activeIndex`, `onFocus`, `onBlur`, and `onKeyDown`
+  - Updated `renderOpener` function to hand `open`, `activeIndex`, `onFocus`, `onBlur`, and `onKeyDown` props up the component
+  - Added `resetActiveIndex` prop to control whether or not the index should be reset to 0 when the Dropdown's children change
+- Updated `DropdownMenuButton`
+  - Added `closeOnSelect` prop
+  - Added `onClick` callback function prop
+  - Added `onEnter` callback function prop
+  - Added `onSelect` callback function prop
+- Updated `Popover`
+  - Added `dismissible` prop
+  - Added `onOpen` callback function prop
+  - Added `onClose` callback function prop
+  - Refactored `open` state handling
+- Updated `Tooltip`
+  - Added `onOpen` callback function prop
+  - Added `onClose` callback function prop
+- Updated `Badge`
+  - Extended `Badge` type to `HTMLSpanElement`
+- Updated `_dropdown.scss_` file
+  - Added `h-dropdown__menu__item__cta--select` and `h-dropdown__menu__item__cta--selected` classes
+- Recompiled icon font
 
 ## [2.4.5] - 2023-10-23
 
