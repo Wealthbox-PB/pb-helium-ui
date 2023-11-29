@@ -26,6 +26,7 @@ interface RenderOpenerProps {
   activeIndex: number | null;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
+  onKeyDown?: (e: any) => void;
 }
 
 interface DropdownProps {
@@ -161,9 +162,9 @@ const Dropdown = ({
   return (
     <>
       {renderOpener({
-        open: open,
+        open,
         ref: setReference,
-        activeIndex: activeIndex,
+        activeIndex,
         ...getReferenceProps({
           onClick(e) {
             if (toggleOpenOnOpenerClick) {

@@ -6,6 +6,7 @@ interface RenderOpenerProps {
     activeIndex: number | null;
     onFocus?: (e: any) => void;
     onBlur?: (e: any) => void;
+    onKeyDown?: (e: any) => void;
 }
 interface DropdownProps {
     children: JSX.Element | JSX.Element[];
