@@ -27,7 +27,7 @@ import classNames from 'classnames';
 var IconDropdown = function (_a) {
     var ariaLabel = _a.ariaLabel, className = _a.className, buttonId = _a.buttonId, children = _a.children, iconClassName = _a.iconClassName, _b = _a.iconName, iconName = _b === void 0 ? "dots" : _b, _c = _a.size, size = _c === void 0 ? "xs" : _c, _d = _a.variant, variant = _d === void 0 ? "border-hover" : _d, props = __rest(_a, ["ariaLabel", "className", "buttonId", "children", "iconClassName", "iconName", "size", "variant"]);
     return (React.createElement(Dropdown, __assign({ renderOpener: function (_a) {
-            var ref = _a.ref, openerProps = __rest(_a, ["ref"]);
+            var ref = _a.ref, activeIndex = _a.activeIndex, openerProps = __rest(_a, ["ref", "activeIndex"]);
             return (React.createElement(Button, __assign({ variant: variant, size: size, ref: ref, "aria-label": ariaLabel, square: true, id: buttonId, className: className }, openerProps),
                 React.createElement("span", { className: classNames("h-icon-".concat(iconName), iconClassName) })));
         } }, props), children));

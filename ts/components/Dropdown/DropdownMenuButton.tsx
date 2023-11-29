@@ -1,19 +1,25 @@
-import React, { ButtonHTMLAttributes, MouseEvent } from 'react';
+import React, { ButtonHTMLAttributes, KeyboardEvent, MouseEvent } from 'react';
 import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 import { Icons } from '../../types/icons';
 
 interface DropdownMenuButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, `className` | `onClick`> {
+  extends Omit<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    `className` | `onClick` | `onKeyDown` | `onMouseDown` | `onSelect`
+  > {
   buttonClassName?: string;
   children?: JSX.Element[] | JSX.Element;
   className?: string;
   iconName?: Icons;
   label: string;
-  onClick: (e?: MouseEvent<HTMLElement>) => void;
+  onClick?: (e?: MouseEvent<HTMLElement>) => void;
+  onEnter?: (e?: KeyboardEvent) => void;
+  onSelect?: (e?: MouseEvent<HTMLElement> | KeyboardEvent | undefined) => void;
   useSelect?: string;
   variant?: `default` | `negative`;
+  closeOnSelect?: boolean;
 }
 
 export const DropdownMenuButton = ({
@@ -23,6 +29,9 @@ export const DropdownMenuButton = ({
   iconName,
   label,
   onClick,
+  onEnter,
+  onSelect,
+  closeOnSelect = true,
   variant = `default`,
   ...props
 }: DropdownMenuButtonProps) => {
@@ -39,17 +48,29 @@ export const DropdownMenuButton = ({
       })}
     >
       <button
+        {...props}
         className={classNames(`h-dropdown__menu__item__cta`, buttonClassName)}
         ref={ref}
         tabIndex={isActive ? 0 : -1}
         role="menuitem"
         {...getItemProps({
           onClick(e) {
-            setOpen(false);
-            onClick(e);
+            if (closeOnSelect) {
+              setOpen(false);
+            }
+            onClick?.(e);
+            onSelect?.(e);
+          },
+          onKeyDown(e) {
+            if (e.key === `Enter`) {
+              if (closeOnSelect) {
+                setOpen(false);
+              }
+              onEnter?.(e);
+              onSelect?.(e);
+            }
           },
         })}
-        {...props}
       >
         {children || (
           <>

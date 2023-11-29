@@ -1,4 +1,5 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, MutableRefObject, useMemo, useState, useRef, useCallback } from 'react';
+import classNames from 'classnames';
 import {
   autoUpdate,
   flip,
@@ -21,21 +22,38 @@ import { Portal } from '../Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
+  open: boolean;
+  activeIndex: number | null;
+  onFocus?: (e: any) => void;
+  onBlur?: (e: any) => void;
+  onKeyDown?: (e: any) => void;
 }
 
 interface DropdownProps {
   children: JSX.Element | JSX.Element[];
+  className?: string;
   flip?: boolean;
   minHeight?: number;
   maxHeight?: number;
   height?: string;
+  virtualFocus?: boolean;
   placement?: Placement;
   renderOpener: (props: RenderOpenerProps) => JSX.Element;
   width?: `auto` | `full` | number;
+  open?: boolean;
+  dismissible?: boolean;
+  toggleOpenOnOpenerClick?: boolean;
+  typeahead?: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
+  initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
+  returnFocus?: boolean | undefined;
+  resetActiveIndex?: boolean | undefined;
 }
 
 const Dropdown = ({
   children,
+  className,
   flip: flipProp = true,
   minHeight,
   placement = `bottom-end`,
@@ -43,9 +61,33 @@ const Dropdown = ({
   width = `auto`,
   maxHeight,
   height = `auto`,
+  open: openProp = false,
+  dismissible = true,
+  typeahead: typeaheadProp = true,
+  onOpen = () => {},
+  onClose = () => {},
+  initialFocusEl,
+  returnFocus = true,
+  virtualFocus = false,
+  toggleOpenOnOpenerClick = true,
+  resetActiveIndex = true,
 }: DropdownProps) => {
-  const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [open, setOpen] = useState(openProp);
+  const previousOpenState = useRef(open);
+  const onOpenCallback = useCallback(onOpen, [onOpen]);
+  const onCloseCallback = useCallback(onClose, [onClose]);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
+  useEffect(() => {
+    setOpen(openProp);
+  }, [openProp]);
+
+  useEffect(() => {
+    if (previousOpenState.current !== open) {
+      open ? onOpenCallback?.() : onCloseCallback?.();
+    }
+    previousOpenState.current = open;
+  }, [open, onOpenCallback, onCloseCallback]);
 
   const {
     x,
@@ -78,7 +120,11 @@ const Dropdown = ({
         },
       }),
     ],
-    onOpenChange: setOpen,
+    onOpenChange: (open) => {
+      if (toggleOpenOnOpenerClick) {
+        setOpen(open);
+      }
+    },
   });
 
   const elementsRef = React.useRef<HTMLElement[]>([]);
@@ -88,17 +134,19 @@ const Dropdown = ({
     listRef: elementsRef,
     activeIndex,
     onNavigate: setActiveIndex,
+    virtual: virtualFocus,
     loop: true,
   });
 
   const typeahead = useTypeahead(context, {
+    enabled: typeaheadProp,
     listRef: labelsRef,
     activeIndex,
     onMatch: setActiveIndex,
   });
 
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
-    useDismiss(context),
+    useDismiss(context, { enabled: dismissible }),
     useClick(context),
     listNavigation,
     typeahead,
@@ -109,21 +157,26 @@ const Dropdown = ({
     [activeIndex, getItemProps, setOpen]
   );
 
+  useEffect(() => {
+    if (resetActiveIndex) {
+      setActiveIndex(0);
+    }
+  }, [children, resetActiveIndex]);
+
   return (
     <>
       {renderOpener({
+        open,
         ref: setReference,
+        activeIndex,
         ...getReferenceProps({
           onClick(e) {
-            setOpen(!open);
+            if (toggleOpenOnOpenerClick) {
+              setOpen(!open);
+            }
             e.stopPropagation();
             // Normalize button focus while clicking on Safari.
             (e.currentTarget as HTMLButtonElement).focus();
-          },
-          onKeyPress(e) {
-            // This stops propagation up to the parent onKeyPress, which then triggers both the onKeyPress and
-            //   the onClick because buttons trigger key presses as clicks
-            e.stopPropagation();
           },
           open,
           tabIndex: 0,
@@ -132,10 +185,10 @@ const Dropdown = ({
       {open ? (
         <DropdownContext.Provider value={dropdownContext}>
           <Portal className="h-floating-ui h-floating-ui--dropdowns">
-            <FloatingFocusManager context={context}>
+            <FloatingFocusManager context={context} initialFocus={initialFocusEl} returnFocus={returnFocus}>
               <div
                 ref={setFloating}
-                className="h-dropdown h-overflow-auto"
+                className={classNames(`h-dropdown h-overflow-auto`, className)}
                 style={{
                   position: strategy,
                   top: y ?? 0,
@@ -146,7 +199,7 @@ const Dropdown = ({
                   // Pressing tab dismisses the menu due to the modal
                   // focus management on the root menu.
                   onKeyDown(event) {
-                    if (event.key === `Tab`) {
+                    if (dismissible && event.key === `Tab`) {
                       setOpen(false);
                     }
                   },

@@ -16,13 +16,16 @@ import Parser from 'html-react-parser';
 import { Portal } from './Portal';
 export var Tooltip = function (_a) {
     var _b, _c;
-    var children = _a.children, title = _a.title, _d = _a.placement, placement = _d === void 0 ? "top" : _d, _e = _a.width, width = _e === void 0 ? "base" : _e, _f = _a.arrow, arrow = _f === void 0 ? true : _f, boundary = _a.boundary, _g = _a.open, open = _g === void 0 ? false : _g;
+    var children = _a.children, title = _a.title, _d = _a.placement, placement = _d === void 0 ? "top" : _d, _e = _a.width, width = _e === void 0 ? "base" : _e, _f = _a.arrow, arrow = _f === void 0 ? true : _f, boundary = _a.boundary, _g = _a.open, open = _g === void 0 ? false : _g, onOpen = _a.onOpen, onClose = _a.onClose;
     var _h = useState(false), hovered = _h[0], setHovered = _h[1];
     var arrowRef = useRef(null);
     var _j = useFloating({
         placement: placement,
         open: open || hovered,
-        onOpenChange: setHovered,
+        onOpenChange: function (open) {
+            setHovered(open);
+            open ? onOpen === null || onOpen === void 0 ? void 0 : onOpen() : onClose === null || onClose === void 0 ? void 0 : onClose();
+        },
         middleware: [
             offset(8),
             flip({

@@ -10,19 +10,31 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 /* eslint-disable max-len */
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { arrow as middlewareArrow, autoUpdate, flip, limitShift, offset, safePolygon, shift, useClick, useDismiss, useFloating, useHover, useInteractions, useTransitionStyles, } from '@floating-ui/react';
 import classNames from 'classnames';
 import { Button } from '../Button';
 import { Portal } from '../Portal';
 var Popover = function (_a) {
     var _b, _c, _d;
-    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.openOnLoad, openOnLoad = _h === void 0 ? false : _h, size = _a.size, _j = _a.theme, theme = _j === void 0 ? "light" : _j, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton, _k = _a.offset, offsetProp = _k === void 0 ? 8 : _k;
-    var _l = useState(openOnLoad), internalOpenState = _l[0], setInternalOpenState = _l[1];
+    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.dismissible, dismissible = _h === void 0 ? true : _h, _j = _a.openOnLoad, openOnLoad = _j === void 0 ? false : _j, size = _a.size, _k = _a.theme, theme = _k === void 0 ? "light" : _k, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton, _l = _a.offset, offsetProp = _l === void 0 ? 8 : _l, _m = _a.onOpen, onOpen = _m === void 0 ? function () { } : _m, _o = _a.onClose, onClose = _o === void 0 ? function () { } : _o;
+    var _p = useState(openOnLoad || openProp), internalOpenState = _p[0], setInternalOpenState = _p[1];
+    var previousOpenState = useRef(internalOpenState);
+    var onOpenCallback = useCallback(onOpen, [onOpen]);
+    var onCloseCallback = useCallback(onClose, [onClose]);
     var arrowRef = useRef(null);
     var arrowElHeight = 11;
-    var _m = useFloating({
-        open: openProp || internalOpenState,
+    useEffect(function () {
+        setInternalOpenState(openProp);
+    }, [openProp]);
+    useEffect(function () {
+        if (previousOpenState.current !== internalOpenState) {
+            internalOpenState ? onOpenCallback === null || onOpenCallback === void 0 ? void 0 : onOpenCallback() : onCloseCallback === null || onCloseCallback === void 0 ? void 0 : onCloseCallback();
+        }
+        previousOpenState.current = internalOpenState;
+    }, [internalOpenState, onOpenCallback, onCloseCallback]);
+    var _q = useFloating({
+        open: internalOpenState,
         whileElementsMounted: autoUpdate,
         placement: placement,
         strategy: "absolute",
@@ -32,31 +44,29 @@ var Popover = function (_a) {
             shift({ padding: 4, limiter: limitShift() }),
             middlewareArrow({ element: arrowRef, padding: 4 }),
         ],
-        onOpenChange: setInternalOpenState,
-    }), x = _m.x, y = _m.y, _o = _m.refs, setReference = _o.setReference, setFloating = _o.setFloating, strategy = _m.strategy, context = _m.context, _p = _m.middlewareData.arrow, _q = _p === void 0 ? {} : _p, arrowX = _q.x, arrowY = _q.y, currentPlacement = _m.placement;
-    var _r = useInteractions([
-        useDismiss(context, { enabled: !showCloseButton }),
+        onOpenChange: function (open) {
+            setInternalOpenState(open);
+        },
+    }), x = _q.x, y = _q.y, _r = _q.refs, setReference = _r.setReference, setFloating = _r.setFloating, strategy = _q.strategy, context = _q.context, _s = _q.middlewareData.arrow, _t = _s === void 0 ? {} : _s, arrowX = _t.x, arrowY = _t.y, currentPlacement = _q.placement;
+    var _u = useInteractions([
+        useDismiss(context, { enabled: dismissible }),
         useHover(context, {
-            enabled: showCloseButton === true && internalOpenState
-                ? false
-                : trigger === "hover" && openProp === undefined
-                    ? true
-                    : false,
+            enabled: showCloseButton === true && internalOpenState ? false : trigger === "hover" ? true : false,
             handleClose: safePolygon(),
         }),
-        useClick(context, { enabled: openProp === undefined && trigger === "click" }),
-    ]), getReferenceProps = _r.getReferenceProps, getFloatingProps = _r.getFloatingProps;
+        useClick(context, { enabled: trigger === "click" }),
+    ]), getReferenceProps = _u.getReferenceProps, getFloatingProps = _u.getFloatingProps;
     var staticSide = {
         top: "bottom",
         right: "left",
         bottom: "top",
         left: "right",
     }[currentPlacement.split("-")[0]];
-    var _s = useTransitionStyles(context), isMounted = _s.isMounted, styles = _s.styles;
+    var _v = useTransitionStyles(context), isMounted = _v.isMounted, styles = _v.styles;
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference }, getReferenceProps({
             onClick: function (e) {
-                openProp && setInternalOpenState(!internalOpenState);
+                setInternalOpenState(!internalOpenState);
                 e.stopPropagation();
                 // Normalize button focus while clicking on Safari.
                 e.currentTarget.focus();
@@ -81,7 +91,7 @@ var Popover = function (_a) {
             })),
                 React.createElement("div", { className: classNames("h-popover__body", bodyClassName) },
                     React.createElement("div", { className: "h-popover__body__content" }, children),
-                    showCloseButton && !openProp ? (React.createElement(React.Fragment, null,
+                    showCloseButton ? (React.createElement(React.Fragment, null,
                         React.createElement(Button, { className: "h-popover__close", variant: "border-hover", size: "xs", square: true, style: { marginTop: "-0.25rem" }, onClick: function () { return setInternalOpenState(false); }, "aria-label": "Close popover" },
                             React.createElement("span", { className: "h-icon-delete", "aria-hidden": "true" })))) : null),
                 arrow ? (React.createElement("div", { className: classNames("h-popover__arrow", "h-popover__arrow--".concat(currentPlacement)), ref: arrowRef, style: (_d = {

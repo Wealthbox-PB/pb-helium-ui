@@ -1,9 +1,31 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 import React from 'react';
 import classNames from 'classnames';
 export var Badge = function (_a) {
     var _b;
-    var children = _a.children, className = _a.className, contentClassName = _a.contentClassName, iconClassName = _a.iconClassName, _c = _a.scale, scale = _c === void 0 ? "base" : _c, _d = _a.variant, variant = _d === void 0 ? "info" : _d;
-    return (React.createElement("span", { className: classNames("h-badge h-badge--".concat(variant), (_b = {}, _b["h-badge--".concat(scale)] = scale !== "base", _b), className), "data-testid": "h-badge" },
+    var children = _a.children, className = _a.className, contentClassName = _a.contentClassName, iconClassName = _a.iconClassName, _c = _a.scale, scale = _c === void 0 ? "base" : _c, _d = _a.variant, variant = _d === void 0 ? "info" : _d, props = __rest(_a, ["children", "className", "contentClassName", "iconClassName", "scale", "variant"]);
+    return (React.createElement("span", __assign({ className: classNames("h-badge h-badge--".concat(variant), (_b = {}, _b["h-badge--".concat(scale)] = scale !== "base", _b), className), "data-testid": "h-badge" }, props),
         iconClassName ? (React.createElement("span", { className: classNames("h-badge__icon", iconClassName), "aria-hidden": "true", "data-testid": "h-badge__icon" })) : null,
         React.createElement("span", { className: classNames("h-badge__content", contentClassName), "data-testid": "h-badge__content" }, children)));
 };

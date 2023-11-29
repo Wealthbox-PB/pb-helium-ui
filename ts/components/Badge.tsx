@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-interface BadgeProps {
+interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: string | JSX.Element[] | JSX.Element;
   className?: string;
   contentClassName?: string;
@@ -17,6 +17,7 @@ export const Badge = ({
   iconClassName,
   scale = `base`,
   variant = `info`,
+  ...props
 }: BadgeProps) => {
   return (
     <span
@@ -26,6 +27,7 @@ export const Badge = ({
         className
       )}
       data-testid="h-badge"
+      {...props}
     >
       {iconClassName ? (
         <span

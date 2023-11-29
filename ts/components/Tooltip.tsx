@@ -26,6 +26,8 @@ interface TooltipProps {
   boundary?: string;
   width?: `base` | `wide` | `full`;
   open?: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
 }
 
 export const Tooltip = ({
@@ -36,6 +38,8 @@ export const Tooltip = ({
   arrow = true,
   boundary,
   open = false,
+  onOpen,
+  onClose,
 }: TooltipProps) => {
   const [hovered, setHovered] = useState(false);
   const arrowRef = useRef(null);
@@ -51,7 +55,10 @@ export const Tooltip = ({
   } = useFloating({
     placement,
     open: open || hovered,
-    onOpenChange: setHovered,
+    onOpenChange: (open) => {
+      setHovered(open);
+      open ? onOpen?.() : onClose?.();
+    },
     middleware: [
       offset(8),
       flip({

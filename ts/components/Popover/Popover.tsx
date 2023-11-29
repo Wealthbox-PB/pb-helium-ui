@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   arrow as middlewareArrow,
   autoUpdate,
@@ -31,6 +31,7 @@ interface PopoverProps {
   trigger?: `click` | `hover`;
   arrow?: boolean;
   open?: boolean;
+  dismissible?: boolean;
   openOnLoad?: boolean;
   size?: `sm` | `md` | `lg` | `xl`;
   theme?: `light` | `dark` | `primary`;
@@ -38,6 +39,8 @@ interface PopoverProps {
   bodyClassName?: string;
   showCloseButton?: boolean;
   offset?: number;
+  onOpen?: () => void;
+  onClose?: () => void;
 }
 
 const Popover = ({
@@ -47,6 +50,7 @@ const Popover = ({
   trigger = `hover`,
   arrow = true,
   open: openProp,
+  dismissible = true,
   openOnLoad = false,
   size,
   theme = `light`,
@@ -54,10 +58,26 @@ const Popover = ({
   bodyClassName,
   showCloseButton,
   offset: offsetProp = 8,
+  onOpen = () => {},
+  onClose = () => {},
 }: PopoverProps) => {
-  const [internalOpenState, setInternalOpenState] = useState(openOnLoad);
+  const [internalOpenState, setInternalOpenState] = useState(openOnLoad || openProp);
+  const previousOpenState = useRef(internalOpenState);
+  const onOpenCallback = useCallback(onOpen, [onOpen]);
+  const onCloseCallback = useCallback(onClose, [onClose]);
   const arrowRef = useRef(null);
   const arrowElHeight = 11;
+
+  useEffect(() => {
+    setInternalOpenState(openProp);
+  }, [openProp]);
+
+  useEffect(() => {
+    if (previousOpenState.current !== internalOpenState) {
+      internalOpenState ? onOpenCallback?.() : onCloseCallback?.();
+    }
+    previousOpenState.current = internalOpenState;
+  }, [internalOpenState, onOpenCallback, onCloseCallback]);
 
   const {
     x,
@@ -68,7 +88,7 @@ const Popover = ({
     middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
     placement: currentPlacement,
   } = useFloating({
-    open: openProp || internalOpenState,
+    open: internalOpenState,
     whileElementsMounted: autoUpdate,
     placement,
     strategy: `absolute`,
@@ -78,22 +98,18 @@ const Popover = ({
       shift({ padding: 4, limiter: limitShift() }),
       middlewareArrow({ element: arrowRef, padding: 4 }),
     ],
-    onOpenChange: setInternalOpenState,
+    onOpenChange: (open) => {
+      setInternalOpenState(open);
+    },
   });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    useDismiss(context, { enabled: !showCloseButton }),
+    useDismiss(context, { enabled: dismissible }),
     useHover(context, {
-      enabled:
-        showCloseButton === true && internalOpenState
-          ? false
-          : trigger === `hover` && openProp === undefined
-          ? true
-          : false,
-
+      enabled: showCloseButton === true && internalOpenState ? false : trigger === `hover` ? true : false,
       handleClose: safePolygon(),
     }),
-    useClick(context, { enabled: openProp === undefined && trigger === `click` }),
+    useClick(context, { enabled: trigger === `click` }),
   ]);
 
   const staticSide: string = {
@@ -111,7 +127,7 @@ const Popover = ({
         ref: setReference,
         ...getReferenceProps({
           onClick(e) {
-            openProp && setInternalOpenState(!internalOpenState);
+            setInternalOpenState(!internalOpenState);
             e.stopPropagation();
             // Normalize button focus while clicking on Safari.
             (e.currentTarget as HTMLButtonElement).focus();
@@ -154,7 +170,7 @@ const Popover = ({
           >
             <div className={classNames(`h-popover__body`, bodyClassName)}>
               <div className="h-popover__body__content">{children}</div>
-              {showCloseButton && !openProp ? (
+              {showCloseButton ? (
                 <>
                   <Button
                     className="h-popover__close"
