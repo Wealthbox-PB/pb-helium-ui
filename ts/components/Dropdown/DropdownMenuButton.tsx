@@ -61,6 +61,9 @@ export const DropdownMenuButton = ({
             onClick?.(e);
             onSelect?.(e);
           },
+          onMouseDown(e) {
+            e.preventDefault();
+          },
           onKeyDown(e) {
             if (e.key === `Enter`) {
               if (closeOnSelect) {
