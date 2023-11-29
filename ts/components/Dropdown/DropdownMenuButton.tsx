@@ -5,15 +5,15 @@ import classNames from 'classnames';
 import { Icons } from '../../types/icons';
 
 interface DropdownMenuButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, `className` | `onSelect`> {
+  extends Omit<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    `className` | `onClick` | `onKeyDown` | `onMouseDown` | `onSelect`
+  > {
   buttonClassName?: string;
   children?: JSX.Element[] | JSX.Element;
   className?: string;
   iconName?: Icons;
   label: string;
-  onClick?: (e: any) => void;
-  onKeyDown?: (e: KeyboardEvent) => void;
-  onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
   onSelect?: (e?: MouseEvent<HTMLElement> | KeyboardEvent | undefined) => void;
   useSelect?: string;
   variant?: `default` | `negative`;
@@ -26,9 +26,6 @@ export const DropdownMenuButton = ({
   className,
   iconName,
   label,
-  onClick,
-  onKeyDown,
-  onMouseDown,
   onSelect,
   closeOnSelect = true,
   variant = `default`,
@@ -58,14 +55,12 @@ export const DropdownMenuButton = ({
               setOpen(false);
             }
             onSelect?.(e);
-            onClick?.(e);
           },
           onMouseDown(e) {
             if (closeOnSelect) {
               setOpen(false);
             }
             onSelect?.(e);
-            onMouseDown?.(e);
           },
           onKeyDown(e) {
             if (e.key === `Enter`) {
@@ -73,7 +68,6 @@ export const DropdownMenuButton = ({
                 setOpen(false);
               }
               onSelect?.(e);
-              onKeyDown?.(e);
             }
           },
         })}
