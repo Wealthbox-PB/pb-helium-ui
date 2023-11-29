@@ -25,7 +25,7 @@ import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 export var DropdownMenuButton = function (_a) {
-    var buttonClassName = _a.buttonClassName, children = _a.children, className = _a.className, iconName = _a.iconName, label = _a.label, onClick = _a.onClick, _b = _a.closeOnClick, closeOnClick = _b === void 0 ? true : _b, _c = _a.variant, variant = _c === void 0 ? "default" : _c, props = __rest(_a, ["buttonClassName", "children", "className", "iconName", "label", "onClick", "closeOnClick", "variant"]);
+    var buttonClassName = _a.buttonClassName, children = _a.children, className = _a.className, iconName = _a.iconName, label = _a.label, onClick = _a.onClick, onKeyDown = _a.onKeyDown, onMouseDown = _a.onMouseDown, onSelect = _a.onSelect, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, _c = _a.variant, variant = _c === void 0 ? "default" : _c, props = __rest(_a, ["buttonClassName", "children", "className", "iconName", "label", "onClick", "onKeyDown", "onMouseDown", "onSelect", "closeOnSelect", "variant"]);
     var _d = useDropdownContext(), activeIndex = _d.activeIndex, getItemProps = _d.getItemProps, setOpen = _d.setOpen;
     var _e = useListItem({ label: label }), ref = _e.ref, index = _e.index;
     var isActive = activeIndex === index;
@@ -33,12 +33,31 @@ export var DropdownMenuButton = function (_a) {
             'h-dropdown__menu__item--active': isActive,
             'h-dropdown__menu__item--negative': isActive && variant === "negative",
         }) },
-        React.createElement("button", __assign({ className: classNames("h-dropdown__menu__item__cta", buttonClassName), ref: ref, tabIndex: isActive ? 0 : -1, role: "menuitem" }, getItemProps({
+        React.createElement("button", __assign({}, props, { className: classNames("h-dropdown__menu__item__cta", buttonClassName), ref: ref, tabIndex: isActive ? 0 : -1, role: "menuitem" }, getItemProps({
             onClick: function (e) {
-                closeOnClick ? setOpen(false) : function () { };
-                onClick(e);
+                if (closeOnSelect) {
+                    setOpen(false);
+                }
+                onSelect === null || onSelect === void 0 ? void 0 : onSelect(e);
+                onClick === null || onClick === void 0 ? void 0 : onClick(e);
             },
-        }), props), children || (React.createElement(React.Fragment, null,
+            onMouseDown: function (e) {
+                if (closeOnSelect) {
+                    setOpen(false);
+                }
+                onSelect === null || onSelect === void 0 ? void 0 : onSelect(e);
+                onMouseDown === null || onMouseDown === void 0 ? void 0 : onMouseDown(e);
+            },
+            onKeyDown: function (e) {
+                if (e.key === "Enter") {
+                    if (closeOnSelect) {
+                        setOpen(false);
+                    }
+                    onSelect === null || onSelect === void 0 ? void 0 : onSelect(e);
+                    onKeyDown === null || onKeyDown === void 0 ? void 0 : onKeyDown(e);
+                }
+            },
+        })), children || (React.createElement(React.Fragment, null,
             iconName ? React.createElement("span", { className: "h-icon-".concat(iconName, " me-1") }) : null,
             label)))));
 };

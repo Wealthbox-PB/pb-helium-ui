@@ -1,20 +1,23 @@
-import React, { ButtonHTMLAttributes, MouseEvent } from 'react';
+import React, { ButtonHTMLAttributes, KeyboardEvent, MouseEvent } from 'react';
 import { useListItem } from '@floating-ui/react';
 import { useDropdownContext } from './DropdownContext';
 import classNames from 'classnames';
 import { Icons } from '../../types/icons';
 
 interface DropdownMenuButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, `className` | `onClick`> {
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, `className` | `onSelect`> {
   buttonClassName?: string;
   children?: JSX.Element[] | JSX.Element;
   className?: string;
   iconName?: Icons;
   label: string;
-  onClick: (e?: MouseEvent<HTMLElement>) => void;
+  onClick?: (e: any) => void;
+  onKeyDown?: (e: KeyboardEvent) => void;
+  onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+  onSelect?: (e?: MouseEvent<HTMLElement> | KeyboardEvent | undefined) => void;
   useSelect?: string;
   variant?: `default` | `negative`;
-  closeOnClick?: boolean;
+  closeOnSelect?: boolean;
 }
 
 export const DropdownMenuButton = ({
@@ -24,7 +27,10 @@ export const DropdownMenuButton = ({
   iconName,
   label,
   onClick,
-  closeOnClick = true,
+  onKeyDown,
+  onMouseDown,
+  onSelect,
+  closeOnSelect = true,
   variant = `default`,
   ...props
 }: DropdownMenuButtonProps) => {
@@ -41,17 +47,36 @@ export const DropdownMenuButton = ({
       })}
     >
       <button
+        {...props}
         className={classNames(`h-dropdown__menu__item__cta`, buttonClassName)}
         ref={ref}
         tabIndex={isActive ? 0 : -1}
         role="menuitem"
         {...getItemProps({
           onClick(e) {
-            closeOnClick ? setOpen(false) : () => {};
-            onClick(e);
+            if (closeOnSelect) {
+              setOpen(false);
+            }
+            onSelect?.(e);
+            onClick?.(e);
+          },
+          onMouseDown(e) {
+            if (closeOnSelect) {
+              setOpen(false);
+            }
+            onSelect?.(e);
+            onMouseDown?.(e);
+          },
+          onKeyDown(e) {
+            if (e.key === `Enter`) {
+              if (closeOnSelect) {
+                setOpen(false);
+              }
+              onSelect?.(e);
+              onKeyDown?.(e);
+            }
           },
         })}
-        {...props}
       >
         {children || (
           <>
