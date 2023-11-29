@@ -66,6 +66,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.4.4] - 2023-10-19
 
+### Added
+
+- `DropdownMenuLink` component
+- Icons
+  - `grid-view` svg icon asset
+  - `grid-view--lg` svg icon asset
+  - `event-today` svg icon asset
+  - `event-today--lg` svg icon asset
+
 ### Changed
 
 - Updated `_shadows.scss_` file
@@ -75,15 +84,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Extend props to include `HTMLButtonElement` attributes
   - Added `className`, `buttonClassname`, and `iconName` props
 - Recompiled icon font
-
-### Added
-
-- `DropdownMenuLink` component
-- Icons
-  - `grid-view` svg icon asset
-  - `grid-view--lg` svg icon asset
-  - `event-today` svg icon asset
-  - `event-today--lg` svg icon asset
 
 ## [2.4.3] - 2023-10-06
 
