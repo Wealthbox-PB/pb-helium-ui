@@ -48,6 +48,7 @@ interface DropdownProps {
   onClose?: () => void;
   initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
   returnFocus?: boolean | undefined;
+  resetActiveIndex?: boolean | undefined;
 }
 
 const Dropdown = ({
@@ -69,6 +70,7 @@ const Dropdown = ({
   returnFocus = true,
   virtualFocus = false,
   toggleOpenOnOpenerClick = true,
+  resetActiveIndex = true,
 }: DropdownProps) => {
   const [open, setOpen] = useState(openProp);
   const previousOpenState = useRef(open);
@@ -156,8 +158,10 @@ const Dropdown = ({
   );
 
   useEffect(() => {
-    setActiveIndex(0);
-  }, [children]);
+    if (resetActiveIndex) {
+      setActiveIndex(0);
+    }
+  }, [children, resetActiveIndex]);
 
   return (
     <>

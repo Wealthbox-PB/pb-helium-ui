@@ -15,12 +15,12 @@ import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offse
 import { DropdownContext } from './DropdownContext';
 import { Portal } from '../Portal';
 var Dropdown = function (_a) {
-    var children = _a.children, className = _a.className, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g, _h = _a.typeahead, typeaheadProp = _h === void 0 ? true : _h, _j = _a.onOpen, onOpen = _j === void 0 ? function () { } : _j, _k = _a.onClose, onClose = _k === void 0 ? function () { } : _k, initialFocusEl = _a.initialFocusEl, _l = _a.returnFocus, returnFocus = _l === void 0 ? true : _l, _m = _a.virtualFocus, virtualFocus = _m === void 0 ? false : _m, _o = _a.toggleOpenOnOpenerClick, toggleOpenOnOpenerClick = _o === void 0 ? true : _o;
-    var _p = useState(openProp), open = _p[0], setOpen = _p[1];
+    var children = _a.children, className = _a.className, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g, _h = _a.typeahead, typeaheadProp = _h === void 0 ? true : _h, _j = _a.onOpen, onOpen = _j === void 0 ? function () { } : _j, _k = _a.onClose, onClose = _k === void 0 ? function () { } : _k, initialFocusEl = _a.initialFocusEl, _l = _a.returnFocus, returnFocus = _l === void 0 ? true : _l, _m = _a.virtualFocus, virtualFocus = _m === void 0 ? false : _m, _o = _a.toggleOpenOnOpenerClick, toggleOpenOnOpenerClick = _o === void 0 ? true : _o, _p = _a.resetActiveIndex, resetActiveIndex = _p === void 0 ? true : _p;
+    var _q = useState(openProp), open = _q[0], setOpen = _q[1];
     var previousOpenState = useRef(open);
     var onOpenCallback = useCallback(onOpen, [onOpen]);
     var onCloseCallback = useCallback(onClose, [onClose]);
-    var _q = useState(0), activeIndex = _q[0], setActiveIndex = _q[1];
+    var _r = useState(0), activeIndex = _r[0], setActiveIndex = _r[1];
     useEffect(function () {
         setOpen(openProp);
     }, [openProp]);
@@ -30,7 +30,7 @@ var Dropdown = function (_a) {
         }
         previousOpenState.current = open;
     }, [open, onOpenCallback, onCloseCallback]);
-    var _r = useFloating({
+    var _s = useFloating({
         open: open,
         whileElementsMounted: autoUpdate,
         placement: placement,
@@ -60,7 +60,7 @@ var Dropdown = function (_a) {
                 setOpen(open);
             }
         },
-    }), x = _r.x, y = _r.y, _s = _r.refs, setReference = _s.setReference, setFloating = _s.setFloating, strategy = _r.strategy, context = _r.context;
+    }), x = _s.x, y = _s.y, _t = _s.refs, setReference = _t.setReference, setFloating = _t.setFloating, strategy = _s.strategy, context = _s.context;
     var elementsRef = React.useRef([]);
     var labelsRef = React.useRef([]);
     var listNavigation = useListNavigation(context, {
@@ -76,16 +76,18 @@ var Dropdown = function (_a) {
         activeIndex: activeIndex,
         onMatch: setActiveIndex,
     });
-    var _t = useInteractions([
+    var _u = useInteractions([
         useDismiss(context, { enabled: dismissible }),
         useClick(context),
         listNavigation,
         typeahead,
-    ]), getReferenceProps = _t.getReferenceProps, getFloatingProps = _t.getFloatingProps, getItemProps = _t.getItemProps;
+    ]), getReferenceProps = _u.getReferenceProps, getFloatingProps = _u.getFloatingProps, getItemProps = _u.getItemProps;
     var dropdownContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, setOpen: setOpen }); }, [activeIndex, getItemProps, setOpen]);
     useEffect(function () {
-        setActiveIndex(0);
-    }, [children]);
+        if (resetActiveIndex) {
+            setActiveIndex(0);
+        }
+    }, [children, resetActiveIndex]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ open: open, ref: setReference, activeIndex: activeIndex }, getReferenceProps({
             onClick: function (e) {

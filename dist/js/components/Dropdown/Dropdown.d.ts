@@ -27,6 +27,7 @@ interface DropdownProps {
     onClose?: () => void;
     initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
     returnFocus?: boolean | undefined;
+    resetActiveIndex?: boolean | undefined;
 }
-declare const Dropdown: ({ children, className, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, returnFocus, virtualFocus, toggleOpenOnOpenerClick, }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ children, className, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, returnFocus, virtualFocus, toggleOpenOnOpenerClick, resetActiveIndex, }: DropdownProps) => React.JSX.Element;
 export { Dropdown };
