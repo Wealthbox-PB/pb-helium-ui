@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useDialog } from './useDialog';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
+import { CSSTransition } from 'react-transition-group';
 
 interface ModalDialogProps {
   /** Content for the dialog */
@@ -61,17 +62,35 @@ const ModalDialog = ({
     trapPaused,
   });
 
+  const timeout = 240;
+  const nodeRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setVisible(true);
+    }
+  }, [open]);
+
   return (
     <>
-      {open ? (
+      {open || visible ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
-            <div {...getDialogRootProps()}>
-              <div {...getDialogContainerProps()}>
-                {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
-                <div {...getDialogProps()}>{children}</div>
+            <CSSTransition
+              nodeRef={nodeRef}
+              in={open && visible}
+              timeout={timeout}
+              classNames="h-dialog"
+              onExited={() => setVisible(false)}
+            >
+              <div {...getDialogRootProps()} ref={nodeRef}>
+                <div {...getDialogContainerProps()}>
+                  {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
+                  <div {...getDialogProps()}>{children}</div>
+                </div>
               </div>
-            </div>
+            </CSSTransition>
           </Portal>
         </DialogContext.Provider>
       ) : null}

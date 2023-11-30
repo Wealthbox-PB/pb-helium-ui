@@ -1,3 +1,30 @@
+.h-dialog-enter {
+  opacity: 0;
+}
+
+.h-dialog-enter-active {
+  opacity: 1;
+  transition: opacity 240ms;
+}
+
+.h-dialog-enter-done {
+  // display: block;
+  opacity: 1;
+}
+
+.h-dialog-exit {
+  opacity: 1;
+  transition: opacity 240ms;
+}
+
+.h-dialog-exit-active {
+  opacity: 0;
+  transition: opacity 240ms;
+}
+
+.h-dialog-exit-done {
+  display: none;
+}
 
 //==========================================================================
 //  Dialog
