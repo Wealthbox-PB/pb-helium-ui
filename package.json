@@ -31,7 +31,9 @@
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
     "stylelint:staged:check": "stylelint --config stylelint.config.js --allow-empty-input",
-    "lint:staged": "lint-staged"
+    "lint:staged": "lint-staged",
+    "docs:generate": "mkdir docs && react-docgen ./ts/components/**/*.tsx -o ./docs/components.json",
+    "docs:clean": "rm -rf ./docs"
   },
   "lint-staged": {
     "scss/**/*.{scss,css}": "yarn stylelint:staged:check"
