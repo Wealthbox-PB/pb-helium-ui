@@ -1,31 +1,3 @@
-.h-dialog-enter {
-  opacity: 0;
-}
-
-.h-dialog-enter-active {
-  opacity: 1;
-  transition: opacity 240ms;
-}
-
-.h-dialog-enter-done {
-  // display: block;
-  opacity: 1;
-}
-
-.h-dialog-exit {
-  opacity: 1;
-  transition: opacity 240ms;
-}
-
-.h-dialog-exit-active {
-  opacity: 0;
-  transition: opacity 240ms;
-}
-
-.h-dialog-exit-done {
-  display: none;
-}
-
 //==========================================================================
 //  Dialog
 //==========================================================================
@@ -230,4 +202,76 @@
 .h-dialog__footer-cta-container {
   display: flex;
   justify-content: flex-end;
+}
+
+//////////////////////////////////////////////////////////////////////
+/// Dialog Animations
+//////////////////////////////////////////////////////////////////////
+
+.h-dialog-enter,
+.h-dialog-appear {
+  .h-dialog__el,
+  .h-dialog__backdrop {
+    opacity: 0;
+  }
+
+  .h-dialog__el {
+    transform: translateY(2rem);
+  }
+
+  .h-dialog__el.h-modal-animation--slide-and-fade-from-right {
+    transform: translateY(0);
+    transform: translateX(1rem);
+  }
+}
+
+.h-dialog-appear-active,
+.h-dialog-enter-active {
+  .h-dialog__el,
+  .h-dialog__backdrop {
+    opacity: 1;
+    transition: all 240ms ease-in-out;
+  }
+
+  .h-dialog__el {
+    transform: translateY(0);
+  }
+
+  .h-dialog__el.h-modal-animation--slide-and-fade-from-right {
+    transform: translateY(0);
+    transform: translateX(0);
+  }
+}
+
+.h-dialog-exit {
+  .h-dialog__el,
+  .h-dialog__backdrop {
+    opacity: 1;
+  }
+
+  .h-dialog__el {
+    transform: translateY(0);
+  }
+
+  .h-dialog__el.h-modal-animation--slide-and-fade-from-right {
+    transform: translateY(0);
+    transform: translateX(0);
+  }
+}
+
+.h-dialog-exit-active {
+  .h-dialog__el,
+  .h-dialog__backdrop {
+    opacity: 0;
+    transition: all 240ms ease-in-out;
+  }
+
+  .h-dialog__el {
+    transform: translateY(1rem);
+  }
+
+  .h-dialog__el.h-modal-animation--slide-and-fade-from-right {
+    transform: translateY(0);
+    transform: translateX(1rem);
+  }
 }
