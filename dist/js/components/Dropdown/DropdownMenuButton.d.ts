@@ -6,9 +6,9 @@ interface DropdownMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEl
     className?: string;
     iconName?: Icons;
     label: string;
-    onClick?: (e?: MouseEvent<HTMLElement>) => void;
-    onEnter?: (e?: KeyboardEvent) => void;
-    onSelect?: (e?: MouseEvent<HTMLElement> | KeyboardEvent | undefined) => void;
+    onClick?: (e: MouseEvent<HTMLElement>) => void;
+    onEnter?: (e: KeyboardEvent) => void;
+    onSelect?: (e: MouseEvent<HTMLElement> | KeyboardEvent | undefined) => void;
     useSelect?: string;
     variant?: `default` | `negative`;
     closeOnSelect?: boolean;
