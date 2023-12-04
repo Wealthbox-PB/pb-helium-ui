@@ -2,8 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 
 interface DialogFooterProps {
+  /** Content for the dialog footer. */
   children?: string | JSX.Element[] | JSX.Element;
+  /** Controls whether or not the dialog footer should have a light-gray background. */
   footerBackground?: boolean;
+  /** Adds class names to the dialog footer element. */
   footerClassName?: string;
 }
 

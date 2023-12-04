@@ -5,16 +5,27 @@ import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
 
 interface ModalDialogProps {
-  backdrop?: boolean;
-  backdropClassName?: string;
+  /** Content for the dialog */
   children: string | JSX.Element[] | JSX.Element;
+  /** Callback function when the dialog is closed */
   closeDialog: () => void;
-  dialogClassName?: string;
-  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined | false;
+  /** Controls whether the dialog is open or not */
   open: boolean;
+  /** Controls whether the dialog have a backdrop overlaying the app. */
+  backdrop?: boolean;
+  /** Adds class names to the backdrop element. */
+  backdropClassName?: string;
+  /** Adds class names to the dialog wrapper element. */
+  dialogClassName?: string;
+  /** Element to focus when the dialog is opened. */
+  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined | false;
+  /** Position of the dialog. Can be "top", "right", "bottom", or "left". Default position is "center". */
   position?: string;
+  /** Element to focus when the dialog is closed. */
   returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined | false;
+  /** Controls the size of the dialog. Default size is "medium". */
   size?: string;
+  /** Controls whether the focus should be trapped inside of the dialog. */
   trapPaused?: boolean;
 }
 

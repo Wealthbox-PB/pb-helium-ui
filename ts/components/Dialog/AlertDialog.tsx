@@ -5,14 +5,23 @@ import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 
 interface AlertDialogProps {
-  backdropClassName?: string;
+  /** Content for the dialog. */
   children: string | JSX.Element[] | JSX.Element;
+  /** Callback function when the dialog is closed. */
   closeDialog: () => void;
-  dialogClassName?: string;
-  leastDestructiveRef?: any;
+  /** Controls whether the dialog is open or not. */
   open: boolean;
+  /** Adds class names to the backdrop element. */
+  backdropClassName?: string;
+  /** Adds class names to the dialog wrapper element. */
+  dialogClassName?: string;
+  /** Element to focus when the dialog is opened. */
+  leastDestructiveRef?: any;
+  /** Position of the dialog. Can be "top", "right", "bottom", or "left". Default position is "center". */
   position?: string;
+  /** Element to focus when the dialog is closed. */
   returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
+  /** Controls the size of the dialog. Default size is "medium". */
   size?: string;
 }
 
