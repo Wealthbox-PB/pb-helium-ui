@@ -81,7 +81,7 @@ const ModalDialog = ({
               nodeRef={nodeRef}
               in={open && visible}
               timeout={timeout}
-              classNames="h-dialog"
+              classNames="h-dialog-"
               onExited={() => setVisible(false)}
             >
               <div {...getDialogRootProps()} ref={nodeRef}>
