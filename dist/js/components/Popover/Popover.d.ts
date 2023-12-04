@@ -2,6 +2,8 @@ import React from 'react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 interface RenderOpenerProps {
     ref: (node: ReferenceType | null) => void;
+    onClick?: (e: any) => void;
+    onKeyPress?: (e: any) => void;
 }
 interface PopoverProps {
     renderOpener: (props: RenderOpenerProps) => JSX.Element | void;

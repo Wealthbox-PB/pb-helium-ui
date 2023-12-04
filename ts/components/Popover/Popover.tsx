@@ -22,6 +22,8 @@ import { Portal } from '../Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
+  onClick?: (e: any) => void;
+  onKeyPress?: (e: any) => void;
 }
 
 interface PopoverProps {

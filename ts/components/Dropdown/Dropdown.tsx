@@ -27,6 +27,7 @@ interface RenderOpenerProps {
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
   onKeyDown?: (e: any) => void;
+  onClick?: (e: any) => void;
 }
 
 interface DropdownProps {
