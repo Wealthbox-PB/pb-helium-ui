@@ -16,10 +16,13 @@ const sizeClasses: { [key: string]: string } = {
   full: `full-screen`,
 };
 
+export type AnimationDirection = `up` | `down` | `left` | `right` | `none`;
+
 export function useDialog({
   backdrop,
-  closeDialog = () => {},
+  closeDialog = () => { },
   dialogClassName,
+  animationClassName,
   dialogRole,
   initialFocusEl,
   open,
@@ -109,9 +112,9 @@ export function useDialog({
     return {
       ref: dialogRef,
       tabIndex: -1,
-      className: classNames(`${dialogContainerClassname}__el`, dialogClassName),
+      className: classNames(`${dialogContainerClassname}__el`, dialogClassName, animationClassName),
     };
-  }, [dialogClassName]);
+  }, [dialogClassName, animationClassName]);
 
   useEffect(() => {
     const container = dialogContainerRef.current;

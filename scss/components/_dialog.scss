@@ -215,12 +215,24 @@
     opacity: 0;
   }
 
-  .h-dialog__el {
+  .h-dialog__fade-in-and-none {
+    transform: translate(0);
+  }
+
+  .h-dialog__fade-in-and-up {
     transform: translate(0, 2rem);
   }
 
-  .h-dialog__el.h-dialog__el--slide-and-fade-from-right {
+  .h-dialog__fade-in-and-left {
     transform: translate(2rem, 0);
+  }
+
+  .h-dialog__fade-in-and-right {
+    transform: translate(-2rem, 0);
+  }
+
+  .h-dialog__fade-in-and-down {
+    transform: translate(0, -2rem);
   }
 }
 
@@ -232,11 +244,11 @@
     transition: all $h-animation-duration-lg $h-animation-timing-ease-in-out;
   }
 
-  .h-dialog__el {
-    transform: translate(0, 0);
-  }
-
-  .h-dialog__el.h-dialog__el--slide-and-fade-from-right {
+  .h-dialog__fade-in-and-none,
+  .h-dialog__fade-in-and-up,
+  .h-dialog__fade-in-and-left,
+  .h-dialog__fade-in-and-right,
+  .h-dialog__fade-in-and-down {
     transform: translate(0, 0);
   }
 }
@@ -247,11 +259,11 @@
     opacity: 1;
   }
 
-  .h-dialog__el {
-    transform: translate(0, 0);
-  }
-
-  .h-dialog__el.h-dialog__el--slide-and-fade-from-right {
+  .h-dialog__fade-in-and-none,
+  .h-dialog__fade-in-and-up,
+  .h-dialog__fade-in-and-left,
+  .h-dialog__fade-in-and-right,
+  .h-dialog__fade-in-and-down {
     transform: translate(0, 0);
   }
 }
@@ -263,11 +275,23 @@
     transition: all $h-animation-duration-lg $h-animation-timing-ease-in-out;
   }
 
-  .h-dialog__el {
+  .h-dialog__fade-in-and-none {
+    transform: translate(0);
+  }
+
+  .h-dialog__fade-in-and-up {
     transform: translate(0, 2rem);
   }
 
-  .h-dialog__el.h-dialog__el--slide-and-fade-from-right {
+  .h-dialog__fade-in-and-left {
     transform: translate(2rem, 0);
+  }
+
+  .h-dialog__fade-in-and-right {
+    transform: translate(-2rem, 0);
+  }
+
+  .h-dialog__fade-in-and-down {
+    transform: translate(0, -2rem);
   }
 }

@@ -1,6 +1,12 @@
 import React from 'react';
+import { AnimationDirection } from './useDialog';
 interface AlertDialogProps {
+<<<<<<< HEAD
     /** Content for the dialog. */
+=======
+    animationDirection?: AnimationDirection;
+    backdropClassName?: string;
+>>>>>>> bc7978c (add animationDirection prop to dialogs)
     children: string | JSX.Element[] | JSX.Element;
     /** Callback function when the dialog is closed. */
     closeDialog: () => void;
@@ -19,5 +25,5 @@ interface AlertDialogProps {
     /** Controls the size of the dialog. Default size is "medium". */
     size?: string;
 }
-export declare const AlertDialog: ({ backdropClassName, children, closeDialog, dialogClassName, leastDestructiveRef, open, position, returnFocusEl, size, }: AlertDialogProps) => React.JSX.Element;
+export declare const AlertDialog: ({ animationDirection, backdropClassName, children, closeDialog, dialogClassName, leastDestructiveRef, open, position, returnFocusEl, size, }: AlertDialogProps) => React.JSX.Element;
 export {};

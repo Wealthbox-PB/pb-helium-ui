@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { AlertDialog } from './AlertDialog';
+import { AnimationDirection } from './useDialog';
 import { DialogFooter } from './DialogFooter';
 import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';
@@ -7,6 +8,7 @@ import { ButtonSize, ButtonVariant } from '../Button';
 import { DialogFooterActions } from './DialogFooterActions';
 
 interface SimpleAlertDialogProps {
+  animationDirection?: AnimationDirection;
   /** Content for the dialog. */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the dialog is closed. */
@@ -46,6 +48,7 @@ interface SimpleAlertDialogProps {
 }
 
 export const SimpleAlertDialog = ({
+  animationDirection = `up`,
   backdropClassName,
   buttonSize,
   cancel = ``,
@@ -58,8 +61,8 @@ export const SimpleAlertDialog = ({
   dialogClassName,
   header = ``,
   headerClassName,
-  onCancel = () => {},
-  onConfirm = () => {},
+  onCancel = () => { },
+  onConfirm = () => { },
   open,
   position,
   returnFocusEl,
@@ -70,6 +73,7 @@ export const SimpleAlertDialog = ({
   return (
     <AlertDialog
       {...{
+        animationDirection,
         backdropClassName,
         closeDialog,
         dialogClassName,

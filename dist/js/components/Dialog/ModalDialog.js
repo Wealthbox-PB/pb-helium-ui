@@ -16,11 +16,12 @@ import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
 var ModalDialog = function (_a) {
-    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, _d = _a.backdrop, backdrop = _d === void 0 ? true : _d, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _e = _a.trapPaused, trapPaused = _e === void 0 ? false : _e;
-    var _f = useDialog({
+    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, _d = _a.animationDirection, animationDirection = _d === void 0 ? "up" : _d, _e = _a.backdrop, backdrop = _e === void 0 ? true : _e, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _f = _a.trapPaused, trapPaused = _f === void 0 ? false : _f;
+    var _g = useDialog({
         backdrop: backdrop,
         closeDialog: closeDialog,
         dialogClassName: dialogClassName,
+        animationClassName: "h-dialog__fade-in-and-".concat(animationDirection),
         dialogRole: "dialog",
         initialFocusEl: initialFocusEl,
         open: open,
@@ -28,10 +29,10 @@ var ModalDialog = function (_a) {
         returnFocusEl: returnFocusEl,
         size: size,
         trapPaused: trapPaused,
-    }), getDialogRootProps = _f.getDialogRootProps, getDialogContainerProps = _f.getDialogContainerProps, getDialogProps = _f.getDialogProps, ariaLabelSelector = _f.ariaLabelSelector, ariaDescriptionSelector = _f.ariaDescriptionSelector;
+    }), getDialogRootProps = _g.getDialogRootProps, getDialogContainerProps = _g.getDialogContainerProps, getDialogProps = _g.getDialogProps, ariaLabelSelector = _g.ariaLabelSelector, ariaDescriptionSelector = _g.ariaDescriptionSelector;
     var timeout = 240;
     var nodeRef = useRef(null);
-    var _g = useState(false), visible = _g[0], setVisible = _g[1];
+    var _h = useState(false), visible = _h[0], setVisible = _h[1];
     useEffect(function () {
         if (open) {
             setVisible(true);

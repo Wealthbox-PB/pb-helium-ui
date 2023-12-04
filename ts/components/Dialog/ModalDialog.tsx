@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useDialog } from './useDialog';
+import { useDialog, AnimationDirection } from './useDialog';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
@@ -8,6 +8,7 @@ import { CSSTransition } from 'react-transition-group';
 interface ModalDialogProps {
   animateIn?: boolean;
   animateOut?: boolean;
+  animationDirection?: AnimationDirection;
   /** Content for the dialog */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the dialog is closed */
@@ -35,6 +36,7 @@ interface ModalDialogProps {
 const ModalDialog = ({
   animateIn = true,
   animateOut = true,
+  animationDirection = `up`,
   backdrop = true,
   backdropClassName,
   children,
@@ -57,6 +59,7 @@ const ModalDialog = ({
     backdrop,
     closeDialog,
     dialogClassName,
+    animationClassName: `h-dialog__fade-in-and-${animationDirection}`,
     dialogRole: `dialog`,
     initialFocusEl,
     open,

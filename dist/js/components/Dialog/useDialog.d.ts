@@ -1,8 +1,10 @@
 /// <reference types="react" />
-export declare function useDialog({ backdrop, closeDialog, dialogClassName, dialogRole, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: {
+export type AnimationDirection = `up` | `down` | `left` | `right` | `none`;
+export declare function useDialog({ backdrop, closeDialog, dialogClassName, animationClassName, dialogRole, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: {
     backdrop: any;
     closeDialog?: (() => void) | undefined;
     dialogClassName: any;
+    animationClassName: any;
     dialogRole: any;
     initialFocusEl: any;
     open: any;

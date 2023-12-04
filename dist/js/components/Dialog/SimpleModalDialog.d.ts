@@ -1,6 +1,14 @@
 import React from 'react';
+import { AnimationDirection } from './useDialog';
 interface SimpleModalDialogProps {
+<<<<<<< HEAD
     /** Content for the dialog. */
+=======
+    animationDirection?: AnimationDirection;
+    backdrop?: boolean;
+    backdropClassName?: string;
+    bodyClassName?: string;
+>>>>>>> bc7978c (add animationDirection prop to dialogs)
     children: string | JSX.Element[] | JSX.Element;
     /** Callback function when the dialog is closed. */
     closeDialog: () => void;
@@ -39,5 +47,5 @@ interface SimpleModalDialogProps {
     /** Controls whether the focus should be trapped inside of the dialog. */
     trapPaused?: boolean;
 }
-declare const SimpleModalDialog: ({ backdrop, backdropClassName, bodyClassName, children, closeDialog, closeInHeader, dialogClassName, footer, footerBackground, footerClassName, header, headerClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: SimpleModalDialogProps) => React.JSX.Element;
+declare const SimpleModalDialog: ({ animationDirection, backdrop, backdropClassName, bodyClassName, children, closeDialog, closeInHeader, dialogClassName, footer, footerBackground, footerClassName, header, headerClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: SimpleModalDialogProps) => React.JSX.Element;
 export { SimpleModalDialog };

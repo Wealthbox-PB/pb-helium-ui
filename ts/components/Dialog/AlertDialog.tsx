@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
-import { useDialog } from './useDialog';
+import { useDialog, AnimationDirection } from './useDialog';
 import { DialogContext } from './DialogContext';
 
 interface AlertDialogProps {
+  animationDirection?: AnimationDirection;
   /** Content for the dialog. */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the dialog is closed. */
@@ -26,6 +27,7 @@ interface AlertDialogProps {
 }
 
 export const AlertDialog = ({
+  animationDirection = `up`,
   backdropClassName,
   children,
   closeDialog,
@@ -49,6 +51,7 @@ export const AlertDialog = ({
     ariaLabelSelector,
     ariaDescriptionSelector,
   } = useDialog({
+    animationClassName: `h-dialog__fade-in-and-${animationDirection}`,
     backdrop: true,
     closeDialog,
     dialogClassName,
@@ -72,7 +75,7 @@ export const AlertDialog = ({
           <Portal className="h-dialog-portal">
             <div {...getDialogRootProps()}>
               <div {...getDialogContainerProps()}>
-                <DialogBackdrop className={backdropClassName} closeDialog={() => {}} />
+                <DialogBackdrop className={backdropClassName} closeDialog={() => { }} />
                 <div {...getDialogProps()}>{children}</div>
               </div>
             </div>

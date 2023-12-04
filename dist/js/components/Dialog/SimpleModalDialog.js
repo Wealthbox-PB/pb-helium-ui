@@ -15,8 +15,9 @@ import { DialogBody } from './DialogBody';
 import { DialogFooter } from './DialogFooter';
 import { ModalDialog } from './ModalDialog';
 var SimpleModalDialog = function (_a) {
-    var _b = _a.backdrop, backdrop = _b === void 0 ? true : _b, backdropClassName = _a.backdropClassName, bodyClassName = _a.bodyClassName, children = _a.children, closeDialog = _a.closeDialog, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, dialogClassName = _a.dialogClassName, footer = _a.footer, _d = _a.footerBackground, footerBackground = _d === void 0 ? true : _d, footerClassName = _a.footerClassName, header = _a.header, headerClassName = _a.headerClassName, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _e = _a.trapPaused, trapPaused = _e === void 0 ? false : _e;
+    var _b = _a.animationDirection, animationDirection = _b === void 0 ? "up" : _b, _c = _a.backdrop, backdrop = _c === void 0 ? true : _c, backdropClassName = _a.backdropClassName, bodyClassName = _a.bodyClassName, children = _a.children, closeDialog = _a.closeDialog, _d = _a.closeInHeader, closeInHeader = _d === void 0 ? true : _d, dialogClassName = _a.dialogClassName, footer = _a.footer, _e = _a.footerBackground, footerBackground = _e === void 0 ? true : _e, footerClassName = _a.footerClassName, header = _a.header, headerClassName = _a.headerClassName, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _f = _a.trapPaused, trapPaused = _f === void 0 ? false : _f;
     return (React.createElement(ModalDialog, __assign({}, {
+        animationDirection: animationDirection,
         backdrop: backdrop,
         backdropClassName: backdropClassName,
         closeDialog: closeDialog,

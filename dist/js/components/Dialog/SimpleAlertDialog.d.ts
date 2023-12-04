@@ -1,7 +1,16 @@
 import React from 'react';
+import { AnimationDirection } from './useDialog';
 import { ButtonSize, ButtonVariant } from '../Button';
 interface SimpleAlertDialogProps {
+<<<<<<< HEAD
     /** Content for the dialog. */
+=======
+    animationDirection?: AnimationDirection;
+    backdropClassName?: string;
+    buttonSize?: ButtonSize;
+    cancel?: string;
+    cancelVariant?: ButtonVariant;
+>>>>>>> bc7978c (add animationDirection prop to dialogs)
     children: string | JSX.Element[] | JSX.Element;
     /** Callback function when the dialog is closed. */
     closeDialog: () => void;
@@ -38,5 +47,5 @@ interface SimpleAlertDialogProps {
     /** Controls the size of the dialog. Default size is "medium". */
     size?: string;
 }
-export declare const SimpleAlertDialog: ({ backdropClassName, buttonSize, cancel, cancelVariant, children, confirm, confirmVariant, closeInHeader, closeDialog, dialogClassName, header, headerClassName, onCancel, onConfirm, open, position, returnFocusEl, size, }: SimpleAlertDialogProps) => React.JSX.Element;
+export declare const SimpleAlertDialog: ({ animationDirection, backdropClassName, buttonSize, cancel, cancelVariant, children, confirm, confirmVariant, closeInHeader, closeDialog, dialogClassName, header, headerClassName, onCancel, onConfirm, open, position, returnFocusEl, size, }: SimpleAlertDialogProps) => React.JSX.Element;
 export {};
