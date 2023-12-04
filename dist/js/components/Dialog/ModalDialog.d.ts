@@ -1,6 +1,13 @@
 import React from 'react';
 interface ModalDialogProps {
+<<<<<<< HEAD
     /** Content for the dialog */
+=======
+    animateIn?: boolean;
+    animateOut?: boolean;
+    backdrop?: boolean;
+    backdropClassName?: string;
+>>>>>>> d30f40d (add option to disable enter and exit animations)
     children: string | JSX.Element[] | JSX.Element;
     /** Callback function when the dialog is closed */
     closeDialog: () => void;
@@ -23,5 +30,5 @@ interface ModalDialogProps {
     /** Controls whether the focus should be trapped inside of the dialog. */
     trapPaused?: boolean;
 }
-declare const ModalDialog: ({ backdrop, backdropClassName, children, closeDialog, dialogClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: ModalDialogProps) => React.JSX.Element;
+declare const ModalDialog: ({ animateIn, animateOut, backdrop, backdropClassName, children, closeDialog, dialogClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: ModalDialogProps) => React.JSX.Element;
 export { ModalDialog };

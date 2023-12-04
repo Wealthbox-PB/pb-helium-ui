@@ -6,6 +6,8 @@ import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
 
 interface ModalDialogProps {
+  animateIn?: boolean;
+  animateOut?: boolean;
   /** Content for the dialog */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the dialog is closed */
@@ -31,6 +33,8 @@ interface ModalDialogProps {
 }
 
 const ModalDialog = ({
+  animateIn = true,
+  animateOut = true,
   backdrop = true,
   backdropClassName,
   children,
@@ -80,7 +84,10 @@ const ModalDialog = ({
             <CSSTransition
               nodeRef={nodeRef}
               in={open && visible}
+              appear={animateIn || animateOut}
               timeout={timeout}
+              enter={animateIn}
+              exit={animateOut}
               classNames="h-dialog-"
               onExited={() => setVisible(false)}
             >
