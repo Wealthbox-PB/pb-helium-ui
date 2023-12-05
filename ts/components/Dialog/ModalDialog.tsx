@@ -37,7 +37,7 @@ interface ModalDialogProps {
 const ModalDialog = ({
   animateIn = true,
   animateOut = true,
-  animationDirection = `right`,
+  animationDirection = `up`,
   backdrop = true,
   backdropClassName,
   children,
