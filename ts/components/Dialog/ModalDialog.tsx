@@ -70,7 +70,7 @@ const ModalDialog = ({
     trapPaused,
   });
 
-  const timeout = 240;
+  const timeout = 250;
   const nodeRef = useRef(null);
   const [visible, setVisible] = useState(false);
 

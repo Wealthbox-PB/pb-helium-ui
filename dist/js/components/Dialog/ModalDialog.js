@@ -30,7 +30,7 @@ var ModalDialog = function (_a) {
         size: size,
         trapPaused: trapPaused,
     }), getDialogRootProps = _g.getDialogRootProps, getDialogContainerProps = _g.getDialogContainerProps, getDialogProps = _g.getDialogProps, ariaLabelSelector = _g.ariaLabelSelector, ariaDescriptionSelector = _g.ariaDescriptionSelector;
-    var timeout = 240;
+    var timeout = 250;
     var nodeRef = useRef(null);
     var _h = useState(false), visible = _h[0], setVisible = _h[1];
     useEffect(function () {
