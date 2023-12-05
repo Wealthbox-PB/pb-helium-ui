@@ -16,8 +16,6 @@ const sizeClasses: { [key: string]: string } = {
   full: `full-screen`,
 };
 
-export type AnimationDirection = `up` | `down` | `left` | `right` | `none`;
-
 export function useDialog({
   backdrop,
   closeDialog = () => { },

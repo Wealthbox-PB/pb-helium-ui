@@ -1,5 +1,5 @@
 import React from 'react';
-import { AnimationDirection } from './useDialog';
+import { AnimationDirection } from '../../types/animation_directions';
 import { ButtonSize, ButtonVariant } from '../Button';
 interface SimpleAlertDialogProps {
 <<<<<<< HEAD

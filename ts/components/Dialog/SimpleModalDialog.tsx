@@ -3,7 +3,7 @@ import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';
 import { DialogFooter } from './DialogFooter';
 import { ModalDialog } from './ModalDialog';
-import { AnimationDirection } from './useDialog';
+import { AnimationDirection } from '../../types/animation_directions';
 
 interface SimpleModalDialogProps {
   animationDirection?: AnimationDirection;

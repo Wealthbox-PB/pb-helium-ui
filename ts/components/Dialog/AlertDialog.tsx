@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import { AnimationDirection } from '../../types/animation_directions';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
-import { useDialog, AnimationDirection } from './useDialog';
+import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
 
 interface AlertDialogProps {
