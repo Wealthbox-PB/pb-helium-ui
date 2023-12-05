@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDialog } from './useDialog';
-import { AnimationDirection } from '../../types/animation_directions';
+import { AnimationDirection } from '../../types/types';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
