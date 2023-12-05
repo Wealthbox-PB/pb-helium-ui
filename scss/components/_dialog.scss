@@ -228,11 +228,11 @@
   }
 
   .h-dialog__fade-in-and-right {
-    transform: translate($h-animation-distance-negative-md, 0);
+    transform: translate(-$h-animation-distance-md, 0);
   }
 
   .h-dialog__fade-in-and-down {
-    transform: translate(0, $h-animation-distance-negative-md);
+    transform: translate(0, -$h-animation-distance-md);
   }
 }
 
@@ -288,10 +288,10 @@
   }
 
   .h-dialog__fade-in-and-right {
-    transform: translate($h-animation-distance-negative-md, 0);
+    transform: translate(-$h-animation-distance-md, 0);
   }
 
   .h-dialog__fade-in-and-down {
-    transform: translate(0, $h-animation-distance-negative-md);
+    transform: translate(0, -$h-animation-distance-md);
   }
 }
