@@ -1,6 +1,6 @@
 {
   "name": "helium-ui",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "description": "Design system and component library for Starburst Labs, Inc.",
   "main": "dist/js/index",
   "types": "dist/js/index.d.ts",
