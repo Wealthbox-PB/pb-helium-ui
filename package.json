@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test jest --verbose",
-    "build": "rm -rf ./dist && NODE_ENV=production tsc",
+    "build": "yarn docs:generate && rm -rf ./dist && NODE_ENV=production tsc",
     "watch": "tsc --watch",
     "prettier:check": "prettier --check 'ts/**/*.{ts,js,tsx}'",
     "prettier:fix": "prettier --write 'ts/**/*.{ts,js,tsx}'",
