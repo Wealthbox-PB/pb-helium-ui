@@ -22,7 +22,8 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test jest --verbose",
-    "build": "yarn docs:generate && rm -rf ./dist && NODE_ENV=production tsc",
+    "build": "yarn build:docs && rm -rf ./dist && NODE_ENV=production tsc",
+    "build:docs": "yarn docs:clean && yarn docs:generate && yarn docs:prettify",
     "watch": "tsc --watch",
     "prettier:check": "prettier --check 'ts/**/*.{ts,js,tsx}'",
     "prettier:fix": "prettier --write 'ts/**/*.{ts,js,tsx}'",
@@ -32,7 +33,8 @@
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
     "stylelint:staged:check": "stylelint --config stylelint.config.js --allow-empty-input",
     "lint:staged": "lint-staged",
-    "docs:generate": "yarn docs:clean && mkdir docs && react-docgen ./ts/components/*.tsx ./ts/components/**/*.tsx -o ./docs/components.json",
+    "docs:generate": "mkdir docs && react-docgen \"./ts/components/**/*.ts(x)\" -i [\".ts/components/Portal.tsx\"] -o ./docs/components.json",
+    "docs:prettify": "yarn prettier --write docs/components.json --plugin=prettier-plugin-sort-json",
     "docs:clean": "rm -rf ./docs"
   },
   "lint-staged": {
