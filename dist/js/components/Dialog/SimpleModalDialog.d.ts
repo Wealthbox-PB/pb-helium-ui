@@ -1,14 +1,8 @@
 import React from 'react';
 import { AnimationDirection } from '../../index';
 interface SimpleModalDialogProps {
-<<<<<<< HEAD
-    /** Content for the dialog. */
-=======
     animationDirection?: AnimationDirection;
-    backdrop?: boolean;
-    backdropClassName?: string;
-    bodyClassName?: string;
->>>>>>> bc7978c (add animationDirection prop to dialogs)
+    /** Content for the dialog. */
     children: string | JSX.Element[] | JSX.Element;
     /** Callback function when the dialog is closed. */
     closeDialog: () => void;

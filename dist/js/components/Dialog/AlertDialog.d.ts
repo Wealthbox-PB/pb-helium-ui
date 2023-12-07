@@ -1,12 +1,8 @@
 import React from 'react';
 import { AnimationDirection } from '../../index';
 interface AlertDialogProps {
-<<<<<<< HEAD
-    /** Content for the dialog. */
-=======
     animationDirection?: AnimationDirection;
-    backdropClassName?: string;
->>>>>>> bc7978c (add animationDirection prop to dialogs)
+    /** Content for the dialog. */
     children: string | JSX.Element[] | JSX.Element;
     /** Callback function when the dialog is closed. */
     closeDialog: () => void;

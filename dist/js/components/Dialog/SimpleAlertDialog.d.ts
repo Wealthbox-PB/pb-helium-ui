@@ -2,15 +2,8 @@ import React from 'react';
 import { AnimationDirection } from '../../index';
 import { ButtonSize, ButtonVariant } from '../Button';
 interface SimpleAlertDialogProps {
-<<<<<<< HEAD
-    /** Content for the dialog. */
-=======
     animationDirection?: AnimationDirection;
-    backdropClassName?: string;
-    buttonSize?: ButtonSize;
-    cancel?: string;
-    cancelVariant?: ButtonVariant;
->>>>>>> bc7978c (add animationDirection prop to dialogs)
+    /** Content for the dialog. */
     children: string | JSX.Element[] | JSX.Element;
     /** Callback function when the dialog is closed. */
     closeDialog: () => void;

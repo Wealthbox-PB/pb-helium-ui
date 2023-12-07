@@ -1,15 +1,10 @@
 import React from 'react';
 import { AnimationDirection } from '../../index';
 interface ModalDialogProps {
-<<<<<<< HEAD
-    /** Content for the dialog */
-=======
     animateIn?: boolean;
     animateOut?: boolean;
     animationDirection?: AnimationDirection;
-    backdrop?: boolean;
-    backdropClassName?: string;
->>>>>>> d30f40d (add option to disable enter and exit animations)
+    /** Content for the dialog */
     children: string | JSX.Element[] | JSX.Element;
     /** Callback function when the dialog is closed */
     closeDialog: () => void;
