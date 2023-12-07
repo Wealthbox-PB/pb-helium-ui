@@ -1,5 +1,5 @@
 import React from 'react';
-import { AnimationDirection } from '../../types/types';
+import { AnimationDirection } from '../../index';
 interface SimpleModalDialogProps {
 <<<<<<< HEAD
     /** Content for the dialog. */

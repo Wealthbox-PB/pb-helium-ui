@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { AlertDialog } from './AlertDialog';
-import { AnimationDirection } from '../../types/types';
+import { AnimationDirection } from '../../index';
 import { DialogFooter } from './DialogFooter';
 import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';

@@ -1,3 +1,4 @@
+export { AnimationDirection } from './types/animation_direction';
 export { AlertDialog } from './components/Dialog/AlertDialog';
 export { Badge } from './components/Badge';
 export { Button } from './components/Button';
@@ -10,6 +11,7 @@ export { DropdownMenuButton } from './components/Dropdown/DropdownMenuButton';
 export { DropdownMenuLink } from './components/Dropdown/DropdownMenuLink';
 export { DropdownMenuSeparator } from './components/Dropdown/DropdownMenuSeparator';
 export { HeliumSpinner } from './components/Spinner/Spinner';
+export { Icons } from './types/icons';
 export { IconDropdown } from './components/Dropdown/IconDropdown';
 export { Interstitial } from './components/Interstitial';
 export { Label } from './components/Label';
