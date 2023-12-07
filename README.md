@@ -111,3 +111,11 @@ gem install fontcustom
 2. Run `yarn svgo [PATH_TO_NEW_ICON]` to minimize/compress the svg assets
 3. Run `fontcustom compile` command in the terminal (from the project root directory) to compile all svg assets into a custom font
 4. You should now see the old font files have been removed, a set of new font files has been added, and a re-generated `_iconography.scss` stylesheet
+
+### React Component Documentation Tooling
+
+As part of the build process, we also generate React component documentation later used at https://helium.wealthbox.com. The below are already integrated into the `build` script as well as the pre-commit hook, but here's a list of associated scripts and their use:
+
+- `docs:generate` looks for components within this repository and generates a JSON file using `react-docgen` at `docs/components.json`.
+- `docs:prettify` normalizes the output by running it through `prettier` with `prettier-plugin-sort-json` to handle the usecase where `react-docgen` would randomize the order of the components within the file, creating unnecessary git churn.
+- `docs:clean` removes the `/docs` directory.
