@@ -9,17 +9,29 @@ interface DropdownMenuButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     `className` | `onClick` | `onKeyDown` | `onMouseDown` | `onSelect`
   > {
-  buttonClassName?: string;
-  children?: JSX.Element[] | JSX.Element;
-  className?: string;
-  iconName?: Icons;
+  /** Text used for the dropdown menu item, and for the typeahead matching. Setting children will override
+   * this content. */
   label: string;
+  /** Adds class names to the dropdown menu item button. */
+  buttonClassName?: string;
+  /** Content for the dropdown menu item button. Setting children will override the default behavior of the
+   * label and icon being displayed. */
+  children?: JSX.Element[] | JSX.Element;
+  /** Adds class names to the dropdown menu item. */
+  className?: string;
+  /** Controls whether or not the dropdown menu should close when the item is selected. */
+  closeOnSelect?: boolean;
+  /** Displays an icon to the left of the label. Setting children will override this content. */
+  iconName?: Icons;
+  /** Callback function when the dropdown menu item is clicked. */
   onClick?: (e: MouseEvent<HTMLElement>) => void;
+  /** Callback function when the dropdown menu item is selected using the "Enter" key. */
   onEnter?: (e: KeyboardEvent) => void;
+  /** Callback function when the dropdown menu item is selected via click or "Enter" key. */
   onSelect?: (e: MouseEvent<HTMLElement> | KeyboardEvent | undefined) => void;
   useSelect?: string;
+  /** Controls the variant of the dropdown menu item. */
   variant?: `default` | `negative`;
-  closeOnSelect?: boolean;
 }
 
 export const DropdownMenuButton = ({

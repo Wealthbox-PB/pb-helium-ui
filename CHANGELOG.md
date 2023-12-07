@@ -5,6 +5,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.4] - 2023-12-05
+
+### Added
+
+- Added `react-docgen` package
+- Added yarn docgen scripts:
+  - `docs:generate` to generate a combined JSON file of all component metadata
+  - `docs:prettify` to prettify and sort the output of `docs/components.json` for deterministic component ordering and predictable results
+  - `docs:clean` to remove the generated file (in case it somehow gets corrupted)
+- Added `build:docs` script to prepare the documentation
+- Updated `yarn build` script to also run `build:docs` automatically
+- Added `build` to `pre-commit` to ensure you can't commit changes to components without also building the JS, and updating the generated docs
+- Added descriptions to props for the following interfaces:
+  - `AlertDialogProps`
+  - `DialogBodyProps`
+  - `DialogFooterProps`
+  - `DialogHeaderProps`
+  - `ModalDialogProps`
+  - `SimpleAlertDialogProps`
+  - `DropdownProps`
+  - `DropdownMenuButtonProps`
+  - `DropdownMenuLinkProps`
+
+### Removed
+
+- Removed unused `useSelect` prop from `DropdownMenuButton` and `DropdownMenuLink` components
+
 ## [2.5.3] - 2023-12-01
 
 ### Changed
