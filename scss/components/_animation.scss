@@ -1,3 +1,87 @@
+//////////////////////////////////////////////////////////////////////
+/// CSSTransition classes
+//////////////////////////////////////////////////////////////////////
+
+$base-transition-1: transform $h-animation-duration-lg $h-animation-timing-ease-in-out;
+$base-transition-2: opacity $h-animation-duration-lg $h-animation-timing-ease-in-out;
+
+// Classes for starting entry transition state
+.h-transition--enter,
+.h-transition--appear {
+  &.h-transition--fade-in,
+  .h-transition--fade-in {
+    opacity: 0;
+  }
+
+  @each $direction, $values in $h-transition-directions {
+    $static-value: map-get($values, staticvalue);
+    $dynamic-value: map-get($values, dynamicvalue);
+    $sign: map-get($values, sign);
+
+    &.h-transition--slide-#{$direction},
+    .h-transition--slide-#{$direction} {
+      transform: translate#{$static-value}($h-animation-distance-none);
+
+      @each $key, $value in $h-animation-distances {
+        &.h-transition-distance--#{$key} {
+          transform: translate#{$dynamic-value}(#{$sign}#{$value});
+        }
+      }
+    }
+  }
+
+  // Classes for active entry transition state
+  &.h-transition--appear-active,
+  &.h-transition--enter-active {
+    &.h-transition-element,
+    .h-transition-element {
+      opacity: 1;
+      transform: translateX($h-animation-distance-none);
+      transform: translateY($h-animation-distance-none);
+      transition: $base-transition-1, $base-transition-2;
+    }
+  }
+}
+
+// Classes for starting exit transition state
+.h-transition--exit {
+  &.h-transition-element,
+  .h-transition-element {
+    opacity: 1;
+    transform: translateX($h-animation-distance-none);
+    transform: translateY($h-animation-distance-none);
+  }
+
+  // Classes for ending exit transition state
+  &.h-transition--exit-active {
+    &.h-transition-element,
+    .h-transition-element {
+      transition: $base-transition-1, $base-transition-2;
+    }
+
+    &.h-transition--fade-in,
+    .h-transition--fade-in {
+      opacity: 0;
+    }
+
+    @each $direction, $values in $h-transition-directions {
+      $static-value: map-get($values, staticvalue);
+      $dynamic-value: map-get($values, dynamicvalue);
+      $sign: map-get($values, sign);
+
+      &.h-transition--slide-#{$direction},
+      .h-transition--slide-#{$direction} {
+        transform: translate#{$static-value}($h-animation-distance-none);
+
+        @each $key, $value in $h-animation-distances {
+          &.h-transition-distance--#{$key} {
+            transform: translate#{$dynamic-value}(#{$sign}#{$value});
+          }
+        }
+      }
+    }
+  }
+}
 
 //==========================================================================
 //  Animation

@@ -1,3 +1,4 @@
+export { AnimationDistance } from './types/animation_distance';
 export { AnimationDirection } from './types/animation_direction';
 export { AlertDialog } from './components/Dialog/AlertDialog';
 export { Badge } from './components/Badge';

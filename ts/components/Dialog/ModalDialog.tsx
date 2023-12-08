@@ -1,21 +1,26 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDialog } from './useDialog';
-import { AnimationDirection } from '../../index';
+import { AnimationDistance, AnimationDirection } from '../../index';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
 
 interface ModalDialogProps {
-  animateIn?: boolean;
-  animateOut?: boolean;
-  animationDirection?: AnimationDirection;
   /** Content for the dialog */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the dialog is closed */
   closeDialog: () => void;
   /** Controls whether the dialog is open or not */
   open: boolean;
+  /** Controls whether the dialog animates in */
+  animateIn?: boolean;
+  /** Controls whether the dialog animates out */
+  animateOut?: boolean;
+  /** Controls the direction that the dialog moves while animating in */
+  animationDirection?: AnimationDirection;
+  /** Controls the distance that the dialog moves while animating in */
+  animationDistance?: AnimationDistance;
   /** Controls whether the dialog have a backdrop overlaying the app. */
   backdrop?: boolean;
   /** Adds class names to the backdrop element. */
@@ -38,6 +43,7 @@ const ModalDialog = ({
   animateIn = true,
   animateOut = true,
   animationDirection = `up`,
+  animationDistance = `md`,
   backdrop = true,
   backdropClassName,
   children,
@@ -60,7 +66,8 @@ const ModalDialog = ({
     backdrop,
     closeDialog,
     dialogClassName,
-    animationClassName: `h-dialog__fade-in-and-${animationDirection}`,
+    animationDirection,
+    animationDistance,
     dialogRole: `dialog`,
     initialFocusEl,
     open,
@@ -92,12 +99,16 @@ const ModalDialog = ({
               timeout={timeout}
               enter={animateIn}
               exit={animateOut}
-              classNames="h-dialog-"
+              classNames="h-transition-"
               onExited={() => setVisible(false)}
             >
               <div {...getDialogRootProps()} ref={nodeRef}>
                 <div {...getDialogContainerProps()}>
-                  {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
+                  {backdrop ? (
+                    <DialogBackdrop
+                      className={`h-transition-element h-transition-element--fade-in ` + backdropClassName}
+                    />
+                  ) : null}
                   <div {...getDialogProps()}>{children}</div>
                 </div>
               </div>

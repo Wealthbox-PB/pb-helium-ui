@@ -1,19 +1,26 @@
-import React, { useEffect } from 'react';
-import { AnimationDirection } from '../../index';
+import React, { useRef, useState, useEffect } from 'react';
+import { AnimationDistance, AnimationDirection } from '../../index';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
 import { DialogContext } from './DialogContext';
+import { CSSTransition } from 'react-transition-group';
 
 interface AlertDialogProps {
-  animationDirection?: AnimationDirection;
-  /** Content for the dialog. */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the dialog is closed. */
   closeDialog: () => void;
   /** Controls whether the dialog is open or not. */
   open: boolean;
   /** Adds class names to the backdrop element. */
+  animateIn?: boolean;
+  /** Controls whether the dialog animates out */
+  animateOut?: boolean;
+  /** Controls the direction that the dialog moves while animating in */
+  animationDirection?: AnimationDirection;
+  /** Controls the distance that the dialog moves while animating in */
+  animationDistance?: AnimationDistance;
+  /** Controls whether the dialog have a backdrop overlaying the app. */
   backdropClassName?: string;
   /** Adds class names to the dialog wrapper element. */
   dialogClassName?: string;
@@ -28,7 +35,10 @@ interface AlertDialogProps {
 }
 
 export const AlertDialog = ({
+  animateIn = true,
+  animateOut = true,
   animationDirection = `up`,
+  animationDistance = `md`,
   backdropClassName,
   children,
   closeDialog,
@@ -52,7 +62,8 @@ export const AlertDialog = ({
     ariaLabelSelector,
     ariaDescriptionSelector,
   } = useDialog({
-    animationClassName: `h-dialog__fade-in-and-${animationDirection}`,
+    animationDirection,
+    animationDistance,
     backdrop: true,
     closeDialog,
     dialogClassName,
@@ -69,17 +80,38 @@ export const AlertDialog = ({
     leastDestructiveRef?.current?.focus();
   }, [leastDestructiveRef]);
 
+  const timeout = 250;
+  const nodeRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setVisible(true);
+    }
+  }, [open]);
+
   return (
     <>
       {open ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
-            <div {...getDialogRootProps()}>
-              <div {...getDialogContainerProps()}>
-                <DialogBackdrop className={backdropClassName} closeDialog={() => { }} />
-                <div {...getDialogProps()}>{children}</div>
+            <CSSTransition
+              nodeRef={nodeRef}
+              in={open && visible}
+              appear={animateIn || animateOut}
+              timeout={timeout}
+              enter={animateIn}
+              exit={animateOut}
+              classNames="h-transition-"
+              onExited={() => setVisible(false)}
+            >
+              <div {...getDialogRootProps()} ref={nodeRef}>
+                <div {...getDialogContainerProps()}>
+                  <DialogBackdrop className={backdropClassName} closeDialog={() => { }} />
+                  <div {...getDialogProps()}>{children}</div>
+                </div>
               </div>
-            </div>
+            </CSSTransition>
           </Portal>
         </DialogContext.Provider>
       ) : null}
