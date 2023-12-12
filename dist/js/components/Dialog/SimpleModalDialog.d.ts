@@ -1,8 +1,5 @@
 import React from 'react';
-import { AnimationDirection } from '../../index';
 interface SimpleModalDialogProps {
-    /** Controls the direction that the dialog moves while animating in */
-    animationDirection?: AnimationDirection;
     /** Content for the dialog. */
     children: string | JSX.Element[] | JSX.Element;
     /** Callback function when the dialog is closed. */
@@ -42,5 +39,5 @@ interface SimpleModalDialogProps {
     /** Controls whether the focus should be trapped inside of the dialog. */
     trapPaused?: boolean;
 }
-declare const SimpleModalDialog: ({ animationDirection, backdrop, backdropClassName, bodyClassName, children, closeDialog, closeInHeader, dialogClassName, footer, footerBackground, footerClassName, header, headerClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: SimpleModalDialogProps) => React.JSX.Element;
+declare const SimpleModalDialog: ({ backdrop, backdropClassName, bodyClassName, children, closeDialog, closeInHeader, dialogClassName, footer, footerBackground, footerClassName, header, headerClassName, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: SimpleModalDialogProps) => React.JSX.Element;
 export { SimpleModalDialog };

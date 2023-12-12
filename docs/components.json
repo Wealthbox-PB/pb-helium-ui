@@ -789,21 +789,6 @@
       "methods": [],
       "displayName": "SimpleModalDialog",
       "props": {
-        "animationDirection": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`up` | `down` | `left` | `right` | `none`",
-            "elements": [
-              { "name": "literal", "value": "`up`" },
-              { "name": "literal", "value": "`down`" },
-              { "name": "literal", "value": "`left`" },
-              { "name": "literal", "value": "`right`" },
-              { "name": "literal", "value": "`none`" }
-            ]
-          },
-          "description": "Controls the direction that the dialog moves while animating in"
-        },
         "children": {
           "required": true,
           "tsType": {
