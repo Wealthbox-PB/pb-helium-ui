@@ -15,7 +15,7 @@ var sizeClasses = {
     full: "full-screen",
 };
 export function useDialog(_a) {
-    var backdrop = _a.backdrop, _b = _a.closeDialog, closeDialog = _b === void 0 ? function () { } : _b, dialogClassName = _a.dialogClassName, dialogRole = _a.dialogRole, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, trapPaused = _a.trapPaused;
+    var backdrop = _a.backdrop, _b = _a.closeDialog, closeDialog = _b === void 0 ? function () { } : _b, dialogClassName = _a.dialogClassName, animationDirection = _a.animationDirection, animationDistance = _a.animationDistance, dialogRole = _a.dialogRole, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, trapPaused = _a.trapPaused;
     var _c = useState(trapPaused), isTrapPaused = _c[0], setIsTrapPaused = _c[1];
     var dialogContainerRef = useRef(null);
     var dialogRef = useRef(null);
@@ -80,9 +80,9 @@ export function useDialog(_a) {
         return {
             ref: dialogRef,
             tabIndex: -1,
-            className: classNames("".concat(dialogContainerClassname, "__el"), dialogClassName),
+            className: classNames("h-transition-distance--".concat(animationDistance), "h-transition-element", "h-transition--fade-in", "h-transition--slide-".concat(animationDirection), "".concat(dialogContainerClassname, "__el "), dialogClassName),
         };
-    }, [dialogClassName]);
+    }, [animationDistance, animationDirection, dialogClassName]);
     useEffect(function () {
         var container = dialogContainerRef.current;
         var handleCloseEvent = function () { return closeDialog(); };

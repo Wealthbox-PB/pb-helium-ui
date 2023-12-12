@@ -179,6 +179,18 @@
           "tsType": { "name": "boolean" },
           "description": "Controls whether the dialog is open or not."
         },
+        "animateIn": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates in.",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "animateOut": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates out.",
+          "defaultValue": { "value": "true", "computed": false }
+        },
         "backdropClassName": {
           "required": false,
           "tsType": { "name": "string" },
@@ -483,6 +495,49 @@
           "tsType": { "name": "boolean" },
           "description": "Controls whether the dialog is open or not"
         },
+        "animateIn": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates in",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "animateOut": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates out",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "animationDirection": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`up` | `down` | `left` | `right` | `none`",
+            "elements": [
+              { "name": "literal", "value": "`up`" },
+              { "name": "literal", "value": "`down`" },
+              { "name": "literal", "value": "`left`" },
+              { "name": "literal", "value": "`right`" },
+              { "name": "literal", "value": "`none`" }
+            ]
+          },
+          "description": "Controls the direction that the dialog moves while animating in"
+        },
+        "animationDistance": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`none` | `xxs` | `xs` | `sm` | `md` | `lg`",
+            "elements": [
+              { "name": "literal", "value": "`none`" },
+              { "name": "literal", "value": "`xxs`" },
+              { "name": "literal", "value": "`xs`" },
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" }
+            ]
+          },
+          "description": "Controls the distance that the dialog moves while animating in"
+        },
         "backdrop": {
           "required": false,
           "tsType": { "name": "boolean" },
@@ -688,7 +743,7 @@
             "signature": { "arguments": [], "return": { "name": "void" } }
           },
           "description": "Callback function when the cancel button or the close button in the header is clicked.",
-          "defaultValue": { "value": "() => {}", "computed": false }
+          "defaultValue": { "value": "() => { }", "computed": false }
         },
         "onConfirm": {
           "required": false,
@@ -699,7 +754,7 @@
             "signature": { "arguments": [], "return": { "name": "void" } }
           },
           "description": "Callback function when the confirm button is clicked.",
-          "defaultValue": { "value": "() => {}", "computed": false }
+          "defaultValue": { "value": "() => { }", "computed": false }
         },
         "position": {
           "required": false,

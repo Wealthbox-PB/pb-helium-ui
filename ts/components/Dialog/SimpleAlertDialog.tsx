@@ -58,8 +58,8 @@ export const SimpleAlertDialog = ({
   dialogClassName,
   header = ``,
   headerClassName,
-  onCancel = () => {},
-  onConfirm = () => {},
+  onCancel = () => { },
+  onConfirm = () => { },
   open,
   position,
   returnFocusEl,
@@ -70,6 +70,7 @@ export const SimpleAlertDialog = ({
   return (
     <AlertDialog
       {...{
+        animationDirection: `up`,
         backdropClassName,
         closeDialog,
         dialogClassName,

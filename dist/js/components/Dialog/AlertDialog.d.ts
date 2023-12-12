@@ -6,6 +6,10 @@ interface AlertDialogProps {
     closeDialog: () => void;
     /** Controls whether the dialog is open or not. */
     open: boolean;
+    /** Controls whether the dialog animates in. */
+    animateIn?: boolean;
+    /** Controls whether the dialog animates out. */
+    animateOut?: boolean;
     /** Adds class names to the backdrop element. */
     backdropClassName?: string;
     /** Adds class names to the dialog wrapper element. */
@@ -19,5 +23,5 @@ interface AlertDialogProps {
     /** Controls the size of the dialog. Default size is "medium". */
     size?: string;
 }
-export declare const AlertDialog: ({ backdropClassName, children, closeDialog, dialogClassName, leastDestructiveRef, open, position, returnFocusEl, size, }: AlertDialogProps) => React.JSX.Element;
+export declare const AlertDialog: ({ animateIn, animateOut, backdropClassName, children, closeDialog, dialogClassName, leastDestructiveRef, open, position, returnFocusEl, size, }: AlertDialogProps) => React.JSX.Element;
 export {};

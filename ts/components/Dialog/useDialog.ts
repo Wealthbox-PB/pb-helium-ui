@@ -18,8 +18,10 @@ const sizeClasses: { [key: string]: string } = {
 
 export function useDialog({
   backdrop,
-  closeDialog = () => {},
+  closeDialog = () => { },
   dialogClassName,
+  animationDirection,
+  animationDistance,
   dialogRole,
   initialFocusEl,
   open,
@@ -109,9 +111,16 @@ export function useDialog({
     return {
       ref: dialogRef,
       tabIndex: -1,
-      className: classNames(`${dialogContainerClassname}__el`, dialogClassName),
+      className: classNames(
+        `h-transition-distance--${animationDistance}`,
+        `h-transition-element`,
+        `h-transition--fade-in`,
+        `h-transition--slide-${animationDirection}`,
+        `${dialogContainerClassname}__el `,
+        dialogClassName
+      ),
     };
-  }, [dialogClassName]);
+  }, [animationDistance, animationDirection, dialogClassName]);
 
   useEffect(() => {
     const container = dialogContainerRef.current;

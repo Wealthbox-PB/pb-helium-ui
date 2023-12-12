@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useDialog } from './useDialog';
+import { AnimationDistance, AnimationDirection } from '../../index';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
+import { CSSTransition } from 'react-transition-group';
 
 interface ModalDialogProps {
   /** Content for the dialog */
@@ -11,6 +13,14 @@ interface ModalDialogProps {
   closeDialog: () => void;
   /** Controls whether the dialog is open or not */
   open: boolean;
+  /** Controls whether the dialog animates in */
+  animateIn?: boolean;
+  /** Controls whether the dialog animates out */
+  animateOut?: boolean;
+  /** Controls the direction that the dialog moves while animating in */
+  animationDirection?: AnimationDirection;
+  /** Controls the distance that the dialog moves while animating in */
+  animationDistance?: AnimationDistance;
   /** Controls whether the dialog have a backdrop overlaying the app. */
   backdrop?: boolean;
   /** Adds class names to the backdrop element. */
@@ -30,6 +40,10 @@ interface ModalDialogProps {
 }
 
 const ModalDialog = ({
+  animateIn = true,
+  animateOut = true,
+  animationDirection = `up`,
+  animationDistance = `md`,
   backdrop = true,
   backdropClassName,
   children,
@@ -52,6 +66,8 @@ const ModalDialog = ({
     backdrop,
     closeDialog,
     dialogClassName,
+    animationDirection,
+    animationDistance,
     dialogRole: `dialog`,
     initialFocusEl,
     open,
@@ -61,17 +77,42 @@ const ModalDialog = ({
     trapPaused,
   });
 
+  const timeout = 250;
+  const nodeRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setVisible(true);
+    }
+  }, [open]);
+
   return (
     <>
-      {open ? (
+      {open || visible ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
-            <div {...getDialogRootProps()}>
-              <div {...getDialogContainerProps()}>
-                {backdrop ? <DialogBackdrop className={backdropClassName} /> : null}
-                <div {...getDialogProps()}>{children}</div>
+            <CSSTransition
+              nodeRef={nodeRef}
+              in={open && visible}
+              appear={animateIn || animateOut}
+              timeout={timeout}
+              enter={animateIn}
+              exit={animateOut}
+              classNames="h-transition-"
+              onExited={() => setVisible(false)}
+            >
+              <div {...getDialogRootProps()} ref={nodeRef}>
+                <div {...getDialogContainerProps()}>
+                  {backdrop ? (
+                    <DialogBackdrop
+                      className={`h-transition-element h-transition-element--fade-in ` + backdropClassName}
+                    />
+                  ) : null}
+                  <div {...getDialogProps()}>{children}</div>
+                </div>
               </div>
-            </div>
+            </CSSTransition>
           </Portal>
         </DialogContext.Provider>
       ) : null}

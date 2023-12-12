@@ -5,10 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.5.4] - 2023-12-05
+## [2.5.4] - 2023-12-08
 
 ### Added
 
+- Added `react-transition-group` package
+- Added `AnimationDirection` `type
 - Added `react-docgen` package
 - Added yarn docgen scripts:
   - `docs:generate` to generate a combined JSON file of all component metadata
@@ -27,6 +29,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `DropdownProps`
   - `DropdownMenuButtonProps`
   - `DropdownMenuLinkProps`
+
+### Changed
+
+- Update `AlertDialog`, `ModalDialog`, `SimpleAlertDialog`, and `SimpleModalDialog`
+  - Added `CSSTransition` for entry and exit animations
 
 ### Removed
 

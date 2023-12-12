@@ -92,3 +92,27 @@ $h-animation-direction-normal: map-get($h-animation-directions, normal);
 $h-animation-direction-reverse: map-get($h-animation-directions, reverse);
 $h-animation-direction-alternate: map-get($h-animation-directions, alternate);
 $h-animation-direction-alternate-reverse: map-get($h-animation-directions, alternate-reverse);
+
+//  Distance
+//==========================================================================
+
+$h-animation-distances: (
+  none: 0,
+  xxs:  0.25rem,
+  xs:   0.5rem,
+  sm:   1rem,
+  md:   2rem,
+  lg:   4rem,
+);
+$h-animation-distance-none: map-get($h-animation-distances, none);
+$h-animation-distance-xxs: map-get($h-animation-distances, xxs);
+$h-animation-distance-xs: map-get($h-animation-distances, xs);
+$h-animation-distance-sm: map-get($h-animation-distances, sm);
+$h-animation-distance-md: map-get($h-animation-distances, md);
+$h-animation-distance-lg: map-get($h-animation-distances, lg);
+$h-transition-directions: (
+  up: (staticvalue: x, dynamicvalue: y, sign: ""),
+  down: (staticvalue: x, dynamicvalue: y, sign: "-"),
+  left: (staticvalue: y, dynamicvalue: x, sign: ""),
+  right: (staticvalue: y, dynamicvalue: x, sign: "-")
+);

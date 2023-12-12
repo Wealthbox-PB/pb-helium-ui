@@ -68,6 +68,7 @@ const SimpleModalDialog = ({
   return (
     <ModalDialog
       {...{
+        animationDirection: `up`,
         backdrop,
         backdropClassName,
         closeDialog,
