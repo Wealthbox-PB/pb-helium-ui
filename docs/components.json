@@ -162,7 +162,7 @@
               { "name": "JSX.Element" }
             ]
           },
-          "description": ""
+          "description": "Content for the dialog."
         },
         "closeDialog": {
           "required": true,
@@ -182,50 +182,19 @@
         "animateIn": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "Adds class names to the backdrop element.",
+          "description": "Controls whether the dialog animates in.",
           "defaultValue": { "value": "true", "computed": false }
         },
         "animateOut": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "Controls whether the dialog animates out",
+          "description": "Controls whether the dialog animates out.",
           "defaultValue": { "value": "true", "computed": false }
-        },
-        "animationDirection": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`up` | `down` | `left` | `right` | `none`",
-            "elements": [
-              { "name": "literal", "value": "`up`" },
-              { "name": "literal", "value": "`down`" },
-              { "name": "literal", "value": "`left`" },
-              { "name": "literal", "value": "`right`" },
-              { "name": "literal", "value": "`none`" }
-            ]
-          },
-          "description": "Controls the direction that the dialog moves while animating in"
-        },
-        "animationDistance": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`none` | `xxs` | `xs` | `sm` | `md` | `lg`",
-            "elements": [
-              { "name": "literal", "value": "`none`" },
-              { "name": "literal", "value": "`xxs`" },
-              { "name": "literal", "value": "`xs`" },
-              { "name": "literal", "value": "`sm`" },
-              { "name": "literal", "value": "`md`" },
-              { "name": "literal", "value": "`lg`" }
-            ]
-          },
-          "description": "Controls the distance that the dialog moves while animating in"
         },
         "backdropClassName": {
           "required": false,
           "tsType": { "name": "string" },
-          "description": "Controls whether the dialog have a backdrop overlaying the app."
+          "description": "Adds class names to the backdrop element."
         },
         "dialogClassName": {
           "required": false,
@@ -640,21 +609,6 @@
       "methods": [],
       "displayName": "SimpleAlertDialog",
       "props": {
-        "animationDirection": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`up` | `down` | `left` | `right` | `none`",
-            "elements": [
-              { "name": "literal", "value": "`up`" },
-              { "name": "literal", "value": "`down`" },
-              { "name": "literal", "value": "`left`" },
-              { "name": "literal", "value": "`right`" },
-              { "name": "literal", "value": "`none`" }
-            ]
-          },
-          "description": ""
-        },
         "children": {
           "required": true,
           "tsType": {
@@ -848,7 +802,7 @@
               { "name": "literal", "value": "`none`" }
             ]
           },
-          "description": ""
+          "description": "Controls the direction that the dialog moves while animating in"
         },
         "children": {
           "required": true,

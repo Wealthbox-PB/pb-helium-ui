@@ -1,6 +1,7 @@
 import React from 'react';
 import { AnimationDirection } from '../../index';
 interface SimpleModalDialogProps {
+    /** Controls the direction that the dialog moves while animating in */
     animationDirection?: AnimationDirection;
     /** Content for the dialog. */
     children: string | JSX.Element[] | JSX.Element;

@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { AnimationDistance, AnimationDirection } from '../../index';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from './useDialog';
@@ -7,20 +6,17 @@ import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
 
 interface AlertDialogProps {
+  /** Content for the dialog. */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the dialog is closed. */
   closeDialog: () => void;
   /** Controls whether the dialog is open or not. */
   open: boolean;
-  /** Adds class names to the backdrop element. */
+  /** Controls whether the dialog animates in. */
   animateIn?: boolean;
-  /** Controls whether the dialog animates out */
+  /** Controls whether the dialog animates out. */
   animateOut?: boolean;
-  /** Controls the direction that the dialog moves while animating in */
-  animationDirection?: AnimationDirection;
-  /** Controls the distance that the dialog moves while animating in */
-  animationDistance?: AnimationDistance;
-  /** Controls whether the dialog have a backdrop overlaying the app. */
+  /** Adds class names to the backdrop element. */
   backdropClassName?: string;
   /** Adds class names to the dialog wrapper element. */
   dialogClassName?: string;
@@ -37,8 +33,6 @@ interface AlertDialogProps {
 export const AlertDialog = ({
   animateIn = true,
   animateOut = true,
-  animationDirection = `up`,
-  animationDistance = `md`,
   backdropClassName,
   children,
   closeDialog,
@@ -62,8 +56,8 @@ export const AlertDialog = ({
     ariaLabelSelector,
     ariaDescriptionSelector,
   } = useDialog({
-    animationDirection,
-    animationDistance,
+    animationDirection: `up`,
+    animationDistance: `md`,
     backdrop: true,
     closeDialog,
     dialogClassName,
