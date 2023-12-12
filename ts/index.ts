@@ -30,6 +30,7 @@ export { SimpleAlertDialog } from './components/Dialog/SimpleAlertDialog';
 export { SimpleModalDialog } from './components/Dialog/SimpleModalDialog';
 export { Switch } from './components/Switch';
 export { TextInput } from './components/TextInput';
+export { Toast } from './components/Toast';
 export { Tooltip } from './components/Tooltip';
 export { useCloseWithEscapeKey } from './hooks/useCloseWithEscapeKey';
 export { useScrollLock } from './hooks/useScrollLock';

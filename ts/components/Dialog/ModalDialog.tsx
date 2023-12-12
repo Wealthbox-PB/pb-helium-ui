@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useDialog } from './useDialog';
+import { useDialog } from '../../hooks/useDialog';
 import { AnimationDistance, AnimationDirection } from '../../index';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
