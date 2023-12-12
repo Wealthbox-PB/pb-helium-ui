@@ -3,11 +3,8 @@ import { DialogHeader } from './DialogHeader';
 import { DialogBody } from './DialogBody';
 import { DialogFooter } from './DialogFooter';
 import { ModalDialog } from './ModalDialog';
-import { AnimationDirection } from '../../index';
 
 interface SimpleModalDialogProps {
-  /** Controls the direction that the dialog moves while animating in */
-  animationDirection?: AnimationDirection;
   /** Content for the dialog. */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the dialog is closed. */
@@ -49,7 +46,6 @@ interface SimpleModalDialogProps {
 }
 
 const SimpleModalDialog = ({
-  animationDirection = `up`,
   backdrop = true,
   backdropClassName,
   bodyClassName,
@@ -72,7 +68,7 @@ const SimpleModalDialog = ({
   return (
     <ModalDialog
       {...{
-        animationDirection,
+        animationDirection: `up`,
         backdrop,
         backdropClassName,
         closeDialog,
