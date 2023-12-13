@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
-import { useDialog } from './useDialog';
+import { useDialog } from '../../hooks/useDialog';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
 

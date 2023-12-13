@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React, { useRef, useState, useEffect } from 'react';
-import { useDialog } from './useDialog';
+import { useDialog } from '../../hooks/useDialog';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';

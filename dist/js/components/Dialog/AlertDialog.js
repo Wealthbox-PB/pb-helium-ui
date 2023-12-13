@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import React, { useRef, useState, useEffect } from 'react';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
-import { useDialog } from './useDialog';
+import { useDialog } from '../../hooks/useDialog';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
 export var AlertDialog = function (_a) {

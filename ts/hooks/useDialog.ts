@@ -1,8 +1,8 @@
 import { createFocusTrap } from 'focus-trap';
-import { useCloseWithEscapeKey } from '../../hooks/useCloseWithEscapeKey';
-import { useScrollLock } from '../../hooks/useScrollLock';
+import { useCloseWithEscapeKey } from './useCloseWithEscapeKey';
+import { useScrollLock } from './useScrollLock';
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { randomString } from '../../helpers/random_string';
+import { randomString } from '../helpers/random_string';
 import classNames from 'classnames';
 
 const dialogContainerClassname = `h-dialog`;

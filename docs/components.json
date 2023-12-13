@@ -3688,6 +3688,65 @@
       "composes": ["InputHTMLAttributes"]
     }
   ],
+  "./ts/components/Toast.tsx": [
+    {
+      "description": "",
+      "methods": [],
+      "displayName": "Toast",
+      "props": {
+        "children": {
+          "required": true,
+          "tsType": {
+            "name": "union",
+            "raw": "string | JSX.Element[] | JSX.Element",
+            "elements": [
+              { "name": "string" },
+              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
+              { "name": "JSX.Element" }
+            ]
+          },
+          "description": "Content for the toast."
+        },
+        "closeToast": {
+          "required": true,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "() => void",
+            "signature": { "arguments": [], "return": { "name": "void" } }
+          },
+          "description": "Callback function when the toast is closed."
+        },
+        "open": {
+          "required": true,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the toast is open or not."
+        },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the toast element."
+        },
+        "animateIn": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the toast animates in.",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "animateOut": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the toast animates out.",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "size": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Controls the size of the dialog. Default size is \"medium\"."
+        }
+      }
+    }
+  ],
   "./ts/components/Tooltip.tsx": [
     {
       "description": "",
