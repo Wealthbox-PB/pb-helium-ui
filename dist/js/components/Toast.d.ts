@@ -1,17 +1,19 @@
 import React from 'react';
 interface ToastProps {
-    /** Content for the toast */
+    /** Content for the toast. */
     children: string | JSX.Element[] | JSX.Element;
-    /** Callback function when the toast is closed */
+    /** Callback function when the toast is closed. */
     closeToast: () => void;
-    /** Controls whether the toast is open or not */
+    /** Controls whether the toast is open or not. */
     open: boolean;
-    /** Controls whether the toast animates in */
-    animateIn?: boolean;
-    /** Controls whether the toast animates out */
-    animateOut?: boolean;
     /** Adds class names to the toast element. */
-    toastClassName?: string;
+    className?: string;
+    /** Controls whether the toast animates in. */
+    animateIn?: boolean;
+    /** Controls whether the toast animates out. */
+    animateOut?: boolean;
+    /** Controls the size of the dialog. Default size is "medium". */
+    size?: string;
 }
-declare const Toast: ({ animateIn, animateOut, children, closeToast, toastClassName, open, }: ToastProps) => React.JSX.Element;
+declare const Toast: ({ animateIn, animateOut, children, closeToast, className, open, size }: ToastProps) => React.JSX.Element;
 export { Toast };

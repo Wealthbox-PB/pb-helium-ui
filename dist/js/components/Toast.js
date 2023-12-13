@@ -15,11 +15,11 @@ import { Portal } from './Portal';
 import { DialogContext } from './Dialog/DialogContext';
 import { CSSTransition } from 'react-transition-group';
 var Toast = function (_a) {
-    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, children = _a.children, closeToast = _a.closeToast, toastClassName = _a.toastClassName, open = _a.open;
+    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, children = _a.children, closeToast = _a.closeToast, className = _a.className, open = _a.open, size = _a.size;
     var _d = useDialog({
         backdrop: false,
         closeDialog: closeToast,
-        dialogClassName: toastClassName,
+        dialogClassName: className,
         animationDirection: "left",
         animationDistance: "md",
         dialogRole: "dialog",
@@ -27,7 +27,7 @@ var Toast = function (_a) {
         open: open,
         position: "bottom right",
         returnFocusEl: undefined,
-        size: "medium",
+        size: size,
         trapPaused: false,
     }), getDialogRootProps = _d.getDialogRootProps, getDialogContainerProps = _d.getDialogContainerProps, getDialogProps = _d.getDialogProps, ariaLabelSelector = _d.ariaLabelSelector, ariaDescriptionSelector = _d.ariaDescriptionSelector;
     var timeout = 250;

@@ -5,18 +5,20 @@ import { DialogContext } from './Dialog/DialogContext';
 import { CSSTransition } from 'react-transition-group';
 
 interface ToastProps {
-  /** Content for the toast */
+  /** Content for the toast. */
   children: string | JSX.Element[] | JSX.Element;
-  /** Callback function when the toast is closed */
+  /** Callback function when the toast is closed. */
   closeToast: () => void;
-  /** Controls whether the toast is open or not */
+  /** Controls whether the toast is open or not. */
   open: boolean;
-  /** Controls whether the toast animates in */
-  animateIn?: boolean;
-  /** Controls whether the toast animates out */
-  animateOut?: boolean;
   /** Adds class names to the toast element. */
-  toastClassName?: string;
+  className?: string;
+  /** Controls whether the toast animates in. */
+  animateIn?: boolean;
+  /** Controls whether the toast animates out. */
+  animateOut?: boolean;
+  /** Controls the size of the dialog. Default size is "medium". */
+  size?: string;
 }
 
 const Toast = ({
@@ -24,8 +26,9 @@ const Toast = ({
   animateOut = true,
   children,
   closeToast,
-  toastClassName,
+  className,
   open,
+  size
 }: ToastProps) => {
   const {
     getDialogRootProps,
@@ -36,7 +39,7 @@ const Toast = ({
   } = useDialog({
     backdrop: false,
     closeDialog: closeToast,
-    dialogClassName: toastClassName,
+    dialogClassName: className,
     animationDirection: `left`,
     animationDistance: `md`,
     dialogRole: `dialog`,
@@ -44,7 +47,7 @@ const Toast = ({
     open,
     position: `bottom right`,
     returnFocusEl: undefined,
-    size: `medium`,
+    size,
     trapPaused: false,
   });
 

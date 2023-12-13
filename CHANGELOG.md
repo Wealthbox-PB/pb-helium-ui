@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.6.0] - 2023-12-13
 
 ### Added
-- Added `toast` component
+- Added `Toast` component
 
 ### Updated
 - Moved `useDialog` hook into `hooks` folder
