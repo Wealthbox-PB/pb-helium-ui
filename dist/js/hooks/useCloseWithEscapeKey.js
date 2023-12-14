@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-export function useCloseWithEscapeKey(keyDownTargetRef, closeCallback, open) {
+export function useCloseWithEscapeKey(closeCallback, open, keyDownTargetRef) {
     var handleEscapeKeyPress = function (event) {
         if (event.key === "Escape" || event.key === "Esc" || event.keyCode === 27) {
             closeCallback();
@@ -7,12 +7,12 @@ export function useCloseWithEscapeKey(keyDownTargetRef, closeCallback, open) {
         }
     };
     useEffect(function () {
-        var ref = keyDownTargetRef.current;
+        var element = keyDownTargetRef ? keyDownTargetRef.current : document;
         if (open) {
-            ref === null || ref === void 0 ? void 0 : ref.addEventListener("keydown", handleEscapeKeyPress);
+            element === null || element === void 0 ? void 0 : element.addEventListener("keydown", handleEscapeKeyPress);
         }
         return function () {
-            ref === null || ref === void 0 ? void 0 : ref.removeEventListener("keydown", handleEscapeKeyPress);
+            element === null || element === void 0 ? void 0 : element.removeEventListener("keydown", handleEscapeKeyPress);
         };
     });
 }

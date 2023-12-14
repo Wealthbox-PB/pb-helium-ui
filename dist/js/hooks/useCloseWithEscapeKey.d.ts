@@ -1,2 +1,2 @@
 /// <reference types="react" />
-export declare function useCloseWithEscapeKey(keyDownTargetRef: React.MutableRefObject<HTMLElement | null>, closeCallback: () => void, open: boolean): void;
+export declare function useCloseWithEscapeKey(closeCallback: () => void, open: boolean, keyDownTargetRef?: React.MutableRefObject<HTMLElement | null>): void;

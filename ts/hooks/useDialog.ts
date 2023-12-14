@@ -18,7 +18,7 @@ const sizeClasses: { [key: string]: string } = {
 
 export function useDialog({
   backdrop,
-  closeDialog = () => { },
+  closeDialog = () => {},
   dialogClassName,
   animationDirection,
   animationDistance,
@@ -40,7 +40,7 @@ export function useDialog({
   const ariaDescriptionSelector = createSelector(ariaSelectorPrefix, `description`, uniqueSuffixRef.current);
 
   useScrollLock(open && backdrop);
-  useCloseWithEscapeKey(dialogContainerRef, closeDialog, open);
+  useCloseWithEscapeKey(closeDialog, open, dialogContainerRef);
 
   useEffect(() => {
     setIsTrapPaused(trapPaused);

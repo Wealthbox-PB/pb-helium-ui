@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
 export function useCloseWithEscapeKey(
-  keyDownTargetRef: React.MutableRefObject<HTMLElement | null>,
   closeCallback: () => void,
-  open: boolean
+  open: boolean,
+  keyDownTargetRef?: React.MutableRefObject<HTMLElement | null>
 ) {
   const handleEscapeKeyPress = (event: KeyboardEvent) => {
     if (event.key === `Escape` || event.key === `Esc` || event.keyCode === 27) {
@@ -11,13 +11,16 @@ export function useCloseWithEscapeKey(
       event.stopPropagation();
     }
   };
+
   useEffect(() => {
-    const ref = keyDownTargetRef.current;
+    const element = keyDownTargetRef ? keyDownTargetRef.current : document;
+
     if (open) {
-      ref?.addEventListener(`keydown`, handleEscapeKeyPress);
+      element?.addEventListener(`keydown`, handleEscapeKeyPress);
     }
+
     return () => {
-      ref?.removeEventListener(`keydown`, handleEscapeKeyPress);
+      element?.removeEventListener(`keydown`, handleEscapeKeyPress);
     };
   });
 }

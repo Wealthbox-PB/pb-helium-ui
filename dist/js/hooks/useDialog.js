@@ -23,7 +23,7 @@ export function useDialog(_a) {
     var ariaLabelSelector = createSelector(ariaSelectorPrefix, "label", uniqueSuffixRef.current);
     var ariaDescriptionSelector = createSelector(ariaSelectorPrefix, "description", uniqueSuffixRef.current);
     useScrollLock(open && backdrop);
-    useCloseWithEscapeKey(dialogContainerRef, closeDialog, open);
+    useCloseWithEscapeKey(closeDialog, open, dialogContainerRef);
     useEffect(function () {
         setIsTrapPaused(trapPaused);
     }, [trapPaused]);
