@@ -44,7 +44,7 @@ var ModalDialog = function (_a) {
             React.createElement(CSSTransition, { nodeRef: nodeRef, in: open && visible, appear: animateIn || animateOut, timeout: timeout, enter: animateIn, exit: animateOut, classNames: "h-transition-", onExited: function () { return setVisible(false); } },
                 React.createElement("div", __assign({}, getDialogRootProps(), { ref: nodeRef }),
                     React.createElement("div", __assign({}, getDialogContainerProps()),
-                        backdrop ? (React.createElement(DialogBackdrop, { className: "h-transition-element h-transition-element--fade-in " + backdropClassName })) : null,
+                        backdrop ? (React.createElement(DialogBackdrop, { className: "h-transition-element h-transition-element--fade-in " + backdropClassName ? backdropClassName : "" })) : null,
                         React.createElement("div", __assign({}, getDialogProps()), children))))))) : null));
 };
 export { ModalDialog };
