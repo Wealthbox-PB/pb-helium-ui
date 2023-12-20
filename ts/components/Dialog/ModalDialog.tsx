@@ -5,6 +5,7 @@ import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
+import classNames from 'classnames';
 
 interface ModalDialogProps {
   /** Content for the dialog */
@@ -106,7 +107,7 @@ const ModalDialog = ({
                 <div {...getDialogContainerProps()}>
                   {backdrop ? (
                     <DialogBackdrop
-                      className={`h-transition-element h-transition-element--fade-in ` + backdropClassName}
+                      className={classNames(`h-transition-element h-transition-element--fade-in`, backdropClassName)}
                     />
                   ) : null}
                   <div {...getDialogProps()}>{children}</div>

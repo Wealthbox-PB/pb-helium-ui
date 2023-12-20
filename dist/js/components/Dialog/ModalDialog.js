@@ -15,6 +15,7 @@ import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
+import classNames from 'classnames';
 var ModalDialog = function (_a) {
     var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, _d = _a.animationDirection, animationDirection = _d === void 0 ? "up" : _d, _e = _a.animationDistance, animationDistance = _e === void 0 ? "md" : _e, _f = _a.backdrop, backdrop = _f === void 0 ? true : _f, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _g = _a.trapPaused, trapPaused = _g === void 0 ? false : _g;
     var _h = useDialog({
@@ -44,7 +45,7 @@ var ModalDialog = function (_a) {
             React.createElement(CSSTransition, { nodeRef: nodeRef, in: open && visible, appear: animateIn || animateOut, timeout: timeout, enter: animateIn, exit: animateOut, classNames: "h-transition-", onExited: function () { return setVisible(false); } },
                 React.createElement("div", __assign({}, getDialogRootProps(), { ref: nodeRef }),
                     React.createElement("div", __assign({}, getDialogContainerProps()),
-                        backdrop ? (React.createElement(DialogBackdrop, { className: "h-transition-element h-transition-element--fade-in " + backdropClassName })) : null,
+                        backdrop ? (React.createElement(DialogBackdrop, { className: classNames("h-transition-element h-transition-element--fade-in", backdropClassName) })) : null,
                         React.createElement("div", __assign({}, getDialogProps()), children))))))) : null));
 };
 export { ModalDialog };
