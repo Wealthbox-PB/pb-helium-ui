@@ -1,13 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
-import { base64SpinnerImg } from './base_64_spinner_img';
+import { base64SpinnerImg, base64SpinnerImgDark } from './base_64_spinner_img';
 var HeliumSpinner = function (_a) {
-    var modifierClass = _a.modifierClass, _b = _a.screenReaderText, screenReaderText = _b === void 0 ? "Loading" : _b, size = _a.size;
-    return (React.createElement("div", { className: classNames("h-spinner", {
-            'h-spinner--sm': size === "small",
-            'h-spinner--lg': size === "large",
-        }, modifierClass, "h-line-height-1"), role: "status" },
-        React.createElement("img", { src: base64SpinnerImg, className: "h-img-fluid", alt: "Spinner", loading: "eager" }),
+    var _b;
+    var modifierClass = _a.modifierClass, _c = _a.screenReaderText, screenReaderText = _c === void 0 ? "Loading" : _c, _d = _a.size, size = _d === void 0 ? "md" : _d, _e = _a.theme, theme = _e === void 0 ? "light" : _e;
+    return (React.createElement("div", { className: classNames("h-spinner", "h-line-height-1", (_b = {},
+            _b["h-spinner--".concat(size)] = size !== "md",
+            _b), modifierClass), role: "status" },
+        React.createElement("img", { src: theme === "dark" ? base64SpinnerImgDark : base64SpinnerImg, className: "h-img-fluid", alt: "Spinner", loading: "eager" }),
         React.createElement("span", { className: "visually-hidden" }, screenReaderText)));
 };
 export { HeliumSpinner };
