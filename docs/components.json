@@ -3567,12 +3567,11 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`sm` | `md` | `lg` | undefined",
+            "raw": "`sm` | `md` | `lg`",
             "elements": [
               { "name": "literal", "value": "`sm`" },
               { "name": "literal", "value": "`md`" },
-              { "name": "literal", "value": "`lg`" },
-              { "name": "undefined" }
+              { "name": "literal", "value": "`lg`" }
             ]
           },
           "description": "Size of the spinner."

@@ -5,7 +5,7 @@ interface HeliumSpinnerProps {
     /** Text for screen readers. */
     screenReaderText?: string;
     /** Size of the spinner. */
-    size?: `sm` | `md` | `lg` | undefined;
+    size?: `sm` | `md` | `lg`;
     /** Color theme of the spinner. Dark theme returns a white graphical PNG asset. */
     theme?: `light` | `dark`;
 }
