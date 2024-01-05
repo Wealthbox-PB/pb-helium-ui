@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { base64SpinnerImg, base64SpinnerImgDark } from './base_64_spinner_img';
 
-interface SpinnerProps {
+export interface SpinnerProps {
   /** Class name for styling the spinner wrapper element. */
   modifierClass?: string;
   /** Text for screen readers. */
@@ -44,11 +44,4 @@ const Spinner = ({
   );
 };
 
-/**
- * @deprecated `HeliumSpinner` will be renamed to `Spinner` in Helium UI v3.0. Please use the `Spinner` component instead.
- */
-const HeliumSpinner = ({ ...props }: SpinnerProps) => {
-  return <Spinner {...props} />;
-};
-
-export { Spinner, HeliumSpinner };
+export { Spinner };
