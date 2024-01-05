@@ -19,15 +19,15 @@ const Spinner = ({
   size = `md`,
   theme = `light`,
 }: SpinnerProps) => {
+  const parsedSize = size === `small` ? `sm` : size === `large` ? `lg` : size;
+
   return (
     <div
       className={classNames(
         `h-spinner`,
         `h-line-height-1`,
         {
-          [`h-spinner--${size}`]: size === `sm` || size === `lg`,
-          [`h-spinner--sm`]: size === `small`,
-          [`h-spinner--lg`]: size === `large`,
+          [`h-spinner--${parsedSize}`]: size !== `md`,
         },
         modifierClass,
       )}
