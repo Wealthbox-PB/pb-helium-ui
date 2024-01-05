@@ -1,8 +1,13 @@
 import React from 'react';
-interface HeliumSpinnerProps {
+export interface SpinnerProps {
+    /** Class name for styling the spinner wrapper element. */
     modifierClass?: string;
+    /** Text for screen readers. */
     screenReaderText?: string;
-    size?: string;
+    /** Size of the spinner. */
+    size?: `sm` | `md` | `lg` | `small` | `large`;
+    /** Color theme of the spinner. Dark theme returns a white graphical PNG asset. */
+    theme?: `light` | `dark`;
 }
-declare const HeliumSpinner: ({ modifierClass, screenReaderText, size }: HeliumSpinnerProps) => React.JSX.Element;
-export { HeliumSpinner };
+declare const Spinner: ({ modifierClass, screenReaderText, size, theme, }: SpinnerProps) => React.JSX.Element;
+export { Spinner };

@@ -3547,15 +3547,95 @@
       "composes": ["Omit"]
     }
   ],
+  "./ts/components/Spinner/HeliumSpinner.tsx": [
+    {
+      "description": "@deprecated `HeliumSpinner` will be renamed to `Spinner` in Helium UI v3.0. Please use the `Spinner` component instead.",
+      "methods": [],
+      "displayName": "HeliumSpinner",
+      "props": {
+        "modifierClass": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Class name for styling the spinner wrapper element."
+        },
+        "screenReaderText": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Text for screen readers."
+        },
+        "size": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`sm` | `md` | `lg` | `small` | `large`",
+            "elements": [
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" },
+              { "name": "literal", "value": "`small`" },
+              { "name": "literal", "value": "`large`" }
+            ]
+          },
+          "description": "Size of the spinner."
+        },
+        "theme": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`light` | `dark`",
+            "elements": [
+              { "name": "literal", "value": "`light`" },
+              { "name": "literal", "value": "`dark`" }
+            ]
+          },
+          "description": "Color theme of the spinner. Dark theme returns a white graphical PNG asset."
+        }
+      }
+    }
+  ],
   "./ts/components/Spinner/Spinner.tsx": [
     {
       "description": "",
       "methods": [],
-      "displayName": "HeliumSpinner",
+      "displayName": "Spinner",
       "props": {
-        "modifierClass": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "screenReaderText": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "size": { "required": false, "tsType": { "name": "string" }, "description": "" }
+        "modifierClass": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Class name for styling the spinner wrapper element."
+        },
+        "screenReaderText": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Text for screen readers."
+        },
+        "size": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`sm` | `md` | `lg` | `small` | `large`",
+            "elements": [
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" },
+              { "name": "literal", "value": "`small`" },
+              { "name": "literal", "value": "`large`" }
+            ]
+          },
+          "description": "Size of the spinner."
+        },
+        "theme": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`light` | `dark`",
+            "elements": [
+              { "name": "literal", "value": "`light`" },
+              { "name": "literal", "value": "`dark`" }
+            ]
+          },
+          "description": "Color theme of the spinner. Dark theme returns a white graphical PNG asset."
+        }
       }
     }
   ],
