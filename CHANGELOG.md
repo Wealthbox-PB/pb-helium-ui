@@ -21,24 +21,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.6.2] - 2023-12-20
 
 ### Updated
+
 - Updated `ModalDialog` component
   - Only apply `backdropClassName` if it is defined
 
 ## [2.6.1] - 2023-12-14
 
 ### Updated
+
 - Updated `useCloseWithEscapeKey` hook:
- - Made `keyDownTargetRef` optional
- - If `keyDownTargetRef` is not used, use the document element
- - Changed order of props now that `keyDownTargetRef` is optional
- - Updated previous instances of `useCloseWithEscapeKey` to use new function signature
+  - Made `keyDownTargetRef` optional
+  - If `keyDownTargetRef` is not used, use the document element
+  - Changed order of props now that `keyDownTargetRef` is optional
+  - Updated previous instances of `useCloseWithEscapeKey` to use new function signature
 
 ## [2.6.0] - 2023-12-13
 
 ### Added
+
 - Added `Toast` component
 
 ### Updated
+
 - Moved `useDialog` hook into `hooks` folder
 
 ## [2.5.4] - 2023-12-08
