@@ -5,27 +5,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.3] - 2024-01-10
+
+### Updated
+
+- Updated `Spinner` component
+  - Updated the `base64SpinnerImg` asset
+  - Added a new `base64SpinnerImgDark` asset
+  - Added a `theme` prop to support both light and dark versions of the asset
+  - Updated the `size` prop to a more predictable enum type
+- Renamed `HeliumSpinner` export to `Spinner`
+  - Created a separate `HeliumSpinner` component which wraps `Spinner` and marked is as deprecated
+- Updated `react-docgen`, `svgo` and `typescript` package types from `dependencies` to `devDependencies` to better reflect usage
+
 ## [2.6.2] - 2023-12-20
 
 ### Updated
+
 - Updated `ModalDialog` component
   - Only apply `backdropClassName` if it is defined
 
 ## [2.6.1] - 2023-12-14
 
 ### Updated
+
 - Updated `useCloseWithEscapeKey` hook:
- - Made `keyDownTargetRef` optional
- - If `keyDownTargetRef` is not used, use the document element
- - Changed order of props now that `keyDownTargetRef` is optional
- - Updated previous instances of `useCloseWithEscapeKey` to use new function signature
+  - Made `keyDownTargetRef` optional
+  - If `keyDownTargetRef` is not used, use the document element
+  - Changed order of props now that `keyDownTargetRef` is optional
+  - Updated previous instances of `useCloseWithEscapeKey` to use new function signature
 
 ## [2.6.0] - 2023-12-13
 
 ### Added
+
 - Added `Toast` component
 
 ### Updated
+
 - Moved `useDialog` hook into `hooks` folder
 
 ## [2.5.4] - 2023-12-08
