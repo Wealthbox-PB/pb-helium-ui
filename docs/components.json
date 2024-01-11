@@ -3656,7 +3656,7 @@
       "displayName": "Switch",
       "props": {
         "ariaLabel": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "defaultValue": {
+        "checked": {
           "required": false,
           "tsType": { "name": "boolean" },
           "description": "",
@@ -3669,6 +3669,19 @@
           "defaultValue": { "value": "false", "computed": false }
         },
         "name": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "onChange": {
+          "required": false,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "(value: boolean) => void",
+            "signature": {
+              "arguments": [{ "type": { "name": "boolean" }, "name": "value" }],
+              "return": { "name": "void" }
+            }
+          },
+          "description": ""
+        },
         "variant": {
           "required": false,
           "tsType": {
@@ -3678,35 +3691,6 @@
               { "name": "literal", "value": "`primary`" },
               { "name": "literal", "value": "`positive`" }
             ]
-          },
-          "description": ""
-        },
-        "onChange": {
-          "required": false,
-          "tsType": {
-            "name": "signature",
-            "type": "function",
-            "raw": "(e: ChangeEvent<HTMLInputElement> | boolean) => void",
-            "signature": {
-              "arguments": [
-                {
-                  "type": {
-                    "name": "union",
-                    "raw": "ChangeEvent<HTMLInputElement> | boolean",
-                    "elements": [
-                      {
-                        "name": "ChangeEvent",
-                        "elements": [{ "name": "HTMLInputElement" }],
-                        "raw": "ChangeEvent<HTMLInputElement>"
-                      },
-                      { "name": "boolean" }
-                    ]
-                  },
-                  "name": "e"
-                }
-              ],
-              "return": { "name": "void" }
-            }
           },
           "description": ""
         }
