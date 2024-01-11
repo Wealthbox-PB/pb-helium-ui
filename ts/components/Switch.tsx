@@ -1,25 +1,29 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { Switch as HeadlessUiSwitch } from '@headlessui/react';
 
 interface SwitchProps {
   ariaLabel?: string;
-  defaultValue?: boolean;
   disabled?: boolean;
   name?: string;
   variant?: `primary` | `positive`;
-  onChange?: (e: ChangeEvent<HTMLInputElement> | boolean) => void;
+  onChange?: (value: boolean) => void;
+  checked?: boolean;
 }
 
 export const Switch = ({
   ariaLabel,
-  defaultValue = false,
   disabled = false,
   name,
   variant = `primary`,
   onChange,
+  checked = false,
 }: SwitchProps) => {
-  const [on, setOn] = useState(defaultValue);
+  const [on, setOn] = useState(checked);
+
+  useEffect(() => {
+    setOn(checked);
+  }, [checked]);
 
   return (
     <>
@@ -27,8 +31,8 @@ export const Switch = ({
       <HeadlessUiSwitch
         disabled={disabled}
         checked={on}
-        onChange={(e) => {
-          onChange?.(e);
+        onChange={(value) => {
+          onChange?.(value);
           setOn(!on);
         }}
         className={classNames(`h-switch`, {
