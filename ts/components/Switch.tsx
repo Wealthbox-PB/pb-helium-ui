@@ -4,20 +4,20 @@ import { Switch as HeadlessUiSwitch } from '@headlessui/react';
 
 interface SwitchProps {
   ariaLabel?: string;
+  checked?: boolean;
   disabled?: boolean;
   name?: string;
-  variant?: `primary` | `positive`;
   onChange?: (value: boolean) => void;
-  checked?: boolean;
+  variant?: `primary` | `positive`;
 }
 
 export const Switch = ({
   ariaLabel,
+  checked = false,
   disabled = false,
   name,
-  variant = `primary`,
   onChange,
-  checked = false,
+  variant = `primary`,
 }: SwitchProps) => {
   const [on, setOn] = useState(checked);
 
