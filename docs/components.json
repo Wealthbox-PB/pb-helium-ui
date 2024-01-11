@@ -3655,8 +3655,16 @@
       "methods": [],
       "displayName": "Switch",
       "props": {
-        "ariaLabel": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "checked": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
+        "ariaLabel": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Aria label for the switch. Defaults to On/Off depending on the switch's checked value"
+        },
+        "checked": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the switch is checked or not."
+        },
         "defaultValue": {
           "required": false,
           "tsType": { "name": "boolean" },
@@ -3666,10 +3674,14 @@
         "disabled": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Controls whether the switch is disabled or not.",
           "defaultValue": { "value": "false", "computed": false }
         },
-        "name": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "name": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Name for the hidden input."
+        },
         "onChange": {
           "required": false,
           "tsType": {
@@ -3681,7 +3693,7 @@
               "return": { "name": "void" }
             }
           },
-          "description": ""
+          "description": "Callback function when the switch is changed."
         },
         "variant": {
           "required": false,
@@ -3693,7 +3705,7 @@
               { "name": "literal", "value": "`positive`" }
             ]
           },
-          "description": ""
+          "description": "Controls the color of the switch."
         }
       }
     }
