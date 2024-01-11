@@ -5,6 +5,10 @@ import { Switch as HeadlessUiSwitch } from '@headlessui/react';
 interface SwitchProps {
   ariaLabel?: string;
   checked?: boolean;
+  /**
+   * @deprecated `defaultValue` prop is deprecated. Please use the `checked` prop instead.
+   */
+  defaultValue?: boolean;
   disabled?: boolean;
   name?: string;
   onChange?: (value: boolean) => void;
@@ -13,15 +17,20 @@ interface SwitchProps {
 
 export const Switch = ({
   ariaLabel,
-  checked = false,
+  // DEPRECATION NOTICE: we should default checked to false once we remove defaultValue
+  checked,
+  defaultValue = false,
   disabled = false,
   name,
   onChange,
   variant = `primary`,
 }: SwitchProps) => {
-  const [on, setOn] = useState(checked);
+  const [on, setOn] = useState(checked || defaultValue);
 
   useEffect(() => {
+    if (checked === undefined) {
+      return;
+    }
     setOn(checked);
   }, [checked]);
 

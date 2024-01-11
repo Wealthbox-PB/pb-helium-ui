@@ -3656,10 +3656,11 @@
       "displayName": "Switch",
       "props": {
         "ariaLabel": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "checked": {
+        "checked": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
+        "defaultValue": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "@deprecated `defaultValue` prop is deprecated. Please use the `checked` prop instead.",
           "defaultValue": { "value": "false", "computed": false }
         },
         "disabled": {
