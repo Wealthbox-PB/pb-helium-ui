@@ -1,11 +1,11 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 interface SwitchProps {
     ariaLabel?: string;
-    defaultValue?: boolean;
+    checked?: boolean;
     disabled?: boolean;
     name?: string;
+    onChange?: (value: boolean) => void;
     variant?: `primary` | `positive`;
-    onChange?: (e: ChangeEvent<HTMLInputElement> | boolean) => void;
 }
-export declare const Switch: ({ ariaLabel, defaultValue, disabled, name, variant, onChange, }: SwitchProps) => React.JSX.Element;
+export declare const Switch: ({ ariaLabel, checked, disabled, name, onChange, variant, }: SwitchProps) => React.JSX.Element;
 export {};
