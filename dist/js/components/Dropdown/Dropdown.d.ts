@@ -27,6 +27,8 @@ interface DropdownProps {
     height?: string;
     /** Controls the initial focus element. */
     initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
+    /** Controls the initial active index. */
+    initialActiveIndex?: number | null;
     /** Controls the maximum height of the dropdown. */
     maxHeight?: number;
     /** Controls the minimum height of the dropdown. */
@@ -54,5 +56,5 @@ interface DropdownProps {
      * element. */
     width?: `auto` | `full` | number;
 }
-declare const Dropdown: ({ children, className, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, returnFocus, virtualFocus, toggleOpenOnOpenerClick, resetActiveIndex, }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ children, className, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, returnFocus, virtualFocus, toggleOpenOnOpenerClick, resetActiveIndex, initialActiveIndex, }: DropdownProps) => React.JSX.Element;
 export { Dropdown };
