@@ -86,7 +86,7 @@ export const AlertDialog = ({
 
   return (
     <>
-      {open ? (
+      {open || visible ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
             <CSSTransition
