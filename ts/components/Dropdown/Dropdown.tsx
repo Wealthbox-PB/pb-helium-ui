@@ -48,6 +48,8 @@ interface DropdownProps {
   height?: string;
   /** Controls the initial focus element. */
   initialFocusEl?: number | MutableRefObject<HTMLElement | null> | undefined;
+  /** Controls the initial active index. */
+  initialActiveIndex?: number | null;
   /** Controls the maximum height of the dropdown. */
   maxHeight?: number;
   /** Controls the minimum height of the dropdown. */
@@ -96,12 +98,13 @@ const Dropdown = ({
   virtualFocus = false,
   toggleOpenOnOpenerClick = true,
   resetActiveIndex = true,
+  initialActiveIndex = null,
 }: DropdownProps) => {
   const [open, setOpen] = useState(openProp);
   const previousOpenState = useRef(open);
   const onOpenCallback = useCallback(onOpen, [onOpen]);
   const onCloseCallback = useCallback(onClose, [onClose]);
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(initialActiveIndex);
 
   useEffect(() => {
     setOpen(openProp);
@@ -179,12 +182,12 @@ const Dropdown = ({
 
   const dropdownContext = useMemo(
     () => ({ activeIndex, getItemProps, setOpen }),
-    [activeIndex, getItemProps, setOpen]
+    [activeIndex, getItemProps, setOpen],
   );
 
   useEffect(() => {
     if (resetActiveIndex) {
-      setActiveIndex(0);
+      setActiveIndex(initialActiveIndex);
     }
   }, [children, resetActiveIndex]);
 
