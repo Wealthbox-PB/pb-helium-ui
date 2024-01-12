@@ -86,7 +86,7 @@ export const AlertDialog = ({
 
   return (
     <>
-      {open ? (
+      {open || visible ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
           <Portal className="h-dialog-portal">
             <CSSTransition
@@ -101,7 +101,7 @@ export const AlertDialog = ({
             >
               <div {...getDialogRootProps()} ref={nodeRef}>
                 <div {...getDialogContainerProps()}>
-                  <DialogBackdrop className={backdropClassName} closeDialog={() => { }} />
+                  <DialogBackdrop className={backdropClassName} closeDialog={() => {}} />
                   <div {...getDialogProps()}>{children}</div>
                 </div>
               </div>
