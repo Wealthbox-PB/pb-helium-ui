@@ -1023,6 +1023,16 @@
           },
           "description": "Controls the initial focus element."
         },
+        "initialActiveIndex": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "number | null",
+            "elements": [{ "name": "number" }, { "name": "null" }]
+          },
+          "description": "Controls the initial active index.",
+          "defaultValue": { "value": "null", "computed": false }
+        },
         "maxHeight": {
           "required": false,
           "tsType": { "name": "number" },
