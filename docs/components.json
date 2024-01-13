@@ -3668,7 +3668,7 @@
         "defaultValue": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "@deprecated `defaultValue` prop is deprecated. Please use the `checked` prop instead.",
+          "description": "Sets the default checked value for the switch. Cannot be updated using an external state after the component is mounted.\n@deprecated `defaultValue` prop is deprecated. Please use the `checked` prop instead.",
           "defaultValue": { "value": "false", "computed": false }
         },
         "disabled": {
