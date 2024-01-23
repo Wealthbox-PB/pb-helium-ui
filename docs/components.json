@@ -1071,6 +1071,11 @@
           "description": "Controls whether the dropdown is open or not",
           "defaultValue": { "value": "false", "computed": false }
         },
+        "portalProps": {
+          "required": false,
+          "tsType": { "name": "PortalProps" },
+          "description": "Props passed into the Portal element. The `selector` prop allows us to set the parent root for the\ndropdown menu"
+        },
         "placement": {
           "required": false,
           "tsType": { "name": "Placement" },
@@ -2775,6 +2780,18 @@
       "methods": [],
       "displayName": "Popover",
       "props": {
+        "children": {
+          "required": true,
+          "tsType": {
+            "name": "union",
+            "raw": "JSX.Element | JSX.Element[]",
+            "elements": [
+              { "name": "JSX.Element" },
+              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" }
+            ]
+          },
+          "description": ""
+        },
         "renderOpener": {
           "required": true,
           "tsType": {
@@ -2792,50 +2809,58 @@
           },
           "description": ""
         },
-        "children": {
-          "required": true,
-          "tsType": {
-            "name": "union",
-            "raw": "JSX.Element | JSX.Element[]",
-            "elements": [
-              { "name": "JSX.Element" },
-              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" }
-            ]
-          },
-          "description": ""
-        },
-        "placement": { "required": false, "tsType": { "name": "Placement" }, "description": "" },
-        "trigger": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`click` | `hover`",
-            "elements": [
-              { "name": "literal", "value": "`click`" },
-              { "name": "literal", "value": "`hover`" }
-            ]
-          },
-          "description": ""
-        },
         "arrow": {
           "required": false,
           "tsType": { "name": "boolean" },
           "description": "",
           "defaultValue": { "value": "true", "computed": false }
         },
-        "open": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
+        "bodyClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
         "dismissible": {
           "required": false,
           "tsType": { "name": "boolean" },
           "description": "",
           "defaultValue": { "value": "true", "computed": false }
         },
+        "offset": {
+          "required": false,
+          "tsType": { "name": "number" },
+          "description": "",
+          "defaultValue": { "value": "8", "computed": false }
+        },
+        "onClose": {
+          "required": false,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "() => void",
+            "signature": { "arguments": [], "return": { "name": "void" } }
+          },
+          "description": "",
+          "defaultValue": { "value": "() => {}", "computed": false }
+        },
+        "onOpen": {
+          "required": false,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "() => void",
+            "signature": { "arguments": [], "return": { "name": "void" } }
+          },
+          "description": "",
+          "defaultValue": { "value": "() => {}", "computed": false }
+        },
+        "open": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
         "openOnLoad": {
           "required": false,
           "tsType": { "name": "boolean" },
           "description": "",
           "defaultValue": { "value": "false", "computed": false }
         },
+        "placement": { "required": false, "tsType": { "name": "Placement" }, "description": "" },
+        "portalProps": { "required": false, "tsType": { "name": "PortalProps" }, "description": "" },
+        "showCloseButton": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
         "size": {
           "required": false,
           "tsType": {
@@ -2863,36 +2888,17 @@
           },
           "description": ""
         },
-        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "bodyClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "showCloseButton": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
-        "offset": {
-          "required": false,
-          "tsType": { "name": "number" },
-          "description": "",
-          "defaultValue": { "value": "8", "computed": false }
-        },
-        "onOpen": {
+        "trigger": {
           "required": false,
           "tsType": {
-            "name": "signature",
-            "type": "function",
-            "raw": "() => void",
-            "signature": { "arguments": [], "return": { "name": "void" } }
+            "name": "union",
+            "raw": "`click` | `hover`",
+            "elements": [
+              { "name": "literal", "value": "`click`" },
+              { "name": "literal", "value": "`hover`" }
+            ]
           },
-          "description": "",
-          "defaultValue": { "value": "() => {}", "computed": false }
-        },
-        "onClose": {
-          "required": false,
-          "tsType": {
-            "name": "signature",
-            "type": "function",
-            "raw": "() => void",
-            "signature": { "arguments": [], "return": { "name": "void" } }
-          },
-          "description": "",
-          "defaultValue": { "value": "() => {}", "computed": false }
+          "description": ""
         }
       }
     }
@@ -3840,6 +3846,7 @@
       "methods": [],
       "displayName": "Tooltip",
       "props": {
+        "children": { "required": true, "tsType": { "name": "JSX.Element" }, "description": "" },
         "title": { "required": true, "tsType": { "name": "string" }, "description": "" },
         "arrow": {
           "required": false,
@@ -3847,27 +3854,16 @@
           "description": "",
           "defaultValue": { "value": "true", "computed": false }
         },
-        "placement": { "required": false, "tsType": { "name": "Placement" }, "description": "" },
-        "children": { "required": true, "tsType": { "name": "JSX.Element" }, "description": "" },
         "boundary": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "width": {
+        "onClose": {
           "required": false,
           "tsType": {
-            "name": "union",
-            "raw": "`base` | `wide` | `full`",
-            "elements": [
-              { "name": "literal", "value": "`base`" },
-              { "name": "literal", "value": "`wide`" },
-              { "name": "literal", "value": "`full`" }
-            ]
+            "name": "signature",
+            "type": "function",
+            "raw": "() => void",
+            "signature": { "arguments": [], "return": { "name": "void" } }
           },
           "description": ""
-        },
-        "open": {
-          "required": false,
-          "tsType": { "name": "boolean" },
-          "description": "",
-          "defaultValue": { "value": "false", "computed": false }
         },
         "onOpen": {
           "required": false,
@@ -3879,13 +3875,24 @@
           },
           "description": ""
         },
-        "onClose": {
+        "open": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "",
+          "defaultValue": { "value": "false", "computed": false }
+        },
+        "placement": { "required": false, "tsType": { "name": "Placement" }, "description": "" },
+        "portalProps": { "required": false, "tsType": { "name": "PortalProps" }, "description": "" },
+        "width": {
           "required": false,
           "tsType": {
-            "name": "signature",
-            "type": "function",
-            "raw": "() => void",
-            "signature": { "arguments": [], "return": { "name": "void" } }
+            "name": "union",
+            "raw": "`base` | `wide` | `full`",
+            "elements": [
+              { "name": "literal", "value": "`base`" },
+              { "name": "literal", "value": "`wide`" },
+              { "name": "literal", "value": "`full`" }
+            ]
           },
           "description": ""
         }

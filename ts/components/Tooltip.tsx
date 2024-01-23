@@ -16,18 +16,19 @@ import {
 import type { Boundary, Placement } from '@floating-ui/react';
 import classNames from 'classnames';
 import Parser from 'html-react-parser';
-import { Portal } from './Portal';
+import { Portal, PortalProps } from './Portal';
 
 interface TooltipProps {
+  children: JSX.Element;
   title: string;
   arrow?: boolean;
-  placement?: Placement;
-  children: JSX.Element;
   boundary?: string;
-  width?: `base` | `wide` | `full`;
-  open?: boolean;
-  onOpen?: () => void;
   onClose?: () => void;
+  onOpen?: () => void;
+  open?: boolean;
+  placement?: Placement;
+  portalProps?: PortalProps;
+  width?: `base` | `wide` | `full`;
 }
 
 export const Tooltip = ({
@@ -40,6 +41,7 @@ export const Tooltip = ({
   open = false,
   onOpen,
   onClose,
+  portalProps,
 }: TooltipProps) => {
   const [hovered, setHovered] = useState(false);
   const arrowRef = useRef(null);
@@ -90,7 +92,10 @@ export const Tooltip = ({
     <>
       {cloneElement(children, getReferenceProps({ ref: setReference, ...children.props }))}
       {isMounted ? (
-        <Portal className="h-floating-ui h-floating-ui--tooltips">
+        <Portal
+          className={classNames(`h-floating-ui h-floating-ui--tooltips`, portalProps?.className)}
+          {...portalProps}
+        >
           <div
             {...getFloatingProps({
               ref: setFloating,

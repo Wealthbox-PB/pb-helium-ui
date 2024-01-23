@@ -9,7 +9,7 @@ const portalRoot = (selector = ``): HTMLElement => {
   return el ? el : document.body;
 };
 
-interface PortalProps {
+export interface PortalProps {
   children: JSX.Element | JSX.Element[];
   className?: string;
   selector?: string;

@@ -1,15 +1,17 @@
 import React from 'react';
 import type { Placement } from '@floating-ui/react';
+import { PortalProps } from './Portal';
 interface TooltipProps {
+    children: JSX.Element;
     title: string;
     arrow?: boolean;
-    placement?: Placement;
-    children: JSX.Element;
     boundary?: string;
-    width?: `base` | `wide` | `full`;
-    open?: boolean;
-    onOpen?: () => void;
     onClose?: () => void;
+    onOpen?: () => void;
+    open?: boolean;
+    placement?: Placement;
+    portalProps?: PortalProps;
+    width?: `base` | `wide` | `full`;
 }
-export declare const Tooltip: ({ children, title, placement, width, arrow, boundary, open, onOpen, onClose, }: TooltipProps) => React.JSX.Element;
+export declare const Tooltip: ({ children, title, placement, width, arrow, boundary, open, onOpen, onClose, portalProps, }: TooltipProps) => React.JSX.Element;
 export {};

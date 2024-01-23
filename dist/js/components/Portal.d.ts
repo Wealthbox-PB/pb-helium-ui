@@ -1,5 +1,5 @@
 /// <reference types="react" />
-interface PortalProps {
+export interface PortalProps {
     children: JSX.Element | JSX.Element[];
     className?: string;
     selector?: string;

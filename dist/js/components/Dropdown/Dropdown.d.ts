@@ -1,5 +1,6 @@
 import React, { MutableRefObject } from 'react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
+import { PortalProps } from '../Portal';
 interface RenderOpenerProps {
     ref: (node: ReferenceType | null) => void;
     open: boolean;
@@ -39,6 +40,9 @@ interface DropdownProps {
     onOpen?: () => void;
     /** Controls whether the dropdown is open or not */
     open?: boolean;
+    /** Props passed into the Portal element. The `selector` prop allows us to set the parent root for the
+     * dropdown menu */
+    portalProps?: PortalProps;
     /** Controls the placement of the dropdown. */
     placement?: Placement;
     /** Controls whether the active index should be reset when the dropdown content changes. */
@@ -56,5 +60,5 @@ interface DropdownProps {
      * element. */
     width?: `auto` | `full` | number;
 }
-declare const Dropdown: ({ children, className, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, returnFocus, virtualFocus, toggleOpenOnOpenerClick, resetActiveIndex, initialActiveIndex, }: DropdownProps) => React.JSX.Element;
+declare const Dropdown: ({ children, className, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, returnFocus, virtualFocus, toggleOpenOnOpenerClick, resetActiveIndex, initialActiveIndex, portalProps, }: DropdownProps) => React.JSX.Element;
 export { Dropdown };

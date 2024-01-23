@@ -16,7 +16,7 @@ import Parser from 'html-react-parser';
 import { Portal } from './Portal';
 export var Tooltip = function (_a) {
     var _b, _c;
-    var children = _a.children, title = _a.title, _d = _a.placement, placement = _d === void 0 ? "top" : _d, _e = _a.width, width = _e === void 0 ? "base" : _e, _f = _a.arrow, arrow = _f === void 0 ? true : _f, boundary = _a.boundary, _g = _a.open, open = _g === void 0 ? false : _g, onOpen = _a.onOpen, onClose = _a.onClose;
+    var children = _a.children, title = _a.title, _d = _a.placement, placement = _d === void 0 ? "top" : _d, _e = _a.width, width = _e === void 0 ? "base" : _e, _f = _a.arrow, arrow = _f === void 0 ? true : _f, boundary = _a.boundary, _g = _a.open, open = _g === void 0 ? false : _g, onOpen = _a.onOpen, onClose = _a.onClose, portalProps = _a.portalProps;
     var _h = useState(false), hovered = _h[0], setHovered = _h[1];
     var arrowRef = useRef(null);
     var _j = useFloating({
@@ -51,7 +51,7 @@ export var Tooltip = function (_a) {
     var _p = useTransitionStyles(context), isMounted = _p.isMounted, styles = _p.styles;
     return (React.createElement(React.Fragment, null,
         cloneElement(children, getReferenceProps(__assign({ ref: setReference }, children.props))),
-        isMounted ? (React.createElement(Portal, { className: "h-floating-ui h-floating-ui--tooltips" },
+        isMounted ? (React.createElement(Portal, __assign({ className: classNames("h-floating-ui h-floating-ui--tooltips", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
             React.createElement("div", __assign({}, getFloatingProps({
                 ref: setFloating,
                 className: classNames("h-tooltip", (_b = {}, _b["h-tooltip--".concat(width)] = width, _b)),

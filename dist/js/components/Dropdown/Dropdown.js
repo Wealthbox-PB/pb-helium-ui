@@ -15,7 +15,7 @@ import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offse
 import { DropdownContext } from './DropdownContext';
 import { Portal } from '../Portal';
 var Dropdown = function (_a) {
-    var children = _a.children, className = _a.className, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g, _h = _a.typeahead, typeaheadProp = _h === void 0 ? true : _h, _j = _a.onOpen, onOpen = _j === void 0 ? function () { } : _j, _k = _a.onClose, onClose = _k === void 0 ? function () { } : _k, initialFocusEl = _a.initialFocusEl, _l = _a.returnFocus, returnFocus = _l === void 0 ? true : _l, _m = _a.virtualFocus, virtualFocus = _m === void 0 ? false : _m, _o = _a.toggleOpenOnOpenerClick, toggleOpenOnOpenerClick = _o === void 0 ? true : _o, _p = _a.resetActiveIndex, resetActiveIndex = _p === void 0 ? true : _p, _q = _a.initialActiveIndex, initialActiveIndex = _q === void 0 ? null : _q;
+    var children = _a.children, className = _a.className, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g, _h = _a.typeahead, typeaheadProp = _h === void 0 ? true : _h, _j = _a.onOpen, onOpen = _j === void 0 ? function () { } : _j, _k = _a.onClose, onClose = _k === void 0 ? function () { } : _k, initialFocusEl = _a.initialFocusEl, _l = _a.returnFocus, returnFocus = _l === void 0 ? true : _l, _m = _a.virtualFocus, virtualFocus = _m === void 0 ? false : _m, _o = _a.toggleOpenOnOpenerClick, toggleOpenOnOpenerClick = _o === void 0 ? true : _o, _p = _a.resetActiveIndex, resetActiveIndex = _p === void 0 ? true : _p, _q = _a.initialActiveIndex, initialActiveIndex = _q === void 0 ? null : _q, portalProps = _a.portalProps;
     var _r = useState(openProp), open = _r[0], setOpen = _r[1];
     var previousOpenState = useRef(open);
     var onOpenCallback = useCallback(onOpen, [onOpen]);
@@ -87,7 +87,7 @@ var Dropdown = function (_a) {
         if (resetActiveIndex) {
             setActiveIndex(initialActiveIndex);
         }
-    }, [children, resetActiveIndex]);
+    }, [children, initialActiveIndex, resetActiveIndex]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ open: open, ref: setReference, activeIndex: activeIndex }, getReferenceProps({
             onClick: function (e) {
@@ -102,7 +102,7 @@ var Dropdown = function (_a) {
             tabIndex: 0,
         }))),
         open ? (React.createElement(DropdownContext.Provider, { value: dropdownContext },
-            React.createElement(Portal, { className: "h-floating-ui h-floating-ui--dropdowns" },
+            React.createElement(Portal, __assign({ className: classNames("h-floating-ui h-floating-ui--dropdowns", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
                 React.createElement(FloatingFocusManager, { context: context, initialFocus: initialFocusEl, returnFocus: returnFocus },
                     React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown h-overflow-auto", className), style: {
                             position: strategy,

@@ -18,7 +18,7 @@ import {
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import classNames from 'classnames';
 import { Button } from '../Button';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
@@ -27,22 +27,23 @@ interface RenderOpenerProps {
 }
 
 interface PopoverProps {
-  renderOpener: (props: RenderOpenerProps) => JSX.Element | void;
   children: JSX.Element | JSX.Element[];
-  placement?: Placement;
-  trigger?: `click` | `hover`;
+  renderOpener: (props: RenderOpenerProps) => JSX.Element | void;
   arrow?: boolean;
-  open?: boolean;
+  bodyClassName?: string;
+  className?: string;
   dismissible?: boolean;
+  offset?: number;
+  onClose?: () => void;
+  onOpen?: () => void;
+  open?: boolean;
   openOnLoad?: boolean;
+  placement?: Placement;
+  portalProps?: PortalProps;
+  showCloseButton?: boolean;
   size?: `sm` | `md` | `lg` | `xl`;
   theme?: `light` | `dark` | `primary`;
-  className?: string;
-  bodyClassName?: string;
-  showCloseButton?: boolean;
-  offset?: number;
-  onOpen?: () => void;
-  onClose?: () => void;
+  trigger?: `click` | `hover`;
 }
 
 const Popover = ({
@@ -62,6 +63,7 @@ const Popover = ({
   offset: offsetProp = 8,
   onOpen = () => {},
   onClose = () => {},
+  portalProps,
 }: PopoverProps) => {
   const [internalOpenState, setInternalOpenState] = useState(openOnLoad || openProp);
   const previousOpenState = useRef(internalOpenState);
@@ -144,7 +146,10 @@ const Popover = ({
         }),
       })}
       {isMounted ? (
-        <Portal className="h-floating-ui h-floating-ui--popovers">
+        <Portal
+          className={classNames(`h-floating-ui h-floating-ui--popovers`, portalProps?.className)}
+          {...portalProps}
+        >
           <div
             ref={setFloating}
             className={classNames(
