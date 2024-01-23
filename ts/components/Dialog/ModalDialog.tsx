@@ -57,6 +57,9 @@ const ModalDialog = ({
   size,
   trapPaused = false,
 }: ModalDialogProps) => {
+  const timeout = 250;
+  const nodeRef = useRef(null);
+  const [visible, setVisible] = useState(false);
   const {
     getDialogRootProps,
     getDialogContainerProps,
@@ -71,16 +74,12 @@ const ModalDialog = ({
     animationDistance,
     dialogRole: `dialog`,
     initialFocusEl,
-    open,
+    open: open || visible,
     position,
     returnFocusEl,
     size,
     trapPaused,
   });
-
-  const timeout = 250;
-  const nodeRef = useRef(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (open) {

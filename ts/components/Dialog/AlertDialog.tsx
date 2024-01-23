@@ -43,6 +43,9 @@ export const AlertDialog = ({
   returnFocusEl,
   size,
 }: AlertDialogProps) => {
+  const timeout = 250;
+  const nodeRef = useRef(null);
+  const [visible, setVisible] = useState(false);
   // alertdialogs usually do not have header close buttons, so we check if it's a modal, if it has a
   // modal close function to actually close it, AND we also allow consumers to potentially remove the close
   // from the header if they want it to appear as an alert and still keep the role="dialog". This is
@@ -63,7 +66,7 @@ export const AlertDialog = ({
     dialogClassName,
     dialogRole: `alertdialog`,
     initialFocusEl: undefined, // Ideally leastDestructiveRef would be handed in here
-    open,
+    open: open || visible,
     position,
     returnFocusEl,
     size: size || `small`,
@@ -73,10 +76,6 @@ export const AlertDialog = ({
   useEffect(() => {
     leastDestructiveRef?.current?.focus();
   }, [leastDestructiveRef]);
-
-  const timeout = 250;
-  const nodeRef = useRef(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (open) {
@@ -101,7 +100,7 @@ export const AlertDialog = ({
             >
               <div {...getDialogRootProps()} ref={nodeRef}>
                 <div {...getDialogContainerProps()}>
-                  <DialogBackdrop className={backdropClassName} closeDialog={() => {}} />
+                  <DialogBackdrop className={backdropClassName} closeDialog={() => { }} />
                   <div {...getDialogProps()}>{children}</div>
                 </div>
               </div>
