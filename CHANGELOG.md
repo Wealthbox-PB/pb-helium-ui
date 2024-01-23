@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Updated
 
-- Updated `ModalDialog` and `AlertDialog` components to fix an issue where the `open` state in `useDialog` was not updated after the dialg animated out.
+- Updated `ModalDialog` and `AlertDialog` components to fix an issue where the `open` state in `useDialog` was not updated after the dialog animated out.
 
 ## [2.6.3] - 2024-01-10
 
