@@ -40,8 +40,7 @@ interface DropdownProps {
     onOpen?: () => void;
     /** Controls whether the dropdown is open or not */
     open?: boolean;
-    /** Props passed into the Portal element. The `selector` prop allows us to set the parent root for the
-     * dropdown menu */
+    /** Props passed into the Portal element. */
     portalProps?: PortalProps;
     /** Controls the placement of the dropdown. */
     placement?: Placement;
