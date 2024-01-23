@@ -18,7 +18,10 @@ import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 var ModalDialog = function (_a) {
     var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, _d = _a.animationDirection, animationDirection = _d === void 0 ? "up" : _d, _e = _a.animationDistance, animationDistance = _e === void 0 ? "md" : _e, _f = _a.backdrop, backdrop = _f === void 0 ? true : _f, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _g = _a.trapPaused, trapPaused = _g === void 0 ? false : _g;
-    var _h = useDialog({
+    var timeout = 250;
+    var nodeRef = useRef(null);
+    var _h = useState(false), visible = _h[0], setVisible = _h[1];
+    var _j = useDialog({
         backdrop: backdrop,
         closeDialog: closeDialog,
         dialogClassName: dialogClassName,
@@ -26,15 +29,12 @@ var ModalDialog = function (_a) {
         animationDistance: animationDistance,
         dialogRole: "dialog",
         initialFocusEl: initialFocusEl,
-        open: open,
+        open: open || visible,
         position: position,
         returnFocusEl: returnFocusEl,
         size: size,
         trapPaused: trapPaused,
-    }), getDialogRootProps = _h.getDialogRootProps, getDialogContainerProps = _h.getDialogContainerProps, getDialogProps = _h.getDialogProps, ariaLabelSelector = _h.ariaLabelSelector, ariaDescriptionSelector = _h.ariaDescriptionSelector;
-    var timeout = 250;
-    var nodeRef = useRef(null);
-    var _j = useState(false), visible = _j[0], setVisible = _j[1];
+    }), getDialogRootProps = _j.getDialogRootProps, getDialogContainerProps = _j.getDialogContainerProps, getDialogProps = _j.getDialogProps, ariaLabelSelector = _j.ariaLabelSelector, ariaDescriptionSelector = _j.ariaDescriptionSelector;
     useEffect(function () {
         if (open) {
             setVisible(true);
