@@ -18,7 +18,7 @@ import {
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import classNames from 'classnames';
 import { Button } from '../Button';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
@@ -27,22 +27,41 @@ interface RenderOpenerProps {
 }
 
 interface PopoverProps {
-  renderOpener: (props: RenderOpenerProps) => JSX.Element | void;
+  /** Content for the popover. */
   children: JSX.Element | JSX.Element[];
-  placement?: Placement;
-  trigger?: `click` | `hover`;
+  /** The popover opener element. Use the destructured "ref" and "...props" to spread them onto the
+   * opener element */
+  renderOpener: (props: RenderOpenerProps) => JSX.Element | void;
+  /** Controls whether the popover should have an arrow or not. */
   arrow?: boolean;
-  open?: boolean;
-  dismissible?: boolean;
-  openOnLoad?: boolean;
-  size?: `sm` | `md` | `lg` | `xl`;
-  theme?: `light` | `dark` | `primary`;
-  className?: string;
+  /** Adds class names to the popover body element. */
   bodyClassName?: string;
-  showCloseButton?: boolean;
+  /** Adds class names to the popover element. */
+  className?: string;
+  /** Controls whether the popover should be dismissible by clicking off of it, or using the `esc`
+   * key. */
+  dismissible?: boolean;
+  /** Add distance between the reference and floating element */
   offset?: number;
-  onOpen?: () => void;
+  /** Callback function when the popover is closed */
   onClose?: () => void;
+  /** Callback function when the popover is opened */
+  onOpen?: () => void;
+  /** Controls whether the popover is open or not. */
+  open?: boolean;
+  openOnLoad?: boolean;
+  /** Controls the placement of the popover. */
+  placement?: Placement;
+  /** Props passed into the Portal element. */
+  portalProps?: Omit<PortalProps, `children`>;
+  /** Controls whether the popover should have a close button or not. */
+  showCloseButton?: boolean;
+  /** Controls the size of the popover. */
+  size?: `sm` | `md` | `lg` | `xl`;
+  /** Controls the color theme of the popover. */
+  theme?: `light` | `dark` | `primary`;
+  /** Controls the open trigger of the popover. */
+  trigger?: `click` | `hover`;
 }
 
 const Popover = ({
@@ -62,6 +81,7 @@ const Popover = ({
   offset: offsetProp = 8,
   onOpen = () => {},
   onClose = () => {},
+  portalProps,
 }: PopoverProps) => {
   const [internalOpenState, setInternalOpenState] = useState(openOnLoad || openProp);
   const previousOpenState = useRef(internalOpenState);
@@ -144,7 +164,10 @@ const Popover = ({
         }),
       })}
       {isMounted ? (
-        <Portal className="h-floating-ui h-floating-ui--popovers">
+        <Portal
+          className={classNames(`h-floating-ui h-floating-ui--popovers`, portalProps?.className)}
+          {...portalProps}
+        >
           <div
             ref={setFloating}
             className={classNames(

@@ -1071,6 +1071,15 @@
           "description": "Controls whether the dropdown is open or not",
           "defaultValue": { "value": "false", "computed": false }
         },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
+        },
         "placement": {
           "required": false,
           "tsType": { "name": "Placement" },
@@ -2775,6 +2784,18 @@
       "methods": [],
       "displayName": "Popover",
       "props": {
+        "children": {
+          "required": true,
+          "tsType": {
+            "name": "union",
+            "raw": "JSX.Element | JSX.Element[]",
+            "elements": [
+              { "name": "JSX.Element" },
+              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" }
+            ]
+          },
+          "description": "Content for the popover."
+        },
         "renderOpener": {
           "required": true,
           "tsType": {
@@ -2790,51 +2811,87 @@
               }
             }
           },
-          "description": ""
-        },
-        "children": {
-          "required": true,
-          "tsType": {
-            "name": "union",
-            "raw": "JSX.Element | JSX.Element[]",
-            "elements": [
-              { "name": "JSX.Element" },
-              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" }
-            ]
-          },
-          "description": ""
-        },
-        "placement": { "required": false, "tsType": { "name": "Placement" }, "description": "" },
-        "trigger": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`click` | `hover`",
-            "elements": [
-              { "name": "literal", "value": "`click`" },
-              { "name": "literal", "value": "`hover`" }
-            ]
-          },
-          "description": ""
+          "description": "The popover opener element. Use the destructured \"ref\" and \"...props\" to spread them onto the\nopener element"
         },
         "arrow": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Controls whether the popover should have an arrow or not.",
           "defaultValue": { "value": "true", "computed": false }
         },
-        "open": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
+        "bodyClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the popover body element."
+        },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the popover element."
+        },
         "dismissible": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Controls whether the popover should be dismissible by clicking off of it, or using the `esc`\nkey.",
           "defaultValue": { "value": "true", "computed": false }
+        },
+        "offset": {
+          "required": false,
+          "tsType": { "name": "number" },
+          "description": "Add distance between the reference and floating element",
+          "defaultValue": { "value": "8", "computed": false }
+        },
+        "onClose": {
+          "required": false,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "() => void",
+            "signature": { "arguments": [], "return": { "name": "void" } }
+          },
+          "description": "Callback function when the popover is closed",
+          "defaultValue": { "value": "() => {}", "computed": false }
+        },
+        "onOpen": {
+          "required": false,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "() => void",
+            "signature": { "arguments": [], "return": { "name": "void" } }
+          },
+          "description": "Callback function when the popover is opened",
+          "defaultValue": { "value": "() => {}", "computed": false }
+        },
+        "open": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the popover is open or not."
         },
         "openOnLoad": {
           "required": false,
           "tsType": { "name": "boolean" },
           "description": "",
           "defaultValue": { "value": "false", "computed": false }
+        },
+        "placement": {
+          "required": false,
+          "tsType": { "name": "Placement" },
+          "description": "Controls the placement of the popover."
+        },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
+        },
+        "showCloseButton": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the popover should have a close button or not."
         },
         "size": {
           "required": false,
@@ -2848,7 +2905,7 @@
               { "name": "literal", "value": "`xl`" }
             ]
           },
-          "description": ""
+          "description": "Controls the size of the popover."
         },
         "theme": {
           "required": false,
@@ -2861,38 +2918,19 @@
               { "name": "literal", "value": "`primary`" }
             ]
           },
-          "description": ""
+          "description": "Controls the color theme of the popover."
         },
-        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "bodyClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "showCloseButton": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
-        "offset": {
-          "required": false,
-          "tsType": { "name": "number" },
-          "description": "",
-          "defaultValue": { "value": "8", "computed": false }
-        },
-        "onOpen": {
+        "trigger": {
           "required": false,
           "tsType": {
-            "name": "signature",
-            "type": "function",
-            "raw": "() => void",
-            "signature": { "arguments": [], "return": { "name": "void" } }
+            "name": "union",
+            "raw": "`click` | `hover`",
+            "elements": [
+              { "name": "literal", "value": "`click`" },
+              { "name": "literal", "value": "`hover`" }
+            ]
           },
-          "description": "",
-          "defaultValue": { "value": "() => {}", "computed": false }
-        },
-        "onClose": {
-          "required": false,
-          "tsType": {
-            "name": "signature",
-            "type": "function",
-            "raw": "() => void",
-            "signature": { "arguments": [], "return": { "name": "void" } }
-          },
-          "description": "",
-          "defaultValue": { "value": "() => {}", "computed": false }
+          "description": "Controls the open trigger of the popover."
         }
       }
     }
@@ -3840,16 +3878,67 @@
       "methods": [],
       "displayName": "Tooltip",
       "props": {
-        "title": { "required": true, "tsType": { "name": "string" }, "description": "" },
+        "children": {
+          "required": true,
+          "tsType": { "name": "JSX.Element" },
+          "description": "Element that is wrapped in the tooltip."
+        },
+        "title": {
+          "required": true,
+          "tsType": { "name": "string" },
+          "description": "Content for the tooltip."
+        },
         "arrow": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Controls whether the tooltip should have an arrow or not.",
           "defaultValue": { "value": "true", "computed": false }
         },
-        "placement": { "required": false, "tsType": { "name": "Placement" }, "description": "" },
-        "children": { "required": true, "tsType": { "name": "JSX.Element" }, "description": "" },
-        "boundary": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "boundary": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Set the clipping element of the tooltip."
+        },
+        "onClose": {
+          "required": false,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "() => void",
+            "signature": { "arguments": [], "return": { "name": "void" } }
+          },
+          "description": "Callback function when the tooltip is closed"
+        },
+        "onOpen": {
+          "required": false,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "() => void",
+            "signature": { "arguments": [], "return": { "name": "void" } }
+          },
+          "description": "Callback function when the tooltip is opened"
+        },
+        "open": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the tooltip is open or not.",
+          "defaultValue": { "value": "false", "computed": false }
+        },
+        "placement": {
+          "required": false,
+          "tsType": { "name": "Placement" },
+          "description": "Controls the placement of the tooltip."
+        },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
+        },
         "width": {
           "required": false,
           "tsType": {
@@ -3861,33 +3950,7 @@
               { "name": "literal", "value": "`full`" }
             ]
           },
-          "description": ""
-        },
-        "open": {
-          "required": false,
-          "tsType": { "name": "boolean" },
-          "description": "",
-          "defaultValue": { "value": "false", "computed": false }
-        },
-        "onOpen": {
-          "required": false,
-          "tsType": {
-            "name": "signature",
-            "type": "function",
-            "raw": "() => void",
-            "signature": { "arguments": [], "return": { "name": "void" } }
-          },
-          "description": ""
-        },
-        "onClose": {
-          "required": false,
-          "tsType": {
-            "name": "signature",
-            "type": "function",
-            "raw": "() => void",
-            "signature": { "arguments": [], "return": { "name": "void" } }
-          },
-          "description": ""
+          "description": "Controls the width of the tooltip."
         }
       }
     }

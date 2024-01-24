@@ -16,18 +16,29 @@ import {
 import type { Boundary, Placement } from '@floating-ui/react';
 import classNames from 'classnames';
 import Parser from 'html-react-parser';
-import { Portal } from './Portal';
+import { Portal, PortalProps } from './Portal';
 
 interface TooltipProps {
-  title: string;
-  arrow?: boolean;
-  placement?: Placement;
+  /** Element that is wrapped in the tooltip. */
   children: JSX.Element;
+  /** Content for the tooltip. */
+  title: string;
+  /** Controls whether the tooltip should have an arrow or not. */
+  arrow?: boolean;
+  /** Set the clipping element of the tooltip. */
   boundary?: string;
-  width?: `base` | `wide` | `full`;
-  open?: boolean;
-  onOpen?: () => void;
+  /** Callback function when the tooltip is closed */
   onClose?: () => void;
+  /** Callback function when the tooltip is opened */
+  onOpen?: () => void;
+  /** Controls whether the tooltip is open or not. */
+  open?: boolean;
+  /** Controls the placement of the tooltip. */
+  placement?: Placement;
+  /** Props passed into the Portal element. */
+  portalProps?: Omit<PortalProps, `children`>;
+  /** Controls the width of the tooltip. */
+  width?: `base` | `wide` | `full`;
 }
 
 export const Tooltip = ({
@@ -40,6 +51,7 @@ export const Tooltip = ({
   open = false,
   onOpen,
   onClose,
+  portalProps,
 }: TooltipProps) => {
   const [hovered, setHovered] = useState(false);
   const arrowRef = useRef(null);
@@ -90,7 +102,10 @@ export const Tooltip = ({
     <>
       {cloneElement(children, getReferenceProps({ ref: setReference, ...children.props }))}
       {isMounted ? (
-        <Portal className="h-floating-ui h-floating-ui--tooltips">
+        <Portal
+          className={classNames(`h-floating-ui h-floating-ui--tooltips`, portalProps?.className)}
+          {...portalProps}
+        >
           <div
             {...getFloatingProps({
               ref: setFloating,

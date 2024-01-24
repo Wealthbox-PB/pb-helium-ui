@@ -9,9 +9,12 @@ const portalRoot = (selector = ``): HTMLElement => {
   return el ? el : document.body;
 };
 
-interface PortalProps {
+export interface PortalProps {
+  /** Content for the portal. */
   children: JSX.Element | JSX.Element[];
+  /** Adds class names to the portal element. */
   className?: string;
+  /** Selector for the parent element where the portal element will render. Defaults to document body. */
   selector?: string;
 }
 

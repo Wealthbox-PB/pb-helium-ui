@@ -18,7 +18,7 @@ import {
 } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 
 interface RenderOpenerProps {
   ref: (node: ReferenceType | null) => void;
@@ -60,6 +60,8 @@ interface DropdownProps {
   onOpen?: () => void;
   /** Controls whether the dropdown is open or not */
   open?: boolean;
+  /** Props passed into the Portal element. */
+  portalProps?: Omit<PortalProps, `children`>;
   /** Controls the placement of the dropdown. */
   placement?: Placement;
   /** Controls whether the active index should be reset when the dropdown content changes. */
@@ -99,6 +101,7 @@ const Dropdown = ({
   toggleOpenOnOpenerClick = true,
   resetActiveIndex = true,
   initialActiveIndex = null,
+  portalProps,
 }: DropdownProps) => {
   const [open, setOpen] = useState(openProp);
   const previousOpenState = useRef(open);
@@ -182,14 +185,14 @@ const Dropdown = ({
 
   const dropdownContext = useMemo(
     () => ({ activeIndex, getItemProps, setOpen }),
-    [activeIndex, getItemProps, setOpen],
+    [activeIndex, getItemProps, setOpen]
   );
 
   useEffect(() => {
     if (resetActiveIndex) {
       setActiveIndex(initialActiveIndex);
     }
-  }, [children, resetActiveIndex]);
+  }, [children, initialActiveIndex, resetActiveIndex]);
 
   return (
     <>
@@ -212,7 +215,10 @@ const Dropdown = ({
       })}
       {open ? (
         <DropdownContext.Provider value={dropdownContext}>
-          <Portal className="h-floating-ui h-floating-ui--dropdowns">
+          <Portal
+            className={classNames(`h-floating-ui h-floating-ui--dropdowns`, portalProps?.className)}
+            {...portalProps}
+          >
             <FloatingFocusManager context={context} initialFocus={initialFocusEl} returnFocus={returnFocus}>
               <div
                 ref={setFloating}

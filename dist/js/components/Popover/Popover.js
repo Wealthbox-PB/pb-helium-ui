@@ -17,7 +17,7 @@ import { Button } from '../Button';
 import { Portal } from '../Portal';
 var Popover = function (_a) {
     var _b, _c, _d;
-    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.dismissible, dismissible = _h === void 0 ? true : _h, _j = _a.openOnLoad, openOnLoad = _j === void 0 ? false : _j, size = _a.size, _k = _a.theme, theme = _k === void 0 ? "light" : _k, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton, _l = _a.offset, offsetProp = _l === void 0 ? 8 : _l, _m = _a.onOpen, onOpen = _m === void 0 ? function () { } : _m, _o = _a.onClose, onClose = _o === void 0 ? function () { } : _o;
+    var renderOpener = _a.renderOpener, _e = _a.placement, placement = _e === void 0 ? "top" : _e, children = _a.children, _f = _a.trigger, trigger = _f === void 0 ? "hover" : _f, _g = _a.arrow, arrow = _g === void 0 ? true : _g, openProp = _a.open, _h = _a.dismissible, dismissible = _h === void 0 ? true : _h, _j = _a.openOnLoad, openOnLoad = _j === void 0 ? false : _j, size = _a.size, _k = _a.theme, theme = _k === void 0 ? "light" : _k, className = _a.className, bodyClassName = _a.bodyClassName, showCloseButton = _a.showCloseButton, _l = _a.offset, offsetProp = _l === void 0 ? 8 : _l, _m = _a.onOpen, onOpen = _m === void 0 ? function () { } : _m, _o = _a.onClose, onClose = _o === void 0 ? function () { } : _o, portalProps = _a.portalProps;
     var _p = useState(openOnLoad || openProp), internalOpenState = _p[0], setInternalOpenState = _p[1];
     var previousOpenState = useRef(internalOpenState);
     var onOpenCallback = useCallback(onOpen, [onOpen]);
@@ -79,7 +79,7 @@ var Popover = function (_a) {
             open: internalOpenState,
             tabIndex: 0,
         }))),
-        isMounted ? (React.createElement(Portal, { className: "h-floating-ui h-floating-ui--popovers" },
+        isMounted ? (React.createElement(Portal, __assign({ className: classNames("h-floating-ui h-floating-ui--popovers", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
             React.createElement("div", __assign({ ref: setFloating, className: classNames("h-popover", (_b = {}, _b["h-popover--".concat(size)] = size, _b), (_c = {}, _c["h-popover--".concat(theme)] = theme, _c), className), style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : 0, left: x !== null && x !== void 0 ? x : 0 }, styles), role: "menu" }, getFloatingProps({
                 // Pressing tab dismisses the popover due to the modal
                 // focus management on the root menu.
