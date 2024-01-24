@@ -53,7 +53,7 @@ interface PopoverProps {
   /** Controls the placement of the popover. */
   placement?: Placement;
   /** Props passed into the Portal element. */
-  portalProps?: PortalProps;
+  portalProps?: Omit<PortalProps, `children`>;
   /** Controls whether the popover should have a close button or not. */
   showCloseButton?: boolean;
   /** Controls the size of the popover. */

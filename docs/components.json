@@ -1073,7 +1073,11 @@
         },
         "portalProps": {
           "required": false,
-          "tsType": { "name": "PortalProps" },
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
           "description": "Props passed into the Portal element."
         },
         "placement": {
@@ -2877,7 +2881,11 @@
         },
         "portalProps": {
           "required": false,
-          "tsType": { "name": "PortalProps" },
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
           "description": "Props passed into the Portal element."
         },
         "showCloseButton": {
@@ -3924,7 +3932,11 @@
         },
         "portalProps": {
           "required": false,
-          "tsType": { "name": "PortalProps" },
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
           "description": "Props passed into the Portal element."
         },
         "width": {

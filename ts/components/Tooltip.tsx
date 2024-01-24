@@ -36,7 +36,7 @@ interface TooltipProps {
   /** Controls the placement of the tooltip. */
   placement?: Placement;
   /** Props passed into the Portal element. */
-  portalProps?: PortalProps;
+  portalProps?: Omit<PortalProps, `children`>;
   /** Controls the width of the tooltip. */
   width?: `base` | `wide` | `full`;
 }

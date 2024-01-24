@@ -61,7 +61,7 @@ interface DropdownProps {
   /** Controls whether the dropdown is open or not */
   open?: boolean;
   /** Props passed into the Portal element. */
-  portalProps?: PortalProps;
+  portalProps?: Omit<PortalProps, `children`>;
   /** Controls the placement of the dropdown. */
   placement?: Placement;
   /** Controls whether the active index should be reset when the dropdown content changes. */
