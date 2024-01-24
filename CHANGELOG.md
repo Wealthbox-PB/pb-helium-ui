@@ -5,13 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.6.4] - 2024-01-23
+## [2.6.4] - 2024-01-24
 
 ### Updated
 
 - Updated `Portal` to export interface
-- Updated `Dropdown`, `Popover`, and `Tooltip`
-  - Added `portalProps` to allow setting the `Portal` `selector` prop
+- Added `portalProps` to `Dropdown`, `Popover`, and `Tooltip`
+- Added descriptions to props for `Portal`, `Popover`, and `Tooltip`
 - Updated `Switch`
   - Mark the defaultValue prop as deprecated
   - Add checked prop
