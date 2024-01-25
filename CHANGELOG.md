@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Update component behavior to set the internal on state whenever the checked value is set, or changed
 - Added `home` to `home--lg`, `dashboard-grid`, and `dashboard-grid--lg` icons
 - Recompiled icon font
+- Move `react-transition-group` package from `devDependencies` to `dependencies`
 
 ## [2.6.31] - 2024-01-23
 
