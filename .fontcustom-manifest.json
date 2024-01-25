@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "65f628e65f9efa697120a8975afd2ec5a242ce7d74227141e2a471c07ca01286",
-    "current": "65f628e65f9efa697120a8975afd2ec5a242ce7d74227141e2a471c07ca01286"
+    "previous": "e2822cc9b1b61fd00b2d8eac03a198510aa16c97dc9254129417db1180c19aa0",
+    "current": "e2822cc9b1b61fd00b2d8eac03a198510aa16c97dc9254129417db1180c19aa0"
   },
   "fonts": [
-    "fonts/helium-icons_65f628e65f9efa697120a8975afd2ec5.ttf",
-    "fonts/helium-icons_65f628e65f9efa697120a8975afd2ec5.svg",
-    "fonts/helium-icons_65f628e65f9efa697120a8975afd2ec5.woff",
-    "fonts/helium-icons_65f628e65f9efa697120a8975afd2ec5.eot",
-    "fonts/helium-icons_65f628e65f9efa697120a8975afd2ec5.woff2"
+    "fonts/helium-icons_e2822cc9b1b61fd00b2d8eac03a19851.ttf",
+    "fonts/helium-icons_e2822cc9b1b61fd00b2d8eac03a19851.svg",
+    "fonts/helium-icons_e2822cc9b1b61fd00b2d8eac03a19851.woff",
+    "fonts/helium-icons_e2822cc9b1b61fd00b2d8eac03a19851.eot",
+    "fonts/helium-icons_e2822cc9b1b61fd00b2d8eac03a19851.woff2"
   ],
   "glyphs": {
     "add": {
@@ -306,6 +306,14 @@
     "dashboard--lg": {
       "codepoint": 61752,
       "source": "assets/icons/dashboard--lg.svg"
+    },
+    "dashboard-grid": {
+      "codepoint": 62119,
+      "source": "assets/icons/dashboard-grid.svg"
+    },
+    "dashboard-grid--lg": {
+      "codepoint": 62117,
+      "source": "assets/icons/dashboard-grid--lg.svg"
     },
     "datafile": {
       "codepoint": 61753,
@@ -714,6 +722,14 @@
     "history--lg": {
       "codepoint": 62026,
       "source": "assets/icons/history--lg.svg"
+    },
+    "home": {
+      "codepoint": 62115,
+      "source": "assets/icons/home.svg"
+    },
+    "home--lg": {
+      "codepoint": 62116,
+      "source": "assets/icons/home--lg.svg"
     },
     "household": {
       "codepoint": 61826,
