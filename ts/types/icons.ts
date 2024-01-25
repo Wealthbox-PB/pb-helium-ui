@@ -75,6 +75,8 @@ export type Icons =
   | `contact--lg`
   | `dashboard`
   | `dashboard--lg`
+  | `dashboard-grid`
+  | `dashboard-grid--lg`
   | `datafile`
   | `datafile--lg`
   | `deal`
@@ -177,6 +179,8 @@ export type Icons =
   | `grid-view--lg`
   | `history`
   | `history--lg`
+  | `home`
+  | `home--lg`
   | `household`
   | `household--filled`
   | `household--filled--lg`
