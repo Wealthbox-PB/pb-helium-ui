@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.4.1] - 2024-01-26
+
+### Updated
+
+- Updated `Changelog` to add missing updates
+
 ## [2.6.4] - 2024-01-25
 
 ### Updated
@@ -12,19 +18,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `Portal` to export interface
 - Added `portalProps` prop to `Dropdown`, `Popover`, and `Tooltip`
 - Added descriptions to props for `Portal`, `Popover`, and `Tooltip`
-- Updated `Switch`
-  - Mark the defaultValue prop as deprecated
-  - Add checked prop
-  - Update component behavior to set the internal on state whenever the checked value is set, or changed
 - Added `home` to `home--lg`, `dashboard-grid`, and `dashboard-grid--lg` icons
 - Recompiled icon font
 - Move `react-transition-group` package from `devDependencies` to `dependencies`
 
-## [2.6.31] - 2024-01-23
+## [2.6.3.1] - 2024-01-23
 
 ### Updated
 
 - Updated `ModalDialog` and `AlertDialog` components to fix an issue where the `open` state in `useDialog` was not updated after the dialog animated out.
+- Updated `Switch`
+  - Mark the defaultValue prop as deprecated
+  - Add checked prop
+  - Update component behavior to set the internal on state whenever the checked value is set, or changed
+- Updated `Dropdown`
+  - Add a new `initialActiveIndex` prop to optionally set the initial active menu item
 
 ## [2.6.3] - 2024-01-10
 
