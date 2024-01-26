@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Recompiled icon font
 - Move `react-transition-group` package from `devDependencies` to `dependencies`
 
-## [2.6.3.1] - 2024-01-23
+## [2.6.31] - 2024-01-23
 
 ### Updated
 
