@@ -3868,6 +3868,12 @@
           "tsType": { "name": "string" },
           "description": "Adds class names to the toast element."
         },
+        "delay": {
+          "required": false,
+          "tsType": { "name": "number" },
+          "description": "Controls whether to delay entry of the toast element",
+          "defaultValue": { "value": "0", "computed": false }
+        },
         "animateIn": {
           "required": false,
           "tsType": { "name": "boolean" },
