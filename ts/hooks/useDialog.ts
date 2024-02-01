@@ -13,7 +13,7 @@ const sizeClasses: { [key: string]: string } = {
   large: `lg`,
   xl: `xl`,
   xxl: `xxl`,
-  full: `full-screen`
+  full: `full-screen`,
 };
 
 export function useDialog({
@@ -29,7 +29,7 @@ export function useDialog({
   returnFocusEl,
   size,
   trapPaused,
-  trapFocus = true
+  trapFocus = true,
 }) {
   const [isTrapPaused, setIsTrapPaused] = useState<boolean>(trapPaused);
 
@@ -61,7 +61,7 @@ export function useDialog({
       escapeDeactivates: false,
       fallbackFocus: dialogRef.current,
       initialFocus: initialFocusEl,
-      setReturnFocus: returnFocusEl
+      setReturnFocus: returnFocusEl,
     };
 
     const trap = createFocusTrap(dialogRef.current, trapOptions);
@@ -85,7 +85,7 @@ export function useDialog({
 
   const getDialogRootProps = useCallback(() => {
     return {
-      className: classNames(`h-dialog-wrapper`, { 'h-pointer-events-none': !backdrop })
+      className: classNames(`h-dialog-wrapper`, { 'h-pointer-events-none': !backdrop }),
     };
   }, [backdrop]);
 
@@ -98,13 +98,13 @@ export function useDialog({
         getDialogSize(size),
         getDialogPosition(position),
         {
-          [`${dialogContainerClassname}--backdrop-none`]: !backdrop
+          [`${dialogContainerClassname}--backdrop-none`]: !backdrop,
         }
       ),
       role: dialogRole,
       'aria-modal': true,
       'aria-labelledby': ariaLabelSelector,
-      'aria-describedby': ariaDescriptionSelector
+      'aria-describedby': ariaDescriptionSelector,
     };
   }, [ariaDescriptionSelector, ariaLabelSelector, backdrop, dialogRole, position, size]);
 
@@ -119,7 +119,7 @@ export function useDialog({
         `h-transition--slide-${animationDirection}`,
         `${dialogContainerClassname}__el `,
         dialogClassName
-      )
+      ),
     };
   }, [animationDistance, animationDirection, dialogClassName]);
 
@@ -136,7 +136,7 @@ export function useDialog({
     getDialogContainerProps,
     getDialogProps,
     ariaLabelSelector,
-    ariaDescriptionSelector
+    ariaDescriptionSelector,
   };
 }
 
