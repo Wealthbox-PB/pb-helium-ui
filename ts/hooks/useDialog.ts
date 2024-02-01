@@ -18,7 +18,7 @@ const sizeClasses: { [key: string]: string } = {
 
 export function useDialog({
   backdrop,
-  closeDialog = () => {},
+  closeDialog = () => { },
   dialogClassName,
   animationDirection,
   animationDistance,
@@ -29,6 +29,7 @@ export function useDialog({
   returnFocusEl,
   size,
   trapPaused,
+  trapFocus = true,
 }) {
   const [isTrapPaused, setIsTrapPaused] = useState<boolean>(trapPaused);
 
@@ -51,7 +52,7 @@ export function useDialog({
       return;
     }
 
-    if (isTrapPaused) {
+    if (isTrapPaused || !trapFocus) {
       return;
     }
 
@@ -74,7 +75,7 @@ export function useDialog({
     return () => {
       trap.deactivate();
     };
-  }, [returnFocusEl, open, isTrapPaused, initialFocusEl]);
+  }, [returnFocusEl, open, isTrapPaused, initialFocusEl, trapFocus]);
 
   useEffect(() => {
     const ref = dialogContainerRef.current;

@@ -1,5 +1,5 @@
 /// <reference types="react" />
-export declare function useDialog({ backdrop, closeDialog, dialogClassName, animationDirection, animationDistance, dialogRole, initialFocusEl, open, position, returnFocusEl, size, trapPaused, }: {
+export declare function useDialog({ backdrop, closeDialog, dialogClassName, animationDirection, animationDistance, dialogRole, initialFocusEl, open, position, returnFocusEl, size, trapPaused, trapFocus, }: {
     backdrop: any;
     closeDialog?: (() => void) | undefined;
     dialogClassName: any;
@@ -12,6 +12,7 @@ export declare function useDialog({ backdrop, closeDialog, dialogClassName, anim
     returnFocusEl: any;
     size: any;
     trapPaused: any;
+    trapFocus?: boolean | undefined;
 }): {
     getDialogRootProps: () => {
         className: string;

@@ -30,6 +30,9 @@ const Toast = ({
   open,
   size
 }: ToastProps) => {
+  const timeout = 250;
+  const nodeRef = useRef(null);
+  const [visible, setVisible] = useState(false);
   const {
     getDialogRootProps,
     getDialogContainerProps,
@@ -44,16 +47,13 @@ const Toast = ({
     animationDistance: `md`,
     dialogRole: `dialog`,
     initialFocusEl: undefined,
-    open,
+    open: open || visible,
     position: `bottom right`,
     returnFocusEl: undefined,
     size,
     trapPaused: false,
+    trapFocus: false,
   });
-
-  const timeout = 250;
-  const nodeRef = useRef(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     if (open) {
