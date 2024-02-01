@@ -18,7 +18,7 @@ const sizeClasses: { [key: string]: string } = {
 
 export function useDialog({
   backdrop,
-  closeDialog = () => { },
+  closeDialog = () => {},
   dialogClassName,
   animationDirection,
   animationDistance,
@@ -99,7 +99,7 @@ export function useDialog({
         getDialogPosition(position),
         {
           [`${dialogContainerClassname}--backdrop-none`]: !backdrop,
-        }
+        },
       ),
       role: dialogRole,
       'aria-modal': true,
@@ -118,7 +118,7 @@ export function useDialog({
         `h-transition--fade-in`,
         `h-transition--slide-${animationDirection}`,
         `${dialogContainerClassname}__el `,
-        dialogClassName
+        dialogClassName,
       ),
     };
   }, [animationDistance, animationDirection, dialogClassName]);
@@ -175,7 +175,7 @@ function getDialogPosition(position: string = `center`): string {
   } else {
     return `${dialogContainerClassname}--${getPositionClass(
       `y`,
-      y
+      y,
     )} ${dialogContainerClassname}--${getPositionClass(`x`, x)}`;
   }
 }
