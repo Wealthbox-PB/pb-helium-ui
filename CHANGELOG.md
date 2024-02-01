@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.43] - 2024-01-23
+
+### Updated
+
+- Added `trapFocus` prop to `useDialog` so we can optionally have dialogs that do not trap focus
+- Updated `Toast` component to no longer trap focus
+- Updated `Toast` component to fix an issue where the `open` state in `useDialog` was not updated after the dialog animated out.
+
 ## [2.6.42] - 2024-01-29
 
 ### Updated
