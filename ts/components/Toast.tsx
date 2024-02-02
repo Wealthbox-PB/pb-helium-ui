@@ -13,6 +13,8 @@ interface ToastProps {
   open: boolean;
   /** Adds class names to the toast element. */
   className?: string;
+  /** Number of milliseconds to delay entry of the toast element. */
+  delay?: number;
   /** Controls whether the toast animates in. */
   animateIn?: boolean;
   /** Controls whether the toast animates out. */
@@ -27,12 +29,14 @@ const Toast = ({
   children,
   closeToast,
   className,
+  delay = 0,
   open,
-  size
+  size,
 }: ToastProps) => {
   const timeout = 250;
   const nodeRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const [delayed, setDelayed] = useState(true);
   const {
     getDialogRootProps,
     getDialogContainerProps,
@@ -56,15 +60,22 @@ const Toast = ({
   });
 
   useEffect(() => {
-    if (open) {
-      setVisible(true);
-    }
+    const timeoutId = setTimeout(() => {
+      if (open) {
+        setVisible(true);
+      }
+      setDelayed(false);
+    }, delay);
+
+    return () => clearTimeout(timeoutId);
   }, [open]);
 
   return (
     <>
-      {open || visible ? (
-        <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog: closeToast }}>
+      {!delayed && visible ? (
+        <DialogContext.Provider
+          value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog: closeToast }}
+        >
           <Portal className="h-dialog-portal">
             <CSSTransition
               nodeRef={nodeRef}
