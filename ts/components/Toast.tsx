@@ -13,7 +13,7 @@ interface ToastProps {
   open: boolean;
   /** Adds class names to the toast element. */
   className?: string;
-  /** Controls whether to delay entry of the toast element */
+  /** Number of milliseconds to delay entry of the toast element. */
   delay?: number;
   /** Controls whether the toast animates in. */
   animateIn?: boolean;
@@ -60,18 +60,19 @@ const Toast = ({
   });
 
   useEffect(() => {
-    if (open) {
-      setVisible(true);
-    }
-
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
+      if (open) {
+        setVisible(true);
+      }
       setDelayed(false);
     }, delay);
+
+    return () => clearTimeout(timeoutId);
   }, [open]);
 
   return (
     <>
-      {!delayed && (open || visible) ? (
+      {!delayed && visible ? (
         <DialogContext.Provider
           value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog: closeToast }}
         >

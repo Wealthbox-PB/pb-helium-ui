@@ -3871,7 +3871,7 @@
         "delay": {
           "required": false,
           "tsType": { "name": "number" },
-          "description": "Controls whether to delay entry of the toast element",
+          "description": "Number of milliseconds to delay entry of the toast element.",
           "defaultValue": { "value": "0", "computed": false }
         },
         "animateIn": {

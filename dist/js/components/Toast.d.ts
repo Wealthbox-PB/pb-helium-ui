@@ -8,7 +8,7 @@ interface ToastProps {
     open: boolean;
     /** Adds class names to the toast element. */
     className?: string;
-    /** Controls whether to delay entry of the toast element */
+    /** Number of milliseconds to delay entry of the toast element. */
     delay?: number;
     /** Controls whether the toast animates in. */
     animateIn?: boolean;

@@ -36,14 +36,15 @@ var Toast = function (_a) {
         trapFocus: false,
     }), getDialogRootProps = _g.getDialogRootProps, getDialogContainerProps = _g.getDialogContainerProps, getDialogProps = _g.getDialogProps, ariaLabelSelector = _g.ariaLabelSelector, ariaDescriptionSelector = _g.ariaDescriptionSelector;
     useEffect(function () {
-        if (open) {
-            setVisible(true);
-        }
-        setTimeout(function () {
+        var timeoutId = setTimeout(function () {
+            if (open) {
+                setVisible(true);
+            }
             setDelayed(false);
         }, delay);
+        return function () { return clearTimeout(timeoutId); };
     }, [open]);
-    return (React.createElement(React.Fragment, null, !delayed && (open || visible) ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeToast } },
+    return (React.createElement(React.Fragment, null, !delayed && visible ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeToast } },
         React.createElement(Portal, { className: "h-dialog-portal" },
             React.createElement(CSSTransition, { nodeRef: nodeRef, in: open && visible, appear: animateIn || animateOut, timeout: timeout, enter: animateIn, exit: animateOut, classNames: "h-transition-", onExited: function () { return setVisible(false); } },
                 React.createElement("div", __assign({}, getDialogRootProps(), { ref: nodeRef }),
