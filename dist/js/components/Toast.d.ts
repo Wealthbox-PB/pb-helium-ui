@@ -8,6 +8,8 @@ interface ToastProps {
     open: boolean;
     /** Adds class names to the toast element. */
     className?: string;
+    /** Number of milliseconds to delay entry of the toast element. */
+    delay?: number;
     /** Controls whether the toast animates in. */
     animateIn?: boolean;
     /** Controls whether the toast animates out. */
@@ -15,5 +17,5 @@ interface ToastProps {
     /** Controls the size of the dialog. Default size is "medium". */
     size?: string;
 }
-declare const Toast: ({ animateIn, animateOut, children, closeToast, className, open, size }: ToastProps) => React.JSX.Element;
+declare const Toast: ({ animateIn, animateOut, children, closeToast, className, delay, open, size, }: ToastProps) => React.JSX.Element;
 export { Toast };

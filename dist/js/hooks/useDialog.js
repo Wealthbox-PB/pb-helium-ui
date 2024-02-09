@@ -15,8 +15,8 @@ var sizeClasses = {
     full: "full-screen",
 };
 export function useDialog(_a) {
-    var backdrop = _a.backdrop, _b = _a.closeDialog, closeDialog = _b === void 0 ? function () { } : _b, dialogClassName = _a.dialogClassName, animationDirection = _a.animationDirection, animationDistance = _a.animationDistance, dialogRole = _a.dialogRole, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, trapPaused = _a.trapPaused;
-    var _c = useState(trapPaused), isTrapPaused = _c[0], setIsTrapPaused = _c[1];
+    var backdrop = _a.backdrop, _b = _a.closeDialog, closeDialog = _b === void 0 ? function () { } : _b, dialogClassName = _a.dialogClassName, animationDirection = _a.animationDirection, animationDistance = _a.animationDistance, dialogRole = _a.dialogRole, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, trapPaused = _a.trapPaused, _c = _a.trapFocus, trapFocus = _c === void 0 ? true : _c;
+    var _d = useState(trapPaused), isTrapPaused = _d[0], setIsTrapPaused = _d[1];
     var dialogContainerRef = useRef(null);
     var dialogRef = useRef(null);
     var uniqueSuffixRef = useRef(randomString());
@@ -31,7 +31,7 @@ export function useDialog(_a) {
         if (!dialogRef.current) {
             return;
         }
-        if (isTrapPaused) {
+        if (isTrapPaused || !trapFocus) {
             return;
         }
         var trapOptions = {
@@ -52,7 +52,7 @@ export function useDialog(_a) {
         return function () {
             trap.deactivate();
         };
-    }, [returnFocusEl, open, isTrapPaused, initialFocusEl]);
+    }, [returnFocusEl, open, isTrapPaused, initialFocusEl, trapFocus]);
     useEffect(function () {
         var ref = dialogContainerRef.current;
         ref === null || ref === void 0 ? void 0 : ref.classList.add("".concat(dialogContainerClassname, "--open"));
