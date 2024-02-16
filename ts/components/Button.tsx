@@ -7,6 +7,7 @@ export type ButtonVariant =
   | `positive`
   | `negative`
   | `info`
+  | `magic`
   | `primary-outline`
   | `secondary-outline`
   | `negative-outline`

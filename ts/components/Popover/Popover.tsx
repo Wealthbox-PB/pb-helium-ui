@@ -41,6 +41,9 @@ interface PopoverProps {
   /** Controls whether the popover should be dismissible by clicking off of it, or using the `esc`
    * key. */
   dismissible?: boolean;
+  /** Controls whether the popover should flip it's orientation based on the available space in the browser
+   * window */
+  flip?: boolean;
   /** Add distance between the reference and floating element */
   offset?: number;
   /** Callback function when the popover is closed */
@@ -72,6 +75,7 @@ const Popover = ({
   arrow = true,
   open: openProp,
   dismissible = true,
+  flip: flipProp = true,
   openOnLoad = false,
   size,
   theme = `light`,
@@ -116,7 +120,7 @@ const Popover = ({
     strategy: `absolute`,
     middleware: [
       offset(offsetProp + (arrow ? arrowElHeight : 0)),
-      flip(),
+      flip({ mainAxis: flipProp }),
       shift({ padding: 4, limiter: limitShift() }),
       middlewareArrow({ element: arrowRef, padding: 4 }),
     ],
@@ -183,15 +187,7 @@ const Popover = ({
               ...styles,
             }}
             role="menu"
-            {...getFloatingProps({
-              // Pressing tab dismisses the popover due to the modal
-              // focus management on the root menu.
-              onKeyDown(event) {
-                if (event.key === `Tab`) {
-                  setInternalOpenState(false);
-                }
-              },
-            })}
+            {...getFloatingProps()}
           >
             <div className={classNames(`h-popover__body`, bodyClassName)}>
               <div className="h-popover__body__content">{children}</div>

@@ -546,36 +546,18 @@
     }
 
     &.h-table--overflow-x {
-      overflow-x: auto;
+      @include h-table-overflow-x;
+    }
 
-      & > .h-table__table {
-        table-layout: auto;
-        word-break: normal;
-
-        th,
-        .h-table__heading,
-        td,
-        .h-table__data {
-          white-space: nowrap;
-        }
+    &.h-table--overflow-x-xs-only {
+      @include media-breakpoint-down(sm) {
+        @include h-table-overflow-x;
       }
     }
 
-    &.h-table--overflow-x-md-down {
+    &.h-table--overflow-x-lg-down {
       @include media-breakpoint-down(lg) {
-        overflow-x: auto;
-
-        & > .h-table__table {
-          table-layout: auto;
-          word-break: normal;
-
-          th,
-          .h-table__heading,
-          td,
-          .h-table__data {
-            white-space: nowrap;
-          }
-        }
+        @include h-table-overflow-x;
       }
     }
 

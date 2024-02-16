@@ -1,0 +1,20 @@
+
+//==========================================================================
+//  Table
+//==========================================================================
+
+@mixin h-table-overflow-x {
+  overflow-x: auto;
+
+  & > .h-table__table {
+    table-layout: auto;
+    word-break: normal;
+
+    th,
+    .h-table__heading,
+    td,
+    .h-table__data {
+      white-space: nowrap;
+    }
+  }
+}

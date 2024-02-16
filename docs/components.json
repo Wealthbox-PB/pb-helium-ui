@@ -122,13 +122,14 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
               { "name": "literal", "value": "`primary`" },
               { "name": "literal", "value": "`secondary`" },
               { "name": "literal", "value": "`positive`" },
               { "name": "literal", "value": "`negative`" },
               { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
               { "name": "literal", "value": "`primary-outline`" },
               { "name": "literal", "value": "`secondary-outline`" },
               { "name": "literal", "value": "`negative-outline`" },
@@ -345,13 +346,14 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
               { "name": "literal", "value": "`primary`" },
               { "name": "literal", "value": "`secondary`" },
               { "name": "literal", "value": "`positive`" },
               { "name": "literal", "value": "`negative`" },
               { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
               { "name": "literal", "value": "`primary-outline`" },
               { "name": "literal", "value": "`secondary-outline`" },
               { "name": "literal", "value": "`negative-outline`" },
@@ -369,13 +371,14 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
               { "name": "literal", "value": "`primary`" },
               { "name": "literal", "value": "`secondary`" },
               { "name": "literal", "value": "`positive`" },
               { "name": "literal", "value": "`negative`" },
               { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
               { "name": "literal", "value": "`primary-outline`" },
               { "name": "literal", "value": "`secondary-outline`" },
               { "name": "literal", "value": "`negative-outline`" },
@@ -666,13 +669,14 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
               { "name": "literal", "value": "`primary`" },
               { "name": "literal", "value": "`secondary`" },
               { "name": "literal", "value": "`positive`" },
               { "name": "literal", "value": "`negative`" },
               { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
               { "name": "literal", "value": "`primary-outline`" },
               { "name": "literal", "value": "`secondary-outline`" },
               { "name": "literal", "value": "`negative-outline`" },
@@ -700,13 +704,14 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
               { "name": "literal", "value": "`primary`" },
               { "name": "literal", "value": "`secondary`" },
               { "name": "literal", "value": "`positive`" },
               { "name": "literal", "value": "`negative`" },
               { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
               { "name": "literal", "value": "`primary-outline`" },
               { "name": "literal", "value": "`secondary-outline`" },
               { "name": "literal", "value": "`negative-outline`" },
@@ -2614,13 +2619,14 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
               { "name": "literal", "value": "`primary`" },
               { "name": "literal", "value": "`secondary`" },
               { "name": "literal", "value": "`positive`" },
               { "name": "literal", "value": "`negative`" },
               { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
               { "name": "literal", "value": "`primary-outline`" },
               { "name": "literal", "value": "`secondary-outline`" },
               { "name": "literal", "value": "`negative-outline`" },
@@ -2767,13 +2773,14 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
               { "name": "literal", "value": "`primary`" },
               { "name": "literal", "value": "`secondary`" },
               { "name": "literal", "value": "`positive`" },
               { "name": "literal", "value": "`negative`" },
               { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
               { "name": "literal", "value": "`primary-outline`" },
               { "name": "literal", "value": "`secondary-outline`" },
               { "name": "literal", "value": "`negative-outline`" },
@@ -2845,6 +2852,12 @@
           "required": false,
           "tsType": { "name": "boolean" },
           "description": "Controls whether the popover should be dismissible by clicking off of it, or using the `esc`\nkey.",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "flip": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the popover should flip it's orientation based on the available space in the browser\nwindow",
           "defaultValue": { "value": "true", "computed": false }
         },
         "offset": {

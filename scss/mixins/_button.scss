@@ -140,18 +140,11 @@
   $h-color-background-hover-btn,
   $h-color-text-hover-btn,
   $h-color-box-shadow-btn,
+  $h-color-text-active-btn: false,
   $h-color-border-hover-btn: false,
   $h-color-border-btn: false,
   $h-color-background-outline-active-btn: false
 ) {
-  &,
-  &:active,
-  &.h-btn--active,
-  &:focus,
-  &.h-btn--focus {
-    color: $h-color-text-btn;
-  }
-
   &,
   &:focus,
   &.h-btn--focus {
@@ -160,6 +153,7 @@
     }
 
     background-color: $h-color-background-btn;
+    color: $h-color-text-btn;
   }
 
   &:hover,
@@ -174,6 +168,12 @@
 
   &:active,
   &.h-btn--active {
+    @if $h-color-text-active-btn {
+      color: $h-color-text-active-btn;
+    } @else {
+      color: $h-color-text-btn;
+    }
+
     @if $h-color-border-hover-btn {
       border-color: darken($h-color-border-hover-btn, 5%);
     }
@@ -259,6 +259,21 @@
     $h-color-background-hover-btn: $h-blue-100,
     $h-color-text-hover-btn: $h-blue-600,
     $h-color-box-shadow-btn: $h-blue-50
+  );
+}
+
+@mixin h-btn-magic {
+  border-radius: $h-border-radius-lg;
+
+  @include h-btn-style(
+    $h-color-border-btn: $h-purple-300,
+    $h-color-background-btn: $h-purple-50,
+    $h-color-text-btn: $h-purple-600,
+    $h-color-border-hover-btn: $h-purple-600,
+    $h-color-background-hover-btn: $h-purple-600,
+    $h-color-text-hover-btn: $h-white,
+    $h-color-text-active-btn: $h-white,
+    $h-color-box-shadow-btn: $h-purple-600
   );
 }
 

@@ -21,6 +21,9 @@ interface PopoverProps {
     /** Controls whether the popover should be dismissible by clicking off of it, or using the `esc`
      * key. */
     dismissible?: boolean;
+    /** Controls whether the popover should flip it's orientation based on the available space in the browser
+     * window */
+    flip?: boolean;
     /** Add distance between the reference and floating element */
     offset?: number;
     /** Callback function when the popover is closed */
@@ -43,5 +46,5 @@ interface PopoverProps {
     /** Controls the open trigger of the popover. */
     trigger?: `click` | `hover`;
 }
-declare const Popover: ({ renderOpener, placement, children, trigger, arrow, open: openProp, dismissible, openOnLoad, size, theme, className, bodyClassName, showCloseButton, offset: offsetProp, onOpen, onClose, portalProps, }: PopoverProps) => React.JSX.Element;
+declare const Popover: ({ renderOpener, placement, children, trigger, arrow, open: openProp, dismissible, flip: flipProp, openOnLoad, size, theme, className, bodyClassName, showCloseButton, offset: offsetProp, onOpen, onClose, portalProps, }: PopoverProps) => React.JSX.Element;
 export { Popover };

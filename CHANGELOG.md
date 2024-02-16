@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.5] - 2024-02-14
+
+### Added
+
+- Added `.h-table--overflow-x-xs-only` modifier class
+- Added `h-table-overflow-x` mixin to dry up related modifiers
+- Added styling for `.h-btn--magic` buttons
+- Added `.h-font-style-italic` utility class
+- Added shadow utility classes by importing them into the `utilities` scss file
+- Added `$h-color-text-active-btn` variable to custom active button text
+- Added `magic` to ButtonVariant type
+
+### Changed
+
+- Updated `Popover` to accept `flip` prop to enable and disable flipping programmatically
+- Updated `.h-table--overflow-x-md-down` class to `.h-table--overflow-x-lg-down` since it was named incorrectly
+
+### Removed
+
+- Removed code that makes an open `Popover` close when the tab key is pressed
+
 ## [2.6.43] - 2024-01-23
 
 ### Updated

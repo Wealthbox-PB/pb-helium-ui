@@ -83,6 +83,10 @@
   @include h-btn-info;
 }
 
+.h-btn--magic {
+  @include h-btn-magic;
+}
+
 .h-btn--primary-outline {
   @include h-btn-primary-outline;
 }
