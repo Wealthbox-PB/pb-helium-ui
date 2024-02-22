@@ -2181,10 +2181,38 @@
       "methods": [],
       "displayName": "IconDropdown",
       "props": {
-        "ariaLabel": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "buttonId": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "iconClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "children": {
+          "required": true,
+          "tsType": {
+            "name": "union",
+            "raw": "JSX.Element[] | JSX.Element",
+            "elements": [
+              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
+              { "name": "JSX.Element" }
+            ]
+          },
+          "description": "Content for the dropdown."
+        },
+        "ariaLabel": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds an aria-label to the button."
+        },
+        "buttonId": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds an id to the button."
+        },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the button."
+        },
+        "iconClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the icon."
+        },
         "iconName": {
           "required": false,
           "tsType": {
@@ -2601,19 +2629,22 @@
               { "name": "literal", "value": "`workflow-step--lg`" }
             ]
           },
-          "description": ""
+          "description": "Controls which icon displays. Defaults to `dots`."
         },
-        "children": {
-          "required": true,
+        "size": {
+          "required": false,
           "tsType": {
             "name": "union",
-            "raw": "JSX.Element[] | JSX.Element",
+            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
             "elements": [
-              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
-              { "name": "JSX.Element" }
+              { "name": "literal", "value": "`xs`" },
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" },
+              { "name": "literal", "value": "`xl`" }
             ]
           },
-          "description": ""
+          "description": "Controls the size of the button."
         },
         "variant": {
           "required": false,
@@ -2637,22 +2668,7 @@
               { "name": "null" }
             ]
           },
-          "description": ""
-        },
-        "size": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
-            "elements": [
-              { "name": "literal", "value": "`xs`" },
-              { "name": "literal", "value": "`sm`" },
-              { "name": "literal", "value": "`md`" },
-              { "name": "literal", "value": "`lg`" },
-              { "name": "literal", "value": "`xl`" }
-            ]
-          },
-          "description": ""
+          "description": "Controls the variant of the button."
         }
       },
       "composes": ["Omit"]

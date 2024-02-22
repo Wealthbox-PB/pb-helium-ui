@@ -5,14 +5,22 @@ import classNames from 'classnames';
 import type { Icons } from '../../types/icons';
 
 interface IconDropdownProps extends Omit<ComponentProps<typeof Dropdown>, `renderOpener`> {
-  ariaLabel?: string;
-  className?: string;
-  buttonId?: string;
-  iconClassName?: string;
-  iconName?: Icons;
+  /** Content for the dropdown. */
   children: JSX.Element[] | JSX.Element;
-  variant?: ButtonVariant;
+  /** Adds an aria-label to the button. */
+  ariaLabel?: string;
+  /** Adds an id to the button. */
+  buttonId?: string;
+  /** Adds class names to the button. */
+  className?: string;
+  /** Adds class names to the icon. */
+  iconClassName?: string;
+  /** Controls which icon displays. Defaults to `dots`.  */
+  iconName?: Icons;
+  /** Controls the size of the button. */
   size?: ButtonSize;
+  /** Controls the variant of the button. */
+  variant?: ButtonVariant;
 }
 
 const IconDropdown = ({
