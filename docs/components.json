@@ -3035,44 +3035,8 @@
               { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" }
             ]
           },
-          "description": ""
+          "description": "Content for the dropdown."
         },
-        "closeOnSelect": {
-          "required": false,
-          "tsType": { "name": "boolean" },
-          "description": "",
-          "defaultValue": { "value": "true", "computed": false }
-        },
-        "flip": {
-          "required": false,
-          "tsType": { "name": "boolean" },
-          "description": "",
-          "defaultValue": { "value": "true", "computed": false }
-        },
-        "minHeight": { "required": false, "tsType": { "name": "number" }, "description": "" },
-        "maxHeight": { "required": false, "tsType": { "name": "number" }, "description": "" },
-        "height": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "initialSelectedValue": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "string | null",
-            "elements": [{ "name": "string" }, { "name": "null" }]
-          },
-          "description": "",
-          "defaultValue": { "value": "null", "computed": false }
-        },
-        "initialSelectedIndex": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "number | null",
-            "elements": [{ "name": "number" }, { "name": "null" }]
-          },
-          "description": "",
-          "defaultValue": { "value": "null", "computed": false }
-        },
-        "placement": { "required": false, "tsType": { "name": "Placement" }, "description": "" },
         "renderOpener": {
           "required": true,
           "tsType": {
@@ -3084,7 +3048,59 @@
               "return": { "name": "JSX.Element" }
             }
           },
-          "description": ""
+          "description": "The dropdown opener element. Use the destructured \"ref\" and \"...props\" to spread them onto the\nopener element"
+        },
+        "closeOnSelect": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dropdown should be close when an item is selected",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "flip": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dropdown should flip it's orientation based on the available space in the browser\nwindow",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "height": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Controls the height of the dropdown."
+        },
+        "initialSelectedValue": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | null",
+            "elements": [{ "name": "string" }, { "name": "null" }]
+          },
+          "description": "Controls the initial selected value.",
+          "defaultValue": { "value": "null", "computed": false }
+        },
+        "initialSelectedIndex": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "number | null",
+            "elements": [{ "name": "number" }, { "name": "null" }]
+          },
+          "description": "Controls the initial selected index.",
+          "defaultValue": { "value": "null", "computed": false }
+        },
+        "maxHeight": {
+          "required": false,
+          "tsType": { "name": "number" },
+          "description": "Controls the maximum height of the dropdown."
+        },
+        "minHeight": {
+          "required": false,
+          "tsType": { "name": "number" },
+          "description": "Controls the minimum height of the dropdown."
+        },
+        "placement": {
+          "required": false,
+          "tsType": { "name": "Placement" },
+          "description": "Controls the placement of the dropdown."
         },
         "width": {
           "required": false,
@@ -3097,7 +3113,7 @@
               { "name": "number" }
             ]
           },
-          "description": ""
+          "description": "Controls the width of the dropdown. \"full\" width makes the dropdown the same width as the opener\nelement."
         }
       }
     }
@@ -3108,7 +3124,38 @@
       "methods": [],
       "displayName": "SelectMenuButton",
       "props": {
-        "buttonClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "onClick": {
+          "required": true,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "(e?: MouseEvent<HTMLElement>) => void",
+            "signature": {
+              "arguments": [
+                {
+                  "type": {
+                    "name": "MouseEvent",
+                    "elements": [{ "name": "HTMLElement" }],
+                    "raw": "MouseEvent<HTMLElement>"
+                  },
+                  "name": "e"
+                }
+              ],
+              "return": { "name": "void" }
+            }
+          },
+          "description": "Callback function when the dropdown menu item is clicked."
+        },
+        "label": {
+          "required": true,
+          "tsType": { "name": "string" },
+          "description": "Text used for the dropdown menu item, and for the typeahead matching. Setting children will override\nthis content."
+        },
+        "buttonClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dropdown menu item button."
+        },
         "children": {
           "required": false,
           "tsType": {
@@ -3119,9 +3166,13 @@
               { "name": "JSX.Element" }
             ]
           },
-          "description": ""
+          "description": "Content for the select menu item button. Setting children will override the default behavior of the\nlabel, select checkmark, and icon being displayed."
         },
-        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dropdown menu item."
+        },
         "iconName": {
           "required": false,
           "tsType": {
@@ -3538,32 +3589,8 @@
               { "name": "literal", "value": "`workflow-step--lg`" }
             ]
           },
-          "description": ""
+          "description": "Displays an icon to the left of the label. Setting children will override this content."
         },
-        "label": { "required": true, "tsType": { "name": "string" }, "description": "" },
-        "onClick": {
-          "required": true,
-          "tsType": {
-            "name": "signature",
-            "type": "function",
-            "raw": "(e?: MouseEvent<HTMLElement>) => void",
-            "signature": {
-              "arguments": [
-                {
-                  "type": {
-                    "name": "MouseEvent",
-                    "elements": [{ "name": "HTMLElement" }],
-                    "raw": "MouseEvent<HTMLElement>"
-                  },
-                  "name": "e"
-                }
-              ],
-              "return": { "name": "void" }
-            }
-          },
-          "description": ""
-        },
-        "useSelect": { "required": false, "tsType": { "name": "string" }, "description": "" },
         "variant": {
           "required": false,
           "tsType": {
@@ -3574,7 +3601,7 @@
               { "name": "literal", "value": "`negative`" }
             ]
           },
-          "description": ""
+          "description": "Controls the variant of the dropdown menu item."
         }
       },
       "composes": ["Omit"]
