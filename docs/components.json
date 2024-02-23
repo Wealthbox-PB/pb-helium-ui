@@ -16,11 +16,23 @@
               { "name": "JSX.Element" }
             ]
           },
-          "description": ""
+          "description": "Content for the badge."
         },
-        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "contentClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "iconClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the badge."
+        },
+        "contentClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the badge content."
+        },
+        "iconClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the badge icon."
+        },
         "scale": {
           "required": false,
           "tsType": {
@@ -32,7 +44,7 @@
               { "name": "literal", "value": "`bigger`" }
             ]
           },
-          "description": ""
+          "description": "Controls the size of the badge."
         },
         "variant": {
           "required": false,
@@ -47,7 +59,7 @@
               { "name": "literal", "value": "`warning`" }
             ]
           },
-          "description": ""
+          "description": "Controls the variant of the badge."
         }
       }
     }
