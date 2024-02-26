@@ -2775,10 +2775,15 @@
       "methods": [],
       "displayName": "LinkButton",
       "props": {
+        "href": {
+          "required": true,
+          "tsType": { "name": "string" },
+          "description": "The URL the button should navigate to."
+        },
         "active": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Adds the active style to the button.",
           "defaultValue": { "value": "false", "computed": false }
         },
         "children": {
@@ -2792,20 +2797,23 @@
               { "name": "JSX.Element" }
             ]
           },
-          "description": ""
+          "description": "Content for the button."
         },
-        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the button."
+        },
         "focus": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Adds the focus style to the button.",
           "defaultValue": { "value": "false", "computed": false }
         },
-        "href": { "required": true, "tsType": { "name": "string" }, "description": "" },
         "isExternal": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Sets the external relationship of the link.",
           "defaultValue": { "value": "false", "computed": false }
         },
         "size": {
@@ -2821,12 +2829,12 @@
               { "name": "literal", "value": "`xl`" }
             ]
           },
-          "description": ""
+          "description": "Controls the size of the button."
         },
         "square": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Adds the square style to the button.",
           "defaultValue": { "value": "false", "computed": false }
         },
         "variant": {
@@ -2851,7 +2859,7 @@
               { "name": "null" }
             ]
           },
-          "description": ""
+          "description": "Controls the variant styling of the button."
         },
         "onClick": { "defaultValue": { "value": "() => {}", "computed": false }, "required": false }
       }
@@ -3026,8 +3034,16 @@
       "methods": [],
       "displayName": "ProgressBar",
       "props": {
-        "completedSteps": { "required": true, "tsType": { "name": "number" }, "description": "" },
-        "totalSteps": { "required": true, "tsType": { "name": "number" }, "description": "" },
+        "completedSteps": {
+          "required": true,
+          "tsType": { "name": "number" },
+          "description": "The number of steps that have been completed."
+        },
+        "totalSteps": {
+          "required": true,
+          "tsType": { "name": "number" },
+          "description": "Set the total number of steps."
+        },
         "variant": {
           "required": false,
           "tsType": {
@@ -3038,7 +3054,7 @@
               { "name": "literal", "value": "`large`" }
             ]
           },
-          "description": ""
+          "description": "Controls the variant of the progress bar."
         }
       }
     }
@@ -3049,7 +3065,11 @@
       "methods": [],
       "displayName": "RadioButtonRef",
       "props": {
-        "label": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "label": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Set the label content"
+        },
         "buttonSize": {
           "required": false,
           "tsType": {
@@ -3060,7 +3080,7 @@
               { "name": "literal", "value": "`large`" }
             ]
           },
-          "description": ""
+          "description": "Controls the radio button size"
         },
         "variant": {
           "required": false,
@@ -3072,7 +3092,7 @@
               { "name": "literal", "value": "`pill`" }
             ]
           },
-          "description": ""
+          "description": "Controls the radio button variant"
         },
         "id": { "defaultValue": { "value": "randomString()", "computed": true }, "required": false }
       },
@@ -3673,8 +3693,16 @@
       "methods": [],
       "displayName": "SelectInputRef",
       "props": {
-        "label": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "labelClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "label": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Sets a label for the button."
+        },
+        "labelClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the label."
+        },
         "placeholder": {
           "required": false,
           "tsType": {
@@ -3682,7 +3710,7 @@
             "raw": "string | false | null",
             "elements": [{ "name": "string" }, { "name": "literal", "value": "false" }, { "name": "null" }]
           },
-          "description": ""
+          "description": "Sets the button placeholder"
         },
         "type": {
           "required": false,
@@ -3695,7 +3723,7 @@
               { "name": "literal", "value": "`reset`" }
             ]
           },
-          "description": ""
+          "description": "Controls the type of the button."
         },
         "value": {
           "required": false,
@@ -3704,7 +3732,7 @@
             "raw": "string | null",
             "elements": [{ "name": "string" }, { "name": "null" }]
           },
-          "description": ""
+          "description": "Sets the value of the button."
         },
         "id": { "defaultValue": { "value": "randomString()", "computed": true }, "required": false }
       },
@@ -3870,10 +3898,26 @@
       "methods": [],
       "displayName": "TextInputRef",
       "props": {
-        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "label": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "labelClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "leftIconClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the input."
+        },
+        "label": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Sets a label for the input."
+        },
+        "labelClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the label."
+        },
+        "leftIconClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the left icon."
+        },
         "onRightButtonClick": {
           "required": false,
           "tsType": {
@@ -3882,19 +3926,23 @@
             "raw": "(e) => void",
             "signature": { "arguments": [{ "name": "e" }], "return": { "name": "void" } }
           },
-          "description": ""
+          "description": "Callback function when the right button is clicked."
         },
-        "rightButtonClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "rightButtonClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the right button."
+        },
         "showLeftIcon": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Control if the left icon is displayed.",
           "defaultValue": { "value": "true", "computed": false }
         },
         "showRightButton": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Control if the right button is displayed.",
           "defaultValue": { "value": "true", "computed": false }
         },
         "variant": {
@@ -3907,7 +3955,7 @@
               { "name": "literal", "value": "`dark-blue`" }
             ]
           },
-          "description": ""
+          "description": "Control the color variant."
         },
         "inputType": {
           "required": false,
@@ -3922,7 +3970,7 @@
               { "name": "literal", "value": "`search`" }
             ]
           },
-          "description": ""
+          "description": "Controls the input type."
         },
         "id": { "defaultValue": { "value": "randomString()", "computed": true }, "required": false }
       },
