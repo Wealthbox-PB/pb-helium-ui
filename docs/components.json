@@ -73,7 +73,7 @@
         "active": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Adds the active style to the button.",
           "defaultValue": { "value": "false", "computed": false }
         },
         "children": {
@@ -87,13 +87,17 @@
               { "name": "JSX.Element" }
             ]
           },
-          "description": ""
+          "description": "Content for the button."
         },
-        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the button."
+        },
         "focus": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Adds the focus style to the button.",
           "defaultValue": { "value": "false", "computed": false }
         },
         "size": {
@@ -109,12 +113,12 @@
               { "name": "literal", "value": "`xl`" }
             ]
           },
-          "description": ""
+          "description": "Controls the size of the button."
         },
         "square": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Adds the square style to the button.",
           "defaultValue": { "value": "false", "computed": false }
         },
         "type": {
@@ -128,7 +132,7 @@
               { "name": "literal", "value": "`reset`" }
             ]
           },
-          "description": ""
+          "description": "Controls the type of the button."
         },
         "variant": {
           "required": false,
@@ -152,7 +156,7 @@
               { "name": "null" }
             ]
           },
-          "description": ""
+          "description": "Controls the variant styling of the button."
         }
       },
       "composes": ["ButtonHTMLAttributes"]
@@ -2692,7 +2696,6 @@
       "methods": [],
       "displayName": "Interstitial",
       "props": {
-        "animate": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
         "children": {
           "required": true,
           "tsType": {
@@ -2704,12 +2707,33 @@
               { "name": "JSX.Element" }
             ]
           },
-          "description": ""
+          "description": "Content for the interstitial."
         },
-        "className": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "contentClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "iconClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "size": { "required": false, "tsType": { "name": "literal", "value": "`small`" }, "description": "" }
+        "animate": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls if the interstitial should animate in."
+        },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the interstitial."
+        },
+        "contentClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the interstitial content."
+        },
+        "iconClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the interstitial icon."
+        },
+        "size": {
+          "required": false,
+          "tsType": { "name": "literal", "value": "`small`" },
+          "description": "Controls the size of the interstitial."
+        }
       }
     }
   ],
@@ -2730,10 +2754,18 @@
               { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" }
             ]
           },
-          "description": ""
+          "description": "Content for the label."
         },
-        "htmlFor": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "labelClassName": { "required": false, "tsType": { "name": "string" }, "description": "" }
+        "htmlFor": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Sets the `htmlFor` of the label."
+        },
+        "labelClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the label."
+        }
       }
     }
   ],
