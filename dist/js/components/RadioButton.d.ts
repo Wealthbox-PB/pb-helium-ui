@@ -1,9 +1,9 @@
 import React, { InputHTMLAttributes } from 'react';
 interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
-    /** Set the label content */
-    label?: string;
     /** Controls the radio button size */
     buttonSize?: `small` | `large`;
+    /** Set the label content */
+    label?: string;
     /** Controls the radio button variant */
     variant?: `default` | `pill`;
 }

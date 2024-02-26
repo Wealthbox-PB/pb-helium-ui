@@ -14,7 +14,7 @@ interface DropdownProps {
     /** Content for the dropdown. */
     children: JSX.Element | JSX.Element[];
     /** The dropdown opener element. Use the destructured "ref" and "...props" to spread them onto the
-     * opener element */
+     * opener element. */
     renderOpener: (props: RenderOpenerProps) => JSX.Element;
     /** Adds class names to the dropdown element. */
     className?: string;
@@ -22,7 +22,7 @@ interface DropdownProps {
      * key. */
     dismissible?: boolean;
     /** Controls whether the dropdown should flip it's orientation based on the available space in the browser
-     * window */
+     * window. */
     flip?: boolean;
     /** Controls the height of the dropdown. */
     height?: string;
@@ -34,11 +34,11 @@ interface DropdownProps {
     maxHeight?: number;
     /** Controls the minimum height of the dropdown. */
     minHeight?: number;
-    /** Callback function when the dropdown is closed */
+    /** Callback function when the dropdown is closed. */
     onClose?: () => void;
-    /** Callback function when the dropdown is opened */
+    /** Callback function when the dropdown is opened. */
     onOpen?: () => void;
-    /** Controls whether the dropdown is open or not */
+    /** Controls whether the dropdown is open or not. */
     open?: boolean;
     /** Props passed into the Portal element. */
     portalProps?: Omit<PortalProps, `children`>;

@@ -1,6 +1,6 @@
 import React from 'react';
 interface DialogHeaderProps {
-    /** Used to set the the id attribute of the dialog heading */
+    /** Used to set the the id attribute of the dialog heading. */
     ariaLabelSelector?: string;
     /** Content for the dialog header. */
     children?: string | JSX.Element[] | JSX.Element;

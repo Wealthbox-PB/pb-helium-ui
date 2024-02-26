@@ -6,11 +6,11 @@ import { Icons } from '../../types/icons';
 
 interface SelectMenuButtonProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, `className` | `onClick`> {
-  /** Callback function when the dropdown menu item is clicked. */
-  onClick: (e?: MouseEvent<HTMLElement>) => void;
   /** Text used for the dropdown menu item, and for the typeahead matching. Setting children will override
    * this content. */
   label: string;
+  /** Callback function when the dropdown menu item is clicked. */
+  onClick: (e?: MouseEvent<HTMLElement>) => void;
   /** Adds class names to the dropdown menu item button. */
   buttonClassName?: string;
   /** Content for the select menu item button. Setting children will override the default behavior of the
