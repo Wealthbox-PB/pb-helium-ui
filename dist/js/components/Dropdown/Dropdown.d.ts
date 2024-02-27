@@ -13,8 +13,8 @@ interface RenderOpenerProps {
 interface DropdownProps {
     /** Content for the dropdown. */
     children: JSX.Element | JSX.Element[];
-    /** The dropdown opener element. Use the destructured "ref" and "...props" to spread them onto the
-     * opener element. */
+    /** The dropdown opener element. Use the destructured "ref", "open", "activeIndex" and "...props" in the
+     * params to spread them onto the opener element for correct functionality. */
     renderOpener: (props: RenderOpenerProps) => JSX.Element;
     /** Adds class names to the dropdown element. */
     className?: string;

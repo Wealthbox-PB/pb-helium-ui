@@ -17,13 +17,13 @@ interface SimpleAlertDialogProps {
   backdropClassName?: string;
   /** Controls the size of the footer action buttons. */
   buttonSize?: ButtonSize;
-  /** Text for the cancel button. */
+  /** Text for the cancel button. Setting this prop will show the cancel button. */
   cancel?: string;
   /** Controls the variant of the cancel button. */
   cancelVariant?: ButtonVariant;
   /** Controls whether or not the close button in the dialog header is shown. */
   closeInHeader?: boolean;
-  /** Text for the confirm button. */
+  /** Text for the confirm button. Setting this prop will show the confirm button. */
   confirm?: string;
   /** Controls the variant of the confirm button. */
   confirmVariant?: ButtonVariant;

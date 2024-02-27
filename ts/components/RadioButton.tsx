@@ -4,11 +4,11 @@ import { Label } from './Label';
 import { randomString } from '../helpers/random_string';
 
 interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
-  /** Controls the radio button size */
+  /** Controls the radio button size. */
   buttonSize?: `small` | `large`;
-  /** Set the label content */
+  /** Set the label content. */
   label?: string;
-  /** Controls the radio button variant */
+  /** Controls the radio button variant. */
   variant?: `default` | `pill`;
 }
 

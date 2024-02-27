@@ -679,7 +679,7 @@
         "cancel": {
           "required": false,
           "tsType": { "name": "string" },
-          "description": "Text for the cancel button."
+          "description": "Text for the cancel button. Setting this prop will show the cancel button."
         },
         "cancelVariant": {
           "required": false,
@@ -714,7 +714,7 @@
         "confirm": {
           "required": false,
           "tsType": { "name": "string" },
-          "description": "Text for the confirm button."
+          "description": "Text for the confirm button. Setting this prop will show the confirm button."
         },
         "confirmVariant": {
           "required": false,
@@ -997,7 +997,7 @@
               "return": { "name": "JSX.Element" }
             }
           },
-          "description": "The dropdown opener element. Use the destructured \"ref\" and \"...props\" to spread them onto the\nopener element."
+          "description": "The dropdown opener element. Use the destructured \"ref\", \"open\", \"activeIndex\" and \"...props\" in the\nparams to spread them onto the opener element for correct functionality."
         },
         "className": {
           "required": false,
@@ -3075,12 +3075,12 @@
               { "name": "literal", "value": "`large`" }
             ]
           },
-          "description": "Controls the radio button size"
+          "description": "Controls the radio button size."
         },
         "label": {
           "required": false,
           "tsType": { "name": "string" },
-          "description": "Set the label content"
+          "description": "Set the label content."
         },
         "variant": {
           "required": false,
@@ -3092,7 +3092,7 @@
               { "name": "literal", "value": "`pill`" }
             ]
           },
-          "description": "Controls the radio button variant"
+          "description": "Controls the radio button variant."
         },
         "id": { "defaultValue": { "value": "randomString()", "computed": true }, "required": false }
       },
@@ -3128,18 +3128,18 @@
               "return": { "name": "JSX.Element" }
             }
           },
-          "description": "The dropdown opener element. Use the destructured \"ref\" and \"...props\" to spread them onto the\nopener element."
+          "description": "The dropdown opener element. Use the destructured \"ref\", \"selectedLabel\", and \"...props\" to spread them\nonto the opener element for correct functionality."
         },
         "closeOnSelect": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "Controls whether the dropdown should be close when an item is selected.",
+          "description": "Controls whether the dropdown should be closed when an item is selected.",
           "defaultValue": { "value": "true", "computed": false }
         },
         "flip": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "Controls whether the dropdown should flip it's orientation based on the available space in the browser\nwindow.",
+          "description": "Controls whether the dropdown should flip its orientation based on the available space in the browser\nwindow.",
           "defaultValue": { "value": "true", "computed": false }
         },
         "height": {
@@ -3710,7 +3710,7 @@
             "raw": "string | false | null",
             "elements": [{ "name": "string" }, { "name": "literal", "value": "false" }, { "name": "null" }]
           },
-          "description": "Sets the button placeholder"
+          "description": "Sets the button placeholder."
         },
         "type": {
           "required": false,
@@ -3936,13 +3936,13 @@
         "showLeftIcon": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "Control if the left icon is displayed.",
+          "description": "Controls if the left icon is displayed.",
           "defaultValue": { "value": "true", "computed": false }
         },
         "showRightButton": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "Control if the right button is displayed.",
+          "description": "Controls if the right button is displayed.",
           "defaultValue": { "value": "true", "computed": false }
         },
         "variant": {
@@ -3955,7 +3955,7 @@
               { "name": "literal", "value": "`dark-blue`" }
             ]
           },
-          "description": "Control the color variant."
+          "description": "Controls the color variant."
         },
         "inputType": {
           "required": false,

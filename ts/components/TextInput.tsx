@@ -16,11 +16,11 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onRightButtonClick?: (e) => void;
   /** Adds class names to the right button. */
   rightButtonClassName?: string;
-  /** Control if the left icon is displayed. */
+  /** Controls if the left icon is displayed. */
   showLeftIcon?: boolean;
-  /** Control if the right button is displayed. */
+  /** Controls if the right button is displayed. */
   showRightButton?: boolean;
-  /** Control the color variant. */
+  /** Controls the color variant. */
   variant?: `default` | `dark-blue`;
   /** Controls the input type. */
   inputType?: `text` | `password` | `email` | `tel` | `search`;

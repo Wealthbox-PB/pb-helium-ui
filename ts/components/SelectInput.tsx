@@ -9,7 +9,7 @@ interface SelectInputProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>,
   label?: string;
   /** Adds class names to the label. */
   labelClassName?: string;
-  /** Sets the button placeholder */
+  /** Sets the button placeholder. */
   placeholder?: string | false | null;
   /** Controls the type of the button. */
   type?: ButtonType;

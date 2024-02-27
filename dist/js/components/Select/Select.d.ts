@@ -7,12 +7,12 @@ interface RenderOpenerProps {
 interface SelectProps {
     /** Content for the dropdown. */
     children: JSX.Element | JSX.Element[];
-    /** The dropdown opener element. Use the destructured "ref" and "...props" to spread them onto the
-     * opener element. */
+    /** The dropdown opener element. Use the destructured "ref", "selectedLabel", and "...props" to spread them
+     * onto the opener element for correct functionality. */
     renderOpener: (props: RenderOpenerProps) => JSX.Element;
-    /** Controls whether the dropdown should be close when an item is selected. */
+    /** Controls whether the dropdown should be closed when an item is selected. */
     closeOnSelect?: boolean;
-    /** Controls whether the dropdown should flip it's orientation based on the available space in the browser
+    /** Controls whether the dropdown should flip its orientation based on the available space in the browser
      * window. */
     flip?: boolean;
     /** Controls the height of the dropdown. */
