@@ -1,4 +1,72 @@
 {
+  "./ts/components/Accordion.tsx": [
+    {
+      "description": "",
+      "methods": [],
+      "displayName": "Accordion",
+      "props": {
+        "collapseIconName": {
+          "required": false,
+          "tsType": { "name": "Icons" },
+          "description": "The icon name which is interpolated in the css className for the collapse icon."
+        },
+        "expandIconName": {
+          "required": false,
+          "tsType": { "name": "Icons" },
+          "description": "The icon name which is interpolated in the css className for the expand icon."
+        },
+        "iconPosition": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`left` | `right`",
+            "elements": [
+              { "name": "literal", "value": "`left`" },
+              { "name": "literal", "value": "`right`" }
+            ]
+          },
+          "description": "Sets the position of the icon."
+        },
+        "panelClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds a css className to the panel element."
+        },
+        "allowMultipleOpen": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether or not multiple panels can be open at the same time.",
+          "defaultValue": { "value": "false", "computed": false }
+        },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "A css className for the accordion element."
+        },
+        "items": {
+          "required": true,
+          "tsType": {
+            "name": "Array",
+            "elements": [{ "name": "AccordionPanelItem" }],
+            "raw": "AccordionPanelItem[]"
+          },
+          "description": "The items to be rendered as panels in the accordion."
+        },
+        "openFirstPanel": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether or not the first panel should be open by default.",
+          "defaultValue": { "value": "false", "computed": false }
+        },
+        "renderInCard": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Adds a css className with helium-ui \"card\" styling to the accordion element.",
+          "defaultValue": { "value": "true", "computed": false }
+        }
+      }
+    }
+  ],
   "./ts/components/Badge.tsx": [
     {
       "description": "",

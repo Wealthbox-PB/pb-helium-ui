@@ -1,0 +1,98 @@
+
+//==========================================================================
+//  Accordion  Component
+//==========================================================================
+
+.h-accordion {
+  border: 1px solid $h-color-border-shared-component-dark;
+  border-bottom: 0;
+
+  &.h-card {
+    border: 0;
+
+    .h-accordion__panel {
+      &:first-child {
+        .h-accordion__panel__cta {
+          border-top-left-radius: $h-border-radius-shared-component;
+          border-top-right-radius: $h-border-radius-shared-component;
+        }
+      }
+
+      &:last-child {
+        border: 0;
+
+        &:not(.h-accordion__panel--open) .h-accordion__panel__cta,
+        .h-accordion__panel__content {
+          border-bottom-left-radius: $h-border-radius-shared-component;
+          border-bottom-right-radius: $h-border-radius-shared-component;
+        }
+      }
+    }
+
+    &.h-card--outlined {
+      border: 1px solid $h-color-border-shared-component-dark;
+    }
+
+    &.h-card--border-radius-mobile-none {
+      @include media-breakpoint-down(md) {
+        .h-accordion__panel {
+          &:first-child {
+            .h-accordion__panel__cta {
+              border-radius: 0;
+            }
+          }
+
+          &:last-child {
+            &:not(.h-accordion__panel--open) .h-accordion__panel__cta,
+            .h-accordion__panel__content {
+              border-radius: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.h-accordion__panel {
+  border-bottom: 1px solid $h-color-border-shared-component-dark;
+}
+
+.h-accordion__panel--open .h-accordion__panel__content,
+.h-accordion__panel__cta {
+  border-radius: 0;
+}
+
+.h-accordion__panel__cta {
+  position: relative;
+  padding: 1rem;
+  background-color: $h-color-background-secondary-shared-component;
+
+  &:focus-visible {
+    @include h-form-element-focus;
+
+    z-index: 1;
+  }
+}
+
+.h-accordion__panel__label,
+.h-accordion__panel__icon {
+  color: $h-color-text-normal;
+}
+
+.h-accordion__panel__icon {
+  font-size: 1.5rem;
+}
+
+.h-accordion__panel__label {
+  font-weight: $h-font-weight-medium;
+  text-align: start;
+}
+
+.h-accordion__panel__content {
+  background-color: $h-white;
+}
+
+.h-accordion__panel__children {
+  padding: 1rem;
+}
