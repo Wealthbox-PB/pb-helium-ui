@@ -119,3 +119,38 @@ As part of the build process, we also generate React component documentation lat
 - `docs:generate` looks for components within this repository and generates a JSON file using `react-docgen` at `docs/components.json`.
 - `docs:prettify` normalizes the output by running it through `prettier` with `prettier-plugin-sort-json` to handle the usecase where `react-docgen` would randomize the order of the components within the file, creating unnecessary git churn.
 - `docs:clean` removes the `/docs` directory.
+
+### Release Flow
+
+**1. Create a new branch for the intended release, e.g. `release-1.2.3`**
+  - commit the version bump in `package.json` and add a blank `CHANGELOG.md` entry directly in the release branch
+  - set the milestone to the release version, e.g. `v1.2.3`
+
+**2. Create a new alpha release:**
+  - set the title to `v1.2.3-alpha`
+  - point to branch `release-1.2.3`
+  - create a new tag `v1.2.3-alpha`
+  - set initial description to blank `CHANGELOG.md` entry
+
+**3. Open discrete PRs for any new work (or rebase any deferred PRs) and base them on the `release-1.2.3` release branch**
+
+  - ensure the PR includes any relevant `CHANGELOG.md` notes for the given changeset
+  - set the PR milestone to the release version, e.g. `v1.2.3`
+
+**4. Merge any PRs we intend to release into the main release branch `release-1.2.3`**
+
+**5. Update the `v1.2.3-alpha` Release's description with the latest `CHANGELOG.md` entry**
+
+**6. Test the release**
+  - open up a new branch in `crm-web` and update the `helium-ui` entry in `package.json` to `#v1.2.3-alpha`
+  - perform necessary code review any QA
+  - findings form `crm-web` can be addressed in separate PRs, reviewed and merged into the main `release-1.2.3` branch and therefore become available on the `v1.2.3-alpha` release tag
+
+**7. When we're happy with the release, open a new PR for `Release v1.2.3` and merge it into `master`**
+  - make sure the date in the `CHANGELOG.md` entry is set to the current day
+
+**8. Lastly, create a new final Release**
+  - set the title to `v1.2.3`
+  - point to branch `master`
+  - create a new tag `v1.2.3`
+  - set description to the final `CHANGELOG.md` entry
