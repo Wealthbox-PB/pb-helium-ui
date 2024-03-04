@@ -14,7 +14,7 @@ const setup = () =>
       )}
     >
       <li>Item</li>
-    </Dropdown>
+    </Dropdown>,
   );
 
 describe(`<Dropdown />`, () => {

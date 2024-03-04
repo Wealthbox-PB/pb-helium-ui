@@ -7,7 +7,7 @@ const setup = () =>
   render(
     <IconDropdown ariaLabel="menu" className="me-2" iconName="add" iconClassName="h-color-text-blue-500">
       <li>Item</li>
-    </IconDropdown>
+    </IconDropdown>,
   );
 
 describe(`<IconDropdown />`, () => {

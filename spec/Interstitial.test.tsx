@@ -63,7 +63,7 @@ describe(`<Interstitial />`, () => {
       render(
         <Interstitial contentClassName="h-interstitial__content--modifier">
           {interstitialContent}
-        </Interstitial>
+        </Interstitial>,
       );
       expect(screen.getByTestId(`h-interstitial__content`)).toHaveClass(`h-interstitial__content--modifier`);
     });

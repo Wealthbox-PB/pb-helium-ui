@@ -42,7 +42,7 @@ describe(`<Badge />`, () => {
             <Badge>
               <span>Badge Content 1</span>
               <span>Badge Content 2</span>
-            </Badge>
+            </Badge>,
           );
           expect(screen.getByText(`Badge Content 1`)).toBeInTheDocument();
           expect(screen.getByText(`Badge Content 2`)).toBeInTheDocument();
@@ -54,7 +54,7 @@ describe(`<Badge />`, () => {
           render(
             <Badge>
               <span>Badge Content</span>
-            </Badge>
+            </Badge>,
           );
           expect(screen.getByText(`Badge Content`)).toBeInTheDocument();
         });
