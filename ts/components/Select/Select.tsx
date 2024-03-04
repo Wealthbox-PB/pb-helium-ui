@@ -101,7 +101,7 @@ const Select = ({
         setSelectedLabel(labelsRef.current[index]);
       }
     },
-    [closeOnSelect]
+    [closeOnSelect],
   );
 
   const listNavigation = useListNavigation(context, {
@@ -126,7 +126,7 @@ const Select = ({
 
   const selectContext = useMemo(
     () => ({ activeIndex, getItemProps, handleSelect, selectedIndex }),
-    [activeIndex, getItemProps, handleSelect, selectedIndex]
+    [activeIndex, getItemProps, handleSelect, selectedIndex],
   );
 
   return (

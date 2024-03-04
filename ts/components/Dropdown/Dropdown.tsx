@@ -185,7 +185,7 @@ const Dropdown = ({
 
   const dropdownContext = useMemo(
     () => ({ activeIndex, getItemProps, setOpen }),
-    [activeIndex, getItemProps, setOpen]
+    [activeIndex, getItemProps, setOpen],
   );
 
   useEffect(() => {

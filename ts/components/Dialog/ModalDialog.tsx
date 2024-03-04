@@ -106,7 +106,10 @@ const ModalDialog = ({
                 <div {...getDialogContainerProps()}>
                   {backdrop ? (
                     <DialogBackdrop
-                      className={classNames(`h-transition-element h-transition-element--fade-in`, backdropClassName)}
+                      className={classNames(
+                        `h-transition-element h-transition-element--fade-in`,
+                        backdropClassName,
+                      )}
                     />
                   ) : null}
                   <div {...getDialogProps()}>{children}</div>

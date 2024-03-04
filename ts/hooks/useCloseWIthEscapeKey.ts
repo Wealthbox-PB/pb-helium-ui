@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export function useCloseWithEscapeKey(
   closeCallback: () => void,
   open: boolean,
-  keyDownTargetRef?: React.MutableRefObject<HTMLElement | null>
+  keyDownTargetRef?: React.MutableRefObject<HTMLElement | null>,
 ) {
   const handleEscapeKeyPress = (event: KeyboardEvent) => {
     if (event.key === `Escape` || event.key === `Esc` || event.keyCode === 27) {
