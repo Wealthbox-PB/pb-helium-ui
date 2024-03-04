@@ -43,7 +43,7 @@ var Toast = function (_a) {
             setDelayed(false);
         }, delay);
         return function () { return clearTimeout(timeoutId); };
-    }, [open]);
+    }, [delay, open]);
     return (React.createElement(React.Fragment, null, !delayed && visible ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeToast } },
         React.createElement(Portal, { className: "h-dialog-portal" },
             React.createElement(CSSTransition, { nodeRef: nodeRef, in: open && visible, appear: animateIn || animateOut, timeout: timeout, enter: animateIn, exit: animateOut, classNames: "h-transition-", onExited: function () { return setVisible(false); } },

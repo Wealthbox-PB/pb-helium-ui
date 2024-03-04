@@ -7,7 +7,7 @@ var ProgressBar = function (_a) {
         React.createElement("div", { className: classNames("h-progress-bar__background", "h-progress-bar--".concat(variant)) })));
 };
 var percentComplete = function (completedSteps, totalSteps) {
-    return completedSteps / totalSteps * 100;
+    return (completedSteps / totalSteps) * 100;
 };
 export { ProgressBar };
 //# sourceMappingURL=ProgressBar.js.map
