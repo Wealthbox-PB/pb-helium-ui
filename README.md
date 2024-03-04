@@ -146,7 +146,7 @@ As part of the build process, we also generate React component documentation lat
   - perform necessary code review any QA
   - findings form `crm-web` can be addressed in separate PRs, reviewed and merged into the main `release-1.2.3` branch and therefore become available on the `v1.2.3-alpha` release tag
 
-**7. When we're happy with the release, open a new PR for `Release v1.2.3` and merge it into `master`**
+**7. When we're happy with the release, open a new PR for `Release v1.2.3` (using branch `release-1.2.3`) and merge it into `master`**
   - make sure the date in the `CHANGELOG.md` entry is set to the current day
 
 **8. Lastly, create a new final Release**
@@ -154,3 +154,4 @@ As part of the build process, we also generate React component documentation lat
   - point to branch `master`
   - create a new tag `v1.2.3`
   - set description to the final `CHANGELOG.md` entry
+  - update any related PRs (like the `helium-ui` release PR in `crm-web`) to point to the new `v1.2.3` stable tag, replacing previously used the `v1.2.3-alpha` tag
