@@ -42,6 +42,7 @@ describe(`<RadioButton />`, () => {
   describe(`Props`, () => {
     describe(`The "autofocus" prop`, () => {
       it(`should autofocus the radio input`, () => {
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         render(<RadioButton autoFocus={true} name="radio-group-1" label="label" />);
 
         expect(document.activeElement).toHaveAttribute(`name`, `radio-group-1`);

@@ -34,6 +34,7 @@ describe(`<TextInput />`, () => {
   describe(`Props`, () => {
     describe(`The "autoFocus" prop`, () => {
       it(`should set the "autoFocus" attribute on the input element.`, () => {
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         render(<TextInput value="test" autoFocus={true} onChange={() => {}}></TextInput>);
 
         expect(document.activeElement).toHaveAttribute(`value`, `test`);
