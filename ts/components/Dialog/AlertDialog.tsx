@@ -100,7 +100,7 @@ export const AlertDialog = ({
             >
               <div {...getDialogRootProps()} ref={nodeRef}>
                 <div {...getDialogContainerProps()}>
-                  <DialogBackdrop className={backdropClassName} closeDialog={() => { }} />
+                  <DialogBackdrop className={backdropClassName} closeDialog={() => {}} />
                   <div {...getDialogProps()}>{children}</div>
                 </div>
               </div>

@@ -25,7 +25,7 @@ const Interstitial = ({
         'h-animate-fade-in': animate,
         'h-interstitial--sm': size === `small`,
       },
-      className
+      className,
     )}
     data-testid="h-interstitial"
   >

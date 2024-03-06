@@ -42,7 +42,7 @@ const Button = (
     variant = `positive`,
     ...props
   }: ButtonProps,
-  ref
+  ref,
 ) => {
   return (
     <button
@@ -56,7 +56,7 @@ const Button = (
           'h-btn--focus': focus,
           'h-btn--square': square,
         },
-        className
+        className,
       )}
       {...props}
     >

@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { RadioButton } from '../../ts/components/RadioButton';
 
-
 describe(`<RadioButton />`, () => {
   describe(`Default UI`, () => {
     describe(`The "name" prop`, () => {
@@ -43,6 +42,7 @@ describe(`<RadioButton />`, () => {
   describe(`Props`, () => {
     describe(`The "autofocus" prop`, () => {
       it(`should autofocus the radio input`, () => {
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         render(<RadioButton autoFocus={true} name="radio-group-1" label="label" />);
 
         expect(document.activeElement).toHaveAttribute(`name`, `radio-group-1`);
@@ -59,7 +59,7 @@ describe(`<RadioButton />`, () => {
 
     describe(`The "checked" prop`, () => {
       it(`should set the "checked" attribute of the radio input`, () => {
-        render(<RadioButton checked={true} name="radio-group-1" onChange={() => { }} label="label" />);
+        render(<RadioButton checked={true} name="radio-group-1" onChange={() => {}} label="label" />);
 
         expect(screen.getByRole(`radio`)).toBeChecked();
       });
@@ -112,7 +112,6 @@ describe(`<RadioButton />`, () => {
         expect(screen.getByTestId(`h-radio`)).toHaveClass(`h-radio--pill-button`);
       });
     });
-
   });
 
   describe(`Interactions`, () => {
@@ -144,7 +143,9 @@ describe(`<RadioButton />`, () => {
         const onChange = jest.fn(() => {
           checked = !checked;
         });
-        const { rerender } = render(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} />);
+        const { rerender } = render(
+          <RadioButton name="radio-group-1" checked={checked} onChange={onChange} />,
+        );
 
         expect(screen.getByRole(`radio`)).not.toBeChecked();
 
@@ -164,7 +165,9 @@ describe(`<RadioButton />`, () => {
         const onChange = jest.fn(() => {
           checked = !checked;
         });
-        const { rerender } = render(<RadioButton name="radio-group-1" checked={checked} onChange={onChange} label="Test Label" />);
+        const { rerender } = render(
+          <RadioButton name="radio-group-1" checked={checked} onChange={onChange} label="Test Label" />,
+        );
 
         expect(screen.getByRole(`radio`)).not.toBeChecked();
 

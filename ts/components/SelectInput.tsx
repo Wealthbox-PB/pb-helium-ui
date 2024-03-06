@@ -23,7 +23,7 @@ const SelectInput = (
     value,
     ...props
   }: SelectInputProps,
-  ref
+  ref,
 ) => {
   const uniqueIDRef = useRef<string>(randomString());
 

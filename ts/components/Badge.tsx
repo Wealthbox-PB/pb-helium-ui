@@ -24,7 +24,7 @@ export const Badge = ({
       className={classNames(
         `h-badge h-badge--${variant}`,
         { [`h-badge--${scale}`]: scale !== `base` },
-        className
+        className,
       )}
       data-testid="h-badge"
       {...props}

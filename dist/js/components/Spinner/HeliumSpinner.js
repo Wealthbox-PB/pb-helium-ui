@@ -23,7 +23,8 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React from 'react';
 import { Spinner } from './Spinner';
 /**
- * @deprecated `HeliumSpinner` will be renamed to `Spinner` in Helium UI v3.0. Please use the `Spinner` component instead.
+ * @deprecated `HeliumSpinner` will be renamed to `Spinner` in Helium UI v3.0.
+ * Please use the `Spinner` component instead.
  */
 var HeliumSpinner = function (_a) {
     var props = __rest(_a, []);

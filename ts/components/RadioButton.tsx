@@ -18,7 +18,7 @@ const RadioButton = (
     variant = `default`,
     ...rest
   }: RadioButtonProps,
-  ref
+  ref,
 ) => {
   const uniqueIDRef = useRef<string>(randomString());
 

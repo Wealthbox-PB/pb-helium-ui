@@ -68,7 +68,7 @@ const Toast = ({
     }, delay);
 
     return () => clearTimeout(timeoutId);
-  }, [open]);
+  }, [delay, open]);
 
   return (
     <>

@@ -178,7 +178,7 @@ const Popover = ({
               `h-popover`,
               { [`h-popover--${size}`]: size },
               { [`h-popover--${theme}`]: theme },
-              className
+              className,
             )}
             style={{
               position: strategy,

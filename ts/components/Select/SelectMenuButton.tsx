@@ -42,7 +42,7 @@ export const SelectMenuButton = ({
       <button
         className={classNames(
           `h-dropdown__menu__item__cta h-dropdown__menu__item__cta--select`,
-          buttonClassName
+          buttonClassName,
         )}
         ref={ref}
         tabIndex={isActive ? 0 : -1}

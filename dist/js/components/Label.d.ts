@@ -4,5 +4,5 @@ interface LabelProps {
     htmlFor?: string;
     labelClassName?: string;
 }
-declare const Label: ({ children, htmlFor, labelClassName, }: LabelProps) => React.JSX.Element;
+declare const Label: ({ children, htmlFor, labelClassName }: LabelProps) => React.JSX.Element;
 export { Label };

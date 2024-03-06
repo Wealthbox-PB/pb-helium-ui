@@ -7,11 +7,7 @@ interface LabelProps {
   labelClassName?: string;
 }
 
-const Label = ({
-  children,
-  htmlFor,
-  labelClassName,
-}: LabelProps) => (
+const Label = ({ children, htmlFor, labelClassName }: LabelProps) => (
   <label className={classNames(`h-form-label`, labelClassName)} htmlFor={htmlFor}>
     {children}
   </label>

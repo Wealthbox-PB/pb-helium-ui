@@ -5,7 +5,8 @@ interface SwitchProps {
     /** Controls whether the switch is checked or not. */
     checked?: boolean;
     /**
-     * Sets the default checked value for the switch. Cannot be updated using an external state after the component is mounted.
+     * Sets the default checked value for the switch.
+     * Cannot be updated using an external state after the component is mounted.
      * @deprecated `defaultValue` prop is deprecated. Please use the `checked` prop instead.
      */
     defaultValue?: boolean;

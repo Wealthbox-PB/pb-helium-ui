@@ -60,7 +60,7 @@ describe(`<Switch />`, () => {
             <form data-testid="h-switch-form">
               <Switch name="name" />
               <button type="submit">Submit</button>
-            </form>
+            </form>,
           );
 
           expect(screen.getByTestId(`h-switch-form`)).toHaveFormValues({ name: `false` });

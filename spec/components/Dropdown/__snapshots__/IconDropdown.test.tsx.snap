@@ -4,7 +4,7 @@ exports[`<IconDropdown /> matches the snapshot 1`] = `
 <DocumentFragment>
   <button
     aria-label="menu"
-    class="h-btn h-btn--border-hover h-btn--xs me-2 h-btn--square"
+    class="h-btn h-btn--xs h-btn--border-hover h-btn--square me-2"
     tabindex="0"
     type="button"
   >

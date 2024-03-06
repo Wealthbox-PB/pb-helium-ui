@@ -4,5 +4,5 @@ interface ProgressBarProps {
     totalSteps: number;
     variant?: `default` | `large`;
 }
-declare const ProgressBar: ({ completedSteps, totalSteps, variant, }: ProgressBarProps) => React.JSX.Element;
+declare const ProgressBar: ({ completedSteps, totalSteps, variant }: ProgressBarProps) => React.JSX.Element;
 export { ProgressBar };
