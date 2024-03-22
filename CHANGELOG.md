@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `Accordion` component
-- Added `star-circle--lg` icon
+- Added `star-circled--lg` icon
 
 ### Updated
 
