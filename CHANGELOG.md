@@ -9,11 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Added `Accordian` component
+- Added `Accordion` component
+- Added `star-circle--lg` icon
 
 ### Updated
 
 - Added missing prop comments to components
+- Recompiled icon font
 
 ## [2.6.5] - 2024-02-14
 
