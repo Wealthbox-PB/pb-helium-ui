@@ -4,15 +4,25 @@ import classNames from 'classnames';
 import { randomString } from '../helpers/random_string';
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  /** Adds class names to the input. */
   className?: string;
+  /** Sets a label for the input. */
   label?: string;
+  /** Adds class names to the label. */
   labelClassName?: string;
+  /** Adds class names to the left icon. */
   leftIconClassName?: string;
+  /** Callback function when the right button is clicked. */
   onRightButtonClick?: (e) => void;
+  /** Adds class names to the right button. */
   rightButtonClassName?: string;
+  /** Controls if the left icon is displayed. */
   showLeftIcon?: boolean;
+  /** Controls if the right button is displayed. */
   showRightButton?: boolean;
+  /** Controls the color variant. */
   variant?: `default` | `dark-blue`;
+  /** Controls the input type. */
   inputType?: `text` | `password` | `email` | `tel` | `search`;
 }
 
@@ -65,8 +75,8 @@ const TextInput = (
             data-testid="h-input__icon--left"
             aria-hidden="true"
             className={classNames(`h-input__icon--left`, leftIconClassName, {
-              'h-color-text-blue-200': variant === `dark-blue`,
-              'h-color-text-gray-500': variant === `default`,
+              'h-color-text-blue-200': variant === 'dark-blue',
+              'h-color-text-gray-500': variant === 'default',
             })}
           ></span>
         ) : null}
@@ -77,8 +87,8 @@ const TextInput = (
             aria-label="Clear Search"
             onClick={onRightButtonClick}
             className={classNames(`h-input__icon--right`, rightButtonClassName, {
-              'h-color-text-blue-200': variant === `dark-blue`,
-              'h-color-text-gray-500': variant === `default`,
+              'h-color-text-blue-200': variant === 'dark-blue',
+              'h-color-text-gray-500': variant === 'default',
             })}
           ></button>
         ) : null}

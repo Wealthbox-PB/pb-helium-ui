@@ -8,19 +8,19 @@ import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 
 interface ModalDialogProps {
-  /** Content for the dialog */
+  /** Content for the dialog. */
   children: string | JSX.Element[] | JSX.Element;
-  /** Callback function when the dialog is closed */
+  /** Callback function when the dialog is closed. */
   closeDialog: () => void;
-  /** Controls whether the dialog is open or not */
+  /** Controls whether the dialog is open or not. */
   open: boolean;
-  /** Controls whether the dialog animates in */
+  /** Controls whether the dialog animates in. */
   animateIn?: boolean;
-  /** Controls whether the dialog animates out */
+  /** Controls whether the dialog animates out. */
   animateOut?: boolean;
-  /** Controls the direction that the dialog moves while animating in */
+  /** Controls the direction that the dialog moves while animating in. */
   animationDirection?: AnimationDirection;
-  /** Controls the distance that the dialog moves while animating in */
+  /** Controls the distance that the dialog moves while animating in. */
   animationDistance?: AnimationDistance;
   /** Controls whether the dialog have a backdrop overlaying the app. */
   backdrop?: boolean;
