@@ -144,23 +144,16 @@
           "description": "Adds the active style to the button.",
           "defaultValue": { "value": "false", "computed": false }
         },
-        "children": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "string | JSX.Element[] | JSX.Element",
-            "elements": [
-              { "name": "string" },
-              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
-              { "name": "JSX.Element" }
-            ]
-          },
-          "description": "Content for the button."
-        },
         "className": {
           "required": false,
           "tsType": { "name": "string" },
-          "description": "Adds class names to the button."
+          "description": "Additional classes to apply to the button"
+        },
+        "disabled": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Adds disabled style to the button",
+          "defaultValue": { "value": "false", "computed": false }
         },
         "focus": {
           "required": false,
@@ -189,19 +182,6 @@
           "description": "Adds the square style to the button.",
           "defaultValue": { "value": "false", "computed": false }
         },
-        "type": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`button` | `submit` | `reset`",
-            "elements": [
-              { "name": "literal", "value": "`button`" },
-              { "name": "literal", "value": "`submit`" },
-              { "name": "literal", "value": "`reset`" }
-            ]
-          },
-          "description": "Controls the type of the button."
-        },
         "variant": {
           "required": false,
           "tsType": {
@@ -225,6 +205,19 @@
             ]
           },
           "description": "Controls the variant styling of the button."
+        },
+        "type": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`button` | `submit` | `reset`",
+            "elements": [
+              { "name": "literal", "value": "`button`" },
+              { "name": "literal", "value": "`submit`" },
+              { "name": "literal", "value": "`reset`" }
+            ]
+          },
+          "description": "Controls the type of the button."
         }
       },
       "composes": ["ButtonHTMLAttributes"]
@@ -236,19 +229,6 @@
       "methods": [],
       "displayName": "AlertDialog",
       "props": {
-        "children": {
-          "required": true,
-          "tsType": {
-            "name": "union",
-            "raw": "string | JSX.Element[] | JSX.Element",
-            "elements": [
-              { "name": "string" },
-              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
-              { "name": "JSX.Element" }
-            ]
-          },
-          "description": "Content for the dialog."
-        },
         "closeDialog": {
           "required": true,
           "tsType": {
@@ -263,6 +243,136 @@
           "required": true,
           "tsType": { "name": "boolean" },
           "description": "Controls whether the dialog is open or not."
+        },
+        "backdrop": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Adds class names to the backdrop element."
+        },
+        "dialogClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dialog wrapper element."
+        },
+        "id": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds id attribute to the dialog element."
+        },
+        "position": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "| `top left`\n| `top center`\n| `top right`\n| `center left`\n| `center center`\n| `center right`\n| `bottom left`\n| `bottom center`\n| `bottom right`",
+            "elements": [
+              { "name": "literal", "value": "`top left`" },
+              { "name": "literal", "value": "`top center`" },
+              { "name": "literal", "value": "`top right`" },
+              { "name": "literal", "value": "`center left`" },
+              { "name": "literal", "value": "`center center`" },
+              { "name": "literal", "value": "`center right`" },
+              { "name": "literal", "value": "`bottom left`" },
+              { "name": "literal", "value": "`bottom center`" },
+              { "name": "literal", "value": "`bottom right`" }
+            ]
+          },
+          "description": "Position of the dialog. Can be \"top\", \"right\", \"bottom\", or \"left\". Default position is \"center\"."
+        },
+        "returnFocusEl": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
+            "elements": [
+              { "name": "string" },
+              { "name": "HTMLElement" },
+              { "name": "unknown" },
+              { "name": "undefined" },
+              { "name": "literal", "value": "false" }
+            ]
+          },
+          "description": "Element to focus when the dialog is closed."
+        },
+        "size": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`small` | `medium` | `large` | `xl` | `xxl` | `full`",
+            "elements": [
+              { "name": "literal", "value": "`small`" },
+              { "name": "literal", "value": "`medium`" },
+              { "name": "literal", "value": "`large`" },
+              { "name": "literal", "value": "`xl`" },
+              { "name": "literal", "value": "`xxl`" },
+              { "name": "literal", "value": "`full`" }
+            ]
+          },
+          "description": "Controls the size of the dialog. Default size is \"medium\"."
+        },
+        "wrapperClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dialog wrapper element."
+        },
+        "dialogRole": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`dialog` | `alertdialog`",
+            "elements": [
+              { "name": "literal", "value": "`dialog`" },
+              { "name": "literal", "value": "`alertdialog`" }
+            ]
+          },
+          "description": "Sets the dialogs aria-role attribute."
+        },
+        "trapPaused": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the focus should be trapped inside of the dialog."
+        },
+        "trapFocus": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the focus should be trapped inside of the dialog."
+        },
+        "animationDistance": {
+          "required": false,
+          "tsType": { "name": "AnimationDistance" },
+          "description": "Controls the distance the dialog will slide in from."
+        },
+        "animationDirection": {
+          "required": false,
+          "tsType": { "name": "AnimationDirection" },
+          "description": "Controls the direction the dialog will slide in from."
+        },
+        "initialFocusEl": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
+            "elements": [
+              { "name": "string" },
+              { "name": "HTMLElement" },
+              { "name": "unknown" },
+              { "name": "undefined" },
+              { "name": "literal", "value": "false" }
+            ]
+          },
+          "description": "Element to focus when the dialog is opened."
+        },
+        "children": {
+          "required": true,
+          "tsType": {
+            "name": "union",
+            "raw": "string | JSX.Element[] | JSX.Element",
+            "elements": [
+              { "name": "string" },
+              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
+              { "name": "JSX.Element" }
+            ]
+          },
+          "description": "Content for the dialog."
         },
         "animateIn": {
           "required": false,
@@ -281,39 +391,10 @@
           "tsType": { "name": "string" },
           "description": "Adds class names to the backdrop element."
         },
-        "dialogClassName": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Adds class names to the dialog wrapper element."
-        },
         "leastDestructiveRef": {
           "required": false,
           "tsType": { "name": "any" },
           "description": "Element to focus when the dialog is opened."
-        },
-        "position": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Position of the dialog. Can be \"top\", \"right\", \"bottom\", or \"left\". Default position is \"center\"."
-        },
-        "returnFocusEl": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "string | HTMLElement | (() => HTMLElement) | undefined",
-            "elements": [
-              { "name": "string" },
-              { "name": "HTMLElement" },
-              { "name": "unknown" },
-              { "name": "undefined" }
-            ]
-          },
-          "description": "Element to focus when the dialog is closed."
-        },
-        "size": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Controls the size of the dialog. Default size is \"medium\"."
         }
       }
     }
@@ -425,7 +506,15 @@
           "description": ""
         },
         "cancel": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "cancelRef": { "required": false, "tsType": { "name": "any" }, "description": "" },
+        "cancelRef": {
+          "required": false,
+          "tsType": {
+            "name": "ReactRefObject",
+            "raw": "React.RefObject<HTMLButtonElement>",
+            "elements": [{ "name": "HTMLButtonElement" }]
+          },
+          "description": ""
+        },
         "cancelVariant": {
           "required": false,
           "tsType": {
@@ -451,6 +540,15 @@
           "description": ""
         },
         "confirm": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "confirmRef": {
+          "required": false,
+          "tsType": {
+            "name": "ReactRefObject",
+            "raw": "React.RefObject<HTMLButtonElement>",
+            "elements": [{ "name": "HTMLButtonElement" }]
+          },
+          "description": ""
+        },
         "confirmVariant": {
           "required": false,
           "tsType": {
@@ -471,6 +569,20 @@
               { "name": "literal", "value": "`link-secondary`" },
               { "name": "literal", "value": "`border-hover`" },
               { "name": "null" }
+            ]
+          },
+          "description": ""
+        },
+        "confirmClassName": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "confirmType": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`button` | `submit` | `reset`",
+            "elements": [
+              { "name": "literal", "value": "`button`" },
+              { "name": "literal", "value": "`submit`" },
+              { "name": "literal", "value": "`reset`" }
             ]
           },
           "description": ""
@@ -554,19 +666,6 @@
       "methods": [],
       "displayName": "ModalDialog",
       "props": {
-        "children": {
-          "required": true,
-          "tsType": {
-            "name": "union",
-            "raw": "string | JSX.Element[] | JSX.Element",
-            "elements": [
-              { "name": "string" },
-              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
-              { "name": "JSX.Element" }
-            ]
-          },
-          "description": "Content for the dialog."
-        },
         "closeDialog": {
           "required": true,
           "tsType": {
@@ -582,83 +681,39 @@
           "tsType": { "name": "boolean" },
           "description": "Controls whether the dialog is open or not."
         },
-        "animateIn": {
-          "required": false,
-          "tsType": { "name": "boolean" },
-          "description": "Controls whether the dialog animates in.",
-          "defaultValue": { "value": "true", "computed": false }
-        },
-        "animateOut": {
-          "required": false,
-          "tsType": { "name": "boolean" },
-          "description": "Controls whether the dialog animates out.",
-          "defaultValue": { "value": "true", "computed": false }
-        },
-        "animationDirection": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`up` | `down` | `left` | `right` | `none`",
-            "elements": [
-              { "name": "literal", "value": "`up`" },
-              { "name": "literal", "value": "`down`" },
-              { "name": "literal", "value": "`left`" },
-              { "name": "literal", "value": "`right`" },
-              { "name": "literal", "value": "`none`" }
-            ]
-          },
-          "description": "Controls the direction that the dialog moves while animating in."
-        },
-        "animationDistance": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`none` | `xxs` | `xs` | `sm` | `md` | `lg`",
-            "elements": [
-              { "name": "literal", "value": "`none`" },
-              { "name": "literal", "value": "`xxs`" },
-              { "name": "literal", "value": "`xs`" },
-              { "name": "literal", "value": "`sm`" },
-              { "name": "literal", "value": "`md`" },
-              { "name": "literal", "value": "`lg`" }
-            ]
-          },
-          "description": "Controls the distance that the dialog moves while animating in."
-        },
         "backdrop": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "Controls whether the dialog have a backdrop overlaying the app.",
+          "description": "Adds class names to the backdrop element.",
           "defaultValue": { "value": "true", "computed": false }
-        },
-        "backdropClassName": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Adds class names to the backdrop element."
         },
         "dialogClassName": {
           "required": false,
           "tsType": { "name": "string" },
           "description": "Adds class names to the dialog wrapper element."
         },
-        "initialFocusEl": {
+        "id": {
           "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
-            "elements": [
-              { "name": "string" },
-              { "name": "HTMLElement" },
-              { "name": "unknown" },
-              { "name": "undefined" },
-              { "name": "literal", "value": "false" }
-            ]
-          },
-          "description": "Element to focus when the dialog is opened."
+          "tsType": { "name": "string" },
+          "description": "Adds id attribute to the dialog element."
         },
         "position": {
           "required": false,
-          "tsType": { "name": "string" },
+          "tsType": {
+            "name": "union",
+            "raw": "| `top left`\n| `top center`\n| `top right`\n| `center left`\n| `center center`\n| `center right`\n| `bottom left`\n| `bottom center`\n| `bottom right`",
+            "elements": [
+              { "name": "literal", "value": "`top left`" },
+              { "name": "literal", "value": "`top center`" },
+              { "name": "literal", "value": "`top right`" },
+              { "name": "literal", "value": "`center left`" },
+              { "name": "literal", "value": "`center center`" },
+              { "name": "literal", "value": "`center right`" },
+              { "name": "literal", "value": "`bottom left`" },
+              { "name": "literal", "value": "`bottom center`" },
+              { "name": "literal", "value": "`bottom right`" }
+            ]
+          },
           "description": "Position of the dialog. Can be \"top\", \"right\", \"bottom\", or \"left\". Default position is \"center\"."
         },
         "returnFocusEl": {
@@ -678,24 +733,73 @@
         },
         "size": {
           "required": false,
-          "tsType": { "name": "string" },
+          "tsType": {
+            "name": "union",
+            "raw": "`small` | `medium` | `large` | `xl` | `xxl` | `full`",
+            "elements": [
+              { "name": "literal", "value": "`small`" },
+              { "name": "literal", "value": "`medium`" },
+              { "name": "literal", "value": "`large`" },
+              { "name": "literal", "value": "`xl`" },
+              { "name": "literal", "value": "`xxl`" },
+              { "name": "literal", "value": "`full`" }
+            ]
+          },
           "description": "Controls the size of the dialog. Default size is \"medium\"."
+        },
+        "wrapperClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dialog wrapper element."
+        },
+        "dialogRole": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`dialog` | `alertdialog`",
+            "elements": [
+              { "name": "literal", "value": "`dialog`" },
+              { "name": "literal", "value": "`alertdialog`" }
+            ]
+          },
+          "description": "Sets the dialogs aria-role attribute."
         },
         "trapPaused": {
           "required": false,
           "tsType": { "name": "boolean" },
           "description": "Controls whether the focus should be trapped inside of the dialog.",
           "defaultValue": { "value": "false", "computed": false }
-        }
-      }
-    }
-  ],
-  "./ts/components/Dialog/SimpleAlertDialog.tsx": [
-    {
-      "description": "",
-      "methods": [],
-      "displayName": "SimpleAlertDialog",
-      "props": {
+        },
+        "trapFocus": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the focus should be trapped inside of the dialog."
+        },
+        "animationDistance": {
+          "required": false,
+          "tsType": { "name": "AnimationDistance" },
+          "description": "Controls the distance the dialog will slide in from."
+        },
+        "animationDirection": {
+          "required": false,
+          "tsType": { "name": "AnimationDirection" },
+          "description": "Controls the direction the dialog will slide in from."
+        },
+        "initialFocusEl": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
+            "elements": [
+              { "name": "string" },
+              { "name": "HTMLElement" },
+              { "name": "unknown" },
+              { "name": "undefined" },
+              { "name": "literal", "value": "false" }
+            ]
+          },
+          "description": "Element to focus when the dialog is opened."
+        },
         "children": {
           "required": true,
           "tsType": {
@@ -709,6 +813,32 @@
           },
           "description": "Content for the dialog."
         },
+        "animateIn": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates in.",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "animateOut": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates out.",
+          "defaultValue": { "value": "true", "computed": false }
+        },
+        "backdropClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the backdrop element."
+        }
+      }
+    }
+  ],
+  "./ts/components/Dialog/SimpleAlertDialog.tsx": [
+    {
+      "description": "",
+      "methods": [],
+      "displayName": "SimpleAlertDialog",
+      "props": {
         "closeDialog": {
           "required": true,
           "tsType": {
@@ -724,10 +854,155 @@
           "tsType": { "name": "boolean" },
           "description": "Controls whether the dialog is open or not."
         },
+        "backdrop": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Adds class names to the backdrop element."
+        },
+        "dialogClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dialog wrapper element."
+        },
+        "id": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds id attribute to the dialog element."
+        },
+        "position": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "| `top left`\n| `top center`\n| `top right`\n| `center left`\n| `center center`\n| `center right`\n| `bottom left`\n| `bottom center`\n| `bottom right`",
+            "elements": [
+              { "name": "literal", "value": "`top left`" },
+              { "name": "literal", "value": "`top center`" },
+              { "name": "literal", "value": "`top right`" },
+              { "name": "literal", "value": "`center left`" },
+              { "name": "literal", "value": "`center center`" },
+              { "name": "literal", "value": "`center right`" },
+              { "name": "literal", "value": "`bottom left`" },
+              { "name": "literal", "value": "`bottom center`" },
+              { "name": "literal", "value": "`bottom right`" }
+            ]
+          },
+          "description": "Position of the dialog. Can be \"top\", \"right\", \"bottom\", or \"left\". Default position is \"center\"."
+        },
+        "returnFocusEl": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
+            "elements": [
+              { "name": "string" },
+              { "name": "HTMLElement" },
+              { "name": "unknown" },
+              { "name": "undefined" },
+              { "name": "literal", "value": "false" }
+            ]
+          },
+          "description": "Element to focus when the dialog is closed."
+        },
+        "size": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`small` | `medium` | `large` | `xl` | `xxl` | `full`",
+            "elements": [
+              { "name": "literal", "value": "`small`" },
+              { "name": "literal", "value": "`medium`" },
+              { "name": "literal", "value": "`large`" },
+              { "name": "literal", "value": "`xl`" },
+              { "name": "literal", "value": "`xxl`" },
+              { "name": "literal", "value": "`full`" }
+            ]
+          },
+          "description": "Controls the size of the dialog. Default size is \"medium\"."
+        },
+        "wrapperClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dialog wrapper element."
+        },
+        "dialogRole": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`dialog` | `alertdialog`",
+            "elements": [
+              { "name": "literal", "value": "`dialog`" },
+              { "name": "literal", "value": "`alertdialog`" }
+            ]
+          },
+          "description": "Sets the dialogs aria-role attribute."
+        },
+        "trapPaused": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the focus should be trapped inside of the dialog."
+        },
+        "trapFocus": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the focus should be trapped inside of the dialog."
+        },
+        "animationDistance": {
+          "required": false,
+          "tsType": { "name": "AnimationDistance" },
+          "description": "Controls the distance the dialog will slide in from."
+        },
+        "animationDirection": {
+          "required": false,
+          "tsType": { "name": "AnimationDirection" },
+          "description": "Controls the direction the dialog will slide in from."
+        },
+        "initialFocusEl": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
+            "elements": [
+              { "name": "string" },
+              { "name": "HTMLElement" },
+              { "name": "unknown" },
+              { "name": "undefined" },
+              { "name": "literal", "value": "false" }
+            ]
+          },
+          "description": "Element to focus when the dialog is opened."
+        },
+        "children": {
+          "required": true,
+          "tsType": {
+            "name": "union",
+            "raw": "string | JSX.Element[] | JSX.Element",
+            "elements": [
+              { "name": "string" },
+              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
+              { "name": "JSX.Element" }
+            ]
+          },
+          "description": "Content for the dialog."
+        },
+        "animateIn": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates in."
+        },
+        "animateOut": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates out."
+        },
         "backdropClassName": {
           "required": false,
           "tsType": { "name": "string" },
           "description": "Adds class names to the backdrop element."
+        },
+        "leastDestructiveRef": {
+          "required": false,
+          "tsType": { "name": "any" },
+          "description": "Element to focus when the dialog is opened."
         },
         "buttonSize": {
           "required": false,
@@ -808,11 +1083,6 @@
           },
           "description": "Controls the variant of the confirm button."
         },
-        "dialogClassName": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Adds class names to the dialog wrapper element."
-        },
         "header": {
           "required": false,
           "tsType": { "name": "string" },
@@ -844,30 +1114,6 @@
           },
           "description": "Callback function when the confirm button is clicked.",
           "defaultValue": { "value": "() => {}", "computed": false }
-        },
-        "position": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Position of the dialog. Can be \"top\", \"right\", \"bottom\", or \"left\". Default position is \"center\"."
-        },
-        "returnFocusEl": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "string | HTMLElement | (() => HTMLElement) | undefined",
-            "elements": [
-              { "name": "string" },
-              { "name": "HTMLElement" },
-              { "name": "unknown" },
-              { "name": "undefined" }
-            ]
-          },
-          "description": "Element to focus when the dialog is closed."
-        },
-        "size": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Controls the size of the dialog. Default size is \"medium\"."
         }
       }
     }
@@ -878,19 +1124,6 @@
       "methods": [],
       "displayName": "SimpleModalDialog",
       "props": {
-        "children": {
-          "required": true,
-          "tsType": {
-            "name": "union",
-            "raw": "string | JSX.Element[] | JSX.Element",
-            "elements": [
-              { "name": "string" },
-              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
-              { "name": "JSX.Element" }
-            ]
-          },
-          "description": "Content for the dialog."
-        },
         "closeDialog": {
           "required": true,
           "tsType": {
@@ -909,8 +1142,144 @@
         "backdrop": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "Controls whether the dialog have a backdrop overlaying the app.",
+          "description": "Adds class names to the backdrop element.",
           "defaultValue": { "value": "true", "computed": false }
+        },
+        "dialogClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dialog wrapper element."
+        },
+        "id": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds id attribute to the dialog element."
+        },
+        "position": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "| `top left`\n| `top center`\n| `top right`\n| `center left`\n| `center center`\n| `center right`\n| `bottom left`\n| `bottom center`\n| `bottom right`",
+            "elements": [
+              { "name": "literal", "value": "`top left`" },
+              { "name": "literal", "value": "`top center`" },
+              { "name": "literal", "value": "`top right`" },
+              { "name": "literal", "value": "`center left`" },
+              { "name": "literal", "value": "`center center`" },
+              { "name": "literal", "value": "`center right`" },
+              { "name": "literal", "value": "`bottom left`" },
+              { "name": "literal", "value": "`bottom center`" },
+              { "name": "literal", "value": "`bottom right`" }
+            ]
+          },
+          "description": "Position of the dialog. Can be \"top\", \"right\", \"bottom\", or \"left\". Default position is \"center\"."
+        },
+        "returnFocusEl": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
+            "elements": [
+              { "name": "string" },
+              { "name": "HTMLElement" },
+              { "name": "unknown" },
+              { "name": "undefined" },
+              { "name": "literal", "value": "false" }
+            ]
+          },
+          "description": "Element to focus when the dialog is closed."
+        },
+        "size": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`small` | `medium` | `large` | `xl` | `xxl` | `full`",
+            "elements": [
+              { "name": "literal", "value": "`small`" },
+              { "name": "literal", "value": "`medium`" },
+              { "name": "literal", "value": "`large`" },
+              { "name": "literal", "value": "`xl`" },
+              { "name": "literal", "value": "`xxl`" },
+              { "name": "literal", "value": "`full`" }
+            ]
+          },
+          "description": "Controls the size of the dialog. Default size is \"medium\"."
+        },
+        "wrapperClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dialog wrapper element."
+        },
+        "dialogRole": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`dialog` | `alertdialog`",
+            "elements": [
+              { "name": "literal", "value": "`dialog`" },
+              { "name": "literal", "value": "`alertdialog`" }
+            ]
+          },
+          "description": "Sets the dialogs aria-role attribute."
+        },
+        "trapPaused": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the focus should be trapped inside of the dialog.",
+          "defaultValue": { "value": "false", "computed": false }
+        },
+        "trapFocus": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the focus should be trapped inside of the dialog."
+        },
+        "animationDistance": {
+          "required": false,
+          "tsType": { "name": "AnimationDistance" },
+          "description": "Controls the distance the dialog will slide in from."
+        },
+        "animationDirection": {
+          "required": false,
+          "tsType": { "name": "AnimationDirection" },
+          "description": "Controls the direction the dialog will slide in from."
+        },
+        "initialFocusEl": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
+            "elements": [
+              { "name": "string" },
+              { "name": "HTMLElement" },
+              { "name": "unknown" },
+              { "name": "undefined" },
+              { "name": "literal", "value": "false" }
+            ]
+          },
+          "description": "Element to focus when the dialog is opened."
+        },
+        "children": {
+          "required": true,
+          "tsType": {
+            "name": "union",
+            "raw": "string | JSX.Element[] | JSX.Element",
+            "elements": [
+              { "name": "string" },
+              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
+              { "name": "JSX.Element" }
+            ]
+          },
+          "description": "Content for the dialog."
+        },
+        "animateIn": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates in."
+        },
+        "animateOut": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog animates out."
         },
         "backdropClassName": {
           "required": false,
@@ -927,23 +1296,6 @@
           "tsType": { "name": "boolean" },
           "description": "Controls whether or not the close button in the dialog header is shown.",
           "defaultValue": { "value": "true", "computed": false }
-        },
-        "dialogClassName": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Adds class names to the dialog wrapper element."
-        },
-        "dialogRole": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "`dialog` | `alertdialog`",
-            "elements": [
-              { "name": "literal", "value": "`dialog`" },
-              { "name": "literal", "value": "`alertdialog`" }
-            ]
-          },
-          "description": "Sets the dialogs aria-role attribute."
         },
         "header": {
           "required": false,
@@ -986,52 +1338,6 @@
           "required": false,
           "tsType": { "name": "string" },
           "description": "Adds class names to the dialog footer element."
-        },
-        "initialFocusEl": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
-            "elements": [
-              { "name": "string" },
-              { "name": "HTMLElement" },
-              { "name": "unknown" },
-              { "name": "undefined" },
-              { "name": "literal", "value": "false" }
-            ]
-          },
-          "description": "Element to focus when the dialog is opened."
-        },
-        "position": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Position of the dialog. Can be \"top\", \"right\", \"bottom\", or \"left\". Default position is \"center\"."
-        },
-        "returnFocusEl": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
-            "elements": [
-              { "name": "string" },
-              { "name": "HTMLElement" },
-              { "name": "unknown" },
-              { "name": "undefined" },
-              { "name": "literal", "value": "false" }
-            ]
-          },
-          "description": "Element to focus when the dialog is closed."
-        },
-        "size": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Controls the size of the dialog. Default size is \"medium\"."
-        },
-        "trapPaused": {
-          "required": false,
-          "tsType": { "name": "boolean" },
-          "description": "Controls whether the focus should be trapped inside of the dialog.",
-          "defaultValue": { "value": "false", "computed": false }
         }
       }
     }
@@ -1271,7 +1577,7 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `add`\n| `add--lg`\n| `add-circle`\n| `add-circle--lg`\n| `alarm`\n| `alarm--lg`\n| `anniversary`\n| `anniversary--lg`\n| `arrow-down`\n| `arrow-down--lg`\n| `arrow-down-circle`\n| `arrow-down-circle--filled`\n| `arrow-down-circle--filled--lg`\n| `arrow-down-circle--lg`\n| `arrow-left`\n| `arrow-left--lg`\n| `arrow-right`\n| `arrow-right--lg`\n| `arrow-up`\n| `arrow-up--lg`\n| `arrow-up-circle--filled`\n| `arrow-up-circle--filled--lg`\n| `b-blueleaf`\n| `b-cloud`\n| `b-outlook-csv`\n| `b-paw`\n| `b-td`\n| `b-wealthbox`\n| `bar-chart`\n| `bell`\n| `bell--lg`\n| `birthdate`\n| `birthdate--lg`\n| `broadcast`\n| `broadcast--lg`\n| `carrot-down`\n| `carrot-down--lg`\n| `carrot-left`\n| `carrot-left--lg`\n| `carrot-right`\n| `carrot-right--lg`\n| `carrot-up`\n| `carrot-up--lg`\n| `check-mark`\n| `chevron-down`\n| `chevron-down--lg`\n| `chevron-down--sm`\n| `chevron-left`\n| `chevron-left--lg`\n| `chevron-left--sm`\n| `chevron-right`\n| `chevron-right--lg`\n| `chevron-right--sm`\n| `chevron-up`\n| `chevron-up--lg`\n| `chevron-up--sm`\n| `clipboard`\n| `clipboard--lg`\n| `clipboard-success`\n| `clipboard-success--lg`\n| `clock`\n| `clock--lg`\n| `comment`\n| `comment--filled`\n| `comment--filled--lg`\n| `comment--lg`\n| `company`\n| `company--lg`\n| `contact`\n| `contact--filled`\n| `contact--filled--lg`\n| `contact--lg`\n| `dashboard`\n| `dashboard--lg`\n| `dashboard-grid`\n| `dashboard-grid--lg`\n| `datafile`\n| `datafile--lg`\n| `deal`\n| `deal--lg`\n| `delete`\n| `delete--lg`\n| `delete-circle`\n| `delete-circle--lg`\n| `delete-circle--sm`\n| `dots`\n| `dots--lg`\n| `dots-vertical`\n| `dots-vertical--lg`\n| `download`\n| `download--lg`\n| `download-circle`\n| `download-circle--lg`\n| `dropboxemail`\n| `dropboxemail--lg`\n| `edit`\n| `edit--lg`\n| `edit-outlined`\n| `edit-outlined--lg`\n| `edit_alt`\n| `edit_alt--lg`\n| `email`\n| `email--filled`\n| `email--filled--lg`\n| `email--lg`\n| `email-archive`\n| `email-archive--lg`\n| `email-attachment`\n| `email-attachment--lg`\n| `email-drafts`\n| `email-drafts--lg`\n| `email-inbox`\n| `email-inbox--lg`\n| `email-link-tracking`\n| `email-link-tracking--lg`\n| `email-outlined`\n| `email-outlined--lg`\n| `email-sent`\n| `email-sent--lg`\n| `email-signature`\n| `email-signature--lg`\n| `email-templates`\n| `email-templates--lg`\n| `email-trash`\n| `email-trash--lg`\n| `event`\n| `event--lg`\n| `event-add`\n| `event-add--lg`\n| `event-today`\n| `event-today--lg`\n| `examplekey-backspace`\n| `examplekey-backspace--lg`\n| `examplekey-return`\n| `examplekey-return--lg`\n| `exclamation`\n| `exclamation--lg`\n| `exclamation--sm`\n| `exclamation-circle`\n| `exclamation-circle--lg`\n| `exclamation-circle--sm`\n| `exclamation-triangle`\n| `exclamation-triangle--lg`\n| `exclamation-triangle--sm`\n| `external-link`\n| `external-link--lg`\n| `file`\n| `file--lg`\n| `file-outlined`\n| `file-outlined--lg`\n| `file-outlined-add`\n| `file-outlined-add--lg`\n| `files`\n| `files--lg`\n| `filter`\n| `filter--lg`\n| `filter-alt`\n| `filter-alt--filled`\n| `filter-alt--filled--lg`\n| `filter-alt--lg`\n| `filter-circle`\n| `filter-circle--filled`\n| `filter-circle--filled--lg`\n| `filter-circle--lg`\n| `folder`\n| `folder--lg`\n| `forward`\n| `forward--lg`\n| `fullscreen`\n| `fullscreen--lg`\n| `graph`\n| `graph--lg`\n| `grid`\n| `grid--lg`\n| `grid-view`\n| `grid-view--lg`\n| `history`\n| `history--lg`\n| `home`\n| `home--lg`\n| `household`\n| `household--filled`\n| `household--filled--lg`\n| `household--lg`\n| `inbox`\n| `inbox--lg`\n| `info-circle`\n| `info-circle--lg`\n| `information`\n| `information--filled`\n| `information--filled--lg`\n| `information--lg`\n| `institution`\n| `institution--lg`\n| `list`\n| `list--lg`\n| `lock`\n| `lock--filled`\n| `lock--filled--lg`\n| `lock--lg`\n| `lock-open`\n| `lock-open--filled`\n| `lock-open--filled--lg`\n| `lock-open--lg`\n| `mail-merge`\n| `mail-merge--lg`\n| `map-pin`\n| `map-pin--filled`\n| `map-pin--filled--lg`\n| `map-pin--lg`\n| `menu`\n| `menu--lg`\n| `menu-close`\n| `menu-close--lg`\n| `menu-open`\n| `menu-open--lg`\n| `mic`\n| `mic--lg`\n| `minus`\n| `minus--lg`\n| `mobile`\n| `mobile--lg`\n| `newsfeed`\n| `newsfeed--lg`\n| `note`\n| `note--lg`\n| `opportunity`\n| `opportunity--lg`\n| `organization`\n| `organization--filled`\n| `organization--filled--lg`\n| `organization--lg`\n| `outcomes`\n| `outcomes--lg`\n| `person`\n| `person--filled`\n| `person--filled--lg`\n| `person--lg`\n| `phonecall`\n| `phonecall--filled`\n| `phonecall--filled--lg`\n| `phonecall--lg`\n| `pie`\n| `pie--lg`\n| `pin`\n| `pin--lg`\n| `pin--sm`\n| `pipeline`\n| `pipeline--lg`\n| `play`\n| `play-circle`\n| `play-circle--lg`\n| `print`\n| `print--lg`\n| `project`\n| `project--lg`\n| `pulse`\n| `pulse--lg`\n| `question-mark`\n| `question-mark--lg`\n| `question-mark--sm`\n| `question-mark-circle`\n| `question-mark-circle--filled`\n| `question-mark-circle--filled--lg`\n| `question-mark-circle--filled--sm`\n| `question-mark-circle--lg`\n| `question-mark-circle--sm`\n| `refresh`\n| `refresh--lg`\n| `reply`\n| `reply--lg`\n| `reply-all`\n| `reply-all--lg`\n| `report`\n| `report-chart`\n| `report-hybrid`\n| `resize-se`\n| `s-aboutme`\n| `s-aboutme-sign`\n| `s-bebo`\n| `s-bebo-sign`\n| `s-behance`\n| `s-behance-sign`\n| `s-box-net`\n| `s-box-net-sign`\n| `s-bread`\n| `s-bread-sign`\n| `s-disqus`\n| `s-disqus-sign`\n| `s-dribbble`\n| `s-dribbble-sign`\n| `s-dropbox`\n| `s-dropbox-sign`\n| `s-facebook`\n| `s-facebook-sign`\n| `s-flickr`\n| `s-flickr-sign`\n| `s-foursquare`\n| `s-foursquare-sign`\n| `s-github`\n| `s-github-sign`\n| `s-goodreads`\n| `s-goodreads-sign`\n| `s-google`\n| `s-google-drive`\n| `s-google-drive-sign`\n| `s-google-sign`\n| `s-googleplus`\n| `s-googleplus-sign`\n| `s-googleprofile`\n| `s-googleprofile-sign`\n| `s-gravatar`\n| `s-gravatar-sign`\n| `s-instagram`\n| `s-instagram-sign`\n| `s-klout`\n| `s-klout-sign`\n| `s-lastfm`\n| `s-lastfm-sign`\n| `s-linkedin`\n| `s-linkedin-sign`\n| `s-pinterest`\n| `s-pinterest-sign`\n| `s-quora`\n| `s-quora-sign`\n| `s-reddit`\n| `s-reddit-sign`\n| `s-share`\n| `s-share-sign`\n| `s-soundcloud`\n| `s-soundcloud-sign`\n| `s-spotify`\n| `s-spotify-sign`\n| `s-techendo`\n| `s-techendo-sign`\n| `s-tumblr`\n| `s-tumblr-sign`\n| `s-twitter`\n| `s-twitter-sign`\n| `s-vevo`\n| `s-vevo-sign`\n| `s-vimeo`\n| `s-vimeo-sign`\n| `s-wordpress`\n| `s-wordpress-sign`\n| `s-yahoo`\n| `s-yahoo-sign`\n| `s-yelp`\n| `s-yelp-sign`\n| `s-youtube`\n| `s-youtube-sign`\n| `search`\n| `search--lg`\n| `settings`\n| `settings--filled`\n| `settings--filled--lg`\n| `settings--lg`\n| `settings-group`\n| `settings-group--lg`\n| `share`\n| `share--lg`\n| `smile`\n| `smile--lg`\n| `sort`\n| `sort--lg`\n| `sparkles`\n| `special-date`\n| `special-date--lg`\n| `star`\n| `star--lg`\n| `star-circled--lg`\n| `star-outlined`\n| `star-outlined--lg`\n| `table`\n| `table-chart`\n| `tag`\n| `tag--lg`\n| `task`\n| `task--lg`\n| `task-solid`\n| `task-solid--lg`\n| `ticket`\n| `ticket--lg`\n| `trash`\n| `trash--lg`\n| `trust`\n| `trust--filled`\n| `trust--filled--lg`\n| `trust--lg`\n| `user`\n| `user--lg`\n| `user-add`\n| `user-add--lg`\n| `user-group`\n| `user-group--lg`\n| `user-info`\n| `user-info--lg`\n| `users`\n| `users--filled`\n| `users--filled--lg`\n| `users--lg`\n| `visibility`\n| `visibility--lg`\n| `visibility-off`\n| `visibility-off--lg`\n| `workflow`\n| `workflow--lg`\n| `workflow-step`\n| `workflow-step--lg`",
+            "raw": "| `add`\n| `add--lg`\n| `add-circle`\n| `add-circle--lg`\n| `alarm`\n| `alarm--lg`\n| `anniversary`\n| `anniversary--lg`\n| `arrow-down`\n| `arrow-down--lg`\n| `arrow-down-circle`\n| `arrow-down-circle--filled`\n| `arrow-down-circle--filled--lg`\n| `arrow-down-circle--lg`\n| `arrow-left`\n| `arrow-left--lg`\n| `arrow-right`\n| `arrow-right--lg`\n| `arrow-up`\n| `arrow-up--lg`\n| `arrow-up-circle--filled`\n| `arrow-up-circle--filled--lg`\n| `b-blueleaf`\n| `b-cloud`\n| `b-outlook-csv`\n| `b-paw`\n| `b-td`\n| `b-wealthbox`\n| `bar-chart`\n| `bell`\n| `bell--lg`\n| `birthdate`\n| `birthdate--lg`\n| `bolt`\n| `bolt--filled`\n| `bolt--lg`\n| `broadcast`\n| `broadcast--lg`\n| `carrot-down`\n| `carrot-down--lg`\n| `carrot-left`\n| `carrot-left--lg`\n| `carrot-right`\n| `carrot-right--lg`\n| `carrot-up`\n| `carrot-up--lg`\n| `check-mark`\n| `chevron-down`\n| `chevron-down--lg`\n| `chevron-down--sm`\n| `chevron-left`\n| `chevron-left--lg`\n| `chevron-left--sm`\n| `chevron-right`\n| `chevron-right--lg`\n| `chevron-right--sm`\n| `chevron-up`\n| `chevron-up--lg`\n| `chevron-up--sm`\n| `clipboard`\n| `clipboard--lg`\n| `clipboard-success`\n| `clipboard-success--lg`\n| `clock`\n| `clock--lg`\n| `comment`\n| `comment--filled`\n| `comment--filled--lg`\n| `comment--lg`\n| `company`\n| `company--lg`\n| `contact`\n| `contact--filled`\n| `contact--filled--lg`\n| `contact--lg`\n| `dashboard`\n| `dashboard--lg`\n| `dashboard-grid`\n| `dashboard-grid--lg`\n| `datafile`\n| `datafile--lg`\n| `deal`\n| `deal--lg`\n| `delete`\n| `delete--lg`\n| `delete-circle`\n| `delete-circle--lg`\n| `delete-circle--sm`\n| `dots`\n| `dots--lg`\n| `dots-vertical`\n| `dots-vertical--lg`\n| `download`\n| `download--lg`\n| `download-circle`\n| `download-circle--lg`\n| `dropboxemail`\n| `dropboxemail--lg`\n| `edit`\n| `edit--lg`\n| `edit-outlined`\n| `edit-outlined--lg`\n| `edit_alt`\n| `edit_alt--lg`\n| `email`\n| `email--filled`\n| `email--filled--lg`\n| `email--lg`\n| `email-archive`\n| `email-archive--lg`\n| `email-attachment`\n| `email-attachment--lg`\n| `email-drafts`\n| `email-drafts--lg`\n| `email-inbox`\n| `email-inbox--lg`\n| `email-link-tracking`\n| `email-link-tracking--lg`\n| `email-outlined`\n| `email-outlined--lg`\n| `email-sent`\n| `email-sent--lg`\n| `email-signature`\n| `email-signature--lg`\n| `email-templates`\n| `email-templates--lg`\n| `email-trash`\n| `email-trash--lg`\n| `event`\n| `event--lg`\n| `event-add`\n| `event-add--lg`\n| `event-today`\n| `event-today--lg`\n| `examplekey-backspace`\n| `examplekey-backspace--lg`\n| `examplekey-return`\n| `examplekey-return--lg`\n| `exclamation`\n| `exclamation--lg`\n| `exclamation--sm`\n| `exclamation-circle`\n| `exclamation-circle--lg`\n| `exclamation-circle--sm`\n| `exclamation-triangle`\n| `exclamation-triangle--lg`\n| `exclamation-triangle--sm`\n| `external-link`\n| `external-link--lg`\n| `file`\n| `file--lg`\n| `file-outlined`\n| `file-outlined--lg`\n| `file-outlined-add`\n| `file-outlined-add--lg`\n| `files`\n| `files--lg`\n| `filter`\n| `filter--lg`\n| `filter-alt`\n| `filter-alt--filled`\n| `filter-alt--filled--lg`\n| `filter-alt--lg`\n| `filter-circle`\n| `filter-circle--filled`\n| `filter-circle--filled--lg`\n| `filter-circle--lg`\n| `folder`\n| `folder--lg`\n| `forward`\n| `forward--lg`\n| `fullscreen`\n| `fullscreen--lg`\n| `graph`\n| `graph--lg`\n| `grid`\n| `grid--lg`\n| `grid-view`\n| `grid-view--lg`\n| `history`\n| `history--lg`\n| `home`\n| `home--lg`\n| `household`\n| `household--filled`\n| `household--filled--lg`\n| `household--lg`\n| `inbox`\n| `inbox--lg`\n| `info-circle`\n| `info-circle--lg`\n| `information`\n| `information--filled`\n| `information--filled--lg`\n| `information--lg`\n| `institution`\n| `institution--lg`\n| `list`\n| `list--lg`\n| `lock`\n| `lock--filled`\n| `lock--filled--lg`\n| `lock--lg`\n| `lock-open`\n| `lock-open--filled`\n| `lock-open--filled--lg`\n| `lock-open--lg`\n| `mail-merge`\n| `mail-merge--lg`\n| `map-pin`\n| `map-pin--filled`\n| `map-pin--filled--lg`\n| `map-pin--lg`\n| `menu`\n| `menu--lg`\n| `menu-close`\n| `menu-close--lg`\n| `menu-open`\n| `menu-open--lg`\n| `mic`\n| `mic--lg`\n| `minus`\n| `minus--lg`\n| `mobile`\n| `mobile--lg`\n| `newsfeed`\n| `newsfeed--lg`\n| `note`\n| `note--lg`\n| `opportunity`\n| `opportunity--lg`\n| `organization`\n| `organization--filled`\n| `organization--filled--lg`\n| `organization--lg`\n| `outcomes`\n| `outcomes--lg`\n| `person`\n| `person--filled`\n| `person--filled--lg`\n| `person--lg`\n| `phonecall`\n| `phonecall--filled`\n| `phonecall--filled--lg`\n| `phonecall--lg`\n| `pie`\n| `pie--lg`\n| `pin`\n| `pin--lg`\n| `pin--sm`\n| `pipeline`\n| `pipeline--lg`\n| `play`\n| `play-circle`\n| `play-circle--lg`\n| `print`\n| `print--lg`\n| `project`\n| `project--lg`\n| `pulse`\n| `pulse--lg`\n| `question-mark`\n| `question-mark--lg`\n| `question-mark--sm`\n| `question-mark-circle`\n| `question-mark-circle--filled`\n| `question-mark-circle--filled--lg`\n| `question-mark-circle--filled--sm`\n| `question-mark-circle--lg`\n| `question-mark-circle--sm`\n| `refresh`\n| `refresh--lg`\n| `reply`\n| `reply--lg`\n| `reply-all`\n| `reply-all--lg`\n| `report`\n| `report-chart`\n| `report-hybrid`\n| `resize-se`\n| `s-aboutme`\n| `s-aboutme-sign`\n| `s-bebo`\n| `s-bebo-sign`\n| `s-behance`\n| `s-behance-sign`\n| `s-box-net`\n| `s-box-net-sign`\n| `s-bread`\n| `s-bread-sign`\n| `s-disqus`\n| `s-disqus-sign`\n| `s-dribbble`\n| `s-dribbble-sign`\n| `s-dropbox`\n| `s-dropbox-sign`\n| `s-facebook`\n| `s-facebook-sign`\n| `s-flickr`\n| `s-flickr-sign`\n| `s-foursquare`\n| `s-foursquare-sign`\n| `s-github`\n| `s-github-sign`\n| `s-goodreads`\n| `s-goodreads-sign`\n| `s-google`\n| `s-google-drive`\n| `s-google-drive-sign`\n| `s-google-sign`\n| `s-googleplus`\n| `s-googleplus-sign`\n| `s-googleprofile`\n| `s-googleprofile-sign`\n| `s-gravatar`\n| `s-gravatar-sign`\n| `s-instagram`\n| `s-instagram-sign`\n| `s-klout`\n| `s-klout-sign`\n| `s-lastfm`\n| `s-lastfm-sign`\n| `s-linkedin`\n| `s-linkedin-sign`\n| `s-pinterest`\n| `s-pinterest-sign`\n| `s-quora`\n| `s-quora-sign`\n| `s-reddit`\n| `s-reddit-sign`\n| `s-share`\n| `s-share-sign`\n| `s-soundcloud`\n| `s-soundcloud-sign`\n| `s-spotify`\n| `s-spotify-sign`\n| `s-techendo`\n| `s-techendo-sign`\n| `s-tumblr`\n| `s-tumblr-sign`\n| `s-twitter`\n| `s-twitter-sign`\n| `s-vevo`\n| `s-vevo-sign`\n| `s-vimeo`\n| `s-vimeo-sign`\n| `s-wordpress`\n| `s-wordpress-sign`\n| `s-yahoo`\n| `s-yahoo-sign`\n| `s-yelp`\n| `s-yelp-sign`\n| `s-youtube`\n| `s-youtube-sign`\n| `search`\n| `search--lg`\n| `settings`\n| `settings--filled`\n| `settings--filled--lg`\n| `settings--lg`\n| `settings-group`\n| `settings-group--lg`\n| `share`\n| `share--lg`\n| `smile`\n| `smile--lg`\n| `sort`\n| `sort--lg`\n| `sparkles`\n| `special-date`\n| `special-date--lg`\n| `star`\n| `star--lg`\n| `star-circled--lg`\n| `star-outlined`\n| `star-outlined--lg`\n| `table`\n| `table-chart`\n| `tag`\n| `tag--lg`\n| `task`\n| `task--lg`\n| `task-solid`\n| `task-solid--lg`\n| `ticket`\n| `ticket--lg`\n| `trash`\n| `trash--lg`\n| `trust`\n| `trust--filled`\n| `trust--filled--lg`\n| `trust--lg`\n| `user`\n| `user--lg`\n| `user-add`\n| `user-add--lg`\n| `user-group`\n| `user-group--lg`\n| `user-info`\n| `user-info--lg`\n| `users`\n| `users--filled`\n| `users--filled--lg`\n| `users--lg`\n| `visibility`\n| `visibility--lg`\n| `visibility-off`\n| `visibility-off--lg`\n| `workflow`\n| `workflow--lg`\n| `workflow-step`\n| `workflow-step--lg`",
             "elements": [
               { "name": "literal", "value": "`add`" },
               { "name": "literal", "value": "`add--lg`" },
@@ -1306,6 +1612,9 @@
               { "name": "literal", "value": "`bell--lg`" },
               { "name": "literal", "value": "`birthdate`" },
               { "name": "literal", "value": "`birthdate--lg`" },
+              { "name": "literal", "value": "`bolt`" },
+              { "name": "literal", "value": "`bolt--filled`" },
+              { "name": "literal", "value": "`bolt--lg`" },
               { "name": "literal", "value": "`broadcast`" },
               { "name": "literal", "value": "`broadcast--lg`" },
               { "name": "literal", "value": "`carrot-down`" },
@@ -1800,7 +2109,7 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `add`\n| `add--lg`\n| `add-circle`\n| `add-circle--lg`\n| `alarm`\n| `alarm--lg`\n| `anniversary`\n| `anniversary--lg`\n| `arrow-down`\n| `arrow-down--lg`\n| `arrow-down-circle`\n| `arrow-down-circle--filled`\n| `arrow-down-circle--filled--lg`\n| `arrow-down-circle--lg`\n| `arrow-left`\n| `arrow-left--lg`\n| `arrow-right`\n| `arrow-right--lg`\n| `arrow-up`\n| `arrow-up--lg`\n| `arrow-up-circle--filled`\n| `arrow-up-circle--filled--lg`\n| `b-blueleaf`\n| `b-cloud`\n| `b-outlook-csv`\n| `b-paw`\n| `b-td`\n| `b-wealthbox`\n| `bar-chart`\n| `bell`\n| `bell--lg`\n| `birthdate`\n| `birthdate--lg`\n| `broadcast`\n| `broadcast--lg`\n| `carrot-down`\n| `carrot-down--lg`\n| `carrot-left`\n| `carrot-left--lg`\n| `carrot-right`\n| `carrot-right--lg`\n| `carrot-up`\n| `carrot-up--lg`\n| `check-mark`\n| `chevron-down`\n| `chevron-down--lg`\n| `chevron-down--sm`\n| `chevron-left`\n| `chevron-left--lg`\n| `chevron-left--sm`\n| `chevron-right`\n| `chevron-right--lg`\n| `chevron-right--sm`\n| `chevron-up`\n| `chevron-up--lg`\n| `chevron-up--sm`\n| `clipboard`\n| `clipboard--lg`\n| `clipboard-success`\n| `clipboard-success--lg`\n| `clock`\n| `clock--lg`\n| `comment`\n| `comment--filled`\n| `comment--filled--lg`\n| `comment--lg`\n| `company`\n| `company--lg`\n| `contact`\n| `contact--filled`\n| `contact--filled--lg`\n| `contact--lg`\n| `dashboard`\n| `dashboard--lg`\n| `dashboard-grid`\n| `dashboard-grid--lg`\n| `datafile`\n| `datafile--lg`\n| `deal`\n| `deal--lg`\n| `delete`\n| `delete--lg`\n| `delete-circle`\n| `delete-circle--lg`\n| `delete-circle--sm`\n| `dots`\n| `dots--lg`\n| `dots-vertical`\n| `dots-vertical--lg`\n| `download`\n| `download--lg`\n| `download-circle`\n| `download-circle--lg`\n| `dropboxemail`\n| `dropboxemail--lg`\n| `edit`\n| `edit--lg`\n| `edit-outlined`\n| `edit-outlined--lg`\n| `edit_alt`\n| `edit_alt--lg`\n| `email`\n| `email--filled`\n| `email--filled--lg`\n| `email--lg`\n| `email-archive`\n| `email-archive--lg`\n| `email-attachment`\n| `email-attachment--lg`\n| `email-drafts`\n| `email-drafts--lg`\n| `email-inbox`\n| `email-inbox--lg`\n| `email-link-tracking`\n| `email-link-tracking--lg`\n| `email-outlined`\n| `email-outlined--lg`\n| `email-sent`\n| `email-sent--lg`\n| `email-signature`\n| `email-signature--lg`\n| `email-templates`\n| `email-templates--lg`\n| `email-trash`\n| `email-trash--lg`\n| `event`\n| `event--lg`\n| `event-add`\n| `event-add--lg`\n| `event-today`\n| `event-today--lg`\n| `examplekey-backspace`\n| `examplekey-backspace--lg`\n| `examplekey-return`\n| `examplekey-return--lg`\n| `exclamation`\n| `exclamation--lg`\n| `exclamation--sm`\n| `exclamation-circle`\n| `exclamation-circle--lg`\n| `exclamation-circle--sm`\n| `exclamation-triangle`\n| `exclamation-triangle--lg`\n| `exclamation-triangle--sm`\n| `external-link`\n| `external-link--lg`\n| `file`\n| `file--lg`\n| `file-outlined`\n| `file-outlined--lg`\n| `file-outlined-add`\n| `file-outlined-add--lg`\n| `files`\n| `files--lg`\n| `filter`\n| `filter--lg`\n| `filter-alt`\n| `filter-alt--filled`\n| `filter-alt--filled--lg`\n| `filter-alt--lg`\n| `filter-circle`\n| `filter-circle--filled`\n| `filter-circle--filled--lg`\n| `filter-circle--lg`\n| `folder`\n| `folder--lg`\n| `forward`\n| `forward--lg`\n| `fullscreen`\n| `fullscreen--lg`\n| `graph`\n| `graph--lg`\n| `grid`\n| `grid--lg`\n| `grid-view`\n| `grid-view--lg`\n| `history`\n| `history--lg`\n| `home`\n| `home--lg`\n| `household`\n| `household--filled`\n| `household--filled--lg`\n| `household--lg`\n| `inbox`\n| `inbox--lg`\n| `info-circle`\n| `info-circle--lg`\n| `information`\n| `information--filled`\n| `information--filled--lg`\n| `information--lg`\n| `institution`\n| `institution--lg`\n| `list`\n| `list--lg`\n| `lock`\n| `lock--filled`\n| `lock--filled--lg`\n| `lock--lg`\n| `lock-open`\n| `lock-open--filled`\n| `lock-open--filled--lg`\n| `lock-open--lg`\n| `mail-merge`\n| `mail-merge--lg`\n| `map-pin`\n| `map-pin--filled`\n| `map-pin--filled--lg`\n| `map-pin--lg`\n| `menu`\n| `menu--lg`\n| `menu-close`\n| `menu-close--lg`\n| `menu-open`\n| `menu-open--lg`\n| `mic`\n| `mic--lg`\n| `minus`\n| `minus--lg`\n| `mobile`\n| `mobile--lg`\n| `newsfeed`\n| `newsfeed--lg`\n| `note`\n| `note--lg`\n| `opportunity`\n| `opportunity--lg`\n| `organization`\n| `organization--filled`\n| `organization--filled--lg`\n| `organization--lg`\n| `outcomes`\n| `outcomes--lg`\n| `person`\n| `person--filled`\n| `person--filled--lg`\n| `person--lg`\n| `phonecall`\n| `phonecall--filled`\n| `phonecall--filled--lg`\n| `phonecall--lg`\n| `pie`\n| `pie--lg`\n| `pin`\n| `pin--lg`\n| `pin--sm`\n| `pipeline`\n| `pipeline--lg`\n| `play`\n| `play-circle`\n| `play-circle--lg`\n| `print`\n| `print--lg`\n| `project`\n| `project--lg`\n| `pulse`\n| `pulse--lg`\n| `question-mark`\n| `question-mark--lg`\n| `question-mark--sm`\n| `question-mark-circle`\n| `question-mark-circle--filled`\n| `question-mark-circle--filled--lg`\n| `question-mark-circle--filled--sm`\n| `question-mark-circle--lg`\n| `question-mark-circle--sm`\n| `refresh`\n| `refresh--lg`\n| `reply`\n| `reply--lg`\n| `reply-all`\n| `reply-all--lg`\n| `report`\n| `report-chart`\n| `report-hybrid`\n| `resize-se`\n| `s-aboutme`\n| `s-aboutme-sign`\n| `s-bebo`\n| `s-bebo-sign`\n| `s-behance`\n| `s-behance-sign`\n| `s-box-net`\n| `s-box-net-sign`\n| `s-bread`\n| `s-bread-sign`\n| `s-disqus`\n| `s-disqus-sign`\n| `s-dribbble`\n| `s-dribbble-sign`\n| `s-dropbox`\n| `s-dropbox-sign`\n| `s-facebook`\n| `s-facebook-sign`\n| `s-flickr`\n| `s-flickr-sign`\n| `s-foursquare`\n| `s-foursquare-sign`\n| `s-github`\n| `s-github-sign`\n| `s-goodreads`\n| `s-goodreads-sign`\n| `s-google`\n| `s-google-drive`\n| `s-google-drive-sign`\n| `s-google-sign`\n| `s-googleplus`\n| `s-googleplus-sign`\n| `s-googleprofile`\n| `s-googleprofile-sign`\n| `s-gravatar`\n| `s-gravatar-sign`\n| `s-instagram`\n| `s-instagram-sign`\n| `s-klout`\n| `s-klout-sign`\n| `s-lastfm`\n| `s-lastfm-sign`\n| `s-linkedin`\n| `s-linkedin-sign`\n| `s-pinterest`\n| `s-pinterest-sign`\n| `s-quora`\n| `s-quora-sign`\n| `s-reddit`\n| `s-reddit-sign`\n| `s-share`\n| `s-share-sign`\n| `s-soundcloud`\n| `s-soundcloud-sign`\n| `s-spotify`\n| `s-spotify-sign`\n| `s-techendo`\n| `s-techendo-sign`\n| `s-tumblr`\n| `s-tumblr-sign`\n| `s-twitter`\n| `s-twitter-sign`\n| `s-vevo`\n| `s-vevo-sign`\n| `s-vimeo`\n| `s-vimeo-sign`\n| `s-wordpress`\n| `s-wordpress-sign`\n| `s-yahoo`\n| `s-yahoo-sign`\n| `s-yelp`\n| `s-yelp-sign`\n| `s-youtube`\n| `s-youtube-sign`\n| `search`\n| `search--lg`\n| `settings`\n| `settings--filled`\n| `settings--filled--lg`\n| `settings--lg`\n| `settings-group`\n| `settings-group--lg`\n| `share`\n| `share--lg`\n| `smile`\n| `smile--lg`\n| `sort`\n| `sort--lg`\n| `sparkles`\n| `special-date`\n| `special-date--lg`\n| `star`\n| `star--lg`\n| `star-circled--lg`\n| `star-outlined`\n| `star-outlined--lg`\n| `table`\n| `table-chart`\n| `tag`\n| `tag--lg`\n| `task`\n| `task--lg`\n| `task-solid`\n| `task-solid--lg`\n| `ticket`\n| `ticket--lg`\n| `trash`\n| `trash--lg`\n| `trust`\n| `trust--filled`\n| `trust--filled--lg`\n| `trust--lg`\n| `user`\n| `user--lg`\n| `user-add`\n| `user-add--lg`\n| `user-group`\n| `user-group--lg`\n| `user-info`\n| `user-info--lg`\n| `users`\n| `users--filled`\n| `users--filled--lg`\n| `users--lg`\n| `visibility`\n| `visibility--lg`\n| `visibility-off`\n| `visibility-off--lg`\n| `workflow`\n| `workflow--lg`\n| `workflow-step`\n| `workflow-step--lg`",
+            "raw": "| `add`\n| `add--lg`\n| `add-circle`\n| `add-circle--lg`\n| `alarm`\n| `alarm--lg`\n| `anniversary`\n| `anniversary--lg`\n| `arrow-down`\n| `arrow-down--lg`\n| `arrow-down-circle`\n| `arrow-down-circle--filled`\n| `arrow-down-circle--filled--lg`\n| `arrow-down-circle--lg`\n| `arrow-left`\n| `arrow-left--lg`\n| `arrow-right`\n| `arrow-right--lg`\n| `arrow-up`\n| `arrow-up--lg`\n| `arrow-up-circle--filled`\n| `arrow-up-circle--filled--lg`\n| `b-blueleaf`\n| `b-cloud`\n| `b-outlook-csv`\n| `b-paw`\n| `b-td`\n| `b-wealthbox`\n| `bar-chart`\n| `bell`\n| `bell--lg`\n| `birthdate`\n| `birthdate--lg`\n| `bolt`\n| `bolt--filled`\n| `bolt--lg`\n| `broadcast`\n| `broadcast--lg`\n| `carrot-down`\n| `carrot-down--lg`\n| `carrot-left`\n| `carrot-left--lg`\n| `carrot-right`\n| `carrot-right--lg`\n| `carrot-up`\n| `carrot-up--lg`\n| `check-mark`\n| `chevron-down`\n| `chevron-down--lg`\n| `chevron-down--sm`\n| `chevron-left`\n| `chevron-left--lg`\n| `chevron-left--sm`\n| `chevron-right`\n| `chevron-right--lg`\n| `chevron-right--sm`\n| `chevron-up`\n| `chevron-up--lg`\n| `chevron-up--sm`\n| `clipboard`\n| `clipboard--lg`\n| `clipboard-success`\n| `clipboard-success--lg`\n| `clock`\n| `clock--lg`\n| `comment`\n| `comment--filled`\n| `comment--filled--lg`\n| `comment--lg`\n| `company`\n| `company--lg`\n| `contact`\n| `contact--filled`\n| `contact--filled--lg`\n| `contact--lg`\n| `dashboard`\n| `dashboard--lg`\n| `dashboard-grid`\n| `dashboard-grid--lg`\n| `datafile`\n| `datafile--lg`\n| `deal`\n| `deal--lg`\n| `delete`\n| `delete--lg`\n| `delete-circle`\n| `delete-circle--lg`\n| `delete-circle--sm`\n| `dots`\n| `dots--lg`\n| `dots-vertical`\n| `dots-vertical--lg`\n| `download`\n| `download--lg`\n| `download-circle`\n| `download-circle--lg`\n| `dropboxemail`\n| `dropboxemail--lg`\n| `edit`\n| `edit--lg`\n| `edit-outlined`\n| `edit-outlined--lg`\n| `edit_alt`\n| `edit_alt--lg`\n| `email`\n| `email--filled`\n| `email--filled--lg`\n| `email--lg`\n| `email-archive`\n| `email-archive--lg`\n| `email-attachment`\n| `email-attachment--lg`\n| `email-drafts`\n| `email-drafts--lg`\n| `email-inbox`\n| `email-inbox--lg`\n| `email-link-tracking`\n| `email-link-tracking--lg`\n| `email-outlined`\n| `email-outlined--lg`\n| `email-sent`\n| `email-sent--lg`\n| `email-signature`\n| `email-signature--lg`\n| `email-templates`\n| `email-templates--lg`\n| `email-trash`\n| `email-trash--lg`\n| `event`\n| `event--lg`\n| `event-add`\n| `event-add--lg`\n| `event-today`\n| `event-today--lg`\n| `examplekey-backspace`\n| `examplekey-backspace--lg`\n| `examplekey-return`\n| `examplekey-return--lg`\n| `exclamation`\n| `exclamation--lg`\n| `exclamation--sm`\n| `exclamation-circle`\n| `exclamation-circle--lg`\n| `exclamation-circle--sm`\n| `exclamation-triangle`\n| `exclamation-triangle--lg`\n| `exclamation-triangle--sm`\n| `external-link`\n| `external-link--lg`\n| `file`\n| `file--lg`\n| `file-outlined`\n| `file-outlined--lg`\n| `file-outlined-add`\n| `file-outlined-add--lg`\n| `files`\n| `files--lg`\n| `filter`\n| `filter--lg`\n| `filter-alt`\n| `filter-alt--filled`\n| `filter-alt--filled--lg`\n| `filter-alt--lg`\n| `filter-circle`\n| `filter-circle--filled`\n| `filter-circle--filled--lg`\n| `filter-circle--lg`\n| `folder`\n| `folder--lg`\n| `forward`\n| `forward--lg`\n| `fullscreen`\n| `fullscreen--lg`\n| `graph`\n| `graph--lg`\n| `grid`\n| `grid--lg`\n| `grid-view`\n| `grid-view--lg`\n| `history`\n| `history--lg`\n| `home`\n| `home--lg`\n| `household`\n| `household--filled`\n| `household--filled--lg`\n| `household--lg`\n| `inbox`\n| `inbox--lg`\n| `info-circle`\n| `info-circle--lg`\n| `information`\n| `information--filled`\n| `information--filled--lg`\n| `information--lg`\n| `institution`\n| `institution--lg`\n| `list`\n| `list--lg`\n| `lock`\n| `lock--filled`\n| `lock--filled--lg`\n| `lock--lg`\n| `lock-open`\n| `lock-open--filled`\n| `lock-open--filled--lg`\n| `lock-open--lg`\n| `mail-merge`\n| `mail-merge--lg`\n| `map-pin`\n| `map-pin--filled`\n| `map-pin--filled--lg`\n| `map-pin--lg`\n| `menu`\n| `menu--lg`\n| `menu-close`\n| `menu-close--lg`\n| `menu-open`\n| `menu-open--lg`\n| `mic`\n| `mic--lg`\n| `minus`\n| `minus--lg`\n| `mobile`\n| `mobile--lg`\n| `newsfeed`\n| `newsfeed--lg`\n| `note`\n| `note--lg`\n| `opportunity`\n| `opportunity--lg`\n| `organization`\n| `organization--filled`\n| `organization--filled--lg`\n| `organization--lg`\n| `outcomes`\n| `outcomes--lg`\n| `person`\n| `person--filled`\n| `person--filled--lg`\n| `person--lg`\n| `phonecall`\n| `phonecall--filled`\n| `phonecall--filled--lg`\n| `phonecall--lg`\n| `pie`\n| `pie--lg`\n| `pin`\n| `pin--lg`\n| `pin--sm`\n| `pipeline`\n| `pipeline--lg`\n| `play`\n| `play-circle`\n| `play-circle--lg`\n| `print`\n| `print--lg`\n| `project`\n| `project--lg`\n| `pulse`\n| `pulse--lg`\n| `question-mark`\n| `question-mark--lg`\n| `question-mark--sm`\n| `question-mark-circle`\n| `question-mark-circle--filled`\n| `question-mark-circle--filled--lg`\n| `question-mark-circle--filled--sm`\n| `question-mark-circle--lg`\n| `question-mark-circle--sm`\n| `refresh`\n| `refresh--lg`\n| `reply`\n| `reply--lg`\n| `reply-all`\n| `reply-all--lg`\n| `report`\n| `report-chart`\n| `report-hybrid`\n| `resize-se`\n| `s-aboutme`\n| `s-aboutme-sign`\n| `s-bebo`\n| `s-bebo-sign`\n| `s-behance`\n| `s-behance-sign`\n| `s-box-net`\n| `s-box-net-sign`\n| `s-bread`\n| `s-bread-sign`\n| `s-disqus`\n| `s-disqus-sign`\n| `s-dribbble`\n| `s-dribbble-sign`\n| `s-dropbox`\n| `s-dropbox-sign`\n| `s-facebook`\n| `s-facebook-sign`\n| `s-flickr`\n| `s-flickr-sign`\n| `s-foursquare`\n| `s-foursquare-sign`\n| `s-github`\n| `s-github-sign`\n| `s-goodreads`\n| `s-goodreads-sign`\n| `s-google`\n| `s-google-drive`\n| `s-google-drive-sign`\n| `s-google-sign`\n| `s-googleplus`\n| `s-googleplus-sign`\n| `s-googleprofile`\n| `s-googleprofile-sign`\n| `s-gravatar`\n| `s-gravatar-sign`\n| `s-instagram`\n| `s-instagram-sign`\n| `s-klout`\n| `s-klout-sign`\n| `s-lastfm`\n| `s-lastfm-sign`\n| `s-linkedin`\n| `s-linkedin-sign`\n| `s-pinterest`\n| `s-pinterest-sign`\n| `s-quora`\n| `s-quora-sign`\n| `s-reddit`\n| `s-reddit-sign`\n| `s-share`\n| `s-share-sign`\n| `s-soundcloud`\n| `s-soundcloud-sign`\n| `s-spotify`\n| `s-spotify-sign`\n| `s-techendo`\n| `s-techendo-sign`\n| `s-tumblr`\n| `s-tumblr-sign`\n| `s-twitter`\n| `s-twitter-sign`\n| `s-vevo`\n| `s-vevo-sign`\n| `s-vimeo`\n| `s-vimeo-sign`\n| `s-wordpress`\n| `s-wordpress-sign`\n| `s-yahoo`\n| `s-yahoo-sign`\n| `s-yelp`\n| `s-yelp-sign`\n| `s-youtube`\n| `s-youtube-sign`\n| `search`\n| `search--lg`\n| `settings`\n| `settings--filled`\n| `settings--filled--lg`\n| `settings--lg`\n| `settings-group`\n| `settings-group--lg`\n| `share`\n| `share--lg`\n| `smile`\n| `smile--lg`\n| `sort`\n| `sort--lg`\n| `sparkles`\n| `special-date`\n| `special-date--lg`\n| `star`\n| `star--lg`\n| `star-circled--lg`\n| `star-outlined`\n| `star-outlined--lg`\n| `table`\n| `table-chart`\n| `tag`\n| `tag--lg`\n| `task`\n| `task--lg`\n| `task-solid`\n| `task-solid--lg`\n| `ticket`\n| `ticket--lg`\n| `trash`\n| `trash--lg`\n| `trust`\n| `trust--filled`\n| `trust--filled--lg`\n| `trust--lg`\n| `user`\n| `user--lg`\n| `user-add`\n| `user-add--lg`\n| `user-group`\n| `user-group--lg`\n| `user-info`\n| `user-info--lg`\n| `users`\n| `users--filled`\n| `users--filled--lg`\n| `users--lg`\n| `visibility`\n| `visibility--lg`\n| `visibility-off`\n| `visibility-off--lg`\n| `workflow`\n| `workflow--lg`\n| `workflow-step`\n| `workflow-step--lg`",
             "elements": [
               { "name": "literal", "value": "`add`" },
               { "name": "literal", "value": "`add--lg`" },
@@ -1835,6 +2144,9 @@
               { "name": "literal", "value": "`bell--lg`" },
               { "name": "literal", "value": "`birthdate`" },
               { "name": "literal", "value": "`birthdate--lg`" },
+              { "name": "literal", "value": "`bolt`" },
+              { "name": "literal", "value": "`bolt--filled`" },
+              { "name": "literal", "value": "`bolt--lg`" },
               { "name": "literal", "value": "`broadcast`" },
               { "name": "literal", "value": "`broadcast--lg`" },
               { "name": "literal", "value": "`carrot-down`" },
@@ -2303,7 +2615,7 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `add`\n| `add--lg`\n| `add-circle`\n| `add-circle--lg`\n| `alarm`\n| `alarm--lg`\n| `anniversary`\n| `anniversary--lg`\n| `arrow-down`\n| `arrow-down--lg`\n| `arrow-down-circle`\n| `arrow-down-circle--filled`\n| `arrow-down-circle--filled--lg`\n| `arrow-down-circle--lg`\n| `arrow-left`\n| `arrow-left--lg`\n| `arrow-right`\n| `arrow-right--lg`\n| `arrow-up`\n| `arrow-up--lg`\n| `arrow-up-circle--filled`\n| `arrow-up-circle--filled--lg`\n| `b-blueleaf`\n| `b-cloud`\n| `b-outlook-csv`\n| `b-paw`\n| `b-td`\n| `b-wealthbox`\n| `bar-chart`\n| `bell`\n| `bell--lg`\n| `birthdate`\n| `birthdate--lg`\n| `broadcast`\n| `broadcast--lg`\n| `carrot-down`\n| `carrot-down--lg`\n| `carrot-left`\n| `carrot-left--lg`\n| `carrot-right`\n| `carrot-right--lg`\n| `carrot-up`\n| `carrot-up--lg`\n| `check-mark`\n| `chevron-down`\n| `chevron-down--lg`\n| `chevron-down--sm`\n| `chevron-left`\n| `chevron-left--lg`\n| `chevron-left--sm`\n| `chevron-right`\n| `chevron-right--lg`\n| `chevron-right--sm`\n| `chevron-up`\n| `chevron-up--lg`\n| `chevron-up--sm`\n| `clipboard`\n| `clipboard--lg`\n| `clipboard-success`\n| `clipboard-success--lg`\n| `clock`\n| `clock--lg`\n| `comment`\n| `comment--filled`\n| `comment--filled--lg`\n| `comment--lg`\n| `company`\n| `company--lg`\n| `contact`\n| `contact--filled`\n| `contact--filled--lg`\n| `contact--lg`\n| `dashboard`\n| `dashboard--lg`\n| `dashboard-grid`\n| `dashboard-grid--lg`\n| `datafile`\n| `datafile--lg`\n| `deal`\n| `deal--lg`\n| `delete`\n| `delete--lg`\n| `delete-circle`\n| `delete-circle--lg`\n| `delete-circle--sm`\n| `dots`\n| `dots--lg`\n| `dots-vertical`\n| `dots-vertical--lg`\n| `download`\n| `download--lg`\n| `download-circle`\n| `download-circle--lg`\n| `dropboxemail`\n| `dropboxemail--lg`\n| `edit`\n| `edit--lg`\n| `edit-outlined`\n| `edit-outlined--lg`\n| `edit_alt`\n| `edit_alt--lg`\n| `email`\n| `email--filled`\n| `email--filled--lg`\n| `email--lg`\n| `email-archive`\n| `email-archive--lg`\n| `email-attachment`\n| `email-attachment--lg`\n| `email-drafts`\n| `email-drafts--lg`\n| `email-inbox`\n| `email-inbox--lg`\n| `email-link-tracking`\n| `email-link-tracking--lg`\n| `email-outlined`\n| `email-outlined--lg`\n| `email-sent`\n| `email-sent--lg`\n| `email-signature`\n| `email-signature--lg`\n| `email-templates`\n| `email-templates--lg`\n| `email-trash`\n| `email-trash--lg`\n| `event`\n| `event--lg`\n| `event-add`\n| `event-add--lg`\n| `event-today`\n| `event-today--lg`\n| `examplekey-backspace`\n| `examplekey-backspace--lg`\n| `examplekey-return`\n| `examplekey-return--lg`\n| `exclamation`\n| `exclamation--lg`\n| `exclamation--sm`\n| `exclamation-circle`\n| `exclamation-circle--lg`\n| `exclamation-circle--sm`\n| `exclamation-triangle`\n| `exclamation-triangle--lg`\n| `exclamation-triangle--sm`\n| `external-link`\n| `external-link--lg`\n| `file`\n| `file--lg`\n| `file-outlined`\n| `file-outlined--lg`\n| `file-outlined-add`\n| `file-outlined-add--lg`\n| `files`\n| `files--lg`\n| `filter`\n| `filter--lg`\n| `filter-alt`\n| `filter-alt--filled`\n| `filter-alt--filled--lg`\n| `filter-alt--lg`\n| `filter-circle`\n| `filter-circle--filled`\n| `filter-circle--filled--lg`\n| `filter-circle--lg`\n| `folder`\n| `folder--lg`\n| `forward`\n| `forward--lg`\n| `fullscreen`\n| `fullscreen--lg`\n| `graph`\n| `graph--lg`\n| `grid`\n| `grid--lg`\n| `grid-view`\n| `grid-view--lg`\n| `history`\n| `history--lg`\n| `home`\n| `home--lg`\n| `household`\n| `household--filled`\n| `household--filled--lg`\n| `household--lg`\n| `inbox`\n| `inbox--lg`\n| `info-circle`\n| `info-circle--lg`\n| `information`\n| `information--filled`\n| `information--filled--lg`\n| `information--lg`\n| `institution`\n| `institution--lg`\n| `list`\n| `list--lg`\n| `lock`\n| `lock--filled`\n| `lock--filled--lg`\n| `lock--lg`\n| `lock-open`\n| `lock-open--filled`\n| `lock-open--filled--lg`\n| `lock-open--lg`\n| `mail-merge`\n| `mail-merge--lg`\n| `map-pin`\n| `map-pin--filled`\n| `map-pin--filled--lg`\n| `map-pin--lg`\n| `menu`\n| `menu--lg`\n| `menu-close`\n| `menu-close--lg`\n| `menu-open`\n| `menu-open--lg`\n| `mic`\n| `mic--lg`\n| `minus`\n| `minus--lg`\n| `mobile`\n| `mobile--lg`\n| `newsfeed`\n| `newsfeed--lg`\n| `note`\n| `note--lg`\n| `opportunity`\n| `opportunity--lg`\n| `organization`\n| `organization--filled`\n| `organization--filled--lg`\n| `organization--lg`\n| `outcomes`\n| `outcomes--lg`\n| `person`\n| `person--filled`\n| `person--filled--lg`\n| `person--lg`\n| `phonecall`\n| `phonecall--filled`\n| `phonecall--filled--lg`\n| `phonecall--lg`\n| `pie`\n| `pie--lg`\n| `pin`\n| `pin--lg`\n| `pin--sm`\n| `pipeline`\n| `pipeline--lg`\n| `play`\n| `play-circle`\n| `play-circle--lg`\n| `print`\n| `print--lg`\n| `project`\n| `project--lg`\n| `pulse`\n| `pulse--lg`\n| `question-mark`\n| `question-mark--lg`\n| `question-mark--sm`\n| `question-mark-circle`\n| `question-mark-circle--filled`\n| `question-mark-circle--filled--lg`\n| `question-mark-circle--filled--sm`\n| `question-mark-circle--lg`\n| `question-mark-circle--sm`\n| `refresh`\n| `refresh--lg`\n| `reply`\n| `reply--lg`\n| `reply-all`\n| `reply-all--lg`\n| `report`\n| `report-chart`\n| `report-hybrid`\n| `resize-se`\n| `s-aboutme`\n| `s-aboutme-sign`\n| `s-bebo`\n| `s-bebo-sign`\n| `s-behance`\n| `s-behance-sign`\n| `s-box-net`\n| `s-box-net-sign`\n| `s-bread`\n| `s-bread-sign`\n| `s-disqus`\n| `s-disqus-sign`\n| `s-dribbble`\n| `s-dribbble-sign`\n| `s-dropbox`\n| `s-dropbox-sign`\n| `s-facebook`\n| `s-facebook-sign`\n| `s-flickr`\n| `s-flickr-sign`\n| `s-foursquare`\n| `s-foursquare-sign`\n| `s-github`\n| `s-github-sign`\n| `s-goodreads`\n| `s-goodreads-sign`\n| `s-google`\n| `s-google-drive`\n| `s-google-drive-sign`\n| `s-google-sign`\n| `s-googleplus`\n| `s-googleplus-sign`\n| `s-googleprofile`\n| `s-googleprofile-sign`\n| `s-gravatar`\n| `s-gravatar-sign`\n| `s-instagram`\n| `s-instagram-sign`\n| `s-klout`\n| `s-klout-sign`\n| `s-lastfm`\n| `s-lastfm-sign`\n| `s-linkedin`\n| `s-linkedin-sign`\n| `s-pinterest`\n| `s-pinterest-sign`\n| `s-quora`\n| `s-quora-sign`\n| `s-reddit`\n| `s-reddit-sign`\n| `s-share`\n| `s-share-sign`\n| `s-soundcloud`\n| `s-soundcloud-sign`\n| `s-spotify`\n| `s-spotify-sign`\n| `s-techendo`\n| `s-techendo-sign`\n| `s-tumblr`\n| `s-tumblr-sign`\n| `s-twitter`\n| `s-twitter-sign`\n| `s-vevo`\n| `s-vevo-sign`\n| `s-vimeo`\n| `s-vimeo-sign`\n| `s-wordpress`\n| `s-wordpress-sign`\n| `s-yahoo`\n| `s-yahoo-sign`\n| `s-yelp`\n| `s-yelp-sign`\n| `s-youtube`\n| `s-youtube-sign`\n| `search`\n| `search--lg`\n| `settings`\n| `settings--filled`\n| `settings--filled--lg`\n| `settings--lg`\n| `settings-group`\n| `settings-group--lg`\n| `share`\n| `share--lg`\n| `smile`\n| `smile--lg`\n| `sort`\n| `sort--lg`\n| `sparkles`\n| `special-date`\n| `special-date--lg`\n| `star`\n| `star--lg`\n| `star-circled--lg`\n| `star-outlined`\n| `star-outlined--lg`\n| `table`\n| `table-chart`\n| `tag`\n| `tag--lg`\n| `task`\n| `task--lg`\n| `task-solid`\n| `task-solid--lg`\n| `ticket`\n| `ticket--lg`\n| `trash`\n| `trash--lg`\n| `trust`\n| `trust--filled`\n| `trust--filled--lg`\n| `trust--lg`\n| `user`\n| `user--lg`\n| `user-add`\n| `user-add--lg`\n| `user-group`\n| `user-group--lg`\n| `user-info`\n| `user-info--lg`\n| `users`\n| `users--filled`\n| `users--filled--lg`\n| `users--lg`\n| `visibility`\n| `visibility--lg`\n| `visibility-off`\n| `visibility-off--lg`\n| `workflow`\n| `workflow--lg`\n| `workflow-step`\n| `workflow-step--lg`",
+            "raw": "| `add`\n| `add--lg`\n| `add-circle`\n| `add-circle--lg`\n| `alarm`\n| `alarm--lg`\n| `anniversary`\n| `anniversary--lg`\n| `arrow-down`\n| `arrow-down--lg`\n| `arrow-down-circle`\n| `arrow-down-circle--filled`\n| `arrow-down-circle--filled--lg`\n| `arrow-down-circle--lg`\n| `arrow-left`\n| `arrow-left--lg`\n| `arrow-right`\n| `arrow-right--lg`\n| `arrow-up`\n| `arrow-up--lg`\n| `arrow-up-circle--filled`\n| `arrow-up-circle--filled--lg`\n| `b-blueleaf`\n| `b-cloud`\n| `b-outlook-csv`\n| `b-paw`\n| `b-td`\n| `b-wealthbox`\n| `bar-chart`\n| `bell`\n| `bell--lg`\n| `birthdate`\n| `birthdate--lg`\n| `bolt`\n| `bolt--filled`\n| `bolt--lg`\n| `broadcast`\n| `broadcast--lg`\n| `carrot-down`\n| `carrot-down--lg`\n| `carrot-left`\n| `carrot-left--lg`\n| `carrot-right`\n| `carrot-right--lg`\n| `carrot-up`\n| `carrot-up--lg`\n| `check-mark`\n| `chevron-down`\n| `chevron-down--lg`\n| `chevron-down--sm`\n| `chevron-left`\n| `chevron-left--lg`\n| `chevron-left--sm`\n| `chevron-right`\n| `chevron-right--lg`\n| `chevron-right--sm`\n| `chevron-up`\n| `chevron-up--lg`\n| `chevron-up--sm`\n| `clipboard`\n| `clipboard--lg`\n| `clipboard-success`\n| `clipboard-success--lg`\n| `clock`\n| `clock--lg`\n| `comment`\n| `comment--filled`\n| `comment--filled--lg`\n| `comment--lg`\n| `company`\n| `company--lg`\n| `contact`\n| `contact--filled`\n| `contact--filled--lg`\n| `contact--lg`\n| `dashboard`\n| `dashboard--lg`\n| `dashboard-grid`\n| `dashboard-grid--lg`\n| `datafile`\n| `datafile--lg`\n| `deal`\n| `deal--lg`\n| `delete`\n| `delete--lg`\n| `delete-circle`\n| `delete-circle--lg`\n| `delete-circle--sm`\n| `dots`\n| `dots--lg`\n| `dots-vertical`\n| `dots-vertical--lg`\n| `download`\n| `download--lg`\n| `download-circle`\n| `download-circle--lg`\n| `dropboxemail`\n| `dropboxemail--lg`\n| `edit`\n| `edit--lg`\n| `edit-outlined`\n| `edit-outlined--lg`\n| `edit_alt`\n| `edit_alt--lg`\n| `email`\n| `email--filled`\n| `email--filled--lg`\n| `email--lg`\n| `email-archive`\n| `email-archive--lg`\n| `email-attachment`\n| `email-attachment--lg`\n| `email-drafts`\n| `email-drafts--lg`\n| `email-inbox`\n| `email-inbox--lg`\n| `email-link-tracking`\n| `email-link-tracking--lg`\n| `email-outlined`\n| `email-outlined--lg`\n| `email-sent`\n| `email-sent--lg`\n| `email-signature`\n| `email-signature--lg`\n| `email-templates`\n| `email-templates--lg`\n| `email-trash`\n| `email-trash--lg`\n| `event`\n| `event--lg`\n| `event-add`\n| `event-add--lg`\n| `event-today`\n| `event-today--lg`\n| `examplekey-backspace`\n| `examplekey-backspace--lg`\n| `examplekey-return`\n| `examplekey-return--lg`\n| `exclamation`\n| `exclamation--lg`\n| `exclamation--sm`\n| `exclamation-circle`\n| `exclamation-circle--lg`\n| `exclamation-circle--sm`\n| `exclamation-triangle`\n| `exclamation-triangle--lg`\n| `exclamation-triangle--sm`\n| `external-link`\n| `external-link--lg`\n| `file`\n| `file--lg`\n| `file-outlined`\n| `file-outlined--lg`\n| `file-outlined-add`\n| `file-outlined-add--lg`\n| `files`\n| `files--lg`\n| `filter`\n| `filter--lg`\n| `filter-alt`\n| `filter-alt--filled`\n| `filter-alt--filled--lg`\n| `filter-alt--lg`\n| `filter-circle`\n| `filter-circle--filled`\n| `filter-circle--filled--lg`\n| `filter-circle--lg`\n| `folder`\n| `folder--lg`\n| `forward`\n| `forward--lg`\n| `fullscreen`\n| `fullscreen--lg`\n| `graph`\n| `graph--lg`\n| `grid`\n| `grid--lg`\n| `grid-view`\n| `grid-view--lg`\n| `history`\n| `history--lg`\n| `home`\n| `home--lg`\n| `household`\n| `household--filled`\n| `household--filled--lg`\n| `household--lg`\n| `inbox`\n| `inbox--lg`\n| `info-circle`\n| `info-circle--lg`\n| `information`\n| `information--filled`\n| `information--filled--lg`\n| `information--lg`\n| `institution`\n| `institution--lg`\n| `list`\n| `list--lg`\n| `lock`\n| `lock--filled`\n| `lock--filled--lg`\n| `lock--lg`\n| `lock-open`\n| `lock-open--filled`\n| `lock-open--filled--lg`\n| `lock-open--lg`\n| `mail-merge`\n| `mail-merge--lg`\n| `map-pin`\n| `map-pin--filled`\n| `map-pin--filled--lg`\n| `map-pin--lg`\n| `menu`\n| `menu--lg`\n| `menu-close`\n| `menu-close--lg`\n| `menu-open`\n| `menu-open--lg`\n| `mic`\n| `mic--lg`\n| `minus`\n| `minus--lg`\n| `mobile`\n| `mobile--lg`\n| `newsfeed`\n| `newsfeed--lg`\n| `note`\n| `note--lg`\n| `opportunity`\n| `opportunity--lg`\n| `organization`\n| `organization--filled`\n| `organization--filled--lg`\n| `organization--lg`\n| `outcomes`\n| `outcomes--lg`\n| `person`\n| `person--filled`\n| `person--filled--lg`\n| `person--lg`\n| `phonecall`\n| `phonecall--filled`\n| `phonecall--filled--lg`\n| `phonecall--lg`\n| `pie`\n| `pie--lg`\n| `pin`\n| `pin--lg`\n| `pin--sm`\n| `pipeline`\n| `pipeline--lg`\n| `play`\n| `play-circle`\n| `play-circle--lg`\n| `print`\n| `print--lg`\n| `project`\n| `project--lg`\n| `pulse`\n| `pulse--lg`\n| `question-mark`\n| `question-mark--lg`\n| `question-mark--sm`\n| `question-mark-circle`\n| `question-mark-circle--filled`\n| `question-mark-circle--filled--lg`\n| `question-mark-circle--filled--sm`\n| `question-mark-circle--lg`\n| `question-mark-circle--sm`\n| `refresh`\n| `refresh--lg`\n| `reply`\n| `reply--lg`\n| `reply-all`\n| `reply-all--lg`\n| `report`\n| `report-chart`\n| `report-hybrid`\n| `resize-se`\n| `s-aboutme`\n| `s-aboutme-sign`\n| `s-bebo`\n| `s-bebo-sign`\n| `s-behance`\n| `s-behance-sign`\n| `s-box-net`\n| `s-box-net-sign`\n| `s-bread`\n| `s-bread-sign`\n| `s-disqus`\n| `s-disqus-sign`\n| `s-dribbble`\n| `s-dribbble-sign`\n| `s-dropbox`\n| `s-dropbox-sign`\n| `s-facebook`\n| `s-facebook-sign`\n| `s-flickr`\n| `s-flickr-sign`\n| `s-foursquare`\n| `s-foursquare-sign`\n| `s-github`\n| `s-github-sign`\n| `s-goodreads`\n| `s-goodreads-sign`\n| `s-google`\n| `s-google-drive`\n| `s-google-drive-sign`\n| `s-google-sign`\n| `s-googleplus`\n| `s-googleplus-sign`\n| `s-googleprofile`\n| `s-googleprofile-sign`\n| `s-gravatar`\n| `s-gravatar-sign`\n| `s-instagram`\n| `s-instagram-sign`\n| `s-klout`\n| `s-klout-sign`\n| `s-lastfm`\n| `s-lastfm-sign`\n| `s-linkedin`\n| `s-linkedin-sign`\n| `s-pinterest`\n| `s-pinterest-sign`\n| `s-quora`\n| `s-quora-sign`\n| `s-reddit`\n| `s-reddit-sign`\n| `s-share`\n| `s-share-sign`\n| `s-soundcloud`\n| `s-soundcloud-sign`\n| `s-spotify`\n| `s-spotify-sign`\n| `s-techendo`\n| `s-techendo-sign`\n| `s-tumblr`\n| `s-tumblr-sign`\n| `s-twitter`\n| `s-twitter-sign`\n| `s-vevo`\n| `s-vevo-sign`\n| `s-vimeo`\n| `s-vimeo-sign`\n| `s-wordpress`\n| `s-wordpress-sign`\n| `s-yahoo`\n| `s-yahoo-sign`\n| `s-yelp`\n| `s-yelp-sign`\n| `s-youtube`\n| `s-youtube-sign`\n| `search`\n| `search--lg`\n| `settings`\n| `settings--filled`\n| `settings--filled--lg`\n| `settings--lg`\n| `settings-group`\n| `settings-group--lg`\n| `share`\n| `share--lg`\n| `smile`\n| `smile--lg`\n| `sort`\n| `sort--lg`\n| `sparkles`\n| `special-date`\n| `special-date--lg`\n| `star`\n| `star--lg`\n| `star-circled--lg`\n| `star-outlined`\n| `star-outlined--lg`\n| `table`\n| `table-chart`\n| `tag`\n| `tag--lg`\n| `task`\n| `task--lg`\n| `task-solid`\n| `task-solid--lg`\n| `ticket`\n| `ticket--lg`\n| `trash`\n| `trash--lg`\n| `trust`\n| `trust--filled`\n| `trust--filled--lg`\n| `trust--lg`\n| `user`\n| `user--lg`\n| `user-add`\n| `user-add--lg`\n| `user-group`\n| `user-group--lg`\n| `user-info`\n| `user-info--lg`\n| `users`\n| `users--filled`\n| `users--filled--lg`\n| `users--lg`\n| `visibility`\n| `visibility--lg`\n| `visibility-off`\n| `visibility-off--lg`\n| `workflow`\n| `workflow--lg`\n| `workflow-step`\n| `workflow-step--lg`",
             "elements": [
               { "name": "literal", "value": "`add`" },
               { "name": "literal", "value": "`add--lg`" },
@@ -2338,6 +2650,9 @@
               { "name": "literal", "value": "`bell--lg`" },
               { "name": "literal", "value": "`birthdate`" },
               { "name": "literal", "value": "`birthdate--lg`" },
+              { "name": "literal", "value": "`bolt`" },
+              { "name": "literal", "value": "`bolt--filled`" },
+              { "name": "literal", "value": "`bolt--lg`" },
               { "name": "literal", "value": "`broadcast`" },
               { "name": "literal", "value": "`broadcast--lg`" },
               { "name": "literal", "value": "`carrot-down`" },
@@ -2846,45 +3161,27 @@
       "methods": [],
       "displayName": "LinkButton",
       "props": {
-        "href": {
-          "required": true,
-          "tsType": { "name": "string" },
-          "description": "The URL the button should navigate to."
-        },
         "active": {
           "required": false,
           "tsType": { "name": "boolean" },
           "description": "Adds the active style to the button.",
           "defaultValue": { "value": "false", "computed": false }
         },
-        "children": {
-          "required": false,
-          "tsType": {
-            "name": "union",
-            "raw": "string | JSX.Element[] | JSX.Element",
-            "elements": [
-              { "name": "string" },
-              { "name": "Array", "elements": [{ "name": "JSX.Element" }], "raw": "JSX.Element[]" },
-              { "name": "JSX.Element" }
-            ]
-          },
-          "description": "Content for the button."
-        },
         "className": {
           "required": false,
           "tsType": { "name": "string" },
-          "description": "Adds class names to the button."
+          "description": "Additional classes to apply to the button"
+        },
+        "disabled": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Adds disabled style to the button",
+          "defaultValue": { "value": "false", "computed": false }
         },
         "focus": {
           "required": false,
           "tsType": { "name": "boolean" },
           "description": "Adds the focus style to the button.",
-          "defaultValue": { "value": "false", "computed": false }
-        },
-        "isExternal": {
-          "required": false,
-          "tsType": { "name": "boolean" },
-          "description": "Sets the external relationship of the link.",
           "defaultValue": { "value": "false", "computed": false }
         },
         "size": {
@@ -2931,6 +3228,18 @@
             ]
           },
           "description": "Controls the variant styling of the button."
+        },
+        "disableAfterClick": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "True if the link should prevent repeated clicks",
+          "defaultValue": { "value": "false", "computed": false }
+        },
+        "isExternal": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Sets the external relationship of the link.",
+          "defaultValue": { "value": "false", "computed": false }
         },
         "onClick": { "defaultValue": { "value": "() => {}", "computed": false }, "required": false }
       }
@@ -3328,7 +3637,7 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `add`\n| `add--lg`\n| `add-circle`\n| `add-circle--lg`\n| `alarm`\n| `alarm--lg`\n| `anniversary`\n| `anniversary--lg`\n| `arrow-down`\n| `arrow-down--lg`\n| `arrow-down-circle`\n| `arrow-down-circle--filled`\n| `arrow-down-circle--filled--lg`\n| `arrow-down-circle--lg`\n| `arrow-left`\n| `arrow-left--lg`\n| `arrow-right`\n| `arrow-right--lg`\n| `arrow-up`\n| `arrow-up--lg`\n| `arrow-up-circle--filled`\n| `arrow-up-circle--filled--lg`\n| `b-blueleaf`\n| `b-cloud`\n| `b-outlook-csv`\n| `b-paw`\n| `b-td`\n| `b-wealthbox`\n| `bar-chart`\n| `bell`\n| `bell--lg`\n| `birthdate`\n| `birthdate--lg`\n| `broadcast`\n| `broadcast--lg`\n| `carrot-down`\n| `carrot-down--lg`\n| `carrot-left`\n| `carrot-left--lg`\n| `carrot-right`\n| `carrot-right--lg`\n| `carrot-up`\n| `carrot-up--lg`\n| `check-mark`\n| `chevron-down`\n| `chevron-down--lg`\n| `chevron-down--sm`\n| `chevron-left`\n| `chevron-left--lg`\n| `chevron-left--sm`\n| `chevron-right`\n| `chevron-right--lg`\n| `chevron-right--sm`\n| `chevron-up`\n| `chevron-up--lg`\n| `chevron-up--sm`\n| `clipboard`\n| `clipboard--lg`\n| `clipboard-success`\n| `clipboard-success--lg`\n| `clock`\n| `clock--lg`\n| `comment`\n| `comment--filled`\n| `comment--filled--lg`\n| `comment--lg`\n| `company`\n| `company--lg`\n| `contact`\n| `contact--filled`\n| `contact--filled--lg`\n| `contact--lg`\n| `dashboard`\n| `dashboard--lg`\n| `dashboard-grid`\n| `dashboard-grid--lg`\n| `datafile`\n| `datafile--lg`\n| `deal`\n| `deal--lg`\n| `delete`\n| `delete--lg`\n| `delete-circle`\n| `delete-circle--lg`\n| `delete-circle--sm`\n| `dots`\n| `dots--lg`\n| `dots-vertical`\n| `dots-vertical--lg`\n| `download`\n| `download--lg`\n| `download-circle`\n| `download-circle--lg`\n| `dropboxemail`\n| `dropboxemail--lg`\n| `edit`\n| `edit--lg`\n| `edit-outlined`\n| `edit-outlined--lg`\n| `edit_alt`\n| `edit_alt--lg`\n| `email`\n| `email--filled`\n| `email--filled--lg`\n| `email--lg`\n| `email-archive`\n| `email-archive--lg`\n| `email-attachment`\n| `email-attachment--lg`\n| `email-drafts`\n| `email-drafts--lg`\n| `email-inbox`\n| `email-inbox--lg`\n| `email-link-tracking`\n| `email-link-tracking--lg`\n| `email-outlined`\n| `email-outlined--lg`\n| `email-sent`\n| `email-sent--lg`\n| `email-signature`\n| `email-signature--lg`\n| `email-templates`\n| `email-templates--lg`\n| `email-trash`\n| `email-trash--lg`\n| `event`\n| `event--lg`\n| `event-add`\n| `event-add--lg`\n| `event-today`\n| `event-today--lg`\n| `examplekey-backspace`\n| `examplekey-backspace--lg`\n| `examplekey-return`\n| `examplekey-return--lg`\n| `exclamation`\n| `exclamation--lg`\n| `exclamation--sm`\n| `exclamation-circle`\n| `exclamation-circle--lg`\n| `exclamation-circle--sm`\n| `exclamation-triangle`\n| `exclamation-triangle--lg`\n| `exclamation-triangle--sm`\n| `external-link`\n| `external-link--lg`\n| `file`\n| `file--lg`\n| `file-outlined`\n| `file-outlined--lg`\n| `file-outlined-add`\n| `file-outlined-add--lg`\n| `files`\n| `files--lg`\n| `filter`\n| `filter--lg`\n| `filter-alt`\n| `filter-alt--filled`\n| `filter-alt--filled--lg`\n| `filter-alt--lg`\n| `filter-circle`\n| `filter-circle--filled`\n| `filter-circle--filled--lg`\n| `filter-circle--lg`\n| `folder`\n| `folder--lg`\n| `forward`\n| `forward--lg`\n| `fullscreen`\n| `fullscreen--lg`\n| `graph`\n| `graph--lg`\n| `grid`\n| `grid--lg`\n| `grid-view`\n| `grid-view--lg`\n| `history`\n| `history--lg`\n| `home`\n| `home--lg`\n| `household`\n| `household--filled`\n| `household--filled--lg`\n| `household--lg`\n| `inbox`\n| `inbox--lg`\n| `info-circle`\n| `info-circle--lg`\n| `information`\n| `information--filled`\n| `information--filled--lg`\n| `information--lg`\n| `institution`\n| `institution--lg`\n| `list`\n| `list--lg`\n| `lock`\n| `lock--filled`\n| `lock--filled--lg`\n| `lock--lg`\n| `lock-open`\n| `lock-open--filled`\n| `lock-open--filled--lg`\n| `lock-open--lg`\n| `mail-merge`\n| `mail-merge--lg`\n| `map-pin`\n| `map-pin--filled`\n| `map-pin--filled--lg`\n| `map-pin--lg`\n| `menu`\n| `menu--lg`\n| `menu-close`\n| `menu-close--lg`\n| `menu-open`\n| `menu-open--lg`\n| `mic`\n| `mic--lg`\n| `minus`\n| `minus--lg`\n| `mobile`\n| `mobile--lg`\n| `newsfeed`\n| `newsfeed--lg`\n| `note`\n| `note--lg`\n| `opportunity`\n| `opportunity--lg`\n| `organization`\n| `organization--filled`\n| `organization--filled--lg`\n| `organization--lg`\n| `outcomes`\n| `outcomes--lg`\n| `person`\n| `person--filled`\n| `person--filled--lg`\n| `person--lg`\n| `phonecall`\n| `phonecall--filled`\n| `phonecall--filled--lg`\n| `phonecall--lg`\n| `pie`\n| `pie--lg`\n| `pin`\n| `pin--lg`\n| `pin--sm`\n| `pipeline`\n| `pipeline--lg`\n| `play`\n| `play-circle`\n| `play-circle--lg`\n| `print`\n| `print--lg`\n| `project`\n| `project--lg`\n| `pulse`\n| `pulse--lg`\n| `question-mark`\n| `question-mark--lg`\n| `question-mark--sm`\n| `question-mark-circle`\n| `question-mark-circle--filled`\n| `question-mark-circle--filled--lg`\n| `question-mark-circle--filled--sm`\n| `question-mark-circle--lg`\n| `question-mark-circle--sm`\n| `refresh`\n| `refresh--lg`\n| `reply`\n| `reply--lg`\n| `reply-all`\n| `reply-all--lg`\n| `report`\n| `report-chart`\n| `report-hybrid`\n| `resize-se`\n| `s-aboutme`\n| `s-aboutme-sign`\n| `s-bebo`\n| `s-bebo-sign`\n| `s-behance`\n| `s-behance-sign`\n| `s-box-net`\n| `s-box-net-sign`\n| `s-bread`\n| `s-bread-sign`\n| `s-disqus`\n| `s-disqus-sign`\n| `s-dribbble`\n| `s-dribbble-sign`\n| `s-dropbox`\n| `s-dropbox-sign`\n| `s-facebook`\n| `s-facebook-sign`\n| `s-flickr`\n| `s-flickr-sign`\n| `s-foursquare`\n| `s-foursquare-sign`\n| `s-github`\n| `s-github-sign`\n| `s-goodreads`\n| `s-goodreads-sign`\n| `s-google`\n| `s-google-drive`\n| `s-google-drive-sign`\n| `s-google-sign`\n| `s-googleplus`\n| `s-googleplus-sign`\n| `s-googleprofile`\n| `s-googleprofile-sign`\n| `s-gravatar`\n| `s-gravatar-sign`\n| `s-instagram`\n| `s-instagram-sign`\n| `s-klout`\n| `s-klout-sign`\n| `s-lastfm`\n| `s-lastfm-sign`\n| `s-linkedin`\n| `s-linkedin-sign`\n| `s-pinterest`\n| `s-pinterest-sign`\n| `s-quora`\n| `s-quora-sign`\n| `s-reddit`\n| `s-reddit-sign`\n| `s-share`\n| `s-share-sign`\n| `s-soundcloud`\n| `s-soundcloud-sign`\n| `s-spotify`\n| `s-spotify-sign`\n| `s-techendo`\n| `s-techendo-sign`\n| `s-tumblr`\n| `s-tumblr-sign`\n| `s-twitter`\n| `s-twitter-sign`\n| `s-vevo`\n| `s-vevo-sign`\n| `s-vimeo`\n| `s-vimeo-sign`\n| `s-wordpress`\n| `s-wordpress-sign`\n| `s-yahoo`\n| `s-yahoo-sign`\n| `s-yelp`\n| `s-yelp-sign`\n| `s-youtube`\n| `s-youtube-sign`\n| `search`\n| `search--lg`\n| `settings`\n| `settings--filled`\n| `settings--filled--lg`\n| `settings--lg`\n| `settings-group`\n| `settings-group--lg`\n| `share`\n| `share--lg`\n| `smile`\n| `smile--lg`\n| `sort`\n| `sort--lg`\n| `sparkles`\n| `special-date`\n| `special-date--lg`\n| `star`\n| `star--lg`\n| `star-circled--lg`\n| `star-outlined`\n| `star-outlined--lg`\n| `table`\n| `table-chart`\n| `tag`\n| `tag--lg`\n| `task`\n| `task--lg`\n| `task-solid`\n| `task-solid--lg`\n| `ticket`\n| `ticket--lg`\n| `trash`\n| `trash--lg`\n| `trust`\n| `trust--filled`\n| `trust--filled--lg`\n| `trust--lg`\n| `user`\n| `user--lg`\n| `user-add`\n| `user-add--lg`\n| `user-group`\n| `user-group--lg`\n| `user-info`\n| `user-info--lg`\n| `users`\n| `users--filled`\n| `users--filled--lg`\n| `users--lg`\n| `visibility`\n| `visibility--lg`\n| `visibility-off`\n| `visibility-off--lg`\n| `workflow`\n| `workflow--lg`\n| `workflow-step`\n| `workflow-step--lg`",
+            "raw": "| `add`\n| `add--lg`\n| `add-circle`\n| `add-circle--lg`\n| `alarm`\n| `alarm--lg`\n| `anniversary`\n| `anniversary--lg`\n| `arrow-down`\n| `arrow-down--lg`\n| `arrow-down-circle`\n| `arrow-down-circle--filled`\n| `arrow-down-circle--filled--lg`\n| `arrow-down-circle--lg`\n| `arrow-left`\n| `arrow-left--lg`\n| `arrow-right`\n| `arrow-right--lg`\n| `arrow-up`\n| `arrow-up--lg`\n| `arrow-up-circle--filled`\n| `arrow-up-circle--filled--lg`\n| `b-blueleaf`\n| `b-cloud`\n| `b-outlook-csv`\n| `b-paw`\n| `b-td`\n| `b-wealthbox`\n| `bar-chart`\n| `bell`\n| `bell--lg`\n| `birthdate`\n| `birthdate--lg`\n| `bolt`\n| `bolt--filled`\n| `bolt--lg`\n| `broadcast`\n| `broadcast--lg`\n| `carrot-down`\n| `carrot-down--lg`\n| `carrot-left`\n| `carrot-left--lg`\n| `carrot-right`\n| `carrot-right--lg`\n| `carrot-up`\n| `carrot-up--lg`\n| `check-mark`\n| `chevron-down`\n| `chevron-down--lg`\n| `chevron-down--sm`\n| `chevron-left`\n| `chevron-left--lg`\n| `chevron-left--sm`\n| `chevron-right`\n| `chevron-right--lg`\n| `chevron-right--sm`\n| `chevron-up`\n| `chevron-up--lg`\n| `chevron-up--sm`\n| `clipboard`\n| `clipboard--lg`\n| `clipboard-success`\n| `clipboard-success--lg`\n| `clock`\n| `clock--lg`\n| `comment`\n| `comment--filled`\n| `comment--filled--lg`\n| `comment--lg`\n| `company`\n| `company--lg`\n| `contact`\n| `contact--filled`\n| `contact--filled--lg`\n| `contact--lg`\n| `dashboard`\n| `dashboard--lg`\n| `dashboard-grid`\n| `dashboard-grid--lg`\n| `datafile`\n| `datafile--lg`\n| `deal`\n| `deal--lg`\n| `delete`\n| `delete--lg`\n| `delete-circle`\n| `delete-circle--lg`\n| `delete-circle--sm`\n| `dots`\n| `dots--lg`\n| `dots-vertical`\n| `dots-vertical--lg`\n| `download`\n| `download--lg`\n| `download-circle`\n| `download-circle--lg`\n| `dropboxemail`\n| `dropboxemail--lg`\n| `edit`\n| `edit--lg`\n| `edit-outlined`\n| `edit-outlined--lg`\n| `edit_alt`\n| `edit_alt--lg`\n| `email`\n| `email--filled`\n| `email--filled--lg`\n| `email--lg`\n| `email-archive`\n| `email-archive--lg`\n| `email-attachment`\n| `email-attachment--lg`\n| `email-drafts`\n| `email-drafts--lg`\n| `email-inbox`\n| `email-inbox--lg`\n| `email-link-tracking`\n| `email-link-tracking--lg`\n| `email-outlined`\n| `email-outlined--lg`\n| `email-sent`\n| `email-sent--lg`\n| `email-signature`\n| `email-signature--lg`\n| `email-templates`\n| `email-templates--lg`\n| `email-trash`\n| `email-trash--lg`\n| `event`\n| `event--lg`\n| `event-add`\n| `event-add--lg`\n| `event-today`\n| `event-today--lg`\n| `examplekey-backspace`\n| `examplekey-backspace--lg`\n| `examplekey-return`\n| `examplekey-return--lg`\n| `exclamation`\n| `exclamation--lg`\n| `exclamation--sm`\n| `exclamation-circle`\n| `exclamation-circle--lg`\n| `exclamation-circle--sm`\n| `exclamation-triangle`\n| `exclamation-triangle--lg`\n| `exclamation-triangle--sm`\n| `external-link`\n| `external-link--lg`\n| `file`\n| `file--lg`\n| `file-outlined`\n| `file-outlined--lg`\n| `file-outlined-add`\n| `file-outlined-add--lg`\n| `files`\n| `files--lg`\n| `filter`\n| `filter--lg`\n| `filter-alt`\n| `filter-alt--filled`\n| `filter-alt--filled--lg`\n| `filter-alt--lg`\n| `filter-circle`\n| `filter-circle--filled`\n| `filter-circle--filled--lg`\n| `filter-circle--lg`\n| `folder`\n| `folder--lg`\n| `forward`\n| `forward--lg`\n| `fullscreen`\n| `fullscreen--lg`\n| `graph`\n| `graph--lg`\n| `grid`\n| `grid--lg`\n| `grid-view`\n| `grid-view--lg`\n| `history`\n| `history--lg`\n| `home`\n| `home--lg`\n| `household`\n| `household--filled`\n| `household--filled--lg`\n| `household--lg`\n| `inbox`\n| `inbox--lg`\n| `info-circle`\n| `info-circle--lg`\n| `information`\n| `information--filled`\n| `information--filled--lg`\n| `information--lg`\n| `institution`\n| `institution--lg`\n| `list`\n| `list--lg`\n| `lock`\n| `lock--filled`\n| `lock--filled--lg`\n| `lock--lg`\n| `lock-open`\n| `lock-open--filled`\n| `lock-open--filled--lg`\n| `lock-open--lg`\n| `mail-merge`\n| `mail-merge--lg`\n| `map-pin`\n| `map-pin--filled`\n| `map-pin--filled--lg`\n| `map-pin--lg`\n| `menu`\n| `menu--lg`\n| `menu-close`\n| `menu-close--lg`\n| `menu-open`\n| `menu-open--lg`\n| `mic`\n| `mic--lg`\n| `minus`\n| `minus--lg`\n| `mobile`\n| `mobile--lg`\n| `newsfeed`\n| `newsfeed--lg`\n| `note`\n| `note--lg`\n| `opportunity`\n| `opportunity--lg`\n| `organization`\n| `organization--filled`\n| `organization--filled--lg`\n| `organization--lg`\n| `outcomes`\n| `outcomes--lg`\n| `person`\n| `person--filled`\n| `person--filled--lg`\n| `person--lg`\n| `phonecall`\n| `phonecall--filled`\n| `phonecall--filled--lg`\n| `phonecall--lg`\n| `pie`\n| `pie--lg`\n| `pin`\n| `pin--lg`\n| `pin--sm`\n| `pipeline`\n| `pipeline--lg`\n| `play`\n| `play-circle`\n| `play-circle--lg`\n| `print`\n| `print--lg`\n| `project`\n| `project--lg`\n| `pulse`\n| `pulse--lg`\n| `question-mark`\n| `question-mark--lg`\n| `question-mark--sm`\n| `question-mark-circle`\n| `question-mark-circle--filled`\n| `question-mark-circle--filled--lg`\n| `question-mark-circle--filled--sm`\n| `question-mark-circle--lg`\n| `question-mark-circle--sm`\n| `refresh`\n| `refresh--lg`\n| `reply`\n| `reply--lg`\n| `reply-all`\n| `reply-all--lg`\n| `report`\n| `report-chart`\n| `report-hybrid`\n| `resize-se`\n| `s-aboutme`\n| `s-aboutme-sign`\n| `s-bebo`\n| `s-bebo-sign`\n| `s-behance`\n| `s-behance-sign`\n| `s-box-net`\n| `s-box-net-sign`\n| `s-bread`\n| `s-bread-sign`\n| `s-disqus`\n| `s-disqus-sign`\n| `s-dribbble`\n| `s-dribbble-sign`\n| `s-dropbox`\n| `s-dropbox-sign`\n| `s-facebook`\n| `s-facebook-sign`\n| `s-flickr`\n| `s-flickr-sign`\n| `s-foursquare`\n| `s-foursquare-sign`\n| `s-github`\n| `s-github-sign`\n| `s-goodreads`\n| `s-goodreads-sign`\n| `s-google`\n| `s-google-drive`\n| `s-google-drive-sign`\n| `s-google-sign`\n| `s-googleplus`\n| `s-googleplus-sign`\n| `s-googleprofile`\n| `s-googleprofile-sign`\n| `s-gravatar`\n| `s-gravatar-sign`\n| `s-instagram`\n| `s-instagram-sign`\n| `s-klout`\n| `s-klout-sign`\n| `s-lastfm`\n| `s-lastfm-sign`\n| `s-linkedin`\n| `s-linkedin-sign`\n| `s-pinterest`\n| `s-pinterest-sign`\n| `s-quora`\n| `s-quora-sign`\n| `s-reddit`\n| `s-reddit-sign`\n| `s-share`\n| `s-share-sign`\n| `s-soundcloud`\n| `s-soundcloud-sign`\n| `s-spotify`\n| `s-spotify-sign`\n| `s-techendo`\n| `s-techendo-sign`\n| `s-tumblr`\n| `s-tumblr-sign`\n| `s-twitter`\n| `s-twitter-sign`\n| `s-vevo`\n| `s-vevo-sign`\n| `s-vimeo`\n| `s-vimeo-sign`\n| `s-wordpress`\n| `s-wordpress-sign`\n| `s-yahoo`\n| `s-yahoo-sign`\n| `s-yelp`\n| `s-yelp-sign`\n| `s-youtube`\n| `s-youtube-sign`\n| `search`\n| `search--lg`\n| `settings`\n| `settings--filled`\n| `settings--filled--lg`\n| `settings--lg`\n| `settings-group`\n| `settings-group--lg`\n| `share`\n| `share--lg`\n| `smile`\n| `smile--lg`\n| `sort`\n| `sort--lg`\n| `sparkles`\n| `special-date`\n| `special-date--lg`\n| `star`\n| `star--lg`\n| `star-circled--lg`\n| `star-outlined`\n| `star-outlined--lg`\n| `table`\n| `table-chart`\n| `tag`\n| `tag--lg`\n| `task`\n| `task--lg`\n| `task-solid`\n| `task-solid--lg`\n| `ticket`\n| `ticket--lg`\n| `trash`\n| `trash--lg`\n| `trust`\n| `trust--filled`\n| `trust--filled--lg`\n| `trust--lg`\n| `user`\n| `user--lg`\n| `user-add`\n| `user-add--lg`\n| `user-group`\n| `user-group--lg`\n| `user-info`\n| `user-info--lg`\n| `users`\n| `users--filled`\n| `users--filled--lg`\n| `users--lg`\n| `visibility`\n| `visibility--lg`\n| `visibility-off`\n| `visibility-off--lg`\n| `workflow`\n| `workflow--lg`\n| `workflow-step`\n| `workflow-step--lg`",
             "elements": [
               { "name": "literal", "value": "`add`" },
               { "name": "literal", "value": "`add--lg`" },
@@ -3363,6 +3672,9 @@
               { "name": "literal", "value": "`bell--lg`" },
               { "name": "literal", "value": "`birthdate`" },
               { "name": "literal", "value": "`birthdate--lg`" },
+              { "name": "literal", "value": "`bolt`" },
+              { "name": "literal", "value": "`bolt--filled`" },
+              { "name": "literal", "value": "`bolt--lg`" },
               { "name": "literal", "value": "`broadcast`" },
               { "name": "literal", "value": "`broadcast--lg`" },
               { "name": "literal", "value": "`carrot-down`" },
@@ -4055,6 +4367,138 @@
       "methods": [],
       "displayName": "Toast",
       "props": {
+        "closeDialog": {
+          "required": true,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "() => void",
+            "signature": { "arguments": [], "return": { "name": "void" } }
+          },
+          "description": "Callback function when the dialog is closed."
+        },
+        "open": {
+          "required": true,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the dialog is open or not."
+        },
+        "backdrop": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Adds class names to the backdrop element."
+        },
+        "dialogClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dialog wrapper element."
+        },
+        "id": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds id attribute to the dialog element."
+        },
+        "position": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "| `top left`\n| `top center`\n| `top right`\n| `center left`\n| `center center`\n| `center right`\n| `bottom left`\n| `bottom center`\n| `bottom right`",
+            "elements": [
+              { "name": "literal", "value": "`top left`" },
+              { "name": "literal", "value": "`top center`" },
+              { "name": "literal", "value": "`top right`" },
+              { "name": "literal", "value": "`center left`" },
+              { "name": "literal", "value": "`center center`" },
+              { "name": "literal", "value": "`center right`" },
+              { "name": "literal", "value": "`bottom left`" },
+              { "name": "literal", "value": "`bottom center`" },
+              { "name": "literal", "value": "`bottom right`" }
+            ]
+          },
+          "description": "Position of the dialog. Can be \"top\", \"right\", \"bottom\", or \"left\". Default position is \"center\"."
+        },
+        "returnFocusEl": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
+            "elements": [
+              { "name": "string" },
+              { "name": "HTMLElement" },
+              { "name": "unknown" },
+              { "name": "undefined" },
+              { "name": "literal", "value": "false" }
+            ]
+          },
+          "description": "Element to focus when the dialog is closed."
+        },
+        "size": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`small` | `medium` | `large` | `xl` | `xxl` | `full`",
+            "elements": [
+              { "name": "literal", "value": "`small`" },
+              { "name": "literal", "value": "`medium`" },
+              { "name": "literal", "value": "`large`" },
+              { "name": "literal", "value": "`xl`" },
+              { "name": "literal", "value": "`xxl`" },
+              { "name": "literal", "value": "`full`" }
+            ]
+          },
+          "description": "Controls the size of the dialog. Default size is \"medium\"."
+        },
+        "wrapperClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the dialog wrapper element."
+        },
+        "dialogRole": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`dialog` | `alertdialog`",
+            "elements": [
+              { "name": "literal", "value": "`dialog`" },
+              { "name": "literal", "value": "`alertdialog`" }
+            ]
+          },
+          "description": "Sets the dialogs aria-role attribute."
+        },
+        "trapPaused": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the focus should be trapped inside of the dialog."
+        },
+        "trapFocus": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "Controls whether the focus should be trapped inside of the dialog."
+        },
+        "animationDistance": {
+          "required": false,
+          "tsType": { "name": "AnimationDistance" },
+          "description": "Controls the distance the dialog will slide in from."
+        },
+        "animationDirection": {
+          "required": false,
+          "tsType": { "name": "AnimationDirection" },
+          "description": "Controls the direction the dialog will slide in from."
+        },
+        "initialFocusEl": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "string | HTMLElement | (() => HTMLElement) | undefined | false",
+            "elements": [
+              { "name": "string" },
+              { "name": "HTMLElement" },
+              { "name": "unknown" },
+              { "name": "undefined" },
+              { "name": "literal", "value": "false" }
+            ]
+          },
+          "description": "Element to focus when the dialog is opened."
+        },
         "children": {
           "required": true,
           "tsType": {
@@ -4078,11 +4522,6 @@
           },
           "description": "Callback function when the toast is closed."
         },
-        "open": {
-          "required": true,
-          "tsType": { "name": "boolean" },
-          "description": "Controls whether the toast is open or not."
-        },
         "className": {
           "required": false,
           "tsType": { "name": "string" },
@@ -4105,11 +4544,6 @@
           "tsType": { "name": "boolean" },
           "description": "Controls whether the toast animates out.",
           "defaultValue": { "value": "true", "computed": false }
-        },
-        "size": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Controls the size of the dialog. Default size is \"medium\"."
         }
       }
     }

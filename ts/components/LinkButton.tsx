@@ -1,54 +1,50 @@
-import React from 'react';
-import classNames from 'classnames';
-import { ButtonVariant, ButtonSize } from './Button';
+import React, { useCallback, useState } from 'react';
+import { ButtonStyleProps, buttonClassNames } from './Button';
 
-interface LinkButtonProps {
-  /** The URL the button should navigate to. */
-  href: string;
-  /** Adds the active style to the button. */
-  active?: boolean;
-  /** Content for the button. */
-  children?: string | JSX.Element[] | JSX.Element;
-  /** Adds class names to the button. */
-  className?: string;
-  /** Adds the focus style to the button. */
-  focus?: boolean;
+interface LinkButtonProps extends ButtonStyleProps, React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  /** True if the link should prevent repeated clicks */
+  disableAfterClick?: boolean;
   /** Sets the external relationship of the link. */
   isExternal?: boolean;
-  /** Callback for when the button is clicked. */
-  onClick?(): void;
-  /** Controls the size of the button. */
-  size?: ButtonSize;
-  /** Adds the square style to the button. */
-  square?: boolean;
-  /** Controls the variant styling of the button. */
-  variant?: ButtonVariant;
 }
 
 const LinkButton = ({
   active = false,
   children,
-  className = ``,
+  className,
+  disableAfterClick = false,
+  disabled: disabledOnInitialRender = false,
   focus = false,
   href,
   isExternal = false,
-  onClick = () => {},
+  onClick: originalOnClick = () => {},
   size = `md`,
   square = false,
   variant = `positive`,
+  ...props
 }: LinkButtonProps) => {
+  const [isDisabled, setIsDisabled] = useState(disabledOnInitialRender);
+  const styleProps = { active, className, focus, disabled: isDisabled, size, square, variant };
+
+  const onClick: React.MouseEventHandler<HTMLAnchorElement> = useCallback(
+    (event) => {
+      if (isDisabled) {
+        event.preventDefault();
+      } else {
+        originalOnClick(event);
+        setIsDisabled(disableAfterClick);
+      }
+    },
+    [isDisabled, originalOnClick, disableAfterClick],
+  );
+
+  if (isExternal) {
+    props.rel ||= `noopener noreferrer`;
+    props.target ||= `_blank`;
+  }
+
   return (
-    <a
-      onClick={onClick}
-      href={href}
-      target={isExternal ? `_blank` : undefined}
-      rel={isExternal ? `noopener noreferrer` : undefined}
-      className={classNames(`h-btn h-btn--${variant} h-btn--${size}`, className, {
-        'h-btn--active': active,
-        'h-btn--focus': focus,
-        'h-btn--square': square,
-      })}
-    >
+    <a onClick={onClick} href={href} className={buttonClassNames(styleProps)} {...props}>
       {children}
     </a>
   );

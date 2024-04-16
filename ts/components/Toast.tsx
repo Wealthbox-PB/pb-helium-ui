@@ -1,16 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useDialog } from '../hooks/useDialog';
+import { useDialog, DialogProps } from '../hooks/useDialog';
 import { Portal } from './Portal';
 import { DialogContext } from './Dialog/DialogContext';
 import { CSSTransition } from 'react-transition-group';
 
-interface ToastProps {
+interface ToastProps extends DialogProps {
   /** Content for the toast. */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the toast is closed. */
   closeToast: () => void;
-  /** Controls whether the toast is open or not. */
-  open: boolean;
   /** Adds class names to the toast element. */
   className?: string;
   /** Number of milliseconds to delay entry of the toast element. */
@@ -19,8 +17,6 @@ interface ToastProps {
   animateIn?: boolean;
   /** Controls whether the toast animates out. */
   animateOut?: boolean;
-  /** Controls the size of the dialog. Default size is "medium". */
-  size?: string;
 }
 
 const Toast = ({
@@ -30,8 +26,10 @@ const Toast = ({
   closeToast,
   className,
   delay = 0,
+  id,
   open,
   size,
+  wrapperClassName,
 }: ToastProps) => {
   const timeout = 250;
   const nodeRef = useRef(null);
@@ -47,6 +45,7 @@ const Toast = ({
     backdrop: false,
     closeDialog: closeToast,
     dialogClassName: className,
+    id,
     animationDirection: `left`,
     animationDistance: `md`,
     dialogRole: `dialog`,
@@ -57,6 +56,7 @@ const Toast = ({
     size,
     trapPaused: false,
     trapFocus: false,
+    wrapperClassName,
   });
 
   useEffect(() => {

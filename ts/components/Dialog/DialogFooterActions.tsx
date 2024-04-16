@@ -1,13 +1,17 @@
 import React from 'react';
-import { Button, ButtonSize, ButtonVariant } from '../Button';
+import { Button, ButtonSize, ButtonType, ButtonVariant } from '../Button';
+import classNames from 'classnames';
 
 interface DialogFooterActionsProps {
   buttonSize?: ButtonSize;
   cancel?: string;
-  cancelRef?: any;
+  cancelRef?: React.RefObject<HTMLButtonElement>;
   cancelVariant?: ButtonVariant;
   confirm?: string;
+  confirmRef?: React.RefObject<HTMLButtonElement>;
   confirmVariant?: ButtonVariant;
+  confirmClassName?: string;
+  confirmType?: ButtonType;
   onCancel?: () => void;
   onConfirm?: () => void;
 }
@@ -18,7 +22,10 @@ const DialogFooterActions = ({
   cancelRef,
   cancelVariant = `secondary`,
   confirm = ``,
+  confirmRef,
   confirmVariant = `positive`,
+  confirmClassName,
+  confirmType = `button`,
   onCancel = () => {},
   onConfirm = () => {},
 }: DialogFooterActionsProps) => {
@@ -33,10 +40,12 @@ const DialogFooterActions = ({
           ) : null}
           {confirm ? (
             <Button
+              ref={confirmRef}
               onClick={onConfirm}
               variant={confirmVariant}
               size={buttonSize}
-              className="h-btn-margin-left"
+              className={classNames(`h-btn-margin-left`, confirmClassName)}
+              type={confirmType}
             >
               {confirm}
             </Button>

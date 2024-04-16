@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.7] - 2024-04-16
+
+### Added
+
+- Abstracted elements of `ButtonProps` related to styling into a new `ButtonStyleProps` interface
+- Added a `buttonClassNames` helper method to generate class names based on the given `ButtonStyleProps`
+- Added `bolt` icon
+- Added `bolt--lg` icon
+- Added `bolt--filled` icon
+- Added more confirm button props (`ref`, `confirmClassName`, `confirmType`) to `DialogFooterActions`
+- Added CI via GitHub Actions
+
+### Updated
+
+- Updated `ButtonProps` and `LinkButtonProps` to extend `ButtonStyleProps`
+- Updated `Button` and `LinkButton` to use the new `buttonClassNames` helper method
+- Updated `LinkButtonProps` to extend `React.AnchorHTMLAttributes<HTMLAnchorElement>`
+- Updated `LinkButton` to use a catchall `...props` variable which gets passed to the anchor element
+- Updated `LinkButton` to accept a `disabled` prop which prevents clicks and adds the `h-btn--disabled` class
+- Updated `LinkButton` to accept a `disableAfterClick` prop to set `disabled` to `true` after the first click
+- Recompiled icon font
+- Recompiled icon types file
+- Updated `useDialog` hook to accept `wrapperClassName` prop
+- Updated `ModalDialog` to accept `wrapperClassName` and `id` props
+- Updated `SimpleModalDialog` to accept `wrapperClassName` and `id` props
+- Updated `AlertDialog` to accept `wrapperClassName` and `id` props
+- Updated `SimpleAlertDialog` to accept `wrapperClassName` and `id` props
+
 ## [2.6.6] - 2024-03-22
 
 ### Added

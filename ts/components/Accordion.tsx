@@ -165,7 +165,7 @@ export const Accordion = ({
       setOpenItemIndexes((prevOpenItemIndexes) =>
         prevOpenItemIndexes.includes(index)
           ? prevOpenItemIndexes.filter((itemIndex) => itemIndex !== index)
-          : [...prevOpenItemIndexes, index]
+          : [...prevOpenItemIndexes, index],
       );
     } else {
       setOpenItemIndexes((prevOpenItemIndexes) => (prevOpenItemIndexes.includes(index) ? [] : [index]));

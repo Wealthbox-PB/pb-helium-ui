@@ -15,8 +15,8 @@ var sizeClasses = {
     full: "full-screen",
 };
 export function useDialog(_a) {
-    var backdrop = _a.backdrop, _b = _a.closeDialog, closeDialog = _b === void 0 ? function () { } : _b, dialogClassName = _a.dialogClassName, animationDirection = _a.animationDirection, animationDistance = _a.animationDistance, dialogRole = _a.dialogRole, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, trapPaused = _a.trapPaused, _c = _a.trapFocus, trapFocus = _c === void 0 ? true : _c;
-    var _d = useState(trapPaused), isTrapPaused = _d[0], setIsTrapPaused = _d[1];
+    var _b = _a.backdrop, backdrop = _b === void 0 ? true : _b, _c = _a.closeDialog, closeDialog = _c === void 0 ? function () { } : _c, dialogClassName = _a.dialogClassName, wrapperClassName = _a.wrapperClassName, id = _a.id, animationDirection = _a.animationDirection, animationDistance = _a.animationDistance, dialogRole = _a.dialogRole, initialFocusEl = _a.initialFocusEl, _d = _a.open, open = _d === void 0 ? false : _d, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _e = _a.trapPaused, trapPaused = _e === void 0 ? false : _e, _f = _a.trapFocus, trapFocus = _f === void 0 ? true : _f;
+    var _g = useState(trapPaused), isTrapPaused = _g[0], setIsTrapPaused = _g[1];
     var dialogContainerRef = useRef(null);
     var dialogRef = useRef(null);
     var uniqueSuffixRef = useRef(randomString());
@@ -60,9 +60,9 @@ export function useDialog(_a) {
     });
     var getDialogRootProps = useCallback(function () {
         return {
-            className: classNames("h-dialog-wrapper", { 'h-pointer-events-none': !backdrop }),
+            className: classNames("h-dialog-wrapper", { 'h-pointer-events-none': !backdrop }, wrapperClassName),
         };
-    }, [backdrop]);
+    }, [backdrop, wrapperClassName]);
     var getDialogContainerProps = useCallback(function () {
         var _a;
         return {
@@ -78,11 +78,12 @@ export function useDialog(_a) {
     }, [ariaDescriptionSelector, ariaLabelSelector, backdrop, dialogRole, position, size]);
     var getDialogProps = useCallback(function () {
         return {
+            id: id,
             ref: dialogRef,
             tabIndex: -1,
             className: classNames("h-transition-distance--".concat(animationDistance), "h-transition-element", "h-transition--fade-in", "h-transition--slide-".concat(animationDirection), "".concat(dialogContainerClassname, "__el "), dialogClassName),
         };
-    }, [animationDistance, animationDirection, dialogClassName]);
+    }, [id, animationDistance, animationDirection, dialogClassName]);
     useEffect(function () {
         var container = dialogContainerRef.current;
         var handleCloseEvent = function () { return closeDialog(); };

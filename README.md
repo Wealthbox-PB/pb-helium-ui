@@ -114,7 +114,7 @@ gem install fontcustom
 
 ### React Component Documentation Tooling
 
-As part of the build process, we also generate React component documentation later used at https://helium.wealthbox.com. The below are already integrated into the `build` script as well as the pre-commit hook, but here's a list of associated scripts and their use:
+As part of the build process, we also generate React component documentation later used at https://helium.wealthbox.com. The below are already integrated into the `build` script, but here's a list of associated scripts and their use:
 
 - `docs:generate` looks for components within this repository and generates a JSON file using `react-docgen` at `docs/components.json`.
 - `docs:prettify` normalizes the output by running it through `prettier` with `prettier-plugin-sort-json` to handle the usecase where `react-docgen` would randomize the order of the components within the file, creating unnecessary git churn.

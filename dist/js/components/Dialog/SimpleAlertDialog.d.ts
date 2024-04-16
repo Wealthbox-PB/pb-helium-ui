@@ -1,14 +1,7 @@
 import React from 'react';
+import { AlertDialogProps } from './AlertDialog';
 import { ButtonSize, ButtonVariant } from '../Button';
-interface SimpleAlertDialogProps {
-    /** Content for the dialog. */
-    children: string | JSX.Element[] | JSX.Element;
-    /** Callback function when the dialog is closed. */
-    closeDialog: () => void;
-    /** Controls whether the dialog is open or not. */
-    open: boolean;
-    /** Adds class names to the backdrop element. */
-    backdropClassName?: string;
+interface SimpleAlertDialogProps extends AlertDialogProps {
     /** Controls the size of the footer action buttons. */
     buttonSize?: ButtonSize;
     /** Text for the cancel button. Setting this prop will show the cancel button. */
@@ -21,8 +14,6 @@ interface SimpleAlertDialogProps {
     confirm?: string;
     /** Controls the variant of the confirm button. */
     confirmVariant?: ButtonVariant;
-    /** Adds class names to the dialog wrapper element. */
-    dialogClassName?: string;
     /** Controls the dialog header text. */
     header?: string;
     /** Adds class names to the dialog header element. */
@@ -31,12 +22,6 @@ interface SimpleAlertDialogProps {
     onCancel?: () => void;
     /** Callback function when the confirm button is clicked. */
     onConfirm?: () => void;
-    /** Position of the dialog. Can be "top", "right", "bottom", or "left". Default position is "center". */
-    position?: string;
-    /** Element to focus when the dialog is closed. */
-    returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-    /** Controls the size of the dialog. Default size is "medium". */
-    size?: string;
 }
-export declare const SimpleAlertDialog: ({ backdropClassName, buttonSize, cancel, cancelVariant, children, confirm, confirmVariant, closeInHeader, closeDialog, dialogClassName, header, headerClassName, onCancel, onConfirm, open, position, returnFocusEl, size, }: SimpleAlertDialogProps) => React.JSX.Element;
+export declare const SimpleAlertDialog: ({ backdropClassName, buttonSize, cancel, cancelVariant, children, confirm, confirmVariant, closeInHeader, closeDialog, dialogClassName, header, headerClassName, id, onCancel, onConfirm, open, position, returnFocusEl, size, wrapperClassName, }: SimpleAlertDialogProps) => React.JSX.Element;
 export {};

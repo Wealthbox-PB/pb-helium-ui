@@ -15,7 +15,7 @@ import { Portal } from './Portal';
 import { DialogContext } from './Dialog/DialogContext';
 import { CSSTransition } from 'react-transition-group';
 var Toast = function (_a) {
-    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, children = _a.children, closeToast = _a.closeToast, className = _a.className, _d = _a.delay, delay = _d === void 0 ? 0 : _d, open = _a.open, size = _a.size;
+    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, children = _a.children, closeToast = _a.closeToast, className = _a.className, _d = _a.delay, delay = _d === void 0 ? 0 : _d, id = _a.id, open = _a.open, size = _a.size, wrapperClassName = _a.wrapperClassName;
     var timeout = 250;
     var nodeRef = useRef(null);
     var _e = useState(false), visible = _e[0], setVisible = _e[1];
@@ -24,6 +24,7 @@ var Toast = function (_a) {
         backdrop: false,
         closeDialog: closeToast,
         dialogClassName: className,
+        id: id,
         animationDirection: "left",
         animationDistance: "md",
         dialogRole: "dialog",
@@ -34,6 +35,7 @@ var Toast = function (_a) {
         size: size,
         trapPaused: false,
         trapFocus: false,
+        wrapperClassName: wrapperClassName,
     }), getDialogRootProps = _g.getDialogRootProps, getDialogContainerProps = _g.getDialogContainerProps, getDialogProps = _g.getDialogProps, ariaLabelSelector = _g.ariaLabelSelector, ariaDescriptionSelector = _g.ariaDescriptionSelector;
     useEffect(function () {
         var timeoutId = setTimeout(function () {

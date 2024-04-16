@@ -1,33 +1,21 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Portal } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
-import { useDialog } from '../../hooks/useDialog';
+import { DialogProps, useDialog } from '../../hooks/useDialog';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
 
-interface AlertDialogProps {
+export interface AlertDialogProps extends DialogProps {
   /** Content for the dialog. */
   children: string | JSX.Element[] | JSX.Element;
-  /** Callback function when the dialog is closed. */
-  closeDialog: () => void;
-  /** Controls whether the dialog is open or not. */
-  open: boolean;
   /** Controls whether the dialog animates in. */
   animateIn?: boolean;
   /** Controls whether the dialog animates out. */
   animateOut?: boolean;
   /** Adds class names to the backdrop element. */
   backdropClassName?: string;
-  /** Adds class names to the dialog wrapper element. */
-  dialogClassName?: string;
   /** Element to focus when the dialog is opened. */
   leastDestructiveRef?: any;
-  /** Position of the dialog. Can be "top", "right", "bottom", or "left". Default position is "center". */
-  position?: string;
-  /** Element to focus when the dialog is closed. */
-  returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined;
-  /** Controls the size of the dialog. Default size is "medium". */
-  size?: string;
 }
 
 export const AlertDialog = ({
@@ -37,11 +25,13 @@ export const AlertDialog = ({
   children,
   closeDialog,
   dialogClassName,
+  id,
   leastDestructiveRef,
   open,
   position,
   returnFocusEl,
   size,
+  wrapperClassName,
 }: AlertDialogProps) => {
   const timeout = 250;
   const nodeRef = useRef(null);
@@ -65,12 +55,14 @@ export const AlertDialog = ({
     closeDialog,
     dialogClassName,
     dialogRole: `alertdialog`,
+    id,
     initialFocusEl: undefined, // Ideally leastDestructiveRef would be handed in here
     open: open || visible,
     position,
     returnFocusEl,
     size: size || `small`,
     trapPaused: false,
+    wrapperClassName,
   });
 
   useEffect(() => {

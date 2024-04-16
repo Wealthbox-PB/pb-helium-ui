@@ -3,7 +3,6 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Accordion } from '../ts/components/Accordion';
 
-
 const setup = () =>
   render(
     <Accordion
@@ -13,7 +12,7 @@ const setup = () =>
           children: `Panel Content`,
         },
       ]}
-    />
+    />,
   );
 
 describe(`Accordion`, () => {
@@ -73,7 +72,7 @@ describe(`Accordion`, () => {
                   children: `Panel Content 2`,
                 },
               ]}
-            />
+            />,
           );
           const expandButtons = screen.getAllByRole(`button`, { name: `Expand` });
           expandButtons.forEach((button) => {
@@ -101,7 +100,7 @@ describe(`Accordion`, () => {
                   children: `Panel Content 2`,
                 },
               ]}
-            />
+            />,
           );
           const expandButtons = screen.getAllByRole(`button`, { name: `Expand` });
           expandButtons.forEach((button) => {
@@ -113,10 +112,7 @@ describe(`Accordion`, () => {
           expect(screen.getByText(`Panel Content 1`)).toBeVisible();
           expect(screen.getByText(`Panel Content 2`)).toBeVisible();
           fireEvent.click(screen.getAllByRole(`button`, { name: `Collapse` })[1]);
-          expect(screen.getAllByTestId(`h-accordion__panel`)[1]).not.toHaveAttribute(
-            `aria-expanded`,
-            `true`
-          );
+          expect(screen.getAllByTestId(`h-accordion__panel`)[1]).not.toHaveAttribute(`aria-expanded`, `true`);
         });
       });
 
@@ -135,7 +131,7 @@ describe(`Accordion`, () => {
                   children: `Panel Content 2`,
                 },
               ]}
-            />
+            />,
           );
           const expandButtons = screen.getAllByRole(`button`, { name: `Expand` });
           expandButtons.forEach((button) => {
@@ -161,7 +157,7 @@ describe(`Accordion`, () => {
                 children: `Panel Content`,
               },
             ]}
-          />
+          />,
         );
         expect(screen.getByTestId(`h-accordion`)).toHaveClass(`h-accordion--modifier`);
       });
@@ -178,7 +174,7 @@ describe(`Accordion`, () => {
                 children: `Panel Content`,
               },
             ]}
-          />
+          />,
         );
 
         fireEvent.click(screen.getByRole(`button`, { name: `Expand` }));
@@ -198,7 +194,7 @@ describe(`Accordion`, () => {
                 children: `Panel Content`,
               },
             ]}
-          />
+          />,
         );
 
         fireEvent.click(screen.getByRole(`button`, { name: `Collapse` }));
@@ -217,7 +213,7 @@ describe(`Accordion`, () => {
                 children: `Panel Content`,
               },
             ]}
-          />
+          />,
         );
         expect(screen.getByTestId(`h-accordion__panel__icon-left`)).toBeInTheDocument();
         expect(screen.queryByTestId(`h-accordion__panel__icon-right`)).not.toBeInTheDocument();
@@ -253,7 +249,7 @@ describe(`Accordion`, () => {
                 children: `Panel Content`,
               },
             ]}
-          />
+          />,
         );
         expect(screen.getByTestId(`h-accordion__panel`)).toHaveClass(`h-accordion__panel--modifier`);
       });
@@ -270,7 +266,7 @@ describe(`Accordion`, () => {
                 children: `Panel Content`,
               },
             ]}
-          />
+          />,
         );
         expect(screen.getByTestId(`h-accordion`)).not.toHaveClass(`h-card`);
       });

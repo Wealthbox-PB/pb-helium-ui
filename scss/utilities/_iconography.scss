@@ -1,18 +1,18 @@
 //
 // Icon Font: helium-icons
-// Current Version: 5b748fb7773564bcc837981155d6670f3f5955f59828733f511865ca7e520d60
+// Current Version: 74b199706244b8e189755770c683320c3cfa1883cf685d1dd5b860f6cf9746fa
 //
 
 $icons_preprocessor_path: 'helium-ui/fonts' !default;
 
 @font-face {
   font-family: "helium-icons";
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_5b748fb7773564bcc837981155d6670f.eot");
-  src: font-url("#{$icons_preprocessor_path}/helium-icons_5b748fb7773564bcc837981155d6670f.eot?#iefix") format("embedded-opentype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_5b748fb7773564bcc837981155d6670f.woff2") format("woff2"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_5b748fb7773564bcc837981155d6670f.woff") format("woff"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_5b748fb7773564bcc837981155d6670f.ttf") format("truetype"),
-       font-url("#{$icons_preprocessor_path}/helium-icons_5b748fb7773564bcc837981155d6670f.svg#helium-icons") format("svg");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_74b199706244b8e189755770c683320c.eot");
+  src: font-url("#{$icons_preprocessor_path}/helium-icons_74b199706244b8e189755770c683320c.eot?#iefix") format("embedded-opentype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_74b199706244b8e189755770c683320c.woff2") format("woff2"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_74b199706244b8e189755770c683320c.woff") format("woff"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_74b199706244b8e189755770c683320c.ttf") format("truetype"),
+       font-url("#{$icons_preprocessor_path}/helium-icons_74b199706244b8e189755770c683320c.svg#helium-icons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,7 +20,7 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "helium-icons";
-    src: font-url("#{$icons_preprocessor_path}/helium-icons_5b748fb7773564bcc837981155d6670f.svg#helium-icons") format("svg");
+    src: font-url("#{$icons_preprocessor_path}/helium-icons_74b199706244b8e189755770c683320c.svg#helium-icons") format("svg");
   }
 }
 
@@ -60,6 +60,9 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-bell--lg:before,
 .h-icon-birthdate:before,
 .h-icon-birthdate--lg:before,
+.h-icon-bolt:before,
+.h-icon-bolt--filled:before,
+.h-icon-bolt--lg:before,
 .h-icon-broadcast:before,
 .h-icon-broadcast--lg:before,
 .h-icon-carrot-down:before,
@@ -498,6 +501,9 @@ $icons_preprocessor_path: 'helium-ui/fonts' !default;
 .h-icon-bell--lg:before { content: h-icon-content(f113); }
 .h-icon-birthdate:before { content: h-icon-content(f114); }
 .h-icon-birthdate--lg:before { content: h-icon-content(f115); }
+.h-icon-bolt:before { content: h-icon-content(f2a9); }
+.h-icon-bolt--filled:before { content: h-icon-content(f2aa); }
+.h-icon-bolt--lg:before { content: h-icon-content(f2ab); }
 .h-icon-broadcast:before { content: h-icon-content(f117); }
 .h-icon-broadcast--lg:before { content: h-icon-content(f118); }
 .h-icon-carrot-down:before { content: h-icon-content(f119); }

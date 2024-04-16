@@ -1,17 +1,17 @@
 {
   "name": "helium-ui",
-  "version": "2.6.6",
+  "version": "2.6.7",
   "description": "Design system and component library for Starburst Labs, Inc.",
   "main": "dist/js/index",
   "types": "dist/js/index.d.ts",
   "repository": "git@github.com:starburstlabs/helium-ui.git",
-  "author": [
+  "author": "Michal Kopanski <michal.kopanski@wealthbox.com>",
+  "contributors": [
     "Adam Grossi <adam.grossi@wealthbox.com>",
     "Eugene Cyckowski <eugene.cyckowski@wealthbox.com",
     "Jeffrey Bondorew <jeffrey.bondorew@wealthbox.com>",
     "JP Camara <jp.camara@wealthbox.com>",
     "Kevin Clark <kevin.clark@wealthbox.com>",
-    "Michal Kopanski <michal.kopanski@wealthbox.com>",
     "Trevor Reiff <trevor.reiff@wealthbox.com>"
   ],
   "license": "MIT",
@@ -31,19 +31,10 @@
     "eslint:fix": "eslint --no-eslintrc -c .eslintrc.js 'ts/**/*.{ts,js,tsx}' 'spec/**/*.{ts,js,tsx}' --fix",
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
-    "stylelint:staged:check": "stylelint --config stylelint.config.js --allow-empty-input",
-    "lint:staged": "lint-staged",
-    "docs:generate": "mkdir docs && react-docgen \"./ts/components/**/*.ts(x)\" -i [\".ts/components/Portal.tsx\"] -o ./docs/components.json",
+    "docs:generate": "mkdir docs && react-docgen \"./ts/components/**/*.ts(x)\" --failOnWarning -i \"ts/components/Portal.tsx\" -o ./docs/components.json",
     "docs:prettify": "yarn prettier --write docs/components.json --plugin=prettier-plugin-sort-json",
     "docs:clean": "rm -rf ./docs"
   },
-  "lint-staged": {
-    "scss/**/*.{scss,css}": "yarn stylelint:staged:check"
-  },
-  "pre-commit": [
-    "build",
-    "lint:staged"
-  ],
   "dependencies": {
     "@floating-ui/react": "^0.25.2",
     "@headlessui/react": "1.7.12",
@@ -93,9 +84,7 @@
     "eslint-plugin-testing-library": "^5.0.4",
     "jest": "^27.0.5",
     "jsdom": "^19.0.0",
-    "lint-staged": "^10.2.4",
     "postcss": "8",
-    "pre-commit": "^1.2.2",
     "prettier": "^3.0.0",
     "prettier-plugin-sort-json": "^3.1.0",
     "react-test-renderer": "^17.0.2",

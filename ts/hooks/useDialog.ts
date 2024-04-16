@@ -4,6 +4,8 @@ import { useScrollLock } from './useScrollLock';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { randomString } from '../helpers/random_string';
 import classNames from 'classnames';
+import { AnimationDistance } from 'types/animation_distance';
+import { AnimationDirection } from 'types/animation_direction';
 
 const dialogContainerClassname = `h-dialog`;
 const ariaSelectorPrefix = `${dialogContainerClassname}-aria`;
@@ -16,21 +18,65 @@ const sizeClasses: { [key: string]: string } = {
   full: `full-screen`,
 };
 
+export interface DialogProps {
+  /** Callback function when the dialog is closed. */
+  closeDialog: () => void;
+  /** Controls whether the dialog is open or not. */
+  open: boolean;
+  /** Adds class names to the backdrop element. */
+  backdrop?: boolean;
+  /** Adds class names to the dialog wrapper element. */
+  dialogClassName?: string;
+  /** Adds id attribute to the dialog element. */
+  id?: string;
+  /** Position of the dialog. Can be "top", "right", "bottom", or "left". Default position is "center". */
+  position?:
+    | `top left`
+    | `top center`
+    | `top right`
+    | `center left`
+    | `center center`
+    | `center right`
+    | `bottom left`
+    | `bottom center`
+    | `bottom right`;
+  /** Element to focus when the dialog is closed. */
+  returnFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined | false;
+  /** Controls the size of the dialog. Default size is "medium". */
+  size?: `small` | `medium` | `large` | `xl` | `xxl` | `full`;
+  /** Adds class names to the dialog wrapper element. */
+  wrapperClassName?: string;
+  /** Sets the dialogs aria-role attribute. */
+  dialogRole?: `dialog` | `alertdialog`;
+  /** Controls whether the focus should be trapped inside of the dialog. */
+  trapPaused?: boolean;
+  /** Controls whether the focus should be trapped inside of the dialog. */
+  trapFocus?: boolean;
+  /** Controls the distance the dialog will slide in from. */
+  animationDistance?: AnimationDistance;
+  /** Controls the direction the dialog will slide in from. */
+  animationDirection?: AnimationDirection;
+  /** Element to focus when the dialog is opened. */
+  initialFocusEl?: string | HTMLElement | (() => HTMLElement) | undefined | false;
+}
+
 export function useDialog({
-  backdrop,
+  backdrop = true,
   closeDialog = () => {},
   dialogClassName,
+  wrapperClassName,
+  id,
   animationDirection,
   animationDistance,
   dialogRole,
   initialFocusEl,
-  open,
+  open = false,
   position,
   returnFocusEl,
   size,
-  trapPaused,
+  trapPaused = false,
   trapFocus = true,
-}) {
+}: DialogProps) {
   const [isTrapPaused, setIsTrapPaused] = useState<boolean>(trapPaused);
 
   const dialogContainerRef = useRef<HTMLDivElement>(null);
@@ -85,9 +131,9 @@ export function useDialog({
 
   const getDialogRootProps = useCallback(() => {
     return {
-      className: classNames(`h-dialog-wrapper`, { 'h-pointer-events-none': !backdrop }),
+      className: classNames(`h-dialog-wrapper`, { 'h-pointer-events-none': !backdrop }, wrapperClassName),
     };
-  }, [backdrop]);
+  }, [backdrop, wrapperClassName]);
 
   const getDialogContainerProps = useCallback(() => {
     return {
@@ -110,6 +156,7 @@ export function useDialog({
 
   const getDialogProps = useCallback(() => {
     return {
+      id,
       ref: dialogRef,
       tabIndex: -1,
       className: classNames(
@@ -121,7 +168,7 @@ export function useDialog({
         dialogClassName,
       ),
     };
-  }, [animationDistance, animationDirection, dialogClassName]);
+  }, [id, animationDistance, animationDirection, dialogClassName]);
 
   useEffect(() => {
     const container = dialogContainerRef.current;

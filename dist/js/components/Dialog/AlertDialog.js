@@ -16,7 +16,7 @@ import { useDialog } from '../../hooks/useDialog';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
 export var AlertDialog = function (_a) {
-    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size;
+    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, id = _a.id, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, wrapperClassName = _a.wrapperClassName;
     var timeout = 250;
     var nodeRef = useRef(null);
     var _d = useState(false), visible = _d[0], setVisible = _d[1];
@@ -33,12 +33,14 @@ export var AlertDialog = function (_a) {
         closeDialog: closeDialog,
         dialogClassName: dialogClassName,
         dialogRole: "alertdialog",
+        id: id,
         initialFocusEl: undefined,
         open: open || visible,
         position: position,
         returnFocusEl: returnFocusEl,
         size: size || "small",
         trapPaused: false,
+        wrapperClassName: wrapperClassName,
     }), getDialogRootProps = _e.getDialogRootProps, getDialogContainerProps = _e.getDialogContainerProps, getDialogProps = _e.getDialogProps, ariaLabelSelector = _e.ariaLabelSelector, ariaDescriptionSelector = _e.ariaDescriptionSelector;
     useEffect(function () {
         var _a;

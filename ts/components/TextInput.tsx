@@ -75,8 +75,8 @@ const TextInput = (
             data-testid="h-input__icon--left"
             aria-hidden="true"
             className={classNames(`h-input__icon--left`, leftIconClassName, {
-              'h-color-text-blue-200': variant === 'dark-blue',
-              'h-color-text-gray-500': variant === 'default',
+              'h-color-text-blue-200': variant === `dark-blue`,
+              'h-color-text-gray-500': variant === `default`,
             })}
           ></span>
         ) : null}
@@ -87,8 +87,8 @@ const TextInput = (
             aria-label="Clear Search"
             onClick={onRightButtonClick}
             className={classNames(`h-input__icon--right`, rightButtonClassName, {
-              'h-color-text-blue-200': variant === 'dark-blue',
-              'h-color-text-gray-500': variant === 'default',
+              'h-color-text-blue-200': variant === `dark-blue`,
+              'h-color-text-gray-500': variant === `default`,
             })}
           ></button>
         ) : null}
