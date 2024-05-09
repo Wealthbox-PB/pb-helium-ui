@@ -223,6 +223,72 @@
       "composes": ["ButtonHTMLAttributes"]
     }
   ],
+  "./ts/components/Checkbox.tsx": [
+    {
+      "description": "",
+      "methods": [],
+      "displayName": "CheckboxRef",
+      "props": {
+        "checked": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "",
+          "defaultValue": { "value": "false", "computed": false }
+        },
+        "disabled": { "required": false, "tsType": { "name": "boolean" }, "description": "" },
+        "indeterminate": {
+          "required": false,
+          "tsType": { "name": "boolean" },
+          "description": "",
+          "defaultValue": { "value": "false", "computed": false }
+        },
+        "label": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "labelClass": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "name": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "onChange": {
+          "required": false,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "(e: { checked: boolean; indeterminate: boolean }) => void",
+            "signature": {
+              "arguments": [
+                {
+                  "type": {
+                    "name": "signature",
+                    "type": "object",
+                    "raw": "{ checked: boolean; indeterminate: boolean }",
+                    "signature": {
+                      "properties": [
+                        { "key": "checked", "value": { "name": "boolean", "required": true } },
+                        { "key": "indeterminate", "value": { "name": "boolean", "required": true } }
+                      ]
+                    }
+                  },
+                  "name": "e"
+                }
+              ],
+              "return": { "name": "void" }
+            }
+          },
+          "description": ""
+        },
+        "size": {
+          "required": false,
+          "tsType": {
+            "name": "union",
+            "raw": "`small` | `large`",
+            "elements": [
+              { "name": "literal", "value": "`small`" },
+              { "name": "literal", "value": "`large`" }
+            ]
+          },
+          "description": ""
+        },
+        "value": { "required": false, "tsType": { "name": "string" }, "description": "" }
+      }
+    }
+  ],
   "./ts/components/Dialog/AlertDialog.tsx": [
     {
       "description": "",
