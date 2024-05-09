@@ -9,12 +9,12 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import React, { useEffect, useMemo, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useMemo, useState, useRef, useCallback, forwardRef, } from 'react';
 import classNames from 'classnames';
-import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useTypeahead, size, } from '@floating-ui/react';
+import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useMergeRefs, useTypeahead, size, } from '@floating-ui/react';
 import { DropdownContext } from './DropdownContext';
 import { Portal } from '../Portal';
-var Dropdown = function (_a) {
+var Dropdown = function (_a, ref) {
     var children = _a.children, className = _a.className, _b = _a.flip, flipProp = _b === void 0 ? true : _b, minHeight = _a.minHeight, _c = _a.placement, placement = _c === void 0 ? "bottom-end" : _c, renderOpener = _a.renderOpener, _d = _a.width, width = _d === void 0 ? "auto" : _d, maxHeight = _a.maxHeight, _e = _a.height, height = _e === void 0 ? "auto" : _e, _f = _a.open, openProp = _f === void 0 ? false : _f, _g = _a.dismissible, dismissible = _g === void 0 ? true : _g, _h = _a.typeahead, typeaheadProp = _h === void 0 ? true : _h, _j = _a.onOpen, onOpen = _j === void 0 ? function () { } : _j, _k = _a.onClose, onClose = _k === void 0 ? function () { } : _k, initialFocusEl = _a.initialFocusEl, _l = _a.returnFocus, returnFocus = _l === void 0 ? true : _l, _m = _a.virtualFocus, virtualFocus = _m === void 0 ? false : _m, _o = _a.toggleOpenOnOpenerClick, toggleOpenOnOpenerClick = _o === void 0 ? true : _o, _p = _a.resetActiveIndex, resetActiveIndex = _p === void 0 ? true : _p, _q = _a.initialActiveIndex, initialActiveIndex = _q === void 0 ? null : _q, portalProps = _a.portalProps;
     var _r = useState(openProp), open = _r[0], setOpen = _r[1];
     var previousOpenState = useRef(open);
@@ -63,6 +63,7 @@ var Dropdown = function (_a) {
     }), x = _t.x, y = _t.y, _u = _t.refs, setReference = _u.setReference, setFloating = _u.setFloating, strategy = _t.strategy, context = _t.context;
     var elementsRef = React.useRef([]);
     var labelsRef = React.useRef([]);
+    var mergedDropdownRefs = useMergeRefs([ref, setFloating]);
     var listNavigation = useListNavigation(context, {
         listRef: elementsRef,
         activeIndex: activeIndex,
@@ -104,7 +105,7 @@ var Dropdown = function (_a) {
         open ? (React.createElement(DropdownContext.Provider, { value: dropdownContext },
             React.createElement(Portal, __assign({ className: classNames("h-floating-ui h-floating-ui--dropdowns", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
                 React.createElement(FloatingFocusManager, { context: context, initialFocus: initialFocusEl, returnFocus: returnFocus },
-                    React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown h-overflow-auto", className), style: {
+                    React.createElement("div", __assign({ ref: mergedDropdownRefs, className: classNames("h-dropdown h-overflow-auto", className), style: {
                             position: strategy,
                             top: y !== null && y !== void 0 ? y : 0,
                             left: x !== null && x !== void 0 ? x : 0,
@@ -120,5 +121,6 @@ var Dropdown = function (_a) {
                         React.createElement("ul", { className: "h-dropdown__menu" },
                             React.createElement(FloatingList, { elementsRef: elementsRef, labelsRef: labelsRef }, children))))))) : null));
 };
-export { Dropdown };
+var DropdownRef = forwardRef(Dropdown);
+export { DropdownRef as Dropdown };
 //# sourceMappingURL=Dropdown.js.map

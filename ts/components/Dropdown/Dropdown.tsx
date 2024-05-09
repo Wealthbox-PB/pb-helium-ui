@@ -1,4 +1,12 @@
-import React, { useEffect, MutableRefObject, useMemo, useState, useRef, useCallback } from 'react';
+import React, {
+  useEffect,
+  MutableRefObject,
+  useMemo,
+  useState,
+  useRef,
+  useCallback,
+  forwardRef,
+} from 'react';
 import classNames from 'classnames';
 import {
   autoUpdate,
@@ -13,6 +21,7 @@ import {
   useFloating,
   useInteractions,
   useListNavigation,
+  useMergeRefs,
   useTypeahead,
   size,
 } from '@floating-ui/react';
@@ -80,29 +89,32 @@ interface DropdownProps {
   width?: `auto` | `full` | number;
 }
 
-const Dropdown = ({
-  children,
-  className,
-  flip: flipProp = true,
-  minHeight,
-  placement = `bottom-end`,
-  renderOpener,
-  width = `auto`,
-  maxHeight,
-  height = `auto`,
-  open: openProp = false,
-  dismissible = true,
-  typeahead: typeaheadProp = true,
-  onOpen = () => {},
-  onClose = () => {},
-  initialFocusEl,
-  returnFocus = true,
-  virtualFocus = false,
-  toggleOpenOnOpenerClick = true,
-  resetActiveIndex = true,
-  initialActiveIndex = null,
-  portalProps,
-}: DropdownProps) => {
+const Dropdown = (
+  {
+    children,
+    className,
+    flip: flipProp = true,
+    minHeight,
+    placement = `bottom-end`,
+    renderOpener,
+    width = `auto`,
+    maxHeight,
+    height = `auto`,
+    open: openProp = false,
+    dismissible = true,
+    typeahead: typeaheadProp = true,
+    onOpen = () => {},
+    onClose = () => {},
+    initialFocusEl,
+    returnFocus = true,
+    virtualFocus = false,
+    toggleOpenOnOpenerClick = true,
+    resetActiveIndex = true,
+    initialActiveIndex = null,
+    portalProps,
+  }: DropdownProps,
+  ref,
+) => {
   const [open, setOpen] = useState(openProp);
   const previousOpenState = useRef(open);
   const onOpenCallback = useCallback(onOpen, [onOpen]);
@@ -160,6 +172,7 @@ const Dropdown = ({
 
   const elementsRef = React.useRef<HTMLElement[]>([]);
   const labelsRef = React.useRef<(string | null)[]>([]);
+  const mergedDropdownRefs = useMergeRefs([ref, setFloating]);
 
   const listNavigation = useListNavigation(context, {
     listRef: elementsRef,
@@ -221,7 +234,7 @@ const Dropdown = ({
           >
             <FloatingFocusManager context={context} initialFocus={initialFocusEl} returnFocus={returnFocus}>
               <div
-                ref={setFloating}
+                ref={mergedDropdownRefs}
                 className={classNames(`h-dropdown h-overflow-auto`, className)}
                 style={{
                   position: strategy,
@@ -253,4 +266,6 @@ const Dropdown = ({
   );
 };
 
-export { Dropdown };
+const DropdownRef = forwardRef(Dropdown);
+
+export { DropdownRef as Dropdown };

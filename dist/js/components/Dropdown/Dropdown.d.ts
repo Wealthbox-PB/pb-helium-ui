@@ -59,5 +59,5 @@ interface DropdownProps {
      * element. */
     width?: `auto` | `full` | number;
 }
-declare const Dropdown: ({ children, className, flip: flipProp, minHeight, placement, renderOpener, width, maxHeight, height, open: openProp, dismissible, typeahead: typeaheadProp, onOpen, onClose, initialFocusEl, returnFocus, virtualFocus, toggleOpenOnOpenerClick, resetActiveIndex, initialActiveIndex, portalProps, }: DropdownProps) => React.JSX.Element;
-export { Dropdown };
+declare const DropdownRef: React.ForwardRefExoticComponent<DropdownProps & React.RefAttributes<unknown>>;
+export { DropdownRef as Dropdown };

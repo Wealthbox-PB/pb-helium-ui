@@ -1346,7 +1346,7 @@
     {
       "description": "",
       "methods": [],
-      "displayName": "Dropdown",
+      "displayName": "DropdownRef",
       "props": {
         "children": {
           "required": true,
