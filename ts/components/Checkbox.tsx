@@ -1,46 +1,18 @@
-import React, { useState, forwardRef } from 'react';
+import React, { forwardRef, InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
 
-interface CheckboxProps {
-  checked?: boolean;
-  disabled?: boolean;
+interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, `size` | `type`> {
+  checked: boolean;
   indeterminate?: boolean;
   label?: string;
   labelClass?: string;
-  name?: string;
-  onChange?: (e: { checked: boolean; indeterminate: boolean }) => void;
   size?: `small` | `large`;
-  value?: string;
 }
 
 const Checkbox = (
-  {
-    checked = false,
-    disabled,
-    indeterminate = false,
-    label,
-    labelClass,
-    name,
-    onChange,
-    size,
-    value,
-  }: CheckboxProps,
-  ref
+  { checked = false, indeterminate = false, label, labelClass, size, ...props }: CheckboxProps,
+  ref,
 ) => {
-  const [isChecked, setIsChecked] = useState(checked);
-  const [isIndeterminate, setIsIndeterminate] = useState(indeterminate);
-
-  function handleCheckBoxChange() {
-    if (isIndeterminate) {
-      setIsChecked(true);
-      setIsIndeterminate(false);
-    } else {
-      setIsChecked((prevChecked) => !prevChecked);
-    }
-
-    onChange?.({ checked: !isChecked, indeterminate: isIndeterminate });
-  }
-
   return (
     <label
       className={classNames(`h-checkbox h-checkbox--animate`, labelClass, {
@@ -48,16 +20,15 @@ const Checkbox = (
         'h-checkbox--lg': size === `large`,
       })}
     >
-      {name ? <input name={name} type="hidden" value={value} /> : null}
-      <button
-        disabled={disabled}
-        ref={ref}
-        type="button"
+      <input
         className={classNames(`h-checkbox__elm`, {
-          'h-checkbox__elm--indeterminate': indeterminate || isIndeterminate,
-          'h-checkbox__elm--checked': checked || (isChecked && !isIndeterminate),
+          'h-checkbox__elm--indeterminate': indeterminate,
+          'h-checkbox__elm--checked': checked,
         })}
-        onClick={handleCheckBoxChange}
+        type="checkbox"
+        checked={checked}
+        ref={ref}
+        {...props}
       />
       <span className="h-checkbox__container"></span>
       {label ? <span className="h-checkbox__label-content">{label}</span> : null}
