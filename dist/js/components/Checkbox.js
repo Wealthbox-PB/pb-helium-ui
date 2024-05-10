@@ -23,17 +23,17 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 var Checkbox = function (_a, ref) {
-    var _b = _a.checked, checked = _b === void 0 ? false : _b, _c = _a.indeterminate, indeterminate = _c === void 0 ? false : _c, label = _a.label, labelClass = _a.labelClass, size = _a.size, props = __rest(_a, ["checked", "indeterminate", "label", "labelClass", "size"]);
-    return (React.createElement("label", { className: classNames("h-checkbox h-checkbox--animate", labelClass, {
-            'h-checkbox--sm': size === "small",
-            'h-checkbox--lg': size === "large",
-        }) },
-        React.createElement("input", __assign({ className: classNames("h-checkbox__elm", {
+    var _b;
+    var _c = _a.checked, checked = _c === void 0 ? false : _c, className = _a.className, _d = _a.indeterminate, indeterminate = _d === void 0 ? false : _d, inputClassName = _a.inputClassName, label = _a.label, labelClassName = _a.labelClassName, size = _a.size, props = __rest(_a, ["checked", "className", "indeterminate", "inputClassName", "label", "labelClassName", "size"]);
+    return (React.createElement("label", { className: classNames("h-checkbox h-checkbox--animate", className, (_b = {},
+            _b["h-checkbox--".concat(size)] = size,
+            _b)) },
+        React.createElement("input", __assign({ className: classNames("h-checkbox__elm", inputClassName, {
                 'h-checkbox__elm--indeterminate': indeterminate,
                 'h-checkbox__elm--checked': checked,
             }), type: "checkbox", checked: checked, ref: ref }, props)),
         React.createElement("span", { className: "h-checkbox__container" }),
-        label ? React.createElement("span", { className: "h-checkbox__label-content" }, label) : null));
+        label ? (React.createElement("span", { className: classNames("h-checkbox__label-content", labelClassName) }, label)) : null));
 };
 var CheckboxRef = forwardRef(Checkbox);
 export { CheckboxRef as Checkbox };

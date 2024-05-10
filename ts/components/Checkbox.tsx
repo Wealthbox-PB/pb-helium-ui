@@ -1,27 +1,37 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
 
-interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, `size` | `type`> {
+interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, `className` | `size` | `type`> {
   checked: boolean;
+  className?: string;
   indeterminate?: boolean;
+  inputClassName?: string;
   label?: string;
-  labelClass?: string;
-  size?: `small` | `large`;
+  labelClassName?: string;
+  size?: `sm` | `md` | `lg`;
 }
 
 const Checkbox = (
-  { checked = false, indeterminate = false, label, labelClass, size, ...props }: CheckboxProps,
+  {
+    checked = false,
+    className,
+    indeterminate = false,
+    inputClassName,
+    label,
+    labelClassName,
+    size,
+    ...props
+  }: CheckboxProps,
   ref,
 ) => {
   return (
     <label
-      className={classNames(`h-checkbox h-checkbox--animate`, labelClass, {
-        'h-checkbox--sm': size === `small`,
-        'h-checkbox--lg': size === `large`,
+      className={classNames(`h-checkbox h-checkbox--animate`, className, {
+        [`h-checkbox--${size}`]: size,
       })}
     >
       <input
-        className={classNames(`h-checkbox__elm`, {
+        className={classNames(`h-checkbox__elm`, inputClassName, {
           'h-checkbox__elm--indeterminate': indeterminate,
           'h-checkbox__elm--checked': checked,
         })}
@@ -31,7 +41,9 @@ const Checkbox = (
         {...props}
       />
       <span className="h-checkbox__container"></span>
-      {label ? <span className="h-checkbox__label-content">{label}</span> : null}
+      {label ? (
+        <span className={classNames(`h-checkbox__label-content`, labelClassName)}>{label}</span>
+      ) : null}
     </label>
   );
 };
