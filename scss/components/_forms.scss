@@ -316,8 +316,8 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       &:checked,
-      &:indeterminate,
       &#{$h-checkbox-selector}__elm--checked,
+      &:indeterminate,
       &#{$h-checkbox-selector}__elm--indeterminate {
         ~ #{$h-checkbox-selector}__container {
           &::after {
