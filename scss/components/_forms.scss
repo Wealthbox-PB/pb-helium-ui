@@ -212,6 +212,13 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
           border-color: $h-color-brand;
           background-color: $h-color-brand;
         }
+
+        &:disabled {
+          ~ #{$h-checkbox-radio-selector}__container {
+            border-color: $h-color-background-form-element-disabled-checked;
+            background-color: $h-color-background-form-element-disabled-checked;
+          }
+        }
       }
 
       /* stylelint-disable selector-class-pattern */

@@ -64,13 +64,14 @@ $h-color-text-form-element-error: $h-color-text-negative; // Consider deprecatio
 $h-color-text-form-element-disabled: $h-gray-400;
 $h-color-text-form-element-placeholder: $h-color-text-lighter;
 $h-color-icon-checkbox-radio: str-slice("#{$h-white}", 2);
-$h-color-icon-checkbox-radio-disabled: str-slice("#{$h-gray-250}", 2);
+$h-color-icon-checkbox-radio-disabled: str-slice("#{$h-white}", 2);
 $h-color-background-form-element: $h-color-background-shared-component;
 $h-color-background-form-element-alt: $h-gray-25;
 $h-color-background-form-element-select: $h-color-background-form-element-alt;
 $h-color-background-form-element-addon: $h-color-background-form-element-alt;
 $h-color-background-form-element-file: $h-color-background-form-element-alt;
 $h-color-background-form-element-disabled: $h-gray-100;
+$h-color-background-form-element-disabled-checked: $h-gray-200;
 $h-color-border-form-element: $h-gray-200;
 $h-color-border-form-element-focused: $h-blue-300;
 $h-color-border-form-element-positive: $h-green-600;
