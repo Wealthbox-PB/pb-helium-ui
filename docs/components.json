@@ -232,28 +232,47 @@
         "checked": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Set the checkbox state.",
           "defaultValue": { "value": "false", "computed": false }
+        },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Set the checkbox wrapping html label class name."
         },
         "indeterminate": {
           "required": false,
           "tsType": { "name": "boolean" },
-          "description": "",
+          "description": "Set the checkbox visual state to indeterminate.",
           "defaultValue": { "value": "false", "computed": false }
         },
-        "label": { "required": false, "tsType": { "name": "string" }, "description": "" },
-        "labelClass": { "required": false, "tsType": { "name": "string" }, "description": "" },
+        "inputClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Set the checkbox input class name."
+        },
+        "label": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Set the checkbox text label content."
+        },
+        "labelClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Set the checkbox text label class name."
+        },
         "size": {
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`small` | `large`",
+            "raw": "`sm` | `md` | `lg`",
             "elements": [
-              { "name": "literal", "value": "`small`" },
-              { "name": "literal", "value": "`large`" }
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" }
             ]
           },
-          "description": ""
+          "description": "Controls the checkbox size."
         }
       },
       "composes": ["Omit"]
