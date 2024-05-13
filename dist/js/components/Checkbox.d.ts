@@ -1,7 +1,5 @@
 import React, { InputHTMLAttributes } from 'react';
 interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, `className` | `size` | `type`> {
-    /** Set the checkbox state. */
-    checked: boolean;
     /** Set the checkbox wrapping html label class name. */
     className?: string;
     /** Set the checkbox visual state to indeterminate. */

@@ -2,8 +2,6 @@ import React, { forwardRef, InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
 
 interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, `className` | `size` | `type`> {
-  /** Set the checkbox state. */
-  checked: boolean;
   /** Set the checkbox wrapping html label class name. */
   className?: string;
   /** Set the checkbox visual state to indeterminate. */
@@ -19,16 +17,7 @@ interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, `cla
 }
 
 const Checkbox = (
-  {
-    checked = false,
-    className,
-    indeterminate = false,
-    inputClassName,
-    label,
-    labelClassName,
-    size,
-    ...props
-  }: CheckboxProps,
+  { className, indeterminate = false, inputClassName, label, labelClassName, size, ...props }: CheckboxProps,
   ref,
 ) => {
   return (
@@ -36,14 +25,13 @@ const Checkbox = (
       className={classNames(`h-checkbox h-checkbox--animate`, className, {
         [`h-checkbox--${size}`]: size,
       })}
+      data-testid="h-checkbox"
     >
       <input
         className={classNames(`h-checkbox__elm`, inputClassName, {
           'h-checkbox__elm--indeterminate': indeterminate,
-          'h-checkbox__elm--checked': checked,
         })}
         type="checkbox"
-        checked={checked}
         ref={ref}
         {...props}
       />

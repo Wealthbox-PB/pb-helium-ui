@@ -229,12 +229,6 @@
       "methods": [],
       "displayName": "CheckboxRef",
       "props": {
-        "checked": {
-          "required": false,
-          "tsType": { "name": "boolean" },
-          "description": "Set the checkbox state.",
-          "defaultValue": { "value": "false", "computed": false }
-        },
         "className": {
           "required": false,
           "tsType": { "name": "string" },
