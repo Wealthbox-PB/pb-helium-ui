@@ -79,5 +79,23 @@ describe(`<Checkbox />`, () => {
         expect(screen.getByText(`test label`)).toHaveClass(`test-class`);
       });
     });
+
+    describe(`The "size" prop`, () => {
+      describe(`when set to "sm"`, () => {
+        it(`should set the size to small.`, () => {
+          render(<Checkbox size="sm" />);
+
+          expect(screen.getByTestId(`h-checkbox`)).toHaveClass(`h-checkbox--sm`);
+        });
+      });
+
+      describe(`when set to "lg"`, () => {
+        it(`should set the size to large.`, () => {
+          render(<Checkbox size="lg" />);
+
+          expect(screen.getByTestId(`h-checkbox`)).toHaveClass(`h-checkbox--lg`);
+        });
+      });
+    });
   });
 });
