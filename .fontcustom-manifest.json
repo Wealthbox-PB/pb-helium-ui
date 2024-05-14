@@ -1,14 +1,14 @@
 {
   "checksum": {
-    "previous": "4a68d1b0d26e155985600831feb7e2a6ccab5829a8b05ce6475776f0508c7fa0",
-    "current": "4a68d1b0d26e155985600831feb7e2a6ccab5829a8b05ce6475776f0508c7fa0"
+    "previous": "5fcf835d03aa1e2f5878f9ef3227d863386645079c87c47c77e210cf3c063bca",
+    "current": "5fcf835d03aa1e2f5878f9ef3227d863386645079c87c47c77e210cf3c063bca"
   },
   "fonts": [
-    "fonts/helium-icons_4a68d1b0d26e155985600831feb7e2a6.ttf",
-    "fonts/helium-icons_4a68d1b0d26e155985600831feb7e2a6.svg",
-    "fonts/helium-icons_4a68d1b0d26e155985600831feb7e2a6.woff",
-    "fonts/helium-icons_4a68d1b0d26e155985600831feb7e2a6.eot",
-    "fonts/helium-icons_4a68d1b0d26e155985600831feb7e2a6.woff2"
+    "fonts/helium-icons_5fcf835d03aa1e2f5878f9ef3227d863.ttf",
+    "fonts/helium-icons_5fcf835d03aa1e2f5878f9ef3227d863.svg",
+    "fonts/helium-icons_5fcf835d03aa1e2f5878f9ef3227d863.woff",
+    "fonts/helium-icons_5fcf835d03aa1e2f5878f9ef3227d863.eot",
+    "fonts/helium-icons_5fcf835d03aa1e2f5878f9ef3227d863.woff2"
   ],
   "glyphs": {
     "add": {
