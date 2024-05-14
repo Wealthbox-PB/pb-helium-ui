@@ -2,6 +2,7 @@ export { Accordion } from './components/Accordion';
 export { AlertDialog } from './components/Dialog/AlertDialog';
 export { Badge } from './components/Badge';
 export { Button } from './components/Button';
+export { Checkbox } from './components/Checkbox';
 export { DialogBody } from './components/Dialog/DialogBody';
 export { DialogFooter } from './components/Dialog/DialogFooter';
 export { DialogFooterActions } from './components/Dialog/DialogFooterActions';

@@ -206,10 +206,18 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
         }
       }
 
-      &:checked {
+      &:checked,
+      &#{$h-checkbox-selector}__elm--checked {
         ~ #{$h-checkbox-radio-selector}__container {
           border-color: $h-color-brand;
           background-color: $h-color-brand;
+        }
+
+        &:disabled {
+          ~ #{$h-checkbox-radio-selector}__container {
+            border-color: $h-color-background-form-element-disabled-checked;
+            background-color: $h-color-background-form-element-disabled-checked;
+          }
         }
       }
 
@@ -308,7 +316,9 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
 
       &:checked,
-      &:indeterminate {
+      &#{$h-checkbox-selector}__elm--checked,
+      &:indeterminate,
+      &#{$h-checkbox-selector}__elm--indeterminate {
         ~ #{$h-checkbox-selector}__container {
           &::after {
             opacity: 1;
@@ -326,7 +336,8 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
   }
 
   #{$h-checkbox-selector}__elm {
-    &:checked {
+    &:checked,
+    &#{$h-checkbox-selector}__elm--checked {
       ~ #{$h-checkbox-selector}__container:after {
         background-image: url("#{get-checkbox-svg-icon($h-color-icon-checkbox-radio)}");
       }
@@ -342,7 +353,8 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
       }
     }
 
-    &:indeterminate {
+    &:indeterminate,
+    &#{$h-checkbox-selector}__elm--indeterminate {
       ~ #{$h-checkbox-selector}__container {
         border-color: $h-color-brand;
         background-color: $h-color-brand;
