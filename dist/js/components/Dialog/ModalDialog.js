@@ -45,10 +45,10 @@ var ModalDialog = function (_a) {
     return (React.createElement(React.Fragment, null, open || visible ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
         React.createElement(Portal, { className: "h-dialog-portal" },
             React.createElement(CSSTransition, { nodeRef: nodeRef, in: open && visible, appear: animateIn || animateOut, timeout: timeout, enter: animateIn, exit: animateOut, classNames: "h-transition-", onExited: function () { return setVisible(false); } },
-                React.createElement("div", __assign({}, getDialogRootProps(), { ref: nodeRef }),
+                React.createElement("div", __assign({}, getDialogRootProps(), { ref: nodeRef, "data-testid": "h-dialog-wrapper" }),
                     React.createElement("div", __assign({}, getDialogContainerProps()),
                         backdrop ? (React.createElement(DialogBackdrop, { className: classNames("h-transition-element h-transition-element--fade-in", backdropClassName) })) : null,
-                        React.createElement("div", __assign({}, getDialogProps()), children))))))) : null));
+                        React.createElement("div", __assign({}, getDialogProps(), { "data-testid": "h-dialog__el" }), children))))))) : null));
 };
 export { ModalDialog };
 //# sourceMappingURL=ModalDialog.js.map

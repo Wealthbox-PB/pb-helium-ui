@@ -32,6 +32,15 @@
           "tsType": { "name": "string" },
           "description": "Adds a css className to the panel element."
         },
+        "items": {
+          "required": true,
+          "tsType": {
+            "name": "Array",
+            "elements": [{ "name": "AccordionPanelItem" }],
+            "raw": "AccordionPanelItem[]"
+          },
+          "description": "The items to be rendered as panels in the accordion."
+        },
         "allowMultipleOpen": {
           "required": false,
           "tsType": { "name": "boolean" },
@@ -42,15 +51,6 @@
           "required": false,
           "tsType": { "name": "string" },
           "description": "A css className for the accordion element."
-        },
-        "items": {
-          "required": true,
-          "tsType": {
-            "name": "Array",
-            "elements": [{ "name": "AccordionPanelItem" }],
-            "raw": "AccordionPanelItem[]"
-          },
-          "description": "The items to be rendered as panels in the accordion."
         },
         "openFirstPanel": {
           "required": false,

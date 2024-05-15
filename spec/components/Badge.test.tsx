@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Badge } from '../ts/components/Badge';
+import { Badge } from '../../ts/components/Badge';
 
 describe(`<Badge />`, () => {
   describe(`default UI`, () => {

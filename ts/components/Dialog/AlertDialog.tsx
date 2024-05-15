@@ -90,10 +90,12 @@ export const AlertDialog = ({
               classNames="h-transition-"
               onExited={() => setVisible(false)}
             >
-              <div {...getDialogRootProps()} ref={nodeRef}>
+              <div {...getDialogRootProps()} ref={nodeRef} data-testid="h-dialog-wrapper">
                 <div {...getDialogContainerProps()}>
                   <DialogBackdrop className={backdropClassName} closeDialog={() => {}} />
-                  <div {...getDialogProps()}>{children}</div>
+                  <div {...getDialogProps()} data-testid="h-dialog__el">
+                    {children}
+                  </div>
                 </div>
               </div>
             </CSSTransition>

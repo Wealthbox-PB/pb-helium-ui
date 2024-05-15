@@ -17,6 +17,7 @@ export const DialogBackdrop = ({ className, closeDialog }: DialogBackdropProps) 
       className={classNames(`h-dialog__backdrop h-cursor-auto`, className)}
       onClick={handleClose}
       aria-label="Close Dialog"
+      data-testid="h-dialog__backdrop"
     ></button>
   );
 };

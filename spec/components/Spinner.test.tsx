@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { HeliumSpinner } from '../ts/components/Spinner/HeliumSpinner';
-import { Spinner } from '../ts/components/Spinner/Spinner';
-import { base64SpinnerImg, base64SpinnerImgDark } from '../ts/components/Spinner/base_64_spinner_img';
+import { HeliumSpinner } from '../../ts/components/Spinner/HeliumSpinner';
+import { Spinner } from '../../ts/components/Spinner/Spinner';
+import { base64SpinnerImg, base64SpinnerImgDark } from '../../ts/components/Spinner/base_64_spinner_img';
 
 describe(`<Spinner />`, () => {
   describe(`default`, () => {
