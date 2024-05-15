@@ -413,4 +413,6 @@ export type Icons =
   | `workflow`
   | `workflow--lg`
   | `workflow-step`
-  | `workflow-step--lg`;
+  | `workflow-step--lg`
+  | `workspaces`
+  | `workspaces--lg`;
