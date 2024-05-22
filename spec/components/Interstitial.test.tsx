@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Interstitial } from '../ts/components/Interstitial';
+import { Interstitial } from '../../ts/components/Interstitial';
 
 const interstitialContent = `No results matched the selected criteria.`;
 

@@ -5,6 +5,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.0] - 2024-05-15
+
+### Added
+
+- Added `Checkbox` component
+- Added `Checkbox` spec
+- Added `workspaces` icon
+- Added `workspaces--lg` icon
+- Added `AlertDialog` spec
+- Added `Button` spec
+- Added `DialogBackdrop` spec
+- Added `DialogBody` spec
+- Added `DialogContext` spec
+- Added `DialogFooterActions` spec
+- Added `DialogHeader` spec
+- Added `LinkButton` spec
+- Added `ModalDialog` spec
+- Added `Portal` spec
+- Added `Select` spec
+- Added `SelectInput` spec
+- Added `SelectMenuButton` spec
+
+### Updated
+
+- Updated styling of disabled, checked checkboxes and radio buttons
+- Updated `icons.ts` template to fix eslint max-line error
+
 ## [2.6.8] - 2024-05-09
 
 ### Updated

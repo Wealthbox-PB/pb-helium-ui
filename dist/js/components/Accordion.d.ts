@@ -17,12 +17,12 @@ interface AccordionSharedProps {
     panelClassName?: string;
 }
 interface AccordionProps extends AccordionSharedProps {
+    /** The items to be rendered as panels in the accordion. */
+    items: AccordionPanelItem[];
     /** Controls whether or not multiple panels can be open at the same time. */
     allowMultipleOpen?: boolean;
     /** A css className for the accordion element. */
     className?: string;
-    /** The items to be rendered as panels in the accordion. */
-    items: AccordionPanelItem[];
     /** Controls whether or not the first panel should be open by default. */
     openFirstPanel?: boolean;
     /** Adds a css className with helium-ui "card" styling to the accordion element. */

@@ -16,20 +16,23 @@ interface DialogHeaderProps {
 }
 
 const DialogHeader = ({
-  ariaLabelSelector = ``,
+  ariaLabelSelector,
   children,
   closeDialog,
   closeInHeader = true,
-  headerClassName = ``,
+  headerClassName,
 }: DialogHeaderProps) => {
   const context = useDialogContext();
   const handleClose = closeDialog || context.closeDialog;
 
   return (
-    <div className={classNames(`h-dialog__header`, headerClassName)}>
-      <h3 className="h-dialog__heading" id={ariaLabelSelector || context.ariaLabelSelector}>
-        {children}
-      </h3>
+    <div className={classNames(`h-dialog__header`, headerClassName)} data-testid="h-dialog__header">
+      {children ? (
+        <h3 className="h-dialog__heading" id={ariaLabelSelector || context.ariaLabelSelector}>
+          {children}
+        </h3>
+      ) : null}
+
       {closeInHeader ? (
         <button type="button" className="h-dialog__close" aria-label="Close Dialog" onClick={handleClose}>
           <span aria-hidden="true" className="h-icon-delete--lg"></span>

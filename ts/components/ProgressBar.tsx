@@ -11,7 +11,7 @@ interface ProgressBarProps {
 }
 
 const ProgressBar = ({ completedSteps, totalSteps, variant = `default` }: ProgressBarProps) => (
-  <div role="progressbar" className="h-progress-bar">
+  <div role="progressbar" aria-label="Progress bar" className="h-progress-bar">
     <div
       data-testid="progress-bar-fill"
       style={{ width: `${percentComplete(completedSteps, totalSteps)}%` }}

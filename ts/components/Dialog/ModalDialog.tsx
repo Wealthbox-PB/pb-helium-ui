@@ -83,7 +83,7 @@ const ModalDialog = ({
               classNames="h-transition-"
               onExited={() => setVisible(false)}
             >
-              <div {...getDialogRootProps()} ref={nodeRef}>
+              <div {...getDialogRootProps()} ref={nodeRef} data-testid="h-dialog-wrapper">
                 <div {...getDialogContainerProps()}>
                   {backdrop ? (
                     <DialogBackdrop
@@ -93,7 +93,9 @@ const ModalDialog = ({
                       )}
                     />
                   ) : null}
-                  <div {...getDialogProps()}>{children}</div>
+                  <div {...getDialogProps()} data-testid="h-dialog__el">
+                    {children}
+                  </div>
                 </div>
               </div>
             </CSSTransition>

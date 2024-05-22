@@ -18,10 +18,10 @@ interface DialogFooterActionsProps {
 
 const DialogFooterActions = ({
   buttonSize = `md`,
-  cancel = ``,
+  cancel,
   cancelRef,
   cancelVariant = `secondary`,
-  confirm = ``,
+  confirm,
   confirmRef,
   confirmVariant = `positive`,
   confirmClassName,
