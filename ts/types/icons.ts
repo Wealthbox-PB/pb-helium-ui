@@ -149,6 +149,9 @@ export type Icons =
   | `exclamation-triangle`
   | `exclamation-triangle--lg`
   | `exclamation-triangle--sm`
+  | `expand-content`
+  | `expand-content--lg`
+  | `expand-content--sm`
   | `external-link`
   | `external-link--lg`
   | `file`
