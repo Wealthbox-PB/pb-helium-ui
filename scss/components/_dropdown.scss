@@ -40,6 +40,11 @@
     }
   }
 
+  .h-dropdown__menu__item__cta--disabled {
+    color: $h-gray-300;
+    cursor: default;
+  }
+
   .h-dropdown__menu__item__cta--select {
     padding-left: 0.25rem;
   }
@@ -54,6 +59,10 @@
   .h-dropdown__menu__item__cta {
     background-color: $h-blue-50;
     color: $h-color-link-hover;
+  }
+
+  .h-dropdown__menu__item__cta--disabled {
+    background-color: $h-gray-50;
   }
 }
 

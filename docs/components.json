@@ -4345,6 +4345,36 @@
       }
     }
   ],
+  "./ts/components/TextArea.tsx": [
+    {
+      "description": "",
+      "methods": [],
+      "displayName": "TextAreaRef",
+      "props": {
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the textarea."
+        },
+        "id": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Sets an id for the textarea."
+        },
+        "label": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Sets a label for the textarea."
+        },
+        "labelClassName": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the label."
+        }
+      },
+      "composes": ["TextareaHTMLAttributes"]
+    }
+  ],
   "./ts/components/TextInput.tsx": [
     {
       "description": "",

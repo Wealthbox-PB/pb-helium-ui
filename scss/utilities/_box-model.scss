@@ -10,6 +10,30 @@
   border-radius: $h-border-radius !important;
 }
 
+.h-border-radius-lg {
+  border-radius: $h-border-radius-lg !important;
+}
+
+.h-border-transparent {
+  border: 1px solid transparent !important;
+}
+
+.h-border-top-transparent {
+  border-top: 1px solid transparent !important;
+}
+
+.h-border-right-transparent {
+  border-right: 1px solid transparent !important;
+}
+
+.h-border-bottom-transparent {
+  border-bottom: 1px solid transparent !important;
+}
+
+.h-border-left-transparent {
+  border-left: 1px solid transparent !important;
+}
+
 //  Image
 //==========================================================================
 

@@ -3,8 +3,35 @@
 // Component Utilities
 //==========================================================================
 
+// Border
+//==========================================================================
+
+.h-border-radius-shared-component {
+  border-radius: $h-border-radius-shared-component !important;
+}
+
+.h-border-shared-compoent {
+  border: 1px solid $h-color-border-shared-component !important;
+}
+
+.h-border-top-shared-component {
+  border-top: 1px solid $h-color-border-shared-component !important;
+}
+
+.h-border-right-shared-component {
+  border-right: 1px solid $h-color-border-shared-component !important;
+}
+
+.h-border-bottom-shared-component {
+  border-bottom: 1px solid $h-color-border-shared-component !important;
+}
+
+.h-border-left-shared-component {
+  border-left: 1px solid $h-color-border-shared-component !important;
+}
+
 //  Button
-//=========================================================================
+//==========================================================================
 
 .h-btn-margin-right {
   margin-right: $h-spacing-x-btn !important;
@@ -15,7 +42,7 @@
 }
 
 //  Pointer Events
-//=========================================================================
+//==========================================================================
 
 .h-pointer-events-all {
   pointer-events: all !important;
@@ -29,8 +56,12 @@
   cursor: auto !important;
 }
 
+.h-cursor-pointer {
+  cursor: pointer !important;
+}
+
 //  Floating UI
-//=========================================================================
+//==========================================================================
 
 .h-floating-ui {
   position: relative;

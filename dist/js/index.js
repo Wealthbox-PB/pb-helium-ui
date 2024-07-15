@@ -29,6 +29,7 @@ export { SimpleAlertDialog } from './components/Dialog/SimpleAlertDialog';
 export { SimpleModalDialog } from './components/Dialog/SimpleModalDialog';
 export { Spinner } from './components/Spinner/Spinner';
 export { Switch } from './components/Switch';
+export { TextArea } from './components/TextArea';
 export { TextInput } from './components/TextInput';
 export { Toast } from './components/Toast';
 export { Tooltip } from './components/Tooltip';

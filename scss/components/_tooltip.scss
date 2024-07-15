@@ -17,6 +17,11 @@
   font-size: $h-font-size-sm;
   line-height: $h-line-height-heading;
   text-align: center;
+  word-wrap: break-word;
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 .h-tooltip__arrow {

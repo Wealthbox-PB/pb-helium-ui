@@ -130,9 +130,15 @@
       & > .h-table__row {
         background: $h-color-background-shared-component;
 
-        &.h-table__row--hover {
-          &:hover,
+        &.h-table__row--hover,
+        &.h-table__row--focus-within {
           &:focus-within {
+            background: $h-color-background-active;
+          }
+        }
+
+        &.h-table__row--hover {
+          &:hover {
             background: $h-color-background-active;
           }
         }
@@ -143,10 +149,26 @@
         & > .h-table__data {
           border-top: 1px solid $h-color-border-shared-component;
 
-          &.h-table__data--hover {
-            &:hover,
+          &.h-table__data--hover,
+          &.h-table__data--focus-within {
             &:focus-within {
               background: $h-color-background-active;
+            }
+          }
+
+          &.h-table__data--hover {
+            &:hover {
+              background: $h-color-background-active;
+            }
+          }
+
+          &.h-table__data--nested-link-hover-row {
+            &:hover {
+              &,
+              ~td,
+              ~.h-table__data {
+                background: $h-color-background-active;
+              }
             }
           }
         }
@@ -551,6 +573,12 @@
 
     &.h-table--overflow-x-xs-only {
       @include media-breakpoint-down(sm) {
+        @include h-table-overflow-x;
+      }
+    }
+
+    .h-table {
+      &.h-table--overflow-x-md-down {
         @include h-table-overflow-x;
       }
     }

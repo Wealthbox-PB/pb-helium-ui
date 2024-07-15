@@ -1,6 +1,17 @@
+
 //==========================================================================
 //  Dialog
 //==========================================================================
+
+.h-dialog-portal {
+  & ~ .h-floating-ui--dropdowns {
+    z-index: 10000;
+  }
+
+  & ~ .h-floating-ui--tooltips {
+    z-index: 10001;
+  }
+}
 
 .h-dialog-wrapper {
   position: fixed;
@@ -183,6 +194,12 @@
     padding-bottom: 0;
     margin-bottom: 0;
   }
+}
+
+.h-dialog__body-img-full-width {
+  width: calc(100% + ($h-dialog-padding * 2));
+  margin-right: -($h-dialog-padding);
+  margin-left: -($h-dialog-padding);
 }
 
 .h-dialog__header + .h-dialog__body {

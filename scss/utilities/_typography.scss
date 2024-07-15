@@ -39,6 +39,20 @@
   }
 }
 
+//  Line Clamp
+//==========================================================================
+
+@for $i from 1 through 12 {
+  .h-line-clamp-#{$i} {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $i;
+    text-overflow: ellipsis;
+  }
+}
+
 //  Code
 //==========================================================================
 
