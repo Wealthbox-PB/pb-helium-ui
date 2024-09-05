@@ -678,7 +678,7 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
 //==========================================================================
 
 .h-input--with-icon {
-  padding-left: 2.5rem;
+  padding-left: 2.25rem;
 }
 
 .h-input__icon--left,
@@ -731,6 +731,23 @@ $h-radio-selector: map-get($h-checkbox-radio-selectors-map, radio);
     &::placeholder {
       color: $h-color-text-form-element-dark-blue-disabled;
     }
+  }
+}
+
+.h-input--filled {
+  border: 0;
+
+  &,
+  &:focus {
+    background-color: $h-color-background-secondary-shared-component;
+  }
+
+  /* stylelint-disable selector-class-pattern */
+  &:disabled,
+  &.disabled,
+  &[disabled] {
+    /* stylelint-enable selector-class-pattern */
+    border: 1px solid $h-gray-200;
   }
 }
 

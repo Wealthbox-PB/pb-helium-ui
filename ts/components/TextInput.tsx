@@ -21,7 +21,7 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Controls if the right button is displayed. */
   showRightButton?: boolean;
   /** Controls the color variant. */
-  variant?: `default` | `dark-blue`;
+  variant?: `default` | `dark-blue` | `filled`;
   /** Controls the input type. */
   inputType?: `text` | `password` | `email` | `tel` | `search`;
 }
@@ -66,6 +66,7 @@ const TextInput = (
           className={classNames(`h-input`, className, {
             'h-input--with-icon': leftIconClassName && showLeftIcon,
             'h-input--dark-blue': variant === `dark-blue`,
+            'h-input--filled': variant === `filled`,
           })}
           role={role}
           {...rest}
@@ -77,6 +78,7 @@ const TextInput = (
             className={classNames(`h-input__icon--left`, leftIconClassName, {
               'h-color-text-blue-200': variant === `dark-blue`,
               'h-color-text-gray-500': variant === `default`,
+              'h-color-text-gray-300': variant === `filled`,
             })}
           ></span>
         ) : null}
@@ -89,6 +91,7 @@ const TextInput = (
             className={classNames(`h-input__icon--right`, rightButtonClassName, {
               'h-color-text-blue-200': variant === `dark-blue`,
               'h-color-text-gray-500': variant === `default`,
+              'h-color-text-gray-300': variant === `filled`,
             })}
           ></button>
         ) : null}

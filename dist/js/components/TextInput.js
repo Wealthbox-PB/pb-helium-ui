@@ -33,14 +33,17 @@ var TextInput = function (_a, ref) {
             React.createElement("input", __assign({ id: id ? id : uniqueIDRef.current, type: inputType, ref: ref, className: classNames("h-input", className, {
                     'h-input--with-icon': leftIconClassName && showLeftIcon,
                     'h-input--dark-blue': variant === "dark-blue",
+                    'h-input--filled': variant === "filled",
                 }), role: role }, rest)),
             leftIconClassName && showLeftIcon ? (React.createElement("span", { "data-testid": "h-input__icon--left", "aria-hidden": "true", className: classNames("h-input__icon--left", leftIconClassName, {
                     'h-color-text-blue-200': variant === "dark-blue",
                     'h-color-text-gray-500': variant === "default",
+                    'h-color-text-gray-300': variant === "filled",
                 }) })) : null,
             rightButtonClassName && showRightButton ? (React.createElement("button", { type: "reset", name: "Clear Search", "aria-label": "Clear Search", onClick: onRightButtonClick, className: classNames("h-input__icon--right", rightButtonClassName, {
                     'h-color-text-blue-200': variant === "dark-blue",
                     'h-color-text-gray-500': variant === "default",
+                    'h-color-text-gray-300': variant === "filled",
                 }) })) : null)));
 };
 var TextInputRef = React.forwardRef(TextInput);

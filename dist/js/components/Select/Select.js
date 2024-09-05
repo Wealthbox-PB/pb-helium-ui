@@ -9,70 +9,49 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { autoUpdate, flip, FloatingFocusManager, FloatingList, limitShift, offset, shift, useClick, useDismiss, useFloating, useInteractions, useListNavigation, useTypeahead, size, } from '@floating-ui/react';
+import React, { useCallback, useMemo, useState } from 'react';
+import { FloatingFocusManager, FloatingList } from '@floating-ui/react';
 import { SelectContext } from './SelectContext';
 import { Portal } from '../Portal';
+import { useSelect } from '../../hooks/useSelect';
+import classNames from 'classnames';
+import { SearchableSelectInput } from './SearchableSelectInput';
 var Select = function (_a) {
-    var children = _a.children, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, _c = _a.flip, flipProp = _c === void 0 ? true : _c, _d = _a.initialSelectedValue, initialSelectedValue = _d === void 0 ? null : _d, _e = _a.initialSelectedIndex, initialSelectedIndex = _e === void 0 ? null : _e, minHeight = _a.minHeight, _f = _a.placement, placement = _f === void 0 ? "bottom-end" : _f, renderOpener = _a.renderOpener, _g = _a.width, width = _g === void 0 ? "auto" : _g, maxHeight = _a.maxHeight, _h = _a.height, height = _h === void 0 ? "auto" : _h;
-    var _j = useState(false), open = _j[0], setOpen = _j[1];
-    var _k = useState(null), activeIndex = _k[0], setActiveIndex = _k[1];
-    var _l = useState(initialSelectedIndex), selectedIndex = _l[0], setSelectedIndex = _l[1];
-    var _m = useState(initialSelectedValue), selectedLabel = _m[0], setSelectedLabel = _m[1];
-    var _o = useFloating({
-        open: open,
-        whileElementsMounted: autoUpdate,
+    var children = _a.children, renderOpener = _a.renderOpener, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, displayOptions = _a.displayOptions, _c = _a.flip, flip = _c === void 0 ? true : _c, handleQuery = _a.handleQuery, _d = _a.height, height = _d === void 0 ? "auto" : _d, _e = _a.initialSelectedLabel, initialSelectedLabel = _e === void 0 ? null : _e, _f = _a.initialSelectedValue, initialSelectedValue = _f === void 0 ? null : _f, maxHeight = _a.maxHeight, minHeight = _a.minHeight, name = _a.name, _g = _a.placement, placement = _g === void 0 ? "bottom-end" : _g, _h = _a.width, width = _h === void 0 ? "auto" : _h, _j = _a.virtualFocus, virtualFocus = _j === void 0 ? false : _j;
+    var _k = useState(initialSelectedLabel), selectedLabel = _k[0], setSelectedLabel = _k[1];
+    var _l = useState(initialSelectedValue), selectedValue = _l[0], setSelectedValue = _l[1];
+    var _m = useSelect({
+        flip: flip,
+        height: height,
+        handleQuery: handleQuery,
+        maxHeight: maxHeight,
+        minHeight: minHeight,
         placement: placement,
-        strategy: "absolute",
-        middleware: [
-            offset(4),
-            flip({ mainAxis: flipProp }),
-            shift({ padding: 4, limiter: limitShift() }),
-            size({
-                apply: function (_a) {
-                    var availableHeight = _a.availableHeight, elements = _a.elements, rects = _a.rects;
-                    Object.assign(elements.floating.style, {
-                        maxHeight: height === "auto"
-                            ? maxHeight
-                                ? "".concat(Math.min(maxHeight, availableHeight) - 4, "px")
-                                : "".concat(availableHeight - 4, "px")
-                            : null,
-                        minHeight: height == "auto" ? (minHeight ? "".concat(minHeight - 4, "px") : null) : null,
-                        height: height,
-                        width: width === "full" ? "".concat(rects.reference.width, "px") : width === "auto" ? null : width + "px",
-                    });
-                },
-            }),
-        ],
-        onOpenChange: setOpen,
-    }), x = _o.x, y = _o.y, _p = _o.refs, setReference = _p.setReference, setFloating = _p.setFloating, strategy = _o.strategy, context = _o.context;
-    var elementsRef = useRef([]);
-    var labelsRef = useRef([]);
-    var handleSelect = useCallback(function (index) {
-        setSelectedIndex(index);
+        width: width,
+        virtualFocus: virtualFocus,
+    }), getReferenceProps = _m.getReferenceProps, getFloatingProps = _m.getFloatingProps, getItemProps = _m.getItemProps, labelsRef = _m.labelsRef, elementsRef = _m.elementsRef, xPosition = _m.xPosition, yPosition = _m.yPosition, setReference = _m.setReference, setFloating = _m.setFloating, strategy = _m.strategy, open = _m.open, setOpen = _m.setOpen, activeIndex = _m.activeIndex, setActiveIndex = _m.setActiveIndex, context = _m.context;
+    var handleSelect = useCallback(function (index, value) {
         closeOnSelect && setOpen(false);
         if (index !== null) {
             setSelectedLabel(labelsRef.current[index]);
+            setSelectedValue(value);
         }
-    }, [closeOnSelect]);
-    var listNavigation = useListNavigation(context, {
-        listRef: elementsRef,
+    }, [closeOnSelect, labelsRef, setOpen]);
+    var handleSearchableSelect = useCallback(function (label, value) {
+        closeOnSelect && setOpen(false);
+        if (label && value) {
+            setSelectedLabel(label);
+            setSelectedValue(value);
+        }
+    }, [closeOnSelect, setOpen]);
+    var selectContext = useMemo(function () { return ({
         activeIndex: activeIndex,
-        onNavigate: setActiveIndex,
-        loop: true,
-    });
-    var typeahead = useTypeahead(context, {
-        listRef: labelsRef,
-        activeIndex: activeIndex,
-        onMatch: setActiveIndex,
-    });
-    var _q = useInteractions([
-        useDismiss(context),
-        useClick(context),
-        listNavigation,
-        typeahead,
-    ]), getReferenceProps = _q.getReferenceProps, getFloatingProps = _q.getFloatingProps, getItemProps = _q.getItemProps;
-    var selectContext = useMemo(function () { return ({ activeIndex: activeIndex, getItemProps: getItemProps, handleSelect: handleSelect, selectedIndex: selectedIndex }); }, [activeIndex, getItemProps, handleSelect, selectedIndex]);
+        setActiveIndex: setActiveIndex,
+        getItemProps: getItemProps,
+        handleSearchableSelect: handleSearchableSelect,
+        handleSelect: handleSelect,
+        selectedValue: selectedValue,
+    }); }, [activeIndex, setActiveIndex, getItemProps, handleSearchableSelect, handleSelect, selectedValue]);
     return (React.createElement(React.Fragment, null,
         renderOpener(__assign({ ref: setReference, selectedLabel: selectedLabel }, getReferenceProps({
             onClick: function (e) {
@@ -92,10 +71,12 @@ var Select = function (_a) {
         open ? (React.createElement(SelectContext.Provider, { value: selectContext },
             React.createElement(Portal, { className: "h-floating-ui h-floating-ui--dropdowns" },
                 React.createElement(FloatingFocusManager, { context: context },
-                    React.createElement("div", __assign({ ref: setFloating, className: "h-dropdown h-overflow-auto", style: {
+                    React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown h-overflow-auto", {
+                            'p-0 d-flex flex-column': handleQuery,
+                        }), style: {
                             position: strategy,
-                            top: y !== null && y !== void 0 ? y : 0,
-                            left: x !== null && x !== void 0 ? x : 0,
+                            top: yPosition !== null && yPosition !== void 0 ? yPosition : 0,
+                            left: xPosition !== null && xPosition !== void 0 ? xPosition : 0,
                         }, role: "menu" }, getFloatingProps({
                         // Pressing tab dismisses the menu due to the modal
                         // focus management on the root menu.
@@ -105,8 +86,13 @@ var Select = function (_a) {
                             }
                         },
                     })),
-                        React.createElement("ul", { className: "h-dropdown__menu" },
-                            React.createElement(FloatingList, { elementsRef: elementsRef, labelsRef: labelsRef }, children))))))) : null));
+                        handleQuery ? (React.createElement(SearchableSelectInput, { handleQuery: handleQuery, options: (displayOptions === null || displayOptions === void 0 ? void 0 : displayOptions.length) ? displayOptions : [], inputClassName: "m-1" })) : null,
+                        React.createElement("div", { className: "h-overflow-auto" },
+                            React.createElement("ul", { className: classNames("h-dropdown__menu", {
+                                    'p-2': handleQuery,
+                                }) },
+                                React.createElement(FloatingList, { elementsRef: elementsRef, labelsRef: labelsRef }, children)))))))) : null,
+        name ? (React.createElement("input", { type: "hidden", name: name, value: typeof selectedValue === "string" ? selectedValue : JSON.stringify(selectedValue) || "" })) : null));
 };
 export { Select };
 //# sourceMappingURL=Select.js.map

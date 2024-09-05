@@ -17,7 +17,7 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
     /** Controls if the right button is displayed. */
     showRightButton?: boolean;
     /** Controls the color variant. */
-    variant?: `default` | `dark-blue`;
+    variant?: `default` | `dark-blue` | `filled`;
     /** Controls the input type. */
     inputType?: `text` | `password` | `email` | `tel` | `search`;
 }

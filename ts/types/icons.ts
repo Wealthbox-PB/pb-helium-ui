@@ -67,6 +67,9 @@ export type Icons =
   | `clipboard-success--lg`
   | `clock`
   | `clock--lg`
+  | `collapse-content`
+  | `collapse-content--lg`
+  | `collapse-content--sm`
   | `comment`
   | `comment--filled`
   | `comment--filled--lg`

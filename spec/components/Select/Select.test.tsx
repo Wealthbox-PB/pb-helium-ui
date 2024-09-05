@@ -1,8 +1,9 @@
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Select } from '../../../ts/components/Select/Select';
 import { SelectMenuButton } from '../../../ts/components/Select/SelectMenuButton';
+import userEvent from '@testing-library/user-event';
 
 const setup = (props?) =>
   render(
@@ -14,7 +15,7 @@ const setup = (props?) =>
       )}
       {...props}
     >
-      <SelectMenuButton label="Item 1" onClick={jest.fn()} />
+      <SelectMenuButton label="Item 1" value="item-1" onClick={jest.fn()} />
     </Select>,
   );
 
@@ -29,21 +30,16 @@ describe(`<Select />`, () => {
       it(`should render and open the menu`, async () => {
         setup();
 
-        fireEvent.click(screen.getByText(`Click me`));
-        await waitFor(async () => {
-          screen.getByRole(`menu`);
-        });
+        await userEvent.click(screen.getByText(`Click me`));
         expect(screen.getByRole(`menu`)).toBeInTheDocument();
       });
 
       it(`should render the children`, async () => {
         setup();
 
-        fireEvent.click(screen.getByText(`Click me`));
-        await waitFor(async () => {
-          screen.getByRole(`menu`);
-        });
+        await userEvent.click(screen.getByText(`Click me`));
         expect(screen.getByRole(`menu`)).toBeInTheDocument();
+        expect(screen.getByRole(`menuitem`)).toBeInTheDocument();
       });
     });
   });
@@ -53,12 +49,8 @@ describe(`<Select />`, () => {
       it(`should not close the menu when a menu item is selected`, async () => {
         setup({ closeOnSelect: false });
 
-        fireEvent.click(screen.getByText(`Click me`));
-        await waitFor(async () => {
-          screen.getByRole(`menu`);
-        });
-
-        fireEvent.click(screen.getByText(`Item 1`));
+        await userEvent.click(screen.getByText(`Click me`));
+        await userEvent.click(screen.getByText(`Item 1`));
         expect(screen.getByRole(`menu`)).toBeInTheDocument();
       });
     });
@@ -67,17 +59,14 @@ describe(`<Select />`, () => {
       it(`should set the height`, async () => {
         setup({ height: `200px` });
 
-        fireEvent.click(screen.getByText(`Click me`));
-        await waitFor(async () => {
-          screen.getByRole(`menu`);
-        });
+        await userEvent.click(screen.getByText(`Click me`));
         expect(screen.getByRole(`menu`)).toHaveStyle(`height: 200px`);
       });
     });
 
-    describe(`when the "initialSelectedValue" prop is passed`, () => {
-      it(`should render the initialSelectedValue`, () => {
-        setup({ initialSelectedValue: `Item 1` });
+    describe(`when the "initialSelectedLabel" prop is passed`, () => {
+      it(`should render the initialSelectedLabel`, () => {
+        setup({ initialSelectedLabel: `Item 1` });
         expect(screen.getByRole(`button`)).toHaveTextContent(`Item 1`);
       });
     });
@@ -86,10 +75,7 @@ describe(`<Select />`, () => {
       it(`should set the minHeight`, async () => {
         setup({ minHeight: `200` });
 
-        fireEvent.click(screen.getByText(`Click me`));
-        await waitFor(async () => {
-          screen.getByRole(`menu`);
-        });
+        await userEvent.click(screen.getByText(`Click me`));
         // The component subtracts 4 from the minHeight to account for the border
         expect(screen.getByRole(`menu`)).toHaveStyle(`min-height: 196px`);
       });
@@ -99,10 +85,7 @@ describe(`<Select />`, () => {
       it(`should set the width`, async () => {
         setup({ width: `200` });
 
-        fireEvent.click(screen.getByText(`Click me`));
-        await waitFor(async () => {
-          screen.getByRole(`menu`);
-        });
+        await userEvent.click(screen.getByText(`Click me`));
         expect(screen.getByRole(`menu`)).toHaveStyle(`width: 200px`);
       });
     });

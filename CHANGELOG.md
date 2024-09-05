@@ -5,7 +5,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.0] - 2024-09-05
+
+### Added
+
+- Added `useSelect` hook
+- Added `SearchableSelect` component
+- Added `SimpleSelect` component
+- Added `MultiSelect` component
+- Added `SearchableSelectInput` component
+- Added `collapse-content` icon
+- Added `collapse-content--sm` icon
+- Added `collapse-content--lg` icon
+- Added new `.h-input--filled` styling
+
+### Updated
+
+- Updated `Select` component to support `SearchableSelect` and `SimpleSelect` behavior
+- Updated `SelectMenuButton` component to support new select and multi-selectcomponents
+- Updated `SelectContext` to support new components
+- Updated `TextInput` component to add a `filled` variant
+- Updated `SelectInput` component to support multi-select
+- Updated `.h-dropdown__menu-item` styling to support multi-select
+- Updated `expand-content` icon weight and grid position to be consistent with collapse-content icon
+- Updated `expand-content--sm` icon weight and grid position to be consistent with collapse-content--sm icon
+- Updated `expand-content--lg` icon weight and grid position to be consistent with collapse-content--lg icon
+- Recompiled icon font
+- Recompiled icon types file
+- Updated `positive-outline` Button variant
+
 ## [2.7.2] - 2024-07-15
+
+### Added
 
 - Added `TextArea` component
 - Added misc utility classes from `crm-web` bridge file
@@ -18,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `expand-content--sm` icon
 - Added `expand-content--lg` icon
 
-## Updated
+### Updated
 
 - Recompiled icon font
 - Recompiled icon types file

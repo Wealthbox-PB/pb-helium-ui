@@ -5,12 +5,14 @@ interface SelectInputProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>,
     label?: string;
     /** Adds class names to the label. */
     labelClassName?: string;
+    /** Displays the correct label styling for multiselect menus */
+    multiSelect?: boolean;
     /** Sets the button placeholder. */
     placeholder?: string | false | null;
     /** Controls the type of the button. */
     type?: ButtonType;
     /** Sets the value of the button. */
-    value?: string | null;
+    value?: string | any[] | null;
 }
 declare const SelectInputRef: React.ForwardRefExoticComponent<SelectInputProps & React.RefAttributes<unknown>>;
 export { SelectInputRef as SelectInput };
