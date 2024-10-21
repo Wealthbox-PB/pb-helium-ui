@@ -89,5 +89,16 @@ describe(`<Select />`, () => {
         expect(screen.getByRole(`menu`)).toHaveStyle(`width: 200px`);
       });
     });
+
+    describe(`when the "onSelect" prop is passed`, () => {
+      it(`should call the onSelect function when a menu item is selected`, async () => {
+        const onSelect = jest.fn();
+        setup({ onSelect });
+
+        await userEvent.click(screen.getByText(`Click me`));
+        await userEvent.click(screen.getByText(`Item 1`));
+        expect(onSelect).toHaveBeenCalledWith(`item-1`);
+      });
+    });
   });
 });

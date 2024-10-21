@@ -17,7 +17,11 @@ interface SearchableSelectProps extends Omit<ComponentProps<typeof Select>, `ren
     /** Adds class names to the label */
     labelClassName?: string;
     /** Callback function when the dropdown menu item is clicked. */
-    onSelect?: () => void;
+    onClick?: (value?: any) => void;
+    /** Callback function when the dropdown menu item is selected using the "Enter" key. */
+    onKeyDown?: (value?: any) => void;
+    /** Callback function when the dropdown menu item is clicked or selected using the "Enter" key. */
+    onSelect?: (value?: any) => void;
     /** Sets placeholder text for the input. */
     placeholder?: string;
     /** Adds an id to the select button. */
@@ -25,5 +29,5 @@ interface SearchableSelectProps extends Omit<ComponentProps<typeof Select>, `ren
     /** Adds a label to the select button. */
     selectLabel?: string;
 }
-declare const SearchableSelect: ({ initialOptions, allowCustomValue, ariaLabel, className, initialSelectedValue, labelClassName, onSelect, placeholder, selectId, selectLabel, ...props }: SearchableSelectProps) => React.JSX.Element;
+declare const SearchableSelect: ({ initialOptions, allowCustomValue, ariaLabel, className, initialSelectedValue, labelClassName, onClick, onKeyDown, onSelect, placeholder, selectId, selectLabel, ...props }: SearchableSelectProps) => React.JSX.Element;
 export { SearchableSelect };

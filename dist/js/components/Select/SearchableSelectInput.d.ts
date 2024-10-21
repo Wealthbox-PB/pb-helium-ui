@@ -10,8 +10,10 @@ interface SearchableSelectInputProps extends Omit<InputHTMLAttributes<HTMLInputE
     inputClassName?: string;
     /** Sets the correct select behavior for multiselect menus. */
     multiSelect?: boolean;
+    /** Callback function when the dropdown menu item is selected using the "Enter" key. */
+    onKeyDown?: (value?: any) => void;
     /** Sets placeholder text for the input. */
     placeholder?: string;
 }
-export declare const SearchableSelectInput: ({ options, className, handleQuery, inputClassName, multiSelect, placeholder, ...props }: SearchableSelectInputProps) => React.JSX.Element;
+export declare const SearchableSelectInput: ({ options, className, handleQuery, inputClassName, multiSelect, placeholder, onKeyDown, ...props }: SearchableSelectInputProps) => React.JSX.Element;
 export {};

@@ -101,6 +101,8 @@ export type Icons =
   | `download--lg`
   | `download-circle`
   | `download-circle--lg`
+  | `drag`
+  | `drag--lg`
   | `dropboxemail`
   | `dropboxemail--lg`
   | `edit`
@@ -384,6 +386,8 @@ export type Icons =
   | `star-circled--lg`
   | `star-outlined`
   | `star-outlined--lg`
+  | `subtasks`
+  | `subtasks--lg`
   | `table`
   | `table-chart`
   | `tag`

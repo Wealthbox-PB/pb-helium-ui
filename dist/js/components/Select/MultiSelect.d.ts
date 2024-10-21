@@ -5,7 +5,11 @@ interface RenderOpenerProps {
     selectedLabels: string[] | null;
 }
 interface MultiSelectProps {
-    initialOptions: any[];
+    /** The initial options for the dropdown list. */
+    initialOptions: {
+        label: string;
+        value: any;
+    }[];
     /** The dropdown opener element. Use the destructured "ref", "selectedLabel", and "...props" to spread them
      * onto the opener element for correct functionality. */
     renderOpener: (props: RenderOpenerProps) => JSX.Element;

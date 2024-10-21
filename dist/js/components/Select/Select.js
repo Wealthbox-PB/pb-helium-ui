@@ -17,7 +17,7 @@ import { useSelect } from '../../hooks/useSelect';
 import classNames from 'classnames';
 import { SearchableSelectInput } from './SearchableSelectInput';
 var Select = function (_a) {
-    var children = _a.children, renderOpener = _a.renderOpener, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, displayOptions = _a.displayOptions, _c = _a.flip, flip = _c === void 0 ? true : _c, handleQuery = _a.handleQuery, _d = _a.height, height = _d === void 0 ? "auto" : _d, _e = _a.initialSelectedLabel, initialSelectedLabel = _e === void 0 ? null : _e, _f = _a.initialSelectedValue, initialSelectedValue = _f === void 0 ? null : _f, maxHeight = _a.maxHeight, minHeight = _a.minHeight, name = _a.name, _g = _a.placement, placement = _g === void 0 ? "bottom-end" : _g, _h = _a.width, width = _h === void 0 ? "auto" : _h, _j = _a.virtualFocus, virtualFocus = _j === void 0 ? false : _j;
+    var children = _a.children, renderOpener = _a.renderOpener, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, displayOptions = _a.displayOptions, _c = _a.flip, flip = _c === void 0 ? true : _c, handleQuery = _a.handleQuery, _d = _a.height, height = _d === void 0 ? "auto" : _d, _e = _a.initialSelectedLabel, initialSelectedLabel = _e === void 0 ? null : _e, _f = _a.initialSelectedValue, initialSelectedValue = _f === void 0 ? null : _f, maxHeight = _a.maxHeight, minHeight = _a.minHeight, name = _a.name, _g = _a.placement, placement = _g === void 0 ? "bottom-end" : _g, _h = _a.width, width = _h === void 0 ? "auto" : _h, _j = _a.virtualFocus, virtualFocus = _j === void 0 ? false : _j, onKeyDown = _a.onKeyDown, onSelect = _a.onSelect;
     var _k = useState(initialSelectedLabel), selectedLabel = _k[0], setSelectedLabel = _k[1];
     var _l = useState(initialSelectedValue), selectedValue = _l[0], setSelectedValue = _l[1];
     var _m = useSelect({
@@ -36,14 +36,16 @@ var Select = function (_a) {
             setSelectedLabel(labelsRef.current[index]);
             setSelectedValue(value);
         }
-    }, [closeOnSelect, labelsRef, setOpen]);
+        onSelect === null || onSelect === void 0 ? void 0 : onSelect(value);
+    }, [closeOnSelect, labelsRef, setOpen, onSelect]);
     var handleSearchableSelect = useCallback(function (label, value) {
         closeOnSelect && setOpen(false);
         if (label && value) {
             setSelectedLabel(label);
             setSelectedValue(value);
         }
-    }, [closeOnSelect, setOpen]);
+        onSelect === null || onSelect === void 0 ? void 0 : onSelect(value);
+    }, [closeOnSelect, setOpen, onSelect]);
     var selectContext = useMemo(function () { return ({
         activeIndex: activeIndex,
         setActiveIndex: setActiveIndex,
@@ -86,7 +88,7 @@ var Select = function (_a) {
                             }
                         },
                     })),
-                        handleQuery ? (React.createElement(SearchableSelectInput, { handleQuery: handleQuery, options: (displayOptions === null || displayOptions === void 0 ? void 0 : displayOptions.length) ? displayOptions : [], inputClassName: "m-1" })) : null,
+                        handleQuery ? (React.createElement(SearchableSelectInput, { handleQuery: handleQuery, options: (displayOptions === null || displayOptions === void 0 ? void 0 : displayOptions.length) ? displayOptions : [], inputClassName: "m-1", onKeyDown: onKeyDown })) : null,
                         React.createElement("div", { className: "h-overflow-auto" },
                             React.createElement("ul", { className: classNames("h-dropdown__menu", {
                                     'p-2': handleQuery,

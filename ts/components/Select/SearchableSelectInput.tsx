@@ -14,6 +14,8 @@ interface SearchableSelectInputProps extends Omit<InputHTMLAttributes<HTMLInputE
   inputClassName?: string;
   /** Sets the correct select behavior for multiselect menus. */
   multiSelect?: boolean;
+  /** Callback function when the dropdown menu item is selected using the "Enter" key. */
+  onKeyDown?: (value?: any) => void;
   /** Sets placeholder text for the input. */
   placeholder?: string;
 }
@@ -25,6 +27,7 @@ export const SearchableSelectInput = ({
   inputClassName,
   multiSelect,
   placeholder = `Search...`,
+  onKeyDown,
   ...props
 }: SearchableSelectInputProps) => {
   const { activeIndex, setActiveIndex, handleSearchableSelect, handleMultiSelect, searchInputRef } =
@@ -44,10 +47,14 @@ export const SearchableSelectInput = ({
         onKeyDown={(e) => {
           if (e.key === `Enter`) {
             e.preventDefault();
-            if (activeIndex !== null) {
-              multiSelect
-                ? handleMultiSelect?.(options[activeIndex])
-                : handleSearchableSelect?.(options[activeIndex].label, options[activeIndex].value);
+            if (activeIndex !== null && options[activeIndex]) {
+              const selectedOption = options[activeIndex];
+              if (multiSelect) {
+                handleMultiSelect?.(selectedOption);
+              } else {
+                handleSearchableSelect?.(selectedOption.label, selectedOption.value);
+              }
+              onKeyDown?.(selectedOption.value);
             }
           }
         }}

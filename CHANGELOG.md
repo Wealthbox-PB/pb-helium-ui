@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.1] - 2024-10-21
+
+### Added
+
+- Added `onSelect` prop to `Select` component:
+  - This allows the `onSelect` callback from `SearchableSelect` to now be called when a `SelectMenuButton` is clicked or when a menu item has `virtualFocus` and the enter key is pressed in the `SearchableSelectInput`
+- Added `onClick` prop to `SearchableSelect` component:
+  - This allows us to specifically target clicks separately from `onKeyDown` enter selections
+- Added `onKeyDown` prop to `SearchableSelect`:
+  - This allows us to specifically target `onKeyDown` enter selections separately from `onClick` events
+- Added `drag` icon
+- Added `drag--lg` icon
+- Added `subtasks` icon
+- Added `subtasks--lg` icon
+
+### Updated
+- Updated `MultiSelect` and `SearchableSelect` to make sure react `key` is always a string
+- Updated `SearchableSelectInput` to make sure its keydown handler has an `activeIndex` when handling selection
+- Updated `MultiSelect` to use consistent interface for `initialOptions` prop
+
 ## [2.8.0] - 2024-09-05
 
 ### Added
@@ -22,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updated
 
 - Updated `Select` component to support `SearchableSelect` and `SimpleSelect` behavior
-- Updated `SelectMenuButton` component to support new select and multi-selectcomponents
+- Updated `SelectMenuButton` component to support new select and multi-select components
 - Updated `SelectContext` to support new components
 - Updated `TextInput` component to add a `filled` variant
 - Updated `SelectInput` component to support multi-select

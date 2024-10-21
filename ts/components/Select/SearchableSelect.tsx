@@ -19,7 +19,11 @@ interface SearchableSelectProps
   /** Adds class names to the label */
   labelClassName?: string;
   /** Callback function when the dropdown menu item is clicked. */
-  onSelect?: () => void;
+  onClick?: (value?: any) => void;
+  /** Callback function when the dropdown menu item is selected using the "Enter" key. */
+  onKeyDown?: (value?: any) => void;
+  /** Callback function when the dropdown menu item is clicked or selected using the "Enter" key. */
+  onSelect?: (value?: any) => void;
   /** Sets placeholder text for the input. */
   placeholder?: string;
   /** Adds an id to the select button. */
@@ -35,6 +39,8 @@ const SearchableSelect = ({
   className,
   initialSelectedValue,
   labelClassName,
+  onClick,
+  onKeyDown,
   onSelect,
   placeholder = `Select...`,
   selectId,
@@ -84,21 +90,22 @@ const SearchableSelect = ({
       virtualFocus={true}
       handleQuery={(query) => setQuery(query)}
       displayOptions={options}
+      onKeyDown={onKeyDown}
+      onSelect={onSelect}
       {...props}
     >
       <>
         {options.length ? (
           options.map((option, i) => {
             const customValueOption = i === options.length - 1 && isCustomValueDisplayed;
-
             return (
-              <React.Fragment key={option.value}>
+              <React.Fragment key={JSON.stringify(option.value)}>
                 {customValueOption && options.length > 1 ? <DropdownMenuSeparator /> : null}
                 <SelectMenuButton
                   label={`${customValueOption ? `Specify: ` : ``}${option.label}`}
                   value={option.value}
                   searchableMenu={true}
-                  onClick={onSelect}
+                  onClick={(_e) => onClick?.(option.value)}
                   customValue={customValueOption ? true : false}
                 />
               </React.Fragment>

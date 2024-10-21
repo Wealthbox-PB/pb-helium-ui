@@ -93,6 +93,28 @@ describe(`<SearchableSelect />`, () => {
       });
     });
 
+    describe(`when the "onClick" prop is passed`, () => {
+      it(`should call the onClick function when the menu item is clicked`, async () => {
+        const onClick = jest.fn();
+        setup({ onClick });
+
+        await userEvent.click(screen.getByRole(`button`, { name: `Select...` }));
+        await userEvent.click(screen.getByRole(`menuitem`, { name: `Item 1` }));
+        expect(onClick).toHaveBeenCalledTimes(1);
+      });
+    });
+
+    describe(`when the "onKeyDown" prop is passed`, () => {
+      it(`should call the onKeyDown function when the menu item is clicked`, async () => {
+        const onKeyDown = jest.fn();
+        setup({ onKeyDown });
+
+        await userEvent.click(screen.getByRole(`button`, { name: `Select...` }));
+        await userEvent.keyboard(`{enter}`);
+        expect(onKeyDown).toHaveBeenCalledTimes(1);
+      });
+    });
+
     describe(`when the "onSelect" prop is passed`, () => {
       it(`should call the onSelect function when the menu item is clicked`, async () => {
         const onSelect = jest.fn();
@@ -100,6 +122,16 @@ describe(`<SearchableSelect />`, () => {
 
         await userEvent.click(screen.getByRole(`button`, { name: `Select...` }));
         await userEvent.click(screen.getByRole(`menuitem`, { name: `Item 1` }));
+        expect(onSelect).toHaveBeenCalledTimes(1);
+      });
+
+      it(`should call the onSelect function when the menu item has virtual focus and the user presses the
+        "Enter" key`, async () => {
+        const onSelect = jest.fn();
+        setup({ onSelect });
+
+        await userEvent.click(screen.getByRole(`button`, { name: `Select...` }));
+        await userEvent.keyboard(`{enter}`);
         expect(onSelect).toHaveBeenCalledTimes(1);
       });
     });

@@ -32,6 +32,10 @@ interface SelectProps {
     minHeight?: number;
     /** Name for the hidden input. The hidden input requires a name to render */
     name?: string;
+    /** Callback function when the dropdown menu item is selected using the "Enter" key. */
+    onKeyDown?: (value?: any) => void;
+    /** Callback function when the dropdown menu item is clicked or selected using the "Enter" key. */
+    onSelect?: (value?: any) => void;
     /** Controls the placement of the dropdown. */
     placement?: Placement;
     /** Controls the width of the dropdown. "full" width makes the dropdown the same width as the opener
@@ -40,5 +44,5 @@ interface SelectProps {
     /** Controls weather the focus will remain on the render opener, but allow arrow keys to navigate list. */
     virtualFocus?: boolean;
 }
-declare const Select: ({ children, renderOpener, closeOnSelect, displayOptions, flip, handleQuery, height, initialSelectedLabel, initialSelectedValue, maxHeight, minHeight, name, placement, width, virtualFocus, }: SelectProps) => React.JSX.Element;
+declare const Select: ({ children, renderOpener, closeOnSelect, displayOptions, flip, handleQuery, height, initialSelectedLabel, initialSelectedValue, maxHeight, minHeight, name, placement, width, virtualFocus, onKeyDown, onSelect, }: SelectProps) => React.JSX.Element;
 export { Select };

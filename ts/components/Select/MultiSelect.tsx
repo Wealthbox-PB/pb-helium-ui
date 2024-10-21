@@ -17,7 +17,8 @@ interface RenderOpenerProps {
 }
 
 interface MultiSelectProps {
-  initialOptions: any[];
+  /** The initial options for the dropdown list. */
+  initialOptions: { label: string; value: any }[];
   /** The dropdown opener element. Use the destructured "ref", "selectedLabel", and "...props" to spread them
    * onto the opener element for correct functionality. */
   renderOpener: (props: RenderOpenerProps) => JSX.Element;
@@ -274,7 +275,7 @@ const MultiSelect = ({
                             const customValueOption =
                               isCustomValueDisplayed && i === displayOptions.length - 1;
                             return (
-                              <React.Fragment key={option.value}>
+                              <React.Fragment key={JSON.stringify(option.value)}>
                                 {customValueOption ? <DropdownMenuSeparator /> : null}
                                 <SelectMenuButton
                                   label={`${customValueOption ? `Specify: ` : ``}${option.label}`}

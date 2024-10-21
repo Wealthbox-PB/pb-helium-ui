@@ -36,10 +36,10 @@ import { SelectInput } from '../SelectInput';
 import { DropdownMenuSeparator } from '../Dropdown/DropdownMenuSeparator';
 var SearchableSelect = function (_a) {
     var _b;
-    var initialOptions = _a.initialOptions, _c = _a.allowCustomValue, allowCustomValue = _c === void 0 ? false : _c, ariaLabel = _a.ariaLabel, className = _a.className, initialSelectedValue = _a.initialSelectedValue, labelClassName = _a.labelClassName, onSelect = _a.onSelect, _d = _a.placeholder, placeholder = _d === void 0 ? "Select..." : _d, selectId = _a.selectId, selectLabel = _a.selectLabel, props = __rest(_a, ["initialOptions", "allowCustomValue", "ariaLabel", "className", "initialSelectedValue", "labelClassName", "onSelect", "placeholder", "selectId", "selectLabel"]);
-    var _e = useState(""), query = _e[0], setQuery = _e[1];
-    var _f = useState(initialOptions), options = _f[0], setOptions = _f[1];
-    var _g = useState(false), queryExists = _g[0], setQueryExists = _g[1];
+    var initialOptions = _a.initialOptions, _c = _a.allowCustomValue, allowCustomValue = _c === void 0 ? false : _c, ariaLabel = _a.ariaLabel, className = _a.className, initialSelectedValue = _a.initialSelectedValue, labelClassName = _a.labelClassName, onClick = _a.onClick, onKeyDown = _a.onKeyDown, onSelect = _a.onSelect, _d = _a.placeholder, placeholder = _d === void 0 ? "Select..." : _d, selectId = _a.selectId, selectLabel = _a.selectLabel, props = __rest(_a, ["initialOptions", "allowCustomValue", "ariaLabel", "className", "initialSelectedValue", "labelClassName", "onClick", "onKeyDown", "onSelect", "placeholder", "selectId", "selectLabel"]);
+    var _f = useState(""), query = _f[0], setQuery = _f[1];
+    var _g = useState(initialOptions), options = _g[0], setOptions = _g[1];
+    var _h = useState(false), queryExists = _h[0], setQueryExists = _h[1];
     var initialLabel = ((_b = initialOptions.find(function (option) { return option.value === initialSelectedValue; })) === null || _b === void 0 ? void 0 : _b.label) || initialSelectedValue;
     var isCustomValueDisplayed = query && allowCustomValue && !queryExists;
     useEffect(function () {
@@ -58,12 +58,12 @@ var SearchableSelect = function (_a) {
     return (React.createElement(Select, __assign({ renderOpener: function (_a) {
             var ref = _a.ref, selectedLabel = _a.selectedLabel, openerProps = __rest(_a, ["ref", "selectedLabel"]);
             return (React.createElement(SelectInput, __assign({ ref: ref, value: selectedLabel, placeholder: placeholder, label: selectLabel, "aria-label": ariaLabel, id: selectId, className: className, labelClassName: labelClassName }, openerProps)));
-        }, initialSelectedLabel: initialLabel, initialSelectedValue: initialSelectedValue, virtualFocus: true, handleQuery: function (query) { return setQuery(query); }, displayOptions: options }, props),
+        }, initialSelectedLabel: initialLabel, initialSelectedValue: initialSelectedValue, virtualFocus: true, handleQuery: function (query) { return setQuery(query); }, displayOptions: options, onKeyDown: onKeyDown, onSelect: onSelect }, props),
         React.createElement(React.Fragment, null, options.length ? (options.map(function (option, i) {
             var customValueOption = i === options.length - 1 && isCustomValueDisplayed;
-            return (React.createElement(React.Fragment, { key: option.value },
+            return (React.createElement(React.Fragment, { key: JSON.stringify(option.value) },
                 customValueOption && options.length > 1 ? React.createElement(DropdownMenuSeparator, null) : null,
-                React.createElement(SelectMenuButton, { label: "".concat(customValueOption ? "Specify: " : "").concat(option.label), value: option.value, searchableMenu: true, onClick: onSelect, customValue: customValueOption ? true : false })));
+                React.createElement(SelectMenuButton, { label: "".concat(customValueOption ? "Specify: " : "").concat(option.label), value: option.value, searchableMenu: true, onClick: function (_e) { return onClick === null || onClick === void 0 ? void 0 : onClick(option.value); }, customValue: customValueOption ? true : false })));
         })) : (React.createElement("li", { className: "h-dropdown__menu__item h-dropdown__menu__item--empty" }, "No results found.")))));
 };
 export { SearchableSelect };

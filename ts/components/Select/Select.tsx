@@ -40,6 +40,10 @@ interface SelectProps {
   minHeight?: number;
   /** Name for the hidden input. The hidden input requires a name to render */
   name?: string;
+  /** Callback function when the dropdown menu item is selected using the "Enter" key. */
+  onKeyDown?: (value?: any) => void;
+  /** Callback function when the dropdown menu item is clicked or selected using the "Enter" key. */
+  onSelect?: (value?: any) => void;
   /** Controls the placement of the dropdown. */
   placement?: Placement;
   /** Controls the width of the dropdown. "full" width makes the dropdown the same width as the opener
@@ -65,6 +69,8 @@ const Select = ({
   placement = `bottom-end`,
   width = `auto`,
   virtualFocus = false,
+  onKeyDown,
+  onSelect,
 }: SelectProps) => {
   const [selectedLabel, setSelectedLabel] = useState<string | null>(initialSelectedLabel);
   const [selectedValue, setSelectedValue] = useState<string | null>(initialSelectedValue);
@@ -103,8 +109,9 @@ const Select = ({
         setSelectedLabel(labelsRef.current[index]);
         setSelectedValue(value);
       }
+      onSelect?.(value);
     },
-    [closeOnSelect, labelsRef, setOpen],
+    [closeOnSelect, labelsRef, setOpen, onSelect],
   );
 
   const handleSearchableSelect = useCallback(
@@ -114,8 +121,9 @@ const Select = ({
         setSelectedLabel(label);
         setSelectedValue(value);
       }
+      onSelect?.(value);
     },
-    [closeOnSelect, setOpen],
+    [closeOnSelect, setOpen, onSelect],
   );
 
   const selectContext = useMemo(
@@ -181,6 +189,7 @@ const Select = ({
                     handleQuery={handleQuery}
                     options={displayOptions?.length ? displayOptions : []}
                     inputClassName="m-1"
+                    onKeyDown={onKeyDown}
                   />
                 ) : null}
                 <div className="h-overflow-auto">

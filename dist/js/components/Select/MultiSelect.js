@@ -176,7 +176,7 @@ var MultiSelect = function (_a) {
                                         React.createElement(Checkbox, { checked: allSelected, indeterminate: isIndeterminate, onChange: handleSelectAll, label: query ? "Select All Matching" : "Select All", size: "sm", className: classNames("h-dropdown__menu__select-all__btn d-flex py-2"), labelClassName: "ps-1 h-color-text-gray-700" })),
                                     displayOptions.map(function (option, i) {
                                         var customValueOption = isCustomValueDisplayed && i === displayOptions.length - 1;
-                                        return (React.createElement(React.Fragment, { key: option.value },
+                                        return (React.createElement(React.Fragment, { key: JSON.stringify(option.value) },
                                             customValueOption ? React.createElement(DropdownMenuSeparator, null) : null,
                                             React.createElement(SelectMenuButton, { label: "".concat(customValueOption ? "Specify: " : "").concat(option.label), value: option, multiSelect: true, searchableMenu: searchable, customValue: customValueOption ? true : false, buttonClassName: "py-2" })));
                                     }))) : (React.createElement("li", { className: "text-center h-color-text-light py-2" }, "No results found.")))))))))) : null,
