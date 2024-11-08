@@ -225,7 +225,7 @@ const MultiSelect = ({
         <SelectContext.Provider value={selectContext}>
           <Portal
             className={classNames(`h-floating-ui h-floating-ui--dropdowns`, portalProps?.className)}
-            {...portalProps}
+            selector={portalProps?.selector}
           >
             <FloatingFocusManager context={context}>
               <div

@@ -43,7 +43,7 @@ var ModalDialog = function (_a) {
         }
     }, [open]);
     return (React.createElement(React.Fragment, null, open || visible ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
-        React.createElement(Portal, __assign({ className: classNames("h-dialog-portal", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
+        React.createElement(Portal, { className: classNames("h-dialog-portal", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className), selector: portalProps === null || portalProps === void 0 ? void 0 : portalProps.selector },
             React.createElement(CSSTransition, { nodeRef: nodeRef, in: open && visible, appear: animateIn || animateOut, timeout: timeout, enter: animateIn, exit: animateOut, classNames: "h-transition-", onExited: function () { return setVisible(false); } },
                 React.createElement("div", __assign({}, getDialogRootProps(), { ref: nodeRef, "data-testid": "h-dialog-wrapper" }),
                     React.createElement("div", __assign({}, getDialogContainerProps()),

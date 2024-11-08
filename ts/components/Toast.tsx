@@ -80,7 +80,10 @@ const Toast = ({
         <DialogContext.Provider
           value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog: closeToast }}
         >
-          <Portal className={classNames(`h-dialog-portal`, portalProps?.className)} {...portalProps}>
+          <Portal
+            className={classNames(`h-dialog-portal`, portalProps?.className)}
+            selector={portalProps?.selector}
+          >
             <CSSTransition
               nodeRef={nodeRef}
               in={open && visible}

@@ -149,7 +149,7 @@ var MultiSelect = function (_a) {
             tabIndex: 0,
         }))),
         open ? (React.createElement(SelectContext.Provider, { value: selectContext },
-            React.createElement(Portal, __assign({ className: classNames("h-floating-ui h-floating-ui--dropdowns", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
+            React.createElement(Portal, { className: classNames("h-floating-ui h-floating-ui--dropdowns", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className), selector: portalProps === null || portalProps === void 0 ? void 0 : portalProps.selector },
                 React.createElement(FloatingFocusManager, { context: context },
                     React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown h-overflow-auto", {
                             'p-0 d-flex flex-column': searchable,
