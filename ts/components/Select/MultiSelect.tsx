@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { FloatingFocusManager, FloatingList } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import { SelectContext } from './SelectContext';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 import { useSelect } from '../../hooks/useSelect';
 import { SelectMenuButton } from './SelectMenuButton';
 import { SearchableSelectInput } from './SearchableSelectInput';
@@ -39,6 +39,8 @@ interface MultiSelectProps {
   name?: string;
   /** Controls the placement of the dropdown. */
   placement?: Placement;
+  /** Props passed into the Portal element. */
+  portalProps?: Omit<PortalProps, `children`>;
   /** Controls whether the dropdown is searchable. */
   searchable?: boolean;
   /** Controls the width of the dropdown. "full" width makes the dropdown the same width as the opener
@@ -57,6 +59,7 @@ const MultiSelect = ({
   minHeight,
   name,
   placement = `bottom-end`,
+  portalProps,
   searchable = false,
   width = `auto`,
 }: MultiSelectProps) => {
@@ -220,7 +223,10 @@ const MultiSelect = ({
       })}
       {open ? (
         <SelectContext.Provider value={selectContext}>
-          <Portal className="h-floating-ui h-floating-ui--dropdowns">
+          <Portal
+            className={classNames(`h-floating-ui h-floating-ui--dropdowns`, portalProps?.className)}
+            {...portalProps}
+          >
             <FloatingFocusManager context={context}>
               <div
                 ref={setFloating}

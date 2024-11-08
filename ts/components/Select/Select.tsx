@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { FloatingFocusManager, FloatingList } from '@floating-ui/react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
 import { SelectContext } from './SelectContext';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 import { useSelect } from '../../hooks/useSelect';
 import classNames from 'classnames';
 import { SearchableSelectInput } from './SearchableSelectInput';
@@ -46,6 +46,8 @@ interface SelectProps {
   onSelect?: (value?: any) => void;
   /** Controls the placement of the dropdown. */
   placement?: Placement;
+  /** Props passed into the Portal element. */
+  portalProps?: Omit<PortalProps, `children`>;
   /** Controls the width of the dropdown. "full" width makes the dropdown the same width as the opener
    * element. */
   width?: `auto` | `full` | number;
@@ -67,6 +69,7 @@ const Select = ({
   minHeight,
   name,
   placement = `bottom-end`,
+  portalProps,
   width = `auto`,
   virtualFocus = false,
   onKeyDown,
@@ -161,7 +164,10 @@ const Select = ({
       })}
       {open ? (
         <SelectContext.Provider value={selectContext}>
-          <Portal className="h-floating-ui h-floating-ui--dropdowns">
+          <Portal
+            className={classNames(`h-floating-ui h-floating-ui--dropdowns`, portalProps?.className)}
+            {...portalProps}
+          >
             <FloatingFocusManager context={context}>
               <div
                 ref={setFloating}
