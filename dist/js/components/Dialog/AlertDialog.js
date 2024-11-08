@@ -15,8 +15,9 @@ import { DialogBackdrop } from './DialogBackdrop';
 import { useDialog } from '../../hooks/useDialog';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
+import classNames from 'classnames';
 export var AlertDialog = function (_a) {
-    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, id = _a.id, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, wrapperClassName = _a.wrapperClassName;
+    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, id = _a.id, leastDestructiveRef = _a.leastDestructiveRef, open = _a.open, portalProps = _a.portalProps, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, wrapperClassName = _a.wrapperClassName;
     var timeout = 250;
     var nodeRef = useRef(null);
     var _d = useState(false), visible = _d[0], setVisible = _d[1];
@@ -52,7 +53,7 @@ export var AlertDialog = function (_a) {
         }
     }, [open]);
     return (React.createElement(React.Fragment, null, open || visible ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
-        React.createElement(Portal, { className: "h-dialog-portal" },
+        React.createElement(Portal, __assign({ className: classNames("h-dialog-portal", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
             React.createElement(CSSTransition, { nodeRef: nodeRef, in: open && visible, appear: animateIn || animateOut, timeout: timeout, enter: animateIn, exit: animateOut, classNames: "h-transition-", onExited: function () { return setVisible(false); } },
                 React.createElement("div", __assign({}, getDialogRootProps(), { ref: nodeRef, "data-testid": "h-dialog-wrapper" }),
                     React.createElement("div", __assign({}, getDialogContainerProps()),

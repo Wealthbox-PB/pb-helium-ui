@@ -14,8 +14,9 @@ import { useDialog } from '../hooks/useDialog';
 import { Portal } from './Portal';
 import { DialogContext } from './Dialog/DialogContext';
 import { CSSTransition } from 'react-transition-group';
+import classNames from 'classnames';
 var Toast = function (_a) {
-    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, children = _a.children, closeToast = _a.closeToast, className = _a.className, _d = _a.delay, delay = _d === void 0 ? 0 : _d, id = _a.id, open = _a.open, size = _a.size, wrapperClassName = _a.wrapperClassName;
+    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, children = _a.children, closeToast = _a.closeToast, className = _a.className, _d = _a.delay, delay = _d === void 0 ? 0 : _d, id = _a.id, open = _a.open, portalProps = _a.portalProps, size = _a.size, wrapperClassName = _a.wrapperClassName;
     var timeout = 250;
     var nodeRef = useRef(null);
     var _e = useState(false), visible = _e[0], setVisible = _e[1];
@@ -47,7 +48,7 @@ var Toast = function (_a) {
         return function () { return clearTimeout(timeoutId); };
     }, [delay, open]);
     return (React.createElement(React.Fragment, null, !delayed && visible ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeToast } },
-        React.createElement(Portal, { className: "h-dialog-portal" },
+        React.createElement(Portal, __assign({ className: classNames("h-dialog-portal", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
             React.createElement(CSSTransition, { nodeRef: nodeRef, in: open && visible, appear: animateIn || animateOut, timeout: timeout, enter: animateIn, exit: animateOut, classNames: "h-transition-", onExited: function () { return setVisible(false); } },
                 React.createElement("div", __assign({}, getDialogRootProps(), { ref: nodeRef }),
                     React.createElement("div", __assign({}, getDialogContainerProps()),
