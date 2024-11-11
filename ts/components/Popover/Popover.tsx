@@ -170,7 +170,7 @@ const Popover = ({
       {isMounted ? (
         <Portal
           className={classNames(`h-floating-ui h-floating-ui--popovers`, portalProps?.className)}
-          {...portalProps}
+          selector={portalProps?.selector}
         >
           <div
             ref={setFloating}

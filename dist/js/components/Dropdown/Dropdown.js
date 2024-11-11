@@ -103,7 +103,7 @@ var Dropdown = function (_a, ref) {
             tabIndex: 0,
         }))),
         open ? (React.createElement(DropdownContext.Provider, { value: dropdownContext },
-            React.createElement(Portal, __assign({ className: classNames("h-floating-ui h-floating-ui--dropdowns", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
+            React.createElement(Portal, { className: classNames("h-floating-ui h-floating-ui--dropdowns", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className), selector: portalProps === null || portalProps === void 0 ? void 0 : portalProps.selector },
                 React.createElement(FloatingFocusManager, { context: context, initialFocus: initialFocusEl, returnFocus: returnFocus },
                     React.createElement("div", __assign({ ref: mergedDropdownRefs, className: classNames("h-dropdown h-overflow-auto", className), style: {
                             position: strategy,

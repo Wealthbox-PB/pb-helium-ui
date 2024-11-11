@@ -51,7 +51,7 @@ export var Tooltip = function (_a) {
     var _p = useTransitionStyles(context), isMounted = _p.isMounted, styles = _p.styles;
     return (React.createElement(React.Fragment, null,
         cloneElement(children, getReferenceProps(__assign({ ref: setReference }, children.props))),
-        isMounted ? (React.createElement(Portal, __assign({ className: classNames("h-floating-ui h-floating-ui--tooltips", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
+        isMounted ? (React.createElement(Portal, { className: classNames("h-floating-ui h-floating-ui--tooltips", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className), selector: portalProps === null || portalProps === void 0 ? void 0 : portalProps.selector },
             React.createElement("div", __assign({}, getFloatingProps({
                 ref: setFloating,
                 className: classNames("h-tooltip", (_b = {}, _b["h-tooltip--".concat(width)] = width, _b)),

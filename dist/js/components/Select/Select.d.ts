@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
+import { PortalProps } from '../Portal';
 interface RenderOpenerProps {
     ref: (node: ReferenceType | null) => void;
     selectedLabel: string | null;
@@ -38,11 +39,13 @@ interface SelectProps {
     onSelect?: (value?: any) => void;
     /** Controls the placement of the dropdown. */
     placement?: Placement;
+    /** Props passed into the Portal element. */
+    portalProps?: Omit<PortalProps, `children`>;
     /** Controls the width of the dropdown. "full" width makes the dropdown the same width as the opener
      * element. */
     width?: `auto` | `full` | number;
     /** Controls weather the focus will remain on the render opener, but allow arrow keys to navigate list. */
     virtualFocus?: boolean;
 }
-declare const Select: ({ children, renderOpener, closeOnSelect, displayOptions, flip, handleQuery, height, initialSelectedLabel, initialSelectedValue, maxHeight, minHeight, name, placement, width, virtualFocus, onKeyDown, onSelect, }: SelectProps) => React.JSX.Element;
+declare const Select: ({ children, renderOpener, closeOnSelect, displayOptions, flip, handleQuery, height, initialSelectedLabel, initialSelectedValue, maxHeight, minHeight, name, placement, portalProps, width, virtualFocus, onKeyDown, onSelect, }: SelectProps) => React.JSX.Element;
 export { Select };

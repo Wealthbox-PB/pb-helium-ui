@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Placement, ReferenceType } from '@floating-ui/react';
+import { PortalProps } from '../Portal';
 interface RenderOpenerProps {
     ref: (node: ReferenceType | null) => void;
     selectedLabels: string[] | null;
@@ -30,11 +31,13 @@ interface MultiSelectProps {
     name?: string;
     /** Controls the placement of the dropdown. */
     placement?: Placement;
+    /** Props passed into the Portal element. */
+    portalProps?: Omit<PortalProps, `children`>;
     /** Controls whether the dropdown is searchable. */
     searchable?: boolean;
     /** Controls the width of the dropdown. "full" width makes the dropdown the same width as the opener
      * element. */
     width?: `auto` | `full` | number;
 }
-declare const MultiSelect: ({ initialOptions, renderOpener, allowCustomValue, flip, height, initialSelectedValue, maxHeight, minHeight, name, placement, searchable, width, }: MultiSelectProps) => React.JSX.Element;
+declare const MultiSelect: ({ initialOptions, renderOpener, allowCustomValue, flip, height, initialSelectedValue, maxHeight, minHeight, name, placement, portalProps, searchable, width, }: MultiSelectProps) => React.JSX.Element;
 export { MultiSelect };

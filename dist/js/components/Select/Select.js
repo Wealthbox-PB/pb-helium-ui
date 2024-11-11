@@ -17,7 +17,7 @@ import { useSelect } from '../../hooks/useSelect';
 import classNames from 'classnames';
 import { SearchableSelectInput } from './SearchableSelectInput';
 var Select = function (_a) {
-    var children = _a.children, renderOpener = _a.renderOpener, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, displayOptions = _a.displayOptions, _c = _a.flip, flip = _c === void 0 ? true : _c, handleQuery = _a.handleQuery, _d = _a.height, height = _d === void 0 ? "auto" : _d, _e = _a.initialSelectedLabel, initialSelectedLabel = _e === void 0 ? null : _e, _f = _a.initialSelectedValue, initialSelectedValue = _f === void 0 ? null : _f, maxHeight = _a.maxHeight, minHeight = _a.minHeight, name = _a.name, _g = _a.placement, placement = _g === void 0 ? "bottom-end" : _g, _h = _a.width, width = _h === void 0 ? "auto" : _h, _j = _a.virtualFocus, virtualFocus = _j === void 0 ? false : _j, onKeyDown = _a.onKeyDown, onSelect = _a.onSelect;
+    var children = _a.children, renderOpener = _a.renderOpener, _b = _a.closeOnSelect, closeOnSelect = _b === void 0 ? true : _b, displayOptions = _a.displayOptions, _c = _a.flip, flip = _c === void 0 ? true : _c, handleQuery = _a.handleQuery, _d = _a.height, height = _d === void 0 ? "auto" : _d, _e = _a.initialSelectedLabel, initialSelectedLabel = _e === void 0 ? null : _e, _f = _a.initialSelectedValue, initialSelectedValue = _f === void 0 ? null : _f, maxHeight = _a.maxHeight, minHeight = _a.minHeight, name = _a.name, _g = _a.placement, placement = _g === void 0 ? "bottom-end" : _g, portalProps = _a.portalProps, _h = _a.width, width = _h === void 0 ? "auto" : _h, _j = _a.virtualFocus, virtualFocus = _j === void 0 ? false : _j, onKeyDown = _a.onKeyDown, onSelect = _a.onSelect;
     var _k = useState(initialSelectedLabel), selectedLabel = _k[0], setSelectedLabel = _k[1];
     var _l = useState(initialSelectedValue), selectedValue = _l[0], setSelectedValue = _l[1];
     var _m = useSelect({
@@ -71,7 +71,7 @@ var Select = function (_a) {
             tabIndex: 0,
         }))),
         open ? (React.createElement(SelectContext.Provider, { value: selectContext },
-            React.createElement(Portal, { className: "h-floating-ui h-floating-ui--dropdowns" },
+            React.createElement(Portal, { className: classNames("h-floating-ui h-floating-ui--dropdowns", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className), selector: portalProps === null || portalProps === void 0 ? void 0 : portalProps.selector },
                 React.createElement(FloatingFocusManager, { context: context },
                     React.createElement("div", __assign({ ref: setFloating, className: classNames("h-dropdown h-overflow-auto", {
                             'p-0 d-flex flex-column': handleQuery,
