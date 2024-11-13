@@ -15,7 +15,7 @@ import { DialogBody } from './DialogBody';
 import { DialogFooter } from './DialogFooter';
 import { ModalDialog } from './ModalDialog';
 var SimpleModalDialog = function (_a) {
-    var _b = _a.backdrop, backdrop = _b === void 0 ? true : _b, backdropClassName = _a.backdropClassName, bodyClassName = _a.bodyClassName, children = _a.children, closeDialog = _a.closeDialog, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, dialogClassName = _a.dialogClassName, footer = _a.footer, _d = _a.footerBackground, footerBackground = _d === void 0 ? true : _d, footerClassName = _a.footerClassName, header = _a.header, headerClassName = _a.headerClassName, id = _a.id, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _e = _a.trapPaused, trapPaused = _e === void 0 ? false : _e, wrapperClassName = _a.wrapperClassName;
+    var _b = _a.backdrop, backdrop = _b === void 0 ? true : _b, backdropClassName = _a.backdropClassName, bodyClassName = _a.bodyClassName, children = _a.children, closeDialog = _a.closeDialog, _c = _a.closeInHeader, closeInHeader = _c === void 0 ? true : _c, dialogClassName = _a.dialogClassName, footer = _a.footer, _d = _a.footerBackground, footerBackground = _d === void 0 ? true : _d, footerClassName = _a.footerClassName, header = _a.header, headerClassName = _a.headerClassName, id = _a.id, initialFocusEl = _a.initialFocusEl, open = _a.open, portalProps = _a.portalProps, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _e = _a.trapPaused, trapPaused = _e === void 0 ? false : _e, wrapperClassName = _a.wrapperClassName;
     return (React.createElement(ModalDialog, __assign({}, {
         animationDirection: "up",
         backdrop: backdrop,
@@ -25,6 +25,7 @@ var SimpleModalDialog = function (_a) {
         id: id,
         initialFocusEl: initialFocusEl,
         open: open,
+        portalProps: portalProps,
         position: position,
         returnFocusEl: returnFocusEl,
         size: size,

@@ -16,5 +16,5 @@ interface SimpleModalDialogProps extends ModalDialogProps {
     /** Adds class names to the dialog footer element. */
     footerClassName?: string;
 }
-declare const SimpleModalDialog: ({ backdrop, backdropClassName, bodyClassName, children, closeDialog, closeInHeader, dialogClassName, footer, footerBackground, footerClassName, header, headerClassName, id, initialFocusEl, open, position, returnFocusEl, size, trapPaused, wrapperClassName, }: SimpleModalDialogProps) => React.JSX.Element;
+declare const SimpleModalDialog: ({ backdrop, backdropClassName, bodyClassName, children, closeDialog, closeInHeader, dialogClassName, footer, footerBackground, footerClassName, header, headerClassName, id, initialFocusEl, open, portalProps, position, returnFocusEl, size, trapPaused, wrapperClassName, }: SimpleModalDialogProps) => React.JSX.Element;
 export { SimpleModalDialog };

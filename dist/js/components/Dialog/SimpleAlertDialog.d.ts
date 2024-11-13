@@ -23,5 +23,5 @@ interface SimpleAlertDialogProps extends AlertDialogProps {
     /** Callback function when the confirm button is clicked. */
     onConfirm?: () => void;
 }
-export declare const SimpleAlertDialog: ({ backdropClassName, buttonSize, cancel, cancelVariant, children, confirm, confirmVariant, closeInHeader, closeDialog, dialogClassName, header, headerClassName, id, onCancel, onConfirm, open, position, returnFocusEl, size, wrapperClassName, }: SimpleAlertDialogProps) => React.JSX.Element;
+export declare const SimpleAlertDialog: ({ backdropClassName, buttonSize, cancel, cancelVariant, children, confirm, confirmVariant, closeInHeader, closeDialog, dialogClassName, header, headerClassName, id, onCancel, onConfirm, open, portalProps, position, returnFocusEl, size, wrapperClassName, }: SimpleAlertDialogProps) => React.JSX.Element;
 export {};
