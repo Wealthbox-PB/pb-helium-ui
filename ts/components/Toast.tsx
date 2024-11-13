@@ -1,22 +1,25 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDialog, DialogProps } from '../hooks/useDialog';
-import { Portal } from './Portal';
+import { Portal, PortalProps } from './Portal';
 import { DialogContext } from './Dialog/DialogContext';
 import { CSSTransition } from 'react-transition-group';
+import classNames from 'classnames';
 
 interface ToastProps extends DialogProps {
   /** Content for the toast. */
   children: string | JSX.Element[] | JSX.Element;
   /** Callback function when the toast is closed. */
   closeToast: () => void;
-  /** Adds class names to the toast element. */
-  className?: string;
-  /** Number of milliseconds to delay entry of the toast element. */
-  delay?: number;
   /** Controls whether the toast animates in. */
   animateIn?: boolean;
   /** Controls whether the toast animates out. */
   animateOut?: boolean;
+  /** Adds class names to the toast element. */
+  className?: string;
+  /** Number of milliseconds to delay entry of the toast element. */
+  delay?: number;
+  /** Props passed into the Portal element. */
+  portalProps?: Omit<PortalProps, `children`>;
 }
 
 const Toast = ({
@@ -28,6 +31,7 @@ const Toast = ({
   delay = 0,
   id,
   open,
+  portalProps,
   size,
   wrapperClassName,
 }: ToastProps) => {
@@ -76,7 +80,10 @@ const Toast = ({
         <DialogContext.Provider
           value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog: closeToast }}
         >
-          <Portal className="h-dialog-portal">
+          <Portal
+            className={classNames(`h-dialog-portal`, portalProps?.className)}
+            selector={portalProps?.selector}
+          >
             <CSSTransition
               nodeRef={nodeRef}
               in={open && visible}

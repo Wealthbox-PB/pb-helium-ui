@@ -445,6 +445,15 @@
           "required": false,
           "tsType": { "name": "any" },
           "description": "Element to focus when the dialog is opened."
+        },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
         }
       }
     }
@@ -881,6 +890,15 @@
           "required": false,
           "tsType": { "name": "string" },
           "description": "Adds class names to the backdrop element."
+        },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
         }
       }
     }
@@ -1055,6 +1073,15 @@
           "required": false,
           "tsType": { "name": "any" },
           "description": "Element to focus when the dialog is opened."
+        },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
         },
         "buttonSize": {
           "required": false,
@@ -1339,6 +1366,15 @@
           "required": false,
           "tsType": { "name": "string" },
           "description": "Adds class names to the backdrop element."
+        },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
         },
         "bodyClassName": {
           "required": false,
@@ -3654,6 +3690,15 @@
           "tsType": { "name": "Placement" },
           "description": "Controls the placement of the dropdown."
         },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
+        },
         "searchable": {
           "required": false,
           "tsType": { "name": "boolean" },
@@ -3979,6 +4024,15 @@
           "required": false,
           "tsType": { "name": "Placement" },
           "description": "Controls the placement of the dropdown."
+        },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
         },
         "width": {
           "required": false,
@@ -5108,17 +5162,6 @@
           },
           "description": "Callback function when the toast is closed."
         },
-        "className": {
-          "required": false,
-          "tsType": { "name": "string" },
-          "description": "Adds class names to the toast element."
-        },
-        "delay": {
-          "required": false,
-          "tsType": { "name": "number" },
-          "description": "Number of milliseconds to delay entry of the toast element.",
-          "defaultValue": { "value": "0", "computed": false }
-        },
         "animateIn": {
           "required": false,
           "tsType": { "name": "boolean" },
@@ -5130,6 +5173,26 @@
           "tsType": { "name": "boolean" },
           "description": "Controls whether the toast animates out.",
           "defaultValue": { "value": "true", "computed": false }
+        },
+        "className": {
+          "required": false,
+          "tsType": { "name": "string" },
+          "description": "Adds class names to the toast element."
+        },
+        "delay": {
+          "required": false,
+          "tsType": { "name": "number" },
+          "description": "Number of milliseconds to delay entry of the toast element.",
+          "defaultValue": { "value": "0", "computed": false }
+        },
+        "portalProps": {
+          "required": false,
+          "tsType": {
+            "name": "Omit",
+            "elements": [{ "name": "PortalProps" }, { "name": "literal", "value": "`children`" }],
+            "raw": "Omit<PortalProps, `children`>"
+          },
+          "description": "Props passed into the Portal element."
         }
       }
     }

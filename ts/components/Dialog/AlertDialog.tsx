@@ -1,9 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogProps, useDialog } from '../../hooks/useDialog';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
+import classNames from 'classnames';
 
 export interface AlertDialogProps extends DialogProps {
   /** Content for the dialog. */
@@ -16,6 +17,8 @@ export interface AlertDialogProps extends DialogProps {
   backdropClassName?: string;
   /** Element to focus when the dialog is opened. */
   leastDestructiveRef?: any;
+  /** Props passed into the Portal element. */
+  portalProps?: Omit<PortalProps, `children`>;
 }
 
 export const AlertDialog = ({
@@ -28,6 +31,7 @@ export const AlertDialog = ({
   id,
   leastDestructiveRef,
   open,
+  portalProps,
   position,
   returnFocusEl,
   size,
@@ -79,7 +83,10 @@ export const AlertDialog = ({
     <>
       {open || visible ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
-          <Portal className="h-dialog-portal">
+          <Portal
+            className={classNames(`h-dialog-portal`, portalProps?.className)}
+            selector={portalProps?.selector}
+          >
             <CSSTransition
               nodeRef={nodeRef}
               in={open && visible}

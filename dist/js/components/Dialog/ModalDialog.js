@@ -17,7 +17,7 @@ import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 var ModalDialog = function (_a) {
-    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, _d = _a.animationDirection, animationDirection = _d === void 0 ? "up" : _d, _e = _a.animationDistance, animationDistance = _e === void 0 ? "md" : _e, _f = _a.backdrop, backdrop = _f === void 0 ? true : _f, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, id = _a.id, initialFocusEl = _a.initialFocusEl, open = _a.open, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _g = _a.trapPaused, trapPaused = _g === void 0 ? false : _g, wrapperClassName = _a.wrapperClassName;
+    var _b = _a.animateIn, animateIn = _b === void 0 ? true : _b, _c = _a.animateOut, animateOut = _c === void 0 ? true : _c, _d = _a.animationDirection, animationDirection = _d === void 0 ? "up" : _d, _e = _a.animationDistance, animationDistance = _e === void 0 ? "md" : _e, _f = _a.backdrop, backdrop = _f === void 0 ? true : _f, backdropClassName = _a.backdropClassName, children = _a.children, closeDialog = _a.closeDialog, dialogClassName = _a.dialogClassName, id = _a.id, initialFocusEl = _a.initialFocusEl, open = _a.open, portalProps = _a.portalProps, position = _a.position, returnFocusEl = _a.returnFocusEl, size = _a.size, _g = _a.trapPaused, trapPaused = _g === void 0 ? false : _g, wrapperClassName = _a.wrapperClassName;
     var timeout = 250;
     var nodeRef = useRef(null);
     var _h = useState(false), visible = _h[0], setVisible = _h[1];
@@ -43,7 +43,7 @@ var ModalDialog = function (_a) {
         }
     }, [open]);
     return (React.createElement(React.Fragment, null, open || visible ? (React.createElement(DialogContext.Provider, { value: { ariaLabelSelector: ariaLabelSelector, ariaDescriptionSelector: ariaDescriptionSelector, closeDialog: closeDialog } },
-        React.createElement(Portal, { className: "h-dialog-portal" },
+        React.createElement(Portal, { className: classNames("h-dialog-portal", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className), selector: portalProps === null || portalProps === void 0 ? void 0 : portalProps.selector },
             React.createElement(CSSTransition, { nodeRef: nodeRef, in: open && visible, appear: animateIn || animateOut, timeout: timeout, enter: animateIn, exit: animateOut, classNames: "h-transition-", onExited: function () { return setVisible(false); } },
                 React.createElement("div", __assign({}, getDialogRootProps(), { ref: nodeRef, "data-testid": "h-dialog-wrapper" }),
                     React.createElement("div", __assign({}, getDialogContainerProps()),

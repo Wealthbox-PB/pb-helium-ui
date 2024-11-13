@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDialog, DialogProps } from '../../hooks/useDialog';
-import { Portal } from '../Portal';
+import { Portal, PortalProps } from '../Portal';
 import { DialogBackdrop } from './DialogBackdrop';
 import { DialogContext } from './DialogContext';
 import { CSSTransition } from 'react-transition-group';
@@ -15,6 +15,8 @@ export interface ModalDialogProps extends DialogProps {
   animateOut?: boolean;
   /** Adds class names to the backdrop element. */
   backdropClassName?: string;
+  /** Props passed into the Portal element. */
+  portalProps?: Omit<PortalProps, `children`>;
 }
 
 const ModalDialog = ({
@@ -30,6 +32,7 @@ const ModalDialog = ({
   id,
   initialFocusEl,
   open,
+  portalProps,
   position,
   returnFocusEl,
   size,
@@ -72,7 +75,10 @@ const ModalDialog = ({
     <>
       {open || visible ? (
         <DialogContext.Provider value={{ ariaLabelSelector, ariaDescriptionSelector, closeDialog }}>
-          <Portal className="h-dialog-portal">
+          <Portal
+            className={classNames(`h-dialog-portal`, portalProps?.className)}
+            selector={portalProps?.selector}
+          >
             <CSSTransition
               nodeRef={nodeRef}
               in={open && visible}

@@ -79,7 +79,7 @@ var Popover = function (_a) {
             open: internalOpenState,
             tabIndex: 0,
         }))),
-        isMounted ? (React.createElement(Portal, __assign({ className: classNames("h-floating-ui h-floating-ui--popovers", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className) }, portalProps),
+        isMounted ? (React.createElement(Portal, { className: classNames("h-floating-ui h-floating-ui--popovers", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className), selector: portalProps === null || portalProps === void 0 ? void 0 : portalProps.selector },
             React.createElement("div", __assign({ ref: setFloating, className: classNames("h-popover", (_b = {}, _b["h-popover--".concat(size)] = size, _b), (_c = {}, _c["h-popover--".concat(theme)] = theme, _c), className), style: __assign({ position: strategy, top: y !== null && y !== void 0 ? y : 0, left: x !== null && x !== void 0 ? x : 0 }, styles), role: "menu" }, getFloatingProps()),
                 React.createElement("div", { className: classNames("h-popover__body", bodyClassName) },
                     React.createElement("div", { className: "h-popover__body__content" }, children),

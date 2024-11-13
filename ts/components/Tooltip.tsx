@@ -104,7 +104,7 @@ export const Tooltip = ({
       {isMounted ? (
         <Portal
           className={classNames(`h-floating-ui h-floating-ui--tooltips`, portalProps?.className)}
-          {...portalProps}
+          selector={portalProps?.selector}
         >
           <div
             {...getFloatingProps({

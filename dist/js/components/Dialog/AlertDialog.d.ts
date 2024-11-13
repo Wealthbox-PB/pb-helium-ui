@@ -1,4 +1,5 @@
 import React from 'react';
+import { PortalProps } from '../Portal';
 import { DialogProps } from '../../hooks/useDialog';
 export interface AlertDialogProps extends DialogProps {
     /** Content for the dialog. */
@@ -11,5 +12,7 @@ export interface AlertDialogProps extends DialogProps {
     backdropClassName?: string;
     /** Element to focus when the dialog is opened. */
     leastDestructiveRef?: any;
+    /** Props passed into the Portal element. */
+    portalProps?: Omit<PortalProps, `children`>;
 }
-export declare const AlertDialog: ({ animateIn, animateOut, backdropClassName, children, closeDialog, dialogClassName, id, leastDestructiveRef, open, position, returnFocusEl, size, wrapperClassName, }: AlertDialogProps) => React.JSX.Element;
+export declare const AlertDialog: ({ animateIn, animateOut, backdropClassName, children, closeDialog, dialogClassName, id, leastDestructiveRef, open, portalProps, position, returnFocusEl, size, wrapperClassName, }: AlertDialogProps) => React.JSX.Element;
