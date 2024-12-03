@@ -46,6 +46,12 @@ This setup will get us a livereload `crm-web` environment that listens for chang
 
   - Make sure you have the `$HELIUM_PATH` variable defined — for help, see the "Initial Setup" section above.
 
+##### Automatic Setup
+
+- `cd` into `[PATH_TO_CRM_WEB]` and run `bin/docker/helium_link.sh`
+
+##### Manual Setup
+
 - `cd` into `[PATH_TO_CRM_WEB]` and run `bin/docker/ds_start.sh`.
 
 - now run `bin/docker/interactive.sh`
