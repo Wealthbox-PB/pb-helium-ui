@@ -46,6 +46,40 @@ This setup will get us a livereload `crm-web` environment that listens for chang
 
   - Make sure you have the `$HELIUM_PATH` variable defined — for help, see the "Initial Setup" section above.
 
+##### Automatic Setup
+
+Open two terminal windows, one for the `helium-ui` repo and one for the `crm-web` repo. Make sure to not have any `crm-web` servers running while doing the following steps.
+
+1. In the first terminal, run the following commands (Helium UI directory):
+
+    ```bash
+    # launch the file sync process for the `helium-ui` repo
+    bin/docker/ds_start.sh
+
+    # watch for changes in the `helium-ui` repo and rebuild the code
+    yarn watch
+    ```
+
+2. In the second terminal, run the following commands (crm-web directory):
+
+    ```bash
+    # Runs the linking process for the `helium-ui` repo within the interactive Docker shell
+    # Updates your tsconfig.json to point to the local `helium-ui` repo that you provided using the HELIUM_PATH environment variable
+    bin/docker/helium_link.sh
+
+    # After linking you may start up your local `crm-web` servers
+    ```
+
+3. In the second terminal, run the following commands when you are done developing with the local `helium-ui` package (crm-web directory):
+
+    ```bash
+    # Runs the unlinking process for the `helium-ui` repo within the interactive Docker shell
+    # Resets your tsconfig.json
+    bin/docker/helium_unlink.sh
+    ```
+
+##### Manual Setup
+
 - `cd` into `[PATH_TO_CRM_WEB]` and run `bin/docker/ds_start.sh`.
 
 - now run `bin/docker/interactive.sh`
