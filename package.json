@@ -24,7 +24,7 @@
     "test": "NODE_ENV=test jest --verbose",
     "build": "yarn build:docs && rm -rf ./dist && NODE_ENV=production tsc --project tsconfig.build.json",
     "build:docs": "yarn docs:clean && yarn docs:generate && yarn docs:prettify",
-    "watch": "tsc --watch",
+    "watch": "tsc --project tsconfig.watch.json",
     "prettier:check": "prettier --check 'ts/**/*.{ts,js,tsx}' 'spec/**/*.{ts,js,tsx}'",
     "prettier:fix": "prettier --write 'ts/**/*.{ts,js,tsx}' 'spec/**/*.{ts,js,tsx}'",
     "eslint:check": "eslint --no-eslintrc -c .eslintrc.js 'ts/**/*.{ts,js,tsx}' 'spec/**/*.{ts,js,tsx}'",
