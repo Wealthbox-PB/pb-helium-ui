@@ -16,7 +16,7 @@
       "*": ["node_modules/*", "ts/*"]
     },
     "sourceMap": true,
-    "target": "es5"
-    // "types": ["enzyme", "jest", "react", "react-dom", "react-test-renderer"]
+    "target": "es5",
+    "types": ["enzyme", "jest", "react", "react-dom", "react-test-renderer"]
   }
 }
