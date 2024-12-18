@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
+    /*Strictness*/
     "noUnusedLocals": true,
+    "noImplicitReturns": true,
     "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
     "strictNullChecks": true,
+
     "jsx": "react",
     "lib": ["dom", "esnext"],
-    "module": "esnext",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "*": ["node_modules/*", "ts/*"]

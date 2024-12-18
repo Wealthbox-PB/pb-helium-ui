@@ -1,11 +1,18 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
+    /*Transpilation*/
+    "module": "esnext",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
     "rootDir": "./ts",
     "outDir": "./dist/js",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+
+    /*Library specific*/
+    "declaration": true
   },
   "exclude": ["dist", "**/*.d.ts", "node_modules", "spec", "fonts"],
   "compileOnSave": false
