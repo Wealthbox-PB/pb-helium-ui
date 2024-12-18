@@ -6,42 +6,17 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
-    "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "jsx": "react",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "module": "esnext",
-    "outDir": "./dist/js",
-    "rootDir": "./ts",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "*": [
-        "node_modules/*",
-        "ts/*"
-      ]
+      "*": ["node_modules/*", "ts/*"]
     },
     "sourceMap": true,
-    "target": "es5",
-    "types": [
-      "enzyme",
-      "jest",
-      "react",
-      "react-dom",
-      "react-test-renderer",
-    ]
-  },
-  "exclude": [
-    "dist",
-    "**/*.d.ts",
-    "node_modules",
-    "spec",
-    "fonts"
-  ],
-  "compileOnSave": false
+    "target": "es5"
+    // "types": ["enzyme", "jest", "react", "react-dom", "react-test-renderer"]
+  }
 }

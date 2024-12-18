@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "rootDir": "./ts",
+    "outDir": "./dist/js",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "exclude": ["dist", "**/*.d.ts", "node_modules", "spec", "fonts"],
+  "compileOnSave": false
+}
