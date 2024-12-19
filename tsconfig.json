@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    /*Strictness*/
     "noUnusedLocals": true,
     "noImplicitReturns": true,
     "noUnusedParameters": true,
