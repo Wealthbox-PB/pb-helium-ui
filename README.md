@@ -31,7 +31,7 @@ Start the local development server with `yarn storybook`. This will start a loca
 - Import the component you want to build in the story.
 - Use the UI to build the component and test it in real-time.
 
-## Local Development with `crm-web` using Docker
+## Integrating with `crm-web` using Docker
 
 This setup will get us a livereload `crm-web` environment that listens for changes in your local `helium-ui` repo as if it was a part of `crm-web`.
 
