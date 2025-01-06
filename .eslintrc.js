@@ -44,9 +44,10 @@ module.exports = {
     curly: `error`,
     quotes: [
       `error`,
-      `backtick`,
+      `single`,
       {
         avoidEscape: true,
+        allowTemplateLiterals: true,
       },
     ],
     'max-depth': [`error`, 4],
@@ -87,6 +88,16 @@ module.exports = {
       rules: {
         'max-lines': `off`,
         'max-lines-per-function': `off`,
+      },
+    },
+    {
+      files: [`*.story.tsx`],
+      rules: {
+        'import/no-default-export': `off`,
+        'max-len': `off`,
+        'no-console': `off`,
+        'no-unused-vars': `off`,
+        'react/no-children-prop': `off`,
       },
     },
   ],
