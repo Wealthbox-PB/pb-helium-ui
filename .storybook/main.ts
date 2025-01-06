@@ -21,40 +21,41 @@ const config: StorybookConfig = {
     autodocs: true,
   },
   viteFinal: async (config) => {
-    config.plugins = [...(config.plugins || []), markdown({ mode: [Mode.HTML, Mode.TOC, Mode.REACT] })];
+    const PUBLIC_DIR = 'fonts';
 
-    config.publicDir = 'fonts';
+    const plugins = [...(config.plugins || []), markdown({ mode: [Mode.HTML, Mode.TOC, Mode.REACT] })];
 
-    config.build = {
-      ...config.build,
-      assetsInlineLimit: 0,
-    };
+    const build = Object.assign({}, config.build, { assetsInlineLimit: 0 });
 
-    config.css = {
+    const css = Object.assign({}, config.css, {
       preprocessorOptions: {
         scss: {
           additionalData: `
-          $icons_preprocessor_path: "/fonts";
-          @function font-url($url) {
-              @return url($url);
-          }
-        `,
+            $icons_preprocessor_path: "/fonts";
+            @function font-url($url) {
+                @return url($url);
+            }
+          `,
         },
       },
-    };
+    });
 
-    config.resolve = {
-      ...config.resolve,
-      alias: {
-        ...config.resolve?.alias,
+    const resolve = Object.assign({}, config.resolve, {
+      alias: Object.assign({}, config.resolve?.alias, {
         '@components': '/ts/components',
         '@helpers': '/ts/helpers',
         '@hooks': '/ts/hooks',
         '@types': '/ts/types',
-      },
-    };
+      }),
+    });
 
-    return config;
+    return Object.assign({}, config, {
+      build,
+      css,
+      plugins,
+      publicDir: PUBLIC_DIR,
+      resolve,
+    });
   },
 };
 
