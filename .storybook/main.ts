@@ -3,9 +3,8 @@ import { plugin as markdown, Mode } from 'vite-plugin-markdown';
 
 const config: StorybookConfig = {
   stories: [
-    './Introduction.mdx',
-    '../ts/components/**/*.story.@(js|jsx|mjs|ts|tsx)',
-    '../ts/components/**/*.mdx',
+    './docs/*.mdx',
+    '../ts/components/**/*.story.@(ts|tsx)',
   ],
   addons: ['@storybook/addon-onboarding', '@storybook/addon-essentials', '@storybook/addon-interactions'],
   framework: {
