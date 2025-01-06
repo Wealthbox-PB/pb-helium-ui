@@ -16,4 +16,4 @@
 !.yarn/versions
 
 /tmp
-*storybook.log
+*.log
