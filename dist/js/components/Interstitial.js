@@ -1,5 +1,5 @@
-import React from 'react';
 import classNames from 'classnames';
+import React from 'react';
 var Interstitial = function (_a) {
     var animate = _a.animate, children = _a.children, className = _a.className, contentClassName = _a.contentClassName, _b = _a.iconClassName, iconClassName = _b === void 0 ? "h-icon-b-wealthbox" : _b, size = _a.size;
     return (React.createElement("div", { className: classNames("h-interstitial", {
