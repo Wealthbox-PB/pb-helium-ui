@@ -30,7 +30,7 @@
     "eslint:fix": "eslint --no-eslintrc -c .eslintrc.js 'ts/**/*.{ts,js,tsx}' 'spec/**/*.{ts,js,tsx}' --fix",
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
-    "storybook:dev": "storybook dev -p 1337 --no-open",
+    "storybook:dev": "storybook dev -p 1337",
     "storybook:build": "storybook build"
   },
   "dependencies": {
