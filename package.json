@@ -22,7 +22,11 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test jest --verbose",
-    "build": "rm -rf ./dist && NODE_ENV=production tsc --project tsconfig.build.json",
+    "build": "yarn build:docs && rm -rf ./dist && NODE_ENV=production tsc --project tsconfig.build.json",
+    "build:docs": "yarn docs:clean && yarn docs:generate && yarn docs:prettify",
+    "docs:generate": "mkdir docs && react-docgen \"ts/components/**/*.ts(x)\" --failOnWarning -i \"ts/components/Portal.tsx\" -i \"ts/components/**/*.story.tsx\" -o ./docs/components.json",
+    "docs:prettify": "yarn prettier --write docs/components.json --plugin=prettier-plugin-sort-json",
+    "docs:clean": "rm -rf ./docs",
     "watch": "tsc --project tsconfig.watch.json",
     "prettier:check": "prettier --check 'ts/**/*.{ts,js,tsx}' 'spec/**/*.{ts,js,tsx}'",
     "prettier:fix": "prettier --write 'ts/**/*.{ts,js,tsx}' 'spec/**/*.{ts,js,tsx}'",
