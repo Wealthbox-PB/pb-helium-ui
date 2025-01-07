@@ -47,6 +47,7 @@ module.exports = {
       'single',
       {
         avoidEscape: true,
+        allowTemplateLiterals: true,
       },
     ],
     'max-depth': ['error', 4],
