@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { hideControl } from '../../.storybook/utils/controlHelpers';
 import { Button } from './Button';
-
 const buttonVariants = [
   'primary',
   'secondary',
@@ -18,7 +18,7 @@ const buttonVariants = [
   'border-hover',
   null,
 ];
-
+type ButtonMeta = Meta<typeof Button>;
 export default {
   title: 'Components/Button',
   component: Button,
@@ -28,10 +28,11 @@ export default {
       options: buttonVariants,
     },
   },
+  parameters: hideControl<typeof Button>('children'),
   args: {
     children: 'Button',
     variant: 'primary',
   },
-} satisfies Meta<typeof Button>;
+} satisfies ButtonMeta;
 
 export const Default: StoryObj<typeof Button> = {};

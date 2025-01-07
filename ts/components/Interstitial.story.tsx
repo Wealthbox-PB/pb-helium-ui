@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react/*';
 import React from 'react';
+import { hideControl } from '../../.storybook/utils/controlHelpers';
 import { Button } from './Button';
 import { Interstitial } from './Interstitial';
 
@@ -14,7 +15,7 @@ export default {
       </Interstitial>
     );
   },
-  argTypes: { children: { control: false } },
+  parameters: hideControl<typeof Interstitial>('children'),
 } satisfies Meta<typeof Interstitial>;
 
 export const Default: StoryObj<typeof Interstitial> = {};
