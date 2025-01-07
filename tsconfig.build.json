@@ -21,7 +21,8 @@
     "node_modules",
     "spec",
     "fonts",
-    "stories"
+    "stories",
+    "storybook-static"
   ],
   "compileOnSave": false
 }
