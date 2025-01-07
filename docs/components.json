@@ -3240,11 +3240,12 @@
         "iconClassName": {
           "required": false,
           "tsType": { "name": "string" },
-          "description": "Adds class names to the interstitial icon."
+          "description": "Adds class names to the interstitial icon.",
+          "defaultValue": { "value": "'h-icon-b-wealthbox'", "computed": false }
         },
         "size": {
           "required": false,
-          "tsType": { "name": "literal", "value": "`small`" },
+          "tsType": { "name": "literal", "value": "'small'" },
           "description": "Controls the size of the interstitial."
         }
       }
