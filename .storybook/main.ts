@@ -2,10 +2,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import { plugin as markdown, Mode } from 'vite-plugin-markdown';
 
 const config: StorybookConfig = {
-  stories: [
-    './docs/*.mdx',
-    '../ts/components/**/*.story.@(ts|tsx)',
-  ],
+  stories: ['./docs/*.mdx', '../ts/components/**/*.story.@(ts|tsx)'],
   addons: ['@storybook/addon-onboarding', '@storybook/addon-essentials', '@storybook/addon-interactions'],
   framework: {
     name: '@storybook/react-vite',
@@ -25,9 +22,13 @@ const config: StorybookConfig = {
 
     const plugins = [...(config.plugins || []), markdown({ mode: [Mode.HTML, Mode.TOC, Mode.REACT] })];
 
-    const build = Object.assign({}, config.build, { assetsInlineLimit: 0 });
+    const build = {
+      ...config.build,
+      assetsInlineLimit: 0,
+    };
 
-    const css = Object.assign({}, config.css, {
+    const css = {
+      ...config.css,
       preprocessorOptions: {
         scss: {
           additionalData: `
@@ -38,24 +39,27 @@ const config: StorybookConfig = {
           `,
         },
       },
-    });
+    };
 
-    const resolve = Object.assign({}, config.resolve, {
-      alias: Object.assign({}, config.resolve?.alias, {
+    const resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve?.alias,
         '@components': '/ts/components',
         '@helpers': '/ts/helpers',
         '@hooks': '/ts/hooks',
         '@types': '/ts/types',
-      }),
-    });
+      },
+    };
 
-    return Object.assign({}, config, {
+    return {
+      ...config,
       build,
       css,
       plugins,
       publicDir: PUBLIC_DIR,
       resolve,
-    });
+    };
   },
 };
 

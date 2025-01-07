@@ -1,5 +1,5 @@
 {
-  "./ts/components/Accordion.tsx": [
+  "ts/components/Accordion.tsx": [
     {
       "description": "",
       "methods": [],
@@ -67,7 +67,7 @@
       }
     }
   ],
-  "./ts/components/Badge.tsx": [
+  "ts/components/Badge.tsx": [
     {
       "description": "",
       "methods": [],
@@ -132,7 +132,7 @@
       }
     }
   ],
-  "./ts/components/Button.tsx": [
+  "ts/components/Button.tsx": [
     {
       "description": "",
       "methods": [],
@@ -165,13 +165,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
+            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
             "elements": [
-              { "name": "literal", "value": "`xs`" },
-              { "name": "literal", "value": "`sm`" },
-              { "name": "literal", "value": "`md`" },
-              { "name": "literal", "value": "`lg`" },
-              { "name": "literal", "value": "`xl`" }
+              { "name": "literal", "value": "'xs'" },
+              { "name": "literal", "value": "'sm'" },
+              { "name": "literal", "value": "'md'" },
+              { "name": "literal", "value": "'lg'" },
+              { "name": "literal", "value": "'xl'" }
             ]
           },
           "description": "Controls the size of the button."
@@ -186,22 +186,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
             "elements": [
-              { "name": "literal", "value": "`primary`" },
-              { "name": "literal", "value": "`secondary`" },
-              { "name": "literal", "value": "`positive`" },
-              { "name": "literal", "value": "`negative`" },
-              { "name": "literal", "value": "`info`" },
-              { "name": "literal", "value": "`magic`" },
-              { "name": "literal", "value": "`primary-outline`" },
-              { "name": "literal", "value": "`positive-outline`" },
-              { "name": "literal", "value": "`secondary-outline`" },
-              { "name": "literal", "value": "`negative-outline`" },
-              { "name": "literal", "value": "`info-outline`" },
-              { "name": "literal", "value": "`link-primary`" },
-              { "name": "literal", "value": "`link-secondary`" },
-              { "name": "literal", "value": "`border-hover`" },
+              { "name": "literal", "value": "'primary'" },
+              { "name": "literal", "value": "'secondary'" },
+              { "name": "literal", "value": "'positive'" },
+              { "name": "literal", "value": "'negative'" },
+              { "name": "literal", "value": "'info'" },
+              { "name": "literal", "value": "'magic'" },
+              { "name": "literal", "value": "'primary-outline'" },
+              { "name": "literal", "value": "'positive-outline'" },
+              { "name": "literal", "value": "'secondary-outline'" },
+              { "name": "literal", "value": "'negative-outline'" },
+              { "name": "literal", "value": "'info-outline'" },
+              { "name": "literal", "value": "'link-primary'" },
+              { "name": "literal", "value": "'link-secondary'" },
+              { "name": "literal", "value": "'border-hover'" },
               { "name": "null" }
             ]
           },
@@ -211,11 +211,11 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`button` | `submit` | `reset`",
+            "raw": "'button' | 'submit' | 'reset'",
             "elements": [
-              { "name": "literal", "value": "`button`" },
-              { "name": "literal", "value": "`submit`" },
-              { "name": "literal", "value": "`reset`" }
+              { "name": "literal", "value": "'button'" },
+              { "name": "literal", "value": "'submit'" },
+              { "name": "literal", "value": "'reset'" }
             ]
           },
           "description": "Controls the type of the button."
@@ -224,7 +224,7 @@
       "composes": ["ButtonHTMLAttributes"]
     }
   ],
-  "./ts/components/Checkbox.tsx": [
+  "ts/components/Checkbox.tsx": [
     {
       "description": "",
       "methods": [],
@@ -273,7 +273,7 @@
       "composes": ["Omit"]
     }
   ],
-  "./ts/components/Dialog/AlertDialog.tsx": [
+  "ts/components/Dialog/AlertDialog.tsx": [
     {
       "description": "",
       "methods": [],
@@ -458,7 +458,7 @@
       }
     }
   ],
-  "./ts/components/Dialog/DialogBackdrop.tsx": [
+  "ts/components/Dialog/DialogBackdrop.tsx": [
     {
       "description": "",
       "methods": [],
@@ -478,7 +478,7 @@
       }
     }
   ],
-  "./ts/components/Dialog/DialogBody.tsx": [
+  "ts/components/Dialog/DialogBody.tsx": [
     {
       "description": "",
       "methods": [],
@@ -510,7 +510,7 @@
       }
     }
   ],
-  "./ts/components/Dialog/DialogFooter.tsx": [
+  "ts/components/Dialog/DialogFooter.tsx": [
     {
       "description": "",
       "methods": [],
@@ -543,7 +543,7 @@
       }
     }
   ],
-  "./ts/components/Dialog/DialogFooterActions.tsx": [
+  "ts/components/Dialog/DialogFooterActions.tsx": [
     {
       "description": "",
       "methods": [],
@@ -553,13 +553,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
+            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
             "elements": [
-              { "name": "literal", "value": "`xs`" },
-              { "name": "literal", "value": "`sm`" },
-              { "name": "literal", "value": "`md`" },
-              { "name": "literal", "value": "`lg`" },
-              { "name": "literal", "value": "`xl`" }
+              { "name": "literal", "value": "'xs'" },
+              { "name": "literal", "value": "'sm'" },
+              { "name": "literal", "value": "'md'" },
+              { "name": "literal", "value": "'lg'" },
+              { "name": "literal", "value": "'xl'" }
             ]
           },
           "description": ""
@@ -578,22 +578,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
             "elements": [
-              { "name": "literal", "value": "`primary`" },
-              { "name": "literal", "value": "`secondary`" },
-              { "name": "literal", "value": "`positive`" },
-              { "name": "literal", "value": "`negative`" },
-              { "name": "literal", "value": "`info`" },
-              { "name": "literal", "value": "`magic`" },
-              { "name": "literal", "value": "`primary-outline`" },
-              { "name": "literal", "value": "`positive-outline`" },
-              { "name": "literal", "value": "`secondary-outline`" },
-              { "name": "literal", "value": "`negative-outline`" },
-              { "name": "literal", "value": "`info-outline`" },
-              { "name": "literal", "value": "`link-primary`" },
-              { "name": "literal", "value": "`link-secondary`" },
-              { "name": "literal", "value": "`border-hover`" },
+              { "name": "literal", "value": "'primary'" },
+              { "name": "literal", "value": "'secondary'" },
+              { "name": "literal", "value": "'positive'" },
+              { "name": "literal", "value": "'negative'" },
+              { "name": "literal", "value": "'info'" },
+              { "name": "literal", "value": "'magic'" },
+              { "name": "literal", "value": "'primary-outline'" },
+              { "name": "literal", "value": "'positive-outline'" },
+              { "name": "literal", "value": "'secondary-outline'" },
+              { "name": "literal", "value": "'negative-outline'" },
+              { "name": "literal", "value": "'info-outline'" },
+              { "name": "literal", "value": "'link-primary'" },
+              { "name": "literal", "value": "'link-secondary'" },
+              { "name": "literal", "value": "'border-hover'" },
               { "name": "null" }
             ]
           },
@@ -613,22 +613,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
             "elements": [
-              { "name": "literal", "value": "`primary`" },
-              { "name": "literal", "value": "`secondary`" },
-              { "name": "literal", "value": "`positive`" },
-              { "name": "literal", "value": "`negative`" },
-              { "name": "literal", "value": "`info`" },
-              { "name": "literal", "value": "`magic`" },
-              { "name": "literal", "value": "`primary-outline`" },
-              { "name": "literal", "value": "`positive-outline`" },
-              { "name": "literal", "value": "`secondary-outline`" },
-              { "name": "literal", "value": "`negative-outline`" },
-              { "name": "literal", "value": "`info-outline`" },
-              { "name": "literal", "value": "`link-primary`" },
-              { "name": "literal", "value": "`link-secondary`" },
-              { "name": "literal", "value": "`border-hover`" },
+              { "name": "literal", "value": "'primary'" },
+              { "name": "literal", "value": "'secondary'" },
+              { "name": "literal", "value": "'positive'" },
+              { "name": "literal", "value": "'negative'" },
+              { "name": "literal", "value": "'info'" },
+              { "name": "literal", "value": "'magic'" },
+              { "name": "literal", "value": "'primary-outline'" },
+              { "name": "literal", "value": "'positive-outline'" },
+              { "name": "literal", "value": "'secondary-outline'" },
+              { "name": "literal", "value": "'negative-outline'" },
+              { "name": "literal", "value": "'info-outline'" },
+              { "name": "literal", "value": "'link-primary'" },
+              { "name": "literal", "value": "'link-secondary'" },
+              { "name": "literal", "value": "'border-hover'" },
               { "name": "null" }
             ]
           },
@@ -639,11 +639,11 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`button` | `submit` | `reset`",
+            "raw": "'button' | 'submit' | 'reset'",
             "elements": [
-              { "name": "literal", "value": "`button`" },
-              { "name": "literal", "value": "`submit`" },
-              { "name": "literal", "value": "`reset`" }
+              { "name": "literal", "value": "'button'" },
+              { "name": "literal", "value": "'submit'" },
+              { "name": "literal", "value": "'reset'" }
             ]
           },
           "description": ""
@@ -673,7 +673,7 @@
       }
     }
   ],
-  "./ts/components/Dialog/DialogHeader.tsx": [
+  "ts/components/Dialog/DialogHeader.tsx": [
     {
       "description": "",
       "methods": [],
@@ -721,7 +721,7 @@
       }
     }
   ],
-  "./ts/components/Dialog/ModalDialog.tsx": [
+  "ts/components/Dialog/ModalDialog.tsx": [
     {
       "description": "",
       "methods": [],
@@ -903,7 +903,7 @@
       }
     }
   ],
-  "./ts/components/Dialog/SimpleAlertDialog.tsx": [
+  "ts/components/Dialog/SimpleAlertDialog.tsx": [
     {
       "description": "",
       "methods": [],
@@ -1087,13 +1087,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
+            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
             "elements": [
-              { "name": "literal", "value": "`xs`" },
-              { "name": "literal", "value": "`sm`" },
-              { "name": "literal", "value": "`md`" },
-              { "name": "literal", "value": "`lg`" },
-              { "name": "literal", "value": "`xl`" }
+              { "name": "literal", "value": "'xs'" },
+              { "name": "literal", "value": "'sm'" },
+              { "name": "literal", "value": "'md'" },
+              { "name": "literal", "value": "'lg'" },
+              { "name": "literal", "value": "'xl'" }
             ]
           },
           "description": "Controls the size of the footer action buttons."
@@ -1107,22 +1107,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
             "elements": [
-              { "name": "literal", "value": "`primary`" },
-              { "name": "literal", "value": "`secondary`" },
-              { "name": "literal", "value": "`positive`" },
-              { "name": "literal", "value": "`negative`" },
-              { "name": "literal", "value": "`info`" },
-              { "name": "literal", "value": "`magic`" },
-              { "name": "literal", "value": "`primary-outline`" },
-              { "name": "literal", "value": "`positive-outline`" },
-              { "name": "literal", "value": "`secondary-outline`" },
-              { "name": "literal", "value": "`negative-outline`" },
-              { "name": "literal", "value": "`info-outline`" },
-              { "name": "literal", "value": "`link-primary`" },
-              { "name": "literal", "value": "`link-secondary`" },
-              { "name": "literal", "value": "`border-hover`" },
+              { "name": "literal", "value": "'primary'" },
+              { "name": "literal", "value": "'secondary'" },
+              { "name": "literal", "value": "'positive'" },
+              { "name": "literal", "value": "'negative'" },
+              { "name": "literal", "value": "'info'" },
+              { "name": "literal", "value": "'magic'" },
+              { "name": "literal", "value": "'primary-outline'" },
+              { "name": "literal", "value": "'positive-outline'" },
+              { "name": "literal", "value": "'secondary-outline'" },
+              { "name": "literal", "value": "'negative-outline'" },
+              { "name": "literal", "value": "'info-outline'" },
+              { "name": "literal", "value": "'link-primary'" },
+              { "name": "literal", "value": "'link-secondary'" },
+              { "name": "literal", "value": "'border-hover'" },
               { "name": "null" }
             ]
           },
@@ -1143,22 +1143,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
             "elements": [
-              { "name": "literal", "value": "`primary`" },
-              { "name": "literal", "value": "`secondary`" },
-              { "name": "literal", "value": "`positive`" },
-              { "name": "literal", "value": "`negative`" },
-              { "name": "literal", "value": "`info`" },
-              { "name": "literal", "value": "`magic`" },
-              { "name": "literal", "value": "`primary-outline`" },
-              { "name": "literal", "value": "`positive-outline`" },
-              { "name": "literal", "value": "`secondary-outline`" },
-              { "name": "literal", "value": "`negative-outline`" },
-              { "name": "literal", "value": "`info-outline`" },
-              { "name": "literal", "value": "`link-primary`" },
-              { "name": "literal", "value": "`link-secondary`" },
-              { "name": "literal", "value": "`border-hover`" },
+              { "name": "literal", "value": "'primary'" },
+              { "name": "literal", "value": "'secondary'" },
+              { "name": "literal", "value": "'positive'" },
+              { "name": "literal", "value": "'negative'" },
+              { "name": "literal", "value": "'info'" },
+              { "name": "literal", "value": "'magic'" },
+              { "name": "literal", "value": "'primary-outline'" },
+              { "name": "literal", "value": "'positive-outline'" },
+              { "name": "literal", "value": "'secondary-outline'" },
+              { "name": "literal", "value": "'negative-outline'" },
+              { "name": "literal", "value": "'info-outline'" },
+              { "name": "literal", "value": "'link-primary'" },
+              { "name": "literal", "value": "'link-secondary'" },
+              { "name": "literal", "value": "'border-hover'" },
               { "name": "null" }
             ]
           },
@@ -1199,7 +1199,7 @@
       }
     }
   ],
-  "./ts/components/Dialog/SimpleModalDialog.tsx": [
+  "ts/components/Dialog/SimpleModalDialog.tsx": [
     {
       "description": "",
       "methods": [],
@@ -1432,7 +1432,7 @@
       }
     }
   ],
-  "./ts/components/Dropdown/Dropdown.tsx": [
+  "ts/components/Dropdown/Dropdown.tsx": [
     {
       "description": "",
       "methods": [],
@@ -1624,7 +1624,7 @@
       }
     }
   ],
-  "./ts/components/Dropdown/DropdownMenuButton.tsx": [
+  "ts/components/Dropdown/DropdownMenuButton.tsx": [
     {
       "description": "",
       "methods": [],
@@ -2179,7 +2179,7 @@
       "composes": ["Omit"]
     }
   ],
-  "./ts/components/Dropdown/DropdownMenuLink.tsx": [
+  "ts/components/Dropdown/DropdownMenuLink.tsx": [
     {
       "description": "",
       "methods": [],
@@ -2684,10 +2684,10 @@
       "composes": ["Omit"]
     }
   ],
-  "./ts/components/Dropdown/DropdownMenuSeparator.tsx": [
+  "ts/components/Dropdown/DropdownMenuSeparator.tsx": [
     { "description": "", "methods": [], "displayName": "DropdownMenuSeparator" }
   ],
-  "./ts/components/Dropdown/IconDropdown.tsx": [
+  "ts/components/Dropdown/IconDropdown.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3163,13 +3163,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
+            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
             "elements": [
-              { "name": "literal", "value": "`xs`" },
-              { "name": "literal", "value": "`sm`" },
-              { "name": "literal", "value": "`md`" },
-              { "name": "literal", "value": "`lg`" },
-              { "name": "literal", "value": "`xl`" }
+              { "name": "literal", "value": "'xs'" },
+              { "name": "literal", "value": "'sm'" },
+              { "name": "literal", "value": "'md'" },
+              { "name": "literal", "value": "'lg'" },
+              { "name": "literal", "value": "'xl'" }
             ]
           },
           "description": "Controls the size of the button."
@@ -3178,22 +3178,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
             "elements": [
-              { "name": "literal", "value": "`primary`" },
-              { "name": "literal", "value": "`secondary`" },
-              { "name": "literal", "value": "`positive`" },
-              { "name": "literal", "value": "`negative`" },
-              { "name": "literal", "value": "`info`" },
-              { "name": "literal", "value": "`magic`" },
-              { "name": "literal", "value": "`primary-outline`" },
-              { "name": "literal", "value": "`positive-outline`" },
-              { "name": "literal", "value": "`secondary-outline`" },
-              { "name": "literal", "value": "`negative-outline`" },
-              { "name": "literal", "value": "`info-outline`" },
-              { "name": "literal", "value": "`link-primary`" },
-              { "name": "literal", "value": "`link-secondary`" },
-              { "name": "literal", "value": "`border-hover`" },
+              { "name": "literal", "value": "'primary'" },
+              { "name": "literal", "value": "'secondary'" },
+              { "name": "literal", "value": "'positive'" },
+              { "name": "literal", "value": "'negative'" },
+              { "name": "literal", "value": "'info'" },
+              { "name": "literal", "value": "'magic'" },
+              { "name": "literal", "value": "'primary-outline'" },
+              { "name": "literal", "value": "'positive-outline'" },
+              { "name": "literal", "value": "'secondary-outline'" },
+              { "name": "literal", "value": "'negative-outline'" },
+              { "name": "literal", "value": "'info-outline'" },
+              { "name": "literal", "value": "'link-primary'" },
+              { "name": "literal", "value": "'link-secondary'" },
+              { "name": "literal", "value": "'border-hover'" },
               { "name": "null" }
             ]
           },
@@ -3203,7 +3203,7 @@
       "composes": ["Omit"]
     }
   ],
-  "./ts/components/Interstitial.tsx": [
+  "ts/components/Interstitial.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3250,7 +3250,7 @@
       }
     }
   ],
-  "./ts/components/Label.tsx": [
+  "ts/components/Label.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3282,7 +3282,7 @@
       }
     }
   ],
-  "./ts/components/LinkButton.tsx": [
+  "ts/components/LinkButton.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3315,13 +3315,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
+            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
             "elements": [
-              { "name": "literal", "value": "`xs`" },
-              { "name": "literal", "value": "`sm`" },
-              { "name": "literal", "value": "`md`" },
-              { "name": "literal", "value": "`lg`" },
-              { "name": "literal", "value": "`xl`" }
+              { "name": "literal", "value": "'xs'" },
+              { "name": "literal", "value": "'sm'" },
+              { "name": "literal", "value": "'md'" },
+              { "name": "literal", "value": "'lg'" },
+              { "name": "literal", "value": "'xl'" }
             ]
           },
           "description": "Controls the size of the button."
@@ -3336,22 +3336,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
+            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
             "elements": [
-              { "name": "literal", "value": "`primary`" },
-              { "name": "literal", "value": "`secondary`" },
-              { "name": "literal", "value": "`positive`" },
-              { "name": "literal", "value": "`negative`" },
-              { "name": "literal", "value": "`info`" },
-              { "name": "literal", "value": "`magic`" },
-              { "name": "literal", "value": "`primary-outline`" },
-              { "name": "literal", "value": "`positive-outline`" },
-              { "name": "literal", "value": "`secondary-outline`" },
-              { "name": "literal", "value": "`negative-outline`" },
-              { "name": "literal", "value": "`info-outline`" },
-              { "name": "literal", "value": "`link-primary`" },
-              { "name": "literal", "value": "`link-secondary`" },
-              { "name": "literal", "value": "`border-hover`" },
+              { "name": "literal", "value": "'primary'" },
+              { "name": "literal", "value": "'secondary'" },
+              { "name": "literal", "value": "'positive'" },
+              { "name": "literal", "value": "'negative'" },
+              { "name": "literal", "value": "'info'" },
+              { "name": "literal", "value": "'magic'" },
+              { "name": "literal", "value": "'primary-outline'" },
+              { "name": "literal", "value": "'positive-outline'" },
+              { "name": "literal", "value": "'secondary-outline'" },
+              { "name": "literal", "value": "'negative-outline'" },
+              { "name": "literal", "value": "'info-outline'" },
+              { "name": "literal", "value": "'link-primary'" },
+              { "name": "literal", "value": "'link-secondary'" },
+              { "name": "literal", "value": "'border-hover'" },
               { "name": "null" }
             ]
           },
@@ -3373,7 +3373,7 @@
       }
     }
   ],
-  "./ts/components/Popover/Popover.tsx": [
+  "ts/components/Popover/Popover.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3536,7 +3536,7 @@
       }
     }
   ],
-  "./ts/components/ProgressBar.tsx": [
+  "ts/components/ProgressBar.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3567,7 +3567,7 @@
       }
     }
   ],
-  "./ts/components/RadioButton.tsx": [
+  "ts/components/RadioButton.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3607,7 +3607,7 @@
       "composes": ["InputHTMLAttributes"]
     }
   ],
-  "./ts/components/Select/MultiSelect.tsx": [
+  "ts/components/Select/MultiSelect.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3721,7 +3721,7 @@
       }
     }
   ],
-  "./ts/components/Select/SearchableSelect.tsx": [
+  "ts/components/Select/SearchableSelect.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3832,7 +3832,7 @@
       "composes": ["Omit"]
     }
   ],
-  "./ts/components/Select/SearchableSelectInput.tsx": [
+  "ts/components/Select/SearchableSelectInput.tsx": [
     {
       "description": "",
       "methods": [],
@@ -3893,7 +3893,7 @@
       "composes": ["Omit"]
     }
   ],
-  "./ts/components/Select/Select.tsx": [
+  "ts/components/Select/Select.tsx": [
     {
       "description": "",
       "methods": [],
@@ -4056,7 +4056,7 @@
       }
     }
   ],
-  "./ts/components/Select/SelectMenuButton.tsx": [
+  "ts/components/Select/SelectMenuButton.tsx": [
     {
       "description": "",
       "methods": [],
@@ -4587,7 +4587,7 @@
       "composes": ["Omit"]
     }
   ],
-  "./ts/components/Select/SimpleSelect.tsx": [
+  "ts/components/Select/SimpleSelect.tsx": [
     {
       "description": "",
       "methods": [],
@@ -4670,7 +4670,7 @@
       "composes": ["Omit"]
     }
   ],
-  "./ts/components/SelectInput.tsx": [
+  "ts/components/SelectInput.tsx": [
     {
       "description": "",
       "methods": [],
@@ -4705,11 +4705,11 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "`button` | `submit` | `reset`",
+            "raw": "'button' | 'submit' | 'reset'",
             "elements": [
-              { "name": "literal", "value": "`button`" },
-              { "name": "literal", "value": "`submit`" },
-              { "name": "literal", "value": "`reset`" }
+              { "name": "literal", "value": "'button'" },
+              { "name": "literal", "value": "'submit'" },
+              { "name": "literal", "value": "'reset'" }
             ]
           },
           "description": "Controls the type of the button."
@@ -4732,7 +4732,7 @@
       "composes": ["Omit"]
     }
   ],
-  "./ts/components/Spinner/HeliumSpinner.tsx": [
+  "ts/components/Spinner/HeliumSpinner.tsx": [
     {
       "description": "@deprecated `HeliumSpinner` will be renamed to `Spinner` in Helium UI v3.0.\nPlease use the `Spinner` component instead.",
       "methods": [],
@@ -4778,7 +4778,7 @@
       }
     }
   ],
-  "./ts/components/Spinner/Spinner.tsx": [
+  "ts/components/Spinner/Spinner.tsx": [
     {
       "description": "",
       "methods": [],
@@ -4824,7 +4824,7 @@
       }
     }
   ],
-  "./ts/components/Switch.tsx": [
+  "ts/components/Switch.tsx": [
     {
       "description": "",
       "methods": [],
@@ -4885,7 +4885,7 @@
       }
     }
   ],
-  "./ts/components/TextArea.tsx": [
+  "ts/components/TextArea.tsx": [
     {
       "description": "",
       "methods": [],
@@ -4915,7 +4915,7 @@
       "composes": ["TextareaHTMLAttributes"]
     }
   ],
-  "./ts/components/TextInput.tsx": [
+  "ts/components/TextInput.tsx": [
     {
       "description": "",
       "methods": [],
@@ -5001,7 +5001,7 @@
       "composes": ["InputHTMLAttributes"]
     }
   ],
-  "./ts/components/Toast.tsx": [
+  "ts/components/Toast.tsx": [
     {
       "description": "",
       "methods": [],
@@ -5197,7 +5197,7 @@
       }
     }
   ],
-  "./ts/components/Tooltip.tsx": [
+  "ts/components/Tooltip.tsx": [
     {
       "description": "",
       "methods": [],
