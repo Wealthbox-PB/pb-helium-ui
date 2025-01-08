@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import React, { ButtonHTMLAttributes } from 'react';
+import classNames from 'classnames';
 
 export type ButtonVariant =
   | 'primary'
