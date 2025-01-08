@@ -20,8 +20,8 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import classNames from 'classnames';
 import React from 'react';
+import classNames from 'classnames';
 export function buttonClassNames(_a) {
     var _b;
     var active = _a.active, className = _a.className, disabled = _a.disabled, focus = _a.focus, size = _a.size, square = _a.square, variant = _a.variant;
