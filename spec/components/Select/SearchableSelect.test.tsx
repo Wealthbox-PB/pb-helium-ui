@@ -110,7 +110,6 @@ describe(`<SearchableSelect />`, () => {
         setup({ onKeyDown });
 
         await userEvent.click(screen.getByRole(`button`, { name: `Select...` }));
-        await userEvent.keyboard(`{arrowdown}`);
         await userEvent.keyboard(`{enter}`);
         expect(onKeyDown).toHaveBeenCalledTimes(1);
       });
@@ -132,7 +131,6 @@ describe(`<SearchableSelect />`, () => {
         setup({ onSelect });
 
         await userEvent.click(screen.getByRole(`button`, { name: `Select...` }));
-        await userEvent.keyboard(`{tab}`);
         await userEvent.keyboard(`{enter}`);
         expect(onSelect).toHaveBeenCalledTimes(1);
       });
