@@ -165,13 +165,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
             "elements": [
-              { "name": "literal", "value": "'xs'" },
-              { "name": "literal", "value": "'sm'" },
-              { "name": "literal", "value": "'md'" },
-              { "name": "literal", "value": "'lg'" },
-              { "name": "literal", "value": "'xl'" }
+              { "name": "literal", "value": "`xs`" },
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" },
+              { "name": "literal", "value": "`xl`" }
             ]
           },
           "description": "Controls the size of the button."
@@ -186,22 +186,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
-              { "name": "literal", "value": "'primary'" },
-              { "name": "literal", "value": "'secondary'" },
-              { "name": "literal", "value": "'positive'" },
-              { "name": "literal", "value": "'negative'" },
-              { "name": "literal", "value": "'info'" },
-              { "name": "literal", "value": "'magic'" },
-              { "name": "literal", "value": "'primary-outline'" },
-              { "name": "literal", "value": "'positive-outline'" },
-              { "name": "literal", "value": "'secondary-outline'" },
-              { "name": "literal", "value": "'negative-outline'" },
-              { "name": "literal", "value": "'info-outline'" },
-              { "name": "literal", "value": "'link-primary'" },
-              { "name": "literal", "value": "'link-secondary'" },
-              { "name": "literal", "value": "'border-hover'" },
+              { "name": "literal", "value": "`primary`" },
+              { "name": "literal", "value": "`secondary`" },
+              { "name": "literal", "value": "`positive`" },
+              { "name": "literal", "value": "`negative`" },
+              { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
+              { "name": "literal", "value": "`primary-outline`" },
+              { "name": "literal", "value": "`positive-outline`" },
+              { "name": "literal", "value": "`secondary-outline`" },
+              { "name": "literal", "value": "`negative-outline`" },
+              { "name": "literal", "value": "`info-outline`" },
+              { "name": "literal", "value": "`link-primary`" },
+              { "name": "literal", "value": "`link-secondary`" },
+              { "name": "literal", "value": "`border-hover`" },
               { "name": "null" }
             ]
           },
@@ -211,11 +211,11 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "'button' | 'submit' | 'reset'",
+            "raw": "`button` | `submit` | `reset`",
             "elements": [
-              { "name": "literal", "value": "'button'" },
-              { "name": "literal", "value": "'submit'" },
-              { "name": "literal", "value": "'reset'" }
+              { "name": "literal", "value": "`button`" },
+              { "name": "literal", "value": "`submit`" },
+              { "name": "literal", "value": "`reset`" }
             ]
           },
           "description": "Controls the type of the button."
@@ -553,13 +553,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
             "elements": [
-              { "name": "literal", "value": "'xs'" },
-              { "name": "literal", "value": "'sm'" },
-              { "name": "literal", "value": "'md'" },
-              { "name": "literal", "value": "'lg'" },
-              { "name": "literal", "value": "'xl'" }
+              { "name": "literal", "value": "`xs`" },
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" },
+              { "name": "literal", "value": "`xl`" }
             ]
           },
           "description": ""
@@ -578,22 +578,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
-              { "name": "literal", "value": "'primary'" },
-              { "name": "literal", "value": "'secondary'" },
-              { "name": "literal", "value": "'positive'" },
-              { "name": "literal", "value": "'negative'" },
-              { "name": "literal", "value": "'info'" },
-              { "name": "literal", "value": "'magic'" },
-              { "name": "literal", "value": "'primary-outline'" },
-              { "name": "literal", "value": "'positive-outline'" },
-              { "name": "literal", "value": "'secondary-outline'" },
-              { "name": "literal", "value": "'negative-outline'" },
-              { "name": "literal", "value": "'info-outline'" },
-              { "name": "literal", "value": "'link-primary'" },
-              { "name": "literal", "value": "'link-secondary'" },
-              { "name": "literal", "value": "'border-hover'" },
+              { "name": "literal", "value": "`primary`" },
+              { "name": "literal", "value": "`secondary`" },
+              { "name": "literal", "value": "`positive`" },
+              { "name": "literal", "value": "`negative`" },
+              { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
+              { "name": "literal", "value": "`primary-outline`" },
+              { "name": "literal", "value": "`positive-outline`" },
+              { "name": "literal", "value": "`secondary-outline`" },
+              { "name": "literal", "value": "`negative-outline`" },
+              { "name": "literal", "value": "`info-outline`" },
+              { "name": "literal", "value": "`link-primary`" },
+              { "name": "literal", "value": "`link-secondary`" },
+              { "name": "literal", "value": "`border-hover`" },
               { "name": "null" }
             ]
           },
@@ -613,22 +613,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
-              { "name": "literal", "value": "'primary'" },
-              { "name": "literal", "value": "'secondary'" },
-              { "name": "literal", "value": "'positive'" },
-              { "name": "literal", "value": "'negative'" },
-              { "name": "literal", "value": "'info'" },
-              { "name": "literal", "value": "'magic'" },
-              { "name": "literal", "value": "'primary-outline'" },
-              { "name": "literal", "value": "'positive-outline'" },
-              { "name": "literal", "value": "'secondary-outline'" },
-              { "name": "literal", "value": "'negative-outline'" },
-              { "name": "literal", "value": "'info-outline'" },
-              { "name": "literal", "value": "'link-primary'" },
-              { "name": "literal", "value": "'link-secondary'" },
-              { "name": "literal", "value": "'border-hover'" },
+              { "name": "literal", "value": "`primary`" },
+              { "name": "literal", "value": "`secondary`" },
+              { "name": "literal", "value": "`positive`" },
+              { "name": "literal", "value": "`negative`" },
+              { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
+              { "name": "literal", "value": "`primary-outline`" },
+              { "name": "literal", "value": "`positive-outline`" },
+              { "name": "literal", "value": "`secondary-outline`" },
+              { "name": "literal", "value": "`negative-outline`" },
+              { "name": "literal", "value": "`info-outline`" },
+              { "name": "literal", "value": "`link-primary`" },
+              { "name": "literal", "value": "`link-secondary`" },
+              { "name": "literal", "value": "`border-hover`" },
               { "name": "null" }
             ]
           },
@@ -639,11 +639,11 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "'button' | 'submit' | 'reset'",
+            "raw": "`button` | `submit` | `reset`",
             "elements": [
-              { "name": "literal", "value": "'button'" },
-              { "name": "literal", "value": "'submit'" },
-              { "name": "literal", "value": "'reset'" }
+              { "name": "literal", "value": "`button`" },
+              { "name": "literal", "value": "`submit`" },
+              { "name": "literal", "value": "`reset`" }
             ]
           },
           "description": ""
@@ -1087,13 +1087,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
             "elements": [
-              { "name": "literal", "value": "'xs'" },
-              { "name": "literal", "value": "'sm'" },
-              { "name": "literal", "value": "'md'" },
-              { "name": "literal", "value": "'lg'" },
-              { "name": "literal", "value": "'xl'" }
+              { "name": "literal", "value": "`xs`" },
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" },
+              { "name": "literal", "value": "`xl`" }
             ]
           },
           "description": "Controls the size of the footer action buttons."
@@ -1107,22 +1107,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
-              { "name": "literal", "value": "'primary'" },
-              { "name": "literal", "value": "'secondary'" },
-              { "name": "literal", "value": "'positive'" },
-              { "name": "literal", "value": "'negative'" },
-              { "name": "literal", "value": "'info'" },
-              { "name": "literal", "value": "'magic'" },
-              { "name": "literal", "value": "'primary-outline'" },
-              { "name": "literal", "value": "'positive-outline'" },
-              { "name": "literal", "value": "'secondary-outline'" },
-              { "name": "literal", "value": "'negative-outline'" },
-              { "name": "literal", "value": "'info-outline'" },
-              { "name": "literal", "value": "'link-primary'" },
-              { "name": "literal", "value": "'link-secondary'" },
-              { "name": "literal", "value": "'border-hover'" },
+              { "name": "literal", "value": "`primary`" },
+              { "name": "literal", "value": "`secondary`" },
+              { "name": "literal", "value": "`positive`" },
+              { "name": "literal", "value": "`negative`" },
+              { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
+              { "name": "literal", "value": "`primary-outline`" },
+              { "name": "literal", "value": "`positive-outline`" },
+              { "name": "literal", "value": "`secondary-outline`" },
+              { "name": "literal", "value": "`negative-outline`" },
+              { "name": "literal", "value": "`info-outline`" },
+              { "name": "literal", "value": "`link-primary`" },
+              { "name": "literal", "value": "`link-secondary`" },
+              { "name": "literal", "value": "`border-hover`" },
               { "name": "null" }
             ]
           },
@@ -1143,22 +1143,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
-              { "name": "literal", "value": "'primary'" },
-              { "name": "literal", "value": "'secondary'" },
-              { "name": "literal", "value": "'positive'" },
-              { "name": "literal", "value": "'negative'" },
-              { "name": "literal", "value": "'info'" },
-              { "name": "literal", "value": "'magic'" },
-              { "name": "literal", "value": "'primary-outline'" },
-              { "name": "literal", "value": "'positive-outline'" },
-              { "name": "literal", "value": "'secondary-outline'" },
-              { "name": "literal", "value": "'negative-outline'" },
-              { "name": "literal", "value": "'info-outline'" },
-              { "name": "literal", "value": "'link-primary'" },
-              { "name": "literal", "value": "'link-secondary'" },
-              { "name": "literal", "value": "'border-hover'" },
+              { "name": "literal", "value": "`primary`" },
+              { "name": "literal", "value": "`secondary`" },
+              { "name": "literal", "value": "`positive`" },
+              { "name": "literal", "value": "`negative`" },
+              { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
+              { "name": "literal", "value": "`primary-outline`" },
+              { "name": "literal", "value": "`positive-outline`" },
+              { "name": "literal", "value": "`secondary-outline`" },
+              { "name": "literal", "value": "`negative-outline`" },
+              { "name": "literal", "value": "`info-outline`" },
+              { "name": "literal", "value": "`link-primary`" },
+              { "name": "literal", "value": "`link-secondary`" },
+              { "name": "literal", "value": "`border-hover`" },
               { "name": "null" }
             ]
           },
@@ -3163,13 +3163,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
             "elements": [
-              { "name": "literal", "value": "'xs'" },
-              { "name": "literal", "value": "'sm'" },
-              { "name": "literal", "value": "'md'" },
-              { "name": "literal", "value": "'lg'" },
-              { "name": "literal", "value": "'xl'" }
+              { "name": "literal", "value": "`xs`" },
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" },
+              { "name": "literal", "value": "`xl`" }
             ]
           },
           "description": "Controls the size of the button."
@@ -3178,22 +3178,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
-              { "name": "literal", "value": "'primary'" },
-              { "name": "literal", "value": "'secondary'" },
-              { "name": "literal", "value": "'positive'" },
-              { "name": "literal", "value": "'negative'" },
-              { "name": "literal", "value": "'info'" },
-              { "name": "literal", "value": "'magic'" },
-              { "name": "literal", "value": "'primary-outline'" },
-              { "name": "literal", "value": "'positive-outline'" },
-              { "name": "literal", "value": "'secondary-outline'" },
-              { "name": "literal", "value": "'negative-outline'" },
-              { "name": "literal", "value": "'info-outline'" },
-              { "name": "literal", "value": "'link-primary'" },
-              { "name": "literal", "value": "'link-secondary'" },
-              { "name": "literal", "value": "'border-hover'" },
+              { "name": "literal", "value": "`primary`" },
+              { "name": "literal", "value": "`secondary`" },
+              { "name": "literal", "value": "`positive`" },
+              { "name": "literal", "value": "`negative`" },
+              { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
+              { "name": "literal", "value": "`primary-outline`" },
+              { "name": "literal", "value": "`positive-outline`" },
+              { "name": "literal", "value": "`secondary-outline`" },
+              { "name": "literal", "value": "`negative-outline`" },
+              { "name": "literal", "value": "`info-outline`" },
+              { "name": "literal", "value": "`link-primary`" },
+              { "name": "literal", "value": "`link-secondary`" },
+              { "name": "literal", "value": "`border-hover`" },
               { "name": "null" }
             ]
           },
@@ -3240,12 +3240,11 @@
         "iconClassName": {
           "required": false,
           "tsType": { "name": "string" },
-          "description": "Adds class names to the interstitial icon.",
-          "defaultValue": { "value": "'h-icon-b-wealthbox'", "computed": false }
+          "description": "Adds class names to the interstitial icon."
         },
         "size": {
           "required": false,
-          "tsType": { "name": "literal", "value": "'small'" },
+          "tsType": { "name": "literal", "value": "`small`" },
           "description": "Controls the size of the interstitial."
         }
       }
@@ -3316,13 +3315,13 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+            "raw": "`xs` | `sm` | `md` | `lg` | `xl`",
             "elements": [
-              { "name": "literal", "value": "'xs'" },
-              { "name": "literal", "value": "'sm'" },
-              { "name": "literal", "value": "'md'" },
-              { "name": "literal", "value": "'lg'" },
-              { "name": "literal", "value": "'xl'" }
+              { "name": "literal", "value": "`xs`" },
+              { "name": "literal", "value": "`sm`" },
+              { "name": "literal", "value": "`md`" },
+              { "name": "literal", "value": "`lg`" },
+              { "name": "literal", "value": "`xl`" }
             ]
           },
           "description": "Controls the size of the button."
@@ -3337,22 +3336,22 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "| 'primary'\n| 'secondary'\n| 'positive'\n| 'negative'\n| 'info'\n| 'magic'\n| 'primary-outline'\n| 'positive-outline'\n| 'secondary-outline'\n| 'negative-outline'\n| 'info-outline'\n| 'link-primary'\n| 'link-secondary'\n| 'border-hover'\n| null",
+            "raw": "| `primary`\n| `secondary`\n| `positive`\n| `negative`\n| `info`\n| `magic`\n| `primary-outline`\n| `positive-outline`\n| `secondary-outline`\n| `negative-outline`\n| `info-outline`\n| `link-primary`\n| `link-secondary`\n| `border-hover`\n| null",
             "elements": [
-              { "name": "literal", "value": "'primary'" },
-              { "name": "literal", "value": "'secondary'" },
-              { "name": "literal", "value": "'positive'" },
-              { "name": "literal", "value": "'negative'" },
-              { "name": "literal", "value": "'info'" },
-              { "name": "literal", "value": "'magic'" },
-              { "name": "literal", "value": "'primary-outline'" },
-              { "name": "literal", "value": "'positive-outline'" },
-              { "name": "literal", "value": "'secondary-outline'" },
-              { "name": "literal", "value": "'negative-outline'" },
-              { "name": "literal", "value": "'info-outline'" },
-              { "name": "literal", "value": "'link-primary'" },
-              { "name": "literal", "value": "'link-secondary'" },
-              { "name": "literal", "value": "'border-hover'" },
+              { "name": "literal", "value": "`primary`" },
+              { "name": "literal", "value": "`secondary`" },
+              { "name": "literal", "value": "`positive`" },
+              { "name": "literal", "value": "`negative`" },
+              { "name": "literal", "value": "`info`" },
+              { "name": "literal", "value": "`magic`" },
+              { "name": "literal", "value": "`primary-outline`" },
+              { "name": "literal", "value": "`positive-outline`" },
+              { "name": "literal", "value": "`secondary-outline`" },
+              { "name": "literal", "value": "`negative-outline`" },
+              { "name": "literal", "value": "`info-outline`" },
+              { "name": "literal", "value": "`link-primary`" },
+              { "name": "literal", "value": "`link-secondary`" },
+              { "name": "literal", "value": "`border-hover`" },
               { "name": "null" }
             ]
           },
@@ -4706,11 +4705,11 @@
           "required": false,
           "tsType": {
             "name": "union",
-            "raw": "'button' | 'submit' | 'reset'",
+            "raw": "`button` | `submit` | `reset`",
             "elements": [
-              { "name": "literal", "value": "'button'" },
-              { "name": "literal", "value": "'submit'" },
-              { "name": "literal", "value": "'reset'" }
+              { "name": "literal", "value": "`button`" },
+              { "name": "literal", "value": "`submit`" },
+              { "name": "literal", "value": "`reset`" }
             ]
           },
           "description": "Controls the type of the button."

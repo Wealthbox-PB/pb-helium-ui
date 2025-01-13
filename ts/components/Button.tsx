@@ -2,23 +2,23 @@ import React, { ButtonHTMLAttributes } from 'react';
 import classNames from 'classnames';
 
 export type ButtonVariant =
-  | 'primary'
-  | 'secondary'
-  | 'positive'
-  | 'negative'
-  | 'info'
-  | 'magic'
-  | 'primary-outline'
-  | 'positive-outline'
-  | 'secondary-outline'
-  | 'negative-outline'
-  | 'info-outline'
-  | 'link-primary'
-  | 'link-secondary'
-  | 'border-hover'
+  | `primary`
+  | `secondary`
+  | `positive`
+  | `negative`
+  | `info`
+  | `magic`
+  | `primary-outline`
+  | `positive-outline`
+  | `secondary-outline`
+  | `negative-outline`
+  | `info-outline`
+  | `link-primary`
+  | `link-secondary`
+  | `border-hover`
   | null;
-export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type ButtonType = 'button' | 'submit' | 'reset';
+export type ButtonSize = `xs` | `sm` | `md` | `lg` | `xl`;
+export type ButtonType = `button` | `submit` | `reset`;
 
 export interface ButtonStyleProps {
   /** Adds the active style to the button. */

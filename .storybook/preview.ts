@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
-import '../scss/helium.scss';
 import '../scss/reset.scss';
+import '../scss/helium.scss';
 
 const preview: Preview = {
   parameters: {

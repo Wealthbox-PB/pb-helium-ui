@@ -11,7 +11,7 @@ interface InterstitialProps {
     /** Adds class names to the interstitial icon. */
     iconClassName?: string;
     /** Controls the size of the interstitial. */
-    size?: 'small';
+    size?: `small`;
 }
 declare const Interstitial: ({ animate, children, className, contentClassName, iconClassName, size, }: InterstitialProps) => React.JSX.Element;
 export { Interstitial };

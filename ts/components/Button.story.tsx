@@ -18,21 +18,33 @@ const buttonVariants = [
   'border-hover',
   null,
 ];
+
+const buttonSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+const buttonTypes = ['button', 'submit', 'reset'];
+
 type ButtonMeta = Meta<typeof Button>;
 export default {
   title: 'Components/Button',
   component: Button,
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: buttonVariants,
-    },
-  },
   parameters: hideControl<typeof Button>('children'),
-  args: {
-    children: 'Button',
-    variant: 'primary',
+  argTypes: {
+    variant: { control: 'select', options: buttonVariants },
+    size: { control: 'select', options: buttonSizes },
+    type: { control: 'select', options: buttonTypes },
   },
 } satisfies ButtonMeta;
 
-export const Default: StoryObj<typeof Button> = {};
+export const Default: StoryObj<typeof Button> = {
+  args: {
+    children: 'Button',
+    variant: 'primary',
+    active: false,
+    focus: false,
+    size: 'md',
+    type: 'button',
+    className: '',
+    disabled: false,
+    square: false,
+  },
+};
