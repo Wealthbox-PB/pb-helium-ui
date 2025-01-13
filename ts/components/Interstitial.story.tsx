@@ -17,9 +17,7 @@ export default {
   component: Interstitial,
   render: Example,
   parameters: hideControl<typeof Interstitial>('children'),
-  argTypes: {
-    size: { control: 'select', options: ['small'] },
-  },
+  argTypes: { size: { control: 'select', options: ['small', undefined] } },
 } satisfies Meta<typeof Interstitial>;
 
 export const Default: StoryObj<typeof Interstitial> = {
@@ -27,6 +25,6 @@ export const Default: StoryObj<typeof Interstitial> = {
     className: '',
     contentClassName: '',
     iconClassName: 'h-icon-b-wealthbox',
-    size: 'small',
+    size: undefined,
   },
 };
