@@ -1,6 +1,8 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { hideControl } from '../../.storybook/utils/controlHelpers';
 import { Button } from './Button';
+
 const buttonVariants = [
   'primary',
   'secondary',
@@ -24,6 +26,7 @@ const buttonSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 const buttonTypes = ['button', 'submit', 'reset'];
 
 type ButtonMeta = Meta<typeof Button>;
+
 export default {
   title: 'Components/Button',
   component: Button,
@@ -36,6 +39,7 @@ export default {
 } satisfies ButtonMeta;
 
 export const Default: StoryObj<typeof Button> = {
+  parameters: hideControl<typeof Button>('square'),
   args: {
     children: 'Button',
     variant: 'primary',
@@ -46,5 +50,26 @@ export const Default: StoryObj<typeof Button> = {
     className: '',
     disabled: false,
     square: false,
+  },
+};
+
+export const Square: StoryObj<typeof Button> = {
+  render: (args) => {
+    return (
+      <Button {...args}>
+        <span className="h-icon-question-mark--lg"></span>
+      </Button>
+    );
+  },
+  args: {
+    children: 'Button',
+    variant: 'primary',
+    active: false,
+    focus: false,
+    size: 'md',
+    type: 'button',
+    className: '',
+    disabled: false,
+    square: true,
   },
 };
