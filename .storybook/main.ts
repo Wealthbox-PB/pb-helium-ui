@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import { UserConfig } from 'vite';
 import { plugin as markdown, Mode } from 'vite-plugin-markdown';
 
 const config: StorybookConfig = {
@@ -23,7 +22,7 @@ const config: StorybookConfig = {
     },
   ],
 
-  viteFinal: async (config: UserConfig) => {
+  viteFinal: async (config) => {
     const PUBLIC_DIR = 'fonts';
 
     const plugins = [...(config.plugins || []), markdown({ mode: [Mode.HTML, Mode.TOC, Mode.REACT] })];
