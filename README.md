@@ -25,9 +25,11 @@ You are browsing this source code because of your contractual relationship with 
 
 ## Local Development with Storybook
 
-Start the local development server with `yarn storybook`. This will start a local server that will automatically reload when you make changes to the code. `localhost:1337` is the default port.
+Start the local development server with `yarn storybook:dev`. This will start a local server that will automatically reload when you make changes to the code. `localhost:1337` is the default port.
 
-- Create a new story in the `/stories` directory with a `.stories.tsx` file.
+> If you want to have tests displayed, open another terminal and run `yarn test:watch <regex>` or `yarn test:watchAll`.
+
+- Create a new `<Component>.story.tsx` file in the `ts/components` directory.
 - Import the component you want to build in the story.
 - Use the UI to build the component and test it in real-time.
 
