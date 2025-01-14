@@ -23,6 +23,7 @@
   "scripts": {
     "test": "NODE_ENV=test jest --verbose",
     "test:gen": "jest --json --outputFile=jest-test-results.json",
+    "test:watchAll": "yarn test:gen --watchAll",
     "test:watch": "yarn test:gen --watch",
     "build": "yarn build:docs && rm -rf ./dist && NODE_ENV=production tsc --project tsconfig.build.json",
     "build:docs": "yarn docs:clean && yarn docs:generate && yarn docs:prettify",
@@ -37,7 +38,6 @@
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
     "storybook:dev": "storybook dev -p 1337",
-    "storybook": "yarn storybook:dev & yarn test:gen --watch",
     "storybook:build": "storybook build"
   },
   "dependencies": {
