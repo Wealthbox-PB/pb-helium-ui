@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { hideControl } from '../../.storybook/utils/controlHelpers';
 import { getHeliumTestResults } from '../../.storybook/utils/jestHelper';
 import { Button } from './Button';
+import { fn } from '@storybook/test';
 
 const buttonVariants = [
   'primary',
@@ -52,6 +53,7 @@ export const Default: StoryObj<typeof Button> = {
     className: '',
     disabled: false,
     square: false,
+    onClick: fn(),
   },
 };
 

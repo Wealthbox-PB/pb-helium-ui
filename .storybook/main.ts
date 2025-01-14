@@ -4,12 +4,13 @@ import { plugin as markdown, Mode } from 'vite-plugin-markdown';
 
 const config: StorybookConfig = {
   stories: ['./docs/*.mdx', '../ts/components/**/*.story.@(ts|tsx)'],
+  // the order of the addons matters
   addons: [
-    '@storybook/addon-onboarding',
     '@storybook/addon-essentials',
+    '@storybook/addon-jest',
+    '@storybook/addon-actions',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
-    '@storybook/addon-jest',
   ],
   framework: {
     name: '@storybook/react-vite',
