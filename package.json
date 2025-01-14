@@ -22,7 +22,8 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test jest --verbose",
-    "test:gen": "jest --json --outputFile=jest-test-results.json --",
+    "test:gen": "jest --json --outputFile=jest-test-results.json",
+    "test:watch": "yarn test:gen --watch",
     "build": "yarn build:docs && rm -rf ./dist && NODE_ENV=production tsc --project tsconfig.build.json",
     "build:docs": "yarn docs:clean && yarn docs:generate && yarn docs:prettify",
     "docs:generate": "mkdir docs && react-docgen \"ts/components/**/*.ts(x)\" --failOnWarning -i \"ts/components/Portal.tsx\" -i \"ts/components/**/*.story.tsx\" -o ./docs/components.json",
