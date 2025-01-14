@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test jest --verbose",
+    "test:gen": "jest --json --outputFile=jest-test-results.json --",
     "build": "yarn build:docs && rm -rf ./dist && NODE_ENV=production tsc --project tsconfig.build.json",
     "build:docs": "yarn docs:clean && yarn docs:generate && yarn docs:prettify",
     "docs:generate": "mkdir docs && react-docgen \"ts/components/**/*.ts(x)\" --failOnWarning -i \"ts/components/Portal.tsx\" -i \"ts/components/**/*.story.tsx\" -o ./docs/components.json",
@@ -35,6 +36,7 @@
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
     "storybook:dev": "storybook dev -p 1337",
+    "storybook": "yarn storybook:dev & yarn test:gen --watch",
     "storybook:build": "storybook build"
   },
   "dependencies": {
@@ -58,8 +60,10 @@
     "@babel/preset-typescript": "^7.14.5",
     "@chromatic-com/storybook": "^3.2.3",
     "@react-docgen/cli": "^2.0.1",
+    "@storybook/addon-a11y": "^8.4.7",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-jest": "^8.4.7",
     "@storybook/addon-onboarding": "^8.4.7",
     "@storybook/blocks": "^8.4.7",
     "@storybook/react": "^8.4.7",

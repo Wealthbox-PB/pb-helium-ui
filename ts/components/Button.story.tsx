@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { hideControl } from '../../.storybook/utils/controlHelpers';
+import { getHeliumTestResults } from '../../.storybook/utils/jestHelper';
 import { Button } from './Button';
 
 const buttonVariants = [
@@ -30,6 +31,7 @@ type ButtonMeta = Meta<typeof Button>;
 export default {
   title: 'Components/Button',
   component: Button,
+  decorators: [getHeliumTestResults()],
   parameters: hideControl<typeof Button>('children'),
   argTypes: {
     variant: { control: 'select', options: buttonVariants },

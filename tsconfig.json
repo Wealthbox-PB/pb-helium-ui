@@ -15,6 +15,7 @@
     },
     "sourceMap": true,
     "target": "es5",
-    "types": ["enzyme", "jest", "react", "react-dom", "react-test-renderer"]
+    "types": ["enzyme", "jest", "react", "react-dom", "react-test-renderer"],
+    "resolveJsonModule": true
   }
 }
