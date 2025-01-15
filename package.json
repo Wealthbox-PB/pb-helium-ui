@@ -38,10 +38,10 @@
     "eslint:fix": "eslint --no-eslintrc -c .eslintrc.js 'ts/**/*.{ts,js,tsx}' 'spec/**/*.{ts,js,tsx}' --fix",
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
-    "storybook:prepare": "yarn test:gen || true",
+    "storybook:prepare": "yarn test:generate || true",
     "storybook:build": "storybook build",
     "storybook:local": "storybook dev -p 1337",
-    "storybook:dev": "npm-run-all -p test:watchAll storybook:local"
+    "storybook:dev": "npm-run-all storybook:prepare -p test:watchAll storybook:local"
   },
   "dependencies": {
     "@floating-ui/react": "^0.25.2",
