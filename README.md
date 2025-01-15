@@ -25,9 +25,12 @@ You are browsing this source code because of your contractual relationship with 
 
 ## Local Development with Storybook
 
-Start the local development server with `yarn storybook:dev`. This will start a local server that will automatically reload when you make changes to the code. `localhost:1337` is the default port.
+You can run one of two "all in one" commands to start the storybook server and watch for changes in the tests.
 
-> If you want to have tests displayed, open another terminal and run `yarn test:watch <regex>` or `yarn test:watchAll`.
+- `yarn storybook:dev` will run the tests and generate a JSON file with the results. This will give you access to the storybook server at `localhost:1337`, and a traditional jest test runner in the terminal.
+- `yarn storybook:dev:all` will run the tests and generate a JSON file with the results, and watch for changes in **all** the tests. This will give you access to the storybook server at `localhost:1337`, and a traditional jest test runner in the terminal.
+
+> If you want to have tests displayed individually, open another terminal and run `yarn test:watch <regex>` or `yarn test:watchAll`.
 
 - Create a new `<Component>.story.tsx` file in the `ts/components` directory.
 - Import the component you want to build in the story.
