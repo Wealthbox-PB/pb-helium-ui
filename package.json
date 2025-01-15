@@ -12,7 +12,8 @@
     "Jeffrey Bondorew <jeffrey.bondorew@wealthbox.com>",
     "JP Camara <jp.camara@wealthbox.com>",
     "Kevin Clark <kevin.clark@wealthbox.com>",
-    "Trevor Reiff <trevor.reiff@wealthbox.com>"
+    "Trevor Reiff <trevor.reiff@wealthbox.com>",
+    "Randy Glasgow <randy.glasgow@wealthbox.com>"
   ],
   "license": "MIT",
   "private": true,
@@ -22,9 +23,9 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test jest --verbose",
-    "test:gen": "jest --json --outputFile=jest-test-results.json",
-    "test:watchAll": "yarn test:gen --watchAll",
-    "test:watch": "yarn test:gen --watch",
+    "test:generate": "jest --json --outputFile=jest-test-results.json",
+    "test:watchAll": "yarn test:generate --watchAll",
+    "test:watch": "yarn test:generate --watch",
     "build": "yarn build:docs && rm -rf ./dist && NODE_ENV=production tsc --project tsconfig.build.json",
     "build:docs": "yarn docs:clean && yarn docs:generate && yarn docs:prettify",
     "docs:generate": "mkdir docs && react-docgen \"ts/components/**/*.ts(x)\" --failOnWarning -i \"ts/components/Portal.tsx\" -i \"ts/components/**/*.story.tsx\" -o ./docs/components.json",
@@ -37,8 +38,10 @@
     "eslint:fix": "eslint --no-eslintrc -c .eslintrc.js 'ts/**/*.{ts,js,tsx}' 'spec/**/*.{ts,js,tsx}' --fix",
     "stylelint:check": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}'",
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
-    "storybook:dev": "storybook dev -p 1337",
-    "storybook:build": "storybook build"
+    "storybook:prepare": "yarn test:gen || true",
+    "storybook:build": "storybook build",
+    "storybook:local": "storybook dev -p 1337",
+    "storybook:dev": "npm-run-all -p test:watchAll storybook:local"
   },
   "dependencies": {
     "@floating-ui/react": "^0.25.2",
@@ -101,6 +104,7 @@
     "eslint-plugin-testing-library": "^5.0.4",
     "jest": "^27.0.5",
     "jsdom": "^19.0.0",
+    "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "postcss": "8",
     "prettier": "^3.0.0",
