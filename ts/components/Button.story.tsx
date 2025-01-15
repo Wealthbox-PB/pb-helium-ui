@@ -45,7 +45,7 @@ export const Default: StoryObj<typeof Button> = {
   parameters: hideControl<typeof Button>('square'),
   args: {
     children: 'Button',
-    variant: 'primary',
+    variant: 'secondary',
     active: false,
     focus: false,
     size: 'md',
@@ -61,13 +61,13 @@ export const Square: StoryObj<typeof Button> = {
   render: (args) => {
     return (
       <Button {...args}>
-        <span className="h-icon-question-mark--lg"></span>
+        <span className="h-icon-add" aria-label="Add"></span>
       </Button>
     );
   },
   args: {
     children: 'Button',
-    variant: 'primary',
+    variant: 'secondary',
     active: false,
     focus: false,
     size: 'md',
