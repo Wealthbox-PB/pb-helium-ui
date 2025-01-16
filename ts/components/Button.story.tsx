@@ -55,10 +55,6 @@ export default {
 
 export const Default: StoryObj<typeof Button> = {
   parameters: hideControl<typeof Button>('square'),
-  args: {
-    children: 'Button',
-    variant: 'secondary',
-  },
 };
 
 export const Square: StoryObj<typeof Button> = {
@@ -70,8 +66,6 @@ export const Square: StoryObj<typeof Button> = {
     );
   },
   args: {
-    children: 'Button',
-    variant: 'secondary',
     square: true,
   },
 };
