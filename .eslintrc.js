@@ -89,5 +89,23 @@ module.exports = {
         'max-lines-per-function': `off`,
       },
     },
+    {
+      files: [`*.story.tsx`],
+      rules: {
+        'import/no-default-export': `off`,
+        'max-len': `off`,
+        'no-console': `off`,
+        'no-unused-vars': `off`,
+        'react/no-children-prop': `off`,
+        quotes: [
+          `error`,
+          `single`,
+          {
+            avoidEscape: true,
+            allowTemplateLiterals: true,
+          },
+        ],
+      },
+    },
   ],
 };

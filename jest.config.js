@@ -12,4 +12,5 @@ module.exports = {
   transform: {
     '^.+\\.(js|ts|tsx|jsx)?$': `babel-jest`,
   },
+  modulePathIgnorePatterns: [`node_modules`, `jest-test-results.json`],
 };

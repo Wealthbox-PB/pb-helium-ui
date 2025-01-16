@@ -12,6 +12,17 @@
 
     "declaration": true
   },
-  "exclude": ["dist", "**/*.d.ts", "node_modules", "spec", "fonts"],
+  "exclude": [
+    "dist",
+    "**/*.d.ts",
+    "**/*.test.tsx",
+    "**/*.story.tsx",
+    "**/*.stories.tsx",
+    "node_modules",
+    "spec",
+    "fonts",
+    "stories",
+    "storybook-static"
+  ],
   "compileOnSave": false
 }
