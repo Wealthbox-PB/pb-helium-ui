@@ -39,6 +39,18 @@ export default {
     size: { control: 'select', options: buttonSizes },
     type: { control: 'select', options: buttonTypes },
   },
+  args: {
+    children: 'Button',
+    variant: 'secondary',
+    active: false,
+    focus: false,
+    size: 'md',
+    disabled: false,
+    square: false,
+    className: '',
+    type: 'button',
+    onClick: fn(),
+  },
 } satisfies ButtonMeta;
 
 export const Default: StoryObj<typeof Button> = {
@@ -46,14 +58,6 @@ export const Default: StoryObj<typeof Button> = {
   args: {
     children: 'Button',
     variant: 'secondary',
-    active: false,
-    focus: false,
-    size: 'md',
-    type: 'button',
-    className: '',
-    disabled: false,
-    square: false,
-    onClick: fn(),
   },
 };
 
@@ -68,12 +72,6 @@ export const Square: StoryObj<typeof Button> = {
   args: {
     children: 'Button',
     variant: 'secondary',
-    active: false,
-    focus: false,
-    size: 'md',
-    type: 'button',
-    className: '',
-    disabled: false,
     square: true,
   },
 };
