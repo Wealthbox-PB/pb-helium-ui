@@ -30,7 +30,7 @@ import { Checkbox } from '../Checkbox';
 import classNames from 'classnames';
 import _ from 'lodash';
 var MultiSelect = function (_a) {
-    var initialOptions = _a.initialOptions, renderOpener = _a.renderOpener, _b = _a.allowCustomValue, allowCustomValue = _b === void 0 ? false : _b, _c = _a.flip, flip = _c === void 0 ? true : _c, _d = _a.height, height = _d === void 0 ? "auto" : _d, _e = _a.initialSelectedValue, initialSelectedValue = _e === void 0 ? [] : _e, maxHeight = _a.maxHeight, minHeight = _a.minHeight, name = _a.name, _f = _a.placement, placement = _f === void 0 ? "bottom-end" : _f, portalProps = _a.portalProps, _g = _a.searchable, searchable = _g === void 0 ? false : _g, _h = _a.width, width = _h === void 0 ? "auto" : _h;
+    var initialOptions = _a.initialOptions, renderOpener = _a.renderOpener, _b = _a.allowCustomValue, allowCustomValue = _b === void 0 ? false : _b, _c = _a.flip, flip = _c === void 0 ? true : _c, _d = _a.height, height = _d === void 0 ? "auto" : _d, _e = _a.initialSelectedValue, initialSelectedValue = _e === void 0 ? [] : _e, maxHeight = _a.maxHeight, minHeight = _a.minHeight, name = _a.name, onMultiSelect = _a.onMultiSelect, _f = _a.placement, placement = _f === void 0 ? "bottom-end" : _f, portalProps = _a.portalProps, _g = _a.searchable, searchable = _g === void 0 ? false : _g, _h = _a.width, width = _h === void 0 ? "auto" : _h;
     var _j = useState(initialSelectedValue), multiSelectValue = _j[0], setMultiSelectValue = _j[1];
     var _k = useState(initialSelectedValue.map(function (item) { return item.label; })), selectedLabels = _k[0], setSelectedLabels = _k[1];
     var _l = useState([]), sortedOptions = _l[0], setSortedOptions = _l[1];
@@ -96,6 +96,9 @@ var MultiSelect = function (_a) {
             }
         }
     }, [multiSelectValue, selectedLabels, sortedOptions, isCustomValue, searchable, searchInputRef]);
+    useEffect(function () {
+        onMultiSelect === null || onMultiSelect === void 0 ? void 0 : onMultiSelect(multiSelectValue);
+    }, [multiSelectValue, onMultiSelect]);
     useEffect(function () {
         var selectedDisplayOptions = _.intersection(multiSelectValue, displayOptions);
         var allChecked = isCustomValueDisplayed
