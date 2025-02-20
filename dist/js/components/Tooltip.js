@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import React, { cloneElement, useRef, useState } from 'react';
-import { arrow as middlewareArrow, autoUpdate, flip, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, useRole, useTransitionStyles, } from '@floating-ui/react';
+import { arrow as middlewareArrow, autoUpdate, flip, offset, shift, useDismiss, useFloating, useFocus, useHover, useInteractions, useMergeRefs, useRole, useTransitionStyles, } from '@floating-ui/react';
 import classNames from 'classnames';
 import Parser from 'html-react-parser';
 import { Portal } from './Portal';
@@ -36,6 +36,7 @@ export var Tooltip = function (_a) {
         ],
         whileElementsMounted: autoUpdate,
     }), x = _j.x, y = _j.y, _k = _j.refs, setReference = _k.setReference, setFloating = _k.setFloating, strategy = _j.strategy, context = _j.context, currentPlacement = _j.placement, _l = _j.middlewareData.arrow, _m = _l === void 0 ? {} : _l, arrowX = _m.x, arrowY = _m.y;
+    var mergedRefs = useMergeRefs([setReference, children.ref]);
     var _o = useInteractions([
         useHover(context),
         useFocus(context),
@@ -50,7 +51,7 @@ export var Tooltip = function (_a) {
     }[currentPlacement.split("-")[0]];
     var _p = useTransitionStyles(context), isMounted = _p.isMounted, styles = _p.styles;
     return (React.createElement(React.Fragment, null,
-        cloneElement(children, getReferenceProps(__assign({ ref: setReference }, children.props))),
+        cloneElement(children, getReferenceProps(__assign({ ref: mergedRefs }, children.props))),
         isMounted ? (React.createElement(Portal, { className: classNames("h-floating-ui h-floating-ui--tooltips", portalProps === null || portalProps === void 0 ? void 0 : portalProps.className), selector: portalProps === null || portalProps === void 0 ? void 0 : portalProps.selector },
             React.createElement("div", __assign({}, getFloatingProps({
                 ref: setFloating,
