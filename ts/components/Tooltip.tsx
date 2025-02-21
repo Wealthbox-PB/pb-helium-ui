@@ -10,6 +10,7 @@ import {
   useFocus,
   useHover,
   useInteractions,
+  useMergeRefs,
   useRole,
   useTransitionStyles,
 } from '@floating-ui/react';
@@ -82,6 +83,8 @@ export const Tooltip = ({
     whileElementsMounted: autoUpdate,
   });
 
+  const mergedRefs = useMergeRefs([setReference, (children as any).ref]);
+
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useHover(context),
     useFocus(context),
@@ -100,7 +103,7 @@ export const Tooltip = ({
 
   return (
     <>
-      {cloneElement(children, getReferenceProps({ ref: setReference, ...children.props }))}
+      {cloneElement(children, getReferenceProps({ ref: mergedRefs, ...children.props }))}
       {isMounted ? (
         <Portal
           className={classNames(`h-floating-ui h-floating-ui--tooltips`, portalProps?.className)}
