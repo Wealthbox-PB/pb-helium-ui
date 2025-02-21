@@ -37,6 +37,8 @@ interface MultiSelectProps {
   minHeight?: number;
   /** Name for the hidden input. The hidden input requires a name to render */
   name?: string;
+  /** Callback function when the multi-selected value changes. */
+  onSelect?: (value: any[]) => void;
   /** Controls the placement of the dropdown. */
   placement?: Placement;
   /** Props passed into the Portal element. */
@@ -58,6 +60,7 @@ const MultiSelect = ({
   maxHeight,
   minHeight,
   name,
+  onSelect,
   placement = `bottom-end`,
   portalProps,
   searchable = false,
@@ -152,6 +155,10 @@ const MultiSelect = ({
     },
     [multiSelectValue, selectedLabels, sortedOptions, isCustomValue, searchable, searchInputRef],
   );
+
+  useEffect(() => {
+    onSelect?.(multiSelectValue);
+  }, [multiSelectValue, onSelect]);
 
   useEffect(() => {
     const selectedDisplayOptions = _.intersection(multiSelectValue, displayOptions);

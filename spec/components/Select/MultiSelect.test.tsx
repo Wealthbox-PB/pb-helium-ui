@@ -102,6 +102,17 @@ describe(`<MultiSelect />`, () => {
       });
     });
 
+    describe(`when the "onSelect" prop is passed`, () => {
+      it(`should call the function when the multi-selected value changes`, async () => {
+        const onSelect = jest.fn();
+        setup({ onSelect });
+
+        await userEvent.click(screen.getByTestId(`opener`));
+        await userEvent.click(screen.getByRole(`menuitem`, { name: `Item 1` }));
+        expect(onSelect).toHaveBeenCalledWith([{ label: `Item 1`, value: `Item1` }]);
+      });
+    });
+
     describe(`when the "width" prop is passed`, () => {
       it(`should set the width`, async () => {
         setup({ width: `200` });

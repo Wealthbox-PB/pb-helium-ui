@@ -3685,6 +3685,24 @@
           "tsType": { "name": "string" },
           "description": "Name for the hidden input. The hidden input requires a name to render"
         },
+        "onSelect": {
+          "required": false,
+          "tsType": {
+            "name": "signature",
+            "type": "function",
+            "raw": "(value: any[]) => void",
+            "signature": {
+              "arguments": [
+                {
+                  "type": { "name": "Array", "elements": [{ "name": "any" }], "raw": "any[]" },
+                  "name": "value"
+                }
+              ],
+              "return": { "name": "void" }
+            }
+          },
+          "description": "Callback function when the multi-selected value changes."
+        },
         "placement": {
           "required": false,
           "tsType": { "name": "Placement" },
