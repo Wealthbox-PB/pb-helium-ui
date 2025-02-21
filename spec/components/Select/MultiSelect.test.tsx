@@ -102,14 +102,14 @@ describe(`<MultiSelect />`, () => {
       });
     });
 
-    describe(`when the "onMultiSelect" prop is passed`, () => {
+    describe(`when the "onSelect" prop is passed`, () => {
       it(`should call the function when the multi-selected value changes`, async () => {
-        const onMultiSelect = jest.fn();
-        setup({ onMultiSelect });
+        const onSelect = jest.fn();
+        setup({ onSelect });
 
         await userEvent.click(screen.getByTestId(`opener`));
         await userEvent.click(screen.getByRole(`menuitem`, { name: `Item 1` }));
-        expect(onMultiSelect).toHaveBeenCalledWith([{ label: `Item 1`, value: `Item1` }]);
+        expect(onSelect).toHaveBeenCalledWith([{ label: `Item 1`, value: `Item1` }]);
       });
     });
 

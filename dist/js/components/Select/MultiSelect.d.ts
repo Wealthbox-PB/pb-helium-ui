@@ -30,7 +30,7 @@ interface MultiSelectProps {
     /** Name for the hidden input. The hidden input requires a name to render */
     name?: string;
     /** Callback function when the multi-selected value changes. */
-    onMultiSelect?: (value: any[]) => void;
+    onSelect?: (value: any[]) => void;
     /** Controls the placement of the dropdown. */
     placement?: Placement;
     /** Props passed into the Portal element. */
@@ -41,5 +41,5 @@ interface MultiSelectProps {
      * element. */
     width?: `auto` | `full` | number;
 }
-declare const MultiSelect: ({ initialOptions, renderOpener, allowCustomValue, flip, height, initialSelectedValue, maxHeight, minHeight, name, onMultiSelect, placement, portalProps, searchable, width, }: MultiSelectProps) => React.JSX.Element;
+declare const MultiSelect: ({ initialOptions, renderOpener, allowCustomValue, flip, height, initialSelectedValue, maxHeight, minHeight, name, onSelect, placement, portalProps, searchable, width, }: MultiSelectProps) => React.JSX.Element;
 export { MultiSelect };

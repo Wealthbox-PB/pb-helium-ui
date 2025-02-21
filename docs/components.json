@@ -3685,7 +3685,7 @@
           "tsType": { "name": "string" },
           "description": "Name for the hidden input. The hidden input requires a name to render"
         },
-        "onMultiSelect": {
+        "onSelect": {
           "required": false,
           "tsType": {
             "name": "signature",
