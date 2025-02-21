@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated `Tooltip` component to use `useMergeRefs` from `floating-ui`
 
+### Added
+
+- Added `onSelect` prop to `MultiSelect` component
+
 ## [2.8.2] - 2024-11-13
 
 ### Added
