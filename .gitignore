@@ -18,5 +18,5 @@
 /tmp
 *.log
 
-storybook-static/*
+/storybook-static
 jest-test-results.json
