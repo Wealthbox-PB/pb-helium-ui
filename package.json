@@ -40,7 +40,7 @@
     "stylelint:fix": "stylelint --config stylelint.config.js 'scss/**/*.{scss,css}' --fix",
     "prestorybook:dev": "yarn test:generate --silent || true",
     "prestorybook:dev:all": "yarn test:generate --silent || true",
-    "storybook:build": "storybook build",
+    "storybook:build": "yarn test:generate --silent && storybook build",
     "storybook:local": "storybook dev -p 1337",
     "storybook:dev": "npm-run-all -p test:watch storybook:local",
     "storybook:dev:all": "npm-run-all -p test:watchAll storybook:local"
